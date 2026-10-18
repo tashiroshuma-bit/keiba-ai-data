@@ -1,0 +1,190 @@
+
+mkdir -p scripts .github/workflows
+
+cat > requirements.txt <<'EOF'
+beautifulsoup4>=4.12,<5
+pdfplumber>=0.11,<1
+EOF
+
+cat > scripts/jra_ingest.py <<'PY'
+import concurrent.futures
+import hashlib
+import json
+import re
+import sqlite3
+import urllib.request
+from pathlib import Path
+from urllib.parse import urljoin, urlparse
+
+import pdfplumber
+from bs4 import BeautifulSoup
+
+BASE = "https://www.jra.go.jp/datafile/seiseki/replay/{year}/jyusyo.html"
+DB = Path("jra_archive.sqlite")
+
+def fetch(url):
+    req = urllib.request.Request(
+        url, headers={"User-Agent": "Mozilla/5.0"}
+    )
+    with urllib.request.urlopen(req, timeout=30) as r:
+        return r.read()
+
+def get_races(year):
+    base = BASE.format(year=year)
+    soup = BeautifulSoup(fetch(base), "html.parser")
+    rows = []
+
+    for tr in soup.select("tr"):
+        cells = tr.find_all("td")
+        if len(cells) < 8:
+            continue
+
+        values = [c.get_text(" ", strip=True) for c in cells]
+        links = [
+            urljoin(base, a["href"])
+            for a in tr.find_all("a", href=True)
+        ]
+        pdf = next(
+            (u for u in links
+             if urlparse(u).path.lower().endswith(".pdf")),
+            None
+        )
+        if not pdf:
+            continue
+
+        key = Path(urlparse(pdf).path).stem
+        rows.append((year, key, values[1], pdf))
+
+    if not rows:
+        raise ValueError(f"{year}: PDF links not found")
+    return rows
+
+def download(row):
+    year, key, name, url = row
+    path = Path("jra_pdfs") / str(year) / f"{key}.pdf"
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    try:
+        data = path.read_bytes() if path.exists() else fetch(url)
+        if not data.startswith(b"%PDF-"):
+            raise ValueError("Invalid PDF")
+
+        if not path.exists():
+            path.write_bytes(data)
+
+        with pdfplumber.open(path) as pdf:
+            text = "\n".join(
+                page.extract_text() or "" for page in pdf.pages
+            )
+
+        if len(text.strip()) < 100:
+            raise ValueError("No selectable text")
+
+        return (year, key, name, url, str(path),
+                hashlib.sha256(data).hexdigest(),
+                len(text), "ok", "")
+    except Exception as e:
+        return (year, key, name, url, str(path),
+                "", 0, "error", str(e))
+
+def main():
+    db = sqlite3.connect(DB)
+    db.execute("""
+        CREATE TABLE IF NOT EXISTS races (
+            year INTEGER,
+            race_key TEXT,
+            name TEXT,
+            pdf_url TEXT,
+            local_pdf TEXT,
+            sha256 TEXT,
+            text_chars INTEGER,
+            status TEXT,
+            error TEXT,
+            PRIMARY KEY(year, race_key)
+        )
+    """)
+
+    all_rows = []
+    index_errors = {}
+
+    for year in (2023, 2024, 2025):
+        try:
+            rows = get_races(year)
+            all_rows.extend(rows)
+            print(f"{year}: {len(rows)} races", flush=True)
+        except Exception as e:
+            index_errors[str(year)] = str(e)
+            print(f"{year}: ERROR {e}", flush=True)
+
+    with concurrent.futures.ThreadPoolExecutor(max_workers=2) as pool:
+        for result in pool.map(download, all_rows):
+            db.execute(
+                "INSERT OR REPLACE INTO races VALUES (?,?,?,?,?,?,?,?,?)",
+                result
+            )
+            db.commit()
+            print(result[0], result[1], result[7], flush=True)
+
+    summary = {
+        "indexed": len(all_rows),
+        "pdf_downloaded": db.execute(
+            "SELECT COUNT(*) FROM races WHERE status='ok'"
+        ).fetchone()[0],
+        "failed": db.execute(
+            "SELECT COUNT(*) FROM races WHERE status='error'"
+        ).fetchone()[0],
+        "index_errors": index_errors,
+        "note": "PDF collection only; horse-level data not yet validated"
+    }
+
+    Path("ingest_status.json").write_text(
+        json.dumps(summary, ensure_ascii=False, indent=2)
+    )
+    print(json.dumps(summary, ensure_ascii=False, indent=2))
+
+if __name__ == "__main__":
+    main()
+PY
+
+cat > .github/workflows/jra-ingest.yml <<'YAML'
+name: JRA archive ingest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Collect JRA PDFs
+        run: python scripts/jra_ingest.py
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-archive
+          path: |
+            jra_archive.sqlite
+            jra_pdfs/
+            ingest_status.json
+          if-no-files-found: warn
+YAML
+
+git add requirements.txt scripts/jra_ingest.py .github/workflows/jra-ingest.yml
+git commit -m "Add JRA bulk PDF collection workflow"
+git push origin main
+
+echo "SETUP COMPLETE"

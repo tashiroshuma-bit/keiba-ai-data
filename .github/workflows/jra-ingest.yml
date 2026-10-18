@@ -1,0 +1,37 @@
+
+name: JRA archive ingest
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 55
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install -r requirements.txt
+
+      - name: Collect JRA PDFs
+        run: |
+          cd keiba_v48
+          python bulk_ingest.py --db ../jra_2023_2025.sqlite --pdf-dir ../jra_pdfs --workers 2
+
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-archive
+          path: |
+            jra_2023_2025.sqlite
+            jra_pdfs/
+          if-no-files-found: warn

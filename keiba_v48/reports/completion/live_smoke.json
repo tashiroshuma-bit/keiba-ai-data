@@ -1,0 +1,13 @@
+{
+  "role": "synthetic integration smoke; no real race prediction or wager",
+  "passed": true,
+  "probability_sum": 1.0,
+  "history_starts": [
+    13,
+    23,
+    29,
+    7
+  ],
+  "missing_jockey_neutral": true,
+  "stake_yen": 0
+}

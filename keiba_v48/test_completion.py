@@ -171,3 +171,37 @@ class SourceCompletionTests(unittest.TestCase):
         self.assertEqual(b['win']['payout_yen'],0)
         rs[0]['finish_position']=1;rs[0]['win_payout_100']=None;rs[0]['payouts']={}
         self.assertFalse(settlement(rs,[.4,.3,.2,.1])['win']['fully_settled'])
+
+
+class MarketJudgementTests(unittest.TestCase):
+    def test_pure_market_can_abstain(self):
+        from final_market_judgement import judge
+        rs=[dict(horse_number=str(i+1),final_win_odds=o) for i,o in enumerate((2,3,4))]
+        result=judge(rs,[.1,.2,.7],{'structural_weight':0})
+        self.assertIsNone(result['selected_index']);self.assertFalse(result['actionable_before_off'])
+
+    def test_market_tuning_rejects_2025_labels(self):
+        from final_market_judgement import fit_judgement
+        r=dict(off_timestamp='2025-01-01T10:00:00+09:00',cutoff_timestamp='2025-01-01T09:55:00+09:00')
+        with self.assertRaises(ValueError):fit_judgement([r],'2023-12-31T00:00:00+09:00')
+
+    def test_mixture_is_full_probability_simplex(self):
+        from final_market_judgement import mixed_probabilities
+        for w in (0,.25,1):self.assertAlmostEqual(sum(mixed_probabilities([.2,.3,.5],[2,3,4],w)),1)
+        with self.assertRaises(ValueError):mixed_probabilities([.2,.3,.5],[2,3,4],-1)
+
+
+class DeploymentVetoTests(unittest.TestCase):
+    def test_final_odds_loss_vetoes_probability_eligibility(self):
+        from completion_validation import adoption_decision
+        r=dict(log_loss_delta=-.02,day_cluster_95pct_log_loss_delta=[-.05,-.001],final_odds_reference={'previous':{'post_race_value_settlement':{'return_pct':72}},'candidate':{'post_race_value_settlement':{'return_pct':17}}})
+        d=adoption_decision([r,r],[2,7]);self.assertTrue(d['original_protocol_probability_eligibility']);self.assertFalse(d['promote_experimental_probability_only'])
+
+    def test_activation_rejects_review_veto_before_writing(self):
+        import tempfile,json
+        from pathlib import Path
+        from live_predict import activate
+        with tempfile.TemporaryDirectory() as root:
+            p=Path(root);(p/'model.json').write_text('{}');(p/'report.json').write_text(json.dumps({'live_model_promotion_approved':False}))
+            with self.assertRaisesRegex(ValueError,'vetoed'):activate(p/'model.json',p/'report.json',p/'active')
+            self.assertFalse((p/'active').exists())

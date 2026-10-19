@@ -23,6 +23,8 @@ def digest(value):
 def activate(model_path, report_path, destination):
     model = json.loads(Path(model_path).read_text())
     report = json.loads(Path(report_path).read_text())
+    if report.get('live_model_promotion_approved') is False:
+        raise ValueError('validation vetoed candidate activation under the final-odds judgement axis')
     if digest(model) != report['model_artifact_sha256']:
         raise ValueError('model does not match evaluated artifact')
     HierarchicalModel.from_dict(model, allow_research=True)

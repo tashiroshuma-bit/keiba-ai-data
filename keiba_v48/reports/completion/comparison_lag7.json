@@ -1,0 +1,5810 @@
+{
+  "races": 396,
+  "brier_definition": "mean over runners, then mean over races",
+  "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+  "forward_target_races": 100,
+  "baseline": {
+    "log_loss": 2.273969913615886,
+    "brier": 0.07000989005370065,
+    "top1_hit": 0.255050505050505
+  },
+  "candidate": {
+    "log_loss": 2.249371330479631,
+    "brier": 0.06902422473944436,
+    "top1_hit": 0.2474747474747475
+  },
+  "log_loss_delta": -0.0245985831362554,
+  "race_bootstrap_95pct_delta": [
+    -0.05295868913104083,
+    0.004663510133949618
+  ],
+  "win_calibration": [
+    {
+      "lower": 0.0,
+      "runners": 4137,
+      "predicted": 0.04821847566154559,
+      "observed": 0.04471839497220208
+    },
+    {
+      "lower": 0.1,
+      "runners": 877,
+      "predicted": 0.13555641418925246,
+      "observed": 0.15393386545039908
+    },
+    {
+      "lower": 0.2,
+      "runners": 197,
+      "predicted": 0.2384818363005128,
+      "observed": 0.24873096446700507
+    },
+    {
+      "lower": 0.3,
+      "runners": 58,
+      "predicted": 0.3355146658620615,
+      "observed": 0.3620689655172414
+    },
+    {
+      "lower": 0.4,
+      "runners": 16,
+      "predicted": 0.448271187619696,
+      "observed": 0.1875
+    },
+    {
+      "lower": 0.5,
+      "runners": 5,
+      "predicted": 0.5472203670831549,
+      "observed": 0.4
+    },
+    {
+      "lower": 0.6,
+      "runners": 2,
+      "predicted": 0.6439888678399879,
+      "observed": 0.5
+    }
+  ],
+  "candidate_top3_brier": 0.15492050474809194,
+  "top3_calibration": [
+    {
+      "lower": 0.0,
+      "runners": 1064,
+      "predicted": 0.06975915138578054,
+      "observed": 0.04981203007518797
+    },
+    {
+      "lower": 0.1,
+      "runners": 1890,
+      "predicted": 0.1490083581687736,
+      "observed": 0.14761904761904762
+    },
+    {
+      "lower": 0.2,
+      "runners": 1099,
+      "predicted": 0.24252536599807012,
+      "observed": 0.26478616924476794
+    },
+    {
+      "lower": 0.3,
+      "runners": 570,
+      "predicted": 0.3431605107598095,
+      "observed": 0.36140350877192984
+    },
+    {
+      "lower": 0.4,
+      "runners": 294,
+      "predicted": 0.44645240417836973,
+      "observed": 0.4489795918367347
+    },
+    {
+      "lower": 0.5,
+      "runners": 184,
+      "predicted": 0.5480732565429478,
+      "observed": 0.5706521739130435
+    },
+    {
+      "lower": 0.6,
+      "runners": 90,
+      "predicted": 0.6462512403613598,
+      "observed": 0.5777777777777777
+    },
+    {
+      "lower": 0.7,
+      "runners": 67,
+      "predicted": 0.7439698777566912,
+      "observed": 0.7014925373134329
+    },
+    {
+      "lower": 0.8,
+      "runners": 23,
+      "predicted": 0.8482387726278166,
+      "observed": 0.5652173913043478
+    },
+    {
+      "lower": 0.9,
+      "runners": 11,
+      "predicted": 0.944820579688484,
+      "observed": 0.9090909090909091
+    }
+  ],
+  "publication_lag_days": 7,
+  "training_races": 534,
+  "calibration_races": 531,
+  "evaluation_races": 396,
+  "day_cluster_95pct_log_loss_delta": [
+    -0.05277377996004742,
+    -0.00043861647953468113
+  ],
+  "tuning": {
+    "regularization": 0.2,
+    "grid": [
+      {
+        "regularization": 0.05,
+        "temperature": 1,
+        "validation_races": 531,
+        "before_log_loss": 2.279965026077591,
+        "after_log_loss": 2.279965026077591
+      },
+      {
+        "regularization": 0.2,
+        "temperature": 1,
+        "validation_races": 531,
+        "before_log_loss": 2.265462764896123,
+        "after_log_loss": 2.265462764896123
+      },
+      {
+        "regularization": 1.0,
+        "temperature": 0.75,
+        "validation_races": 531,
+        "before_log_loss": 2.289698754523699,
+        "after_log_loss": 2.2726675985478155
+      }
+    ],
+    "pace_weights": [
+      0.2,
+      0.2,
+      0.6
+    ],
+    "pace_strength": 0.3,
+    "calibration_pace_log_loss": 2.264430263912594
+  },
+  "data_audit": {
+    "exclusions": {
+      "incomplete_or_exceptional_races": 8904
+    },
+    "repaired_pdf_races": 157,
+    "source_only_races": 0,
+    "void_races": [
+      "202404030612",
+      "202408060108",
+      "202505021109"
+    ],
+    "feature_coverage_rows": {
+      "margin_seconds": 16238,
+      "corner4_position": 16111,
+      "last_3f_rank": 15491,
+      "relative_speed_z": 16238,
+      "class_level": 61679,
+      "gate": 79826
+    },
+    "history_rows": 79826,
+    "field_rows": 19432
+  },
+  "settlement": {
+    "previous": {
+      "win": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 93340,
+        "stake_yen": 39600.0,
+        "payout_yen": 32940.0,
+        "return_pct": 83.18181818181819,
+        "maximum_drawdown": 0.0872,
+        "pending_races": 0,
+        "bet_races": 396,
+        "longest_losing_streak": 19,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.0482695810564663,
+        "return_pct_without_largest_payout": 79.16666666666667,
+        "return_pct_without_top3_payouts": 72.95454545454545
+      },
+      "wide": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 87300,
+        "stake_yen": 37300.0,
+        "payout_yen": 24600.0,
+        "return_pct": 65.95174262734585,
+        "maximum_drawdown": 0.17244086760231622,
+        "pending_races": 23,
+        "bet_races": 373,
+        "longest_losing_streak": 52,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.10121951219512196,
+        "return_pct_without_largest_payout": 59.27613941018767,
+        "return_pct_without_top3_payouts": 51.76943699731903
+      },
+      "trio": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 79060,
+        "stake_yen": 39000.0,
+        "payout_yen": 18060.0,
+        "return_pct": 46.30769230769231,
+        "maximum_drawdown": 0.25364635364635363,
+        "pending_races": 6,
+        "bet_races": 390,
+        "longest_losing_streak": 101,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.19767441860465115,
+        "return_pct_without_largest_payout": 37.15384615384615,
+        "return_pct_without_top3_payouts": 22.41025641025641
+      }
+    },
+    "candidate": {
+      "win": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 98810,
+        "stake_yen": 39600.0,
+        "payout_yen": 38410.0,
+        "return_pct": 96.9949494949495,
+        "maximum_drawdown": 0.06208617215238461,
+        "pending_races": 0,
+        "bet_races": 396,
+        "longest_losing_streak": 19,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.14501431918771154,
+        "return_pct_without_largest_payout": 82.92929292929293,
+        "return_pct_without_top3_payouts": 73.78787878787878
+      },
+      "wide": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 84370,
+        "stake_yen": 37500.0,
+        "payout_yen": 21870.0,
+        "return_pct": 58.32,
+        "maximum_drawdown": 0.1737874713673937,
+        "pending_races": 21,
+        "bet_races": 375,
+        "longest_losing_streak": 54,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.0566986739826246,
+        "return_pct_without_largest_payout": 55.013333333333335,
+        "return_pct_without_top3_payouts": 50.45333333333333
+      },
+      "trio": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 82110,
+        "stake_yen": 39100.0,
+        "payout_yen": 21210.0,
+        "return_pct": 54.24552429667519,
+        "maximum_drawdown": 0.2112,
+        "pending_races": 5,
+        "bet_races": 391,
+        "longest_losing_streak": 75,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.181989627534182,
+        "return_pct_without_largest_payout": 44.373401534526856,
+        "return_pct_without_top3_payouts": 27.263427109974426
+      }
+    }
+  },
+  "feature_history_coverage": 0.9195011337868481,
+  "segment_metrics": {
+    "class:nongraded": {
+      "races": 315,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.262940418763279,
+        "brier": 0.06863330172409651,
+        "top1_hit": 0.2571428571428571
+      },
+      "candidate": {
+        "log_loss": 2.2490492413569556,
+        "brier": 0.06791919132451407,
+        "top1_hit": 0.2507936507936508
+      },
+      "log_loss_delta": -0.013891177406323651,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 3323,
+          "predicted": 0.04746279952169569,
+          "observed": 0.04363526933493831
+        },
+        {
+          "lower": 0.1,
+          "runners": 702,
+          "predicted": 0.13488504591879757,
+          "observed": 0.14957264957264957
+        },
+        {
+          "lower": 0.2,
+          "runners": 157,
+          "predicted": 0.24036382617102903,
+          "observed": 0.25477707006369427
+        },
+        {
+          "lower": 0.3,
+          "runners": 51,
+          "predicted": 0.3350390390058334,
+          "observed": 0.39215686274509803
+        },
+        {
+          "lower": 0.4,
+          "runners": 11,
+          "predicted": 0.4511779163721526,
+          "observed": 0.18181818181818182
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.534873096392062,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6652537905983505,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.15509024120508882,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 898,
+          "predicted": 0.06951633490810878,
+          "observed": 0.053452115812917596
+        },
+        {
+          "lower": 0.1,
+          "runners": 1504,
+          "predicted": 0.1484799623888764,
+          "observed": 0.14760638297872342
+        },
+        {
+          "lower": 0.2,
+          "runners": 860,
+          "predicted": 0.2417924752371711,
+          "observed": 0.26744186046511625
+        },
+        {
+          "lower": 0.3,
+          "runners": 452,
+          "predicted": 0.3436730947953409,
+          "observed": 0.3694690265486726
+        },
+        {
+          "lower": 0.4,
+          "runners": 242,
+          "predicted": 0.44691190641836565,
+          "observed": 0.4214876033057851
+        },
+        {
+          "lower": 0.5,
+          "runners": 135,
+          "predicted": 0.5482234667922548,
+          "observed": 0.5555555555555556
+        },
+        {
+          "lower": 0.6,
+          "runners": 73,
+          "predicted": 0.6458679389112301,
+          "observed": 0.589041095890411
+        },
+        {
+          "lower": 0.7,
+          "runners": 60,
+          "predicted": 0.7444723180193168,
+          "observed": 0.7
+        },
+        {
+          "lower": 0.8,
+          "runners": 17,
+          "predicted": 0.8489350899695696,
+          "observed": 0.47058823529411764
+        },
+        {
+          "lower": 0.9,
+          "runners": 8,
+          "predicted": 0.9459069683533259,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:中京/dirt": {
+      "races": 32,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.362366923440239,
+        "brier": 0.06261271309868897,
+        "top1_hit": 0.21875
+      },
+      "candidate": {
+        "log_loss": 2.299760018060909,
+        "brier": 0.06078602741732174,
+        "top1_hit": 0.25
+      },
+      "log_loss_delta": -0.06260690537933,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 390,
+          "predicted": 0.04898934370639544,
+          "observed": 0.041025641025641026
+        },
+        {
+          "lower": 0.1,
+          "runners": 68,
+          "predicted": 0.13511846035919356,
+          "observed": 0.17647058823529413
+        },
+        {
+          "lower": 0.2,
+          "runners": 10,
+          "predicted": 0.24256027189402615,
+          "observed": 0.3
+        },
+        {
+          "lower": 0.3,
+          "runners": 4,
+          "predicted": 0.3201244827850886,
+          "observed": 0.25
+        }
+      ],
+      "candidate_top3_brier": 0.13408394522202127,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 92,
+          "predicted": 0.06983350944369072,
+          "observed": 0.03260869565217391
+        },
+        {
+          "lower": 0.1,
+          "runners": 190,
+          "predicted": 0.14771903354706983,
+          "observed": 0.10526315789473684
+        },
+        {
+          "lower": 0.2,
+          "runners": 107,
+          "predicted": 0.2384585810148025,
+          "observed": 0.2803738317757009
+        },
+        {
+          "lower": 0.3,
+          "runners": 43,
+          "predicted": 0.35053259785640634,
+          "observed": 0.4418604651162791
+        },
+        {
+          "lower": 0.4,
+          "runners": 22,
+          "predicted": 0.43918819527041486,
+          "observed": 0.45454545454545453
+        },
+        {
+          "lower": 0.5,
+          "runners": 9,
+          "predicted": 0.5526363954227329,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 5,
+          "predicted": 0.6456129762270615,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 4,
+          "predicted": 0.7641995362347037,
+          "observed": 0.75
+        }
+      ]
+    },
+    "distance:1600": {
+      "races": 153,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2666948163386316,
+        "brier": 0.06760325882617968,
+        "top1_hit": 0.2549019607843137
+      },
+      "candidate": {
+        "log_loss": 2.2068555109070167,
+        "brier": 0.066537492554057,
+        "top1_hit": 0.2679738562091503
+      },
+      "log_loss_delta": -0.05983930543161483,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 1617,
+          "predicted": 0.04754500757617587,
+          "observed": 0.04019789734075448
+        },
+        {
+          "lower": 0.1,
+          "runners": 327,
+          "predicted": 0.13551188269175385,
+          "observed": 0.1743119266055046
+        },
+        {
+          "lower": 0.2,
+          "runners": 72,
+          "predicted": 0.2433114249265376,
+          "observed": 0.19444444444444445
+        },
+        {
+          "lower": 0.3,
+          "runners": 27,
+          "predicted": 0.33274744994536076,
+          "observed": 0.4444444444444444
+        },
+        {
+          "lower": 0.4,
+          "runners": 8,
+          "predicted": 0.44480685084581206,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5405123842599093,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6652537905983505,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.1513500878271136,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 447,
+          "predicted": 0.06830407142181147,
+          "observed": 0.03803131991051454
+        },
+        {
+          "lower": 0.1,
+          "runners": 696,
+          "predicted": 0.14868120180084304,
+          "observed": 0.15660919540229884
+        },
+        {
+          "lower": 0.2,
+          "runners": 437,
+          "predicted": 0.2429113319387512,
+          "observed": 0.2494279176201373
+        },
+        {
+          "lower": 0.3,
+          "runners": 221,
+          "predicted": 0.3433178670076742,
+          "observed": 0.3936651583710407
+        },
+        {
+          "lower": 0.4,
+          "runners": 106,
+          "predicted": 0.45010791051994475,
+          "observed": 0.41509433962264153
+        },
+        {
+          "lower": 0.5,
+          "runners": 67,
+          "predicted": 0.5475887966993587,
+          "observed": 0.5373134328358209
+        },
+        {
+          "lower": 0.6,
+          "runners": 33,
+          "predicted": 0.6522341936060099,
+          "observed": 0.696969696969697
+        },
+        {
+          "lower": 0.7,
+          "runners": 32,
+          "predicted": 0.7438795607583037,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.8,
+          "runners": 10,
+          "predicted": 0.8490489875715725,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 5,
+          "predicted": 0.9484421704364575,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-01": {
+      "races": 58,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.54247813644004,
+        "brier": 0.06307232366239145,
+        "top1_hit": 0.1896551724137931
+      },
+      "candidate": {
+        "log_loss": 2.497114660033884,
+        "brier": 0.061088324126691324,
+        "top1_hit": 0.15517241379310345
+      },
+      "log_loss_delta": -0.04536347640615614,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 737,
+          "predicted": 0.045779122242765535,
+          "observed": 0.048846675712347354
+        },
+        {
+          "lower": 0.1,
+          "runners": 130,
+          "predicted": 0.1335096561094797,
+          "observed": 0.13846153846153847
+        },
+        {
+          "lower": 0.2,
+          "runners": 20,
+          "predicted": 0.24163004956872292,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 3,
+          "predicted": 0.34657943682161857,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.4871334564711061,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5450588545390189,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1402833021103986,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 221,
+          "predicted": 0.06646875108541825,
+          "observed": 0.04524886877828054
+        },
+        {
+          "lower": 0.1,
+          "runners": 342,
+          "predicted": 0.14843377803758856,
+          "observed": 0.15789473684210525
+        },
+        {
+          "lower": 0.2,
+          "runners": 168,
+          "predicted": 0.23905218752310167,
+          "observed": 0.23809523809523808
+        },
+        {
+          "lower": 0.3,
+          "runners": 87,
+          "predicted": 0.33894843994038004,
+          "observed": 0.39080459770114945
+        },
+        {
+          "lower": 0.4,
+          "runners": 41,
+          "predicted": 0.4500919035810948,
+          "observed": 0.34146341463414637
+        },
+        {
+          "lower": 0.5,
+          "runners": 17,
+          "predicted": 0.5501489955438797,
+          "observed": 0.7058823529411765
+        },
+        {
+          "lower": 0.6,
+          "runners": 11,
+          "predicted": 0.6360357989303664,
+          "observed": 0.7272727272727273
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.7511096537486112,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.9,
+          "runners": 2,
+          "predicted": 0.920374211011216,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:中山/dirt": {
+      "races": 22,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.714326874807773,
+        "brier": 0.060722279231809125,
+        "top1_hit": 0.09090909090909091
+      },
+      "candidate": {
+        "log_loss": 2.6227884118156406,
+        "brier": 0.05880940950413309,
+        "top1_hit": 0.09090909090909091
+      },
+      "log_loss_delta": -0.09153846299213257,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 290,
+          "predicted": 0.04490946897782103,
+          "observed": 0.05172413793103448
+        },
+        {
+          "lower": 0.1,
+          "runners": 51,
+          "predicted": 0.13251110637902003,
+          "observed": 0.13725490196078433
+        },
+        {
+          "lower": 0.2,
+          "runners": 6,
+          "predicted": 0.25709235585650686,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.3378167179814194,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.14248509618101093,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 97,
+          "predicted": 0.06949258191339767,
+          "observed": 0.061855670103092786
+        },
+        {
+          "lower": 0.1,
+          "runners": 129,
+          "predicted": 0.14822201129537244,
+          "observed": 0.18604651162790697
+        },
+        {
+          "lower": 0.2,
+          "runners": 66,
+          "predicted": 0.2434624989941433,
+          "observed": 0.21212121212121213
+        },
+        {
+          "lower": 0.3,
+          "runners": 29,
+          "predicted": 0.33886262869546824,
+          "observed": 0.41379310344827586
+        },
+        {
+          "lower": 0.4,
+          "runners": 20,
+          "predicted": 0.4497770118908216,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.5909579883972125,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 3,
+          "predicted": 0.6592334062840391,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7484622548275784,
+          "observed": 0.5
+        }
+      ]
+    },
+    "distance:1200": {
+      "races": 119,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.289483880559871,
+        "brier": 0.06421273469491433,
+        "top1_hit": 0.29411764705882354
+      },
+      "candidate": {
+        "log_loss": 2.304738955521348,
+        "brier": 0.06393484388791751,
+        "top1_hit": 0.2857142857142857
+      },
+      "log_loss_delta": 0.015255074961477023,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 1358,
+          "predicted": 0.04736376945136748,
+          "observed": 0.042709867452135494
+        },
+        {
+          "lower": 0.1,
+          "runners": 259,
+          "predicted": 0.13574310852079988,
+          "observed": 0.15057915057915058
+        },
+        {
+          "lower": 0.2,
+          "runners": 53,
+          "predicted": 0.23544701885735286,
+          "observed": 0.32075471698113206
+        },
+        {
+          "lower": 0.3,
+          "runners": 15,
+          "predicted": 0.33982815606658223,
+          "observed": 0.26666666666666666
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.44993739595661336,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5966094498475263,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.15048562655433878,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 337,
+          "predicted": 0.07036495573867678,
+          "observed": 0.05637982195845697
+        },
+        {
+          "lower": 0.1,
+          "runners": 675,
+          "predicted": 0.14828200636944902,
+          "observed": 0.14814814814814814
+        },
+        {
+          "lower": 0.2,
+          "runners": 334,
+          "predicted": 0.23901167265506873,
+          "observed": 0.24850299401197604
+        },
+        {
+          "lower": 0.3,
+          "runners": 157,
+          "predicted": 0.3425856201739569,
+          "observed": 0.34394904458598724
+        },
+        {
+          "lower": 0.4,
+          "runners": 89,
+          "predicted": 0.4414060276758342,
+          "observed": 0.48314606741573035
+        },
+        {
+          "lower": 0.5,
+          "runners": 51,
+          "predicted": 0.5441988465868699,
+          "observed": 0.6078431372549019
+        },
+        {
+          "lower": 0.6,
+          "runners": 26,
+          "predicted": 0.6437856444867308,
+          "observed": 0.5384615384615384
+        },
+        {
+          "lower": 0.7,
+          "runners": 14,
+          "predicted": 0.7570960019573911,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.8,
+          "runners": 5,
+          "predicted": 0.8507485885989448,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.9500232164508452,
+          "observed": 0.0
+        }
+      ]
+    },
+    "distance:2400": {
+      "races": 19,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.269670951160543,
+        "brier": 0.07107690632151942,
+        "top1_hit": 0.21052631578947367
+      },
+      "candidate": {
+        "log_loss": 2.2710342561324866,
+        "brier": 0.0714052189081122,
+        "top1_hit": 0.10526315789473684
+      },
+      "log_loss_delta": 0.0013633049719441752,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 191,
+          "predicted": 0.04967606347880594,
+          "observed": 0.04712041884816754
+        },
+        {
+          "lower": 0.1,
+          "runners": 48,
+          "predicted": 0.13274286644667613,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.2,
+          "runners": 10,
+          "predicted": 0.24478920812783037,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.3461611024146538,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1689485238555285,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 51,
+          "predicted": 0.0721758282641392,
+          "observed": 0.0196078431372549
+        },
+        {
+          "lower": 0.1,
+          "runners": 85,
+          "predicted": 0.15158403589422798,
+          "observed": 0.15294117647058825
+        },
+        {
+          "lower": 0.2,
+          "runners": 52,
+          "predicted": 0.2489911189424809,
+          "observed": 0.3076923076923077
+        },
+        {
+          "lower": 0.3,
+          "runners": 32,
+          "predicted": 0.341078617625272,
+          "observed": 0.4375
+        },
+        {
+          "lower": 0.4,
+          "runners": 15,
+          "predicted": 0.4417980893680569,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.5,
+          "runners": 7,
+          "predicted": 0.5493417254588214,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.6,
+          "runners": 7,
+          "predicted": 0.6468518550301885,
+          "observed": 0.2857142857142857
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.745154422994239,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8268549315636491,
+          "observed": 0.0
+        }
+      ]
+    },
+    "course:中京/turf": {
+      "races": 28,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.173360691632769,
+        "brier": 0.08119958266460169,
+        "top1_hit": 0.25
+      },
+      "candidate": {
+        "log_loss": 2.1007740392357745,
+        "brier": 0.07690561697793506,
+        "top1_hit": 0.25
+      },
+      "log_loss_delta": -0.07258665239699418,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 261,
+          "predicted": 0.04619515076039378,
+          "observed": 0.034482758620689655
+        },
+        {
+          "lower": 0.1,
+          "runners": 58,
+          "predicted": 0.13487612215381786,
+          "observed": 0.22413793103448276
+        },
+        {
+          "lower": 0.2,
+          "runners": 15,
+          "predicted": 0.2540221352768154,
+          "observed": 0.26666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 5,
+          "predicted": 0.3646637568790139,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.46845725872326066,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5406139884493523,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.1630248264210982,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 80,
+          "predicted": 0.06569346104154955,
+          "observed": 0.0375
+        },
+        {
+          "lower": 0.1,
+          "runners": 100,
+          "predicted": 0.14725002699086587,
+          "observed": 0.16
+        },
+        {
+          "lower": 0.2,
+          "runners": 64,
+          "predicted": 0.2433965321805467,
+          "observed": 0.265625
+        },
+        {
+          "lower": 0.3,
+          "runners": 42,
+          "predicted": 0.3412219563795978,
+          "observed": 0.35714285714285715
+        },
+        {
+          "lower": 0.4,
+          "runners": 20,
+          "predicted": 0.4488228194558898,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 15,
+          "predicted": 0.5364051868634482,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 10,
+          "predicted": 0.641558771319119,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.7,
+          "runners": 6,
+          "predicted": 0.746656760940459,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.8,
+          "runners": 4,
+          "predicted": 0.8531926150023954,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 3,
+          "predicted": 0.9266624197261034,
+          "observed": 1.0
+        }
+      ]
+    },
+    "distance:2000": {
+      "races": 56,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.330697319797335,
+        "brier": 0.08525601524685612,
+        "top1_hit": 0.19642857142857142
+      },
+      "candidate": {
+        "log_loss": 2.2297061797115036,
+        "brier": 0.07992363243328818,
+        "top1_hit": 0.21428571428571427
+      },
+      "log_loss_delta": -0.10099114008583163,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 536,
+          "predicted": 0.0476483640341287,
+          "observed": 0.05037313432835821
+        },
+        {
+          "lower": 0.1,
+          "runners": 116,
+          "predicted": 0.13893469106206566,
+          "observed": 0.13793103448275862
+        },
+        {
+          "lower": 0.2,
+          "runners": 32,
+          "predicted": 0.2374909075317128,
+          "observed": 0.3125
+        },
+        {
+          "lower": 0.3,
+          "runners": 8,
+          "predicted": 0.3498850130104668,
+          "observed": 0.375
+        },
+        {
+          "lower": 0.4,
+          "runners": 5,
+          "predicted": 0.4528144014557598,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5292338085242148,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6227239450816253,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1532353835488874,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 138,
+          "predicted": 0.06849126189729267,
+          "observed": 0.057971014492753624
+        },
+        {
+          "lower": 0.1,
+          "runners": 241,
+          "predicted": 0.1461292199473302,
+          "observed": 0.12863070539419086
+        },
+        {
+          "lower": 0.2,
+          "runners": 133,
+          "predicted": 0.24160171475179215,
+          "observed": 0.2932330827067669
+        },
+        {
+          "lower": 0.3,
+          "runners": 70,
+          "predicted": 0.3429931057771273,
+          "observed": 0.34285714285714286
+        },
+        {
+          "lower": 0.4,
+          "runners": 51,
+          "predicted": 0.44905946681498105,
+          "observed": 0.47058823529411764
+        },
+        {
+          "lower": 0.5,
+          "runners": 28,
+          "predicted": 0.5439954558445425,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.6,
+          "runners": 14,
+          "predicted": 0.6281984746704126,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 13,
+          "predicted": 0.7400490645982227,
+          "observed": 0.6923076923076923
+        },
+        {
+          "lower": 0.8,
+          "runners": 7,
+          "predicted": 0.84834343145224,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.9,
+          "runners": 5,
+          "predicted": 0.9401584615880383,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:中山/turf": {
+      "races": 18,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.537441977695515,
+        "brier": 0.06632122782372822,
+        "top1_hit": 0.2222222222222222
+      },
+      "candidate": {
+        "log_loss": 2.463130665652572,
+        "brier": 0.06380190594742911,
+        "top1_hit": 0.2222222222222222
+      },
+      "log_loss_delta": -0.07431131204294271,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 215,
+          "predicted": 0.04923385215184178,
+          "observed": 0.05581395348837209
+        },
+        {
+          "lower": 0.1,
+          "runners": 42,
+          "predicted": 0.1425999724547148,
+          "observed": 0.09523809523809523
+        },
+        {
+          "lower": 0.2,
+          "runners": 6,
+          "predicted": 0.23758715737599947,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.15270671786349602,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 58,
+          "predicted": 0.06546653090035619,
+          "observed": 0.05172413793103448
+        },
+        {
+          "lower": 0.1,
+          "runners": 94,
+          "predicted": 0.15245507316616863,
+          "observed": 0.14893617021276595
+        },
+        {
+          "lower": 0.2,
+          "runners": 59,
+          "predicted": 0.23841464857127503,
+          "observed": 0.3220338983050847
+        },
+        {
+          "lower": 0.3,
+          "runners": 27,
+          "predicted": 0.33828370509654815,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 13,
+          "predicted": 0.4555819499944188,
+          "observed": 0.3076923076923077
+        },
+        {
+          "lower": 0.5,
+          "runners": 10,
+          "predicted": 0.5404334364506012,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6725701562070048,
+          "observed": 0.5
+        }
+      ]
+    },
+    "class:graded": {
+      "races": 26,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.0764876955705898,
+        "brier": 0.05938389943347778,
+        "top1_hit": 0.3076923076923077
+      },
+      "candidate": {
+        "log_loss": 2.0864205936845126,
+        "brier": 0.05879238134146111,
+        "top1_hit": 0.34615384615384615
+      },
+      "log_loss_delta": 0.009932898113922582,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 314,
+          "predicted": 0.0473331718270542,
+          "observed": 0.03184713375796178
+        },
+        {
+          "lower": 0.1,
+          "runners": 45,
+          "predicted": 0.13593987039457847,
+          "observed": 0.2222222222222222
+        },
+        {
+          "lower": 0.2,
+          "runners": 15,
+          "predicted": 0.23100214654325602,
+          "observed": 0.26666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.35011798749120737,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.42741085270884716,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.13660404573034912,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 84,
+          "predicted": 0.06952392048412787,
+          "observed": 0.023809523809523808
+        },
+        {
+          "lower": 0.1,
+          "runners": 150,
+          "predicted": 0.14939125429247688,
+          "observed": 0.13333333333333333
+        },
+        {
+          "lower": 0.2,
+          "runners": 75,
+          "predicted": 0.24504347971682094,
+          "observed": 0.28
+        },
+        {
+          "lower": 0.3,
+          "runners": 32,
+          "predicted": 0.3372167163272264,
+          "observed": 0.4375
+        },
+        {
+          "lower": 0.4,
+          "runners": 14,
+          "predicted": 0.45001431833912087,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.5,
+          "runners": 14,
+          "predicted": 0.5561107833035583,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.6,
+          "runners": 5,
+          "predicted": 0.6532642050993529,
+          "observed": 0.8
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.77631727481719,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.8,
+          "runners": 2,
+          "predicted": 0.8386998180501308,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:中山/jump": {
+      "races": 4,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.946351466247758,
+        "brier": 0.058767965789889146,
+        "top1_hit": 0.75
+      },
+      "candidate": {
+        "log_loss": 2.1886822536600925,
+        "brier": 0.06284954868747344,
+        "top1_hit": 0.5
+      },
+      "log_loss_delta": 0.24233078741233482,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 42,
+          "predicted": 0.05789080050855061,
+          "observed": 0.047619047619047616
+        },
+        {
+          "lower": 0.1,
+          "runners": 7,
+          "predicted": 0.1312689108027923,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 3,
+          "predicted": 0.2165680010071095,
+          "observed": 0.6666666666666666
+        }
+      ],
+      "candidate_top3_brier": 0.15591242276787107,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 4,
+          "predicted": 0.07192470663763845,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.1,
+          "runners": 20,
+          "predicted": 0.14146218057120724,
+          "observed": 0.15
+        },
+        {
+          "lower": 0.2,
+          "runners": 18,
+          "predicted": 0.25285044692592057,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 5,
+          "predicted": 0.33540322894620456,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.4882894260321399,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.5593848401878095,
+          "observed": 1.0
+        }
+      ]
+    },
+    "distance:3200": {
+      "races": 7,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.8233005013717598,
+        "brier": 0.07787835616241602,
+        "top1_hit": 0.5714285714285714
+      },
+      "candidate": {
+        "log_loss": 2.0479917329956248,
+        "brier": 0.08816946353796003,
+        "top1_hit": 0.2857142857142857
+      },
+      "log_loss_delta": 0.224691231623865,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 43,
+          "predicted": 0.054310027550117226,
+          "observed": 0.046511627906976744
+        },
+        {
+          "lower": 0.1,
+          "runners": 19,
+          "predicted": 0.13653546595676003,
+          "observed": 0.10526315789473684
+        },
+        {
+          "lower": 0.2,
+          "runners": 9,
+          "predicted": 0.2300549957962799,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.16750902036658302,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 8,
+          "predicted": 0.07926239573229019,
+          "observed": 0.125
+        },
+        {
+          "lower": 0.1,
+          "runners": 20,
+          "predicted": 0.15541516365060878,
+          "observed": 0.1
+        },
+        {
+          "lower": 0.2,
+          "runners": 14,
+          "predicted": 0.25153054396072816,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.3,
+          "runners": 12,
+          "predicted": 0.34674685130110694,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 5,
+          "predicted": 0.46901405494227555,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.5,
+          "runners": 7,
+          "predicted": 0.5588153634360424,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.6,
+          "runners": 3,
+          "predicted": 0.6312520927435636,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7123368165358296,
+          "observed": 1.0
+        }
+      ]
+    },
+    "distance:2800": {
+      "races": 27,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2448872095820183,
+        "brier": 0.0746214228369442,
+        "top1_hit": 0.18518518518518517
+      },
+      "candidate": {
+        "log_loss": 2.3155906781932605,
+        "brier": 0.07635821484208345,
+        "top1_hit": 0.18518518518518517
+      },
+      "log_loss_delta": 0.0707034686112423,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 233,
+          "predicted": 0.055210089282693234,
+          "observed": 0.07725321888412018
+        },
+        {
+          "lower": 0.1,
+          "runners": 73,
+          "predicted": 0.13133876575798634,
+          "observed": 0.0547945205479452
+        },
+        {
+          "lower": 0.2,
+          "runners": 14,
+          "predicted": 0.2344287576814228,
+          "observed": 0.21428571428571427
+        },
+        {
+          "lower": 0.3,
+          "runners": 4,
+          "predicted": 0.3165791723148891,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.182846984094563,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 43,
+          "predicted": 0.07515761885181077,
+          "observed": 0.13953488372093023
+        },
+        {
+          "lower": 0.1,
+          "runners": 99,
+          "predicted": 0.15378749660426413,
+          "observed": 0.13131313131313133
+        },
+        {
+          "lower": 0.2,
+          "runners": 87,
+          "predicted": 0.25012997082014465,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.3,
+          "runners": 53,
+          "predicted": 0.3460473949112769,
+          "observed": 0.2641509433962264
+        },
+        {
+          "lower": 0.4,
+          "runners": 19,
+          "predicted": 0.44014240219651096,
+          "observed": 0.3157894736842105
+        },
+        {
+          "lower": 0.5,
+          "runners": 14,
+          "predicted": 0.5589639308059181,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.6,
+          "runners": 6,
+          "predicted": 0.6718025966041088,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.7408081937528367,
+          "observed": 0.6666666666666666
+        }
+      ]
+    },
+    "class:unknown": {
+      "races": 55,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.430494069029501,
+        "brier": 0.08291718241644783,
+        "top1_hit": 0.21818181818181817
+      },
+      "candidate": {
+        "log_loss": 2.328247280121734,
+        "brier": 0.08018992390400083,
+        "top1_hit": 0.18181818181818182
+      },
+      "log_loss_delta": -0.10224678890776683,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 500,
+          "predicted": 0.053796670095048654,
+          "observed": 0.06
+        },
+        {
+          "lower": 0.1,
+          "runners": 130,
+          "predicted": 0.13904906800940364,
+          "observed": 0.15384615384615385
+        },
+        {
+          "lower": 0.2,
+          "runners": 25,
+          "predicted": 0.23115075376802527,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 5,
+          "predicted": 0.33452473114393,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.4515200721345876,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5966094498475263,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6227239450816253,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.16260706748458822,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 82,
+          "predicted": 0.07265925617465938,
+          "observed": 0.036585365853658534
+        },
+        {
+          "lower": 0.1,
+          "runners": 236,
+          "predicted": 0.15213239560271397,
+          "observed": 0.15677966101694915
+        },
+        {
+          "lower": 0.2,
+          "runners": 164,
+          "predicted": 0.24521699725091667,
+          "observed": 0.24390243902439024
+        },
+        {
+          "lower": 0.3,
+          "runners": 86,
+          "predicted": 0.3426781088735591,
+          "observed": 0.29069767441860467
+        },
+        {
+          "lower": 0.4,
+          "runners": 38,
+          "predicted": 0.442213816274961,
+          "observed": 0.631578947368421
+        },
+        {
+          "lower": 0.5,
+          "runners": 35,
+          "predicted": 0.5442788634485196,
+          "observed": 0.6285714285714286
+        },
+        {
+          "lower": 0.6,
+          "runners": 12,
+          "predicted": 0.6456609222088191,
+          "observed": 0.4166666666666667
+        },
+        {
+          "lower": 0.7,
+          "runners": 5,
+          "predicted": 0.7250016357809856,
+          "observed": 0.8
+        },
+        {
+          "lower": 0.8,
+          "runners": 4,
+          "predicted": 0.850048901214209,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.9,
+          "runners": 3,
+          "predicted": 0.9419235432489058,
+          "observed": 0.6666666666666666
+        }
+      ]
+    },
+    "course:小倉/jump": {
+      "races": 3,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.5644959062500337,
+        "brier": 0.09854159574585224,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.482411214591588,
+        "brier": 0.0964888010617428,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": -0.08208469165844552,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 21,
+          "predicted": 0.05691553181801909,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.1,
+          "runners": 6,
+          "predicted": 0.12754041199411656,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 3,
+          "predicted": 0.23835795450380903,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3244574963454725,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.22487649753551067,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 3,
+          "predicted": 0.08304532267181368,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.1,
+          "runners": 9,
+          "predicted": 0.15703457407977173,
+          "observed": 0.1111111111111111
+        },
+        {
+          "lower": 0.2,
+          "runners": 7,
+          "predicted": 0.2498844743154399,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.3,
+          "runners": 6,
+          "predicted": 0.3525853034298401,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.4476264777461877,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5801602866529654,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6846616839007816,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.732614511780405,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:小倉/dirt": {
+      "races": 4,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2935909849749905,
+        "brier": 0.06129647180313729,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.5035797881846094,
+        "brier": 0.06267853642263661,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": 0.20998880320961888,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 47,
+          "predicted": 0.04735298130257437,
+          "observed": 0.0425531914893617
+        },
+        {
+          "lower": 0.1,
+          "runners": 12,
+          "predicted": 0.12234933389520064,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3062178720365971,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.15277070483600688,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 17,
+          "predicted": 0.06917805552644873,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 17,
+          "predicted": 0.159525591413914,
+          "observed": 0.23529411764705882
+        },
+        {
+          "lower": 0.2,
+          "runners": 13,
+          "predicted": 0.2437224228079423,
+          "observed": 0.3076923076923077
+        },
+        {
+          "lower": 0.3,
+          "runners": 9,
+          "predicted": 0.3264405288312166,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.4350677041452231,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7004786335939651,
+          "observed": 0.0
+        }
+      ]
+    },
+    "month:2025-02": {
+      "races": 22,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.758117034027595,
+        "brier": 0.07976358988157012,
+        "top1_hit": 0.045454545454545456
+      },
+      "candidate": {
+        "log_loss": 2.645249600698642,
+        "brier": 0.07527359188688201,
+        "top1_hit": 0.045454545454545456
+      },
+      "log_loss_delta": -0.11286743332895285,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 243,
+          "predicted": 0.0473054252627261,
+          "observed": 0.06995884773662552
+        },
+        {
+          "lower": 0.1,
+          "runners": 45,
+          "predicted": 0.12872295945050743,
+          "observed": 0.08888888888888889
+        },
+        {
+          "lower": 0.2,
+          "runners": 11,
+          "predicted": 0.2489037265304039,
+          "observed": 0.09090909090909091
+        },
+        {
+          "lower": 0.3,
+          "runners": 4,
+          "predicted": 0.3378958872421632,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6227239450816253,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.16383584261449338,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 69,
+          "predicted": 0.06746310018254864,
+          "observed": 0.028985507246376812
+        },
+        {
+          "lower": 0.1,
+          "runners": 105,
+          "predicted": 0.14784848218856764,
+          "observed": 0.20952380952380953
+        },
+        {
+          "lower": 0.2,
+          "runners": 61,
+          "predicted": 0.24586490672036718,
+          "observed": 0.26229508196721313
+        },
+        {
+          "lower": 0.3,
+          "runners": 35,
+          "predicted": 0.33377216383555336,
+          "observed": 0.37142857142857144
+        },
+        {
+          "lower": 0.4,
+          "runners": 16,
+          "predicted": 0.4459390261197413,
+          "observed": 0.375
+        },
+        {
+          "lower": 0.5,
+          "runners": 5,
+          "predicted": 0.5546250365857199,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.6,
+          "runners": 7,
+          "predicted": 0.6465930359376809,
+          "observed": 0.2857142857142857
+        },
+        {
+          "lower": 0.7,
+          "runners": 4,
+          "predicted": 0.7298163113064358,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8194589765657445,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.96814533921806,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:京都/dirt": {
+      "races": 30,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.3771942059786677,
+        "brier": 0.06958814938618055,
+        "top1_hit": 0.3333333333333333
+      },
+      "candidate": {
+        "log_loss": 2.3014975399738513,
+        "brier": 0.06789770625504736,
+        "top1_hit": 0.3333333333333333
+      },
+      "log_loss_delta": -0.07569666600481634,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 309,
+          "predicted": 0.04909327462115661,
+          "observed": 0.042071197411003236
+        },
+        {
+          "lower": 0.1,
+          "runners": 73,
+          "predicted": 0.12960043567417814,
+          "observed": 0.1506849315068493
+        },
+        {
+          "lower": 0.2,
+          "runners": 13,
+          "predicted": 0.2324733965199593,
+          "observed": 0.23076923076923078
+        },
+        {
+          "lower": 0.3,
+          "runners": 3,
+          "predicted": 0.32947479916112404,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.4529225952015868,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.1570995926576753,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 68,
+          "predicted": 0.06888894556937585,
+          "observed": 0.029411764705882353
+        },
+        {
+          "lower": 0.1,
+          "runners": 151,
+          "predicted": 0.14878040934456835,
+          "observed": 0.15894039735099338
+        },
+        {
+          "lower": 0.2,
+          "runners": 86,
+          "predicted": 0.24427949642155605,
+          "observed": 0.22093023255813954
+        },
+        {
+          "lower": 0.3,
+          "runners": 50,
+          "predicted": 0.3395742069244474,
+          "observed": 0.32
+        },
+        {
+          "lower": 0.4,
+          "runners": 21,
+          "predicted": 0.4373585627217813,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.5,
+          "runners": 14,
+          "predicted": 0.546300598150238,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.6,
+          "runners": 5,
+          "predicted": 0.6434646959930646,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.7340233151619464,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 3,
+          "predicted": 0.8702770783548424,
+          "observed": 0.3333333333333333
+        }
+      ]
+    },
+    "course:東京/turf": {
+      "races": 38,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.282575780258043,
+        "brier": 0.07268906244125277,
+        "top1_hit": 0.21052631578947367
+      },
+      "candidate": {
+        "log_loss": 2.2019497467321023,
+        "brier": 0.0699523142996787,
+        "top1_hit": 0.18421052631578946
+      },
+      "log_loss_delta": -0.08062603352594089,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 400,
+          "predicted": 0.041459445990431526,
+          "observed": 0.0425
+        },
+        {
+          "lower": 0.1,
+          "runners": 73,
+          "predicted": 0.13644756846125847,
+          "observed": 0.1506849315068493
+        },
+        {
+          "lower": 0.2,
+          "runners": 23,
+          "predicted": 0.24017493830640962,
+          "observed": 0.30434782608695654
+        },
+        {
+          "lower": 0.3,
+          "runners": 12,
+          "predicted": 0.33648573397498033,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.41771615436939646,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5291322043347719,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.1416312197791847,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 153,
+          "predicted": 0.06547217942347065,
+          "observed": 0.032679738562091505
+        },
+        {
+          "lower": 0.1,
+          "runners": 158,
+          "predicted": 0.14688391316433083,
+          "observed": 0.1518987341772152
+        },
+        {
+          "lower": 0.2,
+          "runners": 77,
+          "predicted": 0.24502427603508084,
+          "observed": 0.2597402597402597
+        },
+        {
+          "lower": 0.3,
+          "runners": 46,
+          "predicted": 0.34311675104081885,
+          "observed": 0.4782608695652174
+        },
+        {
+          "lower": 0.4,
+          "runners": 27,
+          "predicted": 0.4509773830953929,
+          "observed": 0.4444444444444444
+        },
+        {
+          "lower": 0.5,
+          "runners": 18,
+          "predicted": 0.5421751308228833,
+          "observed": 0.6111111111111112
+        },
+        {
+          "lower": 0.6,
+          "runners": 13,
+          "predicted": 0.6519490564174066,
+          "observed": 0.46153846153846156
+        },
+        {
+          "lower": 0.7,
+          "runners": 12,
+          "predicted": 0.7400589129883666,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.8,
+          "runners": 6,
+          "predicted": 0.8253666597551245,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 2,
+          "predicted": 0.9405360597304436,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:小倉/turf": {
+      "races": 9,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.308510402646604,
+        "brier": 0.07856148839116404,
+        "top1_hit": 0.2222222222222222
+      },
+      "candidate": {
+        "log_loss": 2.2763360479276105,
+        "brier": 0.07632015766263385,
+        "top1_hit": 0.2222222222222222
+      },
+      "log_loss_delta": -0.032174354718993534,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 92,
+          "predicted": 0.05274753806986592,
+          "observed": 0.06521739130434782
+        },
+        {
+          "lower": 0.1,
+          "runners": 14,
+          "predicted": 0.1418014415760733,
+          "observed": 0.07142857142857142
+        },
+        {
+          "lower": 0.2,
+          "runners": 6,
+          "predicted": 0.2394639517090104,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.311492617532517,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.41372998772072933,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.13857446129074233,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 15,
+          "predicted": 0.07857533084265049,
+          "observed": 0.13333333333333333
+        },
+        {
+          "lower": 0.1,
+          "runners": 46,
+          "predicted": 0.1404643131456973,
+          "observed": 0.08695652173913043
+        },
+        {
+          "lower": 0.2,
+          "runners": 29,
+          "predicted": 0.2519645535846882,
+          "observed": 0.3103448275862069
+        },
+        {
+          "lower": 0.3,
+          "runners": 10,
+          "predicted": 0.3374097444741628,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.4356979475747446,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.5826425954514417,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 4,
+          "predicted": 0.633660081360323,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.734198804994019,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8866837644586736,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:京都/turf": {
+      "races": 34,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.1633375580452703,
+        "brier": 0.07628841386635483,
+        "top1_hit": 0.2647058823529412
+      },
+      "candidate": {
+        "log_loss": 2.1144808188850464,
+        "brier": 0.07435012951445424,
+        "top1_hit": 0.17647058823529413
+      },
+      "log_loss_delta": -0.048856739160223824,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 317,
+          "predicted": 0.04891103154581506,
+          "observed": 0.0473186119873817
+        },
+        {
+          "lower": 0.1,
+          "runners": 81,
+          "predicted": 0.13971918655410176,
+          "observed": 0.13580246913580246
+        },
+        {
+          "lower": 0.2,
+          "runners": 21,
+          "predicted": 0.2326983149369699,
+          "observed": 0.2857142857142857
+        },
+        {
+          "lower": 0.3,
+          "runners": 5,
+          "predicted": 0.33371206606727777,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6227239450816253,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.16088742498966774,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 80,
+          "predicted": 0.07337444030412747,
+          "observed": 0.0375
+        },
+        {
+          "lower": 0.1,
+          "runners": 142,
+          "predicted": 0.14770941399757387,
+          "observed": 0.16901408450704225
+        },
+        {
+          "lower": 0.2,
+          "runners": 86,
+          "predicted": 0.23762126966566272,
+          "observed": 0.26744186046511625
+        },
+        {
+          "lower": 0.3,
+          "runners": 47,
+          "predicted": 0.3456490582657242,
+          "observed": 0.2978723404255319
+        },
+        {
+          "lower": 0.4,
+          "runners": 32,
+          "predicted": 0.4573280160575003,
+          "observed": 0.46875
+        },
+        {
+          "lower": 0.5,
+          "runners": 19,
+          "predicted": 0.5490635999231955,
+          "observed": 0.47368421052631576
+        },
+        {
+          "lower": 0.6,
+          "runners": 10,
+          "predicted": 0.6344589190591876,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.7,
+          "runners": 6,
+          "predicted": 0.7410774284151338,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 2,
+          "predicted": 0.824234522798411,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.96814533921806,
+          "observed": 1.0
+        }
+      ]
+    },
+    "distance:800": {
+      "races": 13,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.290077715576175,
+        "brier": 0.06635201150523011,
+        "top1_hit": 0.23076923076923078
+      },
+      "candidate": {
+        "log_loss": 2.2793616969520016,
+        "brier": 0.0655831906786338,
+        "top1_hit": 0.15384615384615385
+      },
+      "log_loss_delta": -0.010716018624173006,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 145,
+          "predicted": 0.04949668484414058,
+          "observed": 0.034482758620689655
+        },
+        {
+          "lower": 0.1,
+          "runners": 33,
+          "predicted": 0.1359994640892689,
+          "observed": 0.24242424242424243
+        },
+        {
+          "lower": 0.2,
+          "runners": 3,
+          "predicted": 0.238156750116749,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.3102640661517474,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1564247218898145,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 38,
+          "predicted": 0.07333147929903677,
+          "observed": 0.02631578947368421
+        },
+        {
+          "lower": 0.1,
+          "runners": 69,
+          "predicted": 0.15592783875152894,
+          "observed": 0.15942028985507245
+        },
+        {
+          "lower": 0.2,
+          "runners": 36,
+          "predicted": 0.24039557931391664,
+          "observed": 0.2777777777777778
+        },
+        {
+          "lower": 0.3,
+          "runners": 23,
+          "predicted": 0.34201564265070034,
+          "observed": 0.30434782608695654
+        },
+        {
+          "lower": 0.4,
+          "runners": 8,
+          "predicted": 0.4478342876383716,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.5,
+          "runners": 6,
+          "predicted": 0.5447272693437664,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6531429984166188,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7148006804639058,
+          "observed": 0.0
+        }
+      ]
+    },
+    "month:2025-03": {
+      "races": 17,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.31276869262487,
+        "brier": 0.06953093022873152,
+        "top1_hit": 0.29411764705882354
+      },
+      "candidate": {
+        "log_loss": 2.310499425944693,
+        "brier": 0.06906958618625829,
+        "top1_hit": 0.35294117647058826
+      },
+      "log_loss_delta": -0.0022692666801772204,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 166,
+          "predicted": 0.05232792340407051,
+          "observed": 0.04819277108433735
+        },
+        {
+          "lower": 0.1,
+          "runners": 45,
+          "predicted": 0.1344475114555793,
+          "observed": 0.13333333333333333
+        },
+        {
+          "lower": 0.2,
+          "runners": 9,
+          "predicted": 0.2514918554914696,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.1694720948935187,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 39,
+          "predicted": 0.07304523916870516,
+          "observed": 0.07692307692307693
+        },
+        {
+          "lower": 0.1,
+          "runners": 70,
+          "predicted": 0.1515935194780773,
+          "observed": 0.17142857142857143
+        },
+        {
+          "lower": 0.2,
+          "runners": 56,
+          "predicted": 0.24968281626485897,
+          "observed": 0.26785714285714285
+        },
+        {
+          "lower": 0.3,
+          "runners": 27,
+          "predicted": 0.3391791535627863,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 16,
+          "predicted": 0.44676981061463406,
+          "observed": 0.375
+        },
+        {
+          "lower": 0.5,
+          "runners": 5,
+          "predicted": 0.5427494056350055,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.6,
+          "runners": 7,
+          "predicted": 0.6482214934169408,
+          "observed": 0.5714285714285714
+        }
+      ]
+    },
+    "course:阪神/dirt": {
+      "races": 9,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.259706570265818,
+        "brier": 0.0663787468552454,
+        "top1_hit": 0.4444444444444444
+      },
+      "candidate": {
+        "log_loss": 2.2436625344533265,
+        "brier": 0.06660349606747541,
+        "top1_hit": 0.5555555555555556
+      },
+      "log_loss_delta": -0.01604403581249129,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 87,
+          "predicted": 0.04840606441836208,
+          "observed": 0.034482758620689655
+        },
+        {
+          "lower": 0.1,
+          "runners": 20,
+          "predicted": 0.14242674533852814,
+          "observed": 0.1
+        },
+        {
+          "lower": 0.2,
+          "runners": 7,
+          "predicted": 0.23402687934488506,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3019493334177411,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.15772268821737723,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 20,
+          "predicted": 0.07146145864711807,
+          "observed": 0.1
+        },
+        {
+          "lower": 0.1,
+          "runners": 42,
+          "predicted": 0.147812346156181,
+          "observed": 0.19047619047619047
+        },
+        {
+          "lower": 0.2,
+          "runners": 25,
+          "predicted": 0.2421144521880865,
+          "observed": 0.16
+        },
+        {
+          "lower": 0.3,
+          "runners": 10,
+          "predicted": 0.35275946884365283,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.4,
+          "runners": 7,
+          "predicted": 0.46177233323529265,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.5,
+          "runners": 7,
+          "predicted": 0.5416554621483732,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.6,
+          "runners": 3,
+          "predicted": 0.6733323099622265,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7382047977870043,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:阪神/turf": {
+      "races": 10,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2144166843694415,
+        "brier": 0.0858699354665542,
+        "top1_hit": 0.2
+      },
+      "candidate": {
+        "log_loss": 2.1416545497710913,
+        "brier": 0.08300973701214528,
+        "top1_hit": 0.2
+      },
+      "log_loss_delta": -0.07276213459835004,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 80,
+          "predicted": 0.050497287245586976,
+          "observed": 0.05
+        },
+        {
+          "lower": 0.1,
+          "runners": 21,
+          "predicted": 0.13702441910049332,
+          "observed": 0.19047619047619047
+        },
+        {
+          "lower": 0.2,
+          "runners": 9,
+          "predicted": 0.24032415406536145,
+          "observed": 0.2222222222222222
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3231773828069028,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5966094498475263,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1827338821703552,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 16,
+          "predicted": 0.06935271030695042,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 35,
+          "predicted": 0.15025025873524853,
+          "observed": 0.17142857142857143
+        },
+        {
+          "lower": 0.2,
+          "runners": 25,
+          "predicted": 0.2484287162285687,
+          "observed": 0.24
+        },
+        {
+          "lower": 0.3,
+          "runners": 13,
+          "predicted": 0.3374964945187147,
+          "observed": 0.46153846153846156
+        },
+        {
+          "lower": 0.4,
+          "runners": 8,
+          "predicted": 0.43795695782156835,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 6,
+          "predicted": 0.5496295429418204,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 5,
+          "predicted": 0.6194860708916184,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.728179584588393,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.9500232164508452,
+          "observed": 0.0
+        }
+      ]
+    },
+    "course:阪神/jump": {
+      "races": 3,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.7930910907854167,
+        "brier": 0.06876446983926056,
+        "top1_hit": 0.3333333333333333
+      },
+      "candidate": {
+        "log_loss": 1.9515043455322207,
+        "brier": 0.07505061915045112,
+        "top1_hit": 0.3333333333333333
+      },
+      "log_loss_delta": 0.15841325474680432,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 23,
+          "predicted": 0.0662636622075968,
+          "observed": 0.043478260869565216
+        },
+        {
+          "lower": 0.1,
+          "runners": 7,
+          "predicted": 0.128764484299096,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.2,
+          "runners": 1,
+          "predicted": 0.2489709796051646,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.32561339952643686,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.16710514277458136,
+      "top3_calibration": [
+        {
+          "lower": 0.1,
+          "runners": 11,
+          "predicted": 0.1680598838132331,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 11,
+          "predicted": 0.2501406041900841,
+          "observed": 0.36363636363636365
+        },
+        {
+          "lower": 0.3,
+          "runners": 6,
+          "predicted": 0.35255198614561745,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.422832211153252,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6744791496666561,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7643391431166463,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-04": {
+      "races": 20,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.1686253851894373,
+        "brier": 0.07221782744431302,
+        "top1_hit": 0.35
+      },
+      "candidate": {
+        "log_loss": 2.103101632307083,
+        "brier": 0.07096117042609154,
+        "top1_hit": 0.35
+      },
+      "log_loss_delta": -0.06552375288235468,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 182,
+          "predicted": 0.05023521135259669,
+          "observed": 0.04395604395604396
+        },
+        {
+          "lower": 0.1,
+          "runners": 52,
+          "predicted": 0.1408399329386518,
+          "observed": 0.15384615384615385
+        },
+        {
+          "lower": 0.2,
+          "runners": 11,
+          "predicted": 0.23581471424387104,
+          "observed": 0.2727272727272727
+        },
+        {
+          "lower": 0.3,
+          "runners": 3,
+          "predicted": 0.31318438811164256,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.16191970135245515,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 40,
+          "predicted": 0.07043205543566508,
+          "observed": 0.075
+        },
+        {
+          "lower": 0.1,
+          "runners": 86,
+          "predicted": 0.14717627021770158,
+          "observed": 0.1511627906976744
+        },
+        {
+          "lower": 0.2,
+          "runners": 53,
+          "predicted": 0.24788424038011017,
+          "observed": 0.2830188679245283
+        },
+        {
+          "lower": 0.3,
+          "runners": 33,
+          "predicted": 0.35275040116314643,
+          "observed": 0.2727272727272727
+        },
+        {
+          "lower": 0.4,
+          "runners": 13,
+          "predicted": 0.45404677592813986,
+          "observed": 0.3076923076923077
+        },
+        {
+          "lower": 0.5,
+          "runners": 14,
+          "predicted": 0.5426731161046567,
+          "observed": 0.7142857142857143
+        },
+        {
+          "lower": 0.6,
+          "runners": 4,
+          "predicted": 0.6440147517964043,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.7,
+          "runners": 5,
+          "predicted": 0.7341679691209525,
+          "observed": 0.6
+        }
+      ]
+    },
+    "course:福島/dirt": {
+      "races": 4,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.1442429569117207,
+        "brier": 0.06161892809261773,
+        "top1_hit": 0.25
+      },
+      "candidate": {
+        "log_loss": 2.034967672152888,
+        "brier": 0.05946368472227323,
+        "top1_hit": 0.25
+      },
+      "log_loss_delta": -0.10927528475883252,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 49,
+          "predicted": 0.046738033199781676,
+          "observed": 0.02040816326530612
+        },
+        {
+          "lower": 0.1,
+          "runners": 8,
+          "predicted": 0.14635528642108542,
+          "observed": 0.375
+        },
+        {
+          "lower": 0.2,
+          "runners": 1,
+          "predicted": 0.22468382157511724,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3143102602668977,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.13444505948551602,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 15,
+          "predicted": 0.0746423654295962,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 24,
+          "predicted": 0.15332924191158478,
+          "observed": 0.125
+        },
+        {
+          "lower": 0.2,
+          "runners": 9,
+          "predicted": 0.24970302875244166,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.3,
+          "runners": 6,
+          "predicted": 0.3585862435349805,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.46432711260198833,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.53605605092011,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7291227273338463,
+          "observed": 0.0
+        }
+      ]
+    },
+    "course:福島/turf": {
+      "races": 8,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.27592113040836,
+        "brier": 0.07270729610845252,
+        "top1_hit": 0.5
+      },
+      "candidate": {
+        "log_loss": 2.3794689425054156,
+        "brier": 0.07657528752689757,
+        "top1_hit": 0.5
+      },
+      "log_loss_delta": 0.10354781209705591,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 75,
+          "predicted": 0.04843870407687588,
+          "observed": 0.04
+        },
+        {
+          "lower": 0.1,
+          "runners": 21,
+          "predicted": 0.14215229428166842,
+          "observed": 0.19047619047619047
+        },
+        {
+          "lower": 0.2,
+          "runners": 4,
+          "predicted": 0.23205056052683598,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.4536967722119275,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1535095817392094,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 15,
+          "predicted": 0.08120308559285466,
+          "observed": 0.13333333333333333
+        },
+        {
+          "lower": 0.1,
+          "runners": 40,
+          "predicted": 0.14397808848963684,
+          "observed": 0.1
+        },
+        {
+          "lower": 0.2,
+          "runners": 17,
+          "predicted": 0.23846617599032208,
+          "observed": 0.11764705882352941
+        },
+        {
+          "lower": 0.3,
+          "runners": 14,
+          "predicted": 0.3460162760856481,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.4,
+          "runners": 6,
+          "predicted": 0.4446329580831951,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 6,
+          "predicted": 0.5305883711228739,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6779565676099945,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7009922326199038,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8944005440208457,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:新潟/jump": {
+      "races": 7,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.4976734067387,
+        "brier": 0.0728241239217625,
+        "top1_hit": 0.14285714285714285
+      },
+      "candidate": {
+        "log_loss": 2.4422902775855677,
+        "brier": 0.07266343576216319,
+        "top1_hit": 0.14285714285714285
+      },
+      "log_loss_delta": -0.055383129153132295,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 68,
+          "predicted": 0.05399235914019977,
+          "observed": 0.08823529411764706
+        },
+        {
+          "lower": 0.1,
+          "runners": 19,
+          "predicted": 0.1364255942421123,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 2,
+          "predicted": 0.21581118533882038,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.30481091718864095,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.16442622617920644,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 16,
+          "predicted": 0.07391792564501795,
+          "observed": 0.125
+        },
+        {
+          "lower": 0.1,
+          "runners": 28,
+          "predicted": 0.15769504636488266,
+          "observed": 0.07142857142857142
+        },
+        {
+          "lower": 0.2,
+          "runners": 23,
+          "predicted": 0.2533945118833552,
+          "observed": 0.34782608695652173
+        },
+        {
+          "lower": 0.3,
+          "runners": 14,
+          "predicted": 0.3532675957592617,
+          "observed": 0.35714285714285715
+        },
+        {
+          "lower": 0.4,
+          "runners": 4,
+          "predicted": 0.4448913357518455,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.5373801419122185,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6989458668599083,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-05": {
+      "races": 47,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2860968994721,
+        "brier": 0.06943573169721944,
+        "top1_hit": 0.2127659574468085
+      },
+      "candidate": {
+        "log_loss": 2.2664908860094557,
+        "brier": 0.06785949018891273,
+        "top1_hit": 0.2127659574468085
+      },
+      "log_loss_delta": -0.019606013462644407,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 503,
+          "predicted": 0.04738052126070004,
+          "observed": 0.04970178926441352
+        },
+        {
+          "lower": 0.1,
+          "runners": 99,
+          "predicted": 0.1334974998245691,
+          "observed": 0.12121212121212122
+        },
+        {
+          "lower": 0.2,
+          "runners": 25,
+          "predicted": 0.23252422926772065,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 10,
+          "predicted": 0.32836553226573695,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.42729213444257874,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1600188966996234,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 129,
+          "predicted": 0.06959237249496594,
+          "observed": 0.06976744186046512
+        },
+        {
+          "lower": 0.1,
+          "runners": 240,
+          "predicted": 0.14809676158567378,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.2,
+          "runners": 125,
+          "predicted": 0.2406649758266494,
+          "observed": 0.224
+        },
+        {
+          "lower": 0.3,
+          "runners": 70,
+          "predicted": 0.3471817700710116,
+          "observed": 0.3142857142857143
+        },
+        {
+          "lower": 0.4,
+          "runners": 28,
+          "predicted": 0.44292130117104594,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 21,
+          "predicted": 0.5505273755403225,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 15,
+          "predicted": 0.643044574314597,
+          "observed": 0.4666666666666667
+        },
+        {
+          "lower": 0.7,
+          "runners": 7,
+          "predicted": 0.7367259141549212,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 4,
+          "predicted": 0.83197348783656,
+          "observed": 0.0
+        }
+      ]
+    },
+    "course:新潟/turf": {
+      "races": 32,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.3161001762755102,
+        "brier": 0.061516929470029055,
+        "top1_hit": 0.28125
+      },
+      "candidate": {
+        "log_loss": 2.294819965125509,
+        "brier": 0.06135200451435896,
+        "top1_hit": 0.28125
+      },
+      "log_loss_delta": -0.021280211150001664,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 384,
+          "predicted": 0.04916447517385037,
+          "observed": 0.044270833333333336
+        },
+        {
+          "lower": 0.1,
+          "runners": 52,
+          "predicted": 0.12773371139533438,
+          "observed": 0.1346153846153846
+        },
+        {
+          "lower": 0.2,
+          "runners": 12,
+          "predicted": 0.23400088338934,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.3,
+          "runners": 6,
+          "predicted": 0.34387657283646345,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.4710823561974292,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6652537905983505,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.14662717061454944,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 86,
+          "predicted": 0.07077053192776508,
+          "observed": 0.05813953488372093
+        },
+        {
+          "lower": 0.1,
+          "runners": 181,
+          "predicted": 0.1491967845025339,
+          "observed": 0.13259668508287292
+        },
+        {
+          "lower": 0.2,
+          "runners": 107,
+          "predicted": 0.2371399372826869,
+          "observed": 0.2616822429906542
+        },
+        {
+          "lower": 0.3,
+          "runners": 47,
+          "predicted": 0.3402937622161496,
+          "observed": 0.3191489361702128
+        },
+        {
+          "lower": 0.4,
+          "runners": 13,
+          "predicted": 0.4416641665571436,
+          "observed": 0.6923076923076923
+        },
+        {
+          "lower": 0.5,
+          "runners": 10,
+          "predicted": 0.5627135025657849,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.6,
+          "runners": 4,
+          "predicted": 0.655750974067992,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 4,
+          "predicted": 0.7473498596897804,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.8,
+          "runners": 2,
+          "predicted": 0.8462813379546408,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 3,
+          "predicted": 0.9558669813353179,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:新潟/dirt": {
+      "races": 24,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.9277022573205829,
+        "brier": 0.05525026073994857,
+        "top1_hit": 0.4166666666666667
+      },
+      "candidate": {
+        "log_loss": 1.9861421099859022,
+        "brier": 0.05617365684850298,
+        "top1_hit": 0.4583333333333333
+      },
+      "log_loss_delta": 0.05843985266531928,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 275,
+          "predicted": 0.047683475682194144,
+          "observed": 0.025454545454545455
+        },
+        {
+          "lower": 0.1,
+          "runners": 53,
+          "predicted": 0.13808483359433146,
+          "observed": 0.20754716981132076
+        },
+        {
+          "lower": 0.2,
+          "runners": 10,
+          "predicted": 0.23685287156523716,
+          "observed": 0.3
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.3760571761290272,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.44790493898661593,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.14489976270406715,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 64,
+          "predicted": 0.0727031896798806,
+          "observed": 0.03125
+        },
+        {
+          "lower": 0.1,
+          "runners": 146,
+          "predicted": 0.1513194550401319,
+          "observed": 0.1780821917808219
+        },
+        {
+          "lower": 0.2,
+          "runners": 64,
+          "predicted": 0.23855940485542218,
+          "observed": 0.21875
+        },
+        {
+          "lower": 0.3,
+          "runners": 31,
+          "predicted": 0.3440034970595008,
+          "observed": 0.2903225806451613
+        },
+        {
+          "lower": 0.4,
+          "runners": 17,
+          "predicted": 0.4544378371323128,
+          "observed": 0.5294117647058824
+        },
+        {
+          "lower": 0.5,
+          "runners": 11,
+          "predicted": 0.5423525519453487,
+          "observed": 0.45454545454545453
+        },
+        {
+          "lower": 0.6,
+          "runners": 5,
+          "predicted": 0.6370705404264045,
+          "observed": 0.8
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7946290922406718,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8565129157753198,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:東京/dirt": {
+      "races": 25,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.3136815803645,
+        "brier": 0.06257158497138576,
+        "top1_hit": 0.24
+      },
+      "candidate": {
+        "log_loss": 2.3457710037420862,
+        "brier": 0.06318475483255229,
+        "top1_hit": 0.24
+      },
+      "log_loss_delta": 0.03208942337758655,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 285,
+          "predicted": 0.04581111713609364,
+          "observed": 0.0456140350877193
+        },
+        {
+          "lower": 0.1,
+          "runners": 53,
+          "predicted": 0.1334391710110141,
+          "observed": 0.1320754716981132
+        },
+        {
+          "lower": 0.2,
+          "runners": 10,
+          "predicted": 0.2511647073392934,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 7,
+          "predicted": 0.3371297827480901,
+          "observed": 0.42857142857142855
+        }
+      ],
+      "candidate_top3_brier": 0.14952274379834224,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 79,
+          "predicted": 0.06739687728107652,
+          "observed": 0.0759493670886076
+        },
+        {
+          "lower": 0.1,
+          "runners": 139,
+          "predicted": 0.1501136571420084,
+          "observed": 0.1510791366906475
+        },
+        {
+          "lower": 0.2,
+          "runners": 65,
+          "predicted": 0.24369806208692052,
+          "observed": 0.24615384615384617
+        },
+        {
+          "lower": 0.3,
+          "runners": 34,
+          "predicted": 0.3421300210301304,
+          "observed": 0.4117647058823529
+        },
+        {
+          "lower": 0.4,
+          "runners": 15,
+          "predicted": 0.43606227678188586,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 12,
+          "predicted": 0.5482399042619329,
+          "observed": 0.4166666666666667
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6958144979032324,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 9,
+          "predicted": 0.7584012891892861,
+          "observed": 0.6666666666666666
+        }
+      ]
+    },
+    "course:京都/jump": {
+      "races": 5,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.423526863380188,
+        "brier": 0.09363279260446186,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.5028668002229866,
+        "brier": 0.09372995189105046,
+        "top1_hit": 0.2
+      },
+      "log_loss_delta": 0.07933993684279832,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 29,
+          "predicted": 0.059152136842300126,
+          "observed": 0.10344827586206896
+        },
+        {
+          "lower": 0.1,
+          "runners": 18,
+          "predicted": 0.13357667426046815,
+          "observed": 0.1111111111111111
+        },
+        {
+          "lower": 0.2,
+          "runners": 4,
+          "predicted": 0.22005197372121726,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.2381644703141823,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 6,
+          "predicted": 0.08617354777601828,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.1,
+          "runners": 9,
+          "predicted": 0.16285652618191052,
+          "observed": 0.2222222222222222
+        },
+        {
+          "lower": 0.2,
+          "runners": 13,
+          "predicted": 0.2500237741406712,
+          "observed": 0.46153846153846156
+        },
+        {
+          "lower": 0.3,
+          "runners": 11,
+          "predicted": 0.34488577065825327,
+          "observed": 0.2727272727272727
+        },
+        {
+          "lower": 0.4,
+          "runners": 7,
+          "predicted": 0.43956912946021615,
+          "observed": 0.2857142857142857
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.5614443104065574,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6504362887894414,
+          "observed": 0.0
+        }
+      ]
+    },
+    "distance:3600": {
+      "races": 1,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2039613506192457,
+        "brier": 0.0926125380665215,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.414210200198543,
+        "brier": 0.09578806825003242,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": 0.21024884957929713,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 7,
+          "predicted": 0.06697266894547751,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.1,
+          "runners": 1,
+          "predicted": 0.10887458035353995,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 2,
+          "predicted": 0.21115836851405873,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1977871914527465,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 1,
+          "predicted": 0.09517064808354789,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 2,
+          "predicted": 0.15947209410119156,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 3,
+          "predicted": 0.26823810419997157,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.32521653089975444,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.565368894657323,
+          "observed": 0.5
+        }
+      ]
+    },
+    "course:東京/jump": {
+      "races": 4,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.545377996613198,
+        "brier": 0.07615961647185221,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.4570981159179976,
+        "brier": 0.07288076211215817,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": -0.08827988069520037,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 35,
+          "predicted": 0.05359786242004741,
+          "observed": 0.08571428571428572
+        },
+        {
+          "lower": 0.1,
+          "runners": 13,
+          "predicted": 0.12751089913395347,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 2,
+          "predicted": 0.2332165632784728,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.14291662416033446,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 5,
+          "predicted": 0.06239446530321842,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 18,
+          "predicted": 0.1499695194636412,
+          "observed": 0.1111111111111111
+        },
+        {
+          "lower": 0.2,
+          "runners": 12,
+          "predicted": 0.2442328509128537,
+          "observed": 0.4166666666666667
+        },
+        {
+          "lower": 0.3,
+          "runners": 9,
+          "predicted": 0.3335394129696986,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.42819755682634947,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5624979963785288,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6463387322207279,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-06": {
+      "races": 36,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.237365102572227,
+        "brier": 0.0633764544900958,
+        "top1_hit": 0.2777777777777778
+      },
+      "candidate": {
+        "log_loss": 2.2278784655802624,
+        "brier": 0.06345670042191984,
+        "top1_hit": 0.2777777777777778
+      },
+      "log_loss_delta": -0.009486636991964817,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 411,
+          "predicted": 0.04589107746147307,
+          "observed": 0.038929440389294405
+        },
+        {
+          "lower": 0.1,
+          "runners": 89,
+          "predicted": 0.13572017453165472,
+          "observed": 0.15730337078651685
+        },
+        {
+          "lower": 0.2,
+          "runners": 11,
+          "predicted": 0.22339140926673318,
+          "observed": 0.36363636363636365
+        },
+        {
+          "lower": 0.3,
+          "runners": 5,
+          "predicted": 0.34698787363011513,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.4337133799663284,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.13750777123544086,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 114,
+          "predicted": 0.06865751289966517,
+          "observed": 0.043859649122807015
+        },
+        {
+          "lower": 0.1,
+          "runners": 198,
+          "predicted": 0.14605304066529537,
+          "observed": 0.13131313131313133
+        },
+        {
+          "lower": 0.2,
+          "runners": 100,
+          "predicted": 0.24502163250467404,
+          "observed": 0.29
+        },
+        {
+          "lower": 0.3,
+          "runners": 50,
+          "predicted": 0.33985654949085886,
+          "observed": 0.36
+        },
+        {
+          "lower": 0.4,
+          "runners": 32,
+          "predicted": 0.4506322975085399,
+          "observed": 0.40625
+        },
+        {
+          "lower": 0.5,
+          "runners": 13,
+          "predicted": 0.5421060603193368,
+          "observed": 0.6923076923076923
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6530697546220601,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 7,
+          "predicted": 0.7435306615072925,
+          "observed": 0.5714285714285714
+        },
+        {
+          "lower": 0.8,
+          "runners": 2,
+          "predicted": 0.8905421542397596,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:函館/turf": {
+      "races": 6,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.5734713704886527,
+        "brier": 0.07071366397649582,
+        "top1_hit": 0.16666666666666666
+      },
+      "candidate": {
+        "log_loss": 2.336936304255569,
+        "brier": 0.06866800501037401,
+        "top1_hit": 0.16666666666666666
+      },
+      "log_loss_delta": -0.23653506623308393,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 64,
+          "predicted": 0.04584366386035555,
+          "observed": 0.03125
+        },
+        {
+          "lower": 0.1,
+          "runners": 13,
+          "predicted": 0.13603271548133822,
+          "observed": 0.23076923076923078
+        },
+        {
+          "lower": 0.2,
+          "runners": 4,
+          "predicted": 0.2307394090559675,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3746225754559778,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.16770772422125277,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 15,
+          "predicted": 0.06828989403207335,
+          "observed": 0.06666666666666667
+        },
+        {
+          "lower": 0.1,
+          "runners": 34,
+          "predicted": 0.14120068155932344,
+          "observed": 0.17647058823529413
+        },
+        {
+          "lower": 0.2,
+          "runners": 15,
+          "predicted": 0.25576402348403865,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 7,
+          "predicted": 0.3480366905765389,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.4,
+          "runners": 5,
+          "predicted": 0.44513430329205567,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.5614559749903675,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6423204072660691,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7882954065177338,
+          "observed": 0.0
+        }
+      ]
+    },
+    "course:福島/jump": {
+      "races": 3,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.223478010491324,
+        "brier": 0.08182657286995748,
+        "top1_hit": 0.3333333333333333
+      },
+      "candidate": {
+        "log_loss": 2.207432883254739,
+        "brier": 0.08378807039813456,
+        "top1_hit": 0.3333333333333333
+      },
+      "log_loss_delta": -0.01604512723658476,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 19,
+          "predicted": 0.04833192767126792,
+          "observed": 0.05263157894736842
+        },
+        {
+          "lower": 0.1,
+          "runners": 9,
+          "predicted": 0.1281585624472323,
+          "observed": 0.1111111111111111
+        },
+        {
+          "lower": 0.2,
+          "runners": 4,
+          "predicted": 0.23206657805520464,
+          "observed": 0.25
+        }
+      ],
+      "candidate_top3_brier": 0.19306789979035574,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 6,
+          "predicted": 0.08655119307897773,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.1,
+          "runners": 8,
+          "predicted": 0.16757914845925317,
+          "observed": 0.125
+        },
+        {
+          "lower": 0.2,
+          "runners": 5,
+          "predicted": 0.24076055781680056,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 6,
+          "predicted": 0.344633314239932,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 2,
+          "predicted": 0.45091673135071114,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.5625409282357786,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6395003659598778,
+          "observed": 0.5
+        }
+      ]
+    },
+    "month:2025-07": {
+      "races": 78,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.0806818446654085,
+        "brier": 0.07755034920566697,
+        "top1_hit": 0.23076923076923078
+      },
+      "candidate": {
+        "log_loss": 2.08349258208843,
+        "brier": 0.07668316341585828,
+        "top1_hit": 0.2564102564102564
+      },
+      "log_loss_delta": 0.0028107374230217086,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 691,
+          "predicted": 0.049940965341834447,
+          "observed": 0.04052098408104197
+        },
+        {
+          "lower": 0.1,
+          "runners": 158,
+          "predicted": 0.13859102019157477,
+          "observed": 0.1962025316455696
+        },
+        {
+          "lower": 0.2,
+          "runners": 51,
+          "predicted": 0.2446274324675506,
+          "observed": 0.17647058823529413
+        },
+        {
+          "lower": 0.3,
+          "runners": 14,
+          "predicted": 0.3371725313071976,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.4,
+          "runners": 7,
+          "predicted": 0.45651062163138617,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5361691223596856,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6652537905983505,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.17070945561470557,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 152,
+          "predicted": 0.07438076827608735,
+          "observed": 0.046052631578947366
+        },
+        {
+          "lower": 0.1,
+          "runners": 304,
+          "predicted": 0.14888290775958474,
+          "observed": 0.15460526315789475
+        },
+        {
+          "lower": 0.2,
+          "runners": 199,
+          "predicted": 0.23955510977738037,
+          "observed": 0.2814070351758794
+        },
+        {
+          "lower": 0.3,
+          "runners": 101,
+          "predicted": 0.3453062435597116,
+          "observed": 0.38613861386138615
+        },
+        {
+          "lower": 0.4,
+          "runners": 69,
+          "predicted": 0.44252215689770097,
+          "observed": 0.463768115942029
+        },
+        {
+          "lower": 0.5,
+          "runners": 42,
+          "predicted": 0.5488615419895573,
+          "observed": 0.47619047619047616
+        },
+        {
+          "lower": 0.6,
+          "runners": 25,
+          "predicted": 0.6493761222214356,
+          "observed": 0.44
+        },
+        {
+          "lower": 0.7,
+          "runners": 18,
+          "predicted": 0.7469124412797965,
+          "observed": 0.7222222222222222
+        },
+        {
+          "lower": 0.8,
+          "runners": 8,
+          "predicted": 0.8585304937994109,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.9,
+          "runners": 5,
+          "predicted": 0.9506074558842199,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:中京/jump": {
+      "races": 5,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.73203709584021,
+        "brier": 0.07469838820377686,
+        "top1_hit": 0.4
+      },
+      "candidate": {
+        "log_loss": 2.103189642643051,
+        "brier": 0.08998084140457348,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": 0.3711525468028408,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 36,
+          "predicted": 0.054175404694099635,
+          "observed": 0.05555555555555555
+        },
+        {
+          "lower": 0.1,
+          "runners": 11,
+          "predicted": 0.13905629855698545,
+          "observed": 0.18181818181818182
+        },
+        {
+          "lower": 0.2,
+          "runners": 5,
+          "predicted": 0.24172625413731338,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3114348761990061,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.20676562167774012,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 6,
+          "predicted": 0.0836457400034714,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 16,
+          "predicted": 0.14576504953587516,
+          "observed": 0.3125
+        },
+        {
+          "lower": 0.2,
+          "runners": 12,
+          "predicted": 0.24936322953936227,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.3,
+          "runners": 8,
+          "predicted": 0.3503291364196713,
+          "observed": 0.375
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.46340243620403426,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.5610441384145138,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6502390987087413,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7180154309439057,
+          "observed": 0.5
+        }
+      ]
+    },
+    "course:札幌/turf": {
+      "races": 18,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.9260122919474658,
+        "brier": 0.08470760481582144,
+        "top1_hit": 0.2777777777777778
+      },
+      "candidate": {
+        "log_loss": 2.0437395789918273,
+        "brier": 0.0859680912266709,
+        "top1_hit": 0.2222222222222222
+      },
+      "log_loss_delta": 0.11772728704436156,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 142,
+          "predicted": 0.05187171598245489,
+          "observed": 0.04225352112676056
+        },
+        {
+          "lower": 0.1,
+          "runners": 45,
+          "predicted": 0.13664765077737243,
+          "observed": 0.2222222222222222
+        },
+        {
+          "lower": 0.2,
+          "runners": 11,
+          "predicted": 0.2325075810663505,
+          "observed": 0.09090909090909091
+        },
+        {
+          "lower": 0.3,
+          "runners": 2,
+          "predicted": 0.3061089668460614,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.43842357336255633,
+          "observed": 0.3333333333333333
+        }
+      ],
+      "candidate_top3_brier": 0.17204487601952292,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 27,
+          "predicted": 0.07147081148239846,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 62,
+          "predicted": 0.1482689467016571,
+          "observed": 0.11290322580645161
+        },
+        {
+          "lower": 0.2,
+          "runners": 46,
+          "predicted": 0.24476254828136748,
+          "observed": 0.34782608695652173
+        },
+        {
+          "lower": 0.3,
+          "runners": 24,
+          "predicted": 0.3443864014602442,
+          "observed": 0.2916666666666667
+        },
+        {
+          "lower": 0.4,
+          "runners": 25,
+          "predicted": 0.42981259452784615,
+          "observed": 0.56
+        },
+        {
+          "lower": 0.5,
+          "runners": 6,
+          "predicted": 0.5390474509225572,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.6,
+          "runners": 7,
+          "predicted": 0.6284363249831882,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7366750127683377,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.8,
+          "runners": 3,
+          "predicted": 0.8516870570246601,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.9461974982592676,
+          "observed": 1.0
+        }
+      ]
+    },
+    "course:札幌/dirt": {
+      "races": 11,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.1387541361331346,
+        "brier": 0.07186756417226273,
+        "top1_hit": 0.18181818181818182
+      },
+      "candidate": {
+        "log_loss": 2.1102892530490314,
+        "brier": 0.06960457920895148,
+        "top1_hit": 0.2727272727272727
+      },
+      "log_loss_delta": -0.028464883084103464,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 102,
+          "predicted": 0.05457734997868346,
+          "observed": 0.029411764705882353
+        },
+        {
+          "lower": 0.1,
+          "runners": 29,
+          "predicted": 0.14405018216272064,
+          "observed": 0.20689655172413793
+        },
+        {
+          "lower": 0.2,
+          "runners": 5,
+          "predicted": 0.2511310038910778,
+          "observed": 0.4
+        }
+      ],
+      "candidate_top3_brier": 0.16697824290277566,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 21,
+          "predicted": 0.07692759868209664,
+          "observed": 0.09523809523809523
+        },
+        {
+          "lower": 0.1,
+          "runners": 41,
+          "predicted": 0.15497718896274285,
+          "observed": 0.0975609756097561
+        },
+        {
+          "lower": 0.2,
+          "runners": 38,
+          "predicted": 0.24006158534911945,
+          "observed": 0.2894736842105263
+        },
+        {
+          "lower": 0.3,
+          "runners": 16,
+          "predicted": 0.3434164935286841,
+          "observed": 0.3125
+        },
+        {
+          "lower": 0.4,
+          "runners": 11,
+          "predicted": 0.4631571109831535,
+          "observed": 0.7272727272727273
+        },
+        {
+          "lower": 0.5,
+          "runners": 6,
+          "predicted": 0.5395559897479075,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6531429984166188,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 2,
+          "predicted": 0.7141221913796387,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-08": {
+      "races": 20,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.1196324362129055,
+        "brier": 0.06777660389057603,
+        "top1_hit": 0.35
+      },
+      "candidate": {
+        "log_loss": 2.032412227774441,
+        "brier": 0.06975682004780107,
+        "top1_hit": 0.3
+      },
+      "log_loss_delta": -0.08722020843846476,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 195,
+          "predicted": 0.05141866553433589,
+          "observed": 0.035897435897435895
+        },
+        {
+          "lower": 0.1,
+          "runners": 43,
+          "predicted": 0.1376800273267441,
+          "observed": 0.16279069767441862
+        },
+        {
+          "lower": 0.2,
+          "runners": 10,
+          "predicted": 0.22847562784143932,
+          "observed": 0.4
+        },
+        {
+          "lower": 0.3,
+          "runners": 4,
+          "predicted": 0.33508960689799905,
+          "observed": 0.25
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.428004339748116,
+          "observed": 1.0
+        }
+      ],
+      "candidate_top3_brier": 0.16074521536164807,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 44,
+          "predicted": 0.0723221350581,
+          "observed": 0.022727272727272728
+        },
+        {
+          "lower": 0.1,
+          "runners": 85,
+          "predicted": 0.15019060632660622,
+          "observed": 0.12941176470588237
+        },
+        {
+          "lower": 0.2,
+          "runners": 59,
+          "predicted": 0.2487863570892671,
+          "observed": 0.3728813559322034
+        },
+        {
+          "lower": 0.3,
+          "runners": 32,
+          "predicted": 0.34393106421810204,
+          "observed": 0.28125
+        },
+        {
+          "lower": 0.4,
+          "runners": 11,
+          "predicted": 0.4385762397800114,
+          "observed": 0.36363636363636365
+        },
+        {
+          "lower": 0.5,
+          "runners": 13,
+          "predicted": 0.5480508007049745,
+          "observed": 0.5384615384615384
+        },
+        {
+          "lower": 0.6,
+          "runners": 4,
+          "predicted": 0.6479496656306329,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.7259914715986149,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.8,
+          "runners": 2,
+          "predicted": 0.8243316361864381,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-09": {
+      "races": 8,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.820485441160595,
+        "brier": 0.06821171244917341,
+        "top1_hit": 0.625
+      },
+      "candidate": {
+        "log_loss": 1.9391702611926147,
+        "brier": 0.0711446511602085,
+        "top1_hit": 0.625
+      },
+      "log_loss_delta": 0.11868482003201972,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 74,
+          "predicted": 0.055001724952578615,
+          "observed": 0.02702702702702703
+        },
+        {
+          "lower": 0.1,
+          "runners": 14,
+          "predicted": 0.13440752839797573,
+          "observed": 0.14285714285714285
+        },
+        {
+          "lower": 0.2,
+          "runners": 5,
+          "predicted": 0.22518882131271184,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.32561339952643686,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 1,
+          "predicted": 0.5966094498475263,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.15867629743330067,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 12,
+          "predicted": 0.07279045277320974,
+          "observed": 0.16666666666666666
+        },
+        {
+          "lower": 0.1,
+          "runners": 31,
+          "predicted": 0.1538976027683484,
+          "observed": 0.0967741935483871
+        },
+        {
+          "lower": 0.2,
+          "runners": 28,
+          "predicted": 0.2562554665307496,
+          "observed": 0.17857142857142858
+        },
+        {
+          "lower": 0.3,
+          "runners": 10,
+          "predicted": 0.3328532427806631,
+          "observed": 0.3
+        },
+        {
+          "lower": 0.4,
+          "runners": 6,
+          "predicted": 0.44731147037770347,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.5,
+          "runners": 5,
+          "predicted": 0.5558586117469393,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.6,
+          "runners": 1,
+          "predicted": 0.6744791496666561,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7643391431166463,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.9,
+          "runners": 1,
+          "predicted": 0.9500232164508452,
+          "observed": 0.0
+        }
+      ]
+    },
+    "month:2025-10": {
+      "races": 73,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.2229777712768297,
+        "brier": 0.0685179163951327,
+        "top1_hit": 0.3287671232876712
+      },
+      "candidate": {
+        "log_loss": 2.21564668841552,
+        "brier": 0.06809788752794438,
+        "top1_hit": 0.2876712328767123
+      },
+      "log_loss_delta": -0.007331082861309387,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 750,
+          "predicted": 0.04818430970130017,
+          "observed": 0.04
+        },
+        {
+          "lower": 0.1,
+          "runners": 163,
+          "predicted": 0.13301041612759287,
+          "observed": 0.15337423312883436
+        },
+        {
+          "lower": 0.2,
+          "runners": 37,
+          "predicted": 0.23706116923830828,
+          "observed": 0.32432432432432434
+        },
+        {
+          "lower": 0.3,
+          "runners": 12,
+          "predicted": 0.3343271999401572,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.44653860848613197,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5291322043347719,
+          "observed": 0.5
+        }
+      ],
+      "candidate_top3_brier": 0.15038253682388375,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 187,
+          "predicted": 0.06975153834318257,
+          "observed": 0.053475935828877004
+        },
+        {
+          "lower": 0.1,
+          "runners": 353,
+          "predicted": 0.1505251500193828,
+          "observed": 0.12181303116147309
+        },
+        {
+          "lower": 0.2,
+          "runners": 201,
+          "predicted": 0.23933818823667172,
+          "observed": 0.25870646766169153
+        },
+        {
+          "lower": 0.3,
+          "runners": 102,
+          "predicted": 0.3439491502475643,
+          "observed": 0.37254901960784315
+        },
+        {
+          "lower": 0.4,
+          "runners": 53,
+          "predicted": 0.44677662727293466,
+          "observed": 0.5660377358490566
+        },
+        {
+          "lower": 0.5,
+          "runners": 35,
+          "predicted": 0.5534903027367563,
+          "observed": 0.5142857142857142
+        },
+        {
+          "lower": 0.6,
+          "runners": 12,
+          "predicted": 0.6442298890831203,
+          "observed": 0.75
+        },
+        {
+          "lower": 0.7,
+          "runners": 17,
+          "predicted": 0.7492397611830991,
+          "observed": 0.8235294117647058
+        },
+        {
+          "lower": 0.8,
+          "runners": 5,
+          "predicted": 0.8462133284674291,
+          "observed": 0.6
+        },
+        {
+          "lower": 0.9,
+          "runners": 2,
+          "predicted": 0.9405360597304436,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-11": {
+      "races": 11,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.22450769376961,
+        "brier": 0.07058732002136937,
+        "top1_hit": 0.2727272727272727
+      },
+      "candidate": {
+        "log_loss": 2.137682503169316,
+        "brier": 0.06849188046700873,
+        "top1_hit": 0.2727272727272727
+      },
+      "log_loss_delta": -0.08682519060029405,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 111,
+          "predicted": 0.048340195182832,
+          "observed": 0.036036036036036036
+        },
+        {
+          "lower": 0.1,
+          "runners": 28,
+          "predicted": 0.1466682226548917,
+          "observed": 0.21428571428571427
+        },
+        {
+          "lower": 0.2,
+          "runners": 5,
+          "predicted": 0.23553915958921876,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.3498323024225858,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.1295775724174537,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 36,
+          "predicted": 0.07153891350623556,
+          "observed": 0.027777777777777776
+        },
+        {
+          "lower": 0.1,
+          "runners": 42,
+          "predicted": 0.15169251905331332,
+          "observed": 0.047619047619047616
+        },
+        {
+          "lower": 0.2,
+          "runners": 31,
+          "predicted": 0.2466703317444221,
+          "observed": 0.2903225806451613
+        },
+        {
+          "lower": 0.3,
+          "runners": 16,
+          "predicted": 0.34594340387899697,
+          "observed": 0.5625
+        },
+        {
+          "lower": 0.4,
+          "runners": 6,
+          "predicted": 0.44928146401665875,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.5,
+          "runners": 10,
+          "predicted": 0.5263030750227037,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6716047354673919,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.7366288931905847,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8330806689429666,
+          "observed": 1.0
+        }
+      ]
+    },
+    "month:2025-12": {
+      "races": 6,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.6119712685736736,
+        "brier": 0.06851452745634459,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 2.6204903741567187,
+        "brier": 0.06617845280876013,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": 0.008519105583045325,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 74,
+          "predicted": 0.04881831324113826,
+          "observed": 0.05405405405405406
+        },
+        {
+          "lower": 0.1,
+          "runners": 11,
+          "predicted": 0.14348076401668655,
+          "observed": 0.18181818181818182
+        },
+        {
+          "lower": 0.2,
+          "runners": 2,
+          "predicted": 0.2234607388363514,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.3,
+          "runners": 1,
+          "predicted": 0.36223493829951403,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.13569692689057236,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 21,
+          "predicted": 0.06801406639899281,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 34,
+          "predicted": 0.15597143665511592,
+          "observed": 0.17647058823529413
+        },
+        {
+          "lower": 0.2,
+          "runners": 18,
+          "predicted": 0.24403842454469526,
+          "observed": 0.2222222222222222
+        },
+        {
+          "lower": 0.3,
+          "runners": 7,
+          "predicted": 0.35837635575841303,
+          "observed": 0.42857142857142855
+        },
+        {
+          "lower": 0.4,
+          "runners": 3,
+          "predicted": 0.4593910127947427,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.5,
+          "runners": 4,
+          "predicted": 0.5522167987787994,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 1,
+          "predicted": 0.780309393734377,
+          "observed": 1.0
+        }
+      ]
+    },
+    "distance:4000": {
+      "races": 1,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "exploratory; 2025 is not an unseen holdout",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 2.246369303328202,
+        "brier": 0.09938876086342782,
+        "top1_hit": 0.0
+      },
+      "candidate": {
+        "log_loss": 1.922218360996353,
+        "brier": 0.08546004529454837,
+        "top1_hit": 0.0
+      },
+      "log_loss_delta": -0.32415094233184916,
+      "race_bootstrap_95pct_delta": null,
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 7,
+          "predicted": 0.058113775270642785,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 1,
+          "predicted": 0.1462820954327976,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 2,
+          "predicted": 0.2234607388363514,
+          "observed": 0.0
+        }
+      ],
+      "candidate_top3_brier": 0.15222316159736093,
+      "top3_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 1,
+          "predicted": 0.09842204375607196,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.1,
+          "runners": 3,
+          "predicted": 0.18010354300303866,
+          "observed": 0.0
+        },
+        {
+          "lower": 0.2,
+          "runners": 3,
+          "predicted": 0.24365667205025363,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.4,
+          "runners": 1,
+          "predicted": 0.4409774845403741,
+          "observed": 1.0
+        },
+        {
+          "lower": 0.5,
+          "runners": 2,
+          "predicted": 0.5946599132718384,
+          "observed": 0.5
+        }
+      ]
+    }
+  },
+  "strict_historical_publication_verified": false,
+  "forward_observed_races": 0,
+  "production_eligible": false,
+  "promotion_decision": "wait_for_both_lags",
+  "odds_basis": "post_race_final_hindsight_reference",
+  "live_bet_generation": false,
+  "virtual_capital": {
+    "previous": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 60750,
+      "stake_yen": 71600.0,
+      "payout_yen": 32350.0,
+      "return_pct": 45.18156424581006,
+      "maximum_drawdown": 0.39431704885343966,
+      "pending_races": 29,
+      "bet_races": 716,
+      "longest_losing_streak": 56,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.03709428129829984,
+      "return_pct_without_largest_payout": 43.50558659217877,
+      "return_pct_without_top3_payouts": 40.33519553072626,
+      "cash_after_known_settlements": 57850.0,
+      "unresolved_reserved_cost": 2900.0,
+      "maximum_entry_exposure": 0.1,
+      "rule": {
+        "initial": 100000,
+        "race_budget": 5000,
+        "race_fraction": 0.02,
+        "exposure_fraction": 0.1
+      },
+      "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+    },
+    "candidate": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 69460,
+      "stake_yen": 73800.0,
+      "payout_yen": 43260.0,
+      "return_pct": 58.61788617886179,
+      "maximum_drawdown": 0.31104939496131717,
+      "pending_races": 26,
+      "bet_races": 738,
+      "longest_losing_streak": 58,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.1287563569116967,
+      "return_pct_without_largest_payout": 51.070460704607044,
+      "return_pct_without_top3_payouts": 43.42818428184282,
+      "cash_after_known_settlements": 66860.0,
+      "unresolved_reserved_cost": 2600.0,
+      "maximum_entry_exposure": 0.1,
+      "rule": {
+        "initial": 100000,
+        "race_budget": 5000,
+        "race_fraction": 0.02,
+        "exposure_fraction": 0.1
+      },
+      "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+    }
+  },
+  "final_odds_reference": {
+    "previous": {
+      "races": 345,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "hindsight_reference_not_live_validation",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.9587199370444592,
+        "brier": 0.06318685095894616,
+        "top1_hit": 0.3188405797101449
+      },
+      "candidate": {
+        "log_loss": 2.282720287374985,
+        "brier": 0.06977644151030386,
+        "top1_hit": 0.25217391304347825
+      },
+      "log_loss_delta": 0.32400035033052543,
+      "race_bootstrap_95pct_delta": [
+        0.25083192247940966,
+        0.3927357940149631
+      ],
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 3669,
+          "predicted": 0.04498585171842755,
+          "observed": 0.047151812482965384
+        },
+        {
+          "lower": 0.1,
+          "runners": 674,
+          "predicted": 0.13794577795231416,
+          "observed": 0.14985163204747776
+        },
+        {
+          "lower": 0.2,
+          "runners": 165,
+          "predicted": 0.24174948945239064,
+          "observed": 0.20606060606060606
+        },
+        {
+          "lower": 0.3,
+          "runners": 70,
+          "predicted": 0.34645727396310483,
+          "observed": 0.32857142857142857
+        },
+        {
+          "lower": 0.4,
+          "runners": 29,
+          "predicted": 0.4354406528159045,
+          "observed": 0.3448275862068966
+        },
+        {
+          "lower": 0.5,
+          "runners": 11,
+          "predicted": 0.5398341802162633,
+          "observed": 0.18181818181818182
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6407471499662957,
+          "observed": 0.5
+        },
+        {
+          "lower": 0.7,
+          "runners": 3,
+          "predicted": 0.7195951966570838,
+          "observed": 0.3333333333333333
+        },
+        {
+          "lower": 0.8,
+          "runners": 1,
+          "predicted": 0.8245459642237989,
+          "observed": 0.0
+        }
+      ],
+      "odds_basis": "post_race_final",
+      "actionable_before_off": false,
+      "post_race_value_rule": "maximum p*final_odds >= 1.05; one 100-yen reference bet per race",
+      "post_race_value_settlement": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 90440,
+        "stake_yen": 34500.0,
+        "payout_yen": 24940.0,
+        "return_pct": 72.28985507246377,
+        "maximum_drawdown": 0.233,
+        "pending_races": 0
+      },
+      "stress": {
+        "None": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 90440,
+          "stake_yen": 34500.0,
+          "payout_yen": 24940.0,
+          "return_pct": 72.28985507246377,
+          "maximum_drawdown": 0.233,
+          "pending_races": 0,
+          "bet_races": 345,
+          "longest_losing_streak": 148,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.6832397754611067,
+          "return_pct_without_largest_payout": 22.89855072463768,
+          "return_pct_without_top3_payouts": 1.2463768115942029
+        },
+        "50": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 90620,
+          "stake_yen": 34300.0,
+          "payout_yen": 24920.0,
+          "return_pct": 72.65306122448979,
+          "maximum_drawdown": 0.0986,
+          "pending_races": 0,
+          "bet_races": 343,
+          "longest_losing_streak": 54,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.16813804173354735,
+          "return_pct_without_largest_payout": 60.43731778425656,
+          "return_pct_without_top3_payouts": 38.57142857142857
+        },
+        "100": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 80330,
+          "stake_yen": 34500.0,
+          "payout_yen": 14830.0,
+          "return_pct": 42.98550724637681,
+          "maximum_drawdown": 0.1967,
+          "pending_races": 0,
+          "bet_races": 345,
+          "longest_losing_streak": 148,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.4079568442346595,
+          "return_pct_without_largest_payout": 25.44927536231884,
+          "return_pct_without_top3_payouts": 9.478260869565217
+        }
+      }
+    },
+    "candidate": {
+      "races": 345,
+      "brier_definition": "mean over runners, then mean over races",
+      "evaluation_role": "hindsight_reference_not_live_validation",
+      "forward_target_races": 100,
+      "baseline": {
+        "log_loss": 1.9587199370444592,
+        "brier": 0.06318685095894616,
+        "top1_hit": 0.3188405797101449
+      },
+      "candidate": {
+        "log_loss": 2.2593512227602766,
+        "brier": 0.06888385866450046,
+        "top1_hit": 0.2463768115942029
+      },
+      "log_loss_delta": 0.30063128571581754,
+      "race_bootstrap_95pct_delta": [
+        0.23119323383931076,
+        0.36438157364530777
+      ],
+      "win_calibration": [
+        {
+          "lower": 0.0,
+          "runners": 3623,
+          "predicted": 0.04802280505552129,
+          "observed": 0.04609439690863925
+        },
+        {
+          "lower": 0.1,
+          "runners": 758,
+          "predicted": 0.13595959517364378,
+          "observed": 0.14643799472295516
+        },
+        {
+          "lower": 0.2,
+          "runners": 173,
+          "predicted": 0.23930802469410378,
+          "observed": 0.24277456647398843
+        },
+        {
+          "lower": 0.3,
+          "runners": 50,
+          "predicted": 0.33739216161687485,
+          "observed": 0.38
+        },
+        {
+          "lower": 0.4,
+          "runners": 15,
+          "predicted": 0.44803305568355556,
+          "observed": 0.2
+        },
+        {
+          "lower": 0.5,
+          "runners": 3,
+          "predicted": 0.5592114061224484,
+          "observed": 0.6666666666666666
+        },
+        {
+          "lower": 0.6,
+          "runners": 2,
+          "predicted": 0.6439888678399879,
+          "observed": 0.5
+        }
+      ],
+      "odds_basis": "post_race_final",
+      "actionable_before_off": false,
+      "post_race_value_rule": "maximum p*final_odds >= 1.05; one 100-yen reference bet per race",
+      "post_race_value_settlement": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 71550,
+        "stake_yen": 34500.0,
+        "payout_yen": 6050.0,
+        "return_pct": 17.536231884057973,
+        "maximum_drawdown": 0.2845,
+        "pending_races": 0
+      },
+      "stress": {
+        "None": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 71550,
+          "stake_yen": 34500.0,
+          "payout_yen": 6050.0,
+          "return_pct": 17.536231884057973,
+          "maximum_drawdown": 0.2845,
+          "pending_races": 0,
+          "bet_races": 345,
+          "longest_losing_streak": 208,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "50": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 80420,
+          "stake_yen": 34200.0,
+          "payout_yen": 14620.0,
+          "return_pct": 42.748538011695906,
+          "maximum_drawdown": 0.20418118466898955,
+          "pending_races": 0,
+          "bet_races": 342,
+          "longest_losing_streak": 91,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.2496580027359781,
+          "return_pct_without_largest_payout": 32.07602339181287,
+          "return_pct_without_top3_payouts": 16.28654970760234
+        },
+        "100": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 86870,
+          "stake_yen": 34500.0,
+          "payout_yen": 21370.0,
+          "return_pct": 61.94202898550725,
+          "maximum_drawdown": 0.17313915857605178,
+          "pending_races": 0,
+          "bet_races": 345,
+          "longest_losing_streak": 104,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.28310715956948995,
+          "return_pct_without_largest_payout": 44.405797101449274,
+          "return_pct_without_top3_payouts": 13.507246376811594
+        }
+      }
+    }
+  },
+  "diagnostic_ablations": {
+    "without_grade_hierarchy": {
+      "log_loss": 2.2518358959731124,
+      "races": 396,
+      "role": "diagnostic_only_not_a_2025_selection_rule"
+    },
+    "without_margin_opponent_speed": {
+      "log_loss": 2.2525479808542723,
+      "races": 396,
+      "role": "diagnostic_only_not_a_2025_selection_rule"
+    },
+    "without_style": {
+      "log_loss": 2.2478252788642883,
+      "races": 396,
+      "role": "diagnostic_only_not_a_2025_selection_rule"
+    }
+  },
+  "input_db_sha256": "e57cb09da808c3c5b25805ce2d55c35e8e86bf6beb44d47710ab03dcc20703ef",
+  "protocol_sha256": "3753f6198d36c76fb9b69f165f86405e5af3573f8739d2f6c2d20c9cbecbb829",
+  "model_artifact_sha256": "9f777d3a12c7d48d0dc8ae4e56e92cbeda949d118ea7ea5f60dc5c4c682d3749",
+  "prediction_rows_sha256": "2a1fae11828c114fd24d1495fdba2bd21c3f48758cfd4a05f7cec44d4ca7c364",
+  "probability_sum_max_error": 2.220446049250313e-16,
+  "source_code_sha256": {
+    "backtest_engine.py": "e7abdc5d3d7c171894848d21eda8c40ead94ee7a25f8ea41e101bb99c5eded10",
+    "official_import.py": "d15a80e55cb22410d2cfd28de3f3a0a95feca18f3aa6e082813c65f8fcb3d030",
+    "result_odds.py": "f92c375ee6e45354b55142f07b8f2a35029a2133d05920a69a70a221be2ada89",
+    "historical_replay.py": "ca3e4441f7597b2e15c27e20d9f2219ce351cf283191150ce144ef7960cb220b",
+    "final_market_judgement.py": "d75661ace13ffcccdbdc6702ca9708c6a54011f5520a4cdf7edde231b74ae3a9",
+    "improvements.py": "18880cd0b5849919a1c3ebbe6df9f0209ba2e3c012cac9dc60d10ebf377d0cac",
+    "fitted_model.py": "f79c21f51b4344841ccde5f647f80816900321364765a806fc0c1ce258ba2ff5",
+    "annual_parser.py": "fe3b6cb175ad58e444d299c0e10cde3a24fe84814b257dee47b9ec8aaf68860b",
+    "features.py": "2c9b74151969326b5eb53f47b50f2c67011e44db769dd8f2c4cd61bd8b8c03c5",
+    "validation.py": "8b43b88ea11d6ac6e441e381d4c36d52d2f6ea16f8c0a3425fc3a7e53c1ce307",
+    "archive_completion.py": "4982639a13b33be3c51bb21016a843e3ee5dd009af4fc50643b828a078280163",
+    "official_linkage.py": "ad2e022cbc2826afad2cec3e23cd2bd26882a8a1e9dc61b4a23cc65856a4290d",
+    "point_in_time.py": "5dd2aeb4bec34bb3a44af0a9251e1e61df2a39a5c228230c1c8eb669f94c10db",
+    "annual_reports.py": "f40c00bb4531983442623bf2b5b326e3ecad490eda563d03565589bd56d610c7",
+    "annual_export.py": "a95578e108a1746a4cff568eb948b9ca18d93fe1fb2dfb00092d2e1647e6719e",
+    "outline_digits.py": "c5a330ee405bb5130a1ae6c2bfd358a79d61078612bf311b0e7346f1c16e77e3",
+    "live_predict.py": "ef1d1e724988c87ceeeaffe0a5963d53de6ed5dd90adc201a61cefcb48daae36",
+    "enriched_features.py": "b72fba409518c27a35989d8edb9aae44d4d1923b252f6450d1538f06edb353f5",
+    "model.py": "789f36992f0c1ef1456410c09e03ab40d5cd42b3762091d2b528c7c6940ee525",
+    "jra_pdf_archive.py": "7ea8e0dbcef85ecb567f703a32e4502a081a21603f7e18cd7ddbfb115c6af703",
+    "completion_validation.py": "47ab42a95c4c337a1b3cc47c430fadca7c61e086f102bee7f091fd37afd54a69",
+    "production_pipeline.py": "f62e7e835625ca712304fb6f55fb5f4738b84660390265df8c08d6bb91242810",
+    "risk_replay.py": "39a8156fb7422275c4a3499c252483320dccb382bd5210a139d28823b7b2e098",
+    "bulk_ingest.py": "9e86f4eb5d6b907141e31dcfc098de6fd5fcf061c2a293c5dc1dd72b1d282f31",
+    "strategy.py": "4a1ae9b67330972f8c5d605c22fa7759ac4ffe0ace77cf32de777f3d96cfb16a",
+    "verify_and_promote.py": "53b25f342f37d3115072ccd5361e733509d32efbd801a0e3c926528ad6892790",
+    "pipeline.py": "c757ea4aa832a6b57351e4f95b8fff6a7a86d271fdcb377f2810346df3b29fd8",
+    "pdf_runner_parser.py": "ef3d5d1aab91dbed1cab49d64c8bb1e68a15968bc355d1fded4a3d5cb283bc37"
+  },
+  "external_data_dependencies": [
+    "historical exact publication and pre-off going observation times unavailable",
+    "official rider code absent in some result rows: neutral prior",
+    "complete final wide/trio losing quotes unavailable: combination EV blocked",
+    "future forward results do not exist yet"
+  ],
+  "live_model_promotion_approved": false,
+  "deployment_decision": {
+    "original_protocol_probability_eligibility": true,
+    "promote_experimental_probability_only": false,
+    "user_final_odds_axis_passed": false,
+    "operational_veto": "candidate final-odds reference return must not deteriorate and must reach 100%; post-experiment deployment review",
+    "active_model_decision": "keep_previous_active_model",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "rule": "both lags lower NLL and day-cluster bootstrap 95% upper delta < 0; probability-only experimental activation",
+    "evaluated_lags": [
+      2,
+      7
+    ]
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "original_protocol_probability_eligibility": true,
+  "promote_experimental_probability_only": false,
+  "user_final_odds_axis_passed": false,
+  "operational_veto": "candidate final-odds reference return must not deteriorate and must reach 100%; post-experiment deployment review",
+  "active_model_decision": "keep_previous_active_model",
+  "strict_production_validated": false,
+  "live_bet_generation": false,
+  "rule": "both lags lower NLL and day-cluster bootstrap 95% upper delta < 0; probability-only experimental activation",
+  "evaluated_lags": [
+    2,
+    7
+  ]
+}

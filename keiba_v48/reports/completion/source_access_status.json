@@ -1,0 +1,7 @@
+{
+  "status": "stopped_at_http_403",
+  "url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202501071020250524%2F09",
+  "automatic_retry": false,
+  "evidence": "crawl.log",
+  "cached_source_objects": 1438
+}

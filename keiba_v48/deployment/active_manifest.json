@@ -15,5 +15,12 @@
     "races": 218,
     "win_top1": 0.26605504587155965,
     "fixed_top1_return_pct": 78.57798165137615
+  },
+  "last_review": {
+    "reviewed_at": "2026-10-19T10:40:55.116132+00:00",
+    "status": "candidate_rejected_final_odds_axis",
+    "report": "../reports/completion/adoption_decision.json",
+    "paired_races": 396,
+    "model_unchanged": true
   }
 }

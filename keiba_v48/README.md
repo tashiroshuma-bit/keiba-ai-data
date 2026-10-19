@@ -1,5 +1,7 @@
 # v4.8 学習・検証パイプライン
 
+最新の追加実装・396レース比較・本番昇格見送りは **[COMPLETION_RESULTS.md](COMPLETION_RESULTS.md)** を参照。以下の旧記録と区別してください。
+
 最新の[結果オッズ基準・確率予測の試験本番採用](PRODUCTION_POLICY.md)に、2025年218レースの検証、未連携IDの原因、稼働コマンドを記録しています。
 
 重賞・一般競走を含む公式年度別全成績の取り込みは [ANNUAL_IMPORT.md](ANNUAL_IMPORT.md) を参照。

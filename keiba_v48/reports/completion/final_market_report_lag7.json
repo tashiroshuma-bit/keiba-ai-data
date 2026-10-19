@@ -1,0 +1,196 @@
+{
+  "races": 345,
+  "brier_definition": "mean over runners, then mean over races",
+  "evaluation_role": "follow-up exploratory; 2025 initial outcome motivated this method; not an unseen holdout",
+  "forward_target_races": 100,
+  "baseline": {
+    "log_loss": 1.9587199370444592,
+    "brier": 0.06318685095894616,
+    "top1_hit": 0.3188405797101449
+  },
+  "candidate": {
+    "log_loss": 1.9587199370444592,
+    "brier": 0.06318685095894616,
+    "top1_hit": 0.3188405797101449
+  },
+  "log_loss_delta": 0.0,
+  "race_bootstrap_95pct_delta": [
+    0.0,
+    0.0
+  ],
+  "win_calibration": [
+    {
+      "lower": 0.0,
+      "runners": 3465,
+      "predicted": 0.029635585188201884,
+      "observed": 0.027705627705627706
+    },
+    {
+      "lower": 0.1,
+      "runners": 704,
+      "predicted": 0.14157175275774084,
+      "observed": 0.15198863636363635
+    },
+    {
+      "lower": 0.2,
+      "runners": 247,
+      "predicted": 0.24045206745140096,
+      "observed": 0.23481781376518218
+    },
+    {
+      "lower": 0.3,
+      "runners": 130,
+      "predicted": 0.3485620334544953,
+      "observed": 0.3923076923076923
+    },
+    {
+      "lower": 0.4,
+      "runners": 54,
+      "predicted": 0.4474204573106922,
+      "observed": 0.3888888888888889
+    },
+    {
+      "lower": 0.5,
+      "runners": 19,
+      "predicted": 0.5355721536911663,
+      "observed": 0.5263157894736842
+    },
+    {
+      "lower": 0.6,
+      "runners": 2,
+      "predicted": 0.6251323630256038,
+      "observed": 0.0
+    },
+    {
+      "lower": 0.7,
+      "runners": 2,
+      "predicted": 0.7579886640617313,
+      "observed": 0.5
+    },
+    {
+      "lower": 0.8,
+      "runners": 1,
+      "predicted": 0.8386407027662793,
+      "observed": 1.0
+    }
+  ],
+  "odds_basis": "post_race_final",
+  "actionable_before_off": false,
+  "post_race_value_rule": "maximum p*final_odds >= 1.05; one 100-yen reference bet per race",
+  "post_race_value_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 100000,
+    "stake_yen": 0.0,
+    "payout_yen": 0.0,
+    "return_pct": null,
+    "maximum_drawdown": 0.0,
+    "pending_races": 0
+  },
+  "lag_days": 7,
+  "calibration": {
+    "protocol": {
+      "version": "final-market-judgement-1",
+      "selection_year": 2024,
+      "exploratory_evaluation_year": 2025,
+      "structural_weights": [
+        0.0,
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "selection_metric": "calibration_log_loss",
+      "threshold": 1.05,
+      "default_tie": "smaller_structural_weight",
+      "odds_basis": "post_race_final",
+      "actionable_before_off": false,
+      "motivation": "structural models failed the requested final-odds return axis in the initial exploratory comparison",
+      "data_limit": "partial official ID/source coverage after HTTP 403; not a random JRA population sample"
+    },
+    "structural_weight": 0.0,
+    "calibration_races": 476,
+    "grid": [
+      {
+        "structural_weight": 0.0,
+        "log_loss": 1.909360887314902
+      },
+      {
+        "structural_weight": 0.1,
+        "log_loss": 1.9220650950222484
+      },
+      {
+        "structural_weight": 0.25,
+        "log_loss": 1.9507415775730799
+      },
+      {
+        "structural_weight": 0.5,
+        "log_loss": 2.018343536040459
+      },
+      {
+        "structural_weight": 0.75,
+        "log_loss": 2.114488050440103
+      },
+      {
+        "structural_weight": 1.0,
+        "log_loss": 2.2596146172561378
+      }
+    ],
+    "calibration_end": "2025-01-04T00:00:00+09:00",
+    "research_only": true
+  },
+  "available_test_races": 345,
+  "excluded_missing_final_odds_races": 51,
+  "final_odds_stress": {
+    "None": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "50": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "100": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    }
+  },
+  "input_db_sha256": "e57cb09da808c3c5b25805ce2d55c35e8e86bf6beb44d47710ab03dcc20703ef",
+  "structural_model_file_sha256": "9f777d3a12c7d48d0dc8ae4e56e92cbeda949d118ea7ea5f60dc5c4c682d3749",
+  "source_sha256": "d75661ace13ffcccdbdc6702ca9708c6a54011f5520a4cdf7edde231b74ae3a9",
+  "protocol_sha256": "8e24ada8aa4e875dc4dd7e4ed4b15a868fb270b8ba1bc3a53ec5a845159c8924",
+  "deployment_decision": "do_not_generate_live_bets_or_claim_profit; preserve existing active structural model"
+}

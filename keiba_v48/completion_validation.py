@@ -200,12 +200,30 @@ def evaluate(db_path,previous_path,output,lag,iterations=400,reference_path=None
     return report
 
 
+def adoption_decision(reports,lags):
+    eligible=(set(lags)=={2,7} and all(r['log_loss_delta']<0 and r['day_cluster_95pct_log_loss_delta'][1]<0 for r in reports))
+    # Additional operational veto under the user's final-odds judgement axis.
+    # This is a deployment rejection after the initial experiment, not a
+    # retrospectively changed model-selection or evaluation protocol.
+    returns=[(r.get('final_odds_reference',{}).get('previous',{}).get('post_race_value_settlement',{}).get('return_pct'),
+              r.get('final_odds_reference',{}).get('candidate',{}).get('post_race_value_settlement',{}).get('return_pct')) for r in reports]
+    final_pass=bool(returns) and all(a is not None and b is not None and b>=a and b>=100 for a,b in returns)
+    return dict(original_protocol_probability_eligibility=eligible,
+                promote_experimental_probability_only=eligible and final_pass,
+                user_final_odds_axis_passed=final_pass,
+                operational_veto='candidate final-odds reference return must not deteriorate and must reach 100%; post-experiment deployment review',
+                active_model_decision='candidate eligible for review' if eligible and final_pass else 'keep_previous_active_model',
+                strict_production_validated=False,live_bet_generation=False,rule=PROTOCOL['promotion'],evaluated_lags=list(lags))
+
+
 def run(db,previous,output,lags=(2,7),iterations=400,reference=None):
     if iterations!=PROTOCOL['iterations']:raise ValueError('optimizer iterations must match frozen protocol')
     reports=[evaluate(db,previous,output,lag,iterations,reference) for lag in lags]
-    promote=(set(lags)=={2,7} and all(r['log_loss_delta']<0 and r['day_cluster_95pct_log_loss_delta'][1]<0 for r in reports))
-    decision=dict(promote_experimental_probability_only=promote,strict_production_validated=False,live_bet_generation=False,
-                  rule=PROTOCOL['promotion'],evaluated_lags=list(lags))
+    decision=adoption_decision(reports,lags)
+    for lag,report in zip(lags,reports):
+        report['live_model_promotion_approved']=decision['promote_experimental_probability_only']
+        report['deployment_decision']=decision
+        Path(output,f'comparison_lag{lag}.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
     Path(output,'adoption_decision.json').write_text(json.dumps(decision,ensure_ascii=False,indent=2));print(json.dumps(decision),flush=True)
     return decision
 

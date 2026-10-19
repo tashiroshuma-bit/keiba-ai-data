@@ -1,0 +1,78 @@
+{
+  "horse_linked_rows": 91430,
+  "jockey_linked_rows": 137586,
+  "both_linked_rows": 88257,
+  "direct_source_row_linked": 15813,
+  "distinct_attested_horses": 9549,
+  "distinct_attested_jockeys": 161,
+  "ambiguous_horse_keys": 0,
+  "ambiguous_jockey_names": 0,
+  "strict_historical_publication_verified_rows": 0,
+  "attested_pdf_jockey_aliases": 8,
+  "source_attested_rows": 16371,
+  "page_statuses": {
+    "error": 1,
+    "matched": 1190
+  },
+  "source_errors": [
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202502110920250531%2F10",
+      "error": "result table unavailable"
+    }
+  ],
+  "rank_disagreements": 0,
+  "linked_rows_by_year": [
+    {
+      "year": "2023",
+      "rows": 47672,
+      "horse_linked": 32917,
+      "jockey_linked": 46237,
+      "both_linked": 31948
+    },
+    {
+      "year": "2024",
+      "rows": 47181,
+      "horse_linked": 31843,
+      "jockey_linked": 45310,
+      "both_linked": 30585
+    },
+    {
+      "year": "2025",
+      "rows": 47884,
+      "horse_linked": 26670,
+      "jockey_linked": 46039,
+      "both_linked": 25724
+    }
+  ],
+  "time_evidence_rows": 10368,
+  "result_page_off_times_recorded": 1187,
+  "verified_exact_publication_times": 0,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "enriched_statuses": {
+    "complete": 1157,
+    "exceptional_or_incomplete": 30
+  },
+  "void_races": [
+    "202404030612",
+    "202408060108",
+    "202505021109"
+  ],
+  "missing_result_or_void_races_count": 9178,
+  "unlinked_causes": {
+    "horse_unlinked": {
+      "no_unique_attested_name_birth_key": 51267,
+      "missing_birth_year": 25,
+      "unresolved_pdf_glyph": 15
+    },
+    "jockey_unlinked": {
+      "no_attested_source_code": 697,
+      "official_result_has_name_but_no_code": 4081,
+      "ambiguous_or_insufficient_pdf_alias": 364,
+      "unresolved_pdf_glyph": 9
+    },
+    "total_horse_unlinked": 51307,
+    "total_jockey_unlinked": 5151
+  },
+  "all_identity_source_hashes_preserved_in_archive": true
+}

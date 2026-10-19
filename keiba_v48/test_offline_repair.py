@@ -89,6 +89,13 @@ class LiveResearchIsolationTests(unittest.TestCase):
 
 
 class PerformanceEvidenceTests(unittest.TestCase):
+    def test_nonwinning_dead_heat_is_valid_for_unique_winner_model(self):
+        from exceptional_results import competition_ranks_are_complete
+        rows=[dict(runner_status='finished',finish_position=n) for n in (1,2,3,3,5)]
+        self.assertTrue(competition_ranks_are_complete(rows))
+        self.assertFalse(competition_ranks_are_complete([dict(runner_status='finished',finish_position=n) for n in (1,1,3)]))
+        self.assertFalse(competition_ranks_are_complete([dict(runner_status='finished',finish_position=n) for n in (1,2,3,3,4)]))
+
     def test_time_prefix_and_same_time_marker_do_not_take_margin_as_decimal(self):
         from pdf_performance import parse_times
         rows=[dict(horse_number=i,horse_name='horse'+str(i),final_win_odds=2+i,finish_time_raw=t) for i,t in enumerate(('1:10.31','〃ク','1:10.8'),1)]

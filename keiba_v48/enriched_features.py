@@ -9,6 +9,7 @@ import sqlite3
 from features import HistoryIndex, build_features, timestamp, finish, shrink, front_status
 from historical_replay import assumed_availability
 from archive_completion import class_info
+from exceptional_results import field_rejection_reasons
 
 
 def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
@@ -71,7 +72,7 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
             win=next((r['win_payout_100'] for r in rows if r.get('finish_position')==1),None)
             for r in rows:r['win_payout_100']=win
             groups[rid]=rows
-    history=[];fields=[];coverage=collections.Counter()
+    history=[];fields=[];coverage=collections.Counter();excluded_races=[]
     for rid,rows in sorted(groups.items()):
         for r in rows:
             r['official_horse_id']=r.get('horse_id')
@@ -88,17 +89,17 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
                 history.append(r)
                 for k in ('margin_seconds','corner4_position','last_3f_rank','relative_speed_z','class_level','gate'):
                     coverage[k]+=r.get(k) is not None
-        ranks=[finish(r) for r in rows if finish(r)]
-        valid=(rid not in unsafe_fields and len(rows)>=3 and len(ranks)>=3 and sorted(ranks)==list(range(1,len(ranks)+1)) and
-               len({r.get('horse_id') for r in rows})==len(rows) and
-               all(r.get('horse_id') and r.get('off_timestamp') and r.get('distance_m') and r.get('surface') and
-                   (finish(r) or r.get('runner_status')=='nonfinisher') for r in rows))
-        if not valid:excluded['incomplete_or_exceptional_races']+=1;continue
+        reasons=field_rejection_reasons(rows,rid in unsafe_fields)
+        if reasons:
+            excluded['incomplete_or_exceptional_races']+=1
+            for reason in reasons:excluded['reason:'+reason]+=1
+            excluded_races.append(dict(race_id=rid,reasons=reasons))
+            continue
         for r in rows:
             fields.append({**r,'going':None,'carried_weight':None,'field_complete':'yes','expected_runners':len(rows),
                            'result_available_at':assumed_availability(r['race_date'],lag_days),'availability_basis':'assumed_calendar_day_lag_for_research_only'})
     db.close()
-    return history,fields,dict(exclusions=dict(excluded),repaired_pdf_races=len(repaired),pdf_performance_races=len(pdf_performance),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields),unlinked_field_policy='isolated_source_row' if allow_unlinked_fields else 'exclude',unlinked_evaluation_rows=sum(r['horse_identity_missing'] for r in fields))
+    return history,fields,dict(exclusions=dict(excluded),excluded_races=excluded_races,repaired_pdf_races=len(repaired),pdf_performance_races=len(pdf_performance),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields),unlinked_field_policy='isolated_source_row' if allow_unlinked_fields else 'exclude',unlinked_evaluation_rows=sum(r['horse_identity_missing'] for r in fields))
 
 
 def history_index(rows,assumed=True):

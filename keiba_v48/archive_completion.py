@@ -14,8 +14,9 @@ import unicodedata
 from official_linkage import (BASE, SourceCache, official_url, parse_result, parse_html,
                               race_key, links, schema, attest, propagate, audit, unlinked_causes)
 from annual_reports import VENUES
+from exceptional_results import competition_ranks_are_complete
 
-PARSER_VERSION = 'official-rich-v3'
+PARSER_VERSION = 'official-rich-v4'
 IDENTITY_FIELDS = ('race_id','race_date','horse_number','horse_name','birth_year','horse_id',
                    'jockey_name','jockey_id','source_finish_position','result_page_off_at','horse_profile_url')
 VOID_SOURCES = [
@@ -99,14 +100,14 @@ def parse_rich(soup,url,meta):
             yen=re.sub(r'\D','',text_at(line,'.yen'))
             if ns and yen:
                 payouts[kind+':'+','.join(map(str,sorted(map(int,ns))))]=int(yen)
-    ranks=[r['finish_position'] for r in active if r.get('finish_position')]
     displayed=[tr for tr in table.select('tbody > tr') if text_at(tr,'td.num').isdigit()]
-    complete=(len(displayed)==len(rows) and len(active)>=3 and len(ranks)>=3 and sorted(ranks)==list(range(1,len(ranks)+1)) and
+    complete=(len(displayed)==len(rows) and competition_ranks_are_complete(active) and
               all(r.get('runner_status') in ('finished','nonfinisher') and r.get('distance_m') and r.get('surface') and r.get('off_timestamp') for r in active))
     return dict(race_id=identities[0]['race_id'],race_date=identities[0]['race_date'],title=title,
                 status='complete' if complete else 'exceptional_or_incomplete',runners=rows,
                 active_horse_numbers=[r['horse_number'] for r in active],payouts=payouts,
-                source_url=meta['url'],source_sha256=meta['sha256'],observed_at=meta['observed_at'],parser_version=PARSER_VERSION)
+                source_url=meta['url'],source_sha256=meta['sha256'],observed_at=meta['observed_at'],parser_version=PARSER_VERSION,
+                outcome_policy='unique_winner_standard_competition_ranks')
 
 
 def crawl(cache_path,seed_urls,max_pages=12000,max_profiles=128,workers=4):

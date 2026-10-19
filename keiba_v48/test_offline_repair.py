@@ -103,6 +103,24 @@ class PerformanceEvidenceTests(unittest.TestCase):
         self.assertEqual([r['finish_time_seconds'] for r in result],[70.3,70.3,70.8])
         self.assertAlmostEqual(result[-1]['margin_seconds'],.5)
 
+    def test_subminute_time_prefix_is_supported(self):
+        from pdf_performance import parse_times
+        rows=[dict(horse_number=i,horse_name='horse'+str(i),final_win_odds=2+i,finish_time_raw=t) for i,t in enumerate(('59.1','59.2ク','1:00.0'),1)]
+        result=parse_times(rows,3,[],'')
+        self.assertEqual([r['finish_time_seconds'] for r in result],[59.1,59.2,60.0])
+
+    def test_printed_race_exclusion_is_a_nonstarter(self):
+        from pdf_performance import EXCEPTION,parse_times
+        rows=[
+            dict(horse_number=1,horse_name='horse1',final_win_odds=2,finish_time_raw='59.1'),
+            dict(horse_number=2,horse_name='horse2',final_win_odds=3,finish_time_raw='59.2'),
+            dict(horse_number=3,horse_name='horse3',final_win_odds=4,finish_time_raw='59.3'),
+            dict(horse_number=4,horse_name='horse4',final_win_odds=None,finish_time_raw='(競走'),
+        ]
+        result=parse_times(rows,3,[EXCEPTION,'missing/invalid final odds: horse 4','runner count mismatch: parsed=4, expected=3'],'horse1 59.1 horse2 59.2 horse3 59.3 horse4 (競走除外) 単勝: 1,000円',True)
+        self.assertEqual([r['runner_status'] for r in result],['finished','finished','finished','nonstarter'])
+        self.assertTrue(all(r['field_size']==3 for r in result))
+
     def test_ties_and_unknown_times_remain_quarantined(self):
         from pdf_performance import parse_times
         rows=[dict(horse_number=i,horse_name='h'+str(i),final_win_odds=2+i,finish_time_raw=t) for i,t in enumerate(('1:10.3','1:10.3','?'),1)]

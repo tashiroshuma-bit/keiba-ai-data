@@ -1,0 +1,46 @@
+{
+  "base_db_sha256": "d76019411f393553ee6789cfe4df8e674e573baf17e78a7b5575a29803a62d0d",
+  "repaired_db_sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+  "repaired_db_bytes": 261660672,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0,
+  "performance_evidence_before": 9467,
+  "performance_evidence_after": 9998,
+  "performance_evidence_added": 531,
+  "payout_evidence_before": 9690,
+  "payout_evidence_after": 9999,
+  "payout_evidence_added": 309,
+  "new_evidence_for_previously_usable_races": 248,
+  "previously_usable_non_null_value_conflicts": 0,
+  "newly_usable_races": 283,
+  "newly_usable_by_year": {
+    "2023": 89,
+    "2024": 97,
+    "2025": 97
+  },
+  "newly_usable_rows": 4008,
+  "newly_usable_runner_statuses": {
+    "finished": 3693,
+    "nonstarter": 285,
+    "nonfinisher": 30
+  },
+  "newly_usable_races_with_subminute_time": 28,
+  "newly_usable_races_with_nonstarter": 270,
+  "newly_usable_races_with_nonfinisher": 27,
+  "strict_field_rank_odds_payout_failures": 0,
+  "usable_races_before": 9773,
+  "usable_races_after": 10056,
+  "usable_by_year_after": {
+    "2023": 3361,
+    "2024": 3362,
+    "2025": 3333
+  },
+  "excluded_races_before": 592,
+  "excluded_races_after": 309,
+  "remaining_exclusion_reasons": {
+    "unsupported_exceptional_result": 210,
+    "unsupported_pdf_extraction_issue": 97,
+    "missing_expected_runner_count": 2
+  },
+  "tests_passed": 132
+}

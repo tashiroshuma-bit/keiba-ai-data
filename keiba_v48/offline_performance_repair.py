@@ -63,6 +63,10 @@ def repair_performance(base,destination):
         overlay=[{k:r.get(k) for k in keys} for r in rows]
         payload=dict(runners=overlay,active_horse_numbers=[r['horse_number'] for r in rows if r['runner_status']!='nonstarter'],complete=True,method='verified_PDF_times_and_complete_field',original_status=race['status'])
         records.append((rid,json.dumps(payload,separators=(',',':'))));counts['performance_races']+=1;counts['performance_rows']+=len(rows)
+    # Rebuild the complete evidence overlay from the immutable annual-report
+    # inputs.  This also makes a later parser correction reproducible from an
+    # already repaired checkpoint instead of requiring the original base DB.
+    db.execute('DROP TABLE IF EXISTS pdf_performance_evidence')
     db.execute('CREATE TABLE pdf_performance_evidence(race_id TEXT PRIMARY KEY,payload_json TEXT NOT NULL)');db.executemany('insert into pdf_performance_evidence values(?,?)',records)
     db.commit();db.execute('VACUUM');dest=sqlite3.connect(destination);db.backup(dest);dest.close();db.close()
     report=dict(counts=counts,rejections=errors,quarantined_source_conflicts=conflicts)

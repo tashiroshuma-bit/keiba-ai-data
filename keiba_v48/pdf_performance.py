@@ -29,8 +29,13 @@ def parse_times(rows,expected,issues,raw_text,allow_exception=False):
     output=[];previous=None;nonfinisher_started=False
     for index,raw in enumerate(rows):
         r=dict(raw);t=re.sub(r'\s+','',r.get('finish_time_raw',''));m=re.match(r'^(\d+):([0-5]\d)\.(\d)',t)
+        short=re.match(r'^([0-5]?\d)\.(\d)',t)
         if m:seconds=int(m[1])*60+int(m[2])+int(m[3])/10;status='finished'
+        elif short:seconds=int(short[1])+int(short[2])/10;status='finished'
         elif t.startswith('〃') and previous is not None:seconds=previous;status='finished'
+        elif t.startswith('(競走') and '競走除外' in sections[index]:
+            r.update(finish_time_seconds=None,runner_status='nonstarter',finish_position=None)
+            output.append(r);continue
         elif '中止' in t or (t.startswith('(競走') and '競走中止' in sections[index]):seconds=None;status='nonfinisher';nonfinisher_started=True
         elif t.startswith('(出走') and any(x in sections[index] for x in ('出走取消','出走除外')):
             r.update(finish_time_seconds=None,runner_status='nonstarter',finish_position=None)

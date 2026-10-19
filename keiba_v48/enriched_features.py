@@ -13,7 +13,7 @@ from archive_completion import class_info
 
 def load_archive(db_path,lag_days=2):
     db=sqlite3.connect('file:'+str(Path(db_path).resolve())+'?mode=ro',uri=True);db.row_factory=sqlite3.Row
-    groups=collections.defaultdict(list);meta={};excluded=collections.Counter(); repaired=[]
+    groups=collections.defaultdict(list);meta={};excluded=collections.Counter(); repaired=[]; unsafe_fields=set()
     tables={r[0] for r in db.execute("select name from sqlite_master where type='table'")}
     void={r[0] for r in db.execute('select race_id from official_void_races')} if 'official_void_races' in tables else set()
     for r in db.execute('''SELECT r.*,h.horse_number,h.horse_id,h.jockey_id,h.payload_json,d.fetched_at
@@ -34,7 +34,9 @@ def load_archive(db_path,lag_days=2):
     if 'enriched_results' in tables:
         for rid,status,payload in db.execute('select race_id,status,payload_json from enriched_results'):
             if rid in void:continue
-            rich=json.loads(payload); prior={int(r['horse_number']):r for r in groups[rid]}
+            rich=json.loads(payload)
+            if status!='complete':unsafe_fields.add(rid)
+            prior={int(r['horse_number']):r for r in groups[rid]}
             if rid not in meta:source_only.append(rid)
             elif status=='complete' and meta[rid]['status']!='validated_result':repaired.append(rid)
             rows=[]
@@ -64,7 +66,7 @@ def load_archive(db_path,lag_days=2):
                 for k in ('margin_seconds','corner4_position','last_3f_rank','relative_speed_z','class_level','gate'):
                     coverage[k]+=r.get(k) is not None
         ranks=[finish(r) for r in rows if finish(r)]
-        valid=(len(rows)>=3 and len(ranks)>=3 and sorted(ranks)==list(range(1,len(ranks)+1)) and
+        valid=(rid not in unsafe_fields and len(rows)>=3 and len(ranks)>=3 and sorted(ranks)==list(range(1,len(ranks)+1)) and
                len({r.get('horse_id') for r in rows})==len(rows) and
                all(r.get('horse_id') and r.get('off_timestamp') and r.get('distance_m') and r.get('surface') and
                    (finish(r) or r.get('runner_status')=='nonfinisher') for r in rows))

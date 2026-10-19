@@ -115,3 +115,59 @@ class CompletionTests(unittest.TestCase):
         loaded=HierarchicalModel.from_dict(m.to_dict());np.testing.assert_allclose(m.scores(races[0]['features']),loaded.scores(races[0]['features']))
 
 if __name__=='__main__':unittest.main()
+
+
+class SourceCompletionTests(unittest.TestCase):
+    def rich_fixture(self):
+        from bs4 import BeautifulSoup
+        html='''<table class="basic narrow-xy"><caption><div class="date_line"><div class="date">2025年5月17日 1回新潟5日</div><div class="time">14時16分</div><div class="baba">芝 良</div></div><div class="race_number"><img alt="9レース"></div><div class="race_title">4歳以上1勝クラス</div><div class="course">2,000メートル (芝)</div></caption><tbody>'''
+        for i,place in enumerate(('1','2','3','中止','取消'),1):
+            html+=f'''<tr><td class="place">{place}</td><td class="num">{i}</td><td class="horse"><a href="/JRADB/accessU.html?CNAME=pw01dud10202010067{i}/D3">馬{i}</a></td><td class="age">牡5</td><td class="jockey">外国騎手</td><td class="time">{'2:00.'+str(i) if i<4 else ''}</td><td class="f_time">34.{i}</td><td class="corner"><ul><li title="4コーナー">{i if i<5 else 1}</li></ul></td><td class="waku"><img alt="枠1"></td></tr>'''
+        html+='</tbody></table><dl><dt>ワイド</dt><dd><div class="line"><span class="num">3 - 1</span><span class="yen">1,200円</span></div></dd></dl>'
+        return BeautifulSoup(html,'lxml')
+
+    def test_official_nonstarter_nonfinisher_and_canonical_payout(self):
+        from archive_completion import parse_rich
+        from test_official_linkage import URL
+        meta=dict(url=URL,sha256='a'*64,observed_at='2026-10-19T10:00:00+00:00')
+        rich=parse_rich(self.rich_fixture(),URL,meta)
+        self.assertEqual(rich['status'],'complete');self.assertEqual(rich['active_horse_numbers'],[1,2,3,4])
+        self.assertEqual(rich['runners'][3]['runner_status'],'nonfinisher')
+        self.assertIsNone(rich['runners'][3]['jockey_id']);self.assertEqual(rich['payouts']['wide:1,3'],1200)
+        self.assertEqual(rich['runners'][0]['going'],'良')
+
+    def test_dead_heat_is_not_a_valid_training_field(self):
+        from archive_completion import parse_rich
+        from test_official_linkage import URL
+        soup=self.rich_fixture();soup.select('td.place')[1].string='1'
+        rich=parse_rich(soup,URL,dict(url=URL,sha256='a'*64,observed_at='2026-10-19T10:00:00+00:00'))
+        self.assertEqual(rich['status'],'exceptional_or_incomplete')
+
+    def test_pdf_repair_does_not_certify_unknown_odds(self):
+        import tempfile,sqlite3,json
+        from pathlib import Path
+        from test_official_linkage import OfficialLinkageTests
+        from enriched_features import load_archive
+        with tempfile.TemporaryDirectory() as root:
+            path,db=OfficialLinkageTests().db_fixture(root)
+            db.execute("update annual_report_races set status='requires_review'")
+            db.execute('CREATE TABLE enriched_results(race_id TEXT PRIMARY KEY,status TEXT,payload_json TEXT)')
+            runners=[]
+            for i in (5,6,7):
+                r=row(i);r.update(race_id='202504010509',race_date='2025-05-17',horse_id='jra:h'+str(i),off_timestamp='2025-05-17T14:16:00+09:00',finish_position=i-4,runner_status='finished',field_size=3,horse_number=i)
+                runners.append(r)
+            rich=dict(runners=runners,active_horse_numbers=[5,6,7],source_url='https://www.jra.go.jp/result',source_sha256='b'*64,observed_at='2026-10-19T01:00:00+00:00',payouts={'win:5':200})
+            db.execute('insert into enriched_results values(?,?,?)',('202504010509','complete',json.dumps(rich)));db.commit();db.close()
+            history,fields,audit=load_archive(path)
+            self.assertEqual(len(fields),3);self.assertTrue(all(r.get('final_win_odds') is None for r in fields));self.assertEqual(audit['repaired_pdf_races'],1)
+
+    def test_settlement_does_not_choose_using_outcomes(self):
+        from completion_validation import settlement
+        rs=[row(i) for i in (1,2,3,4)]
+        for r in rs:r.update(payouts={'win:4':99999,'wide:3,4':99999},win_payout_100=99999)
+        a=settlement(rs,[.4,.3,.2,.1]);self.assertEqual(a['win']['horse_numbers'],['1'])
+        for r in rs:r['finish_position']=5-r['finish_position']
+        b=settlement(rs,[.4,.3,.2,.1]);self.assertEqual(a['win']['horse_numbers'],b['win']['horse_numbers'])
+        self.assertEqual(b['win']['payout_yen'],0)
+        rs[0]['finish_position']=1;rs[0]['win_payout_100']=None;rs[0]['payouts']={}
+        self.assertFalse(settlement(rs,[.4,.3,.2,.1])['win']['fully_settled'])

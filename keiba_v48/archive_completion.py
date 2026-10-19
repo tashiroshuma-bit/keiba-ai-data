@@ -70,7 +70,7 @@ def parse_rich(soup,url,meta):
         r['finish_time_seconds']=60*int(tm[1])+float(tm[2]) if tm else None
         r['finish_position']=r['source_finish_position']
         r['carried_weight']=numeric(text_at(tr,'td.weight'))
-        r['last_3f_seconds']=numeric(text_at(tr,'td.f_time'))
+        r['last_3f_seconds']=numeric(text_at(tr,'td.f_time')) if surface!='jump' else None
         corner=next((li for li in tr.select('td.corner li[title]') if '4コーナー' in li['title']),None)
         r['corner4_position']=int(corner.get_text()) if corner and corner.get_text().isdigit() else None
         gate=tr.select_one('td.waku img[alt]'); gm=re.search(r'枠(\d+)',gate['alt']) if gate else None
@@ -133,7 +133,11 @@ def crawl(cache_path,seed_urls,max_pages=12000,max_profiles=128,workers=4):
                         key=race_key(link)
                         if key and key[0][:4] in ('2023','2024','2025') and link not in queued:
                             queued.add(link);queue.append(link)
-                except PermissionError:raise
+                except PermissionError as e:
+                    report=dict(processed=len(seen),remaining=len(queue),profiles=len(profiles),errors=errors,
+                                stopped_reason='source_refused_request',refused_url=u,error=str(e))
+                    (Path(cache_path)/'crawl_report.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
+                    raise
                 except Exception as e: errors.append({'url':u,'error':str(e)})
             if len(seen)%100==0: print(json.dumps(dict(processed=len(seen),remaining=len(queue),profiles=len(profiles))),flush=True)
     report=dict(processed=len(seen),remaining=len(queue),profiles=len(profiles),errors=errors)
@@ -196,4 +200,4 @@ if __name__=='__main__':
         c=SourceCache(a.cache,'lxml')
         for *_,u in VOID_SOURCES:c.get(u)
     else:out=rebuild(a.base,a.db,a.cache)
-    Path(a.report).write_text(json.dumps(out,ensure_ascii=False,indent=2));print(json.dumps(out,ensure_ascii=False),flush=True)
+    Path(a.report).write_text(json.dumps(out,ensure_ascii=False,indent=2));print(json.dumps({k:v for k,v in out.items() if k not in ('missing_result_or_void_races','pdf_vs_result_page_off_differences','unlinked_causes')},ensure_ascii=False),flush=True)

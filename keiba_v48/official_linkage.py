@@ -97,6 +97,11 @@ class SourceCache:
                 _LOCAL.session = requests.Session()
                 _LOCAL.session.headers['User-Agent'] = 'KeibaPersonalResearch/4.8'
             response = _LOCAL.session.get(url, timeout=(10, 25), allow_redirects=False)
+            if response.status_code != 200:
+                errors=self.folder/'request_errors';errors.mkdir(exist_ok=True)
+                location=response.headers.get('Location')
+                (errors/(stem.name+'.json')).write_text(json.dumps(dict(url=url,status=response.status_code,
+                    location=location if isinstance(location,str) else None,observed_at=dt.datetime.now(dt.timezone.utc).isoformat(),redirect_followed=False)))
             if response.status_code in (401, 403, 429):
                 raise PermissionError(f'source refused request ({response.status_code}): {url}')
             response.raise_for_status()
@@ -246,10 +251,14 @@ def propagate(db):
             jockeys[jockey_name(jname)].add(jid)
             jockey_proof.setdefault((jockey_name(jname), jid), (rid, num))
     aliases = collections.defaultdict(list)
-    alias_query = '''SELECT e.race_id,e.horse_number,h.jockey_name,e.payload_json,e.jockey_id
+    alias_query = '''SELECT e.race_id,e.horse_number,h.jockey_name,e.payload_json,e.jockey_id,h.horse_name,h.payload_json,r.race_date,e.horse_name,e.birth_year
         FROM official_identity_evidence e JOIN annual_report_runners h USING(race_id,horse_number)
+        JOIN annual_report_races r USING(race_id)
         ORDER BY e.race_id,e.horse_number'''
-    for rid,num,raw,payload,jid in db.execute(alias_query):
+    for rid,num,raw,payload,jid,hname,hpayload,date,source_name,source_birth in db.execute(alias_query):
+        proof_row=json.loads(payload);age=re.search(r'(\d+)',json.loads(hpayload).get('sex_age',''))
+        if not age or not date or normalized(hname)!=source_name or int(date[:4])-int(age[1])!=source_birth:
+            continue
         canonical = jockey_name(json.loads(payload).get('jockey_name'))
         alias = jockey_name(raw)
         if alias and canonical and alias != canonical:
@@ -298,7 +307,7 @@ def propagate(db):
                         'exact_source_race_and_runner' if evidence and jid else
                         'multi_race_attested_pdf_alias' if jid and jockey_name(jname) in alias_proofs else 'unique_official_name' if jid else None,
                         *hp,*jp))
-        status = 'official_ids_linked' if hid and jid else 'partially_linked' if hid or jid else row['identity_status']
+        status = 'official_ids_linked' if hid and jid else 'partially_linked' if hid or jid else ('unresolved_font_glyph' if '(cid:' in hname else 'names_only_unlinked')
         row.update(horse_id=hid, jockey_id=jid, identity_status=status)
         changes.append((hid, jid, json.dumps(row, ensure_ascii=False), rid, num))
         counts['horse_linked_rows'] += bool(hid)

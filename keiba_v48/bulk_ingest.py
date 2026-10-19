@@ -25,7 +25,9 @@ def run(db, folder, years=(2023,2024,2025), workers=2, index_dir=None, retry_err
     for year in years:
         try:
             file=Path(index_dir)/f"{year}.html" if index_dir else None
-            html=file.read_bytes() if file and file.exists() else fetch(BASE.format(year=year))
+            if file and not file.exists():
+                raise FileNotFoundError(f'offline index missing: {file}')
+            html=file.read_bytes() if file else fetch(BASE.format(year=year))
             rows=parse_index(html,year)
             c.executemany("""INSERT INTO races(year,race_key,race_date,race_name,venue,course,winner,pdf_url,result_url,index_url)
                 VALUES(:year,:race_key,:race_date,:race_name,:venue,:course,:winner,:pdf_url,:result_url,:index_url)

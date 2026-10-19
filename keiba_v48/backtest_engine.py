@@ -11,14 +11,17 @@ def read_rows(path):
         missing=REQUIRED-set(r.fieldnames or [])
         if missing:raise ValueError(f'Missing columns: {sorted(missing)}')
         return list(r)
-def parse_time(s):return datetime.datetime.fromisoformat(s.replace('Z','+00:00'))
+def parse_time(s):
+    value=datetime.datetime.fromisoformat(s.replace('Z','+00:00'))
+    if value.tzinfo is None:raise ValueError('timezone offset required')
+    return value
 def check_race(rows):
     if len(rows)<3:raise ValueError('Race has fewer than 3 runners')
     if len({r['horse_number'] for r in rows})!=len(rows):raise ValueError('Duplicate horse number')
     if len({r['race_id'] for r in rows})!=1:raise ValueError('Mixed race IDs')
     if any(not r['pre_off_odds'] or not r['odds_timestamp'] or not r['off_timestamp'] for r in rows):raise ValueError('Missing timestamped pre-off odds')
     if any(parse_time(r['odds_timestamp'])>parse_time(r['off_timestamp']) for r in rows):raise ValueError('Post-off odds forbidden')
-    if any(float(r['pre_off_odds'])<=1 for r in rows):raise ValueError('Invalid odds')
+    if any(not math.isfinite(float(r['pre_off_odds'])) or float(r['pre_off_odds'])<=1 for r in rows):raise ValueError('Invalid odds')
     ranks=[int(r['finish_position']) for r in rows]
     if len(set(ranks))!=len(ranks) or min(ranks)!=1:raise ValueError('Missing/duplicate finishing ranks; exclude dead heats and nonfinishers until separately supported')
 
@@ -38,10 +41,12 @@ def podium(p):
         rank[i][0]=p[i]
         for j in range(n):
             if i==j:continue
-            pij=p[i]*p[j]/(1-p[i]);rank[j][1]+=pij
+            remaining=sum(p[a] for a in range(n) if a!=i)
+            pij=p[i]*p[j]/remaining if remaining else 0.;rank[j][1]+=pij
             for k in range(n):
                 if k in (i,j):continue
-                pr=pij*p[k]/(1-p[i]-p[j]);rank[k][2]+=pr
+                remaining_two=sum(p[a] for a in range(n) if a not in (i,j))
+                pr=pij*p[k]/remaining_two if remaining_two else 0.;rank[k][2]+=pr
                 for a,b in ((i,j),(i,k),(j,k)):pair[tuple(sorted((a,b)))]+=pr
                 triple[tuple(sorted((i,j,k)))]+=pr
     return rank,pair,triple

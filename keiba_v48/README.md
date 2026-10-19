@@ -1,3 +1,10 @@
+# v4.8 学習・検証パイプライン
+
+10項目の改善コードと実行手順は **[IMPROVEMENTS.md](IMPROVEMENTS.md)** を参照。
+新しい入口は `improvements.py`（train / predict / evaluate / settle）。
+構造モデル・校正・リスク管理・固定予測台帳を実装済み。実データでの精度改善は未確認。
+以下は旧プロトタイプの仕様・当時の状況として残している。
+
 # v4.8 research prototype
 
 Status: model architecture implemented, NOT trained or historically backtested. `model.py` includes market implied probability normalization, pre-race feature score adjustment and Plackett-Luce ordered finish distribution for a complete field. Do not use a subset of runners to estimate race probabilities. A calibrated full-field fitted score model is still required.
@@ -9,7 +16,7 @@ race_id, race_date, cutoff_timestamp, horse_id, horse_name, horse_number, gate, 
 
 ## Backtest procedure
 1. Assemble complete fields and verified point-in-time data for 2023-2025 JRA graded races.
-2. Time-split training 2023, validation 2024, holdout 2025; expand history if coverage allows. 2026 Akikasho is an audit case, not holdout after review.
+2. Time-split training 2023, validation 2024, exploratory reference 2025 (already inspected; not an unseen holdout); expand history if coverage allows. 2026 Akikasho is an audit case, not holdout after review.
 3. Fit multinomial/horse-ranking features on training only, calibrate on validation only. Market-only Plackett-Luce is a baseline, not a trained v4.8 model.
 4. Calculate finish-order likelihood, win log-loss, Brier score, top-three probability calibration, and all-bet ROI with actual payouts. For place/wide/trifecta, compute exact combinations from the full ordering distribution, never multiply marginal probabilities.
 5. Compare against same-timestamp market-only and popularity baseline with equal capital and no-bet allowed; track max drawdown and sample size.
@@ -26,4 +33,4 @@ The isolated code environment cannot access the public internet, and the retriev
 ## New ingestion gate (2026-10-18)
 `pipeline.py` reads one runner per row CSV using `runners_template.csv` and generates a JSON race-level audit. Example: `python pipeline.py runners.csv --output audit.json`. It rejects after-cutoff odds/features, duplicate IDs, invalid odds, incomplete field, missing source, and inconsistent timestamps. A `field_complete=yes` attestation is required per runner; a source file alone cannot prove completeness. Dead heats, cancellations and disqualifications require explicit custom handling before model training. Do not fill absent odds with final odds. No historical data has been ingested yet; synthetic assertions only test safeguards.
 
-Recommended source: licensed JRA-VAN Data Lab JV-Link setup (historical RA/SE and odds snapshots) or verified user-exported CSV. JRA result PDFs alone do not establish point-in-time odds. Export the full-field table with timezone-qualified ISO8601 timestamps. `finish_position` and payout are labels, not predictors.
+Use verified user-exported CSV from available free/official sources; no JRA-VAN subscription is required by this workflow. JRA result PDFs alone do not establish point-in-time odds. Export the full-field table with timezone-qualified ISO8601 timestamps. `finish_position` and payout are labels, not predictors.

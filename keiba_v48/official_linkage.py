@@ -172,6 +172,9 @@ def schema(db):
       race_id TEXT PRIMARY KEY,scheduled_off_at TEXT,actual_off_at TEXT,
       result_published_at TEXT,result_first_observed_at TEXT,
       publication_policy_url TEXT NOT NULL,publication_time_basis TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS official_jockey_aliases(
+      alias TEXT PRIMARY KEY,canonical_name TEXT,jockey_id TEXT,supporting_races INTEGER NOT NULL,
+      status TEXT NOT NULL,evidence_race_id TEXT,evidence_horse_number INTEGER,details_json TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS annual_identity_links(
       race_id TEXT NOT NULL,horse_number INTEGER NOT NULL,horse_id TEXT,jockey_id TEXT,
       horse_match_method TEXT,jockey_match_method TEXT,
@@ -234,6 +237,31 @@ def propagate(db):
         if jid and jname:
             jockeys[jockey_name(jname)].add(jid)
             jockey_proof.setdefault((jockey_name(jname), jid), (rid, num))
+    aliases = collections.defaultdict(list)
+    alias_query = '''SELECT e.race_id,e.horse_number,h.jockey_name,e.payload_json,e.jockey_id
+        FROM official_identity_evidence e JOIN annual_report_runners h USING(race_id,horse_number)
+        ORDER BY e.race_id,e.horse_number'''
+    for rid,num,raw,payload,jid in db.execute(alias_query):
+        canonical = jockey_name(json.loads(payload).get('jockey_name'))
+        alias = jockey_name(raw)
+        if alias and canonical and alias != canonical:
+            aliases[alias].append((canonical,jid,rid,num))
+    alias_proofs = {}
+    for alias, evidence_rows in aliases.items():
+        names = {r[0] for r in evidence_rows}
+        ids = {r[1] for r in evidence_rows if r[1]}
+        support = len({r[2] for r in evidence_rows if r[1]})
+        accepted = len(names) == 1 and len(ids) == 1 and support >= 3
+        proof = next((r for r in evidence_rows if r[1]), evidence_rows[0])
+        if accepted:
+            jid = next(iter(ids))
+            jockeys[alias].add(jid)
+            jockey_proof[alias,jid] = (proof[2],proof[3])
+            alias_proofs[alias] = (proof[2],proof[3])
+        db.execute('INSERT OR REPLACE INTO official_jockey_aliases VALUES(?,?,?,?,?,?,?,?)',
+                   (alias,next(iter(names)) if len(names)==1 else None,next(iter(ids)) if accepted else None,
+                    support,'attested' if accepted else 'ambiguous_or_insufficient',
+                    proof[2],proof[3],json.dumps({'observed_names':sorted(names),'observed_ids':sorted(ids)},ensure_ascii=False)))
     changes, lineage = [], []
     counts = collections.Counter()
     query = '''SELECT h.race_id,h.horse_number,h.horse_name,h.jockey_name,h.payload_json,r.race_date
@@ -259,7 +287,8 @@ def propagate(db):
         jp = (rid, num) if evidence and jid else jockey_proof.get((jockey_name(jname), jid), (None, None))
         lineage.append((rid,num,hid,jid,
                         'exact_source_race_and_runner' if evidence and hid else 'exact_name_and_birth_year' if hid else None,
-                        'exact_source_race_and_runner' if evidence and jid else 'unique_official_name' if jid else None,
+                        'exact_source_race_and_runner' if evidence and jid else
+                        'multi_race_attested_pdf_alias' if jid and jockey_name(jname) in alias_proofs else 'unique_official_name' if jid else None,
                         *hp,*jp))
         status = 'official_ids_linked' if hid and jid else 'partially_linked' if hid or jid else row['identity_status']
         row.update(horse_id=hid, jockey_id=jid, identity_status=status)
@@ -291,6 +320,7 @@ def propagate(db):
     counts['ambiguous_horse_keys'] = sum(len(s) > 1 for s in horses.values())
     counts['ambiguous_jockey_names'] = sum(len(s) > 1 for s in jockeys.values())
     counts['strict_historical_publication_verified_rows'] = 0
+    counts['attested_pdf_jockey_aliases'] = len(alias_proofs)
     return dict(counts)
 
 
@@ -318,6 +348,88 @@ def audit(db):
         'integrity_check': db.execute('PRAGMA integrity_check').fetchone()[0],
         'foreign_key_violations': len(db.execute('PRAGMA foreign_key_check').fetchall()),
     }
+
+
+def unlinked_causes(db):
+    observed_riders = collections.defaultdict(set)
+    for payload, jid in db.execute('SELECT payload_json,jockey_id FROM official_identity_evidence'):
+        name=jockey_name(json.loads(payload).get('jockey_name'))
+        if name:
+            observed_riders[name].add(jid)
+    aliases={a:s for a,s in db.execute('SELECT alias,status FROM official_jockey_aliases')}
+    horse_counts,jockey_counts=collections.Counter(),collections.Counter()
+    for hname,jname,hid,jid,payload,date in db.execute('''SELECT h.horse_name,h.jockey_name,h.horse_id,h.jockey_id,h.payload_json,r.race_date
+        FROM annual_report_runners h JOIN annual_report_races r USING(race_id)'''):
+        if not hid:
+            p=json.loads(payload)
+            cause=('unresolved_pdf_glyph' if '(cid:' in hname else
+                   'missing_birth_year' if not date or not re.search(r'\d+',p.get('sex_age','')) else
+                   'no_unique_attested_name_birth_key')
+            horse_counts[cause]+=1
+        if not jid:
+            name=jockey_name(jname)
+            cause=('ambiguous_or_insufficient_pdf_alias' if name in aliases and aliases[name]!='attested' else
+                   'official_result_has_name_but_no_code' if name in observed_riders and not any(observed_riders[name]) else
+                   'unresolved_pdf_glyph' if '(cid:' in name else 'no_attested_source_code')
+            jockey_counts[cause]+=1
+    return dict(horse_unlinked=dict(horse_counts),jockey_unlinked=dict(jockey_counts),
+                total_horse_unlinked=sum(horse_counts.values()),total_jockey_unlinked=sum(jockey_counts.values()),
+                alias_decisions=[dict(alias=a,canonical_name=n,jockey_id=i,supporting_races=c,status=s)
+                    for a,n,i,c,s in db.execute('SELECT alias,canonical_name,jockey_id,supporting_races,status FROM official_jockey_aliases ORDER BY alias')])
+
+
+def rebuild_from_cache(base_path, destination, cache_path):
+    """Build on a verified archive in memory, then publish one closed DB snapshot.
+
+    Long-lived file writes are avoided in workspaces that replace idle files.
+    The input archive is read-only and the destination must be a new path.
+    """
+    dest=Path(destination)
+    if dest.exists():
+        raise ValueError('rebuild destination must not already exist')
+    source=sqlite3.connect('file:'+str(Path(base_path).resolve())+'?mode=ro',uri=True)
+    if source.execute('PRAGMA integrity_check').fetchall()!=[('ok',)]:
+        source.close();raise ValueError('base archive failed integrity check')
+    db=sqlite3.connect(':memory:');source.backup(db);source.close();schema(db)
+    cache=SourceCache(cache_path)
+    meta_paths=sorted(Path(cache_path).glob('*.json'))
+    seen=0
+    for path in meta_paths:
+        meta=json.loads(path.read_text())
+        url=meta.get('url','')
+        if not race_key(url):
+            continue
+        if not path.with_suffix('.html').is_file():
+            raise ValueError('offline rebuild source bytes missing')
+        soup,meta=cache.get(url)
+        try:
+            rows=parse_result(soup,url)
+            with db:
+                matched=attest(db,rows,meta)
+                db.execute('INSERT OR REPLACE INTO official_linkage_pages VALUES(?,?,?,?,?,?)',
+                           (url,meta['sha256'],meta['observed_at'],'matched',None,matched))
+        except ValueError as exc:
+            if 'conflicting identity' in str(exc):
+                raise
+            with db:
+                db.execute('INSERT OR REPLACE INTO official_linkage_pages(source_url,status,error) VALUES(?,?,?)',
+                           (url,'error',str(exc)))
+        seen+=1
+        if seen%100==0:print(json.dumps({'cached_pages':seen}),flush=True)
+    with db:report=propagate(db)
+    report.update(audit(db));report['unlinked_causes']=unlinked_causes(db)
+    if report['integrity_check']!='ok' or report['foreign_key_violations']:
+        raise ValueError('rebuilt archive failed verification')
+    dest.parent.mkdir(parents=True,exist_ok=True)
+    staging=dest.with_suffix('.staging.sqlite')
+    if staging.exists():
+        raise ValueError('staging path already exists')
+    target=sqlite3.connect(staging);db.backup(target);target.close();db.close()
+    checked=sqlite3.connect('file:'+str(staging.resolve())+'?mode=ro',uri=True)
+    if checked.execute('PRAGMA integrity_check').fetchall()!=[('ok',)]:
+        checked.close();raise ValueError('written snapshot failed integrity check')
+    checked.close();staging.replace(dest)
+    return report
 
 
 def crawl(db_path, cache_path, seeds, max_pages=240, workers=3):
@@ -397,10 +509,13 @@ if __name__ == '__main__':
     p.add_argument('--seed', action='append')
     p.add_argument('--seed-file', help='JSON list of source-attested JRA result URLs')
     p.add_argument('--refresh-links-only', action='store_true', help='rebuild derived links and audit without network')
+    p.add_argument('--rebuild-from',help='verified read-only base archive; rebuild all cached results into a new --db path')
     p.add_argument('--max-pages', type=int, default=240); p.add_argument('--workers', type=int, default=3)
     p.add_argument('--report', required=True)
     a = p.parse_args()
-    if a.refresh_links_only:
+    if a.rebuild_from:
+        result=rebuild_from_cache(a.rebuild_from,a.db,a.cache)
+    elif a.refresh_links_only:
         db = sqlite3.connect(a.db); schema(db)
         with db:
             result = propagate(db)

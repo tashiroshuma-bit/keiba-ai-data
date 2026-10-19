@@ -1,0 +1,19 @@
+{
+  "schema": "keiba-active-v1",
+  "status": "experimental_probability",
+  "activated_at": "2026-10-19T05:35:35.201608+00:00",
+  "model_file": "active_model.json",
+  "model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+  "evaluation_report_sha256": "28f069967e3fb525202b0f3bfac9efb04f858a0e42ee6e0330a3d0fe1b3f1047",
+  "historical_time_assumptions": true,
+  "strict_production_validated": false,
+  "history_time_policy": "actual_source_observation",
+  "missing_jockey_policy": "neutral_prior_no_synthetic_id",
+  "odds_judgement_policy": "post_race_final_reference",
+  "live_bet_generation": false,
+  "evaluation": {
+    "races": 218,
+    "win_top1": 0.26605504587155965,
+    "fixed_top1_return_pct": 78.57798165137615
+  }
+}

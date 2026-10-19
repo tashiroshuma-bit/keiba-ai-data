@@ -1,0 +1,265 @@
+{
+  "races": 218,
+  "brier_definition": "mean over runners, then mean over races",
+  "evaluation_role": "exploratory historical reconstruction with assumed publication lag",
+  "forward_target_races": 100,
+  "baseline": {
+    "log_loss": 2.5828411250981915,
+    "brier": 0.07216787084319112,
+    "top1_hit": 0.06880733944954129
+  },
+  "candidate": {
+    "log_loss": 2.235431010504236,
+    "brier": 0.06703622977641459,
+    "top1_hit": 0.26146788990825687
+  },
+  "log_loss_delta": -0.3474101145939557,
+  "race_bootstrap_95pct_delta": [
+    -0.4419399969760276,
+    -0.25218133777681684
+  ],
+  "win_calibration": [
+    {
+      "lower": 0.0,
+      "runners": 2402,
+      "predicted": 0.04506699301381075,
+      "observed": 0.04204829308909242
+    },
+    {
+      "lower": 0.1,
+      "runners": 412,
+      "predicted": 0.135293927432155,
+      "observed": 0.16262135922330098
+    },
+    {
+      "lower": 0.2,
+      "runners": 111,
+      "predicted": 0.2391634370123794,
+      "observed": 0.24324324324324326
+    },
+    {
+      "lower": 0.3,
+      "runners": 46,
+      "predicted": 0.350360392068952,
+      "observed": 0.32608695652173914
+    },
+    {
+      "lower": 0.4,
+      "runners": 14,
+      "predicted": 0.43319215336010813,
+      "observed": 0.35714285714285715
+    },
+    {
+      "lower": 0.5,
+      "runners": 6,
+      "predicted": 0.5385457108209154,
+      "observed": 0.16666666666666666
+    },
+    {
+      "lower": 0.6,
+      "runners": 1,
+      "predicted": 0.6364461071198168,
+      "observed": 1.0
+    },
+    {
+      "lower": 0.7,
+      "runners": 2,
+      "predicted": 0.7059273080729995,
+      "observed": 0.5
+    }
+  ],
+  "final_odds_reference": {
+    "races": 218,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "hindsight_reference_not_live_validation",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 1.9401899722088891,
+      "brier": 0.060702785007585476,
+      "top1_hit": 0.3440366972477064
+    },
+    "candidate": {
+      "log_loss": 2.235431010504236,
+      "brier": 0.06703622977641459,
+      "top1_hit": 0.26146788990825687
+    },
+    "log_loss_delta": 0.2952410382953468,
+    "race_bootstrap_95pct_delta": [
+      0.19737958288046856,
+      0.3984494962744296
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 2402,
+        "predicted": 0.04506699301381075,
+        "observed": 0.04204829308909242
+      },
+      {
+        "lower": 0.1,
+        "runners": 412,
+        "predicted": 0.135293927432155,
+        "observed": 0.16262135922330098
+      },
+      {
+        "lower": 0.2,
+        "runners": 111,
+        "predicted": 0.2391634370123794,
+        "observed": 0.24324324324324326
+      },
+      {
+        "lower": 0.3,
+        "runners": 46,
+        "predicted": 0.350360392068952,
+        "observed": 0.32608695652173914
+      },
+      {
+        "lower": 0.4,
+        "runners": 14,
+        "predicted": 0.43319215336010813,
+        "observed": 0.35714285714285715
+      },
+      {
+        "lower": 0.5,
+        "runners": 6,
+        "predicted": 0.5385457108209154,
+        "observed": 0.16666666666666666
+      },
+      {
+        "lower": 0.6,
+        "runners": 1,
+        "predicted": 0.6364461071198168,
+        "observed": 1.0
+      },
+      {
+        "lower": 0.7,
+        "runners": 2,
+        "predicted": 0.7059273080729995,
+        "observed": 0.5
+      }
+    ],
+    "odds_basis": "post_race_final",
+    "actionable_before_off": false,
+    "post_race_value_rule": "maximum p*final_odds >= 1.05; one 100-yen reference bet per race",
+    "post_race_value_settlement": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 101290,
+      "stake_yen": 21800.0,
+      "payout_yen": 23090.0,
+      "return_pct": 105.91743119266054,
+      "maximum_drawdown": 0.1395,
+      "pending_races": 0
+    }
+  },
+  "publication_lag_days": 7,
+  "training_races": 263,
+  "calibration_races": 237,
+  "evaluation_races": 218,
+  "history_rows": 65528,
+  "reconstructed_field_rows": 9657,
+  "exclusions": {
+    "review_or_unlinked_runner_rows": 77209,
+    "incomplete_or_invalid_races": 7898
+  },
+  "missing_jockey_policy": "neutral_prior",
+  "missing_jockey_evaluation_rows": 101,
+  "calibration": {
+    "temperature": 1.0,
+    "validation_races": 237,
+    "before_log_loss": 2.254257765555729,
+    "after_log_loss": 2.254257765555729
+  },
+  "comparison_with_shrunk_prior_form": {
+    "baseline": {
+      "log_loss": 2.412746645552868,
+      "brier": 0.06962173679421221,
+      "top1_hit": 0.21100917431192662
+    },
+    "candidate": {
+      "log_loss": 2.235431010504236,
+      "brier": 0.06703622977641459,
+      "top1_hit": 0.26146788990825687
+    },
+    "log_loss_delta": -0.17731563504863207,
+    "race_bootstrap_95pct_delta": [
+      -0.24909475132508802,
+      -0.10830528341677077
+    ]
+  },
+  "evaluation_days": 19,
+  "day_cluster_95pct_log_loss_delta": [
+    -0.44393769428532104,
+    -0.25428927919881933
+  ],
+  "day_cluster_95pct_fixed_top1_return_pct": [
+    60.65727699530517,
+    96.93333333333334
+  ],
+  "fixed_top1_100yen": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 95170,
+    "stake_yen": 21800.0,
+    "payout_yen": 16970.0,
+    "return_pct": 77.8440366972477,
+    "maximum_drawdown": 0.0622,
+    "pending_races": 0
+  },
+  "test_date_range": [
+    "2025-01-05T09:50:00+09:00",
+    "2025-11-08T13:50:00+09:00"
+  ],
+  "feature_history_coverage": 0.8767535070140281,
+  "production_eligible": false,
+  "evaluated_races_by_month": {
+    "2025-01": 39,
+    "2025-02": 1,
+    "2025-04": 2,
+    "2025-05": 24,
+    "2025-06": 20,
+    "2025-07": 64,
+    "2025-08": 3,
+    "2025-10": 64,
+    "2025-11": 1
+  },
+  "evaluated_races_by_course": {
+    "中京/dirt": 22,
+    "中山/dirt": 10,
+    "中京/turf": 18,
+    "中山/turf": 9,
+    "東京/turf": 24,
+    "阪神/dirt": 2,
+    "京都/turf": 20,
+    "新潟/dirt": 21,
+    "東京/dirt": 18,
+    "京都/dirt": 21,
+    "函館/turf": 1,
+    "小倉/turf": 1,
+    "札幌/turf": 12,
+    "新潟/turf": 25,
+    "札幌/dirt": 10,
+    "中京/jump": 3,
+    "東京/jump": 1
+  },
+  "comparison": "uniform same-field probabilities; no timestamped market baseline",
+  "bet_rule": "fixed 100-yen single win bet on highest probability; lowest horse number on ties",
+  "limitations": [
+    "historical publication times and pre-off field snapshots are not verified",
+    "publication lag is a declared assumption; not an observed historical timestamp",
+    "identity coverage is selected by retrieved source pages, not the entire JRA population",
+    "current going and carried weight omitted because pre-off observation times are absent",
+    "EV-based win/wide/trio strategy and forward live performance remain untested",
+    "payouts are official post-race settlement labels, never probability model inputs"
+  ],
+  "input_db_sha256": "0e4bc73f5976b863f0cfa47dcf135a768e3d18874f5dbd29728d27922f26ea12",
+  "model_artifact_sha256": "7a336ffab880d9df3dca12a27bd0c746f574efb42cbe665970a65258a4637a8e",
+  "prediction_rows_sha256": "afbf8f3c8384b4382540172e7f31a672aea733c7cefdc983311394073e6ab5fe",
+  "optimizer_iterations": 400,
+  "source_code_sha256": {
+    "historical_replay.py": "ca3e4441f7597b2e15c27e20d9f2219ce351cf283191150ce144ef7960cb220b",
+    "features.py": "000a697ec2f664ac912922bbffb4d4afca6af685d6ae2747a007980e92014b29",
+    "fitted_model.py": "6e09aa0e62924e447900cfe51d64b05a19d5927e3a97a857c1686219023afcd8",
+    "improvements.py": "18880cd0b5849919a1c3ebbe6df9f0209ba2e3c012cac9dc60d10ebf377d0cac",
+    "validation.py": "8b43b88ea11d6ac6e441e381d4c36d52d2f6ea16f8c0a3425fc3a7e53c1ce307",
+    "result_odds.py": "83e4f68f494734da28d2b882eece7317d5b61d71e9007af00276e1df5c5b908a"
+  }
+}

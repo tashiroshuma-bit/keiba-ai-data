@@ -18,6 +18,7 @@ from features import HistoryIndex, timestamp
 from fitted_model import HierarchicalModel
 from improvements import training_races
 from validation import canonical, equity_report, metrics, paired_report
+from result_odds import summarize_final_odds
 
 JST = dt.timezone(dt.timedelta(hours=9))
 
@@ -29,7 +30,7 @@ def assumed_availability(date, lag_days):
                                dt.time(), JST).isoformat()
 
 
-def load_rows(db_path, lag_days=2):
+def load_rows(db_path, lag_days=2, allow_missing_jockey=False):
     db = sqlite3.connect('file:' + str(Path(db_path).resolve()) + '?mode=ro', uri=True)
     db.row_factory = sqlite3.Row
     groups = collections.defaultdict(list)
@@ -41,7 +42,7 @@ def load_rows(db_path, lag_days=2):
         FROM annual_report_races r JOIN annual_report_runners h USING(race_id)
         ORDER BY r.race_date,r.off_timestamp,r.race_id,h.horse_number'''):
         payload = json.loads(r['payload_json'])
-        if r['status'] != 'validated_result' or not r['horse_id'] or not r['jockey_id']:
+        if r['status'] != 'validated_result' or not r['horse_id'] or (not r['jockey_id'] and not allow_missing_jockey):
             excluded['review_or_unlinked_runner_rows'] += 1
             continue
         if not r['off_timestamp'] or not payload.get('finish_position'):
@@ -57,6 +58,7 @@ def load_rows(db_path, lag_days=2):
                    availability_basis='assumed_calendar_day_lag_for_research_only',
                    expected_runners=r['expected_runners'], field_complete='yes',
                    pre_off_odds=None, odds_timestamp=None,
+                   final_win_odds=payload.get('final_win_odds'),
                    win_payout_100=json.loads(r['metadata_json']).get('win_payout_100'))
         history.append(row)
         # These snapshots were observed after the event. Do not fabricate an
@@ -81,8 +83,8 @@ def select_index(probabilities, rows):
     return min(range(len(rows)), key=lambda i: (-float(probabilities[i]), int(rows[i]['horse_number'])))
 
 
-def prepare(history, rows):
-    index = HistoryIndex(history, allow_assumed_availability=True)
+def prepare(history, rows, allow_missing_jockey=False):
+    index = HistoryIndex(history, allow_assumed_availability=True, allow_missing_jockey=allow_missing_jockey)
     races = training_races(index, rows)
     fields = collections.defaultdict(list)
     for row in rows:
@@ -97,9 +99,9 @@ def eligible_split(races, year, after=None):
             (not after or all(timestamp(f['cutoff_timestamp']) > timestamp(after) for f in r['features']))]
 
 
-def evaluate_lag(db_path, lag_days=2, iterations=400):
-    history, rows, excluded = load_rows(db_path, lag_days)
-    races = prepare(history, rows)
+def evaluate_lag(db_path, lag_days=2, iterations=400, allow_missing_jockey=False):
+    history, rows, excluded = load_rows(db_path, lag_days, allow_missing_jockey)
+    races = prepare(history, rows, allow_missing_jockey)
     train = eligible_split(races, 2023)
     if not train:
         raise ValueError('no eligible training races')
@@ -109,7 +111,7 @@ def evaluate_lag(db_path, lag_days=2, iterations=400):
     test = eligible_split(races, 2025, model.calibration_end)
     if not test:
         raise ValueError('no eligible evaluation races')
-    records, predictions, settlements, prior_records = [], [], [], []
+    records, predictions, settlements, prior_records, odds_records = [], [], [], [], []
     day_groups = collections.defaultdict(list)
     for race in test:
         rs, fs = race['rows'], race['features']
@@ -119,6 +121,8 @@ def evaluate_lag(db_path, lag_days=2, iterations=400):
         record = dict(race_id=race['race_id'], baseline=baseline, candidate=p,
                       winner_index=race['winner_index'])
         records.append(record)
+        odds_records.append(dict(race_id=race['race_id'],rows=rs,probabilities=p,
+                                 winner_index=race['winner_index'],win_payout_100=rs[0]['win_payout_100']))
         prior = [f['values'][0] for f in fs]
         prior = [v / sum(prior) for v in prior]
         prior_records.append({**record, 'baseline': prior})
@@ -134,6 +138,10 @@ def evaluate_lag(db_path, lag_days=2, iterations=400):
                                 payout_per_100=payout,
                                 history_starts=[f['history_starts'] for f in fs]))
     report = paired_report(records)
+    final_odds_report, final_odds_details = summarize_final_odds(odds_records)
+    report['final_odds_reference'] = final_odds_report
+    for row, judged in zip(predictions, final_odds_details):
+        row['final_odds_judgement'] = judged
     prior_comparison = paired_report(prior_records)
     days = list(day_groups.values())
     rng = random.Random(48)
@@ -152,6 +160,8 @@ def evaluate_lag(db_path, lag_days=2, iterations=400):
     report.update(publication_lag_days=lag_days, training_races=len(train),
                   calibration_races=len(calibration), evaluation_races=len(test),
                   history_rows=len(history), reconstructed_field_rows=len(rows), exclusions=excluded,
+                  missing_jockey_policy='neutral_prior' if allow_missing_jockey else 'exclude_incomplete_field',
+                  missing_jockey_evaluation_rows=sum(f['jockey_identity_missing'] for r in test for f in r['features']),
                   calibration=calibration_report,
                   comparison_with_shrunk_prior_form={k: prior_comparison[k] for k in
                       ('baseline', 'candidate', 'log_loss_delta', 'race_bootstrap_95pct_delta')},
@@ -176,23 +186,24 @@ def evaluate_lag(db_path, lag_days=2, iterations=400):
                       'payouts are official post-race settlement labels, never probability model inputs',
                   ])
     return report, predictions, {**model.to_dict(), 'research_only': True,
+                                'allow_missing_jockey': allow_missing_jockey,
                                 'publication_lag_days': lag_days,
                                 'availability_basis': 'assumed_calendar_day_lag_for_research_only'}
 
 
-def run(db_path, output, lags=(2, 7), iterations=400):
+def run(db_path, output, lags=(2, 7), iterations=400, allow_missing_jockey=False):
     dest = Path(output); dest.mkdir(parents=True, exist_ok=True)
     reports = []
     with open(db_path, 'rb') as stream:
         db_sha256 = hashlib.file_digest(stream, 'sha256').hexdigest()
     for lag in lags:
-        report, predictions, model = evaluate_lag(db_path, lag, iterations)
+        report, predictions, model = evaluate_lag(db_path, lag, iterations, allow_missing_jockey)
         report['input_db_sha256'] = db_sha256
         report['model_artifact_sha256'] = hashlib.sha256(canonical(model).encode()).hexdigest()
         report['prediction_rows_sha256'] = hashlib.sha256(canonical(predictions).encode()).hexdigest()
         report['optimizer_iterations'] = iterations
         report['source_code_sha256'] = {name: hashlib.sha256(Path(__file__).with_name(name).read_bytes()).hexdigest()
-            for name in ('historical_replay.py', 'features.py', 'fitted_model.py', 'improvements.py', 'validation.py')}
+            for name in ('historical_replay.py', 'features.py', 'fitted_model.py', 'improvements.py', 'validation.py', 'result_odds.py')}
         (dest / f'replay_lag{lag}.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
         (dest / f'predictions_lag{lag}.json').write_text(canonical(predictions), encoding='utf-8')
         (dest / f'model_research_lag{lag}.json').write_text(canonical(model), encoding='utf-8')
@@ -208,5 +219,6 @@ if __name__ == '__main__':
     p.add_argument('--db', required=True); p.add_argument('--output', required=True)
     p.add_argument('--lags', type=int, nargs='+', default=[2, 7])
     p.add_argument('--iterations', type=int, default=400)
+    p.add_argument('--allow-missing-jockey', action='store_true')
     a = p.parse_args()
-    run(a.db, a.output, a.lags, a.iterations)
+    run(a.db, a.output, a.lags, a.iterations, a.allow_missing_jockey)

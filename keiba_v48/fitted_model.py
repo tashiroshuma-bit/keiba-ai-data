@@ -106,8 +106,8 @@ class HierarchicalModel:
                 'temperature': self.temperature, 'calibration_end': self.calibration_end}
 
     @classmethod
-    def from_dict(cls, data):
-        if data.get('research_only'):
+    def from_dict(cls, data, allow_research=False):
+        if data.get('research_only') and not allow_research:
             raise ValueError('research-only model cannot be loaded for production prediction')
         if data['feature_names'] != list(FEATURE_NAMES):
             raise ValueError('model feature schema mismatch')

@@ -43,7 +43,7 @@ class IdentityMap:
         return value
 
 
-def integrate_histories(sources, identities=None, allow_assumed_availability=False):
+def integrate_histories(sources, identities=None, allow_assumed_availability=False, allow_missing_jockey=False):
     """Merge any number of graded/non-graded history exports without last-write wins."""
     identities = identities or IdentityMap()
     merged = {}
@@ -52,13 +52,18 @@ def integrate_histories(sources, identities=None, allow_assumed_availability=Fal
             r = dict(row)
             if r.get('availability_basis', '').startswith('assumed_') and not allow_assumed_availability:
                 raise ValueError('assumed publication availability is research-only')
-            for key in ('race_id', 'horse_id', 'jockey_id', 'off_timestamp',
+            for key in ('race_id', 'horse_id', 'off_timestamp',
                         'result_available_at', 'source_url', 'distance_m', 'surface'):
                 if not r.get(key):
                     raise ValueError(f'history missing {key}')
             if not r['source_url'].startswith(('https://', 'http://')):
                 raise ValueError('history provenance required')
+            if not r.get('jockey_id') and not allow_missing_jockey:
+                raise ValueError('history missing jockey_id')
             for kind in ('horse', 'jockey'):
+                if kind == 'jockey' and not r.get('jockey_id') and allow_missing_jockey:
+                    r['jockey_id'] = None
+                    continue
                 r[kind + '_id'] = identities.resolve(kind, r[kind + '_id'])
             if timestamp(r['result_available_at']) < timestamp(r['off_timestamp']):
                 raise ValueError('result published before race')
@@ -81,13 +86,15 @@ def integrate_histories(sources, identities=None, allow_assumed_availability=Fal
 
 class HistoryIndex:
     """Resolve/deduplicate once, then restrict queries to the relevant horse/jockey."""
-    def __init__(self, rows, identities=None, allow_assumed_availability=False):
-        self.rows = integrate_histories([rows], identities, allow_assumed_availability)
+    def __init__(self, rows, identities=None, allow_assumed_availability=False, allow_missing_jockey=False):
+        self.allow_missing_jockey = allow_missing_jockey
+        self.rows = integrate_histories([rows], identities, allow_assumed_availability, allow_missing_jockey)
         self.groups = {kind: collections.defaultdict(list) for kind in ('horse', 'jockey')}
         self.times = {}
         for row in self.rows:
             for kind in self.groups:
-                self.groups[kind][row[kind + '_id']].append(row)
+                if row.get(kind + '_id'):
+                    self.groups[kind][row[kind + '_id']].append(row)
         for kind, groups in self.groups.items():
             for identity, group in groups.items():
                 self.times[kind, identity] = [timestamp(r['off_timestamp']) for r in group]
@@ -121,7 +128,8 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
     for raw in runners:
         r = dict(raw)
         horse = identities.resolve('horse', r['horse_id'])
-        jockey = identities.resolve('jockey', r['jockey_id'])
+        jockey = (None if index.allow_missing_jockey and not r.get('jockey_id')
+                  else identities.resolve('jockey', r['jockey_id']))
         off = timestamp(r['off_timestamp'])
         cutoff = off - dt.timedelta(minutes=cutoff_minutes)
         if cutoff_minutes < 0:
@@ -179,5 +187,7 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
                        'history_starts': len(h), 'course_samples': nc, 'going_samples': ng,
                        'distance_samples': nd, 'style_observed': bool(corners),
                        'current_going_known': bool(r.get('going')), 'recent_quality_samples': len(qualities),
+                       'jockey_identity_missing': jockey is None,
+                       'previous_final_win_odds': number(h[-1].get('final_win_odds')) if h else None,
                        'front_rate': front, 'closing_quality': values[8]})
     return output

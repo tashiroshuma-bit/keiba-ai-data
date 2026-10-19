@@ -1,0 +1,12 @@
+{
+  "test": "synthetic future field against actual archive; not a real race forecast",
+  "runner_count": 3,
+  "probability_sum": 1.0,
+  "history_starts": [
+    13,
+    12,
+    13
+  ],
+  "stake_yen": 0,
+  "missing_jockeys": 3
+}

@@ -11,10 +11,11 @@ from historical_replay import assumed_availability
 from archive_completion import class_info
 
 
-def load_archive(db_path,lag_days=2):
+def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
     db=sqlite3.connect('file:'+str(Path(db_path).resolve())+'?mode=ro',uri=True);db.row_factory=sqlite3.Row
     groups=collections.defaultdict(list);meta={};excluded=collections.Counter(); repaired=[]; unsafe_fields=set()
     tables={r[0] for r in db.execute("select name from sqlite_master where type='table'")}
+    pdf_payouts={rid:json.loads(payload) for rid,payload in db.execute('select race_id,payouts_json from pdf_payout_evidence')} if 'pdf_payout_evidence' in tables else {}
     void={r[0] for r in db.execute('select race_id from official_void_races')} if 'official_void_races' in tables else set()
     for r in db.execute('''SELECT r.*,h.horse_number,h.horse_id,h.jockey_id,h.payload_json,d.fetched_at
         FROM annual_report_races r JOIN annual_report_runners h USING(race_id)
@@ -28,7 +29,7 @@ def load_archive(db_path,lag_days=2):
                  result_observed_at=r['fetched_at'],class_level=level,race_category=category,grade=grade,
                  finish_position=p.get('finish_position') if valid else None,
                  final_win_odds=p.get('final_win_odds') if valid else None,
-                 win_payout_100=m.get('win_payout_100') if valid else None)
+                 win_payout_100=m.get('win_payout_100') if valid else None,payouts=pdf_payouts.get(r['race_id'],{}))
         groups[r['race_id']].append(row);meta[r['race_id']]=dict(r)
     source_only=[]
     if 'enriched_results' in tables:
@@ -48,16 +49,28 @@ def load_archive(db_path,lag_days=2):
                 merged={**old,**r,'horse_number':str(r['horse_number']),
                         'off_timestamp':old.get('off_timestamp') or r.get('off_timestamp'),
                         'source_url':rich['source_url'],'source_sha256':rich['source_sha256'],
-                        'result_observed_at':max(old.get('result_observed_at') or rich['observed_at'],rich['observed_at']),
+                        'result_observed_at':max(timestamp(old.get('result_observed_at') or rich['observed_at']),timestamp(rich['observed_at'])).isoformat(),
                         'identity_observed_at':rich['observed_at'],'payouts':rich['payouts']}
                 merged['win_payout_100']=rich['payouts'].get('win:'+str(r['horse_number'])) if r.get('finish_position')==1 else old.get('win_payout_100')
                 rows.append(merged)
+            if rid in pdf_payouts:
+                for key,value in rich['payouts'].items():
+                    if key in pdf_payouts[rid] and value!=pdf_payouts[rid][key]:raise ValueError('conflicting official payout sources')
+                for r in rows:r['payouts']={**pdf_payouts[rid],**rich['payouts']}
             # A common race-level payout label is needed independently of the selection.
             win=next((r['win_payout_100'] for r in rows if r.get('finish_position')==1),None)
             for r in rows:r['win_payout_100']=win
             groups[rid]=rows
     history=[];fields=[];coverage=collections.Counter()
     for rid,rows in sorted(groups.items()):
+        for r in rows:
+            r['official_horse_id']=r.get('horse_id')
+            r['horse_identity_missing']=not bool(r.get('horse_id'))
+            if allow_unlinked_fields and not r.get('horse_id'):
+                # Source-row identity is not an invented official horse code.
+                # It deliberately cannot join different races or create history.
+                r['horse_id']='unlinked:'+rid+'_'+str(r['horse_number'])
+                r['identity_policy']='isolated_source_row_no_cross_race_history'
         for r in rows:
             if r.get('horse_id') and r.get('off_timestamp') and r.get('distance_m') and r.get('surface') and (finish(r) or r.get('runner_status')=='nonfinisher'):
                 r=dict(r,result_available_at=assumed_availability(r['race_date'],lag_days),availability_basis='assumed_calendar_day_lag_for_research_only')
@@ -75,7 +88,7 @@ def load_archive(db_path,lag_days=2):
             fields.append({**r,'going':None,'carried_weight':None,'field_complete':'yes','expected_runners':len(rows),
                            'result_available_at':assumed_availability(r['race_date'],lag_days),'availability_basis':'assumed_calendar_day_lag_for_research_only'})
     db.close()
-    return history,fields,dict(exclusions=dict(excluded),repaired_pdf_races=len(repaired),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields))
+    return history,fields,dict(exclusions=dict(excluded),repaired_pdf_races=len(repaired),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields),unlinked_field_policy='isolated_source_row' if allow_unlinked_fields else 'exclude',unlinked_evaluation_rows=sum(r['horse_identity_missing'] for r in fields))
 
 
 def history_index(rows,assumed=True):

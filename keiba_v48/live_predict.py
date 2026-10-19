@@ -23,6 +23,8 @@ def digest(value):
 def activate(model_path, report_path, destination):
     model = json.loads(Path(model_path).read_text())
     report = json.loads(Path(report_path).read_text())
+    if model.get('odds_basis')=='post_race_final' or model.get('live_eligible') is False:
+        raise ValueError('research-only or final-odds model cannot be activated for live forecasting')
     if report.get('live_model_promotion_approved') is False:
         raise ValueError('validation vetoed candidate activation under the final-odds judgement axis')
     if digest(model) != report['model_artifact_sha256']:
@@ -94,6 +96,8 @@ def forecast(db_path, rows, manifest_path):
     if model_path.resolve().parent != path.parent.resolve():
         raise ValueError('model must reside beside manifest')
     artifact=json.loads(model_path.read_text())
+    if artifact.get('odds_basis')=='post_race_final' or artifact.get('live_eligible') is False:
+        raise ValueError('research-only or final-odds model cannot enter live forecasting')
     if digest(artifact)!=manifest['model_sha256']:
         raise ValueError('active model checksum mismatch')
     for row in rows:

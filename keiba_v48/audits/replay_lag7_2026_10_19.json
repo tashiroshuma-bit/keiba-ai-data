@@ -1,0 +1,146 @@
+{
+  "races": 86,
+  "brier_definition": "mean over runners, then mean over races",
+  "evaluation_role": "exploratory historical reconstruction with assumed publication lag",
+  "forward_target_races": 100,
+  "baseline": {
+    "log_loss": 2.6153816010668263,
+    "brier": 0.06977419612176147,
+    "top1_hit": 0.06976744186046512
+  },
+  "candidate": {
+    "log_loss": 2.3410740331006905,
+    "brier": 0.06601264114660649,
+    "top1_hit": 0.22093023255813954
+  },
+  "log_loss_delta": -0.274307567966136,
+  "race_bootstrap_95pct_delta": [
+    -0.37715064743521354,
+    -0.16548851799205505
+  ],
+  "win_calibration": [
+    {
+      "lower": 0.0,
+      "runners": 1015,
+      "predicted": 0.05520594381129937,
+      "observed": 0.04729064039408867
+    },
+    {
+      "lower": 0.1,
+      "runners": 173,
+      "predicted": 0.133427035213736,
+      "observed": 0.16184971098265896
+    },
+    {
+      "lower": 0.2,
+      "runners": 20,
+      "predicted": 0.2408695339521704,
+      "observed": 0.4
+    },
+    {
+      "lower": 0.3,
+      "runners": 6,
+      "predicted": 0.3442832100852345,
+      "observed": 0.3333333333333333
+    }
+  ],
+  "publication_lag_days": 7,
+  "training_races": 109,
+  "calibration_races": 98,
+  "evaluation_races": 86,
+  "history_rows": 51369,
+  "reconstructed_field_rows": 3923,
+  "exclusions": {
+    "review_or_unlinked_runner_rows": 91368,
+    "incomplete_or_invalid_races": 8194
+  },
+  "calibration": {
+    "temperature": 1.5,
+    "validation_races": 98,
+    "before_log_loss": 2.31937095085467,
+    "after_log_loss": 2.3073880534427498
+  },
+  "comparison_with_shrunk_prior_form": {
+    "baseline": {
+      "log_loss": 2.4635440363120367,
+      "brier": 0.06739654565545584,
+      "top1_hit": 0.18604651162790697
+    },
+    "candidate": {
+      "log_loss": 2.3410740331006905,
+      "brier": 0.06601264114660649,
+      "top1_hit": 0.22093023255813954
+    },
+    "log_loss_delta": -0.12247000321134613,
+    "race_bootstrap_95pct_delta": [
+      -0.21013847153776816,
+      -0.04088275626977027
+    ]
+  },
+  "evaluation_days": 8,
+  "day_cluster_95pct_log_loss_delta": [
+    -0.392443519407152,
+    -0.16184258389191714
+  ],
+  "day_cluster_95pct_fixed_top1_return_pct": [
+    42.013888888888886,
+    121.44444444444444
+  ],
+  "fixed_top1_100yen": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 98230,
+    "stake_yen": 8600.0,
+    "payout_yen": 6830.0,
+    "return_pct": 79.4186046511628,
+    "maximum_drawdown": 0.02369102130201075,
+    "pending_races": 0
+  },
+  "test_date_range": [
+    "2025-01-05T09:50:00+09:00",
+    "2025-10-19T16:25:00+09:00"
+  ],
+  "feature_history_coverage": 0.871499176276771,
+  "production_eligible": false,
+  "evaluated_races_by_month": {
+    "2025-01": 10,
+    "2025-02": 1,
+    "2025-05": 9,
+    "2025-06": 10,
+    "2025-08": 1,
+    "2025-10": 55
+  },
+  "evaluated_races_by_course": {
+    "中京/dirt": 8,
+    "中山/dirt": 1,
+    "中京/turf": 1,
+    "東京/turf": 10,
+    "京都/dirt": 19,
+    "東京/dirt": 6,
+    "京都/turf": 16,
+    "中京/jump": 1,
+    "新潟/turf": 12,
+    "新潟/dirt": 11,
+    "東京/jump": 1
+  },
+  "comparison": "uniform same-field probabilities; no timestamped market baseline",
+  "bet_rule": "fixed 100-yen single win bet on highest probability; lowest horse number on ties",
+  "limitations": [
+    "historical publication times and pre-off field snapshots are not verified",
+    "publication lag is a declared assumption; not an observed historical timestamp",
+    "identity coverage is selected by retrieved source pages, not the entire JRA population",
+    "current going and carried weight omitted because pre-off observation times are absent",
+    "EV-based win/wide/trio strategy and forward live performance remain untested",
+    "payouts are official post-race settlement labels, never probability model inputs"
+  ],
+  "input_db_sha256": "9a8f4f73f1260907300db1b2218c2c334a5745914dc290607ea2594aed15395d",
+  "model_artifact_sha256": "51633f850a48156e3b21b50723fa641291edafe7eee6c76d8573c354e341660b",
+  "prediction_rows_sha256": "a8ab1bf7766b5bb73a63c1a6c15e388b54dd0cfaee07ec597a54e2571488cee1",
+  "optimizer_iterations": 400,
+  "source_code_sha256": {
+    "historical_replay.py": "42949ad7d7a0ee6494fb921a8bc69334daff3133eb2dddd8cdab035f26a2daf9",
+    "features.py": "0525a49b1fd778936547c03690832564fe499fbdcf464349b24d7ee64e3e0655",
+    "fitted_model.py": "7575c55b930519aeced81d2bdcb8f2d6820fe0850963110754feb97607597a70",
+    "improvements.py": "18880cd0b5849919a1c3ebbe6df9f0209ba2e3c012cac9dc60d10ebf377d0cac",
+    "validation.py": "8b43b88ea11d6ac6e441e381d4c36d52d2f6ea16f8c0a3425fc3a7e53c1ce307"
+  }
+}

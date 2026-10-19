@@ -30,9 +30,13 @@ JRA official 2025 Akikasho result: https://jra.jp/datafile/seiseki/g1/shuka/resu
 JRA official 2024 Kikuka Sho result: https://jra.jp/datafile/seiseki/g1/kikka/result/kikka2024.html
 
 ## Current blocker
-The isolated code environment cannot access the public internet, and the retrieved web excerpts do not provide a machine-readable, verified point-in-time full-field dataset. Therefore no fitted coefficients or v4.8 backtest ROI are reported.
+Official 2023–2025 result PDFs have been ingested and partial official horse/jockey ID linkage is available. Exact historical publication times, pre-off field snapshots and timestamped odds remain missing. Research-only fitted models and an exploratory fixed-stake replay are documented in [HISTORICAL_REPLAY.md](HISTORICAL_REPLAY.md); strict production and EV-strategy validation remain pending.
 
 ## New ingestion gate (2026-10-18)
-`pipeline.py` reads one runner per row CSV using `runners_template.csv` and generates a JSON race-level audit. Example: `python pipeline.py runners.csv --output audit.json`. It rejects after-cutoff odds/features, duplicate IDs, invalid odds, incomplete field, missing source, and inconsistent timestamps. A `field_complete=yes` attestation is required per runner; a source file alone cannot prove completeness. Dead heats, cancellations and disqualifications require explicit custom handling before model training. Do not fill absent odds with final odds. No historical data has been ingested yet; synthetic assertions only test safeguards.
+`pipeline.py` reads one runner per row CSV using `runners_template.csv` and generates a JSON race-level audit. Example: `python pipeline.py runners.csv --output audit.json`. It rejects after-cutoff odds/features, duplicate IDs, invalid odds, incomplete field, missing source, and inconsistent timestamps. A `field_complete=yes` attestation is required per runner; a source file alone cannot prove completeness. Dead heats, cancellations and disqualifications require explicit custom handling before model training. Do not fill absent odds with final odds. Historical result ingestion and the strict pre-off input gate are separate steps.
 
 Use verified user-exported CSV from available free/official sources; no JRA-VAN subscription is required by this workflow. JRA result PDFs alone do not establish point-in-time odds. Export the full-field table with timezone-qualified ISO8601 timestamps. `finish_position` and payout are labels, not predictors.
+
+## 公式ID・時刻と実データ検証
+
+追加した[ID連携・研究用実測検証](HISTORICAL_REPLAY.md)に、公式ソースの照合方法、再実行コマンド、2025年86レースの検証結果と制約を記録しています。

@@ -43,13 +43,15 @@ class IdentityMap:
         return value
 
 
-def integrate_histories(sources, identities=None):
+def integrate_histories(sources, identities=None, allow_assumed_availability=False):
     """Merge any number of graded/non-graded history exports without last-write wins."""
     identities = identities or IdentityMap()
     merged = {}
     for source in sources:
         for row in source:
             r = dict(row)
+            if r.get('availability_basis', '').startswith('assumed_') and not allow_assumed_availability:
+                raise ValueError('assumed publication availability is research-only')
             for key in ('race_id', 'horse_id', 'jockey_id', 'off_timestamp',
                         'result_available_at', 'source_url', 'distance_m', 'surface'):
                 if not r.get(key):
@@ -79,8 +81,8 @@ def integrate_histories(sources, identities=None):
 
 class HistoryIndex:
     """Resolve/deduplicate once, then restrict queries to the relevant horse/jockey."""
-    def __init__(self, rows, identities=None):
-        self.rows = integrate_histories([rows], identities)
+    def __init__(self, rows, identities=None, allow_assumed_availability=False):
+        self.rows = integrate_histories([rows], identities, allow_assumed_availability)
         self.groups = {kind: collections.defaultdict(list) for kind in ('horse', 'jockey')}
         self.times = {}
         for row in self.rows:

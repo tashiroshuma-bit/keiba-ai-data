@@ -107,6 +107,8 @@ class HierarchicalModel:
 
     @classmethod
     def from_dict(cls, data):
+        if data.get('research_only'):
+            raise ValueError('research-only model cannot be loaded for production prediction')
         if data['feature_names'] != list(FEATURE_NAMES):
             raise ValueError('model feature schema mismatch')
         m = cls()

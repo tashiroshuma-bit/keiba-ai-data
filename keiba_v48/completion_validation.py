@@ -21,6 +21,7 @@ from historical_replay import eligible_split,select_index
 from result_odds import summarize_final_odds,judge_final_odds
 from risk_replay import risk_report,capital_replay
 from validation import canonical,metrics,paired_report
+from exceptional_results import ticket_hit
 
 PROTOCOL=json.loads(Path(__file__).with_name('COMPLETION_PROTOCOL.json').read_text())
 
@@ -69,8 +70,7 @@ def settlement(rows,p):
     payouts=rows[0].get('payouts',{})
     for kind,k in (('win',1),('wide',2),('trio',3)):
         indexes=selected[:k];ns=sorted([str(rows[i]['horse_number']) for i in indexes],key=int)
-        ranks=[finish(rows[i]) for i in indexes]
-        hit=(ranks[0]==1 if kind=='win' else all(r is not None and r<=3 for r in ranks))
+        hit=ticket_hit(rows,indexes,kind)
         key=kind+':'+','.join(ns)
         payout=(payouts.get(key,rows[0].get('win_payout_100') if kind=='win' else None) if hit else 0)
         blocked=kind!='win' and len(rows)<4

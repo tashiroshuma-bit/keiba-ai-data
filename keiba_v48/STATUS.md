@@ -1,6 +1,6 @@
 # v4.8 統合状態
 
-現在の正本は [PROJECT_STATE.json](../PROJECT_STATE.json)、作業手順は [DEVELOPMENT_HANDOFF.md](../DEVELOPMENT_HANDOFF.md)。DB version 8、利用可能10,056レース、除外309レース。本番モデルは据え置き、購入生成無効、真の前向き0/100。最新実測は [TIME_EXCEPTION_REPAIR_RESULTS.md](TIME_EXCEPTION_REPAIR_RESULTS.md)。
+現在の正本は [PROJECT_STATE.json](../PROJECT_STATE.json)、作業手順は [DEVELOPMENT_HANDOFF.md](../DEVELOPMENT_HANDOFF.md)。DB version 8、利用可能10,056レース、除外309レース。深掘り監査で6課題修正、候補の収益は悪化で不採用。本番モデル据え置き、購入生成無効、真の前向き0/100。最新実測は [DEEP_RESEARCH_RESULTS.md](DEEP_RESEARCH_RESULTS.md)。
 
 ## 以下は初期取り込み時点の旧記録
 

@@ -1,0 +1,405 @@
+{
+  "schema": "keiba-integrated-quality-v1",
+  "as_of_date": "2026-10-20",
+  "input_db_sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+  "input_db_bytes": 261660672,
+  "lag_days": 2,
+  "read_only": true,
+  "integrity": {
+    "sqlite": "ok",
+    "foreign_key_violations": 0
+  },
+  "table_counts": {
+    "annual_report_races": 10368,
+    "annual_report_runners": 142737,
+    "annual_identity_links": 142737,
+    "official_identity_evidence": 16371,
+    "pdf_performance_evidence": 9998,
+    "pdf_payout_evidence": 9999,
+    "enriched_results": 1187
+  },
+  "runner_key_duplicate_groups": 0,
+  "identity_link_disagreements": 0,
+  "identity_by_year": [
+    {
+      "year": "2023",
+      "rows": 47672,
+      "horse_missing": 14754,
+      "jockey_missing": 1435,
+      "horse_missing_fraction": 0.3094898472898137,
+      "jockey_missing_fraction": 0.03010152710186273
+    },
+    {
+      "year": "2024",
+      "rows": 47181,
+      "horse_missing": 15338,
+      "jockey_missing": 1871,
+      "horse_missing_fraction": 0.3250884890104067,
+      "jockey_missing_fraction": 0.03965579364574723
+    },
+    {
+      "year": "2025",
+      "rows": 47884,
+      "horse_missing": 21214,
+      "jockey_missing": 1845,
+      "horse_missing_fraction": 0.4430289867179016,
+      "jockey_missing_fraction": 0.03853061565449837
+    }
+  ],
+  "race_date_range": {
+    "min": "2023-01-05",
+    "max": "2025-12-28"
+  },
+  "source_result_age_days": 296,
+  "raw_races_missing_dates_or_off": 5,
+  "time_evidence": {
+    "exact_publication_missing": 10368,
+    "rows": 10368,
+    "pdf_clock_conflicts": 833
+  },
+  "usable": {
+    "races": 10056,
+    "runner_rows": 137947,
+    "history_rows": 137947,
+    "excluded_races": 309,
+    "void_races": 3
+  },
+  "full_field_headcount_mismatches": 0,
+  "unlinked_isolation": {
+    "rows": 49747,
+    "distinct_row_keys": 49747,
+    "cross_race_key_reuse": 0,
+    "usable_rows": 49747,
+    "usable_fraction": 0.3606240077711005
+  },
+  "current_inputs_masked": {
+    "going": 137947,
+    "carried_weight": 137947,
+    "denominator": 137947,
+    "reason": "historical pre-off observation unavailable; do not fill with post-result fields"
+  },
+  "same_day_result_eligible_rows": 0,
+  "identity_by_category": {
+    "nongraded": {
+      "rows": 105761,
+      "horse_missing": 41945
+    },
+    "unknown": {
+      "rows": 26344,
+      "horse_missing": 6301
+    },
+    "graded": {
+      "rows": 5842,
+      "horse_missing": 1501
+    }
+  },
+  "dead_heat_audit": {
+    "races": 30,
+    "old_rank_le3_false_hit_combinations": 12,
+    "corrected_false_hits": 0,
+    "examples": [
+      {
+        "race_id": "202304040211",
+        "kind": "wide",
+        "horse_numbers": [
+          "10",
+          "15"
+        ],
+        "ranks": [
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202304040211",
+        "kind": "trio",
+        "horse_numbers": [
+          "2",
+          "10",
+          "15"
+        ],
+        "ranks": [
+          2,
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202304040211",
+        "kind": "trio",
+        "horse_numbers": [
+          "10",
+          "13",
+          "15"
+        ],
+        "ranks": [
+          3,
+          1,
+          3
+        ]
+      },
+      {
+        "race_id": "202307020512",
+        "kind": "wide",
+        "horse_numbers": [
+          "1",
+          "5"
+        ],
+        "ranks": [
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202307020512",
+        "kind": "trio",
+        "horse_numbers": [
+          "1",
+          "5",
+          "6"
+        ],
+        "ranks": [
+          3,
+          3,
+          1
+        ]
+      },
+      {
+        "race_id": "202307020512",
+        "kind": "trio",
+        "horse_numbers": [
+          "1",
+          "5",
+          "10"
+        ],
+        "ranks": [
+          3,
+          3,
+          2
+        ]
+      },
+      {
+        "race_id": "202408010201",
+        "kind": "wide",
+        "horse_numbers": [
+          "7",
+          "15"
+        ],
+        "ranks": [
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202408010201",
+        "kind": "trio",
+        "horse_numbers": [
+          "7",
+          "8",
+          "15"
+        ],
+        "ranks": [
+          3,
+          2,
+          3
+        ]
+      },
+      {
+        "race_id": "202408010201",
+        "kind": "trio",
+        "horse_numbers": [
+          "7",
+          "9",
+          "15"
+        ],
+        "ranks": [
+          3,
+          1,
+          3
+        ]
+      },
+      {
+        "race_id": "202504010701",
+        "kind": "wide",
+        "horse_numbers": [
+          "3",
+          "12"
+        ],
+        "ranks": [
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202504010701",
+        "kind": "trio",
+        "horse_numbers": [
+          "1",
+          "3",
+          "12"
+        ],
+        "ranks": [
+          1,
+          3,
+          3
+        ]
+      },
+      {
+        "race_id": "202504010701",
+        "kind": "trio",
+        "horse_numbers": [
+          "3",
+          "12",
+          "13"
+        ],
+        "ranks": [
+          3,
+          3,
+          2
+        ]
+      }
+    ]
+  },
+  "feature_profile": {
+    "ability": {
+      "min": 0.04032258064516129,
+      "max": 0.765625,
+      "std": 0.09395034603064498,
+      "distinct_nonconstant": true
+    },
+    "recent_quality": {
+      "min": 0.0,
+      "max": 1.5,
+      "std": 0.1947091086214838,
+      "distinct_nonconstant": true
+    },
+    "rest_log": {
+      "min": 0.0,
+      "max": 0.9420590656785397,
+      "std": 0.27446150076106474,
+      "distinct_nonconstant": true
+    },
+    "course_form": {
+      "min": 0.06944444444444445,
+      "max": 0.7115384615384616,
+      "std": 0.06011324087140496,
+      "distinct_nonconstant": true
+    },
+    "going_form": {
+      "min": 0.25,
+      "max": 0.25,
+      "std": 0.0,
+      "distinct_nonconstant": false
+    },
+    "distance_form": {
+      "min": 0.046296296296296294,
+      "max": 0.765625,
+      "std": 0.08840368783194404,
+      "distinct_nonconstant": true
+    },
+    "jockey_form": {
+      "min": 0.041884816753926704,
+      "max": 0.6521739130434783,
+      "std": 0.09451716504115018,
+      "distinct_nonconstant": true
+    },
+    "front_rate": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.292290543186677,
+      "distinct_nonconstant": true
+    },
+    "closing_quality": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.16224884506483353,
+      "distinct_nonconstant": true
+    },
+    "weight_delta": {
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0,
+      "distinct_nonconstant": false
+    },
+    "history_log": {
+      "min": 0.0,
+      "max": 0.7742402021815782,
+      "std": 0.20780187347850623,
+      "distinct_nonconstant": true
+    },
+    "speed_quality": {
+      "min": -3.0,
+      "max": 2.8753150931498372,
+      "std": 0.4892330704545039,
+      "distinct_nonconstant": true
+    },
+    "speed_observed": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.4998564772485002,
+      "distinct_nonconstant": true
+    },
+    "margin_quality": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.18488376081235267,
+      "distinct_nonconstant": true
+    },
+    "margin_observed": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.4950847571448359,
+      "distinct_nonconstant": true
+    },
+    "opponent_quality": {
+      "min": 0.12410766317016317,
+      "max": 0.5681818181818182,
+      "std": 0.03814018842446047,
+      "distinct_nonconstant": true
+    },
+    "opponent_observed": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.4992251186169885,
+      "distinct_nonconstant": true
+    },
+    "horse_jockey_form": {
+      "min": 0.0625,
+      "max": 0.7115384615384616,
+      "std": 0.06158249160190417,
+      "distinct_nonconstant": true
+    },
+    "gate_fraction": {
+      "min": 0.0,
+      "max": 1.0,
+      "std": 0.32450512466254555,
+      "distinct_nonconstant": true
+    },
+    "gate_observed": {
+      "min": 1.0,
+      "max": 1.0,
+      "std": 0.0,
+      "distinct_nonconstant": false
+    },
+    "same_day_front_bias": {
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0,
+      "distinct_nonconstant": false
+    },
+    "same_day_bias_observed": {
+      "min": 0.0,
+      "max": 0.0,
+      "std": 0.0,
+      "distinct_nonconstant": false
+    },
+    "nonfinish_rate": {
+      "min": 0.017543859649122806,
+      "max": 0.2,
+      "std": 0.02179316526643734,
+      "distinct_nonconstant": true
+    }
+  },
+  "unlinked_runners_with_cross_race_history": 0,
+  "database_unchanged": true
+}

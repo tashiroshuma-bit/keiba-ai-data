@@ -35,9 +35,10 @@ def validate_state(state, root=ROOT):
         for key in ('status', 'strict_production_validated', 'live_bet_generation'):
             if manifest[key] != model[key]:
                 errors.append('active manifest differs: ' + key)
-        review = read('keiba_v48/reports/integration/adoption_review.json')
+        review_path = state['latest_research'].get('adoption_review', 'keiba_v48/reports/integration/adoption_review.json')
+        review = read(review_path)
         linked_review = (root / model['manifest']).parent / manifest['last_review']['report']
-        if linked_review.resolve() != (root / 'keiba_v48/reports/integration/adoption_review.json').resolve():
+        if linked_review.resolve() != (root / review_path).resolve():
             errors.append('active manifest last review is stale')
         if review['active_model_sha256'] != model['sha256']:
             errors.append('adoption review refers to a different active model')

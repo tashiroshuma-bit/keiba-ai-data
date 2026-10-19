@@ -8,7 +8,7 @@ import sqlite3
 
 from features import HistoryIndex, build_features, timestamp, finish, shrink, front_status
 from historical_replay import assumed_availability
-from archive_completion import class_info
+from archive_completion import pdf_class_info
 from exceptional_results import field_rejection_reasons
 
 
@@ -24,7 +24,7 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
         JOIN annual_report_documents d ON d.url=r.document_url ORDER BY r.race_id,h.horse_number'''):
         if r['race_id'] in void:continue
         p=json.loads(r['payload_json']); m=json.loads(r['metadata_json']);valid=r['status']=='validated_result'
-        level,category,grade=class_info(m.get('raw_text','').split('発走')[0])
+        level,category,grade=pdf_class_info(m.get('raw_text',''))
         row=dict(p,race_id=r['race_id'],race_date=r['race_date'],horse_id=r['horse_id'],jockey_id=r['jockey_id'],
                  horse_number=str(r['horse_number']),off_timestamp=r['off_timestamp'],track=r['track'],surface=r['surface'],
                  distance_m=r['distance_m'],going=r['going'],field_size=r['expected_runners'],source_url=r['document_url'],

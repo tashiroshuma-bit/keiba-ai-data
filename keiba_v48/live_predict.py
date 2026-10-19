@@ -27,6 +27,8 @@ def activate(model_path, report_path, destination):
         raise ValueError('research-only or final-odds model cannot be activated for live forecasting')
     if report.get('live_model_promotion_approved') is False:
         raise ValueError('validation vetoed candidate activation under the final-odds judgement axis')
+    if report.get('live_model_promotion_approved') is not True:
+        raise ValueError('explicit evaluated model promotion approval is required')
     if digest(model) != report['model_artifact_sha256']:
         raise ValueError('model does not match evaluated artifact')
     HierarchicalModel.from_dict(model, allow_research=True)

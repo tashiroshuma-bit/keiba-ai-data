@@ -1,0 +1,6194 @@
+{
+  "protocol": {
+    "version": "v4.8-offline-repair-3",
+    "data_source": "saved official 2023-2025 PDFs plus previously cached verified HTML; no HTTP403 retries",
+    "cohort": "all structurally validated complete fields; unlinked horses retained with isolated source-row identity and zero cross-race history",
+    "unknown_official_IDs": "remain NULL; never inferred official numbers",
+    "historical_availability": "explicit 2-day and 7-day calendar assumptions, never PDF creation/modification time",
+    "payout_repair": "ordered trifecta anchor, single/exacta/trio/wide checks, verify all original PDF hashes and reconcile overlapping HTML",
+    "train_year": 2023,
+    "calibration_year": 2024,
+    "exploratory_evaluation_year": 2025,
+    "evaluation_disclosure": "2025 already inspected; no claim of unseen holdout or live profitability",
+    "structural_families": [
+      "original13",
+      "enriched23",
+      "enriched23_without_style"
+    ],
+    "regularization": [
+      0.05,
+      0.2,
+      1.0
+    ],
+    "temperature": [
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "market_residual_regularization": [
+      0.2,
+      1.0,
+      5.0
+    ],
+    "market_residual_calibration_scale": [
+      0.0,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "market_power": [
+      1.0,
+      1.1,
+      1.2,
+      1.3
+    ],
+    "iterations": 400,
+    "selection": "2024 mean log loss only; lower complexity on exact ties",
+    "reference_bet": "maximum p times final odds >= 1.05; one 100-yen hypothetical win bet per race; horse-number tie break",
+    "stress_caps": [
+      10,
+      20,
+      50,
+      100,
+      null
+    ],
+    "promotion": "research improvement requires lower paired log loss and higher same-rule final-odds return on both lag assumptions; never activate final-odds models for pre-off forecasts",
+    "live_generation": false,
+    "forward_target": 100,
+    "performance_repair": "recover one-decimal official finish times and same-time marks; explicit nonstarter/nonfinisher statuses; require complete field, monotonic times, complete odds and consistent payouts; keep ties and unknown states quarantined",
+    "risk_policy": {
+      "mixture_structural_weights": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "odds_caps": [
+        10,
+        20,
+        50,
+        100,
+        null
+      ],
+      "threshold": 1.05,
+      "minimum_calibration_bets": 100,
+      "selection": "2024 day-bootstrap lower 95% ROI bound, then mean ROI; approve only if lower bound >100; publish non-approved candidate as research only"
+    },
+    "corner_repair": "full printed fourth-corner field with grouped midranks, HTML interval checks, omit ambiguous front/behind classification when group straddles 35%"
+  },
+  "lag_days": 7,
+  "data_audit": {
+    "exclusions": {
+      "incomplete_or_exceptional_races": 309,
+      "reason:outcome_not_unique_winner_competition_ranks": 309,
+      "reason:missing_expected_runner_count": 2,
+      "reason:missing_off_timestamp": 2,
+      "reason:missing_distance_m": 2,
+      "reason:incomplete_expected_runner_count": 17
+    },
+    "excluded_races": [
+      {
+        "race_id": "202301010202",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202301010403",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202301020110",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202301020112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202301020407",
+        "reasons": [
+          "missing_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks",
+          "missing_off_timestamp",
+          "missing_distance_m"
+        ]
+      },
+      {
+        "race_id": "202301020408",
+        "reasons": [
+          "missing_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks",
+          "missing_off_timestamp",
+          "missing_distance_m"
+        ]
+      },
+      {
+        "race_id": "202301020509",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202302010510",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202302010610",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202303010112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202303010312",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202303010409",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202303020806",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202303020811",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304010401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304010810",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304020211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304020412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304030604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304040307",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304040312",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202304040509",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305010312",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305020111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305020208",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305020903",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305020904",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305021104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305021207",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305030301",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305030305",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305030601",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305040805",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305050211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305050306",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202305050411",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306010705",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306020304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306020401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306020604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306020811",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306030204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040101",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040102",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040308",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040407",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040408",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306040801",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050310",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050311",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050509",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050712",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202306050802",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307011012",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307020111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307020402",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307030604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307040210",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202307040512",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308010403",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308010611",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308011102",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308011109",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308020104",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308020204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308030108",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202308030704",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309010607",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309010804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309011204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309020104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309020211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309020711",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309030401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309030501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309030504",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309040201",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309040401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309040909",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309050204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309050304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309050306",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309050504",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202309050904",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202310010204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202310010308",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202310010411",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202310020512",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202310020602",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202401010203",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202401010209",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202401010311",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202401020804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202401020806",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202402010409",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202402011004",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403010107",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403010308",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403010312",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403010502",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403030112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403030310",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202403030608",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404010201",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404020211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404030206",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404030508",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404030707",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202404040803",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405010309",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405010703",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405010806",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405020202",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405020707",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405020709",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405021104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405021105",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405021207",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405030301",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405030601",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405030706",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405040205",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405040502",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405040511",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202405050812",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406010501",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406010503",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406010509",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406010606",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406020101",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406020312",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406020604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406020609",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406020811",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030303",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030605",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030707",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406030801",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406040101",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406040211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406040405",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406040501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406040801",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406050311",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406050404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406050604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406050711",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202406050909",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407010105",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407010202",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407020205",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407020711",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407030610",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202407040103",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408010411",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408020302",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408031005",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408040401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408040501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408040802",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408060412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408060704",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408070304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408070507",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408070805",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202408070904",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409010611",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409010804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409010806",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409020103",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409020104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202409020802",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410010505",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410010507",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410010807",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410020405",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410020412",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410030210",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202410030702",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202501010311",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202501010811",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202501020509",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202502010409",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202502010712",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202502010807",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202503010408",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202503030110",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202503030610",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504010209",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504010211",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504010305",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504010501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504010709",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504030112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504030210",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202504040412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505010411",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505010811",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505020104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505020107",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505020209",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505020911",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505021012",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505030310",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040207",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040504",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505040904",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505041003",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505050111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505050406",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505050408",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202505050505",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010402",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010504",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010612",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506010704",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506020304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506020404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506020408",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506020804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030510",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030605",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506030802",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040101",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040201",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040401",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040502",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040812",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506040911",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050604",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050610",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050706",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202506050812",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507010412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507010708",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507020111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507020305",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507020310",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202507030612",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508010309",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508010809",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508020104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508020204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508020510",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508020803",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508021010",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508030304",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508030310",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508030404",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508030511",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508031004",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508031104",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508031108",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040205",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040508",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040704",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040707",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202508040805",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509010412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509010804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509020204",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509020411",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509020510",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509020804",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509020807",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509030201",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509030501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509030611",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509040205",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509040501",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509040701",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509040901",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509050304",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509050503",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509050511",
+        "reasons": [
+          "incomplete_expected_runner_count",
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509050805",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202509050812",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010111",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010112",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010309",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010412",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010603",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510010905",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510011003",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510011109",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      },
+      {
+        "race_id": "202510011210",
+        "reasons": [
+          "outcome_not_unique_winner_competition_ranks"
+        ]
+      }
+    ],
+    "repaired_pdf_races": 187,
+    "pdf_performance_races": 9998,
+    "source_only_races": 0,
+    "void_races": [
+      "202404030612",
+      "202408060108",
+      "202505021109"
+    ],
+    "feature_coverage_rows": {
+      "margin_seconds": 137312,
+      "corner4_position": 98127,
+      "last_3f_rank": 15491,
+      "relative_speed_z": 137312,
+      "class_level": 111603,
+      "gate": 137947
+    },
+    "history_rows": 137947,
+    "field_rows": 137947,
+    "unlinked_field_policy": "isolated_source_row",
+    "unlinked_evaluation_rows": 49747
+  },
+  "structural_tuning": [
+    {
+      "family": "original13",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.276523875109088,
+      "after_log_loss": 2.276523875109088
+    },
+    {
+      "family": "original13",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.282596581106385,
+      "after_log_loss": 2.282596581106385
+    },
+    {
+      "family": "original13",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3362,
+      "before_log_loss": 2.3250145754840497,
+      "after_log_loss": 2.2952749215791015
+    },
+    {
+      "family": "enriched23",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.250079903976301,
+      "after_log_loss": 2.250079903976301
+    },
+    {
+      "family": "enriched23",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.2586667770747044,
+      "after_log_loss": 2.2586667770747044
+    },
+    {
+      "family": "enriched23",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3362,
+      "before_log_loss": 2.298546114015272,
+      "after_log_loss": 2.2759808411250746
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.2495426010540576,
+      "after_log_loss": 2.2495426010540576
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.258444335050539,
+      "after_log_loss": 2.258444335050539
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3362,
+      "before_log_loss": 2.299391549157271,
+      "after_log_loss": 2.275393360068378
+    }
+  ],
+  "selected_structural": {
+    "family": "enriched23_without_style",
+    "regularization": 0.05,
+    "temperature": 1.0,
+    "validation_races": 3362,
+    "before_log_loss": 2.2495426010540576,
+    "after_log_loss": 2.2495426010540576
+  },
+  "market_tuning": [
+    {
+      "regularization": 0.2,
+      "choice": {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8800004537433888
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8813799575413532
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8816124557408698
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8895020859054803
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.9040921692211703
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.880551899678482
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8803576277986138
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.887852038206075
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9020783951838534
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.8806581422921393
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8800004537433888
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.887064342372188
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9008931597515522
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8836694972616967
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8819772741614094
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8880760810442716
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.901009907944803
+        }
+      ],
+      "calibration_races": 3344
+    },
+    {
+      "regularization": 1.0,
+      "choice": {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8802643562962884
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8813799575413532
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8816124557408698
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8895020859054803
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.9040921692211703
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.8807428370848387
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8807664715152583
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.888460429917651
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9028686857705026
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.8804633302614318
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8802643562962884
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.8877493941148884
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9019631233422503
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8809715457063543
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8802868576399097
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8873149655668615
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.901102124290874
+        }
+      ],
+      "calibration_races": 3344
+    },
+    {
+      "regularization": 5.0,
+      "choice": {
+        "residual_scale": 1.0,
+        "market_power": 1.0,
+        "log_loss": 1.8806384305952744
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8813799575413532
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8816124557408698
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8895020859054803
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.9040921692211703
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.8811014829989328
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8813146301920651
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.8891833136080771
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9037517782758862
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.8808852251900712
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8810769741795383
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.888922701125587
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9034675893519035
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8806384305952744
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8807813095359436
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8885751598644915
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.903067083867587
+        }
+      ],
+      "calibration_races": 3344
+    }
+  ],
+  "selected_market": {
+    "regularization": 0.2,
+    "choice": {
+      "residual_scale": 0.5,
+      "market_power": 1.1,
+      "log_loss": 1.8800004537433888
+    },
+    "grid": [
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.0,
+        "log_loss": 1.8813799575413532
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.1,
+        "log_loss": 1.8816124557408698
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.2,
+        "log_loss": 1.8895020859054803
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.3,
+        "log_loss": 1.9040921692211703
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.0,
+        "log_loss": 1.880551899678482
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.1,
+        "log_loss": 1.8803576277986138
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.2,
+        "log_loss": 1.887852038206075
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.3,
+        "log_loss": 1.9020783951838534
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.0,
+        "log_loss": 1.8806581422921393
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8800004537433888
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.2,
+        "log_loss": 1.887064342372188
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.3,
+        "log_loss": 1.9008931597515522
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.0,
+        "log_loss": 1.8836694972616967
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.1,
+        "log_loss": 1.8819772741614094
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.2,
+        "log_loss": 1.8880760810442716
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.3,
+        "log_loss": 1.901009907944803
+      }
+    ],
+    "calibration_races": 3344
+  },
+  "full_market_cohort_vs_frozen_model": {
+    "races": 3314,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.401233994597574,
+      "brier": 0.06851570672194406,
+      "top1_hit": 0.19824984912492455
+    },
+    "candidate": {
+      "log_loss": 1.920897382610449,
+      "brier": 0.06019636041120899,
+      "top1_hit": 0.33373566686783346
+    },
+    "log_loss_delta": -0.48033661198712535,
+    "race_bootstrap_95pct_delta": [
+      -0.5098313524168031,
+      -0.4499639588635655
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 34899,
+        "predicted": 0.02533795896720085,
+        "observed": 0.027106793890942435
+      },
+      {
+        "lower": 0.1,
+        "runners": 6081,
+        "predicted": 0.1428414600220143,
+        "observed": 0.14356191415885544
+      },
+      {
+        "lower": 0.2,
+        "runners": 2586,
+        "predicted": 0.24374992017797403,
+        "observed": 0.24323279195668987
+      },
+      {
+        "lower": 0.3,
+        "runners": 1149,
+        "predicted": 0.3433628027984095,
+        "observed": 0.3368146214099217
+      },
+      {
+        "lower": 0.4,
+        "runners": 639,
+        "predicted": 0.4455102195312972,
+        "observed": 0.37871674491392804
+      },
+      {
+        "lower": 0.5,
+        "runners": 310,
+        "predicted": 0.5424559093895482,
+        "observed": 0.4935483870967742
+      },
+      {
+        "lower": 0.6,
+        "runners": 92,
+        "predicted": 0.6405455697159245,
+        "observed": 0.6630434782608695
+      },
+      {
+        "lower": 0.7,
+        "runners": 24,
+        "predicted": 0.7390861580953869,
+        "observed": 0.6666666666666666
+      },
+      {
+        "lower": 0.8,
+        "runners": 8,
+        "predicted": 0.842484401845234,
+        "observed": 0.875
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.5128168073158976,
+      -0.44319371516461314
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": -25670,
+      "stake_yen": 331300.0,
+      "payout_yen": 205630.0,
+      "return_pct": 62.06761243585874,
+      "maximum_drawdown": 1.166245709474775,
+      "pending_races": 0,
+      "bet_races": 3313,
+      "longest_losing_streak": 994,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.16894422020133248,
+      "return_pct_without_largest_payout": 51.581648053124056,
+      "return_pct_without_top3_payouts": 35.701780863265924,
+      "net_profit_yen": -125670,
+      "profit_yen_per_scheduled_race": -37.92094146047073
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -2.2915398660986,
+      71.88667687595712
+    ]
+  },
+  "full_market_cohort_vs_market": {
+    "races": 3314,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 1.9179604335283604,
+      "brier": 0.06009763916423388,
+      "top1_hit": 0.331925165962583
+    },
+    "candidate": {
+      "log_loss": 1.920897382610449,
+      "brier": 0.06019636041120899,
+      "top1_hit": 0.33373566686783346
+    },
+    "log_loss_delta": 0.0029369490820885242,
+    "race_bootstrap_95pct_delta": [
+      -0.0007564609904191722,
+      0.006226489500315747
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 34899,
+        "predicted": 0.02533795896720085,
+        "observed": 0.027106793890942435
+      },
+      {
+        "lower": 0.1,
+        "runners": 6081,
+        "predicted": 0.1428414600220143,
+        "observed": 0.14356191415885544
+      },
+      {
+        "lower": 0.2,
+        "runners": 2586,
+        "predicted": 0.24374992017797403,
+        "observed": 0.24323279195668987
+      },
+      {
+        "lower": 0.3,
+        "runners": 1149,
+        "predicted": 0.3433628027984095,
+        "observed": 0.3368146214099217
+      },
+      {
+        "lower": 0.4,
+        "runners": 639,
+        "predicted": 0.4455102195312972,
+        "observed": 0.37871674491392804
+      },
+      {
+        "lower": 0.5,
+        "runners": 310,
+        "predicted": 0.5424559093895482,
+        "observed": 0.4935483870967742
+      },
+      {
+        "lower": 0.6,
+        "runners": 92,
+        "predicted": 0.6405455697159245,
+        "observed": 0.6630434782608695
+      },
+      {
+        "lower": 0.7,
+        "runners": 24,
+        "predicted": 0.7390861580953869,
+        "observed": 0.6666666666666666
+      },
+      {
+        "lower": 0.8,
+        "runners": 8,
+        "predicted": 0.842484401845234,
+        "observed": 0.875
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.001027747757881322,
+      0.006828768020917737
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      0.0,
+      0.0
+    ]
+  },
+  "full_market_cohort_vs_structural": {
+    "races": 3314,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.3568382098466736,
+      "brier": 0.06751351678250925,
+      "top1_hit": 0.21907060953530477
+    },
+    "candidate": {
+      "log_loss": 1.920897382610449,
+      "brier": 0.06019636041120899,
+      "top1_hit": 0.33373566686783346
+    },
+    "log_loss_delta": -0.4359408272362245,
+    "race_bootstrap_95pct_delta": [
+      -0.4658788384805969,
+      -0.4084987348872539
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 34899,
+        "predicted": 0.02533795896720085,
+        "observed": 0.027106793890942435
+      },
+      {
+        "lower": 0.1,
+        "runners": 6081,
+        "predicted": 0.1428414600220143,
+        "observed": 0.14356191415885544
+      },
+      {
+        "lower": 0.2,
+        "runners": 2586,
+        "predicted": 0.24374992017797403,
+        "observed": 0.24323279195668987
+      },
+      {
+        "lower": 0.3,
+        "runners": 1149,
+        "predicted": 0.3433628027984095,
+        "observed": 0.3368146214099217
+      },
+      {
+        "lower": 0.4,
+        "runners": 639,
+        "predicted": 0.4455102195312972,
+        "observed": 0.37871674491392804
+      },
+      {
+        "lower": 0.5,
+        "runners": 310,
+        "predicted": 0.5424559093895482,
+        "observed": 0.4935483870967742
+      },
+      {
+        "lower": 0.6,
+        "runners": 92,
+        "predicted": 0.6405455697159245,
+        "observed": 0.6630434782608695
+      },
+      {
+        "lower": 0.7,
+        "runners": 24,
+        "predicted": 0.7390861580953869,
+        "observed": 0.6666666666666666
+      },
+      {
+        "lower": 0.8,
+        "runners": 8,
+        "predicted": 0.842484401845234,
+        "observed": 0.875
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.46634612049747604,
+      -0.4016097710481113
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": -32210,
+      "stake_yen": 331300.0,
+      "payout_yen": 199090.0,
+      "return_pct": 60.09357078176879,
+      "maximum_drawdown": 1.2185506853032977,
+      "pending_races": 0,
+      "bet_races": 3313,
+      "longest_losing_streak": 847,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.17449394746094732,
+      "return_pct_without_largest_payout": 49.60760639903411,
+      "return_pct_without_top3_payouts": 33.72773920917597,
+      "net_profit_yen": -132210,
+      "profit_yen_per_scheduled_race": -39.89438744719372
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      2.7377696748708598,
+      73.18649045521292
+    ]
+  },
+  "training_races": 3361,
+  "calibration_races": 3362,
+  "test_races": 3333,
+  "market_test_races": 3314,
+  "strict_publication_verified": false,
+  "live_eligible": false,
+  "forward_observed_races": 0,
+  "matched_prior_fields_vs_original": {
+    "races": 384,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.2696002340251655,
+      "brier": 0.06982115479005908,
+      "top1_hit": 0.2552083333333333
+    },
+    "candidate": {
+      "log_loss": 1.956399663256515,
+      "brier": 0.06331680430262633,
+      "top1_hit": 0.3333333333333333
+    },
+    "log_loss_delta": -0.31320057076865065,
+    "race_bootstrap_95pct_delta": [
+      -0.38156584319806847,
+      -0.23773544694597437
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3872,
+        "predicted": 0.027314787267775448,
+        "observed": 0.02737603305785124
+      },
+      {
+        "lower": 0.1,
+        "runners": 738,
+        "predicted": 0.14096386838657424,
+        "observed": 0.15040650406504066
+      },
+      {
+        "lower": 0.2,
+        "runners": 282,
+        "predicted": 0.24238344939438713,
+        "observed": 0.22695035460992907
+      },
+      {
+        "lower": 0.3,
+        "runners": 126,
+        "predicted": 0.3471999036560118,
+        "observed": 0.4126984126984127
+      },
+      {
+        "lower": 0.4,
+        "runners": 86,
+        "predicted": 0.4429683036734406,
+        "observed": 0.38372093023255816
+      },
+      {
+        "lower": 0.5,
+        "runners": 34,
+        "predicted": 0.5400376134482068,
+        "observed": 0.4117647058823529
+      },
+      {
+        "lower": 0.6,
+        "runners": 5,
+        "predicted": 0.6383156037909621,
+        "observed": 0.4
+      },
+      {
+        "lower": 0.7,
+        "runners": 2,
+        "predicted": 0.7938862522770673,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.8705847433431539,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.41611461570699243,
+      -0.20630523598174177
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 87360,
+      "stake_yen": 38400.0,
+      "payout_yen": 25760.0,
+      "return_pct": 67.08333333333333,
+      "maximum_drawdown": 0.2638,
+      "pending_races": 0,
+      "bet_races": 384,
+      "longest_losing_streak": 162,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6614906832298136,
+      "return_pct_without_largest_payout": 22.708333333333332,
+      "return_pct_without_top3_payouts": 3.2552083333333335,
+      "net_profit_yen": -12640,
+      "profit_yen_per_scheduled_race": -32.916666666666664
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -50.796460176991154,
+      97.08474576271186
+    ]
+  },
+  "matched_prior_fields_vs_rejected_candidate": {
+    "races": 384,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.241354513171227,
+      "brier": 0.06876256524885861,
+      "top1_hit": 0.25
+    },
+    "candidate": {
+      "log_loss": 1.956399663256515,
+      "brier": 0.06331680430262633,
+      "top1_hit": 0.3333333333333333
+    },
+    "log_loss_delta": -0.284954849914712,
+    "race_bootstrap_95pct_delta": [
+      -0.3547984384603656,
+      -0.21645582454062517
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3872,
+        "predicted": 0.027314787267775448,
+        "observed": 0.02737603305785124
+      },
+      {
+        "lower": 0.1,
+        "runners": 738,
+        "predicted": 0.14096386838657424,
+        "observed": 0.15040650406504066
+      },
+      {
+        "lower": 0.2,
+        "runners": 282,
+        "predicted": 0.24238344939438713,
+        "observed": 0.22695035460992907
+      },
+      {
+        "lower": 0.3,
+        "runners": 126,
+        "predicted": 0.3471999036560118,
+        "observed": 0.4126984126984127
+      },
+      {
+        "lower": 0.4,
+        "runners": 86,
+        "predicted": 0.4429683036734406,
+        "observed": 0.38372093023255816
+      },
+      {
+        "lower": 0.5,
+        "runners": 34,
+        "predicted": 0.5400376134482068,
+        "observed": 0.4117647058823529
+      },
+      {
+        "lower": 0.6,
+        "runners": 5,
+        "predicted": 0.6383156037909621,
+        "observed": 0.4
+      },
+      {
+        "lower": 0.7,
+        "runners": 2,
+        "predicted": 0.7938862522770673,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.8705847433431539,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.380440545189596,
+      -0.17176840410626945
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 68470,
+      "stake_yen": 38400.0,
+      "payout_yen": 6870.0,
+      "return_pct": 17.890625,
+      "maximum_drawdown": 0.3153,
+      "pending_races": 0,
+      "bet_races": 384,
+      "longest_losing_streak": 165,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.8806404657933042,
+      "return_pct_without_largest_payout": 2.1354166666666665,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -31530,
+      "profit_yen_per_scheduled_race": -82.109375
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      46.513513513513516,
+      100.0
+    ]
+  },
+  "matched_structural_vs_original": {
+    "races": 384,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.2696002340251655,
+      "brier": 0.06982115479005908,
+      "top1_hit": 0.2552083333333333
+    },
+    "candidate": {
+      "log_loss": 2.1804041866945236,
+      "brier": 0.06759749776825377,
+      "top1_hit": 0.2734375
+    },
+    "log_loss_delta": -0.08919604733064189,
+    "race_bootstrap_95pct_delta": [
+      -0.11981656159831501,
+      -0.05340229911664363
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 4061,
+        "predicted": 0.043254907211753534,
+        "observed": 0.043092834277271605
+      },
+      {
+        "lower": 0.1,
+        "runners": 734,
+        "predicted": 0.138942913845814,
+        "observed": 0.14850136239782016
+      },
+      {
+        "lower": 0.2,
+        "runners": 221,
+        "predicted": 0.24318918413026439,
+        "observed": 0.248868778280543
+      },
+      {
+        "lower": 0.3,
+        "runners": 77,
+        "predicted": 0.3460393112717969,
+        "observed": 0.35064935064935066
+      },
+      {
+        "lower": 0.4,
+        "runners": 34,
+        "predicted": 0.4325348148867242,
+        "observed": 0.29411764705882354
+      },
+      {
+        "lower": 0.5,
+        "runners": 11,
+        "predicted": 0.5388548779451331,
+        "observed": 0.36363636363636365
+      },
+      {
+        "lower": 0.6,
+        "runners": 7,
+        "predicted": 0.6441227116283944,
+        "observed": 0.42857142857142855
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.8254400445807849,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.12816130420060595,
+      -0.05398077687664254
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 87360,
+      "stake_yen": 38400.0,
+      "payout_yen": 25760.0,
+      "return_pct": 67.08333333333333,
+      "maximum_drawdown": 0.2638,
+      "pending_races": 0,
+      "bet_races": 384,
+      "longest_losing_streak": 162,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6614906832298136,
+      "return_pct_without_largest_payout": 22.708333333333332,
+      "return_pct_without_top3_payouts": 3.2552083333333335,
+      "net_profit_yen": -12640,
+      "profit_yen_per_scheduled_race": -32.916666666666664
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 88710,
+      "stake_yen": 38300.0,
+      "payout_yen": 27010.0,
+      "return_pct": 70.52219321148826,
+      "maximum_drawdown": 0.2503,
+      "pending_races": 0,
+      "bet_races": 383,
+      "longest_losing_streak": 194,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.630877452795261,
+      "return_pct_without_largest_payout": 26.031331592689295,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -11290,
+      "profit_yen_per_scheduled_race": -29.401041666666668
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -13.537549407114625,
+      30.630841121495326
+    ]
+  },
+  "exact_original_EV_cohort_vs_original": {
+    "races": 345,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.282720287374985,
+      "brier": 0.06977644151030386,
+      "top1_hit": 0.25217391304347825
+    },
+    "candidate": {
+      "log_loss": 1.9588940290882126,
+      "brier": 0.06316939032851782,
+      "top1_hit": 0.32463768115942027
+    },
+    "log_loss_delta": -0.323826258286772,
+    "race_bootstrap_95pct_delta": [
+      -0.39582327468139034,
+      -0.2455240591184604
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3475,
+        "predicted": 0.027352850846675485,
+        "observed": 0.02762589928057554
+      },
+      {
+        "lower": 0.1,
+        "runners": 669,
+        "predicted": 0.1411121679127872,
+        "observed": 0.14947683109118087
+      },
+      {
+        "lower": 0.2,
+        "runners": 255,
+        "predicted": 0.24239834971540744,
+        "observed": 0.22745098039215686
+      },
+      {
+        "lower": 0.3,
+        "runners": 112,
+        "predicted": 0.3463476110834427,
+        "observed": 0.39285714285714285
+      },
+      {
+        "lower": 0.4,
+        "runners": 76,
+        "predicted": 0.44256427148592137,
+        "observed": 0.3815789473684211
+      },
+      {
+        "lower": 0.5,
+        "runners": 29,
+        "predicted": 0.5399128088134983,
+        "observed": 0.4827586206896552
+      },
+      {
+        "lower": 0.6,
+        "runners": 5,
+        "predicted": 0.6383156037909621,
+        "observed": 0.4
+      },
+      {
+        "lower": 0.7,
+        "runners": 2,
+        "predicted": 0.7938862522770673,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.8705847433431539,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.41856026635235694,
+      -0.2310974179359951
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 90440,
+      "stake_yen": 34500.0,
+      "payout_yen": 24940.0,
+      "return_pct": 72.28985507246377,
+      "maximum_drawdown": 0.233,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 148,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6832397754611067,
+      "return_pct_without_largest_payout": 22.89855072463768,
+      "return_pct_without_top3_payouts": 1.2463768115942029,
+      "net_profit_yen": -9560,
+      "profit_yen_per_scheduled_race": -27.71014492753623
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -70.41095890410959,
+      98.58552631578948
+    ]
+  },
+  "exact_original_EV_cohort_structural_vs_original": {
+    "races": 345,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.282720287374985,
+      "brier": 0.06977644151030386,
+      "top1_hit": 0.25217391304347825
+    },
+    "candidate": {
+      "log_loss": 2.1922916730111424,
+      "brier": 0.06743480315404847,
+      "top1_hit": 0.27246376811594203
+    },
+    "log_loss_delta": -0.09042861436384232,
+    "race_bootstrap_95pct_delta": [
+      -0.128640782695158,
+      -0.05529286780038498
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3653,
+        "predicted": 0.04344809623493219,
+        "observed": 0.04434711196277032
+      },
+      {
+        "lower": 0.1,
+        "runners": 659,
+        "predicted": 0.13925993345560023,
+        "observed": 0.1411229135053111
+      },
+      {
+        "lower": 0.2,
+        "runners": 194,
+        "predicted": 0.24163455907593176,
+        "observed": 0.2422680412371134
+      },
+      {
+        "lower": 0.3,
+        "runners": 69,
+        "predicted": 0.34508395938719727,
+        "observed": 0.36231884057971014
+      },
+      {
+        "lower": 0.4,
+        "runners": 33,
+        "predicted": 0.43338382558897554,
+        "observed": 0.30303030303030304
+      },
+      {
+        "lower": 0.5,
+        "runners": 10,
+        "predicted": 0.5426714287344027,
+        "observed": 0.4
+      },
+      {
+        "lower": 0.6,
+        "runners": 5,
+        "predicted": 0.654018014348753,
+        "observed": 0.6
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.8254400445807849,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.12853674962002123,
+      -0.05523103273961318
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 90440,
+      "stake_yen": 34500.0,
+      "payout_yen": 24940.0,
+      "return_pct": 72.28985507246377,
+      "maximum_drawdown": 0.233,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 148,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6832397754611067,
+      "return_pct_without_largest_payout": 22.89855072463768,
+      "return_pct_without_top3_payouts": 1.2463768115942029,
+      "net_profit_yen": -9560,
+      "profit_yen_per_scheduled_race": -27.71014492753623
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 92510,
+      "stake_yen": 34500.0,
+      "payout_yen": 27010.0,
+      "return_pct": 78.28985507246377,
+      "maximum_drawdown": 0.2123,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 175,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.630877452795261,
+      "return_pct_without_largest_payout": 28.89855072463768,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -7490,
+      "profit_yen_per_scheduled_race": -21.71014492753623
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -11.81360201511335,
+      35.52870090634441
+    ]
+  },
+  "changed_prior_fields": [],
+  "risk_policy": {
+    "status": "calibrated_research_policy",
+    "selected": {
+      "structural_weight": 0.75,
+      "odds_cap": 20,
+      "bets": 2303,
+      "return_pct": 74.3508467216674,
+      "day_bootstrap_95pct_lower_return_pct": 62.38000731810079,
+      "pending": 0
+    },
+    "approved": false,
+    "grid": [
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 10,
+        "bets": 4,
+        "return_pct": 230.0,
+        "day_bootstrap_95pct_lower_return_pct": 0.0,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 20,
+        "bets": 51,
+        "return_pct": 78.23529411764706,
+        "day_bootstrap_95pct_lower_return_pct": 0.0,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 50,
+        "bets": 502,
+        "return_pct": 62.27091633466136,
+        "day_bootstrap_95pct_lower_return_pct": 27.756889329806,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 100,
+        "bets": 1669,
+        "return_pct": 56.38705811863391,
+        "day_bootstrap_95pct_lower_return_pct": 22.55688547354882,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": null,
+        "bets": 2993,
+        "return_pct": 42.12495823588373,
+        "day_bootstrap_95pct_lower_return_pct": 17.498409305774043,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 10,
+        "bets": 125,
+        "return_pct": 64.0,
+        "day_bootstrap_95pct_lower_return_pct": 32.02715517241379,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 20,
+        "bets": 666,
+        "return_pct": 84.06906906906907,
+        "day_bootstrap_95pct_lower_return_pct": 60.297186292001186,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 50,
+        "bets": 2382,
+        "return_pct": 67.26280436607892,
+        "day_bootstrap_95pct_lower_return_pct": 49.17750578297063,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 100,
+        "bets": 3102,
+        "return_pct": 48.704061895551256,
+        "day_bootstrap_95pct_lower_return_pct": 28.302744226189223,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": null,
+        "bets": 3312,
+        "return_pct": 46.25,
+        "day_bootstrap_95pct_lower_return_pct": 21.827299887027447,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 10,
+        "bets": 631,
+        "return_pct": 71.64817749603803,
+        "day_bootstrap_95pct_lower_return_pct": 55.398143285821455,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 20,
+        "bets": 1784,
+        "return_pct": 75.25784753363229,
+        "day_bootstrap_95pct_lower_return_pct": 62.182361320542846,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 50,
+        "bets": 3113,
+        "return_pct": 66.03276582075169,
+        "day_bootstrap_95pct_lower_return_pct": 50.339178903195496,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 100,
+        "bets": 3307,
+        "return_pct": 48.633202298155425,
+        "day_bootstrap_95pct_lower_return_pct": 30.22197118838697,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": null,
+        "bets": 3340,
+        "return_pct": 46.68562874251497,
+        "day_bootstrap_95pct_lower_return_pct": 22.215599807289518,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 10,
+        "bets": 1030,
+        "return_pct": 68.39805825242719,
+        "day_bootstrap_95pct_lower_return_pct": 56.26100932176149,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 20,
+        "bets": 2303,
+        "return_pct": 74.3508467216674,
+        "day_bootstrap_95pct_lower_return_pct": 62.38000731810079,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 50,
+        "bets": 3240,
+        "return_pct": 64.99382716049382,
+        "day_bootstrap_95pct_lower_return_pct": 50.081481673628865,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 100,
+        "bets": 3334,
+        "return_pct": 48.521295740851826,
+        "day_bootstrap_95pct_lower_return_pct": 30.18934821272534,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": null,
+        "bets": 3342,
+        "return_pct": 46.71454219030521,
+        "day_bootstrap_95pct_lower_return_pct": 22.2761664828808,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 10,
+        "bets": 1293,
+        "return_pct": 69.89172467130703,
+        "day_bootstrap_95pct_lower_return_pct": 57.933617332779086,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 20,
+        "bets": 2547,
+        "return_pct": 71.4880251276011,
+        "day_bootstrap_95pct_lower_return_pct": 60.34924710721752,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 50,
+        "bets": 3280,
+        "return_pct": 64.51829268292683,
+        "day_bootstrap_95pct_lower_return_pct": 49.66129175654162,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 100,
+        "bets": 3337,
+        "return_pct": 48.47767455798621,
+        "day_bootstrap_95pct_lower_return_pct": 30.14519386424179,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": null,
+        "bets": 3343,
+        "return_pct": 46.700568351779836,
+        "day_bootstrap_95pct_lower_return_pct": 22.269462966300235,
+        "pending": 0
+      }
+    ],
+    "selection_basis": "2024 day-bootstrap lower ROI; minimum calibration bet count",
+    "live_eligible": false
+  },
+  "risk_policy_full_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 41960,
+    "stake_yen": 234400.0,
+    "payout_yen": 176360.0,
+    "return_pct": 75.23890784982935,
+    "maximum_drawdown": 0.630248833592535,
+    "pending_races": 0,
+    "bet_races": 2344,
+    "longest_losing_streak": 91,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.011340440009072352,
+    "return_pct_without_largest_payout": 74.38566552901024,
+    "return_pct_without_top3_payouts": 72.68771331058021
+  },
+  "risk_policy_matched_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 93670,
+    "stake_yen": 26800.0,
+    "payout_yen": 20470.0,
+    "return_pct": 76.38059701492537,
+    "maximum_drawdown": 0.08103567546200217,
+    "pending_races": 0,
+    "bet_races": 268,
+    "longest_losing_streak": 53,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.0898876404494382,
+    "return_pct_without_largest_payout": 69.51492537313433,
+    "return_pct_without_top3_payouts": 56.19402985074627
+  },
+  "risk_policy_exact_original_EV_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 95190,
+    "stake_yen": 24100.0,
+    "payout_yen": 19290.0,
+    "return_pct": 80.04149377593362,
+    "maximum_drawdown": 0.07178680302881306,
+    "pending_races": 0,
+    "bet_races": 241,
+    "longest_losing_streak": 47,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.09538621047174702,
+    "return_pct_without_largest_payout": 72.40663900414938,
+    "return_pct_without_top3_payouts": 57.593360995850624
+  },
+  "risk_policy_matched_profit_delta_95pct": [
+    -74.85564304461943,
+    85.15075376884423
+  ],
+  "structural_probability_rank_settlement": {
+    "win": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 14060,
+      "stake_yen": 333300.0,
+      "payout_yen": 247360.0,
+      "return_pct": 74.21542154215422,
+      "maximum_drawdown": 0.864036360119911,
+      "pending_races": 0,
+      "bet_races": 3333,
+      "longest_losing_streak": 27,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.014553686934023286,
+      "return_pct_without_largest_payout": 73.13531353135313,
+      "return_pct_without_top3_payouts": 71.8961896189619
+    },
+    "wide": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 38660,
+      "stake_yen": 333300.0,
+      "payout_yen": 271960.0,
+      "return_pct": 81.5961596159616,
+      "maximum_drawdown": 0.6391300289368057,
+      "pending_races": 0,
+      "bet_races": 3333,
+      "longest_losing_streak": 40,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.018421826739226356,
+      "return_pct_without_largest_payout": 80.09300930093009,
+      "return_pct_without_top3_payouts": 77.89078907890789
+    },
+    "trio": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": -39720,
+      "stake_yen": 333300.0,
+      "payout_yen": 193580.0,
+      "return_pct": 58.07980798079808,
+      "maximum_drawdown": 1.3424137931034483,
+      "pending_races": 0,
+      "bet_races": 3333,
+      "longest_losing_streak": 163,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.09556772393842339,
+      "return_pct_without_largest_payout": 52.52925292529253,
+      "return_pct_without_top3_payouts": 47.002700270027006
+    }
+  },
+  "structural_virtual_capital": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 21360,
+    "stake_yen": 290700.0,
+    "payout_yen": 212060.0,
+    "return_pct": 72.94805641554868,
+    "maximum_drawdown": 0.821702838063439,
+    "pending_races": 0,
+    "bet_races": 1001,
+    "longest_losing_streak": 20,
+    "maximum_single_race_loss": 300,
+    "largest_payout_share": 0.11086484957087617,
+    "return_pct_without_largest_payout": 64.86068111455108,
+    "return_pct_without_top3_payouts": 59.095287237702095,
+    "completed_race_order_drawdown": 0.8227238775002075,
+    "cash_after_known_settlements": 21360.0,
+    "unresolved_reserved_cost": 0.0,
+    "maximum_entry_exposure": 0.1,
+    "equity_at_cost_after_known_settlements": 21360.0,
+    "equity_events": [
+      {
+        "observed_timestamp": 1736607600.0,
+        "equity_at_cost": 96100.0
+      },
+      {
+        "observed_timestamp": 1736694000.0,
+        "equity_at_cost": 119250.0
+      },
+      {
+        "observed_timestamp": 1737212400.0,
+        "equity_at_cost": 119800.0
+      },
+      {
+        "observed_timestamp": 1737298800.0,
+        "equity_at_cost": 116370.0
+      },
+      {
+        "observed_timestamp": 1737817200.0,
+        "equity_at_cost": 112340.0
+      },
+      {
+        "observed_timestamp": 1738335600.0,
+        "equity_at_cost": 109730.0
+      },
+      {
+        "observed_timestamp": 1738422000.0,
+        "equity_at_cost": 105790.0
+      },
+      {
+        "observed_timestamp": 1738940400.0,
+        "equity_at_cost": 102470.0
+      },
+      {
+        "observed_timestamp": 1739026800.0,
+        "equity_at_cost": 100500.0
+      },
+      {
+        "observed_timestamp": 1739545200.0,
+        "equity_at_cost": 98730.0
+      },
+      {
+        "observed_timestamp": 1739631600.0,
+        "equity_at_cost": 93690.0
+      },
+      {
+        "observed_timestamp": 1740150000.0,
+        "equity_at_cost": 93150.0
+      },
+      {
+        "observed_timestamp": 1740236400.0,
+        "equity_at_cost": 90450.0
+      },
+      {
+        "observed_timestamp": 1740754800.0,
+        "equity_at_cost": 91510.0
+      },
+      {
+        "observed_timestamp": 1740841200.0,
+        "equity_at_cost": 89110.0
+      },
+      {
+        "observed_timestamp": 1741359600.0,
+        "equity_at_cost": 88200.0
+      },
+      {
+        "observed_timestamp": 1741446000.0,
+        "equity_at_cost": 87890.0
+      },
+      {
+        "observed_timestamp": 1741964400.0,
+        "equity_at_cost": 86120.0
+      },
+      {
+        "observed_timestamp": 1742050800.0,
+        "equity_at_cost": 84010.0
+      },
+      {
+        "observed_timestamp": 1742569200.0,
+        "equity_at_cost": 81670.0
+      },
+      {
+        "observed_timestamp": 1742655600.0,
+        "equity_at_cost": 79070.0
+      },
+      {
+        "observed_timestamp": 1743174000.0,
+        "equity_at_cost": 77020.0
+      },
+      {
+        "observed_timestamp": 1743260400.0,
+        "equity_at_cost": 79790.0
+      },
+      {
+        "observed_timestamp": 1743778800.0,
+        "equity_at_cost": 77860.0
+      },
+      {
+        "observed_timestamp": 1743865200.0,
+        "equity_at_cost": 77160.0
+      },
+      {
+        "observed_timestamp": 1744383600.0,
+        "equity_at_cost": 75080.0
+      },
+      {
+        "observed_timestamp": 1744470000.0,
+        "equity_at_cost": 75570.0
+      },
+      {
+        "observed_timestamp": 1744988400.0,
+        "equity_at_cost": 73830.0
+      },
+      {
+        "observed_timestamp": 1745074800.0,
+        "equity_at_cost": 75840.0
+      },
+      {
+        "observed_timestamp": 1745593200.0,
+        "equity_at_cost": 73880.0
+      },
+      {
+        "observed_timestamp": 1745679600.0,
+        "equity_at_cost": 73510.0
+      },
+      {
+        "observed_timestamp": 1746198000.0,
+        "equity_at_cost": 71340.0
+      },
+      {
+        "observed_timestamp": 1746284400.0,
+        "equity_at_cost": 72920.0
+      },
+      {
+        "observed_timestamp": 1746802800.0,
+        "equity_at_cost": 71100.0
+      },
+      {
+        "observed_timestamp": 1746889200.0,
+        "equity_at_cost": 69090.0
+      },
+      {
+        "observed_timestamp": 1747407600.0,
+        "equity_at_cost": 67710.0
+      },
+      {
+        "observed_timestamp": 1747494000.0,
+        "equity_at_cost": 64300.0
+      },
+      {
+        "observed_timestamp": 1748012400.0,
+        "equity_at_cost": 63710.0
+      },
+      {
+        "observed_timestamp": 1748098800.0,
+        "equity_at_cost": 62650.0
+      },
+      {
+        "observed_timestamp": 1748617200.0,
+        "equity_at_cost": 61470.0
+      },
+      {
+        "observed_timestamp": 1748703600.0,
+        "equity_at_cost": 58390.0
+      },
+      {
+        "observed_timestamp": 1749222000.0,
+        "equity_at_cost": 56610.0
+      },
+      {
+        "observed_timestamp": 1749308400.0,
+        "equity_at_cost": 54940.0
+      },
+      {
+        "observed_timestamp": 1749826800.0,
+        "equity_at_cost": 54070.0
+      },
+      {
+        "observed_timestamp": 1749913200.0,
+        "equity_at_cost": 52020.0
+      },
+      {
+        "observed_timestamp": 1750431600.0,
+        "equity_at_cost": 50310.0
+      },
+      {
+        "observed_timestamp": 1750518000.0,
+        "equity_at_cost": 50410.0
+      },
+      {
+        "observed_timestamp": 1751036400.0,
+        "equity_at_cost": 48760.0
+      },
+      {
+        "observed_timestamp": 1751122800.0,
+        "equity_at_cost": 46930.0
+      },
+      {
+        "observed_timestamp": 1751641200.0,
+        "equity_at_cost": 45510.0
+      },
+      {
+        "observed_timestamp": 1751727600.0,
+        "equity_at_cost": 50960.0
+      },
+      {
+        "observed_timestamp": 1752246000.0,
+        "equity_at_cost": 50770.0
+      },
+      {
+        "observed_timestamp": 1752332400.0,
+        "equity_at_cost": 48620.0
+      },
+      {
+        "observed_timestamp": 1752850800.0,
+        "equity_at_cost": 46920.0
+      },
+      {
+        "observed_timestamp": 1752937200.0,
+        "equity_at_cost": 45730.0
+      },
+      {
+        "observed_timestamp": 1753455600.0,
+        "equity_at_cost": 45170.0
+      },
+      {
+        "observed_timestamp": 1753542000.0,
+        "equity_at_cost": 43760.0
+      },
+      {
+        "observed_timestamp": 1754060400.0,
+        "equity_at_cost": 43050.0
+      },
+      {
+        "observed_timestamp": 1754146800.0,
+        "equity_at_cost": 42280.0
+      },
+      {
+        "observed_timestamp": 1754665200.0,
+        "equity_at_cost": 42150.0
+      },
+      {
+        "observed_timestamp": 1754751600.0,
+        "equity_at_cost": 41010.0
+      },
+      {
+        "observed_timestamp": 1755270000.0,
+        "equity_at_cost": 39660.0
+      },
+      {
+        "observed_timestamp": 1755356400.0,
+        "equity_at_cost": 39010.0
+      },
+      {
+        "observed_timestamp": 1755874800.0,
+        "equity_at_cost": 38560.0
+      },
+      {
+        "observed_timestamp": 1755961200.0,
+        "equity_at_cost": 36740.0
+      },
+      {
+        "observed_timestamp": 1756479600.0,
+        "equity_at_cost": 35660.0
+      },
+      {
+        "observed_timestamp": 1756566000.0,
+        "equity_at_cost": 35050.0
+      },
+      {
+        "observed_timestamp": 1757084400.0,
+        "equity_at_cost": 34140.0
+      },
+      {
+        "observed_timestamp": 1757170800.0,
+        "equity_at_cost": 33270.0
+      },
+      {
+        "observed_timestamp": 1757689200.0,
+        "equity_at_cost": 32270.0
+      },
+      {
+        "observed_timestamp": 1757775600.0,
+        "equity_at_cost": 30660.0
+      },
+      {
+        "observed_timestamp": 1758294000.0,
+        "equity_at_cost": 29760.0
+      },
+      {
+        "observed_timestamp": 1758380400.0,
+        "equity_at_cost": 38280.0
+      },
+      {
+        "observed_timestamp": 1758898800.0,
+        "equity_at_cost": 37690.0
+      },
+      {
+        "observed_timestamp": 1758985200.0,
+        "equity_at_cost": 36260.0
+      },
+      {
+        "observed_timestamp": 1759503600.0,
+        "equity_at_cost": 36480.0
+      },
+      {
+        "observed_timestamp": 1759590000.0,
+        "equity_at_cost": 34130.0
+      },
+      {
+        "observed_timestamp": 1760108400.0,
+        "equity_at_cost": 34060.0
+      },
+      {
+        "observed_timestamp": 1760194800.0,
+        "equity_at_cost": 32140.0
+      },
+      {
+        "observed_timestamp": 1760713200.0,
+        "equity_at_cost": 31570.0
+      },
+      {
+        "observed_timestamp": 1760799600.0,
+        "equity_at_cost": 29860.0
+      },
+      {
+        "observed_timestamp": 1761318000.0,
+        "equity_at_cost": 29260.0
+      },
+      {
+        "observed_timestamp": 1761404400.0,
+        "equity_at_cost": 29570.0
+      },
+      {
+        "observed_timestamp": 1761922800.0,
+        "equity_at_cost": 28970.0
+      },
+      {
+        "observed_timestamp": 1762009200.0,
+        "equity_at_cost": 28730.0
+      },
+      {
+        "observed_timestamp": 1762527600.0,
+        "equity_at_cost": 28230.0
+      },
+      {
+        "observed_timestamp": 1762614000.0,
+        "equity_at_cost": 27390.0
+      },
+      {
+        "observed_timestamp": 1763132400.0,
+        "equity_at_cost": 28390.0
+      },
+      {
+        "observed_timestamp": 1763218800.0,
+        "equity_at_cost": 28490.0
+      },
+      {
+        "observed_timestamp": 1763737200.0,
+        "equity_at_cost": 33230.0
+      },
+      {
+        "observed_timestamp": 1763823600.0,
+        "equity_at_cost": 32190.0
+      },
+      {
+        "observed_timestamp": 1764342000.0,
+        "equity_at_cost": 31200.0
+      },
+      {
+        "observed_timestamp": 1764428400.0,
+        "equity_at_cost": 30270.0
+      },
+      {
+        "observed_timestamp": 1764946800.0,
+        "equity_at_cost": 29270.0
+      },
+      {
+        "observed_timestamp": 1765033200.0,
+        "equity_at_cost": 27490.0
+      },
+      {
+        "observed_timestamp": 1765551600.0,
+        "equity_at_cost": 26760.0
+      },
+      {
+        "observed_timestamp": 1765638000.0,
+        "equity_at_cost": 24960.0
+      },
+      {
+        "observed_timestamp": 1766156400.0,
+        "equity_at_cost": 24360.0
+      },
+      {
+        "observed_timestamp": 1766242800.0,
+        "equity_at_cost": 22900.0
+      },
+      {
+        "observed_timestamp": 1766761200.0,
+        "equity_at_cost": 22700.0
+      },
+      {
+        "observed_timestamp": 1766847600.0,
+        "equity_at_cost": 22200.0
+      },
+      {
+        "observed_timestamp": 1767366000.0,
+        "equity_at_cost": 22110.0
+      },
+      {
+        "observed_timestamp": 1767452400.0,
+        "equity_at_cost": 21360.0
+      }
+    ],
+    "settlement_unit": "race; partial races excluded from ROI",
+    "drawdown_basis": "source availability; unresolved stakes held at cost",
+    "rule": {
+      "initial": 100000,
+      "race_budget": 5000,
+      "race_fraction": 0.02,
+      "exposure_fraction": 0.1
+    },
+    "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+  },
+  "market_probability_rank_settlement": {
+    "win": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 29650,
+      "stake_yen": 331400.0,
+      "payout_yen": 261050.0,
+      "return_pct": 78.77187688593844,
+      "maximum_drawdown": 0.7101449275362319,
+      "pending_races": 0,
+      "bet_races": 3314,
+      "longest_losing_streak": 19,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.0021834897529208965,
+      "return_pct_without_largest_payout": 78.59987929993964,
+      "return_pct_without_top3_payouts": 78.26795413397707
+    },
+    "wide": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 38060,
+      "stake_yen": 331400.0,
+      "payout_yen": 269460.0,
+      "return_pct": 81.30959565479783,
+      "maximum_drawdown": 0.6303936223218735,
+      "pending_races": 0,
+      "bet_races": 3314,
+      "longest_losing_streak": 17,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.0031544570622726933,
+      "return_pct_without_largest_payout": 81.05310802655401,
+      "return_pct_without_top3_payouts": 80.6125528062764
+    },
+    "trio": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 28770,
+      "stake_yen": 331400.0,
+      "payout_yen": 260170.0,
+      "return_pct": 78.50633675316837,
+      "maximum_drawdown": 0.725767169995129,
+      "pending_races": 0,
+      "bet_races": 3314,
+      "longest_losing_streak": 71,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.016527654994811083,
+      "return_pct_without_largest_payout": 77.20881110440556,
+      "return_pct_without_top3_payouts": 74.90343995171997
+    }
+  },
+  "market_virtual_capital": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 34650,
+    "stake_yen": 330000.0,
+    "payout_yen": 264650.0,
+    "return_pct": 80.1969696969697,
+    "maximum_drawdown": 0.6535,
+    "pending_races": 0,
+    "bet_races": 1132,
+    "longest_losing_streak": 7,
+    "maximum_single_race_loss": 300,
+    "largest_payout_share": 0.014660872850935197,
+    "return_pct_without_largest_payout": 79.02121212121212,
+    "return_pct_without_top3_payouts": 77.47272727272727,
+    "completed_race_order_drawdown": 0.6639016297452913,
+    "cash_after_known_settlements": 34650.0,
+    "unresolved_reserved_cost": 0.0,
+    "maximum_entry_exposure": 0.1,
+    "equity_at_cost_after_known_settlements": 34650.0,
+    "equity_events": [
+      {
+        "observed_timestamp": 1736607600.0,
+        "equity_at_cost": 99780.0
+      },
+      {
+        "observed_timestamp": 1736694000.0,
+        "equity_at_cost": 98630.0
+      },
+      {
+        "observed_timestamp": 1737212400.0,
+        "equity_at_cost": 95360.0
+      },
+      {
+        "observed_timestamp": 1737298800.0,
+        "equity_at_cost": 93860.0
+      },
+      {
+        "observed_timestamp": 1737817200.0,
+        "equity_at_cost": 90260.0
+      },
+      {
+        "observed_timestamp": 1738335600.0,
+        "equity_at_cost": 90280.0
+      },
+      {
+        "observed_timestamp": 1738422000.0,
+        "equity_at_cost": 89860.0
+      },
+      {
+        "observed_timestamp": 1738940400.0,
+        "equity_at_cost": 87110.0
+      },
+      {
+        "observed_timestamp": 1739026800.0,
+        "equity_at_cost": 86140.0
+      },
+      {
+        "observed_timestamp": 1739545200.0,
+        "equity_at_cost": 88690.0
+      },
+      {
+        "observed_timestamp": 1739631600.0,
+        "equity_at_cost": 88560.0
+      },
+      {
+        "observed_timestamp": 1740150000.0,
+        "equity_at_cost": 89850.0
+      },
+      {
+        "observed_timestamp": 1740236400.0,
+        "equity_at_cost": 91720.0
+      },
+      {
+        "observed_timestamp": 1740754800.0,
+        "equity_at_cost": 92180.0
+      },
+      {
+        "observed_timestamp": 1740841200.0,
+        "equity_at_cost": 94460.0
+      },
+      {
+        "observed_timestamp": 1741359600.0,
+        "equity_at_cost": 92130.0
+      },
+      {
+        "observed_timestamp": 1741446000.0,
+        "equity_at_cost": 91360.0
+      },
+      {
+        "observed_timestamp": 1741964400.0,
+        "equity_at_cost": 91090.0
+      },
+      {
+        "observed_timestamp": 1742050800.0,
+        "equity_at_cost": 88800.0
+      },
+      {
+        "observed_timestamp": 1742569200.0,
+        "equity_at_cost": 86650.0
+      },
+      {
+        "observed_timestamp": 1742655600.0,
+        "equity_at_cost": 83130.0
+      },
+      {
+        "observed_timestamp": 1743174000.0,
+        "equity_at_cost": 82540.0
+      },
+      {
+        "observed_timestamp": 1743260400.0,
+        "equity_at_cost": 83890.0
+      },
+      {
+        "observed_timestamp": 1743778800.0,
+        "equity_at_cost": 83080.0
+      },
+      {
+        "observed_timestamp": 1743865200.0,
+        "equity_at_cost": 80020.0
+      },
+      {
+        "observed_timestamp": 1744383600.0,
+        "equity_at_cost": 78390.0
+      },
+      {
+        "observed_timestamp": 1744470000.0,
+        "equity_at_cost": 79710.0
+      },
+      {
+        "observed_timestamp": 1744988400.0,
+        "equity_at_cost": 79290.0
+      },
+      {
+        "observed_timestamp": 1745074800.0,
+        "equity_at_cost": 76710.0
+      },
+      {
+        "observed_timestamp": 1745593200.0,
+        "equity_at_cost": 75710.0
+      },
+      {
+        "observed_timestamp": 1745679600.0,
+        "equity_at_cost": 75270.0
+      },
+      {
+        "observed_timestamp": 1746198000.0,
+        "equity_at_cost": 73380.0
+      },
+      {
+        "observed_timestamp": 1746284400.0,
+        "equity_at_cost": 75300.0
+      },
+      {
+        "observed_timestamp": 1746802800.0,
+        "equity_at_cost": 74130.0
+      },
+      {
+        "observed_timestamp": 1746889200.0,
+        "equity_at_cost": 74300.0
+      },
+      {
+        "observed_timestamp": 1747407600.0,
+        "equity_at_cost": 74450.0
+      },
+      {
+        "observed_timestamp": 1747494000.0,
+        "equity_at_cost": 71700.0
+      },
+      {
+        "observed_timestamp": 1748012400.0,
+        "equity_at_cost": 70200.0
+      },
+      {
+        "observed_timestamp": 1748098800.0,
+        "equity_at_cost": 67990.0
+      },
+      {
+        "observed_timestamp": 1748617200.0,
+        "equity_at_cost": 67850.0
+      },
+      {
+        "observed_timestamp": 1748703600.0,
+        "equity_at_cost": 66800.0
+      },
+      {
+        "observed_timestamp": 1749222000.0,
+        "equity_at_cost": 66000.0
+      },
+      {
+        "observed_timestamp": 1749308400.0,
+        "equity_at_cost": 69140.0
+      },
+      {
+        "observed_timestamp": 1749826800.0,
+        "equity_at_cost": 69600.0
+      },
+      {
+        "observed_timestamp": 1749913200.0,
+        "equity_at_cost": 69180.0
+      },
+      {
+        "observed_timestamp": 1750431600.0,
+        "equity_at_cost": 70410.0
+      },
+      {
+        "observed_timestamp": 1750518000.0,
+        "equity_at_cost": 71840.0
+      },
+      {
+        "observed_timestamp": 1751036400.0,
+        "equity_at_cost": 70800.0
+      },
+      {
+        "observed_timestamp": 1751122800.0,
+        "equity_at_cost": 67850.0
+      },
+      {
+        "observed_timestamp": 1751641200.0,
+        "equity_at_cost": 66510.0
+      },
+      {
+        "observed_timestamp": 1751727600.0,
+        "equity_at_cost": 64700.0
+      },
+      {
+        "observed_timestamp": 1752246000.0,
+        "equity_at_cost": 63420.0
+      },
+      {
+        "observed_timestamp": 1752332400.0,
+        "equity_at_cost": 61440.0
+      },
+      {
+        "observed_timestamp": 1752850800.0,
+        "equity_at_cost": 59940.0
+      },
+      {
+        "observed_timestamp": 1752937200.0,
+        "equity_at_cost": 59890.0
+      },
+      {
+        "observed_timestamp": 1753455600.0,
+        "equity_at_cost": 58930.0
+      },
+      {
+        "observed_timestamp": 1753542000.0,
+        "equity_at_cost": 56600.0
+      },
+      {
+        "observed_timestamp": 1754060400.0,
+        "equity_at_cost": 56290.0
+      },
+      {
+        "observed_timestamp": 1754146800.0,
+        "equity_at_cost": 54290.0
+      },
+      {
+        "observed_timestamp": 1754665200.0,
+        "equity_at_cost": 53200.0
+      },
+      {
+        "observed_timestamp": 1754751600.0,
+        "equity_at_cost": 52870.0
+      },
+      {
+        "observed_timestamp": 1755270000.0,
+        "equity_at_cost": 53110.0
+      },
+      {
+        "observed_timestamp": 1755356400.0,
+        "equity_at_cost": 52900.0
+      },
+      {
+        "observed_timestamp": 1755874800.0,
+        "equity_at_cost": 52810.0
+      },
+      {
+        "observed_timestamp": 1755961200.0,
+        "equity_at_cost": 53040.0
+      },
+      {
+        "observed_timestamp": 1756479600.0,
+        "equity_at_cost": 51620.0
+      },
+      {
+        "observed_timestamp": 1756566000.0,
+        "equity_at_cost": 49490.0
+      },
+      {
+        "observed_timestamp": 1757084400.0,
+        "equity_at_cost": 49510.0
+      },
+      {
+        "observed_timestamp": 1757170800.0,
+        "equity_at_cost": 50040.0
+      },
+      {
+        "observed_timestamp": 1757689200.0,
+        "equity_at_cost": 49110.0
+      },
+      {
+        "observed_timestamp": 1757775600.0,
+        "equity_at_cost": 50350.0
+      },
+      {
+        "observed_timestamp": 1758294000.0,
+        "equity_at_cost": 49930.0
+      },
+      {
+        "observed_timestamp": 1758380400.0,
+        "equity_at_cost": 48620.0
+      },
+      {
+        "observed_timestamp": 1758898800.0,
+        "equity_at_cost": 48470.0
+      },
+      {
+        "observed_timestamp": 1758985200.0,
+        "equity_at_cost": 47260.0
+      },
+      {
+        "observed_timestamp": 1759503600.0,
+        "equity_at_cost": 47780.0
+      },
+      {
+        "observed_timestamp": 1759590000.0,
+        "equity_at_cost": 47160.0
+      },
+      {
+        "observed_timestamp": 1760108400.0,
+        "equity_at_cost": 46410.0
+      },
+      {
+        "observed_timestamp": 1760194800.0,
+        "equity_at_cost": 45080.0
+      },
+      {
+        "observed_timestamp": 1760713200.0,
+        "equity_at_cost": 44320.0
+      },
+      {
+        "observed_timestamp": 1760799600.0,
+        "equity_at_cost": 42070.0
+      },
+      {
+        "observed_timestamp": 1761318000.0,
+        "equity_at_cost": 41200.0
+      },
+      {
+        "observed_timestamp": 1761404400.0,
+        "equity_at_cost": 41670.0
+      },
+      {
+        "observed_timestamp": 1761922800.0,
+        "equity_at_cost": 40990.0
+      },
+      {
+        "observed_timestamp": 1762009200.0,
+        "equity_at_cost": 41510.0
+      },
+      {
+        "observed_timestamp": 1762527600.0,
+        "equity_at_cost": 40940.0
+      },
+      {
+        "observed_timestamp": 1762614000.0,
+        "equity_at_cost": 41840.0
+      },
+      {
+        "observed_timestamp": 1763132400.0,
+        "equity_at_cost": 41410.0
+      },
+      {
+        "observed_timestamp": 1763218800.0,
+        "equity_at_cost": 41230.0
+      },
+      {
+        "observed_timestamp": 1763737200.0,
+        "equity_at_cost": 40780.0
+      },
+      {
+        "observed_timestamp": 1763823600.0,
+        "equity_at_cost": 40440.0
+      },
+      {
+        "observed_timestamp": 1764342000.0,
+        "equity_at_cost": 40480.0
+      },
+      {
+        "observed_timestamp": 1764428400.0,
+        "equity_at_cost": 40350.0
+      },
+      {
+        "observed_timestamp": 1764946800.0,
+        "equity_at_cost": 40210.0
+      },
+      {
+        "observed_timestamp": 1765033200.0,
+        "equity_at_cost": 39600.0
+      },
+      {
+        "observed_timestamp": 1765551600.0,
+        "equity_at_cost": 39260.0
+      },
+      {
+        "observed_timestamp": 1765638000.0,
+        "equity_at_cost": 37790.0
+      },
+      {
+        "observed_timestamp": 1766156400.0,
+        "equity_at_cost": 37560.0
+      },
+      {
+        "observed_timestamp": 1766242800.0,
+        "equity_at_cost": 36750.0
+      },
+      {
+        "observed_timestamp": 1766761200.0,
+        "equity_at_cost": 36210.0
+      },
+      {
+        "observed_timestamp": 1766847600.0,
+        "equity_at_cost": 35280.0
+      },
+      {
+        "observed_timestamp": 1767366000.0,
+        "equity_at_cost": 35130.0
+      },
+      {
+        "observed_timestamp": 1767452400.0,
+        "equity_at_cost": 34650.0
+      }
+    ],
+    "settlement_unit": "race; partial races excluded from ROI",
+    "drawdown_basis": "source availability; unresolved stakes held at cost",
+    "rule": {
+      "initial": 100000,
+      "race_budget": 5000,
+      "race_fraction": 0.02,
+      "exposure_fraction": 0.1
+    },
+    "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+  },
+  "market_EV_stress": {
+    "10": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "20": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "50": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "100": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "None": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    }
+  },
+  "segments": {
+    "course": {
+      "中京/dirt": {
+        "races": 207,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 79300,
+          "stake_yen": 20700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.207,
+          "pending_races": 0,
+          "bet_races": 207,
+          "longest_losing_streak": 207,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/dirt": {
+        "races": 264,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 101590,
+          "stake_yen": 26400.0,
+          "payout_yen": 27990.0,
+          "return_pct": 106.02272727272727,
+          "maximum_drawdown": 0.13163518249423029,
+          "pending_races": 0,
+          "bet_races": 264,
+          "longest_losing_streak": 154,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中京/turf": {
+        "races": 173,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 85020,
+          "stake_yen": 17300.0,
+          "payout_yen": 2320.0,
+          "return_pct": 13.410404624277456,
+          "maximum_drawdown": 0.15166633406505686,
+          "pending_races": 0,
+          "bet_races": 173,
+          "longest_losing_streak": 152,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/turf": {
+        "races": 205,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88560,
+          "stake_yen": 20500.0,
+          "payout_yen": 9060.0,
+          "return_pct": 44.19512195121951,
+          "maximum_drawdown": 0.1657874905802562,
+          "pending_races": 0,
+          "bet_races": 205,
+          "longest_losing_streak": 176,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.5452538631346578,
+          "return_pct_without_largest_payout": 20.097560975609756,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中京/jump": {
+        "races": 8,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99200,
+          "stake_yen": 800.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.008,
+          "pending_races": 0,
+          "bet_races": 8,
+          "longest_losing_streak": 8,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/dirt": {
+        "races": 77,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 92300,
+          "stake_yen": 7700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.077,
+          "pending_races": 0,
+          "bet_races": 77,
+          "longest_losing_streak": 77,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/turf": {
+        "races": 134,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 121170,
+          "stake_yen": 13400.0,
+          "payout_yen": 34570.0,
+          "return_pct": 257.9850746268657,
+          "maximum_drawdown": 0.061,
+          "pending_races": 0,
+          "bet_races": 134,
+          "longest_losing_streak": 61,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.7121781891813711,
+          "return_pct_without_largest_payout": 74.25373134328358,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/jump": {
+        "races": 20,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 113390,
+          "stake_yen": 2000.0,
+          "payout_yen": 15390.0,
+          "return_pct": 769.5,
+          "maximum_drawdown": 0.011,
+          "pending_races": 0,
+          "bet_races": 20,
+          "longest_losing_streak": 11,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.6335282651072125,
+          "return_pct_without_largest_payout": 282.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/dirt": {
+        "races": 231,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 93940,
+          "stake_yen": 23100.0,
+          "payout_yen": 17040.0,
+          "return_pct": 73.76623376623377,
+          "maximum_drawdown": 0.164,
+          "pending_races": 0,
+          "bet_races": 231,
+          "longest_losing_streak": 164,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/dirt": {
+        "races": 257,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 74300,
+          "stake_yen": 25700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.257,
+          "pending_races": 0,
+          "bet_races": 257,
+          "longest_losing_streak": 257,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/turf": {
+        "races": 256,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 101770,
+          "stake_yen": 25500.0,
+          "payout_yen": 27270.0,
+          "return_pct": 106.94117647058823,
+          "maximum_drawdown": 0.1109460994146938,
+          "pending_races": 0,
+          "bet_races": 255,
+          "longest_losing_streak": 127,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.7598093142647598,
+          "return_pct_without_largest_payout": 25.686274509803923,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/turf": {
+        "races": 211,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 86280,
+          "stake_yen": 21100.0,
+          "payout_yen": 7380.0,
+          "return_pct": 34.976303317535546,
+          "maximum_drawdown": 0.1372,
+          "pending_races": 0,
+          "bet_races": 211,
+          "longest_losing_streak": 114,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8197831978319783,
+          "return_pct_without_largest_payout": 6.303317535545023,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/dirt": {
+        "races": 239,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 76100,
+          "stake_yen": 23900.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.239,
+          "pending_races": 0,
+          "bet_races": 239,
+          "longest_losing_streak": 239,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/turf": {
+        "races": 206,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 101740,
+          "stake_yen": 20600.0,
+          "payout_yen": 22340.0,
+          "return_pct": 108.44660194174757,
+          "maximum_drawdown": 0.1517425379356345,
+          "pending_races": 0,
+          "bet_races": 206,
+          "longest_losing_streak": 182,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/dirt": {
+        "races": 95,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 97550,
+          "stake_yen": 9500.0,
+          "payout_yen": 7050.0,
+          "return_pct": 74.21052631578948,
+          "maximum_drawdown": 0.07754137115839244,
+          "pending_races": 0,
+          "bet_races": 95,
+          "longest_losing_streak": 82,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/turf": {
+        "races": 131,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 121640,
+          "stake_yen": 13100.0,
+          "payout_yen": 34740.0,
+          "return_pct": 265.19083969465646,
+          "maximum_drawdown": 0.09520975900029753,
+          "pending_races": 0,
+          "bet_races": 131,
+          "longest_losing_streak": 128,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/jump": {
+        "races": 1,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99900,
+          "stake_yen": 100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.001,
+          "pending_races": 0,
+          "bet_races": 1,
+          "longest_losing_streak": 1,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/jump": {
+        "races": 17,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 98300,
+          "stake_yen": 1700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.017,
+          "pending_races": 0,
+          "bet_races": 17,
+          "longest_losing_streak": 17,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/dirt": {
+        "races": 114,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88600,
+          "stake_yen": 11400.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.114,
+          "pending_races": 0,
+          "bet_races": 114,
+          "longest_losing_streak": 114,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/turf": {
+        "races": 146,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 85400,
+          "stake_yen": 14600.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.146,
+          "pending_races": 0,
+          "bet_races": 146,
+          "longest_losing_streak": 146,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "函館/turf": {
+        "races": 84,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 92080,
+          "stake_yen": 8400.0,
+          "payout_yen": 480.0,
+          "return_pct": 5.714285714285714,
+          "maximum_drawdown": 0.0792,
+          "pending_races": 0,
+          "bet_races": 84,
+          "longest_losing_streak": 64,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "函館/dirt": {
+        "races": 57,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 94300,
+          "stake_yen": 5700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.057,
+          "pending_races": 0,
+          "bet_races": 57,
+          "longest_losing_streak": 57,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/jump": {
+        "races": 11,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 98900,
+          "stake_yen": 1100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.011,
+          "pending_races": 0,
+          "bet_races": 11,
+          "longest_losing_streak": 11,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "札幌/turf": {
+        "races": 95,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 90500,
+          "stake_yen": 9500.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.095,
+          "pending_races": 0,
+          "bet_races": 95,
+          "longest_losing_streak": 95,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "札幌/dirt": {
+        "races": 69,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 93100,
+          "stake_yen": 6900.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.069,
+          "pending_races": 0,
+          "bet_races": 69,
+          "longest_losing_streak": 69,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    },
+    "class": {
+      "nongraded": {
+        "races": 2506,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 4910,
+          "stake_yen": 250500.0,
+          "payout_yen": 155410.0,
+          "return_pct": 62.03992015968064,
+          "maximum_drawdown": 0.9701646715683296,
+          "pending_races": 0,
+          "bet_races": 2505,
+          "longest_losing_streak": 1312,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.2235377388842417,
+          "return_pct_without_largest_payout": 48.17165668662675,
+          "return_pct_without_top3_payouts": 27.169660678642714
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "graded": {
+        "races": 129,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99160,
+          "stake_yen": 12900.0,
+          "payout_yen": 12060.0,
+          "return_pct": 93.48837209302326,
+          "maximum_drawdown": 0.06681724073028421,
+          "pending_races": 0,
+          "bet_races": 129,
+          "longest_losing_streak": 71,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.5016583747927031,
+          "return_pct_without_largest_payout": 46.58914728682171,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "unknown": {
+        "races": 679,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 70260,
+          "stake_yen": 67900.0,
+          "payout_yen": 38160.0,
+          "return_pct": 56.200294550810014,
+          "maximum_drawdown": 0.3261078074045655,
+          "pending_races": 0,
+          "bet_races": 679,
+          "longest_losing_streak": 340,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.5429769392033543,
+          "return_pct_without_largest_payout": 25.684830633284243,
+          "return_pct_without_top3_payouts": 4.963181148748159
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    },
+    "month": {
+      "2025-01": {
+        "races": 228,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88580,
+          "stake_yen": 22800.0,
+          "payout_yen": 11380.0,
+          "return_pct": 49.91228070175438,
+          "maximum_drawdown": 0.1142,
+          "pending_races": 0,
+          "bet_races": 228,
+          "longest_losing_streak": 112,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.43409490333919154,
+          "return_pct_without_largest_payout": 28.24561403508772,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-02": {
+        "races": 279,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88400,
+          "stake_yen": 27900.0,
+          "payout_yen": 16300.0,
+          "return_pct": 58.422939068100355,
+          "maximum_drawdown": 0.184,
+          "pending_races": 0,
+          "bet_races": 279,
+          "longest_losing_streak": 184,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.598159509202454,
+          "return_pct_without_largest_payout": 23.476702508960575,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-03": {
+        "races": 323,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 148290,
+          "stake_yen": 32300.0,
+          "payout_yen": 80590.0,
+          "return_pct": 249.5046439628483,
+          "maximum_drawdown": 0.11476426799007444,
+          "pending_races": 0,
+          "bet_races": 323,
+          "longest_losing_streak": 148,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.34731356247673406,
+          "return_pct_without_largest_payout": 162.8482972136223,
+          "return_pct_without_top3_payouts": 17.461300309597522
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-04": {
+        "races": 246,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 117190,
+          "stake_yen": 24600.0,
+          "payout_yen": 41790.0,
+          "return_pct": 169.8780487804878,
+          "maximum_drawdown": 0.09253523308037788,
+          "pending_races": 0,
+          "bet_races": 246,
+          "longest_losing_streak": 116,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8312993539124193,
+          "return_pct_without_largest_payout": 28.658536585365855,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-05": {
+        "races": 299,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 77480,
+          "stake_yen": 29900.0,
+          "payout_yen": 7380.0,
+          "return_pct": 24.682274247491637,
+          "maximum_drawdown": 0.2817,
+          "pending_races": 0,
+          "bet_races": 299,
+          "longest_losing_streak": 165,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8197831978319783,
+          "return_pct_without_largest_payout": 4.448160535117057,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-06": {
+        "races": 280,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 93200,
+          "stake_yen": 28000.0,
+          "payout_yen": 21200.0,
+          "return_pct": 75.71428571428571,
+          "maximum_drawdown": 0.135,
+          "pending_races": 0,
+          "bet_races": 280,
+          "longest_losing_streak": 135,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.9773584905660377,
+          "return_pct_without_largest_payout": 1.7142857142857142,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-07": {
+        "races": 283,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 81650,
+          "stake_yen": 28300.0,
+          "payout_yen": 9950.0,
+          "return_pct": 35.159010600706715,
+          "maximum_drawdown": 0.2351288056206089,
+          "pending_races": 0,
+          "bet_races": 283,
+          "longest_losing_streak": 251,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-08": {
+        "races": 355,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 64500,
+          "stake_yen": 35500.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.355,
+          "pending_races": 0,
+          "bet_races": 355,
+          "longest_losing_streak": 355,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-09": {
+        "races": 227,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 77300,
+          "stake_yen": 22700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.227,
+          "pending_races": 0,
+          "bet_races": 227,
+          "longest_losing_streak": 227,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-10": {
+        "races": 248,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 92340,
+          "stake_yen": 24700.0,
+          "payout_yen": 17040.0,
+          "return_pct": 68.98785425101215,
+          "maximum_drawdown": 0.161,
+          "pending_races": 0,
+          "bet_races": 247,
+          "longest_losing_streak": 161,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-11": {
+        "races": 295,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 70500,
+          "stake_yen": 29500.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.295,
+          "pending_races": 0,
+          "bet_races": 295,
+          "longest_losing_streak": 295,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-12": {
+        "races": 251,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 74900,
+          "stake_yen": 25100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.251,
+          "pending_races": 0,
+          "bet_races": 251,
+          "longest_losing_streak": 251,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    }
+  },
+  "artifact_sha256": {
+    "structural_model_lag7.json": "d2e74e2746b0aa6730cabde7292497f4cac34880a2107985bd85c23935d6588e",
+    "market_model_lag7.json": "ea2a023c5b53e3e9973e4759e4237d468021f5a3279941dfd3738bdfe000a430",
+    "risk_policy_lag7.json": "9c0dbef83f6964c5b92113fcfd98b292868b7917d5407ab29f9461ab693e508c",
+    "structural_predictions_lag7.json": "30549487593c103884e5c5370b1166b0fe769519439a8295e464eff5c9b4c54d"
+  },
+  "artifact_roles": {
+    "structural": "research_only_not_live_eligible",
+    "market": "post_race_final_odds_only",
+    "predictions": "2025_already_inspected_exploratory_not_forward"
+  },
+  "input_db_sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+  "source_code_sha256": {
+    "point_in_time.py": "5dd2aeb4bec34bb3a44af0a9251e1e61df2a39a5c228230c1c8eb669f94c10db",
+    "bulk_ingest.py": "9e86f4eb5d6b907141e31dcfc098de6fd5fcf061c2a293c5dc1dd72b1d282f31",
+    "market_residual.py": "8c9f4e67246611eede6160f6c4234d910910fa56459a52bdc8d81db0f7d616c8",
+    "pipeline.py": "c757ea4aa832a6b57351e4f95b8fff6a7a86d271fdcb377f2810346df3b29fd8",
+    "features.py": "fcb833c84b3882e77a30326991a3601a6aa1a72ddef5eeb73cd63a98e39d42c4",
+    "risk_policy.py": "ada6461c1e2bec03315e5bb8624bf1f4d5891d397ec6334b3b88825e8c48dc48",
+    "deterioration_analysis.py": "349d829638252a2f02fc2e85f7862605bcd585c9f0fb2a7df45c4278999309eb",
+    "integrated_data_audit.py": "18aa77c5ab785fe63e4c6cd21733415e7f51c83cfdc45a3ccde7e0b5adedcea9",
+    "repair_validation.py": "560fca76e617123424091c5272e61ae3871bb6595076cc80178bf54c1acf66cb",
+    "annual_reports.py": "f40c00bb4531983442623bf2b5b326e3ecad490eda563d03565589bd56d610c7",
+    "backtest_engine.py": "e7abdc5d3d7c171894848d21eda8c40ead94ee7a25f8ea41e101bb99c5eded10",
+    "live_predict.py": "88c23b441ae3eb1463c6505a891f6b9d4039d135fbdb241a04dec83e8216eed3",
+    "exclusion_audit.py": "9386ac3f199f99d0699b9ebb832005b25262efde1f592eadc9af6ae40ad64a1d",
+    "strategy.py": "b7e28eaf7264617b3fab2a03f8d9083e131bf141572f9c324955ea92ba5b4e6b",
+    "exceptional_results.py": "d5fdce4ab0f32b7a5a94de0ba02ef57b4aa175750bb3a3fa44d7b0f3f6f2d599",
+    "outline_digits.py": "c5a330ee405bb5130a1ae6c2bfd358a79d61078612bf311b0e7346f1c16e77e3",
+    "historical_replay.py": "ca3e4441f7597b2e15c27e20d9f2219ce351cf283191150ce144ef7960cb220b",
+    "final_market_judgement.py": "d75661ace13ffcccdbdc6702ca9708c6a54011f5520a4cdf7edde231b74ae3a9",
+    "risk_replay.py": "1192319b9f3a9f8686ddd656095f5c3805cb48616b94712320c516f62446c19c",
+    "jra_pdf_archive.py": "7ea8e0dbcef85ecb567f703a32e4502a081a21603f7e18cd7ddbfb115c6af703",
+    "model.py": "789f36992f0c1ef1456410c09e03ab40d5cd42b3762091d2b528c7c6940ee525",
+    "result_odds.py": "f92c375ee6e45354b55142f07b8f2a35029a2133d05920a69a70a221be2ada89",
+    "annual_parser.py": "fe3b6cb175ad58e444d299c0e10cde3a24fe84814b257dee47b9ec8aaf68860b",
+    "production_pipeline.py": "f62e7e835625ca712304fb6f55fb5f4738b84660390265df8c08d6bb91242810",
+    "pdf_runner_parser.py": "ef3d5d1aab91dbed1cab49d64c8bb1e68a15968bc355d1fded4a3d5cb283bc37",
+    "offline_performance_repair.py": "b5dc33c4edfb8ed69498eef08f14a909ead9d252d519f6a75c3cb2a794f42aa5",
+    "verify_and_promote.py": "53b25f342f37d3115072ccd5361e733509d32efbd801a0e3c926528ad6892790",
+    "improvements.py": "18880cd0b5849919a1c3ebbe6df9f0209ba2e3c012cac9dc60d10ebf377d0cac",
+    "official_linkage.py": "948f8c958856ada3f1ae4c83fbc413c568c38545a4b94101cca072ea8501ab31",
+    "pdf_payouts.py": "a34d762e01da15c642d2247e5c7b4fea1574e863c46e96754d8e0f24e8c74e5b",
+    "validation.py": "8b43b88ea11d6ac6e441e381d4c36d52d2f6ea16f8c0a3425fc3a7e53c1ce307",
+    "completion_validation.py": "1c70d968729533279035fd1be970d4a5128c32e2239e19cec1fc7abe5f98a27c",
+    "official_import.py": "d15a80e55cb22410d2cfd28de3f3a0a95feca18f3aa6e082813c65f8fcb3d030",
+    "offline_repair.py": "fe00070e0ab18f7d2d9011213fadb7395ab55365636e4aaf9e778e5711d77cb7",
+    "annual_export.py": "a95578e108a1746a4cff568eb948b9ca18d93fe1fb2dfb00092d2e1647e6719e",
+    "pdf_performance.py": "1b301907c0cb20a4c05d4b400b800cccdd26b46dcf76af051eefe32afbc3b3a2",
+    "fitted_model.py": "f79c21f51b4344841ccde5f647f80816900321364765a806fc0c1ce258ba2ff5",
+    "archive_completion.py": "5716675c48d83515549dc2e934f5fb48511554dec39a2de3ef6e9c37f82b07c9",
+    "enriched_features.py": "9935dc912744e5c01b9779a09b5a763dce94d2a215c70da9680aa2fee86bbaab"
+  },
+  "protocol_sha256": "ba417949f41b4e201a95419b06b99a424ee030354990abed4c4745a395a1fed3",
+  "prediction_sha256": "80f30d8e20900aea9ed2f21ce178bb3a4ceb97eddcdc71abf843ce2ff457c253",
+  "probability_sum_max_error": 3.3306690738754696e-16
+}

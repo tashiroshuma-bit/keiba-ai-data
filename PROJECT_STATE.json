@@ -1,7 +1,7 @@
 {
   "schema": "keiba-project-state-v1",
   "updated_date": "2026-10-20",
-  "baseline_commit": "633dbe7a08ed5cb09b96bc532bc2c13420affb42",
+  "baseline_commit": "0cd11a4b2d3fe9a4dd16efc558cd0946d124eff3",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
   "handoff": "DEVELOPMENT_HANDOFF.md",
@@ -33,10 +33,10 @@
     "live_bet_generation": false
   },
   "latest_research": {
-    "report": "keiba_v48/TIME_EXCEPTION_REPAIR_RESULTS.md",
+    "report": "keiba_v48/DEEP_RESEARCH_RESULTS.md",
     "comparison_files": [
-      "keiba_v48/reports/time_exception_repair/repair_comparison_lag2.json",
-      "keiba_v48/reports/time_exception_repair/repair_comparison_lag7.json"
+      "keiba_v48/reports/deep_audit/repair_comparison_lag2.json",
+      "keiba_v48/reports/deep_audit/repair_comparison_lag7.json"
     ],
     "data_audit": "keiba_v48/reports/time_exception_repair/audit_summary.json",
     "usable_races": 10056,
@@ -46,8 +46,30 @@
     "exploratory_races": 3333,
     "paired_cohort": 345,
     "legacy_model_replaced": false,
-    "selected_candidate_weights": "not_published_for_this_latest_replay; do not substitute earlier candidate artifacts",
-    "evaluation_role": "2025 already inspected; exploratory historical final-odds reference only"
+    "selected_candidate_weights": [
+      {
+        "path": "keiba_v48/reports/deep_audit/structural_model_lag2.json",
+        "sha256": "7fb2e805cd3c572310c76d2045c64b10dc07d9c214dbebf03ff8dcbb4a0056f2",
+        "live_eligible": false
+      },
+      {
+        "path": "keiba_v48/reports/deep_audit/structural_model_lag7.json",
+        "sha256": "3e67cf57ab9ce83be0d0f7cefd70fc36c60f69bafd0a49cf4081cf2d6a79ccf4",
+        "live_eligible": false
+      }
+    ],
+    "evaluation_role": "2025 already inspected; exploratory historical final-odds reference only",
+    "adoption_review": "keiba_v48/reports/deep_audit/adoption_review.json",
+    "quality_audit": "keiba_v48/reports/deep_audit/data_audit_lag2.json",
+    "selected_predictions": "All structural predictions and final-odds paired predictions persisted as deterministic gzip; see artifact_inventory.json",
+    "class_level_covered_rows": 132983,
+    "current_candidate_return_pct": 49.391304347826086,
+    "data_classification_fix": {
+      "raw_races": 1934,
+      "independent_HTML_agreed": 242,
+      "conflicts": 0,
+      "learned_model_promoted": false
+    }
   },
   "forward": {
     "observed_races": 0,
@@ -66,6 +88,12 @@
     "paused_tasks_resumed": false
   },
   "unresolved": [
+    {
+      "id": "CURRENT_YEAR_HISTORY",
+      "latest_race_date": "2025-12-28",
+      "age_days_asof_2026_10_20": 296,
+      "status": "2026 history needs independently verified source/ID integration; legacy diagnostic CSVs are not automatically live evidence"
+    },
     {
       "id": "EXCLUSIONS",
       "count": 309,
@@ -89,7 +117,7 @@
     },
     {
       "id": "FINANCIAL_VALIDATION",
-      "status": "ROI below 100; day-cluster profit interval includes zero; long losing streak worsened"
+      "status": "Current class-repaired candidate ROI 49.39%, longest zero-payout streak 312; not promoted. Market residual still below market baseline."
     },
     {
       "id": "COMBINATION_QUOTES",
@@ -99,10 +127,6 @@
       "id": "FORWARD",
       "observed": 0,
       "target": 100
-    },
-    {
-      "id": "LATEST_CANDIDATE_ARTIFACTS",
-      "status": "save selected weights and prediction hashes for latest replay before any promotion"
     }
   ],
   "constraints": {
@@ -129,6 +153,21 @@
     ],
     "library_artifacts_reviewed": "metadata inventory plus specified archive bytes and README contents",
     "legacy_sources": "research/legacy_20261007 and research/audit_20261019; not connected to live model"
-  }
+  },
+  "previous_research": {
+    "report": "keiba_v48/TIME_EXCEPTION_REPAIR_RESULTS.md",
+    "comparison_files": [
+      "keiba_v48/reports/time_exception_repair/repair_comparison_lag2.json",
+      "keiba_v48/reports/time_exception_repair/repair_comparison_lag7.json"
+    ]
+  },
+  "resolved_in_deep_audit": [
+    "same-third-place ticket false hits",
+    "missing active-field count gate",
+    "capital initial/race/availability accounting",
+    "missing approval activation veto",
+    "post-off-time class metadata extraction",
+    "selected weights and complete research predictions persistence"
+  ]
 }
 

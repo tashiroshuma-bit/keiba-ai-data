@@ -35,6 +35,25 @@ def class_info(text):
     return None,'unknown',None
 
 
+def pdf_class_info(raw_text):
+    """Read explicit win classes after the off-time without scanning results.
+
+    Grade labels stay restricted to the title. Handicap conditions can mention
+    GI/GII/GIII winners or exclude maiden horses; those are not this race's
+    grade or maiden class. Recover only an explicit 1/2/3-win class declaration.
+    """
+    title=raw_text.split('発走',1)[0]
+    old=class_info(title)
+    if old[1]!='unknown':
+        return old
+    parts=re.split(r'本\s*賞|コースレコード|賞\s*品|付\s*加\s*賞',raw_text,maxsplit=1)
+    if len(parts)!=2 or '発走' not in parts[0]:
+        return old
+    conditions=parts[0].split('発走',1)[1].split('負担重量',1)[0]
+    match=re.search(r'([123])\s*勝\s*クラス',unicodedata.normalize('NFKC',conditions))
+    return (int(match[1]),'nongraded',None) if match else old
+
+
 def text_at(node,selector):
     cell=node.select_one(selector)
     return cell.get_text(' ',strip=True) if cell else ''

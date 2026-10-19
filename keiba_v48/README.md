@@ -2,7 +2,7 @@
 
 開発の共通入口は **[統合台帳](../DEVELOPMENT_HANDOFF.md)**、機械可読の現在値は **[PROJECT_STATE.json](../PROJECT_STATE.json)**。別スレッド・旧ZIPからも最初に参照してください。
 
-最新の検証は **[TIME_EXCEPTION_REPAIR_RESULTS.md](TIME_EXCEPTION_REPAIR_RESULTS.md)**。正本DBはversion 8、利用可能10,056レース。確率・回収率に改善の兆候がありますが安定収益は未達で、本番重みを維持しています。
+最新の検証は **[DEEP_RESEARCH_RESULTS.md](DEEP_RESEARCH_RESULTS.md)**。正本DBはversion 8、利用可能10,056レース。6課題の修正と全候補保存を実施しましたが、クラス修復後候補は収益悪化で不採用。本番重みを維持しています。
 
 初回の修復・悪化診断は [OFFLINE_REPAIR_RESULTS.md](OFFLINE_REPAIR_RESULTS.md) に当時の結果として保存しています。
 

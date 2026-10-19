@@ -1,1 +1,1 @@
-race_id,race_date,horse_id,jockey_id,horse_number,off_timestamp,track,surface,distance_m,field_complete,source_url,going,going_asof,carried_weight,features_asof,pre_off_odds,odds_timestamp,finish_position,result_available_at
+race_id,race_date,horse_id,jockey_id,horse_number,off_timestamp,track,surface,distance_m,expected_runners,field_complete,source_url,going,going_asof,carried_weight,features_asof,pre_off_odds,odds_timestamp,finish_position,result_available_at

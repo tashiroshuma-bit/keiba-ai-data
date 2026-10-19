@@ -191,6 +191,16 @@ def evaluate(db,output,lag):
     predictions=[dict(race_id=r['race_id'],race_date=r['rows'][0]['race_date'],horse_numbers=[x['horse_number'] for x in r['rows']],
                       final_odds=[x['final_win_odds'] for x in r['rows']],previous_expanded=baseline_predictions[r['race_id']],structural=selected_struct[r['race_id']],market_residual=market_predictions[r['race_id']],winner_index=r['winner_index'],
                       market_EV_decision=ev_settlement(r['rows'],market_predictions[r['race_id']])) for r in mtest]
+    structural_predictions=[dict(race_id=r['race_id'],race_date=r['rows'][0]['race_date'],
+                                 horse_numbers=[x['horse_number'] for x in r['rows']],
+                                 probabilities=selected_struct[r['race_id']],winner_index=r['winner_index']) for r in stest]
+    structural_path=dest/f'structural_predictions_lag{lag}.json'
+    structural_path.write_text(canonical(structural_predictions))
+    report['artifact_sha256']={p.name:sha(p) for p in (
+        dest/f'structural_model_lag{lag}.json',dest/f'market_model_lag{lag}.json',
+        dest/f'risk_policy_lag{lag}.json',structural_path)}
+    report['artifact_roles']=dict(structural='research_only_not_live_eligible',market='post_race_final_odds_only',
+                                  predictions='2025_already_inspected_exploratory_not_forward')
     report.update(input_db_sha256=sha(db),source_code_sha256={p.name:sha(p) for p in Path(__file__).parent.glob('*.py') if not p.name.startswith('test_')},
                   protocol_sha256=hashlib.sha256(canonical(PROTOCOL).encode()).hexdigest(),prediction_sha256=hashlib.sha256(canonical(predictions).encode()).hexdigest(),
                   probability_sum_max_error=max(abs(sum(r['market_residual'])-1) for r in predictions))

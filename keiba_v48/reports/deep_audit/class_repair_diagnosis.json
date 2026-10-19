@@ -1,0 +1,142 @@
+[
+  {
+    "lag_days": 2,
+    "cohort_races": 345,
+    "counts": {
+      "before_wide_actual_settlement_correction": 0,
+      "before_trio_actual_settlement_correction": 0,
+      "after_wide_actual_settlement_correction": 0,
+      "after_trio_actual_settlement_correction": 0,
+      "EV_selection_changed": 44
+    },
+    "summary": {
+      "before": {
+        "bets": 345,
+        "hits": 3,
+        "payout_yen": 27010,
+        "selected_odds_100plus": 226,
+        "mean_selected_odds": 167.25159420289847,
+        "return_pct": 78.28985507246377
+      },
+      "after": {
+        "bets": 345,
+        "hits": 1,
+        "payout_yen": 17040,
+        "selected_odds_100plus": 231,
+        "mean_selected_odds": 172.03507246376807,
+        "return_pct": 49.391304347826086
+      }
+    },
+    "payout_changing_selections": [
+      {
+        "race_id": "202505010808",
+        "before": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 3920,
+          "horse_number": "8",
+          "selected_odds": 39.2,
+          "expected_return": 3.2902714313488666
+        },
+        "after": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 0,
+          "horse_number": "12",
+          "selected_odds": 175.9,
+          "expected_return": 3.3875606200595407
+        }
+      },
+      {
+        "race_id": "202508021111",
+        "before": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 6050,
+          "horse_number": "8",
+          "selected_odds": 60.5,
+          "expected_return": 3.883964495556011
+        },
+        "after": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 0,
+          "horse_number": "4",
+          "selected_odds": 90.2,
+          "expected_return": 4.124651673898028
+        }
+      }
+    ],
+    "role": "post_hoc_diagnosis_only_not_model_selection"
+  },
+  {
+    "lag_days": 7,
+    "cohort_races": 345,
+    "counts": {
+      "before_wide_actual_settlement_correction": 0,
+      "before_trio_actual_settlement_correction": 0,
+      "after_wide_actual_settlement_correction": 0,
+      "after_trio_actual_settlement_correction": 0,
+      "EV_selection_changed": 40
+    },
+    "summary": {
+      "before": {
+        "bets": 345,
+        "hits": 3,
+        "payout_yen": 27010,
+        "selected_odds_100plus": 229,
+        "mean_selected_odds": 168.38724637681148,
+        "return_pct": 78.28985507246377
+      },
+      "after": {
+        "bets": 345,
+        "hits": 1,
+        "payout_yen": 17040,
+        "selected_odds_100plus": 232,
+        "mean_selected_odds": 172.7449275362318,
+        "return_pct": 49.391304347826086
+      }
+    },
+    "payout_changing_selections": [
+      {
+        "race_id": "202505010808",
+        "before": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 3920,
+          "horse_number": "8",
+          "selected_odds": 39.2,
+          "expected_return": 3.303330316750031
+        },
+        "after": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 0,
+          "horse_number": "12",
+          "selected_odds": 175.9,
+          "expected_return": 3.3920023989692347
+        }
+      },
+      {
+        "race_id": "202508021111",
+        "before": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 6050,
+          "horse_number": "8",
+          "selected_odds": 60.5,
+          "expected_return": 3.8439437626546393
+        },
+        "after": {
+          "fully_settled": true,
+          "stake_yen": 100,
+          "payout_yen": 0,
+          "horse_number": "4",
+          "selected_odds": 90.2,
+          "expected_return": 4.15139065173619
+        }
+      }
+    ],
+    "role": "post_hoc_diagnosis_only_not_model_selection"
+  }
+]

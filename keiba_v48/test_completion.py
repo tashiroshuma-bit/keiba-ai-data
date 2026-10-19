@@ -169,7 +169,8 @@ class SourceCompletionTests(unittest.TestCase):
         for r in rs:r['finish_position']=5-r['finish_position']
         b=settlement(rs,[.4,.3,.2,.1]);self.assertEqual(a['win']['horse_numbers'],b['win']['horse_numbers'])
         self.assertEqual(b['win']['payout_yen'],0)
-        rs[0]['finish_position']=1;rs[0]['win_payout_100']=None;rs[0]['payouts']={}
+        rs[0]['finish_position']=1;rs[-1]['finish_position']=4
+        rs[0]['win_payout_100']=None;rs[0]['payouts']={}
         self.assertFalse(settlement(rs,[.4,.3,.2,.1])['win']['fully_settled'])
 
 

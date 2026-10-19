@@ -1,0 +1,152 @@
+[
+  {
+    "lag_days": 2,
+    "races": 345,
+    "baseline": {
+      "log_loss": 2.282831588724376,
+      "brier": 0.06977575456578643,
+      "top1_hit": 0.25217391304347825
+    },
+    "before_class_fix": {
+      "log_loss": 2.1914208265142,
+      "brier": 0.06742075216210386,
+      "top1_hit": 0.26956521739130435
+    },
+    "after_class_fix": {
+      "log_loss": 2.198206350680648,
+      "brier": 0.06765343201715851,
+      "top1_hit": 0.2608695652173913
+    },
+    "before_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 92510,
+      "stake_yen": 34500.0,
+      "payout_yen": 27010.0,
+      "return_pct": 78.28985507246377,
+      "maximum_drawdown": 0.2123,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 175,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.630877452795261,
+      "return_pct_without_largest_payout": 28.89855072463768,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -7490,
+      "profit_yen_per_scheduled_race": -21.71014492753623
+    },
+    "after_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 82540,
+      "stake_yen": 34500.0,
+      "payout_yen": 17040.0,
+      "return_pct": 49.391304347826086,
+      "maximum_drawdown": 0.312,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 312,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 1.0,
+      "return_pct_without_largest_payout": 0.0,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -17460,
+      "profit_yen_per_scheduled_race": -50.608695652173914
+    },
+    "day_profit_delta_interval": [
+      -57.142857142857146,
+      0.0
+    ],
+    "selected_structural": {
+      "family": "enriched23_without_style",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.2535972857928166,
+      "after_log_loss": 2.2535972857928166
+    },
+    "full_market_baseline": {
+      "log_loss": 1.9179604335283604,
+      "brier": 0.06009763916423388,
+      "top1_hit": 0.331925165962583
+    },
+    "full_market_candidate": {
+      "log_loss": 1.9207526022277759,
+      "brier": 0.060192408631587084,
+      "top1_hit": 0.3334339167169584
+    }
+  },
+  {
+    "lag_days": 7,
+    "races": 345,
+    "baseline": {
+      "log_loss": 2.282720287374985,
+      "brier": 0.06977644151030386,
+      "top1_hit": 0.25217391304347825
+    },
+    "before_class_fix": {
+      "log_loss": 2.1922916730111424,
+      "brier": 0.06743480315404847,
+      "top1_hit": 0.27246376811594203
+    },
+    "after_class_fix": {
+      "log_loss": 2.199122347373718,
+      "brier": 0.06766902934120753,
+      "top1_hit": 0.2608695652173913
+    },
+    "before_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 92510,
+      "stake_yen": 34500.0,
+      "payout_yen": 27010.0,
+      "return_pct": 78.28985507246377,
+      "maximum_drawdown": 0.2123,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 175,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.630877452795261,
+      "return_pct_without_largest_payout": 28.89855072463768,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -7490,
+      "profit_yen_per_scheduled_race": -21.71014492753623
+    },
+    "after_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 82540,
+      "stake_yen": 34500.0,
+      "payout_yen": 17040.0,
+      "return_pct": 49.391304347826086,
+      "maximum_drawdown": 0.312,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 312,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 1.0,
+      "return_pct_without_largest_payout": 0.0,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -17460,
+      "profit_yen_per_scheduled_race": -50.608695652173914
+    },
+    "day_profit_delta_interval": [
+      -57.142857142857146,
+      0.0
+    ],
+    "selected_structural": {
+      "family": "enriched23_without_style",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3362,
+      "before_log_loss": 2.2538667894156705,
+      "after_log_loss": 2.2538667894156705
+    },
+    "full_market_baseline": {
+      "log_loss": 1.9179604335283604,
+      "brier": 0.06009763916423388,
+      "top1_hit": 0.331925165962583
+    },
+    "full_market_candidate": {
+      "log_loss": 1.9208518612415277,
+      "brier": 0.060195498505097596,
+      "top1_hit": 0.3334339167169584
+    }
+  }
+]

@@ -85,7 +85,7 @@ class OperationalTests(unittest.TestCase):
         _,model=trained()
         artifact={**model.to_dict(),'research_only':True,'allow_missing_jockey':True}
         mp=Path(root)/'research.json';mp.write_text(json.dumps(artifact))
-        report=dict(model_artifact_sha256=digest(artifact),evaluation_races=3,
+        report=dict(model_artifact_sha256=digest(artifact),evaluation_races=3,live_model_promotion_approved=True,
                     candidate={'top1_hit':1/3},fixed_top1_100yen={'return_pct':70})
         rp=Path(root)/'report.json';rp.write_text(json.dumps(report))
         folder=Path(root)/'deploy';activate(mp,rp,folder)

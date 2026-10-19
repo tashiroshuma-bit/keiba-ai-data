@@ -47,6 +47,10 @@ def validate_field(rows, cutoff_minutes=5, max_odds_age_minutes=60, require_odds
         raise ValueError('horse numbers must be canonical positive integers')
     if any(r.get('field_complete') != 'yes' for r in rows):
         raise ValueError('complete active field must be attested')
+    for row in rows:
+        counts = [number(row[key]) for key in ('expected_runners', 'field_size') if row.get(key) not in (None, '')]
+        if not counts or any(count != len(rows) for count in counts):
+            raise ValueError('expected active runner count must match complete field')
     if any(r.get('scratched', 'no') != 'no' for r in rows):
         raise ValueError('remove scratches and re-attest complete field before prediction')
     if cutoff_minutes < 0 or max_odds_age_minutes < 0:

@@ -138,6 +138,17 @@ def shrink(rows, predicate, strength=5, prior=0.25):
     return (sum(values) + strength * prior) / (len(values) + strength), len(values)
 
 
+def front_status(row):
+    size=number(row.get('field_size'));corner=number(row.get('corner4_position'))
+    if size is None or size<=1 or corner is None:return None
+    bounds=row.get('corner4_range')
+    if bounds:
+        lo,hi=map(float,bounds)
+        if not 1<=lo<=hi<=size:raise ValueError('invalid corner group range')
+        if (lo-1)/(size-1)<=.35<(hi-1)/(size-1):return None
+    return (corner-1)/(size-1)<=.35
+
+
 FEATURE_NAMES = ('ability', 'recent_quality', 'rest_log', 'course_form', 'going_form',
                  'distance_form', 'jockey_form', 'front_rate', 'closing_quality',
                  'weight_delta', 'history_log', 'speed_quality', 'speed_observed')
@@ -184,7 +195,7 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
                 if corner is not None:
                     if not 1 <= corner <= size:
                         raise ValueError('invalid corner position')
-                    corners.append((corner - 1) / (size - 1))
+                    if front_status(x) is not None:corners.append((corner - 1) / (size - 1))
                 if last_rank is not None:
                     if not 1 <= last_rank <= size:
                         raise ValueError('invalid closing rank')

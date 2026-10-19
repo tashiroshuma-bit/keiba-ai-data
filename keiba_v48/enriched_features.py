@@ -6,7 +6,7 @@ from pathlib import Path
 import re
 import sqlite3
 
-from features import HistoryIndex, build_features, timestamp, finish, shrink
+from features import HistoryIndex, build_features, timestamp, finish, shrink, front_status
 from historical_replay import assumed_availability
 from archive_completion import class_info
 
@@ -15,6 +15,7 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
     db=sqlite3.connect('file:'+str(Path(db_path).resolve())+'?mode=ro',uri=True);db.row_factory=sqlite3.Row
     groups=collections.defaultdict(list);meta={};excluded=collections.Counter(); repaired=[]; unsafe_fields=set()
     tables={r[0] for r in db.execute("select name from sqlite_master where type='table'")}
+    pdf_performance={rid:json.loads(payload) for rid,payload in db.execute('select race_id,payload_json from pdf_performance_evidence')} if 'pdf_performance_evidence' in tables else {}
     pdf_payouts={rid:json.loads(payload) for rid,payload in db.execute('select race_id,payouts_json from pdf_payout_evidence')} if 'pdf_payout_evidence' in tables else {}
     void={r[0] for r in db.execute('select race_id from official_void_races')} if 'official_void_races' in tables else set()
     for r in db.execute('''SELECT r.*,h.horse_number,h.horse_id,h.jockey_id,h.payload_json,d.fetched_at
@@ -31,6 +32,15 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
                  final_win_odds=p.get('final_win_odds') if valid else None,
                  win_payout_100=m.get('win_payout_100') if valid else None,payouts=pdf_payouts.get(r['race_id'],{}))
         groups[r['race_id']].append(row);meta[r['race_id']]=dict(r)
+    for rid,proof in pdf_performance.items():
+        canonical={r['horse_number']:r for r in proof['runners']}
+        if len(canonical)!=len(groups[rid]):raise ValueError('PDF performance overlay field mismatch')
+        for r in groups[rid]:
+            value=canonical.get(int(r['horse_number']))
+            if not value:raise ValueError('PDF performance overlay horse mismatch')
+            r.update(value);r['horse_number']=str(value['horse_number']);r['payouts']=pdf_payouts.get(rid,{})
+            r['win_payout_100']=pdf_payouts.get(rid,{}).get('win:'+str(next(x['horse_number'] for x in proof['runners'] if x.get('finish_position')==1)),r['win_payout_100'])
+        groups[rid]=[r for r in groups[rid] if r.get('runner_status')!='nonstarter']
     source_only=[]
     if 'enriched_results' in tables:
         for rid,status,payload in db.execute('select race_id,status,payload_json from enriched_results'):
@@ -88,7 +98,7 @@ def load_archive(db_path,lag_days=2,allow_unlinked_fields=False):
             fields.append({**r,'going':None,'carried_weight':None,'field_complete':'yes','expected_runners':len(rows),
                            'result_available_at':assumed_availability(r['race_date'],lag_days),'availability_basis':'assumed_calendar_day_lag_for_research_only'})
     db.close()
-    return history,fields,dict(exclusions=dict(excluded),repaired_pdf_races=len(repaired),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields),unlinked_field_policy='isolated_source_row' if allow_unlinked_fields else 'exclude',unlinked_evaluation_rows=sum(r['horse_identity_missing'] for r in fields))
+    return history,fields,dict(exclusions=dict(excluded),repaired_pdf_races=len(repaired),pdf_performance_races=len(pdf_performance),source_only_races=len(source_only),void_races=sorted(void),feature_coverage_rows=dict(coverage),history_rows=len(history),field_rows=len(fields),unlinked_field_policy='isolated_source_row' if allow_unlinked_fields else 'exclude',unlinked_evaluation_rows=sum(r['horse_identity_missing'] for r in fields))
 
 
 def history_index(rows,assumed=True):
@@ -122,8 +132,8 @@ def build_enriched(index,rows,use_grade=True):
         hj=[x for x in past if r.get('jockey_id') and x.get('jockey_id')==r['jockey_id']]
         gate=r.get('gate')
         if gate is not None and (isinstance(gate,bool) or int(gate)!=float(gate) or not 1<=int(gate)<=8):raise ValueError('invalid gate')
-        day=[x for x in index.same_day.get((r['race_date'],r.get('track'),r['surface']),[]) if x['race_id']!=r['race_id'] and timestamp(x['off_timestamp'])<off and timestamp(x['result_available_at'])<=cutoff and x.get('corner4_position') is not None and x.get('field_size',0)>1]
-        front=sum((x['corner4_position']-1)/(x['field_size']-1)<=.35 for x in day)
+        day=[x for x in index.same_day.get((r['race_date'],r.get('track'),r['surface']),[]) if x['race_id']!=r['race_id'] and timestamp(x['off_timestamp'])<off and timestamp(x['result_available_at'])<=cutoff and front_status(x) is not None]
+        front=sum(front_status(x) for x in day)
         f['values'] += [1-sum(margins)/len(margins)/5 if margins else .5,float(bool(margins)),
                         sum(opponents)/len(opponents) if opponents else .25,float(bool(opponents)),shrink(hj,lambda x:True)[0],
                         (int(gate)-1)/7 if gate is not None else .5,float(gate is not None),

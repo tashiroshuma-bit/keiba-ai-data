@@ -20,6 +20,7 @@ from historical_replay import eligible_split
 from market_residual import MarketResidualModel
 from result_odds import summarize_final_odds,final_market_probabilities,judge_final_odds
 from risk_replay import risk_report,capital_replay
+from risk_policy import calibrate_policy,policy_decision
 from validation import canonical,paired_report
 
 PROTOCOL=json.loads(Path(__file__).with_name('RESEARCH_REPAIR_PROTOCOL.json').read_text())
@@ -112,7 +113,10 @@ def evaluate(db,output,lag):
     enriched=pack(history_index(h),fields);original=pack(previous_contract_index(h),fields,False)
     sm,sd,sr,sg=structural_tune(enriched,original)
     mm,md,mr,mg=market_tune(enriched)
-    # Both selections are fixed before reading previously saved 2025 predictions.
+    policy_cal=[r for r in eligible_split(sr,2024,sm.train_end) if all(x.get('final_win_odds') is not None for x in r['rows'])]
+    policy=calibrate_policy(policy_cal,[softmax(sm.scores(r['features']),sm.temperature).tolist() for r in policy_cal],PROTOCOL['risk_policy'])
+    (dest/f'risk_policy_lag{lag}.json').write_text(json.dumps(policy,ensure_ascii=False,indent=2))
+    # All selections are fixed before reading previously saved 2025 predictions.
     structural_art={**sm.to_dict(),'research_only':True,'model_family':sd['family'],'allow_missing_jockey':True,'publication_lag_days':lag,'availability_basis':'assumed_calendar_day_lag_for_research_only','unlinked_policy':'isolated_source_row','live_eligible':False}
     market_art={**mm.to_dict(),'publication_lag_days':lag}
     (dest/f'structural_model_lag{lag}.json').write_text(canonical(structural_art));(dest/f'market_model_lag{lag}.json').write_text(canonical(market_art))
@@ -144,7 +148,28 @@ def evaluate(db,output,lag):
     report['matched_prior_fields_vs_original']=comparison(matched,po,pn)
     report['matched_prior_fields_vs_rejected_candidate']=comparison(matched,pc,pn)
     report['matched_structural_vs_original']=comparison(matched,po,ps)
+    original_EV=json.loads(Path(__file__).with_name('reports').joinpath('completion',f'final_market_decisions_lag{lag}.json').read_text())
+    fixed_ids={r['race_id'] for r in original_EV};fixed_ix=[i for i,r in enumerate(matched) if r['race_id'] in fixed_ids]
+    report['exact_original_EV_cohort_vs_original']=comparison([matched[i] for i in fixed_ix],[po[i] for i in fixed_ix],[pn[i] for i in fixed_ix])
+    report['exact_original_EV_cohort_structural_vs_original']=comparison([matched[i] for i in fixed_ix],[po[i] for i in fixed_ix],[ps[i] for i in fixed_ix])
     report['changed_prior_fields']=changed
+    report['risk_policy']=policy
+    if policy['selected'] is not None:
+        choice=policy['selected'];policy_p=[];policy_settlements=[]
+        for r,p in zip(mtest,struct):
+            st,prob=policy_decision(r,p,choice['structural_weight'],choice['odds_cap'],PROTOCOL['risk_policy']['threshold'])
+            policy_p.append(prob);policy_settlements.append(st)
+        report['risk_policy_full_settlement']=risk_report(policy_settlements)
+        # comparison() uses the uncapped reference rule, so use the actual capped
+        # decisions separately rather than presenting its ROI as the policy ROI.
+        matched_policy=[];profit_records=[]
+        for r,previous,structural in zip(matched,po,ps):
+            st,_=policy_decision(r,structural,choice['structural_weight'],choice['odds_cap'],PROTOCOL['risk_policy']['threshold'])
+            matched_policy.append(st);profit_records.append(dict(date=r['rows'][0]['race_date'],previous=ev_settlement(r['rows'],previous),candidate=st))
+        report['risk_policy_matched_settlement']=risk_report(matched_policy)
+        report['risk_policy_exact_original_EV_settlement']=risk_report([matched_policy[i] for i in fixed_ix])
+        report['risk_policy_matched_profit_delta_95pct']=paired_profit_interval(profit_records)
+        (dest/f'risk_policy_decisions_lag{lag}.json').write_text(canonical([dict(race_id=r['race_id'],**st) for r,st in zip(mtest,policy_settlements)]))
     for name,pred in (('structural',selected_struct),('market',market_predictions)):
         races=[r for r in stest if r['race_id'] in pred];settled={k:[] for k in ('win','wide','trio')};capital=[]
         for r in races:

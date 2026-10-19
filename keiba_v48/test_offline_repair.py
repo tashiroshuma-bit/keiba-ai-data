@@ -86,3 +86,61 @@ class LiveResearchIsolationTests(unittest.TestCase):
             p=Path(root);(p/'model.json').write_text(json.dumps(dict(odds_basis='post_race_final',live_eligible=False)));(p/'report.json').write_text('{}')
             with self.assertRaisesRegex(ValueError,'cannot be activated'):activate(p/'model.json',p/'report.json',p/'live')
             self.assertFalse((p/'live').exists())
+
+
+class PerformanceEvidenceTests(unittest.TestCase):
+    def test_time_prefix_and_same_time_marker_do_not_take_margin_as_decimal(self):
+        from pdf_performance import parse_times
+        rows=[dict(horse_number=i,horse_name='horse'+str(i),final_win_odds=2+i,finish_time_raw=t) for i,t in enumerate(('1:10.31','〃ク','1:10.8'),1)]
+        result=parse_times(rows,3,[],'')
+        self.assertEqual([r['finish_time_seconds'] for r in result],[70.3,70.3,70.8])
+        self.assertAlmostEqual(result[-1]['margin_seconds'],.5)
+
+    def test_ties_and_unknown_times_remain_quarantined(self):
+        from pdf_performance import parse_times
+        rows=[dict(horse_number=i,horse_name='h'+str(i),final_win_odds=2+i,finish_time_raw=t) for i,t in enumerate(('1:10.3','1:10.3','?'),1)]
+        with self.assertRaises(ValueError):parse_times(rows,3,[],'')
+        with self.assertRaises(ValueError):parse_times(rows,3,[],'同着')
+
+    def test_risk_policy_cannot_tune_on_2025(self):
+        from risk_policy import calibrate_policy
+        with self.assertRaisesRegex(ValueError,'2024'):calibrate_policy([{'off_timestamp':'2025-01-01T00:00:00+09:00'}],[[]],{})
+
+    def test_policy_selection_cannot_read_winning_payout(self):
+        from risk_policy import policy_decision
+        r=dict(rows=[dict(horse_number=str(i),final_win_odds=o,finish_position=i,win_payout_100=200) for i,o in enumerate((2,4,8),1)])
+        a,_=policy_decision(r,[.2,.2,.6],1,10)
+        r['rows'][0]['win_payout_100']=99999;r['rows'][1]['finish_position']=1
+        b,_=policy_decision(r,[.2,.2,.6],1,10)
+        self.assertEqual(a['horse_number'],b['horse_number'])
+
+
+class CornerEvidenceTests(unittest.TestCase):
+    def test_printed_group_midrank_and_no_intragroup_order_claim(self):
+        from pdf_performance import fourth_corner
+        p=fourth_corner('通過順位 3 1,2,3,4 4 1(2,3)4\n勝馬の', [1,2,3,4])
+        self.assertEqual(p[2]['corner4_position'],2.5);self.assertEqual(p[2]['corner4_range'],[2,3]);self.assertEqual(p[3]['corner4_position'],2.5)
+        self.assertIsNone(fourth_corner('通過順位 4 1(2,3)\n勝馬の',[1,2,3,4]))
+
+    def test_group_straddling_front_threshold_is_unknown(self):
+        from features import front_status
+        self.assertIsNone(front_status(dict(field_size=10,corner4_position=4.5,corner4_range=[3,6])))
+        self.assertTrue(front_status(dict(field_size=10,corner4_position=1.5,corner4_range=[1,2])))
+
+    def test_current_result_performance_cannot_change_pre_race_features(self):
+        h=row(margin_seconds=.2,corner4_position=1,relative_speed_z=.1);t=target()
+        a=build_enriched(history_index([h]),[t])
+        t.update(margin_seconds=0,corner4_position=18,relative_speed_z=-9)
+        self.assertEqual(a,build_enriched(history_index([h]),[t]))
+
+
+class CornerIntegrationTests(unittest.TestCase):
+    def test_source_corner_is_attached_or_quarantined_on_conflict(self):
+        from offline_performance_repair import attach_corner
+        rows=[dict(horse_number=i,runner_status='finished') for i in (1,2,3,4)]
+        text='通過順位 4 1(2,3)4\n勝馬の'
+        attached,conflict=attach_corner(rows,text,[dict(horse_number=2,corner4_position=2)])
+        self.assertTrue(attached);self.assertFalse(conflict);self.assertEqual(rows[1]['corner4_position'],2.5)
+        other=[dict(horse_number=i,runner_status='finished') for i in (1,2,3,4)]
+        attached,conflict=attach_corner(other,text,[dict(horse_number=2,corner4_position=4)])
+        self.assertFalse(attached);self.assertTrue(conflict);self.assertNotIn('corner4_position',other[1])

@@ -1,5 +1,7 @@
 # 競馬予想AI v4.8：10項目の実装
 
+最新の修復・悪化診断・再検証は **[OFFLINE_REPAIR_RESULTS.md](OFFLINE_REPAIR_RESULTS.md)**。確率改善を確認、収益改善条件は未達。本番重みを維持。
+
 最新の追加実装・396レース比較・本番昇格見送りは **[COMPLETION_RESULTS.md](COMPLETION_RESULTS.md)** を参照。以下の旧記録と区別してください。
 
 既存の市場基準モデル・PDF収集処理を維持し、`improvements.py` を新しい学習・推論の入口にした。

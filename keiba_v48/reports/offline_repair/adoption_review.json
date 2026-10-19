@@ -1,0 +1,23 @@
+{
+  "status": "rejected_financial_axis",
+  "date": "2026-10-20",
+  "active_model_unchanged": true,
+  "live_bet_generation": false,
+  "strict_publication_verified": false,
+  "forward_observed_races": 0,
+  "forward_required_races": 100,
+  "probability_improved_both_lags": true,
+  "same_rule_ROI_improved_both_lags": false,
+  "market_baseline_beaten_both_lags": false,
+  "risk_policy_approved_both_lags": false,
+  "cohort": 345,
+  "financial_goal_complete": false,
+  "unresolved": [
+    "official_ID_evidence",
+    "exact_historical_publication_times",
+    "longshot_probability_calibration",
+    "market_advantage",
+    "complete_combination_final_quotes",
+    "forward_fixed_predictions_100"
+  ]
+}

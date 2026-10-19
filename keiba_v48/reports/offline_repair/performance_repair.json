@@ -1,0 +1,19 @@
+{
+  "counts": {
+    "corner_races": 6378,
+    "corner_rows": 88305,
+    "performance_races": 9467,
+    "performance_rows": 130315,
+    "reviewed_exception_fields_repaired": 900,
+    "HTML_agreed_races": 1080,
+    "HTML_corner_agreed_races": 707
+  },
+  "rejections": {
+    "unknown or unparsed finish time": 532,
+    "unsupported exceptional result": 240,
+    "unsupported PDF extraction issue": 124
+  },
+  "quarantined_source_conflicts": [],
+  "integrity_check": "ok",
+  "foreign_key_violations": 0
+}

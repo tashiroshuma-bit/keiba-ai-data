@@ -1,0 +1,110 @@
+{
+  "previous": {
+    "bets": 345,
+    "hit_count": 4,
+    "mean_selected_odds": 181.1623188405797,
+    "median_selected_odds": 161.0,
+    "selected_odds_50plus": 289,
+    "selected_odds_100plus": 225,
+    "mean_predicted_EV": 6.174943494794468,
+    "realized_return_pct": 72.28985507246377,
+    "odds_band_calibration": [
+      {
+        "odds_from": 1,
+        "odds_to": 5,
+        "runners": 650,
+        "predicted_wins": 118.66176816811507,
+        "observed_wins": 176
+      },
+      {
+        "odds_from": 5,
+        "odds_to": 10,
+        "runners": 750,
+        "predicted_wins": 72.4696403735873,
+        "observed_wins": 95
+      },
+      {
+        "odds_from": 10,
+        "odds_to": 20,
+        "runners": 799,
+        "predicted_wins": 58.59767729756113,
+        "observed_wins": 35
+      },
+      {
+        "odds_from": 20,
+        "odds_to": 50,
+        "runners": 959,
+        "predicted_wins": 50.44844568090508,
+        "observed_wins": 23
+      },
+      {
+        "odds_from": 50,
+        "odds_to": 100,
+        "runners": 603,
+        "predicted_wins": 23.09575411663088,
+        "observed_wins": 13
+      },
+      {
+        "odds_from": 100,
+        "odds_to": null,
+        "runners": 863,
+        "predicted_wins": 21.7267143632007,
+        "observed_wins": 3
+      }
+    ]
+  },
+  "candidate": {
+    "bets": 345,
+    "hit_count": 1,
+    "mean_selected_odds": 188.30260869565217,
+    "median_selected_odds": 169.6,
+    "selected_odds_50plus": 309,
+    "selected_odds_100plus": 245,
+    "mean_predicted_EV": 6.527169786166205,
+    "realized_return_pct": 17.536231884057973,
+    "odds_band_calibration": [
+      {
+        "odds_from": 1,
+        "odds_to": 5,
+        "runners": 650,
+        "predicted_wins": 110.83720898090557,
+        "observed_wins": 176
+      },
+      {
+        "odds_from": 5,
+        "odds_to": 10,
+        "runners": 750,
+        "predicted_wins": 72.82809957772456,
+        "observed_wins": 95
+      },
+      {
+        "odds_from": 10,
+        "odds_to": 20,
+        "runners": 799,
+        "predicted_wins": 59.271852270481794,
+        "observed_wins": 35
+      },
+      {
+        "odds_from": 20,
+        "odds_to": 50,
+        "runners": 959,
+        "predicted_wins": 53.79103369592197,
+        "observed_wins": 23
+      },
+      {
+        "odds_from": 50,
+        "odds_to": 100,
+        "runners": 603,
+        "predicted_wins": 24.780819193063753,
+        "observed_wins": 13
+      },
+      {
+        "odds_from": 100,
+        "odds_to": null,
+        "runners": 863,
+        "predicted_wins": 23.490986281902362,
+        "observed_wins": 3
+      }
+    ]
+  }
+}

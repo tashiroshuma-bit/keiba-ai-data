@@ -1,0 +1,216 @@
+{
+  "status": "calibrated_research_policy",
+  "selected": {
+    "structural_weight": 0.5,
+    "odds_cap": 20,
+    "bets": 1741,
+    "return_pct": 77.45548535324527,
+    "day_bootstrap_95pct_lower_return_pct": 64.03337440677744,
+    "pending": 0
+  },
+  "approved": false,
+  "grid": [
+    {
+      "structural_weight": 0.1,
+      "odds_cap": 10,
+      "bets": 3,
+      "return_pct": 306.6666666666667,
+      "day_bootstrap_95pct_lower_return_pct": 0.0,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.1,
+      "odds_cap": 20,
+      "bets": 50,
+      "return_pct": 116.0,
+      "day_bootstrap_95pct_lower_return_pct": 18.02846153846154,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.1,
+      "odds_cap": 50,
+      "bets": 507,
+      "return_pct": 73.80670611439842,
+      "day_bootstrap_95pct_lower_return_pct": 34.91478444199855,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.1,
+      "odds_cap": 100,
+      "bets": 1637,
+      "return_pct": 58.59499083689676,
+      "day_bootstrap_95pct_lower_return_pct": 24.06415650010947,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.1,
+      "odds_cap": null,
+      "bets": 2915,
+      "return_pct": 43.25214408233276,
+      "day_bootstrap_95pct_lower_return_pct": 18.045620307588393,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.25,
+      "odds_cap": 10,
+      "bets": 129,
+      "return_pct": 69.30232558139535,
+      "day_bootstrap_95pct_lower_return_pct": 39.83680424081787,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.25,
+      "odds_cap": 20,
+      "bets": 643,
+      "return_pct": 88.60031104199066,
+      "day_bootstrap_95pct_lower_return_pct": 62.76262133273138,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.25,
+      "odds_cap": 50,
+      "bets": 2297,
+      "return_pct": 69.06399651719634,
+      "day_bootstrap_95pct_lower_return_pct": 50.42224161301254,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.25,
+      "odds_cap": 100,
+      "bets": 3005,
+      "return_pct": 48.925124792013314,
+      "day_bootstrap_95pct_lower_return_pct": 27.673505474422868,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.25,
+      "odds_cap": null,
+      "bets": 3209,
+      "return_pct": 47.73449672795263,
+      "day_bootstrap_95pct_lower_return_pct": 22.52950661413293,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.5,
+      "odds_cap": 10,
+      "bets": 629,
+      "return_pct": 69.12559618441972,
+      "day_bootstrap_95pct_lower_return_pct": 53.12648790522806,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.5,
+      "odds_cap": 20,
+      "bets": 1741,
+      "return_pct": 77.45548535324527,
+      "day_bootstrap_95pct_lower_return_pct": 64.03337440677744,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.5,
+      "odds_cap": 50,
+      "bets": 3024,
+      "return_pct": 69.06746031746032,
+      "day_bootstrap_95pct_lower_return_pct": 53.785773071640406,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.5,
+      "odds_cap": 100,
+      "bets": 3206,
+      "return_pct": 49.8284466625078,
+      "day_bootstrap_95pct_lower_return_pct": 30.611453770516096,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.5,
+      "odds_cap": null,
+      "bets": 3236,
+      "return_pct": 48.10259579728059,
+      "day_bootstrap_95pct_lower_return_pct": 22.73696174576483,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.75,
+      "odds_cap": 10,
+      "bets": 1010,
+      "return_pct": 64.89108910891089,
+      "day_bootstrap_95pct_lower_return_pct": 51.73574912645288,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.75,
+      "odds_cap": 20,
+      "bets": 2236,
+      "return_pct": 74.08765652951699,
+      "day_bootstrap_95pct_lower_return_pct": 63.14510935340388,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.75,
+      "odds_cap": 50,
+      "bets": 3141,
+      "return_pct": 67.6981852913085,
+      "day_bootstrap_95pct_lower_return_pct": 52.92622930357067,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.75,
+      "odds_cap": 100,
+      "bets": 3229,
+      "return_pct": 49.76463301331682,
+      "day_bootstrap_95pct_lower_return_pct": 30.754367781120116,
+      "pending": 0
+    },
+    {
+      "structural_weight": 0.75,
+      "odds_cap": null,
+      "bets": 3238,
+      "return_pct": 48.131562693020385,
+      "day_bootstrap_95pct_lower_return_pct": 22.79908163521091,
+      "pending": 0
+    },
+    {
+      "structural_weight": 1.0,
+      "odds_cap": 10,
+      "bets": 1254,
+      "return_pct": 67.32854864433811,
+      "day_bootstrap_95pct_lower_return_pct": 54.871959579731445,
+      "pending": 0
+    },
+    {
+      "structural_weight": 1.0,
+      "odds_cap": 20,
+      "bets": 2472,
+      "return_pct": 73.03802588996764,
+      "day_bootstrap_95pct_lower_return_pct": 62.472575038885836,
+      "pending": 0
+    },
+    {
+      "structural_weight": 1.0,
+      "odds_cap": 50,
+      "bets": 3178,
+      "return_pct": 67.3253618628068,
+      "day_bootstrap_95pct_lower_return_pct": 52.74638937131001,
+      "pending": 0
+    },
+    {
+      "structural_weight": 1.0,
+      "odds_cap": 100,
+      "bets": 3232,
+      "return_pct": 49.71844059405941,
+      "day_bootstrap_95pct_lower_return_pct": 30.715365249031088,
+      "pending": 0
+    },
+    {
+      "structural_weight": 1.0,
+      "odds_cap": null,
+      "bets": 3239,
+      "return_pct": 48.1167026860142,
+      "day_bootstrap_95pct_lower_return_pct": 22.791998753599085,
+      "pending": 0
+    }
+  ],
+  "selection_basis": "2024 day-bootstrap lower ROI; minimum calibration bet count",
+  "live_eligible": false
+}

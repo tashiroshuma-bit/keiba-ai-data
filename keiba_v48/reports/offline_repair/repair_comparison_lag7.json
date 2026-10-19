@@ -1,0 +1,3460 @@
+{
+  "protocol": {
+    "version": "v4.8-offline-repair-3",
+    "data_source": "saved official 2023-2025 PDFs plus previously cached verified HTML; no HTTP403 retries",
+    "cohort": "all structurally validated complete fields; unlinked horses retained with isolated source-row identity and zero cross-race history",
+    "unknown_official_IDs": "remain NULL; never inferred official numbers",
+    "historical_availability": "explicit 2-day and 7-day calendar assumptions, never PDF creation/modification time",
+    "payout_repair": "ordered trifecta anchor, single/exacta/trio/wide checks, verify all original PDF hashes and reconcile overlapping HTML",
+    "train_year": 2023,
+    "calibration_year": 2024,
+    "exploratory_evaluation_year": 2025,
+    "evaluation_disclosure": "2025 already inspected; no claim of unseen holdout or live profitability",
+    "structural_families": [
+      "original13",
+      "enriched23",
+      "enriched23_without_style"
+    ],
+    "regularization": [
+      0.05,
+      0.2,
+      1.0
+    ],
+    "temperature": [
+      0.5,
+      0.75,
+      1.0,
+      1.5,
+      2.0,
+      3.0
+    ],
+    "market_residual_regularization": [
+      0.2,
+      1.0,
+      5.0
+    ],
+    "market_residual_calibration_scale": [
+      0.0,
+      0.25,
+      0.5,
+      1.0
+    ],
+    "market_power": [
+      1.0,
+      1.1,
+      1.2,
+      1.3
+    ],
+    "iterations": 400,
+    "selection": "2024 mean log loss only; lower complexity on exact ties",
+    "reference_bet": "maximum p times final odds >= 1.05; one 100-yen hypothetical win bet per race; horse-number tie break",
+    "stress_caps": [
+      10,
+      20,
+      50,
+      100,
+      null
+    ],
+    "promotion": "research improvement requires lower paired log loss and higher same-rule final-odds return on both lag assumptions; never activate final-odds models for pre-off forecasts",
+    "live_generation": false,
+    "forward_target": 100,
+    "performance_repair": "recover one-decimal official finish times and same-time marks; explicit nonstarter/nonfinisher statuses; require complete field, monotonic times, complete odds and consistent payouts; keep ties and unknown states quarantined",
+    "risk_policy": {
+      "mixture_structural_weights": [
+        0.1,
+        0.25,
+        0.5,
+        0.75,
+        1.0
+      ],
+      "odds_caps": [
+        10,
+        20,
+        50,
+        100,
+        null
+      ],
+      "threshold": 1.05,
+      "minimum_calibration_bets": 100,
+      "selection": "2024 day-bootstrap lower 95% ROI bound, then mean ROI; approve only if lower bound >100; publish non-approved candidate as research only"
+    },
+    "corner_repair": "full printed fourth-corner field with grouped midranks, HTML interval checks, omit ambiguous front/behind classification when group straddles 35%"
+  },
+  "lag_days": 7,
+  "data_audit": {
+    "exclusions": {
+      "incomplete_or_exceptional_races": 622
+    },
+    "repaired_pdf_races": 157,
+    "pdf_performance_races": 9467,
+    "source_only_races": 0,
+    "void_races": [
+      "202404030612",
+      "202408060108",
+      "202505021109"
+    ],
+    "feature_coverage_rows": {
+      "margin_seconds": 130982,
+      "corner4_position": 94618,
+      "last_3f_rank": 15491,
+      "relative_speed_z": 130982,
+      "class_level": 108683,
+      "gate": 134224
+    },
+    "history_rows": 134224,
+    "field_rows": 133763,
+    "unlinked_field_policy": "isolated_source_row",
+    "unlinked_evaluation_rows": 48229
+  },
+  "structural_tuning": [
+    {
+      "family": "original13",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.2781850619462913,
+      "after_log_loss": 2.2781850619462913
+    },
+    {
+      "family": "original13",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.284473265722764,
+      "after_log_loss": 2.284473265722764
+    },
+    {
+      "family": "original13",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3254,
+      "before_log_loss": 2.3268479382178406,
+      "after_log_loss": 2.2973223330382573
+    },
+    {
+      "family": "enriched23",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.253794096463284,
+      "after_log_loss": 2.253794096463284
+    },
+    {
+      "family": "enriched23",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.2617360533146087,
+      "after_log_loss": 2.2617360533146087
+    },
+    {
+      "family": "enriched23",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3254,
+      "before_log_loss": 2.301158848966193,
+      "after_log_loss": 2.2792232663944536
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 0.05,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.2525306270872547,
+      "after_log_loss": 2.2525306270872547
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 0.2,
+      "temperature": 1.0,
+      "validation_races": 3254,
+      "before_log_loss": 2.2609792221204215,
+      "after_log_loss": 2.2609792221204215
+    },
+    {
+      "family": "enriched23_without_style",
+      "regularization": 1.0,
+      "temperature": 0.75,
+      "validation_races": 3254,
+      "before_log_loss": 2.3015894408463797,
+      "after_log_loss": 2.278036473853378
+    }
+  ],
+  "selected_structural": {
+    "family": "enriched23_without_style",
+    "regularization": 0.05,
+    "temperature": 1.0,
+    "validation_races": 3254,
+    "before_log_loss": 2.2525306270872547,
+    "after_log_loss": 2.2525306270872547
+  },
+  "market_tuning": [
+    {
+      "regularization": 0.2,
+      "choice": {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8809856121849693
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8817267046008053
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8819329475934308
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8898084736928635
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.904394998184114
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.8811759086202404
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8809972079984572
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.8885151082465161
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9027716223285904
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.8815870458492863
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8809856121849693
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.8881095389239975
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9020012622354983
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8852869533494712
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8837290347367135
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8899579759255092
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.9030174581424388
+        }
+      ],
+      "calibration_races": 3240
+    },
+    {
+      "regularization": 1.0,
+      "choice": {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8809704829326304
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8817267046008053
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8819329475934308
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8898084736928635
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.904394998184114
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.881251752357406
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8812754996893102
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.8889789990160673
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9034048505936954
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.8811432491676172
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8809704829326304
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.8884884458523805
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9027406744192499
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8820190386517082
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8814119588930636
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8885190137000758
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.9023857650660394
+        }
+      ],
+      "calibration_races": 3240
+    },
+    {
+      "regularization": 5.0,
+      "choice": {
+        "residual_scale": 1.0,
+        "market_power": 1.0,
+        "log_loss": 1.8812352293237469
+      },
+      "grid": [
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.0,
+          "log_loss": 1.8817267046008053
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.1,
+          "log_loss": 1.8819329475934308
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.2,
+          "log_loss": 1.8898084736928635
+        },
+        {
+          "residual_scale": 0.0,
+          "market_power": 1.3,
+          "log_loss": 1.904394998184114
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.0,
+          "log_loss": 1.8815083140134234
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.1,
+          "log_loss": 1.8817050893208578
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.2,
+          "log_loss": 1.8895685154204402
+        },
+        {
+          "residual_scale": 0.25,
+          "market_power": 1.3,
+          "log_loss": 1.9041413221460342
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.0,
+          "log_loss": 1.881353770640903
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.1,
+          "log_loss": 1.8815389841697823
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.2,
+          "log_loss": 1.8893882532206012
+        },
+        {
+          "residual_scale": 0.5,
+          "market_power": 1.3,
+          "log_loss": 1.9039453370713117
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.0,
+          "log_loss": 1.8812352293237469
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.1,
+          "log_loss": 1.8813911070513791
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.2,
+          "log_loss": 1.8892059588342265
+        },
+        {
+          "residual_scale": 1.0,
+          "market_power": 1.3,
+          "log_loss": 1.903725646376957
+        }
+      ],
+      "calibration_races": 3240
+    }
+  ],
+  "selected_market": {
+    "regularization": 1.0,
+    "choice": {
+      "residual_scale": 0.5,
+      "market_power": 1.1,
+      "log_loss": 1.8809704829326304
+    },
+    "grid": [
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.0,
+        "log_loss": 1.8817267046008053
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.1,
+        "log_loss": 1.8819329475934308
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.2,
+        "log_loss": 1.8898084736928635
+      },
+      {
+        "residual_scale": 0.0,
+        "market_power": 1.3,
+        "log_loss": 1.904394998184114
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.0,
+        "log_loss": 1.881251752357406
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.1,
+        "log_loss": 1.8812754996893102
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.2,
+        "log_loss": 1.8889789990160673
+      },
+      {
+        "residual_scale": 0.25,
+        "market_power": 1.3,
+        "log_loss": 1.9034048505936954
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.0,
+        "log_loss": 1.8811432491676172
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.1,
+        "log_loss": 1.8809704829326304
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.2,
+        "log_loss": 1.8884884458523805
+      },
+      {
+        "residual_scale": 0.5,
+        "market_power": 1.3,
+        "log_loss": 1.9027406744192499
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.0,
+        "log_loss": 1.8820190386517082
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.1,
+        "log_loss": 1.8814119588930636
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.2,
+        "log_loss": 1.8885190137000758
+      },
+      {
+        "residual_scale": 1.0,
+        "market_power": 1.3,
+        "log_loss": 1.9023857650660394
+      }
+    ],
+    "calibration_races": 3240
+  },
+  "full_market_cohort_vs_frozen_model": {
+    "races": 3205,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.403714667979139,
+      "brier": 0.0684516406857851,
+      "top1_hit": 0.20124804992199688
+    },
+    "candidate": {
+      "log_loss": 1.9204587481257092,
+      "brier": 0.06013122563755331,
+      "top1_hit": 0.3316692667706708
+    },
+    "log_loss_delta": -0.48325591985342986,
+    "race_bootstrap_95pct_delta": [
+      -0.5182251485480919,
+      -0.45198298774675366
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 33821,
+        "predicted": 0.0251880866884189,
+        "observed": 0.027054197096478518
+      },
+      {
+        "lower": 0.1,
+        "runners": 5855,
+        "predicted": 0.1427616548185528,
+        "observed": 0.1426131511528608
+      },
+      {
+        "lower": 0.2,
+        "runners": 2483,
+        "predicted": 0.24368673710788177,
+        "observed": 0.2468787756745872
+      },
+      {
+        "lower": 0.3,
+        "runners": 1128,
+        "predicted": 0.3433078365859761,
+        "observed": 0.3333333333333333
+      },
+      {
+        "lower": 0.4,
+        "runners": 615,
+        "predicted": 0.44718644938465446,
+        "observed": 0.37073170731707317
+      },
+      {
+        "lower": 0.5,
+        "runners": 304,
+        "predicted": 0.5435078561768806,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.6,
+        "runners": 96,
+        "predicted": 0.6411631017961419,
+        "observed": 0.6770833333333334
+      },
+      {
+        "lower": 0.7,
+        "runners": 20,
+        "predicted": 0.7383885924327254,
+        "observed": 0.65
+      },
+      {
+        "lower": 0.8,
+        "runners": 10,
+        "predicted": 0.8353338970087935,
+        "observed": 0.8
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.5147468116758822,
+      -0.4456692320754495
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": -15310,
+      "stake_yen": 320400.0,
+      "payout_yen": 205090.0,
+      "return_pct": 64.01061173533084,
+      "maximum_drawdown": 1.0989018087855298,
+      "pending_races": 0,
+      "bet_races": 3204,
+      "longest_losing_streak": 863,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.1693890487103223,
+      "return_pct_without_largest_payout": 53.167915106117356,
+      "return_pct_without_top3_payouts": 36.7478152309613,
+      "net_profit_yen": -115310,
+      "profit_yen_per_scheduled_race": -35.97815912636506
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -3.3219919579338075,
+      72.5
+    ]
+  },
+  "full_market_cohort_vs_market": {
+    "races": 3205,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 1.9178730695979909,
+      "brier": 0.060037616188323595,
+      "top1_hit": 0.3310452418096724
+    },
+    "candidate": {
+      "log_loss": 1.9204587481257092,
+      "brier": 0.06013122563755331,
+      "top1_hit": 0.3316692667706708
+    },
+    "log_loss_delta": 0.002585678527718131,
+    "race_bootstrap_95pct_delta": [
+      -0.0006743897661210628,
+      0.006017771899469758
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 33821,
+        "predicted": 0.0251880866884189,
+        "observed": 0.027054197096478518
+      },
+      {
+        "lower": 0.1,
+        "runners": 5855,
+        "predicted": 0.1427616548185528,
+        "observed": 0.1426131511528608
+      },
+      {
+        "lower": 0.2,
+        "runners": 2483,
+        "predicted": 0.24368673710788177,
+        "observed": 0.2468787756745872
+      },
+      {
+        "lower": 0.3,
+        "runners": 1128,
+        "predicted": 0.3433078365859761,
+        "observed": 0.3333333333333333
+      },
+      {
+        "lower": 0.4,
+        "runners": 615,
+        "predicted": 0.44718644938465446,
+        "observed": 0.37073170731707317
+      },
+      {
+        "lower": 0.5,
+        "runners": 304,
+        "predicted": 0.5435078561768806,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.6,
+        "runners": 96,
+        "predicted": 0.6411631017961419,
+        "observed": 0.6770833333333334
+      },
+      {
+        "lower": 0.7,
+        "runners": 20,
+        "predicted": 0.7383885924327254,
+        "observed": 0.65
+      },
+      {
+        "lower": 0.8,
+        "runners": 10,
+        "predicted": 0.8353338970087935,
+        "observed": 0.8
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.0009334931405288471,
+      0.006462249578997364
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      0.0,
+      0.0
+    ]
+  },
+  "full_market_cohort_vs_structural": {
+    "races": 3205,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.3627209333617687,
+      "brier": 0.06751590098685728,
+      "top1_hit": 0.21528861154446177
+    },
+    "candidate": {
+      "log_loss": 1.9204587481257092,
+      "brier": 0.06013122563755331,
+      "top1_hit": 0.3316692667706708
+    },
+    "log_loss_delta": -0.4422621852360597,
+    "race_bootstrap_95pct_delta": [
+      -0.47527093300060114,
+      -0.41183311478273443
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 33821,
+        "predicted": 0.0251880866884189,
+        "observed": 0.027054197096478518
+      },
+      {
+        "lower": 0.1,
+        "runners": 5855,
+        "predicted": 0.1427616548185528,
+        "observed": 0.1426131511528608
+      },
+      {
+        "lower": 0.2,
+        "runners": 2483,
+        "predicted": 0.24368673710788177,
+        "observed": 0.2468787756745872
+      },
+      {
+        "lower": 0.3,
+        "runners": 1128,
+        "predicted": 0.3433078365859761,
+        "observed": 0.3333333333333333
+      },
+      {
+        "lower": 0.4,
+        "runners": 615,
+        "predicted": 0.44718644938465446,
+        "observed": 0.37073170731707317
+      },
+      {
+        "lower": 0.5,
+        "runners": 304,
+        "predicted": 0.5435078561768806,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.6,
+        "runners": 96,
+        "predicted": 0.6411631017961419,
+        "observed": 0.6770833333333334
+      },
+      {
+        "lower": 0.7,
+        "runners": 20,
+        "predicted": 0.7383885924327254,
+        "observed": 0.65
+      },
+      {
+        "lower": 0.8,
+        "runners": 10,
+        "predicted": 0.8353338970087935,
+        "observed": 0.8
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.472000420849746,
+      -0.40538853720283363
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": -66350,
+      "stake_yen": 320400.0,
+      "payout_yen": 154050.0,
+      "return_pct": 48.08052434456929,
+      "maximum_drawdown": 1.596458108594031,
+      "pending_races": 0,
+      "bet_races": 3204,
+      "longest_losing_streak": 635,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.2255111976630964,
+      "return_pct_without_largest_payout": 37.237827715355806,
+      "return_pct_without_top3_payouts": 21.529338327091136,
+      "net_profit_yen": -166350,
+      "profit_yen_per_scheduled_race": -51.90327613104524
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      16.433742524394084,
+      80.4689910521444
+    ]
+  },
+  "training_races": 3260,
+  "calibration_races": 3254,
+  "test_races": 3229,
+  "market_test_races": 3205,
+  "strict_publication_verified": false,
+  "live_eligible": false,
+  "forward_observed_races": 0,
+  "matched_prior_fields_vs_original": {
+    "races": 372,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.2781887119177187,
+      "brier": 0.06982960582694099,
+      "top1_hit": 0.25268817204301075
+    },
+    "candidate": {
+      "log_loss": 1.970864002243121,
+      "brier": 0.06348873694240474,
+      "top1_hit": 0.32526881720430106
+    },
+    "log_loss_delta": -0.3073247096745978,
+    "race_bootstrap_95pct_delta": [
+      -0.38112213625076435,
+      -0.22823741926614322
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3770,
+        "predicted": 0.027195544490221872,
+        "observed": 0.028381962864721486
+      },
+      {
+        "lower": 0.1,
+        "runners": 710,
+        "predicted": 0.1418330792186036,
+        "observed": 0.14929577464788732
+      },
+      {
+        "lower": 0.2,
+        "runners": 262,
+        "predicted": 0.2426368812247777,
+        "observed": 0.22900763358778625
+      },
+      {
+        "lower": 0.3,
+        "runners": 122,
+        "predicted": 0.3456984414987873,
+        "observed": 0.38524590163934425
+      },
+      {
+        "lower": 0.4,
+        "runners": 82,
+        "predicted": 0.44193965049337913,
+        "observed": 0.3780487804878049
+      },
+      {
+        "lower": 0.5,
+        "runners": 37,
+        "predicted": 0.5372197786869206,
+        "observed": 0.40540540540540543
+      },
+      {
+        "lower": 0.6,
+        "runners": 7,
+        "predicted": 0.6343800070475859,
+        "observed": 0.5714285714285714
+      },
+      {
+        "lower": 0.7,
+        "runners": 1,
+        "predicted": 0.7941183927380975,
+        "observed": 1.0
+      },
+      {
+        "lower": 0.8,
+        "runners": 2,
+        "predicted": 0.8371383444833995,
+        "observed": 0.5
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.4147173910164143,
+      -0.19884518888935077
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 88560,
+      "stake_yen": 37200.0,
+      "payout_yen": 25760.0,
+      "return_pct": 69.24731182795699,
+      "maximum_drawdown": 0.2518,
+      "pending_races": 0,
+      "bet_races": 372,
+      "longest_losing_streak": 155,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6614906832298136,
+      "return_pct_without_largest_payout": 23.440860215053764,
+      "return_pct_without_top3_payouts": 3.360215053763441,
+      "net_profit_yen": -11440,
+      "profit_yen_per_scheduled_race": -30.752688172043012
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -53.975903614457835,
+      96.98245614035088
+    ]
+  },
+  "matched_prior_fields_vs_rejected_candidate": {
+    "races": 372,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.253507883579947,
+      "brier": 0.068857630275796,
+      "top1_hit": 0.2446236559139785
+    },
+    "candidate": {
+      "log_loss": 1.970864002243121,
+      "brier": 0.06348873694240474,
+      "top1_hit": 0.32526881720430106
+    },
+    "log_loss_delta": -0.28264388133682583,
+    "race_bootstrap_95pct_delta": [
+      -0.3536793317798553,
+      -0.2043091064592893
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3770,
+        "predicted": 0.027195544490221872,
+        "observed": 0.028381962864721486
+      },
+      {
+        "lower": 0.1,
+        "runners": 710,
+        "predicted": 0.1418330792186036,
+        "observed": 0.14929577464788732
+      },
+      {
+        "lower": 0.2,
+        "runners": 262,
+        "predicted": 0.2426368812247777,
+        "observed": 0.22900763358778625
+      },
+      {
+        "lower": 0.3,
+        "runners": 122,
+        "predicted": 0.3456984414987873,
+        "observed": 0.38524590163934425
+      },
+      {
+        "lower": 0.4,
+        "runners": 82,
+        "predicted": 0.44193965049337913,
+        "observed": 0.3780487804878049
+      },
+      {
+        "lower": 0.5,
+        "runners": 37,
+        "predicted": 0.5372197786869206,
+        "observed": 0.40540540540540543
+      },
+      {
+        "lower": 0.6,
+        "runners": 7,
+        "predicted": 0.6343800070475859,
+        "observed": 0.5714285714285714
+      },
+      {
+        "lower": 0.7,
+        "runners": 1,
+        "predicted": 0.7941183927380975,
+        "observed": 1.0
+      },
+      {
+        "lower": 0.8,
+        "runners": 2,
+        "predicted": 0.8371383444833995,
+        "observed": 0.5
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.3833378583219902,
+      -0.16594530663917073
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 69670,
+      "stake_yen": 37200.0,
+      "payout_yen": 6870.0,
+      "return_pct": 18.467741935483872,
+      "maximum_drawdown": 0.3033,
+      "pending_races": 0,
+      "bet_races": 372,
+      "longest_losing_streak": 158,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.8806404657933042,
+      "return_pct_without_largest_payout": 2.204301075268817,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -30330,
+      "profit_yen_per_scheduled_race": -81.53225806451613
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      44.87465181058496,
+      100.0
+    ]
+  },
+  "matched_structural_vs_original": {
+    "races": 372,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.2781887119177187,
+      "brier": 0.06982960582694099,
+      "top1_hit": 0.25268817204301075
+    },
+    "candidate": {
+      "log_loss": 2.2078414127195893,
+      "brier": 0.06805747226932994,
+      "top1_hit": 0.26344086021505375
+    },
+    "log_loss_delta": -0.07034729919812958,
+    "race_bootstrap_95pct_delta": [
+      -0.1041796433023547,
+      -0.03170460095930059
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3937,
+        "predicted": 0.04322056156251069,
+        "observed": 0.0444500889001778
+      },
+      {
+        "lower": 0.1,
+        "runners": 719,
+        "predicted": 0.13787296585041528,
+        "observed": 0.14603616133518776
+      },
+      {
+        "lower": 0.2,
+        "runners": 213,
+        "predicted": 0.24361109643115408,
+        "observed": 0.2347417840375587
+      },
+      {
+        "lower": 0.3,
+        "runners": 73,
+        "predicted": 0.3503785234774316,
+        "observed": 0.3698630136986301
+      },
+      {
+        "lower": 0.4,
+        "runners": 34,
+        "predicted": 0.44116619215644803,
+        "observed": 0.20588235294117646
+      },
+      {
+        "lower": 0.5,
+        "runners": 9,
+        "predicted": 0.5417724185639711,
+        "observed": 0.4444444444444444
+      },
+      {
+        "lower": 0.6,
+        "runners": 7,
+        "predicted": 0.6475511516414023,
+        "observed": 0.42857142857142855
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.834730566373734,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.11087251832747132,
+      -0.036954506534995844
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 88560,
+      "stake_yen": 37200.0,
+      "payout_yen": 25760.0,
+      "return_pct": 69.24731182795699,
+      "maximum_drawdown": 0.2518,
+      "pending_races": 0,
+      "bet_races": 372,
+      "longest_losing_streak": 155,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6614906832298136,
+      "return_pct_without_largest_payout": 23.440860215053764,
+      "return_pct_without_top3_payouts": 3.360215053763441,
+      "net_profit_yen": -11440,
+      "profit_yen_per_scheduled_race": -30.752688172043012
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 85990,
+      "stake_yen": 37100.0,
+      "payout_yen": 23090.0,
+      "return_pct": 62.23719676549865,
+      "maximum_drawdown": 0.2775,
+      "pending_races": 0,
+      "bet_races": 371,
+      "longest_losing_streak": 186,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.7379818103074924,
+      "return_pct_without_largest_payout": 16.307277628032345,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -14010,
+      "profit_yen_per_scheduled_race": -37.66129032258065
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -16.997518610421835,
+      0.0
+    ]
+  },
+  "exact_original_EV_cohort_vs_original": {
+    "races": 345,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.282720287374985,
+      "brier": 0.06977644151030386,
+      "top1_hit": 0.25217391304347825
+    },
+    "candidate": {
+      "log_loss": 1.961088423478336,
+      "brier": 0.06323998435381248,
+      "top1_hit": 0.3217391304347826
+    },
+    "log_loss_delta": -0.3216318638966486,
+    "race_bootstrap_95pct_delta": [
+      -0.3943007384663257,
+      -0.2430316839959343
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3481,
+        "predicted": 0.027144832336319365,
+        "observed": 0.02815282964665326
+      },
+      {
+        "lower": 0.1,
+        "runners": 664,
+        "predicted": 0.14154792520557052,
+        "observed": 0.14909638554216867
+      },
+      {
+        "lower": 0.2,
+        "runners": 249,
+        "predicted": 0.2424638063502175,
+        "observed": 0.2248995983935743
+      },
+      {
+        "lower": 0.3,
+        "runners": 114,
+        "predicted": 0.34575647162581485,
+        "observed": 0.37719298245614036
+      },
+      {
+        "lower": 0.4,
+        "runners": 74,
+        "predicted": 0.44145342657831493,
+        "observed": 0.3783783783783784
+      },
+      {
+        "lower": 0.5,
+        "runners": 32,
+        "predicted": 0.5360838142622847,
+        "observed": 0.46875
+      },
+      {
+        "lower": 0.6,
+        "runners": 7,
+        "predicted": 0.6343800070475859,
+        "observed": 0.5714285714285714
+      },
+      {
+        "lower": 0.7,
+        "runners": 1,
+        "predicted": 0.7941183927380975,
+        "observed": 1.0
+      },
+      {
+        "lower": 0.8,
+        "runners": 2,
+        "predicted": 0.8371383444833995,
+        "observed": 0.5
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.41865046235286657,
+      -0.22787521160016272
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 90440,
+      "stake_yen": 34500.0,
+      "payout_yen": 24940.0,
+      "return_pct": 72.28985507246377,
+      "maximum_drawdown": 0.233,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 148,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6832397754611067,
+      "return_pct_without_largest_payout": 22.89855072463768,
+      "return_pct_without_top3_payouts": 1.2463768115942029,
+      "net_profit_yen": -9560,
+      "profit_yen_per_scheduled_race": -27.71014492753623
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null,
+      "net_profit_yen": 0,
+      "profit_yen_per_scheduled_race": 0.0
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -70.41095890410959,
+      98.58552631578948
+    ]
+  },
+  "exact_original_EV_cohort_structural_vs_original": {
+    "races": 345,
+    "brier_definition": "mean over runners, then mean over races",
+    "evaluation_role": "exploratory historical final-odds comparison; not live or unseen holdout",
+    "forward_target_races": 100,
+    "baseline": {
+      "log_loss": 2.282720287374985,
+      "brier": 0.06977644151030386,
+      "top1_hit": 0.25217391304347825
+    },
+    "candidate": {
+      "log_loss": 2.204289343046011,
+      "brier": 0.06775580819890163,
+      "top1_hit": 0.26666666666666666
+    },
+    "log_loss_delta": -0.078430944328974,
+    "race_bootstrap_95pct_delta": [
+      -0.11308758315336805,
+      -0.041991708385919625
+    ],
+    "win_calibration": [
+      {
+        "lower": 0.0,
+        "runners": 3642,
+        "predicted": 0.04327867910667759,
+        "observed": 0.044481054365733116
+      },
+      {
+        "lower": 0.1,
+        "runners": 670,
+        "predicted": 0.13808305063359178,
+        "observed": 0.1417910447761194
+      },
+      {
+        "lower": 0.2,
+        "runners": 195,
+        "predicted": 0.2423934692627139,
+        "observed": 0.2358974358974359
+      },
+      {
+        "lower": 0.3,
+        "runners": 70,
+        "predicted": 0.35007335629886044,
+        "observed": 0.38571428571428573
+      },
+      {
+        "lower": 0.4,
+        "runners": 33,
+        "predicted": 0.4423656321310227,
+        "observed": 0.21212121212121213
+      },
+      {
+        "lower": 0.5,
+        "runners": 8,
+        "predicted": 0.5469622493513544,
+        "observed": 0.5
+      },
+      {
+        "lower": 0.6,
+        "runners": 5,
+        "predicted": 0.6566101800631982,
+        "observed": 0.6
+      },
+      {
+        "lower": 0.8,
+        "runners": 1,
+        "predicted": 0.834730566373734,
+        "observed": 1.0
+      }
+    ],
+    "day_cluster_95pct_log_loss_delta": [
+      -0.11674051776013097,
+      -0.04185753930217486
+    ],
+    "previous_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 90440,
+      "stake_yen": 34500.0,
+      "payout_yen": 24940.0,
+      "return_pct": 72.28985507246377,
+      "maximum_drawdown": 0.233,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 148,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.6832397754611067,
+      "return_pct_without_largest_payout": 22.89855072463768,
+      "return_pct_without_top3_payouts": 1.2463768115942029,
+      "net_profit_yen": -9560,
+      "profit_yen_per_scheduled_race": -27.71014492753623
+    },
+    "candidate_EV": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 88590,
+      "stake_yen": 34500.0,
+      "payout_yen": 23090.0,
+      "return_pct": 66.92753623188406,
+      "maximum_drawdown": 0.2515,
+      "pending_races": 0,
+      "bet_races": 345,
+      "longest_losing_streak": 175,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.7379818103074924,
+      "return_pct_without_largest_payout": 17.536231884057973,
+      "return_pct_without_top3_payouts": 0.0,
+      "net_profit_yen": -11410,
+      "profit_yen_per_scheduled_race": -33.072463768115945
+    },
+    "paired_day_95pct_profit_delta_yen_per_race": [
+      -13.540983606557377,
+      0.0
+    ]
+  },
+  "changed_prior_fields": [],
+  "risk_policy": {
+    "status": "calibrated_research_policy",
+    "selected": {
+      "structural_weight": 0.5,
+      "odds_cap": 20,
+      "bets": 1741,
+      "return_pct": 77.45548535324527,
+      "day_bootstrap_95pct_lower_return_pct": 64.03337440677744,
+      "pending": 0
+    },
+    "approved": false,
+    "grid": [
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 10,
+        "bets": 3,
+        "return_pct": 306.6666666666667,
+        "day_bootstrap_95pct_lower_return_pct": 0.0,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 20,
+        "bets": 50,
+        "return_pct": 116.0,
+        "day_bootstrap_95pct_lower_return_pct": 18.02846153846154,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 50,
+        "bets": 507,
+        "return_pct": 73.80670611439842,
+        "day_bootstrap_95pct_lower_return_pct": 34.91478444199855,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": 100,
+        "bets": 1637,
+        "return_pct": 58.59499083689676,
+        "day_bootstrap_95pct_lower_return_pct": 24.06415650010947,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.1,
+        "odds_cap": null,
+        "bets": 2915,
+        "return_pct": 43.25214408233276,
+        "day_bootstrap_95pct_lower_return_pct": 18.045620307588393,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 10,
+        "bets": 129,
+        "return_pct": 69.30232558139535,
+        "day_bootstrap_95pct_lower_return_pct": 39.83680424081787,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 20,
+        "bets": 643,
+        "return_pct": 88.60031104199066,
+        "day_bootstrap_95pct_lower_return_pct": 62.76262133273138,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 50,
+        "bets": 2297,
+        "return_pct": 69.06399651719634,
+        "day_bootstrap_95pct_lower_return_pct": 50.42224161301254,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": 100,
+        "bets": 3005,
+        "return_pct": 48.925124792013314,
+        "day_bootstrap_95pct_lower_return_pct": 27.673505474422868,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.25,
+        "odds_cap": null,
+        "bets": 3209,
+        "return_pct": 47.73449672795263,
+        "day_bootstrap_95pct_lower_return_pct": 22.52950661413293,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 10,
+        "bets": 629,
+        "return_pct": 69.12559618441972,
+        "day_bootstrap_95pct_lower_return_pct": 53.12648790522806,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 20,
+        "bets": 1741,
+        "return_pct": 77.45548535324527,
+        "day_bootstrap_95pct_lower_return_pct": 64.03337440677744,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 50,
+        "bets": 3024,
+        "return_pct": 69.06746031746032,
+        "day_bootstrap_95pct_lower_return_pct": 53.785773071640406,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": 100,
+        "bets": 3206,
+        "return_pct": 49.8284466625078,
+        "day_bootstrap_95pct_lower_return_pct": 30.611453770516096,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.5,
+        "odds_cap": null,
+        "bets": 3236,
+        "return_pct": 48.10259579728059,
+        "day_bootstrap_95pct_lower_return_pct": 22.73696174576483,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 10,
+        "bets": 1010,
+        "return_pct": 64.89108910891089,
+        "day_bootstrap_95pct_lower_return_pct": 51.73574912645288,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 20,
+        "bets": 2236,
+        "return_pct": 74.08765652951699,
+        "day_bootstrap_95pct_lower_return_pct": 63.14510935340388,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 50,
+        "bets": 3141,
+        "return_pct": 67.6981852913085,
+        "day_bootstrap_95pct_lower_return_pct": 52.92622930357067,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": 100,
+        "bets": 3229,
+        "return_pct": 49.76463301331682,
+        "day_bootstrap_95pct_lower_return_pct": 30.754367781120116,
+        "pending": 0
+      },
+      {
+        "structural_weight": 0.75,
+        "odds_cap": null,
+        "bets": 3238,
+        "return_pct": 48.131562693020385,
+        "day_bootstrap_95pct_lower_return_pct": 22.79908163521091,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 10,
+        "bets": 1254,
+        "return_pct": 67.32854864433811,
+        "day_bootstrap_95pct_lower_return_pct": 54.871959579731445,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 20,
+        "bets": 2472,
+        "return_pct": 73.03802588996764,
+        "day_bootstrap_95pct_lower_return_pct": 62.472575038885836,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 50,
+        "bets": 3178,
+        "return_pct": 67.3253618628068,
+        "day_bootstrap_95pct_lower_return_pct": 52.74638937131001,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": 100,
+        "bets": 3232,
+        "return_pct": 49.71844059405941,
+        "day_bootstrap_95pct_lower_return_pct": 30.715365249031088,
+        "pending": 0
+      },
+      {
+        "structural_weight": 1.0,
+        "odds_cap": null,
+        "bets": 3239,
+        "return_pct": 48.1167026860142,
+        "day_bootstrap_95pct_lower_return_pct": 22.791998753599085,
+        "pending": 0
+      }
+    ],
+    "selection_basis": "2024 day-bootstrap lower ROI; minimum calibration bet count",
+    "live_eligible": false
+  },
+  "risk_policy_full_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 60070,
+    "stake_yen": 180500.0,
+    "payout_yen": 140570.0,
+    "return_pct": 77.8781163434903,
+    "maximum_drawdown": 0.43074845679012347,
+    "pending_races": 0,
+    "bet_races": 1805,
+    "longest_losing_streak": 72,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.014227786867752721,
+    "return_pct_without_largest_payout": 76.77008310249307,
+    "return_pct_without_top3_payouts": 74.56509695290859
+  },
+  "risk_policy_matched_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 95470,
+    "stake_yen": 20900.0,
+    "payout_yen": 16370.0,
+    "return_pct": 78.32535885167464,
+    "maximum_drawdown": 0.06975144906179388,
+    "pending_races": 0,
+    "bet_races": 209,
+    "longest_losing_streak": 48,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.11240073304825901,
+    "return_pct_without_largest_payout": 69.52153110047847,
+    "return_pct_without_top3_payouts": 53.0622009569378
+  },
+  "risk_policy_exact_original_EV_settlement": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 97070,
+    "stake_yen": 19300.0,
+    "payout_yen": 16370.0,
+    "return_pct": 84.81865284974093,
+    "maximum_drawdown": 0.05708969839404622,
+    "pending_races": 0,
+    "bet_races": 193,
+    "longest_losing_streak": 43,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.11240073304825901,
+    "return_pct_without_largest_payout": 75.28497409326425,
+    "return_pct_without_top3_payouts": 57.461139896373055
+  },
+  "risk_policy_matched_profit_delta_95pct": [
+    -72.85340314136126,
+    90.0
+  ],
+  "structural_probability_rank_settlement": {
+    "win": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 16970,
+      "stake_yen": 322900.0,
+      "payout_yen": 239870.0,
+      "return_pct": 74.28615670486218,
+      "maximum_drawdown": 0.836433734939759,
+      "pending_races": 0,
+      "bet_races": 3229,
+      "longest_losing_streak": 28,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.015008129403426856,
+      "return_pct_without_largest_payout": 73.17126045215237,
+      "return_pct_without_top3_payouts": 71.89222669557138
+    },
+    "wide": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 42000,
+      "stake_yen": 322900.0,
+      "payout_yen": 264900.0,
+      "return_pct": 82.03778259523072,
+      "maximum_drawdown": 0.611039081311354,
+      "pending_races": 0,
+      "bet_races": 3229,
+      "longest_losing_streak": 39,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.018912797281993205,
+      "return_pct_without_largest_payout": 80.4862186435429,
+      "return_pct_without_top3_payouts": 78.29978321461753
+    },
+    "trio": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 32210,
+      "stake_yen": 322900.0,
+      "payout_yen": 255110.0,
+      "return_pct": 79.00588417466707,
+      "maximum_drawdown": 0.7462180901355184,
+      "pending_races": 0,
+      "bet_races": 3229,
+      "longest_losing_streak": 158,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.29504919446513267,
+      "return_pct_without_largest_payout": 55.69526169092598,
+      "return_pct_without_top3_payouts": 46.99907091978941
+    }
+  },
+  "structural_virtual_capital": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 12630,
+    "stake_yen": 273400.0,
+    "payout_yen": 186030.0,
+    "return_pct": 68.04316020482808,
+    "maximum_drawdown": 0.9002716957008151,
+    "pending_races": 0,
+    "bet_races": 2734,
+    "longest_losing_streak": 62,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.0994463258614202,
+    "return_pct_without_largest_payout": 61.276517922457934,
+    "return_pct_without_top3_payouts": 58.10534016093636,
+    "cash_after_known_settlements": 12630.0,
+    "unresolved_reserved_cost": 0.0,
+    "maximum_entry_exposure": 0.1,
+    "rule": {
+      "initial": 100000,
+      "race_budget": 5000,
+      "race_fraction": 0.02,
+      "exposure_fraction": 0.1
+    },
+    "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+  },
+  "market_probability_rank_settlement": {
+    "win": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 29650,
+      "stake_yen": 320500.0,
+      "payout_yen": 250150.0,
+      "return_pct": 78.04992199687987,
+      "maximum_drawdown": 0.7101449275362319,
+      "pending_races": 0,
+      "bet_races": 3205,
+      "longest_losing_streak": 17,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.0022786328203078152,
+      "return_pct_without_largest_payout": 77.87207488299532,
+      "return_pct_without_top3_payouts": 77.52886115444618
+    },
+    "wide": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 39940,
+      "stake_yen": 320500.0,
+      "payout_yen": 260440.0,
+      "return_pct": 81.26053042121684,
+      "maximum_drawdown": 0.6167414050822122,
+      "pending_races": 0,
+      "bet_races": 3205,
+      "longest_losing_streak": 16,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.0032637075718015664,
+      "return_pct_without_largest_payout": 80.99531981279252,
+      "return_pct_without_top3_payouts": 80.53978159126365
+    },
+    "trio": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 33930,
+      "stake_yen": 320500.0,
+      "payout_yen": 254430.0,
+      "return_pct": 79.38533541341654,
+      "maximum_drawdown": 0.6754992693619094,
+      "pending_races": 0,
+      "bet_races": 3205,
+      "longest_losing_streak": 68,
+      "maximum_single_race_loss": 100,
+      "largest_payout_share": 0.015485595252132217,
+      "return_pct_without_largest_payout": 78.15600624024961,
+      "return_pct_without_top3_payouts": 75.81591263650546
+    }
+  },
+  "market_virtual_capital": {
+    "initial_bankroll": 100000,
+    "closing_equity_settled_only": 38500,
+    "stake_yen": 348200.0,
+    "payout_yen": 286700.0,
+    "return_pct": 82.33773693279724,
+    "maximum_drawdown": 0.6267914594910793,
+    "pending_races": 0,
+    "bet_races": 3482,
+    "longest_losing_streak": 25,
+    "maximum_single_race_loss": 100,
+    "largest_payout_share": 0.012905476107429368,
+    "return_pct_without_largest_payout": 81.27512923607122,
+    "return_pct_without_top3_payouts": 79.78173463526709,
+    "cash_after_known_settlements": 38500.0,
+    "unresolved_reserved_cost": 0.0,
+    "maximum_entry_exposure": 0.1,
+    "rule": {
+      "initial": 100000,
+      "race_budget": 5000,
+      "race_fraction": 0.02,
+      "exposure_fraction": 0.1
+    },
+    "role": "probability_only_virtual_benchmark_not_executable_EV_strategy"
+  },
+  "market_EV_stress": {
+    "10": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "20": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "50": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "100": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    },
+    "None": {
+      "initial_bankroll": 100000,
+      "closing_equity_settled_only": 100000,
+      "stake_yen": 0.0,
+      "payout_yen": 0.0,
+      "return_pct": null,
+      "maximum_drawdown": 0.0,
+      "pending_races": 0,
+      "bet_races": 0,
+      "longest_losing_streak": 0,
+      "maximum_single_race_loss": 0,
+      "largest_payout_share": null,
+      "return_pct_without_largest_payout": null,
+      "return_pct_without_top3_payouts": null
+    }
+  },
+  "segments": {
+    "course": {
+      "中京/dirt": {
+        "races": 199,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 80100,
+          "stake_yen": 19900.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.199,
+          "pending_races": 0,
+          "bet_races": 199,
+          "longest_losing_streak": 199,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/dirt": {
+        "races": 255,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 104100,
+          "stake_yen": 25500.0,
+          "payout_yen": 29600.0,
+          "return_pct": 116.07843137254902,
+          "maximum_drawdown": 0.11928934010152284,
+          "pending_races": 0,
+          "bet_races": 255,
+          "longest_losing_streak": 141,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.9456081081081081,
+          "return_pct_without_largest_payout": 6.313725490196078,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中京/turf": {
+        "races": 168,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 85520,
+          "stake_yen": 16800.0,
+          "payout_yen": 2320.0,
+          "return_pct": 13.80952380952381,
+          "maximum_drawdown": 0.14667730991818,
+          "pending_races": 0,
+          "bet_races": 168,
+          "longest_losing_streak": 147,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/turf": {
+        "races": 199,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 89160,
+          "stake_yen": 19900.0,
+          "payout_yen": 9060.0,
+          "return_pct": 45.527638190954775,
+          "maximum_drawdown": 0.16013564431047475,
+          "pending_races": 0,
+          "bet_races": 199,
+          "longest_losing_streak": 170,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.5452538631346578,
+          "return_pct_without_largest_payout": 20.7035175879397,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中京/jump": {
+        "races": 8,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99200,
+          "stake_yen": 800.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.008,
+          "pending_races": 0,
+          "bet_races": 8,
+          "longest_losing_streak": 8,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/dirt": {
+        "races": 73,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99100,
+          "stake_yen": 7300.0,
+          "payout_yen": 6400.0,
+          "return_pct": 87.67123287671232,
+          "maximum_drawdown": 0.058,
+          "pending_races": 0,
+          "bet_races": 73,
+          "longest_losing_streak": 58,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/turf": {
+        "races": 132,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 121370,
+          "stake_yen": 13200.0,
+          "payout_yen": 34570.0,
+          "return_pct": 261.8939393939394,
+          "maximum_drawdown": 0.06,
+          "pending_races": 0,
+          "bet_races": 132,
+          "longest_losing_streak": 60,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.7121781891813711,
+          "return_pct_without_largest_payout": 75.37878787878788,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "小倉/jump": {
+        "races": 20,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 113390,
+          "stake_yen": 2000.0,
+          "payout_yen": 15390.0,
+          "return_pct": 769.5,
+          "maximum_drawdown": 0.011,
+          "pending_races": 0,
+          "bet_races": 20,
+          "longest_losing_streak": 11,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.6335282651072125,
+          "return_pct_without_largest_payout": 282.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/dirt": {
+        "races": 225,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 94540,
+          "stake_yen": 22500.0,
+          "payout_yen": 17040.0,
+          "return_pct": 75.73333333333333,
+          "maximum_drawdown": 0.159,
+          "pending_races": 0,
+          "bet_races": 225,
+          "longest_losing_streak": 159,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/dirt": {
+        "races": 249,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 75100,
+          "stake_yen": 24900.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.249,
+          "pending_races": 0,
+          "bet_races": 249,
+          "longest_losing_streak": 249,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/turf": {
+        "races": 250,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99870,
+          "stake_yen": 24900.0,
+          "payout_yen": 24770.0,
+          "return_pct": 99.47791164658635,
+          "maximum_drawdown": 0.09905277401894452,
+          "pending_races": 0,
+          "bet_races": 249,
+          "longest_losing_streak": 94,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8364957610012111,
+          "return_pct_without_largest_payout": 16.265060240963855,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/turf": {
+        "races": 205,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 80830,
+          "stake_yen": 20500.0,
+          "payout_yen": 1330.0,
+          "return_pct": 6.487804878048781,
+          "maximum_drawdown": 0.1917,
+          "pending_races": 0,
+          "bet_races": 205,
+          "longest_losing_streak": 120,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8045112781954887,
+          "return_pct_without_largest_payout": 1.2682926829268293,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/dirt": {
+        "races": 234,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 76600,
+          "stake_yen": 23400.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.234,
+          "pending_races": 0,
+          "bet_races": 234,
+          "longest_losing_streak": 234,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/turf": {
+        "races": 200,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 102340,
+          "stake_yen": 20000.0,
+          "payout_yen": 22340.0,
+          "return_pct": 111.7,
+          "maximum_drawdown": 0.14674003668500918,
+          "pending_races": 0,
+          "bet_races": 200,
+          "longest_losing_streak": 176,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "阪神/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/dirt": {
+        "races": 94,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 97650,
+          "stake_yen": 9400.0,
+          "payout_yen": 7050.0,
+          "return_pct": 75.0,
+          "maximum_drawdown": 0.07746811525743977,
+          "pending_races": 0,
+          "bet_races": 94,
+          "longest_losing_streak": 82,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/turf": {
+        "races": 126,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 122140,
+          "stake_yen": 12600.0,
+          "payout_yen": 34740.0,
+          "return_pct": 275.7142857142857,
+          "maximum_drawdown": 0.09149062778934841,
+          "pending_races": 0,
+          "bet_races": 126,
+          "longest_losing_streak": 123,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "中山/jump": {
+        "races": 1,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99900,
+          "stake_yen": 100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.001,
+          "pending_races": 0,
+          "bet_races": 1,
+          "longest_losing_streak": 1,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/jump": {
+        "races": 15,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 98500,
+          "stake_yen": 1500.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.015,
+          "pending_races": 0,
+          "bet_races": 15,
+          "longest_losing_streak": 15,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/dirt": {
+        "races": 111,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88900,
+          "stake_yen": 11100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.111,
+          "pending_races": 0,
+          "bet_races": 111,
+          "longest_losing_streak": 111,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "新潟/turf": {
+        "races": 138,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 86200,
+          "stake_yen": 13800.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.138,
+          "pending_races": 0,
+          "bet_races": 138,
+          "longest_losing_streak": 138,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "京都/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "函館/turf": {
+        "races": 80,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 92480,
+          "stake_yen": 8000.0,
+          "payout_yen": 480.0,
+          "return_pct": 6.0,
+          "maximum_drawdown": 0.0752,
+          "pending_races": 0,
+          "bet_races": 80,
+          "longest_losing_streak": 61,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 1.0,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "函館/dirt": {
+        "races": 54,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 94600,
+          "stake_yen": 5400.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.054,
+          "pending_races": 0,
+          "bet_races": 54,
+          "longest_losing_streak": 54,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "東京/jump": {
+        "races": 2,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 99800,
+          "stake_yen": 200.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.002,
+          "pending_races": 0,
+          "bet_races": 2,
+          "longest_losing_streak": 2,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "福島/jump": {
+        "races": 11,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 98900,
+          "stake_yen": 1100.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.011,
+          "pending_races": 0,
+          "bet_races": 11,
+          "longest_losing_streak": 11,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "札幌/turf": {
+        "races": 85,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 91500,
+          "stake_yen": 8500.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.085,
+          "pending_races": 0,
+          "bet_races": 85,
+          "longest_losing_streak": 85,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "札幌/dirt": {
+        "races": 67,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 93300,
+          "stake_yen": 6700.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.067,
+          "pending_races": 0,
+          "bet_races": 67,
+          "longest_losing_streak": 67,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    },
+    "class": {
+      "nongraded": {
+        "races": 2421,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 17310,
+          "stake_yen": 242000.0,
+          "payout_yen": 159310.0,
+          "return_pct": 65.8305785123967,
+          "maximum_drawdown": 0.893836246550138,
+          "pending_races": 0,
+          "bet_races": 2420,
+          "longest_losing_streak": 661,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.21806540706798067,
+          "return_pct_without_largest_payout": 51.47520661157025,
+          "return_pct_without_top3_payouts": 29.735537190082646
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "graded": {
+        "races": 124,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 93610,
+          "stake_yen": 12400.0,
+          "payout_yen": 6010.0,
+          "return_pct": 48.46774193548387,
+          "maximum_drawdown": 0.1036959019532746,
+          "pending_races": 0,
+          "bet_races": 124,
+          "longest_losing_streak": 77,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8219633943427621,
+          "return_pct_without_largest_payout": 8.629032258064516,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "unknown": {
+        "races": 660,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 73770,
+          "stake_yen": 66000.0,
+          "payout_yen": 39770.0,
+          "return_pct": 60.25757575757576,
+          "maximum_drawdown": 0.30777892465046447,
+          "pending_races": 0,
+          "bet_races": 660,
+          "longest_losing_streak": 328,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.5209957254211718,
+          "return_pct_without_largest_payout": 28.863636363636363,
+          "return_pct_without_top3_payouts": 7.545454545454546
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    },
+    "month": {
+      "2025-01": {
+        "races": 223,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 89080,
+          "stake_yen": 22300.0,
+          "payout_yen": 11380.0,
+          "return_pct": 51.03139013452915,
+          "maximum_drawdown": 0.111,
+          "pending_races": 0,
+          "bet_races": 223,
+          "longest_losing_streak": 111,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.43409490333919154,
+          "return_pct_without_largest_payout": 28.878923766816143,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-02": {
+        "races": 268,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 85580,
+          "stake_yen": 26800.0,
+          "payout_yen": 12380.0,
+          "return_pct": 46.19402985074627,
+          "maximum_drawdown": 0.175,
+          "pending_races": 0,
+          "bet_races": 268,
+          "longest_losing_streak": 175,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.7875605815831987,
+          "return_pct_without_largest_payout": 9.813432835820896,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-03": {
+        "races": 315,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 150700,
+          "stake_yen": 31500.0,
+          "payout_yen": 82200.0,
+          "return_pct": 260.95238095238096,
+          "maximum_drawdown": 0.11321339950372208,
+          "pending_races": 0,
+          "bet_races": 315,
+          "longest_losing_streak": 146,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.34051094890510947,
+          "return_pct_without_largest_payout": 172.0952380952381,
+          "return_pct_without_top3_payouts": 23.015873015873016
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-04": {
+        "races": 235,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 118290,
+          "stake_yen": 23500.0,
+          "payout_yen": 41790.0,
+          "return_pct": 177.82978723404256,
+          "maximum_drawdown": 0.08614029666254636,
+          "pending_races": 0,
+          "bet_races": 235,
+          "longest_losing_streak": 111,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8312993539124193,
+          "return_pct_without_largest_payout": 30.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-05": {
+        "races": 291,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 72230,
+          "stake_yen": 29100.0,
+          "payout_yen": 1330.0,
+          "return_pct": 4.570446735395189,
+          "maximum_drawdown": 0.2777,
+          "pending_races": 0,
+          "bet_races": 291,
+          "longest_losing_streak": 159,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.8045112781954887,
+          "return_pct_without_largest_payout": 0.8934707903780069,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-06": {
+        "races": 270,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 94200,
+          "stake_yen": 27000.0,
+          "payout_yen": 21200.0,
+          "return_pct": 78.51851851851852,
+          "maximum_drawdown": 0.128,
+          "pending_races": 0,
+          "bet_races": 270,
+          "longest_losing_streak": 128,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.9773584905660377,
+          "return_pct_without_largest_payout": 1.7777777777777777,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-07": {
+        "races": 275,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 88850,
+          "stake_yen": 27500.0,
+          "payout_yen": 16350.0,
+          "return_pct": 59.45454545454545,
+          "maximum_drawdown": 0.17156177156177158,
+          "pending_races": 0,
+          "bet_races": 275,
+          "longest_losing_streak": 184,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.6085626911314985,
+          "return_pct_without_largest_payout": 23.272727272727273,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-08": {
+        "races": 334,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 66600,
+          "stake_yen": 33400.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.334,
+          "pending_races": 0,
+          "bet_races": 334,
+          "longest_losing_streak": 334,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-09": {
+        "races": 218,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 78200,
+          "stake_yen": 21800.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.218,
+          "pending_races": 0,
+          "bet_races": 218,
+          "longest_losing_streak": 218,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-10": {
+        "races": 244,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 94160,
+          "stake_yen": 24300.0,
+          "payout_yen": 18460.0,
+          "return_pct": 75.96707818930041,
+          "maximum_drawdown": 0.1438,
+          "pending_races": 0,
+          "bet_races": 243,
+          "longest_losing_streak": 127,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": 0.9230769230769231,
+          "return_pct_without_largest_payout": 5.843621399176954,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-11": {
+        "races": 288,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 71200,
+          "stake_yen": 28800.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.288,
+          "pending_races": 0,
+          "bet_races": 288,
+          "longest_losing_streak": 288,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      },
+      "2025-12": {
+        "races": 244,
+        "previous_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 75600,
+          "stake_yen": 24400.0,
+          "payout_yen": 0.0,
+          "return_pct": 0.0,
+          "maximum_drawdown": 0.244,
+          "pending_races": 0,
+          "bet_races": 244,
+          "longest_losing_streak": 244,
+          "maximum_single_race_loss": 100,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": 0.0,
+          "return_pct_without_top3_payouts": 0.0
+        },
+        "candidate_EV": {
+          "initial_bankroll": 100000,
+          "closing_equity_settled_only": 100000,
+          "stake_yen": 0.0,
+          "payout_yen": 0.0,
+          "return_pct": null,
+          "maximum_drawdown": 0.0,
+          "pending_races": 0,
+          "bet_races": 0,
+          "longest_losing_streak": 0,
+          "maximum_single_race_loss": 0,
+          "largest_payout_share": null,
+          "return_pct_without_largest_payout": null,
+          "return_pct_without_top3_payouts": null
+        }
+      }
+    }
+  },
+  "input_db_sha256": "fbe6f00be236c319bcd9ff9cd60cd6ed3d28e0c75f2edf984201b4668fd57ce4",
+  "source_code_sha256": {
+    "validation.py": "8b43b88ea11d6ac6e441e381d4c36d52d2f6ea16f8c0a3425fc3a7e53c1ce307",
+    "model.py": "789f36992f0c1ef1456410c09e03ab40d5cd42b3762091d2b528c7c6940ee525",
+    "pipeline.py": "c757ea4aa832a6b57351e4f95b8fff6a7a86d271fdcb377f2810346df3b29fd8",
+    "risk_policy.py": "ada6461c1e2bec03315e5bb8624bf1f4d5891d397ec6334b3b88825e8c48dc48",
+    "offline_performance_repair.py": "772df6cd7f9bd0f978562b60455735678a64c6b75f76caea37e715719369cd20",
+    "result_odds.py": "f92c375ee6e45354b55142f07b8f2a35029a2133d05920a69a70a221be2ada89",
+    "pdf_performance.py": "6a7234c2868ccf6a19f44ab078b222e03191dfaf7b15329e469c9d700fbdb49a",
+    "annual_reports.py": "f40c00bb4531983442623bf2b5b326e3ecad490eda563d03565589bd56d610c7",
+    "completion_validation.py": "47ab42a95c4c337a1b3cc47c430fadca7c61e086f102bee7f091fd37afd54a69",
+    "outline_digits.py": "c5a330ee405bb5130a1ae6c2bfd358a79d61078612bf311b0e7346f1c16e77e3",
+    "pdf_payouts.py": "a34d762e01da15c642d2247e5c7b4fea1574e863c46e96754d8e0f24e8c74e5b",
+    "bulk_ingest.py": "9e86f4eb5d6b907141e31dcfc098de6fd5fcf061c2a293c5dc1dd72b1d282f31",
+    "market_residual.py": "8c9f4e67246611eede6160f6c4234d910910fa56459a52bdc8d81db0f7d616c8",
+    "official_linkage.py": "ad2e022cbc2826afad2cec3e23cd2bd26882a8a1e9dc61b4a23cc65856a4290d",
+    "historical_replay.py": "ca3e4441f7597b2e15c27e20d9f2219ce351cf283191150ce144ef7960cb220b",
+    "point_in_time.py": "5dd2aeb4bec34bb3a44af0a9251e1e61df2a39a5c228230c1c8eb669f94c10db",
+    "features.py": "fcb833c84b3882e77a30326991a3601a6aa1a72ddef5eeb73cd63a98e39d42c4",
+    "strategy.py": "4a1ae9b67330972f8c5d605c22fa7759ac4ffe0ace77cf32de777f3d96cfb16a",
+    "pdf_runner_parser.py": "ef3d5d1aab91dbed1cab49d64c8bb1e68a15968bc355d1fded4a3d5cb283bc37",
+    "official_import.py": "d15a80e55cb22410d2cfd28de3f3a0a95feca18f3aa6e082813c65f8fcb3d030",
+    "offline_repair.py": "fe00070e0ab18f7d2d9011213fadb7395ab55365636e4aaf9e778e5711d77cb7",
+    "jra_pdf_archive.py": "7ea8e0dbcef85ecb567f703a32e4502a081a21603f7e18cd7ddbfb115c6af703",
+    "annual_export.py": "a95578e108a1746a4cff568eb948b9ca18d93fe1fb2dfb00092d2e1647e6719e",
+    "live_predict.py": "208d37a3f58c29ba765b034494e7a30c9d72411dbfc04856b7f3cb543e77ad68",
+    "production_pipeline.py": "f62e7e835625ca712304fb6f55fb5f4738b84660390265df8c08d6bb91242810",
+    "improvements.py": "18880cd0b5849919a1c3ebbe6df9f0209ba2e3c012cac9dc60d10ebf377d0cac",
+    "enriched_features.py": "67e27cf32583e22403fcb1fdd0875539f6654dc36e041f75cf3ba28b4e061a50",
+    "fitted_model.py": "f79c21f51b4344841ccde5f647f80816900321364765a806fc0c1ce258ba2ff5",
+    "final_market_judgement.py": "d75661ace13ffcccdbdc6702ca9708c6a54011f5520a4cdf7edde231b74ae3a9",
+    "risk_replay.py": "39a8156fb7422275c4a3499c252483320dccb382bd5210a139d28823b7b2e098",
+    "verify_and_promote.py": "53b25f342f37d3115072ccd5361e733509d32efbd801a0e3c926528ad6892790",
+    "repair_validation.py": "c98ad99882a730ecd64c7b4f8f6af1678b48f6c2f021b213d43623c23f2fbb87",
+    "annual_parser.py": "fe3b6cb175ad58e444d299c0e10cde3a24fe84814b257dee47b9ec8aaf68860b",
+    "backtest_engine.py": "e7abdc5d3d7c171894848d21eda8c40ead94ee7a25f8ea41e101bb99c5eded10",
+    "deterioration_analysis.py": "349d829638252a2f02fc2e85f7862605bcd585c9f0fb2a7df45c4278999309eb",
+    "archive_completion.py": "4982639a13b33be3c51bb21016a843e3ee5dd009af4fc50643b828a078280163"
+  },
+  "protocol_sha256": "ba417949f41b4e201a95419b06b99a424ee030354990abed4c4745a395a1fed3",
+  "prediction_sha256": "8b6a3eaa6e21f104dcc27d3be48bf73a87983c9cda76afcd939fd3c1ee39c517",
+  "probability_sum_max_error": 4.440892098500626e-16
+}

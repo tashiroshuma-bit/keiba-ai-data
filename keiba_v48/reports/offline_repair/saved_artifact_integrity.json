@@ -1,0 +1,23 @@
+{
+  "database": {
+    "filename": "jra_2023_2025.sqlite",
+    "sha256": "fbe6f00be236c319bcd9ff9cd60cd6ed3d28e0c75f2edf984201b4668fd57ce4",
+    "bytes": 256901120,
+    "integrity_check": "ok",
+    "foreign_key_violations": 0,
+    "saved_roundtrip_sha256": "fbe6f00be236c319bcd9ff9cd60cd6ed3d28e0c75f2edf984201b4668fd57ce4"
+  },
+  "source_archive": {
+    "filename": "jra_completion_source_checkpoint.zip",
+    "sha256": "3e02e16253db79e12e01d1b36ddc4aa0379c1d1dfe89b69282297bb28a3e8acd",
+    "bytes": 21363155,
+    "source_files": 2876,
+    "zip_crc": "ok",
+    "saved_roundtrip_sha256": "3e02e16253db79e12e01d1b36ddc4aa0379c1d1dfe89b69282297bb28a3e8acd"
+  },
+  "tests": 127,
+  "saved_roundtrip_verified": true,
+  "database_version": 5,
+  "source_archive_version": 2,
+  "prior_source_archive_issue": "Prior version was not a valid ZIP; rebuilt from intact saved sources and roundtrip verified replacement"
+}

@@ -17,10 +17,10 @@
     "fixed_top1_return_pct": 78.57798165137615
   },
   "last_review": {
-    "reviewed_at": "2026-10-19T10:40:55.116132+00:00",
-    "status": "candidate_rejected_final_odds_axis",
-    "report": "../reports/completion/adoption_decision.json",
-    "paired_races": 396,
+    "reviewed_date": "2026-10-20",
+    "status": "rejected_financial_axis",
+    "report": "../reports/offline_repair/adoption_review.json",
+    "paired_races": 345,
     "model_unchanged": true
   }
 }

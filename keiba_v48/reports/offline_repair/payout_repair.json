@@ -1,0 +1,13 @@
+{
+  "verified_saved_pdf_documents": 864,
+  "decoded_payout_races": 8790,
+  "payout_keys": 43950,
+  "decoding_errors": [],
+  "independent_html_comparisons": 1000,
+  "independent_html_disagreements": [],
+  "artifact_clock_conflict_documents": 833,
+  "artifact_times_usage": "do_not_use_as_result_publication_time",
+  "historical_publication_times_fabricated": 0,
+  "integrity_check": "ok",
+  "foreign_key_violations": 0
+}

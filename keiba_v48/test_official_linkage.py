@@ -8,7 +8,8 @@ from unittest.mock import Mock, patch
 
 from bs4 import BeautifulSoup
 from annual_reports import connect
-from official_linkage import SourceCache, attest, links, normalized, parse_result, propagate, race_key, schema
+from official_linkage import (SourceCache, attest, attest_profile_starts, links, normalized,
+                              parse_profile_starts, parse_result, propagate, race_key, schema)
 from historical_replay import assumed_availability, load_rows, select_index
 from features import HistoryIndex
 from fitted_model import HierarchicalModel
@@ -55,6 +56,48 @@ class OfficialLinkageTests(unittest.TestCase):
         soup = BeautifulSoup('''<a href="/JRADB/accessS.html?CNAME=pw01sde1004202501050920250517/0B">x</a>
           <a onclick="doAction('/JRADB/accessK.html','pw04kmk001095/AD')">j</a>''', 'html.parser')
         self.assertEqual(len(links(soup, URL)), 2)
+
+    def test_profile_start_requires_attested_horse_and_exact_race_row(self):
+        profile_url='https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100678/D3'
+        soup=BeautifulSoup('''<table><tbody><tr><td class="date">2025年5月17日</td>
+          <td class="race"><a href="/JRADB/accessS.html?CNAME=pw01sde1004202501050920250517/0B">race</a></td>
+          <td class="jockey"><a onclick="doAction('/JRADB/accessK.html','pw04kmk001095/AD')">吉田 隼人</a></td>
+          </tr></tbody></table>''','html.parser')
+        rows=parse_profile_starts(soup,profile_url)
+        self.assertEqual(rows[0]['profile_horse_id'],'jra:2020100678')
+        with tempfile.TemporaryDirectory() as root:
+            _,db=self.db_fixture(root);meta=dict(url=URL,sha256='a'*64,observed_at='2026-10-19T00:00:00+00:00')
+            self.assertEqual(attest_profile_starts(db,rows,meta),0)
+            attest(db,parse_result(fixture(),URL),meta)
+            self.assertEqual(attest_profile_starts(db,rows,meta),0)  # duplicate same-name annual rows are ambiguous
+            db.execute('DELETE FROM annual_report_runners WHERE horse_number IN (6,7)')
+            self.assertEqual(attest_profile_starts(db,rows,meta),1)
+            report=propagate(db)
+            self.assertEqual(report.get('profile_source_row_linked',0),0)  # exact result row has precedence
+            db.close()
+
+    def test_profile_start_can_repair_one_date_missing_runner_without_name_history_join(self):
+        profile_url='https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100678/D3'
+        second_url='https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202501051020250517/0C'
+        soup=BeautifulSoup(f'''<table><tbody><tr><td class="date">2025年5月17日</td>
+          <td class="race"><a href="{second_url}">race</a></td>
+          <td class="jockey"><a onclick="doAction('/JRADB/accessK.html','pw04kmk001095/AD')">吉田 隼人</a></td>
+          </tr></tbody></table>''','html.parser')
+        with tempfile.TemporaryDirectory() as root:
+            _,db=self.db_fixture(root);meta=dict(url=URL,sha256='a'*64,observed_at='2026-10-19T00:00:00+00:00')
+            attest(db,parse_result(fixture(),URL),meta)
+            db.execute('''INSERT INTO annual_report_races SELECT '202504010510',document_url,page_number,panel,10,
+                NULL,track,surface,distance_m,going,NULL,1,'requires_review',issues_json,metadata_json
+                FROM annual_report_races WHERE race_id='202504010509' ''')
+            payload=json.dumps(dict(sex_age='5栗',horse_name='アンテロース',jockey_name='吉田隼人'),ensure_ascii=False)
+            db.execute("INSERT INTO annual_report_runners VALUES('202504010510',5,1,'アンテロース','吉田隼人',NULL,NULL,?)",(payload,))
+            rows=parse_profile_starts(soup,profile_url)
+            self.assertEqual(attest_profile_starts(db,rows,{**meta,'url':profile_url}),1)
+            report=propagate(db)
+            linked=db.execute("SELECT horse_id,jockey_id FROM annual_report_runners WHERE race_id='202504010510'").fetchone()
+            self.assertEqual(linked,('jra:2020100678','jra:001095'))
+            self.assertEqual(report['profile_source_row_linked'],1)
+            db.close()
 
     def test_rejects_external_source_and_stops_at_permission_error(self):
         with tempfile.TemporaryDirectory() as root:

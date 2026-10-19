@@ -12,7 +12,8 @@ from urllib.parse import urljoin
 import unicodedata
 
 from official_linkage import (BASE, SourceCache, official_url, parse_result, parse_html,
-                              race_key, links, schema, attest, propagate, audit, unlinked_causes)
+                              race_key, profile_key, links, schema, attest, parse_profile_starts,
+                              attest_profile_starts, propagate, audit, unlinked_causes)
 from annual_reports import VENUES
 from exceptional_results import competition_ranks_are_complete
 
@@ -174,6 +175,13 @@ def rebuild(base,destination,cache_path):
                 db.execute('INSERT OR REPLACE INTO enriched_results VALUES(?,?,?)',(rich['race_id'],rich['status'],json.dumps(rich,ensure_ascii=False,separators=(',',':'))))
                 db.execute('INSERT OR REPLACE INTO official_linkage_pages VALUES(?,?,?,?,?,?)',(meta['url'],meta['sha256'],meta['observed_at'],'matched',None,matched))
             if start%320==0: print(json.dumps({'rebuilt_pages':min(start+32,len(paths))}),flush=True)
+    profile_paths=[p for p in Path(cache_path).glob('*.json') if profile_key(json.loads(p.read_text()).get('url',''))]
+    profile_rows = profile_matched = 0
+    profile_cache=SourceCache(cache_path,'lxml')
+    for path in profile_paths:
+        meta=json.loads(path.read_text());soup,meta=profile_cache.get(meta['url'])
+        rows=parse_profile_starts(soup,meta['url']);profile_rows += len(rows)
+        profile_matched += attest_profile_starts(db,rows,meta)
     cache=SourceCache(cache_path,'lxml')
     for rid,date,track,num,url in VOID_SOURCES:
         stem=cache.folder/hashlib.sha256(url.encode()).hexdigest()
@@ -183,6 +191,8 @@ def rebuild(base,destination,cache_path):
         if f'{y}年{m}月{d}日' not in text or not re.search(track+r'競馬.{0,5}第'+str(num)+r'レース.{0,10}取りやめ',text):raise ValueError('void evidence mismatch')
         db.execute('INSERT OR REPLACE INTO official_void_races VALUES(?,?,?,?,?)',(rid,'official_race_cancelled',url,meta['sha256'],meta['observed_at']))
     report=propagate(db);report.update(audit(db));report['unlinked_causes']=unlinked_causes(db)
+    report.update(profile_pages=len(profile_paths),profile_rows_parsed=profile_rows,
+                  profile_rows_matched=profile_matched)
     report['enriched_statuses']=dict(db.execute('select status,count(*) from enriched_results group by status'))
     report['missing_result_or_void_races']=[r[0] for r in db.execute('select race_id from annual_report_races where race_id not in(select race_id from enriched_results) and race_id not in(select race_id from official_void_races)')]
     report['void_races']=[r[0] for r in db.execute('select race_id from official_void_races')]

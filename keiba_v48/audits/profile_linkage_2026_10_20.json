@@ -1,0 +1,58 @@
+{
+  "source": {
+    "cache_version": 2,
+    "profile_pages": 248,
+    "profile_rows_parsed": 4406,
+    "observed_as_historical_postrace_evidence_only": true
+  },
+  "matching_policy": {
+    "requires_independent_result_page_horse_attestation": true,
+    "requires_exact_race_id": true,
+    "requires_profile_url_date_consistency": true,
+    "requires_unique_exact_horse_name_inside_race": true,
+    "requires_annual_date_match_when_present": true,
+    "requires_jockey_name_match_for_jockey_id": true,
+    "global_name_only_history_join": false
+  },
+  "classification": {
+    "matched": 2859,
+    "race_outside_archive": 1489,
+    "jockey_name_conflict": 58
+  },
+  "before": {
+    "horse_linked_rows": 91430,
+    "horse_unlinked_rows": 51307,
+    "jockey_unlinked_rows": 5151
+  },
+  "after": {
+    "horse_linked_rows": 91431,
+    "horse_unlinked_rows": 51306,
+    "jockey_unlinked_rows": 5151,
+    "profile_start_attested_rows": 2859,
+    "profile_start_distinct_horses": 248
+  },
+  "changed_identity_rows": [
+    {
+      "race_id": "202301020407",
+      "horse_number": 5,
+      "horse_name": "イージーオンミー",
+      "old_horse_id": null,
+      "new_horse_id": "jra:2020101143",
+      "jockey_id": "jra:000666"
+    }
+  ],
+  "dataset_effect": {
+    "usable_races_lag2": 9773,
+    "usable_races_lag7": 9773,
+    "history_rows_lag2": 134224,
+    "history_rows_lag7": 134224,
+    "excluded_races": 592,
+    "model_revalidation_required": false
+  },
+  "verification": {
+    "unit_tests_passed": 130,
+    "sqlite_integrity_check": "ok",
+    "foreign_key_violations": 0,
+    "database_sha256": "d76019411f393553ee6789cfe4df8e674e573baf17e78a7b5575a29803a62d0d"
+  }
+}

@@ -49,6 +49,11 @@ def race_key(url):
     return year + venue + meeting + day + race, dt.datetime.strptime(date, '%Y%m%d').date().isoformat()
 
 
+def profile_key(url):
+    m = HORSE.match(code(url))
+    return 'jra:' + m[1] if m else None
+
+
 def official_url(url):
     p = urlparse(url)
     if p.scheme != 'https' or p.hostname != 'www.jra.go.jp' or not p.path.startswith(('/JRADB/', '/datafile/', '/keiba/', '/news/')):
@@ -170,6 +175,41 @@ def parse_result(soup, url):
     return output
 
 
+def parse_profile_starts(soup, url):
+    """Parse start-level identity evidence from a cached official horse page.
+
+    A profile URL proves the horse registration code.  Each accepted row also
+    carries an official result URL, printed date, and rider link; callers must
+    still match it to one annual-report row before propagation.
+    """
+    horse_id = profile_key(url)
+    if not horse_id:
+        return []
+    output = []
+    for tr in soup.select('tbody > tr'):
+        race = tr.select_one('td.race a[href*="pw01sde"]')
+        jockey_cell = tr.select_one('td.jockey')
+        jockey = tr.select_one('td.jockey a[onclick*="pw04kmk"]')
+        date_cell = tr.select_one('td.date')
+        if not race or not jockey or not date_cell:
+            continue
+        result_url = official_url(urljoin(BASE, race['href']))
+        key = race_key(result_url)
+        jm = JOCKEY.search(jockey.get('onclick', ''))
+        printed = re.search(r'(\d{4})年(\d+)月(\d+)日', normalized(date_cell.get_text()))
+        if not key or not jm or not printed:
+            continue
+        printed_date = dt.date(*map(int, printed.groups())).isoformat()
+        if printed_date != key[1]:
+            raise ValueError('profile start date disagrees with result URL')
+        output.append(dict(profile_horse_id=horse_id, race_id=key[0], race_date=key[1],
+                           jockey_name=jockey_name(jockey_cell.get_text()),
+                           jockey_id='jra:' + jm[1], result_url=result_url))
+    if len({r['race_id'] for r in output}) != len(output):
+        raise ValueError('duplicate race in horse profile')
+    return output
+
+
 def schema(db):
     db.execute('PRAGMA foreign_keys=ON')
     db.executescript('''
@@ -188,6 +228,12 @@ def schema(db):
     CREATE TABLE IF NOT EXISTS official_jockey_aliases(
       alias TEXT PRIMARY KEY,canonical_name TEXT,jockey_id TEXT,supporting_races INTEGER NOT NULL,
       status TEXT NOT NULL,evidence_race_id TEXT,evidence_horse_number INTEGER,details_json TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS official_profile_start_evidence(
+      race_id TEXT NOT NULL,horse_number INTEGER NOT NULL,profile_horse_id TEXT NOT NULL,
+      horse_name TEXT NOT NULL,race_date TEXT NOT NULL,jockey_name TEXT NOT NULL,jockey_id TEXT NOT NULL,
+      source_url TEXT NOT NULL,source_sha256 TEXT NOT NULL,observed_at TEXT NOT NULL,payload_json TEXT NOT NULL,
+      PRIMARY KEY(race_id,horse_number),
+      FOREIGN KEY(race_id,horse_number) REFERENCES annual_report_runners(race_id,horse_number) ON DELETE CASCADE);
     CREATE TABLE IF NOT EXISTS annual_identity_links(
       race_id TEXT NOT NULL,horse_number INTEGER NOT NULL,horse_id TEXT,jockey_id TEXT,
       horse_match_method TEXT,jockey_match_method TEXT,
@@ -236,12 +282,56 @@ def attest(db, rows, meta):
     return accepted
 
 
+def attest_profile_starts(db, rows, meta):
+    """Match profile starts only by race plus an already attested horse name.
+
+    This deliberately does not create a global name-only identity.  The horse
+    code must already have independent result-page evidence and the profile
+    start must identify exactly one same-name annual row in the same race.
+    """
+    accepted = 0
+    for row in rows:
+        identities = db.execute('''SELECT DISTINCT horse_name,birth_year FROM official_identity_evidence
+            WHERE horse_id=?''', (row['profile_horse_id'],)).fetchall()
+        if len(identities) != 1:
+            continue
+        official_name = normalized(identities[0][0])
+        race = db.execute('SELECT race_date FROM annual_report_races WHERE race_id=?', (row['race_id'],)).fetchone()
+        if not race or (race[0] is not None and race[0] != row['race_date']):
+            continue
+        candidates = []
+        for target in db.execute('''SELECT horse_number,horse_name,jockey_name,horse_id,jockey_id
+                FROM annual_report_runners WHERE race_id=?''', (row['race_id'],)):
+            if normalized(target[1]) == official_name:
+                candidates.append(target)
+        if len(candidates) != 1:
+            continue
+        number, horse_name_raw, jockey_name_raw, old_hid, old_jid = candidates[0]
+        if jockey_name(jockey_name_raw) != jockey_name(row['jockey_name']):
+            continue
+        if old_hid not in (None, row['profile_horse_id']) or old_jid not in (None, row['jockey_id']):
+            raise ValueError('profile identity conflicts with linked annual row')
+        old = db.execute('''SELECT profile_horse_id,jockey_id FROM official_profile_start_evidence
+            WHERE race_id=? AND horse_number=?''', (row['race_id'], number)).fetchone()
+        if old and (old[0] != row['profile_horse_id'] or old[1] != row['jockey_id']):
+            raise ValueError('conflicting profile start evidence')
+        payload = dict(row, horse_number=number, horse_name=horse_name_raw)
+        db.execute('INSERT OR REPLACE INTO official_profile_start_evidence VALUES(?,?,?,?,?,?,?,?,?,?,?)',
+                   (row['race_id'], number, row['profile_horse_id'], horse_name_raw, row['race_date'],
+                    row['jockey_name'], row['jockey_id'], meta['url'], meta['sha256'], meta['observed_at'],
+                    json.dumps(payload, ensure_ascii=False)))
+        accepted += 1
+    return accepted
+
+
 def propagate(db):
     horses, jockeys = collections.defaultdict(set), collections.defaultdict(set)
     horse_proof, jockey_proof = {}, {}
     direct = {}
     for rid, num, hid, jid, name, birth in db.execute('SELECT race_id,horse_number,horse_id,jockey_id,horse_name,birth_year FROM official_identity_evidence'):
         direct[rid, num] = (hid, jid, name, birth)
+    profile_direct = {(rid, num): (hid, jid) for rid, num, hid, jid in db.execute(
+        'SELECT race_id,horse_number,profile_horse_id,jockey_id FROM official_profile_start_evidence')}
     query = '''SELECT race_id,horse_number,horse_name,birth_year,horse_id,jockey_name,jockey_id
         FROM official_identity_evidence ORDER BY race_id,horse_number'''
     for rid, num, name, birth, hid, jname, jid in db.execute(query):
@@ -300,11 +390,18 @@ def propagate(db):
             # without introducing fuzzy global name aliases.
             hid, jid = evidence[:2]
             counts['direct_source_row_linked'] += bool(hid and jid)
+        profile_evidence = profile_direct.get((rid, num)) if not evidence else None
+        if profile_evidence:
+            hid, jid = profile_evidence
+            counts['profile_source_row_linked'] += bool(hid and jid)
         hp = (rid, num) if evidence and hid else horse_proof.get((normalized(hname), birth, hid), (None, None))
         jp = (rid, num) if evidence and jid else jockey_proof.get((jockey_name(jname), jid), (None, None))
         lineage.append((rid,num,hid,jid,
-                        'exact_source_race_and_runner' if evidence and hid else 'exact_name_and_birth_year' if hid else None,
+                        'exact_source_race_and_runner' if evidence and hid else
+                        'exact_profile_start_and_attested_horse' if profile_evidence and hid else
+                        'exact_name_and_birth_year' if hid else None,
                         'exact_source_race_and_runner' if evidence and jid else
+                        'exact_profile_start_and_attested_horse' if profile_evidence and jid else
                         'multi_race_attested_pdf_alias' if jid and jockey_name(jname) in alias_proofs else 'unique_official_name' if jid else None,
                         *hp,*jp))
         status = 'official_ids_linked' if hid and jid else 'partially_linked' if hid or jid else ('unresolved_font_glyph' if '(cid:' in hname else 'names_only_unlinked')
@@ -344,6 +441,8 @@ def propagate(db):
 def audit(db):
     return {
         'source_attested_rows': db.execute('SELECT count(*) FROM official_identity_evidence').fetchone()[0],
+        'profile_start_attested_rows': db.execute('SELECT count(*) FROM official_profile_start_evidence').fetchone()[0],
+        'profile_start_distinct_horses': db.execute('SELECT count(DISTINCT profile_horse_id) FROM official_profile_start_evidence').fetchone()[0],
         'page_statuses': dict(db.execute('SELECT status,count(*) FROM official_linkage_pages GROUP BY status')),
         'source_errors': [dict(url=u,error=e) for u,e in db.execute("SELECT source_url,error FROM official_linkage_pages WHERE status='error'")],
         'rank_disagreements': db.execute('''SELECT count(*) FROM official_identity_evidence e

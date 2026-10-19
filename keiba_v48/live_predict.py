@@ -41,7 +41,7 @@ def activate(model_path, report_path, destination):
                     live_bet_generation=False,
                     evaluation=dict(races=report['evaluation_races'],
                                     win_top1=report['candidate']['top1_hit'],
-                                    fixed_top1_return_pct=report['fixed_top1_100yen']['return_pct']))
+                                    fixed_top1_return_pct=(report.get('fixed_top1_100yen') or report['settlement']['candidate']['win'])['return_pct']))
     (folder/'active_model.json').write_text(canonical(model),encoding='utf-8')
     (folder/'active_manifest.json').write_text(json.dumps(manifest,ensure_ascii=False,indent=2),encoding='utf-8')
     return manifest
@@ -108,11 +108,22 @@ def forecast(db_path, rows, manifest_path):
     if timestamp(manifest['activated_at'])>cutoff:
         raise ValueError('active model was not available at prediction cutoff')
     model=HierarchicalModel.from_dict(artifact,allow_research=True)
-    history=load_observed_history(db_path,cutoff)
-    features=build_features(history,rows)
+    now=dt.datetime.now(dt.timezone.utc)
+    db=sqlite3.connect('file:'+str(Path(db_path).resolve())+'?mode=ro',uri=True)
+    enriched=db.execute("select 1 from sqlite_master where type='table' and name='enriched_results'").fetchone();db.close()
+    if enriched:
+        from enriched_features import load_observed_enriched,history_index,build_enriched,previous_contract_index
+        observed=load_observed_enriched(db_path,min(cutoff,now))
+        if len(artifact['feature_names'])==23:
+            prepared=[{**r,'race_date':timestamp(r['off_timestamp']).astimezone(dt.timezone(dt.timedelta(hours=9))).date().isoformat()} for r in rows]
+            features=build_enriched(history_index(observed,assumed=False),prepared)
+        else:
+            features=build_features(previous_contract_index(observed,assumed=False),rows)
+    else:
+        history=load_observed_history(db_path,min(cutoff,now));features=build_features(history,rows)
     if len({f['horse_id'] for f in features})!=len(features):
         raise ValueError('duplicate canonical horse ID')
-    rank,_,_,_=scenario_distribution(model,features)
+    rank,_,_,_=scenario_distribution(model,features,artifact.get('pace_weights'),artifact.get('pace_strength',.15))
     output=[]
     for r,f,ps in zip(rows,features,rank):
         output.append(dict(horse_number=str(r['horse_number']),horse_id=f['horse_id'],jockey_id=f['jockey_id'],

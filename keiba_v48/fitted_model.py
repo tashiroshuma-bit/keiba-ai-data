@@ -3,7 +3,7 @@ Structural model never consumes market odds. Calibration uses later validation o
 """
 import math
 import numpy as np
-from features import FEATURE_NAMES, timestamp
+from features import FEATURE_NAMES, ENRICHED_FEATURE_NAMES, timestamp
 
 
 def softmax(scores, temperature=1.0):
@@ -18,7 +18,7 @@ def softmax(scores, temperature=1.0):
     return p / p.sum()
 
 
-def check_training_race(race):
+def check_training_race(race, feature_names=FEATURE_NAMES):
     fs = race['features']
     if len(fs) < 3 or len({f['horse_id'] for f in fs}) != len(fs):
         raise ValueError('complete unique field required')
@@ -27,53 +27,58 @@ def check_training_race(race):
         raise ValueError('invalid winner')
     if len({f['group'] for f in fs}) != 1:
         raise ValueError('inconsistent course/surface group')
+    if any(f.get('groups', [f['group']]) != fs[0].get('groups', [fs[0]['group']]) for f in fs):
+        raise ValueError('inconsistent hierarchy groups')
     off = timestamp(race['off_timestamp'])
     if timestamp(race['result_available_at']) < off:
         raise ValueError('result before off')
     if any(timestamp(f['cutoff_timestamp']) >= off for f in fs):
         raise ValueError('feature cutoff must precede off')
     x = np.asarray([f['values'] for f in fs], dtype=float)
-    if x.shape != (len(fs), len(FEATURE_NAMES)) or not np.isfinite(x).all():
+    if x.shape != (len(fs), len(feature_names)) or not np.isfinite(x).all():
         raise ValueError('invalid feature matrix')
 
 
 class HierarchicalModel:
-    def fit(self, races, iterations=400, learning_rate=.08, regularization=.05):
-        if not races or iterations < 1 or regularization <= 0 or learning_rate <= 0:
+    def fit(self, races, iterations=400, learning_rate=.08, regularization=.05, feature_names=FEATURE_NAMES):
+        if not races or iterations < 1 or not math.isfinite(regularization) or regularization <= 0 or not math.isfinite(learning_rate) or learning_rate <= 0:
             raise ValueError('training races and positive optimizer settings required')
-        for r in races:
-            check_training_race(r)
+        if tuple(feature_names) not in (FEATURE_NAMES, ENRICHED_FEATURE_NAMES):
+            raise ValueError('unsupported feature schema')
+        self.feature_names = tuple(feature_names)
+        for r in races: check_training_race(r,self.feature_names)
         ids = [r['race_id'] for r in races]
-        if len(set(ids)) != len(ids):
-            raise ValueError('duplicate training race')
+        if len(set(ids)) != len(ids): raise ValueError('duplicate training race')
         x = np.asarray([f['values'] for r in races for f in r['features']])
-        self.mean = x.mean(axis=0)
-        self.scale = np.maximum(x.std(axis=0), .1)
-        self.weights = np.zeros(len(FEATURE_NAMES))
-        self.offsets = {r['features'][0]['group']: np.zeros(len(FEATURE_NAMES)) for r in races}
-        matrices = [((np.asarray([f['values'] for f in r['features']]) - self.mean) / self.scale,
-                     r['winner_index'], r['features'][0]['group']) for r in races]
+        self.mean=x.mean(axis=0); self.scale=np.maximum(x.std(axis=0),.1)
+        d=len(self.feature_names); n=len(races); size=max(len(r['features']) for r in races)
+        groups=sorted({g for r in races for g in r['features'][0].get('groups',[r['features'][0]['group']])})
+        gids={g:i for i,g in enumerate(groups)}
+        memberships=[np.array([gids[g] for g in r['features'][0].get('groups',[r['features'][0]['group']])]) for r in races]
+        matrix=np.zeros((n,size,d));mask=np.zeros((n,size),dtype=bool)
+        for i,r in enumerate(races):
+            k=len(r['features']); matrix[i,:k]=(np.asarray([f['values'] for f in r['features']])-self.mean)/self.scale;mask[i,:k]=True
+        # A membership matrix supports course and race-category shrinkage together.
+        membership=np.zeros((n,len(groups)))
+        for i,gs in enumerate(memberships): membership[i,gs]=1
+        weights=np.zeros(d); offsets=np.zeros((len(groups),d)); winners=np.array([r['winner_index'] for r in races])
         for _ in range(iterations):
-            grad = regularization * self.weights
-            offsets = {g: 4 * regularization * w for g, w in self.offsets.items()}
-            for matrix, winner, group in matrices:
-                residual = softmax(matrix @ (self.weights + self.offsets[group]))
-                residual[winner] -= 1
-                delta = matrix.T @ residual / len(races)
-                grad += delta
-                offsets[group] += delta
-            self.weights -= learning_rate * grad
-            for g in self.offsets:
-                self.offsets[g] -= learning_rate * offsets[g]
-        self.train_end = max(timestamp(r['result_available_at']) for r in races).isoformat()
-        self.training_ids = set(ids)
-        self.temperature = 1.
-        self.calibration_end = None
+            coef=weights+membership@offsets
+            scores=np.einsum('nkd,nd->nk',matrix,coef)
+            scores=np.where(mask,scores,-np.inf);scores-=scores.max(axis=1,keepdims=True)
+            probs=np.where(mask,np.exp(np.maximum(scores,-700)),0);probs/=probs.sum(axis=1,keepdims=True)
+            probs[np.arange(n),winners]-=1
+            delta=np.einsum('nkd,nk->nd',matrix,probs)/n
+            weights-=learning_rate*(delta.sum(axis=0)+regularization*weights)
+            offsets-=learning_rate*(membership.T@delta+4*regularization*offsets)
+        self.weights=weights; self.offsets={g:offsets[i] for g,i in gids.items()}
+        self.train_end=max(timestamp(r['result_available_at']) for r in races).isoformat()
+        self.training_ids=set(ids);self.temperature=1.;self.calibration_end=None
         return self
 
     def scores(self, features):
         x = (np.asarray([f['values'] for f in features]) - self.mean) / self.scale
-        scores = [v @ (self.weights + self.offsets.get(f['group'], 0)) for v, f in zip(x, features)]
+        scores = [v @ (self.weights + sum((self.offsets.get(g, 0) for g in f.get('groups',[f['group']])),0)) for v,f in zip(x,features)]
         return np.asarray(scores)
 
     def calibrate(self, races, candidates=(.5, .75, 1., 1.5, 2., 3.)):
@@ -82,7 +87,7 @@ class HierarchicalModel:
         if len({r['race_id'] for r in races}) != len(races):
             raise ValueError('duplicate calibration race')
         for r in races:
-            check_training_race(r)
+            check_training_race(r, self.feature_names)
             if r['race_id'] in self.training_ids or any(timestamp(f['cutoff_timestamp']) <= timestamp(self.train_end) for f in r['features']):
                 raise ValueError('calibration must follow training without overlap')
         def loss(t):
@@ -99,7 +104,7 @@ class HierarchicalModel:
         return softmax(self.scores(features), self.temperature)
 
     def to_dict(self):
-        return {'feature_names': list(FEATURE_NAMES), 'mean': self.mean.tolist(),
+        return {'feature_names': list(self.feature_names), 'mean': self.mean.tolist(),
                 'scale': self.scale.tolist(), 'weights': self.weights.tolist(),
                 'offsets': {g: v.tolist() for g, v in self.offsets.items()},
                 'train_end': self.train_end, 'training_ids': sorted(self.training_ids),
@@ -109,12 +114,13 @@ class HierarchicalModel:
     def from_dict(cls, data, allow_research=False):
         if data.get('research_only') and not allow_research:
             raise ValueError('research-only model cannot be loaded for production prediction')
-        if data['feature_names'] != list(FEATURE_NAMES):
+        if tuple(data['feature_names']) not in (FEATURE_NAMES, ENRICHED_FEATURE_NAMES):
             raise ValueError('model feature schema mismatch')
         m = cls()
+        m.feature_names = tuple(data['feature_names'])
         for key in ('mean', 'scale', 'weights'):
             value = np.asarray(data[key], dtype=float)
-            if value.shape != (len(FEATURE_NAMES),) or not np.isfinite(value).all():
+            if value.shape != (len(m.feature_names),) or not np.isfinite(value).all():
                 raise ValueError('invalid model coefficients')
             setattr(m, key, value)
         if np.any(m.scale <= 0) or not math.isfinite(data['temperature']) or data['temperature'] <= 0:

@@ -91,19 +91,41 @@ class HistoryIndex:
         self.rows = integrate_histories([rows], identities, allow_assumed_availability, allow_missing_jockey)
         self.groups = {kind: collections.defaultdict(list) for kind in ('horse', 'jockey')}
         self.times = {}
+        self.available_times = {}
         for row in self.rows:
             for kind in self.groups:
                 if row.get(kind + '_id'):
                     self.groups[kind][row[kind + '_id']].append(row)
         for kind, groups in self.groups.items():
             for identity, group in groups.items():
-                self.times[kind, identity] = [timestamp(r['off_timestamp']) for r in group]
+                self.times[kind, identity] = [timestamp(r['off_timestamp']).timestamp() for r in group]
+                self.available_times[kind, identity] = [timestamp(r['result_available_at']).timestamp() for r in group]
+
+        self.jockey_prefix = {}
+        self.jockey_race_events = collections.defaultdict(list)
+        for identity, group in self.groups['jockey'].items():
+            events = sorted((timestamp(r['result_available_at']).timestamp(), int(finish(r)<=3), r['race_id']) for r in group if finish(r))
+            total = [0]
+            for at, hit, rid in events:
+                total.append(total[-1]+hit)
+                self.jockey_race_events[rid].append((identity,at,hit))
+            self.jockey_prefix[identity] = ([x[0] for x in events],total)
+
+    def jockey_form(self, identity, race_id, off, cutoff):
+        if cutoff >= off:
+            return shrink(self.prior('jockey',identity,race_id,off,cutoff),lambda r:True,strength=20)
+        times, prefix = self.jockey_prefix.get(identity,([], [0]))
+        n = bisect.bisect_right(times,cutoff.timestamp()); hits=prefix[n]
+        for jid,at,hit in self.jockey_race_events.get(race_id,[]):
+            if jid == identity and at <= cutoff.timestamp(): n-=1; hits-=hit
+        return (hits+5)/(n+20),n
 
     def prior(self, kind, identity, race_id, off, cutoff):
         group = self.groups[kind].get(identity, [])
-        end = bisect.bisect_left(self.times.get((kind, identity), []), off)
-        return [h for h in group[:end] if h['race_id'] != race_id
-                and timestamp(h['result_available_at']) <= cutoff]
+        end = bisect.bisect_left(self.times.get((kind, identity), []), off.timestamp())
+        available = self.available_times.get((kind, identity), [])
+        boundary = cutoff.timestamp()
+        return [group[i] for i in range(end) if group[i]['race_id'] != race_id and available[i] <= boundary]
 
 
 def finish(r):
@@ -136,7 +158,6 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
             raise ValueError('negative cutoff')
         # No target-race, future, or late-published results; indexed by stable ID.
         h = index.prior('horse', horse, r['race_id'], off, cutoff)
-        j = index.prior('jockey', jockey, r['race_id'], off, cutoff)
         recent = [x for x in h if finish(x)][-3:]
         qualities = []
         for x in recent:
@@ -151,7 +172,7 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
         course, nc = shrink(h, lambda x: bool(r.get('track')) and x.get('track') == r['track'] and x['surface'] == r.get('surface'))
         going, ng = shrink(h, lambda x: bool(r.get('going')) and x.get('going') == r['going'] and x['surface'] == r.get('surface'))
         distance, nd = shrink(h, lambda x: x['surface'] == r.get('surface') and abs(float(x['distance_m']) - float(r['distance_m'])) <= 200)
-        jockey_form, _ = shrink(j, lambda x: True, strength=20)
+        jockey_form, _ = index.jockey_form(jockey, r['race_id'], off, cutoff)
         corners = []
         closing = []
         speeds = []
@@ -191,3 +212,5 @@ def build_features(history, runners, identities=None, cutoff_minutes=5):
                        'previous_final_win_odds': number(h[-1].get('final_win_odds')) if h else None,
                        'front_rate': front, 'closing_quality': values[8]})
     return output
+
+ENRICHED_FEATURE_NAMES = FEATURE_NAMES + ('margin_quality','margin_observed','opponent_quality','opponent_observed','horse_jockey_form','gate_fraction','gate_observed','same_day_front_bias','same_day_bias_observed','nonfinish_rate')

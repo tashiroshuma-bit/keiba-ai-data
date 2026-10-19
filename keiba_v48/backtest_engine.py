@@ -37,15 +37,17 @@ def probabilities(rows, score_field=None,alpha=0.0):
 
 def podium(p):
     n=len(p); rank=[[0.,0.,0.] for _ in p];pair=collections.defaultdict(float);triple=collections.defaultdict(float)
+    remain_one=[math.fsum(p[a] for a in range(n) if a!=i) for i in range(n)]
+    remain_two={(i,j):math.fsum(p[a] for a in range(n) if a not in (i,j)) for i in range(n) for j in range(n) if i!=j}
     for i in range(n):
         rank[i][0]=p[i]
         for j in range(n):
             if i==j:continue
-            remaining=sum(p[a] for a in range(n) if a!=i)
+            remaining=remain_one[i]
             pij=p[i]*p[j]/remaining if remaining else 0.;rank[j][1]+=pij
             for k in range(n):
                 if k in (i,j):continue
-                remaining_two=sum(p[a] for a in range(n) if a not in (i,j))
+                remaining_two=remain_two[i,j]
                 pr=pij*p[k]/remaining_two if remaining_two else 0.;rank[k][2]+=pr
                 for a,b in ((i,j),(i,k),(j,k)):pair[tuple(sorted((a,b)))]+=pr
                 triple[tuple(sorted((i,j,k)))]+=pr

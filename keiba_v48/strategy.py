@@ -38,6 +38,8 @@ def validate_field(rows, cutoff_minutes=5, max_odds_age_minutes=60, require_odds
     for field in ('race_id', 'off_timestamp', 'track', 'surface', 'distance_m'):
         if any(not r.get(field) for r in rows) or len({r[field] for r in rows}) != 1:
             raise ValueError(f'missing/inconsistent {field}')
+    if len({r.get('going') for r in rows})!=1:
+        raise ValueError('inconsistent current going')
     for field in ('horse_id', 'horse_number'):
         if len({r.get(field) for r in rows}) != len(rows) or any(not r.get(field) for r in rows):
             raise ValueError('duplicate/missing ' + field)

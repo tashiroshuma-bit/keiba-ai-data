@@ -51,7 +51,7 @@ def race_key(url):
 
 def official_url(url):
     p = urlparse(url)
-    if p.scheme != 'https' or p.hostname != 'www.jra.go.jp' or not p.path.startswith(('/JRADB/', '/datafile/')):
+    if p.scheme != 'https' or p.hostname != 'www.jra.go.jp' or not p.path.startswith(('/JRADB/', '/datafile/', '/keiba/', '/news/')):
         raise ValueError('official JRA HTTPS URL required')
     if p.path.startswith('/JRADB/'):
         return BASE + p.path + '?' + urlencode({'CNAME': code(url)})
@@ -69,8 +69,16 @@ def links(soup, base):
     return sorted(result)
 
 
+def parse_html(raw, parser='html.parser'):
+    # JRA declares Shift_JIS but uses CP932 extension glyphs.
+    if re.search(br'charset\s*=\s*["\x27]?shift[_-]jis', raw[:1000], re.I):
+        raw = raw.decode('cp932')
+    return BeautifulSoup(raw, parser)
+
+
 class SourceCache:
-    def __init__(self, folder):
+    def __init__(self, folder, parser='html.parser'):
+        self.parser = parser
         self.folder = Path(folder)
         self.folder.mkdir(parents=True, exist_ok=True)
 
@@ -99,7 +107,7 @@ class SourceCache:
                         observed_at=dt.datetime.now(dt.timezone.utc).isoformat())
             raw_path.write_bytes(raw)
             meta_path.write_text(json.dumps(meta, ensure_ascii=False), encoding='utf-8')
-        return BeautifulSoup(raw, 'html.parser'), meta
+        return parse_html(raw, self.parser), meta
 
 
 def parse_result(soup, url):

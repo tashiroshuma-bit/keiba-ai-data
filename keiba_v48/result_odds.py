@@ -50,3 +50,22 @@ def summarize_final_odds(records):
                   post_race_value_rule='maximum p*final_odds >= 1.05; one 100-yen reference bet per race',
                   post_race_value_settlement=equity_report(settlements,100000))
     return report, details
+
+
+def judge_combination_odds(horse_numbers, probabilities, quotes, kind, threshold=1.05):
+    """Require full official final quotes; winning payouts cannot supply losing quotes."""
+    import itertools
+    if kind not in ('wide','trio') or not math.isfinite(threshold) or threshold<1:raise ValueError('invalid market')
+    numbers=[str(n) for n in horse_numbers]
+    if len(numbers)<3 or len(set(numbers))!=len(numbers) or any(not n.isdigit() or int(n)<1 or str(int(n))!=n for n in numbers):raise ValueError('invalid horse numbers')
+    keys={','.join(c) for c in itertools.combinations(sorted(numbers,key=int),2 if kind=='wide' else 3)}
+    prices={}
+    for q in quotes:
+        ns=list(map(str,q['horse_numbers']));key=','.join(sorted(ns,key=int));price=float(q['decimal_odds'])
+        if key not in keys or key in prices or not math.isfinite(price) or price<1 or q.get('odds_basis')!='post_race_final' or not q.get('source_url','').startswith('https://'):raise ValueError('invalid final quote')
+        prices[key]=price
+    if set(prices)!=keys:return dict(status='blocked_missing_complete_final_market',ranked=[],actionable_before_off=False)
+    if set(probabilities)!=keys or any(not math.isfinite(v) or not 0<=v<=1 for v in probabilities.values()):raise ValueError('invalid combination probabilities')
+    ranked=sorted(keys,key=lambda k:(-probabilities[k]*prices[k],tuple(map(int,k.split(',')))))
+    return dict(status='complete',ranked=[dict(horse_numbers=k.split(','),expected_return=probabilities[k]*prices[k]) for k in ranked],
+                selected=ranked[0] if probabilities[ranked[0]]*prices[ranked[0]]>=threshold else None,actionable_before_off=False)

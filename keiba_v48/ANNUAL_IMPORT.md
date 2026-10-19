@@ -33,6 +33,8 @@ python keiba_v48/annual_export.py --db jra_2023_2025.sqlite --output annual_outp
 
 同着、取消、中止、除外、頭数不一致、未解決の数字や図形文字を含むレースは`requires_review`へ隔離する。`finish_order`は掲載順を保存し、要確認レースの`finish_position`は空欄にする。
 
+出力時にも現在のレースステータスを再確認し、`validated_result`以外の着順と勝馬払戻を出力しない。古いpayloadに着順が残る場合も同様。exportの再実行で既存の`annual_result_labels`ビューもこの防御付き定義へ更新する。
+
 数字はAdobe Japan1のCID9872～9881を復元する。図形化された数字は埋め込みフォントの輪郭と照合して復元し、輪郭の開始点・描画方向・正規化時の丸めの差だけを許容する。一意に照合できない図形は数値へ推測変換しない。図形文字の復元を含むレースは、人手確認前の学習利用を禁止する。レース番号が読めずページ順から候補を作った場合も必ず要確認と明記する。
 
 出力CSVの`final_win_odds`は確定後の結果データ。`pre_off_odds/odds_timestamp`は空欄のままで、発走前オッズとして流用しない。

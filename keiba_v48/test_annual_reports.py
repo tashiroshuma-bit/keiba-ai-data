@@ -1,4 +1,5 @@
 import hashlib
+import csv
 import json
 from pathlib import Path
 import tempfile
@@ -8,9 +9,44 @@ from unittest.mock import patch
 from annual_reports import discover, download, connect
 from annual_parser import normalize, read_panel
 from outline_digits import signature
+from annual_export import export
 
 
 class AnnualReportsTests(unittest.TestCase):
+    def test_export_and_existing_view_quarantine_stale_rank(self):
+        with tempfile.TemporaryDirectory() as root:
+            path = str(Path(root) / 'archive.sqlite')
+            db = connect(path)
+            url = 'https://www.jra.go.jp/example.pdf'
+            db.execute('''INSERT INTO annual_report_documents
+                (url,year,venue,meeting,day,status) VALUES(?,2025,'tokyo',1,1,'parsed')''', (url,))
+            db.execute('''INSERT INTO annual_report_races
+                (race_id,document_url,page_number,panel,race_number,status,issues_json,metadata_json)
+                VALUES('r1',?,1,0,1,'validated_result','[]','{"win_payout_100":200}')''', (url,))
+            payload = json.dumps(dict(horse_number=1,finish_order=1,finish_position=1,
+                                      identity_status='names_only_unlinked',final_win_odds=2.0))
+            db.execute('''INSERT INTO annual_report_runners
+                (race_id,horse_number,finish_order,payload_json) VALUES('r1',1,1,?)''', (payload,))
+            # Simulate the previous projection: export must upgrade it.
+            db.execute('CREATE VIEW annual_result_labels AS SELECT 1 AS finish_position')
+            db.commit()
+            for status, rank, payout in [('validated_result', '1', '200'),
+                                         ('requires_review', '', ''), ('unknown', '', '')]:
+                db.execute('UPDATE annual_report_races SET status=?', (status,))
+                db.commit()
+                report = export(path, Path(root) / 'out')
+                with (Path(root) / 'out/annual_report_results.csv').open(encoding='utf-8-sig') as stream:
+                    rows = list(csv.DictReader(stream))
+                self.assertEqual(len(rows), 1)
+                self.assertEqual(rows[0]['finish_position'], rank)
+                self.assertEqual(rows[0]['win_payout_100'], payout)
+                self.assertEqual(rows[0]['finish_order'], '1')
+                self.assertEqual(rows[0]['final_win_odds'], '2.0')
+                self.assertEqual(report['model_history_eligible_rows'], 0)
+                self.assertEqual(db.execute('SELECT finish_position FROM annual_result_labels').fetchone()[0],
+                                 1 if rank else None)
+            db.close()
+
     def panel_fixture(self, expected=3, note='', jump=False):
         chars = []
         def add(text, x, y, step=3):

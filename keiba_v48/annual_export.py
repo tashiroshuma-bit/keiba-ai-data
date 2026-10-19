@@ -33,7 +33,11 @@ def export(db_path, destination):
         for row in db.execute(query):
             runner = json.loads(row['payload_json'])
             meta = json.loads(row['metadata_json'])
-            values = {**dict(row), **runner, 'win_payout_100': meta['win_payout_100'] if runner.get('finish_position') == 1 else None,
+            # The current race status is authoritative, even if a stale payload
+            # retained a rank from an earlier successful parse.
+            finish = runner.get('finish_position') if row['status'] == 'validated_result' else None
+            values = {**dict(row), **runner, 'finish_position': finish,
+                      'win_payout_100': meta.get('win_payout_100') if finish == 1 else None,
                       'observed_at': row['fetched_at'], 'source_url': row['document_url'],
                       'source_sha256': row['sha256'], 'extraction_status': row['status'],
                       'model_history_eligible': 'no'}
@@ -68,10 +72,13 @@ def export(db_path, destination):
         ]}
     (dest / 'annual_ingest_audit.json').write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding='utf-8')
     # A convenient SQL projection keeps labels distinct from historical predictors.
-    db.execute('''CREATE VIEW IF NOT EXISTS annual_result_labels AS
+    # Refresh our projection on existing archives as well as new databases.
+    db.execute('DROP VIEW IF EXISTS annual_result_labels')
+    db.execute('''CREATE VIEW annual_result_labels AS
         SELECT r.race_id,r.race_date,r.track,r.surface,r.distance_m,r.going,
           h.horse_number,h.horse_name,h.jockey_name,
-          json_extract(h.payload_json,'$.finish_position') AS finish_position,
+          CASE WHEN r.status='validated_result'
+            THEN json_extract(h.payload_json,'$.finish_position') END AS finish_position,
           json_extract(h.payload_json,'$.final_win_odds') AS final_win_odds,
           r.status AS extraction_status,r.document_url AS source_url
         FROM annual_report_races r JOIN annual_report_runners h ON r.race_id=h.race_id''')

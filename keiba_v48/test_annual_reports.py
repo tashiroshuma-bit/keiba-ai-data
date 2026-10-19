@@ -11,13 +11,16 @@ from outline_digits import signature
 
 
 class AnnualReportsTests(unittest.TestCase):
-    def panel_fixture(self, expected=3, note=''):
+    def panel_fixture(self, expected=3, note='', jump=False):
         chars = []
         def add(text, x, y, step=3):
             for i, letter in enumerate(text):
                 chars.append(dict(text=letter,x0=x+i*step,x1=x+(i+1)*step,
                                   top=y,bottom=y+7,doctop=y,upright=True,height=7,width=step))
-        add('3200111月4日 晴 良 (2023年3福島) 第1日 第1競走 2歳未勝利 1,700(cid:2)',20,60)
+        label = '第競走' if jump else '第1競走'
+        add('3200111月4日 晴 良 (2023年3福島) 第1日 '+label+' 2歳未勝利 1,700(cid:2)',20,60)
+        if jump:
+            add('1 テストジャンプ',200,40)
         add('発走9時50分 (ダート・右)',20,75)
         add('負担重量は馬齢重量',20,85)
         for i, (name, odds) in enumerate([('テストイチ','2.0'),('テストニ','4.0'),('テストサン','8.0')],1):
@@ -51,6 +54,13 @@ class AnnualReportsTests(unittest.TestCase):
         job=dict(year=2023,venue='fukushima',meeting=3,day=1,url='https://www.jra.go.jp/example.pdf')
         race=read_panel(self.panel_fixture(note='同着'),job,1,0)
         self.assertEqual(race['status'],'requires_review')
+
+    def test_graded_jump_number_above_header(self):
+        job=dict(year=2023,venue='fukushima',meeting=3,day=1,url='https://www.jra.go.jp/example.pdf')
+        race=read_panel(self.panel_fixture(jump=True),job,1,0)
+        self.assertIsNotNone(race)
+        self.assertEqual(race['race_number'],1)
+        self.assertEqual(race['surface'],'jump')
 
     def test_discovery_all_venues_and_dedup(self):
         html = '<a href="2025/2025-1tokyo1.pdf">PDF</a>' * 2

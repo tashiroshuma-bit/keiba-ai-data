@@ -14,7 +14,7 @@ import pdfplumber
 from pdfplumber.utils import extract_text
 from annual_reports import connect, VENUES
 
-VERSION = 'annual-layout-4'
+VERSION = 'annual-layout-5'
 
 
 def normalize(value):
@@ -36,6 +36,10 @@ def read_panel(chars, job, page_number, panel, outline_recovered=False):
     raw = extract_text(chars, x_tolerance=1, y_tolerance=2) or ''
     text = normalize(raw)
     race_match = re.search(r'第\s*(\d+)\s*競走', text)
+    if not race_match:
+        # In graded jump reports the large race number is printed ABOVE the
+        # ordinary header, on the title's line, leaving "第 競走" below.
+        race_match = re.search(r'(?:^|\n)\s*(\d{1,2})\s+(?=[^\n]*ジャンプ)', text)
     inferred_race_number = False
     if not race_match:
         if not outline_recovered or '競走' not in compact(text) or page_number > 6:
@@ -60,7 +64,7 @@ def read_panel(chars, job, page_number, panel, outline_recovered=False):
     if not distance:
         distance = re.search(r'(\d{1,2},\d{3})', header)
     surface = 'dirt' if 'ダート' in header else ('turf' if '芝' in header else '')
-    if '障害' in header or '芝・ダート' in header or '芝、ダート' in header:
+    if '障害' in header or 'ジャンプ' in header or '芝・ダート' in header or '芝、ダート' in header:
         surface = 'jump'
     going = next((g for g in ('不良', '稍重', '重', '良') if date and re.search(r'(?<!負担)'+g, date[3].split('(')[0])), '')
     try:

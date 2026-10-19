@@ -1,5 +1,7 @@
 # v4.8 学習・検証パイプライン
 
+重賞・一般競走を含む公式年度別全成績の取り込みは [ANNUAL_IMPORT.md](ANNUAL_IMPORT.md) を参照。
+
 10項目の改善コードと実行手順は **[IMPROVEMENTS.md](IMPROVEMENTS.md)** を参照。
 新しい入口は `improvements.py`（train / predict / evaluate / settle）。
 構造モデル・校正・リスク管理・固定予測台帳を実装済み。実データでの精度改善は未確認。

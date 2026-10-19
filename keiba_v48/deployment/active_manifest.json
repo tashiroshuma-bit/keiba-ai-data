@@ -18,8 +18,8 @@
   },
   "last_review": {
     "reviewed_date": "2026-10-20",
-    "status": "rejected_financial_axis",
-    "report": "../reports/offline_repair/adoption_review.json",
+    "status": "data_repair_adopted_model_not_promoted",
+    "report": "../reports/integration/adoption_review.json",
     "paired_races": 345,
     "model_unchanged": true
   }

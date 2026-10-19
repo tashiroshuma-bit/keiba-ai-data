@@ -1,0 +1,66 @@
+{
+  "fresh_sqlite_audit": {
+    "races": {
+      "2023": 139,
+      "2024": 139,
+      "2025": 140
+    },
+    "documents": {
+      "2024": 139,
+      "2025": 140
+    },
+    "runner_results": {
+      "2025": 18
+    },
+    "races_without_pdf": {
+      "2023": 139
+    },
+    "race_primary_key_duplicates": 0,
+    "runner_primary_key_duplicates": 0,
+    "duplicate_document_hashes": 0,
+    "regex_candidate_total": 601,
+    "documents_with_regex_candidates": 219
+  },
+  "older_graded_archived": {
+    "race_count": 388,
+    "runner_rows": 5829,
+    "per_year_race_count": {
+      "2023": 129,
+      "2024": 129,
+      "2025": 130
+    }
+  },
+  "non_graded_archived": {
+    "race_count": 3201,
+    "runner_rows": 44275,
+    "range_start": "2025-10-04",
+    "range_end": "2026-09-27",
+    "horse_ids_verified": 0,
+    "jockey_ids_verified": 0
+  },
+  "cross_dataset_provisional_links": {
+    "graded_runner_rows_with_prior_non_graded_in_observation_window": 114,
+    "graded_runner_rows_2025_with_prior_non_graded": 114,
+    "graded_2025_rows_after_observation_starts": 513,
+    "graded_2025_rows_after_observation_with_prior_non_graded": 114
+  },
+  "older_2025_historical_backtest_NOT_new_holdout": {
+    "races": 130,
+    "top1_hit": 0.2076923076923077,
+    "favorite_hit": 0.2230769230769231,
+    "log_loss": 2.438045501412074,
+    "uniform_log_loss": 2.6857670088231207,
+    "brier_sum": 0.8892016199088116,
+    "top3_winner_hit": 0.4846153846153846,
+    "history_coverage": 0.7443920816488689,
+    "flat_win_return_rate": 1.2769230769230768,
+    "favorite_return_rate": 0.6392307692307693
+  },
+  "limits": [
+    "2025 model test already informed later development and is not unseen for v4.8",
+    "non-graded file only starts 2025-10-04; cannot be used for most 2025 graded races",
+    "horse_key_provisional is not a verified JRA horse ID",
+    "PDF regex candidate lines are not certified full-field runner rows",
+    "pre-race odds snapshots unavailable; EV not validated"
+  ]
+}

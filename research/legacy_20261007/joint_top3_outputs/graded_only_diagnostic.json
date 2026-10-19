@@ -1,0 +1,52 @@
+{
+  "source": "jra_ticket_model_v1/bundle/archive.json",
+  "n_races": 479,
+  "train": {
+    "races": 256,
+    "ordered_top3_log_loss": 7.510963480517057,
+    "uniform_top3_log_loss": 7.859778827224277,
+    "top_score_winner_rate": 0.16796875,
+    "top_score_top3_rate": 0.41796875
+  },
+  "calibration": {
+    "races": 128,
+    "ordered_top3_log_loss": 7.466736083903053,
+    "uniform_top3_log_loss": 7.841775337467788,
+    "top_score_winner_rate": 0.1875,
+    "top_score_top3_rate": 0.4140625
+  },
+  "2026_diagnostic": {
+    "races": 95,
+    "ordered_top3_log_loss": 7.467472174430382,
+    "uniform_top3_log_loss": 7.832088608177631,
+    "top_score_winner_rate": 0.22105263157894736,
+    "top_score_top3_rate": 0.47368421052631576
+  },
+  "2026_jul_sep_diagnostic": {
+    "races": 28,
+    "ordered_top3_log_loss": 7.270870226215353,
+    "uniform_top3_log_loss": 7.603541208854334,
+    "top_score_winner_rate": 0.17857142857142858,
+    "top_score_top3_rate": 0.5
+  },
+  "ticket_2026_jul_sep_diagnostic": {
+    "top2_wide": {
+      "count": 28,
+      "predicted_mean": 0.1320302000791933,
+      "observed_rate": 0.17857142857142858,
+      "brier": 0.14155689632238955
+    },
+    "top3_trio": {
+      "count": 28,
+      "predicted_mean": 0.021368750769557004,
+      "observed_rate": 0.03571428571428571,
+      "brier": 0.03095946781479925
+    }
+  },
+  "validation_status": "historical_diagnostic_only",
+  "limits": [
+    "No non-graded history before a graded start; prior runs are grade-only.",
+    "2026 outcomes have been inspected before and are not untouched prospective results.",
+    "No synchronized odds or official payouts for ticket ROI."
+  ]
+}

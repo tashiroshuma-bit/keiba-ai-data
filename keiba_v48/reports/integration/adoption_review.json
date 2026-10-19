@@ -1,0 +1,124 @@
+{
+  "schema": "keiba-integration-adoption-v1",
+  "date": "2026-10-20",
+  "status": "data_repair_adopted_model_not_promoted",
+  "active_model_unchanged": true,
+  "active_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+  "live_bet_generation": false,
+  "strict_production_validated": false,
+  "probability_improved_both_lags": true,
+  "same_rule_ROI_improved_both_lags": true,
+  "profit_improvement_statistically_established": false,
+  "return_above_100_both_lags": false,
+  "longest_losing_streak_improved": false,
+  "risk_policy_approved_both_lags": false,
+  "forward_observed_races": 0,
+  "latest_report": "keiba_v48/TIME_EXCEPTION_REPAIR_RESULTS.md",
+  "metrics": [
+    {
+      "lag_days": 2,
+      "races": 345,
+      "baseline": {
+        "log_loss": 2.282831588724376,
+        "brier": 0.06977575456578643,
+        "top1_hit": 0.25217391304347825
+      },
+      "candidate": {
+        "log_loss": 2.1914208265142,
+        "brier": 0.06742075216210386,
+        "top1_hit": 0.26956521739130435
+      },
+      "previous_EV": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 90440,
+        "stake_yen": 34500,
+        "payout_yen": 24940,
+        "return_pct": 72.28985507246377,
+        "maximum_drawdown": 0.233,
+        "pending_races": 0,
+        "bet_races": 345,
+        "longest_losing_streak": 148,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.6832397754611067,
+        "return_pct_without_largest_payout": 22.89855072463768,
+        "return_pct_without_top3_payouts": 1.2463768115942029,
+        "net_profit_yen": -9560,
+        "profit_yen_per_scheduled_race": -27.71014492753623
+      },
+      "candidate_EV": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 92510,
+        "stake_yen": 34500,
+        "payout_yen": 27010,
+        "return_pct": 78.28985507246377,
+        "maximum_drawdown": 0.2123,
+        "pending_races": 0,
+        "bet_races": 345,
+        "longest_losing_streak": 175,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.630877452795261,
+        "return_pct_without_largest_payout": 28.89855072463768,
+        "return_pct_without_top3_payouts": 0,
+        "net_profit_yen": -7490,
+        "profit_yen_per_scheduled_race": -21.71014492753623
+      },
+      "profit_delta_interval": [
+        -11.81360201511335,
+        35.52870090634441
+      ]
+    },
+    {
+      "lag_days": 7,
+      "races": 345,
+      "baseline": {
+        "log_loss": 2.282720287374985,
+        "brier": 0.06977644151030386,
+        "top1_hit": 0.25217391304347825
+      },
+      "candidate": {
+        "log_loss": 2.1922916730111424,
+        "brier": 0.06743480315404847,
+        "top1_hit": 0.27246376811594203
+      },
+      "previous_EV": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 90440,
+        "stake_yen": 34500,
+        "payout_yen": 24940,
+        "return_pct": 72.28985507246377,
+        "maximum_drawdown": 0.233,
+        "pending_races": 0,
+        "bet_races": 345,
+        "longest_losing_streak": 148,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.6832397754611067,
+        "return_pct_without_largest_payout": 22.89855072463768,
+        "return_pct_without_top3_payouts": 1.2463768115942029,
+        "net_profit_yen": -9560,
+        "profit_yen_per_scheduled_race": -27.71014492753623
+      },
+      "candidate_EV": {
+        "initial_bankroll": 100000,
+        "closing_equity_settled_only": 92510,
+        "stake_yen": 34500,
+        "payout_yen": 27010,
+        "return_pct": 78.28985507246377,
+        "maximum_drawdown": 0.2123,
+        "pending_races": 0,
+        "bet_races": 345,
+        "longest_losing_streak": 175,
+        "maximum_single_race_loss": 100,
+        "largest_payout_share": 0.630877452795261,
+        "return_pct_without_largest_payout": 28.89855072463768,
+        "return_pct_without_top3_payouts": 0,
+        "net_profit_yen": -7490,
+        "profit_yen_per_scheduled_race": -21.71014492753623
+      },
+      "profit_delta_interval": [
+        -11.81360201511335,
+        35.52870090634441
+      ]
+    }
+  ]
+}
+

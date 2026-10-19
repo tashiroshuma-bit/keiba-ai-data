@@ -1,0 +1,34 @@
+{
+  "original": {
+    "races": 130,
+    "top1_hit": 0.2076923076923077,
+    "favorite_hit": 0.2230769230769231,
+    "log_loss": 2.438045501412074,
+    "uniform_log_loss": 2.6857670088231207,
+    "brier_sum": 0.8892016199088116,
+    "top3_winner_hit": 0.4846153846153846,
+    "history_coverage": 0.7443920816488689,
+    "flat_win_return_rate": 1.2769230769230768,
+    "favorite_return_rate": 0.6392307692307693
+  },
+  "reproduced": {
+    "races": 130,
+    "top1_hit": 0.2076923076923077,
+    "favorite_hit": 0.2230769230769231,
+    "log_loss": 2.438045501412074,
+    "uniform_log_loss": 2.6857670088231207,
+    "brier_sum": 0.8892016199088116,
+    "top3_winner_hit": 0.4846153846153846,
+    "history_coverage": 0.7443920816488689,
+    "flat_win_return_rate": 1.2769230769230768,
+    "favorite_return_rate": 0.6392307692307693
+  },
+  "absolute_differences": {
+    "log_loss": 0.0,
+    "top1_hit": 0.0,
+    "brier_sum": 0.0,
+    "top3_winner_hit": 0.0,
+    "flat_win_return_rate": 0.0
+  },
+  "passed": true
+}

@@ -1,6 +1,10 @@
 # v4.8 学習・検証パイプライン
 
-最新の修復・悪化診断・再検証は **[OFFLINE_REPAIR_RESULTS.md](OFFLINE_REPAIR_RESULTS.md)**。確率改善を確認、収益改善条件は未達。本番重みを維持。
+開発の共通入口は **[統合台帳](../DEVELOPMENT_HANDOFF.md)**、機械可読の現在値は **[PROJECT_STATE.json](../PROJECT_STATE.json)**。別スレッド・旧ZIPからも最初に参照してください。
+
+最新の検証は **[TIME_EXCEPTION_REPAIR_RESULTS.md](TIME_EXCEPTION_REPAIR_RESULTS.md)**。正本DBはversion 8、利用可能10,056レース。確率・回収率に改善の兆候がありますが安定収益は未達で、本番重みを維持しています。
+
+初回の修復・悪化診断は [OFFLINE_REPAIR_RESULTS.md](OFFLINE_REPAIR_RESULTS.md) に当時の結果として保存しています。
 
 前回の追加実装・396レース比較・本番昇格見送りは **[COMPLETION_RESULTS.md](COMPLETION_RESULTS.md)** を参照。以下の旧記録と区別してください。
 
@@ -10,7 +14,7 @@
 
 10項目の改善コードと実行手順は **[IMPROVEMENTS.md](IMPROVEMENTS.md)** を参照。
 新しい入口は `improvements.py`（train / predict / evaluate / settle）。
-構造モデル・校正・リスク管理・固定予測台帳を実装済み。実データでの精度改善は未確認。
+構造モデル・校正・リスク管理・固定予測台帳を実装済み。最新の回顧検証と真の前向き検証の未完了を区別します。
 以下は旧プロトタイプの仕様・当時の状況として残している。
 
 # v4.8 research prototype

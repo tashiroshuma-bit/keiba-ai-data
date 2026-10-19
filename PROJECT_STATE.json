@@ -1,0 +1,134 @@
+{
+  "schema": "keiba-project-state-v1",
+  "updated_date": "2026-10-20",
+  "baseline_commit": "633dbe7a08ed5cb09b96bc532bc2c13420affb42",
+  "repository": "tashiroshuma-bit/keiba-ai-data",
+  "branch": "main",
+  "handoff": "DEVELOPMENT_HANDOFF.md",
+  "artifact_registry": "keiba_v48/reports/integration/artifact_registry.json",
+  "database": {
+    "name": "jra_2023_2025.sqlite",
+    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "version": 8,
+    "bytes": 261660672,
+    "sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+    "repository_root_copy": "historical_ingestion_stub_not_canonical",
+    "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use."
+  },
+  "sources": {
+    "cache": {
+      "library_file_id": "libfile_8714c7ae8f8c8191af0ff041501e8865",
+      "version": 2,
+      "sha256": "3e02e16253db79e12e01d1b36ddc4aa0379c1d1dfe89b69282297bb28a3e8acd"
+    },
+    "pdf_documents": 864,
+    "known_refused_sources": "JRA accessS.html and JBIS HTTP403; no retries or bypass"
+  },
+  "active_model": {
+    "manifest": "keiba_v48/deployment/active_manifest.json",
+    "path": "keiba_v48/deployment/active_model.json",
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "status": "experimental_probability",
+    "strict_production_validated": false,
+    "live_bet_generation": false
+  },
+  "latest_research": {
+    "report": "keiba_v48/TIME_EXCEPTION_REPAIR_RESULTS.md",
+    "comparison_files": [
+      "keiba_v48/reports/time_exception_repair/repair_comparison_lag2.json",
+      "keiba_v48/reports/time_exception_repair/repair_comparison_lag7.json"
+    ],
+    "data_audit": "keiba_v48/reports/time_exception_repair/audit_summary.json",
+    "usable_races": 10056,
+    "excluded_races": 309,
+    "train_races": 3361,
+    "calibration_races": 3362,
+    "exploratory_races": 3333,
+    "paired_cohort": 345,
+    "legacy_model_replaced": false,
+    "selected_candidate_weights": "not_published_for_this_latest_replay; do not substitute earlier candidate artifacts",
+    "evaluation_role": "2025 already inspected; exploratory historical final-odds reference only"
+  },
+  "forward": {
+    "observed_races": 0,
+    "required_races": 100,
+    "prediction_path": "operations/predictions/YYYY-MM-DD/",
+    "result_path": "operations/results/YYYY-MM-DD/",
+    "current_race_final_odds_allowed_in_features": false
+  },
+  "workflow": {
+    "test_workflow": ".github/workflows/main.yml",
+    "development_owner": "競馬AI 実装と再検証",
+    "development_enabled_when_observed": false,
+    "forecast_owner": "土日JRA全レース分析",
+    "result_owner": "土日JRA結果と収益検証",
+    "task_schedules_changed": false,
+    "paused_tasks_resumed": false
+  },
+  "unresolved": [
+    {
+      "id": "EXCLUSIONS",
+      "count": 309,
+      "details": {
+        "unsupported_exceptional_result": 210,
+        "unsupported_pdf_extraction_issue": 97,
+        "missing_expected_runner_count": 2
+      }
+    },
+    {
+      "id": "HORSE_IDS",
+      "unlinked_rows": 51306
+    },
+    {
+      "id": "JOCKEY_IDS",
+      "unlinked_rows": 5151
+    },
+    {
+      "id": "PUBLICATION_TIMES",
+      "status": "unknown; PDF metadata is not publication proof"
+    },
+    {
+      "id": "FINANCIAL_VALIDATION",
+      "status": "ROI below 100; day-cluster profit interval includes zero; long losing streak worsened"
+    },
+    {
+      "id": "COMBINATION_QUOTES",
+      "status": "full final quote tables unavailable; winning payout evidence is settlement only"
+    },
+    {
+      "id": "FORWARD",
+      "observed": 0,
+      "target": 100
+    },
+    {
+      "id": "LATEST_CANDIDATE_ARTIFACTS",
+      "status": "save selected weights and prediction hashes for latest replay before any promotion"
+    }
+  ],
+  "constraints": {
+    "no_jra_van": true,
+    "no_colab": true,
+    "no_actual_bets": true,
+    "final_odds_axis": "historical evaluation and post-race settlement",
+    "unknown_identity": "isolated source row; no name-only cross-race join",
+    "training": "2023",
+    "selection": "2024",
+    "exploratory_evaluation": "2025",
+    "four_axes": [
+      "win_probability",
+      "expected_value_when_quote_and_calibration_evidence_exist",
+      "same_day_going_fit",
+      "third_place_longshot_fit"
+    ],
+    "no_unvalidated_precision": true
+  },
+  "integration_scope": {
+    "conversation_search": "failed; no claim to review every message",
+    "git_branches_reviewed": [
+      "main"
+    ],
+    "library_artifacts_reviewed": "metadata inventory plus specified archive bytes and README contents",
+    "legacy_sources": "research/legacy_20261007 and research/audit_20261019; not connected to live model"
+  }
+}
+

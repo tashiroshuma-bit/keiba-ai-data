@@ -1,0 +1,449 @@
+{
+  "schema": "keiba-artifact-registry-v1",
+  "as_of_date": "2026-10-20",
+  "source": "Library filename metadata plus inspected archives and Git history",
+  "retrieval_limit": "Conversation search failed; uncommitted chat-only content cannot be certified as reviewed.",
+  "assets": [
+    {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": "8",
+      "size_bytes": 261660672,
+      "role": "canonical_database"
+    },
+    {
+      "name": "jra_completion_source_checkpoint.zip",
+      "library_file_id": "libfile_8714c7ae8f8c8191af0ff041501e8865",
+      "version": "2",
+      "size_bytes": 21363155,
+      "role": "source_cache"
+    },
+    {
+      "name": "jra_final_odds_production_validation.zip",
+      "library_file_id": "libfile_e814df3bad048191bbfed6e6368a7d17",
+      "version": null,
+      "size_bytes": 6277212,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_id_time_validation.zip",
+      "library_file_id": "libfile_09e1388d65648191b3dd42a60ceefa06",
+      "version": null,
+      "size_bytes": 6280272,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_pdf_2025.zip",
+      "library_file_id": "libfile_dfb78e8980f08191b455ec3ceb3316a6",
+      "version": null,
+      "size_bytes": 189839102,
+      "role": "source_pdf"
+    },
+    {
+      "name": "jra_pdf_2024.zip",
+      "library_file_id": "libfile_fee373acdcd48191962c9839d8443e22",
+      "version": null,
+      "size_bytes": 190068478,
+      "role": "source_pdf"
+    },
+    {
+      "name": "jra_annual_2023_2025_results.zip",
+      "library_file_id": "libfile_6dbddbbb15d4819192c5161552e179a5",
+      "version": null,
+      "size_bytes": 5463489,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_pdf_2023.zip",
+      "library_file_id": "libfile_e9e016f6aeec8191898f92fee03d9fc2",
+      "version": null,
+      "size_bytes": 201614804,
+      "role": "source_pdf"
+    },
+    {
+      "name": "jra-archive.zip",
+      "library_file_id": "libfile_c9b176c82e788191867f4e3191e71885",
+      "version": null,
+      "size_bytes": 471152155,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA着順確率モデル_診断版_20261007.zip",
+      "library_file_id": "libfile_dbe890af25d88191b1458af57f2169fe",
+      "version": "1",
+      "size_bytes": 5527590,
+      "role": "diagnostic_source_imported"
+    },
+    {
+      "name": "JRA馬券的中計算_v1_20261007.zip",
+      "library_file_id": "libfile_2dff799a7e3881919056b758e051d89e",
+      "version": "2",
+      "size_bytes": 20645,
+      "role": "diagnostic_source_imported"
+    },
+    {
+      "name": "jra_course_podium_frame_segments_2023_2026.zip",
+      "library_file_id": "libfile_d1ae4e8dc26c8191996fb9e82696b678",
+      "version": null,
+      "size_bytes": 2666587,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_accuracy_preparation_dual_models_2026.zip",
+      "library_file_id": "libfile_ad9190806388819199047f570285157a",
+      "version": null,
+      "size_bytes": 1018970,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_prospective_graded_validation_2026.zip",
+      "library_file_id": "libfile_12dcf3e4cea481918da1ca87a2fe6fd6",
+      "version": null,
+      "size_bytes": 997280,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_graded_identity_jockey_validation_2026.zip",
+      "library_file_id": "libfile_6be506cc77e88191be5e524b0c7f56d6",
+      "version": null,
+      "size_bytes": 5051006,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_graded_validation_2026.zip",
+      "library_file_id": "libfile_5758577482e88191801755ac35a519a9",
+      "version": null,
+      "size_bytes": 2066997,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "jra_non_graded_recent_2026_validation.zip",
+      "library_file_id": "libfile_9a169d68c57c81919c99bf8dbfd03cd8",
+      "version": null,
+      "size_bytes": 1446081,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA枠順_直近1年非重賞拡張_v11.zip",
+      "library_file_id": "libfile_f9035df94e708191afc0fd5e13a9f3de",
+      "version": null,
+      "size_bytes": 1270434,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA枠順連携_直近1年非重賞拡張_v11.md",
+      "library_file_id": "libfile_192b3777cf2c819197ccc3a845a5f9e0",
+      "version": null,
+      "size_bytes": 6561,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA馬騎手_条件別分析データと再計算_v10.zip",
+      "library_file_id": "libfile_86e7d816d7308191802aa96bc30b50a7",
+      "version": null,
+      "size_bytes": 901498,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA馬騎手_条件別と脚質相互作用分析_v10.md",
+      "library_file_id": "libfile_ee97c7acd5c4819184d4355bfedfd38c",
+      "version": null,
+      "size_bytes": 8211,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA非重賞履歴_試験連携_v8.zip",
+      "library_file_id": "libfile_2509590ef4508191b03a0e882edaf020",
+      "version": null,
+      "size_bytes": 417069,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA非重賞履歴_連携検証と精度計画_v8.md",
+      "library_file_id": "libfile_8fb7fffd92c08191a52fdf8b2d6791b1",
+      "version": null,
+      "size_bytes": 7442,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA予測_不確定要素と外れ要因_v7.md",
+      "library_file_id": "libfile_2edc85507cec8191a6cdac1d55bd9842",
+      "version": null,
+      "size_bytes": 8394,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA重賞_検索と予測_v7.html",
+      "library_file_id": "libfile_6b4ec9999cd481919a29516849636a73",
+      "version": null,
+      "size_bytes": 3611069,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA重賞3年分_GPT予測一式_v7.zip",
+      "library_file_id": "libfile_f5c0624da37c81918b49708d861a1ecd",
+      "version": null,
+      "size_bytes": 1632174,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA精度改善設計_v7.md",
+      "library_file_id": "libfile_fb86ba2948ec8191a8f13e60248c70df",
+      "version": null,
+      "size_bytes": 7482,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA重賞3年分_データと予測一式_v6.zip",
+      "library_file_id": "libfile_47d5048baaa081919350fa53cb0e69c0",
+      "version": null,
+      "size_bytes": 2061516,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA重賞3年分_予測システム_v6.ipynb",
+      "library_file_id": "libfile_aa52ddeca2348191a547bd731a508ff2",
+      "version": null,
+      "size_bytes": 586253,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA_v5_馬別履歴連携_精度検証.ipynb",
+      "library_file_id": "libfile_a60a690c17488191a7b0ae777692368e",
+      "version": null,
+      "size_bytes": 106198,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA予想モデル監査_2026-09-27.md",
+      "library_file_id": "libfile_36b2f96894788191ac2d5e894a57eb3f",
+      "version": "1",
+      "size_bytes": 7511,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA_AI_v4.7_実戦投入版_GoogleColab.ipynb",
+      "library_file_id": "libfile_76d037c13e1c819183f0d1984349f34f",
+      "version": null,
+      "size_bytes": 94912,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA_AI_v4.7_GoogleColab.ipynb",
+      "library_file_id": "libfile_fa90391b23048191950bb741a3b884dc",
+      "version": null,
+      "size_bytes": 87795,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA_AI_v4.6_GoogleColab.ipynb",
+      "library_file_id": "libfile_d0b0ffaa7ce481918e32ff44eb14fda6",
+      "version": null,
+      "size_bytes": 81912,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.6_ワンタップ初期化.zip",
+      "library_file_id": "libfile_eab2aab2cac081919771adcbabd44518",
+      "version": null,
+      "size_bytes": 38906,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.6_ワンタップ初期化.zip",
+      "library_file_id": "libfile_d6c8b285b67881919c786866d15fe8b8",
+      "version": null,
+      "size_bytes": 38906,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.5_重賞展開モデル完全版.zip",
+      "library_file_id": "libfile_85a90ae3c88c8191adc7b02b2ddec088",
+      "version": null,
+      "size_bytes": 37193,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.4_重賞当日バイアス対応.zip",
+      "library_file_id": "libfile_3c3c8357728c8191a864688106c49b2c",
+      "version": null,
+      "size_bytes": 33619,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.3_全10競馬場対応.zip",
+      "library_file_id": "libfile_20f62a3897888191a35d36f2752a9c66",
+      "version": null,
+      "size_bytes": 27289,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.2_3年データ搭載.zip",
+      "library_file_id": "libfile_8acc5f18afa48191956bef4605197882",
+      "version": null,
+      "size_bytes": 22856,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.1_初期投入対応.zip",
+      "library_file_id": "libfile_b76a96d407208191b20103b9f68f9476",
+      "version": null,
+      "size_bytes": 10370,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_スマホ版_v4.0.zip",
+      "library_file_id": "libfile_e57069b3b9a881919bd7e9de842b8f42",
+      "version": null,
+      "size_bytes": 6640,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_v3.0_Free.xlsx",
+      "library_file_id": "libfile_ead13046a9bc819195a5847b2f30a723",
+      "version": null,
+      "size_bytes": 100151,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_v3.0_Free_完全版.zip",
+      "library_file_id": "libfile_5ab7c3cc4d38819195d521f1d2f165af",
+      "version": null,
+      "size_bytes": 71402,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_完全版_v2.0.zip",
+      "library_file_id": "libfile_e6dc15a6b6ac8191a8b5b4b1ebf183ca",
+      "version": null,
+      "size_bytes": 96765,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_自動取得更新プログラム_v1.0.zip",
+      "library_file_id": "libfile_0873ccf289208191b9caf6d5b301f851",
+      "version": null,
+      "size_bytes": 82245,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_完全自動学習テンプレート_v1.1.xlsx",
+      "library_file_id": "libfile_3c07546bca5081918a43482c79307f90",
+      "version": null,
+      "size_bytes": 137976,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "JRA競馬予想AI_仕様書_v1.0.docx",
+      "library_file_id": "libfile_56c16a97b2548191b17b85d0d93587c9",
+      "version": null,
+      "size_bytes": 48138,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_improvements.patch",
+      "library_file_id": "libfile_702abdde8b848191809673d445bae2bf",
+      "version": null,
+      "size_bytes": 89410,
+      "role": "superseded_by_git_main"
+    },
+    {
+      "name": "keiba_v48_audit_and_reproduction_20261019.zip",
+      "library_file_id": "libfile_e53a6f0e84c081919aadcea0c90208b8",
+      "version": null,
+      "size_bytes": 54709,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_cloud_collection_v12.zip",
+      "library_file_id": "libfile_cee3aeecdb908191954c821c33c97634",
+      "version": null,
+      "size_bytes": 35495,
+      "role": "superseded_by_git_main"
+    },
+    {
+      "name": "keiba_v48_bulk_verify_v11.zip",
+      "library_file_id": "libfile_9bd1ab0796c88191a814dbb7adc0f385",
+      "version": null,
+      "size_bytes": 84276,
+      "role": "superseded_by_git_main"
+    },
+    {
+      "name": "keiba_v48_bulk_ingest_v10.zip",
+      "library_file_id": "libfile_36c8a22a5c0c81918754cc1c44a967f8",
+      "version": "1",
+      "size_bytes": 77898,
+      "role": "superseded_by_git_main"
+    },
+    {
+      "name": "keiba_v48_bulk_ingest_v9.zip",
+      "library_file_id": "libfile_56bc645739888191806dc8de48bd4259",
+      "version": null,
+      "size_bytes": 29788,
+      "role": "superseded_by_git_main"
+    },
+    {
+      "name": "keiba_v48_verified_database_v8.zip",
+      "library_file_id": "libfile_ec2d45d5c3508191b1c2c43a2df4dc97",
+      "version": null,
+      "size_bytes": 26688,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_pdf_database_v7.zip",
+      "library_file_id": "libfile_b7a997420e688191b16c8ecf05577258",
+      "version": null,
+      "size_bytes": 23970,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_development_v6.zip",
+      "library_file_id": "libfile_b160ad829fd4819186bbb915588a11fb",
+      "version": null,
+      "size_bytes": 19077,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_development_v5.zip",
+      "library_file_id": "libfile_0c9819c4f4c08191a838fbc886d7dd2c",
+      "version": null,
+      "size_bytes": 17048,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_offline_backtest_v4.zip",
+      "library_file_id": "libfile_73cdf17a10d881918daafd8cd7eeaa45",
+      "version": null,
+      "size_bytes": 26871,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_free_data_v3.zip",
+      "library_file_id": "libfile_5e417db3973c81919b93a07f6b804a10",
+      "version": null,
+      "size_bytes": 7250,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_free_data_v2.zip",
+      "library_file_id": "libfile_6865d230e34c8191a46d4e2f200d96e6",
+      "version": null,
+      "size_bytes": 7288,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_ingestion_v1.zip",
+      "library_file_id": "libfile_09ba9da08eb88191a7b1c99c1f5af7ed",
+      "version": null,
+      "size_bytes": 9199,
+      "role": "historical_reference_not_active"
+    },
+    {
+      "name": "keiba_v48_prototype.zip",
+      "library_file_id": "libfile_b889af32fb908191a70810f7b108862a",
+      "version": null,
+      "size_bytes": 2603,
+      "role": "historical_reference_not_active"
+    }
+  ]
+}

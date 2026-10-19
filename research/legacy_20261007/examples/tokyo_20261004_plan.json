@@ -1,0 +1,17 @@
+{
+  "race_id": "2026-10-04|東京|11",
+  "scheduled_start": "2026-10-04T15:45:00+09:00",
+  "locked_at": "2026-10-04T15:23:00+09:00",
+  "odds_observed_at": "2026-10-04T15:16:00+09:00",
+  "odds_source_url": "https://sports.yahoo.co.jp/keiba/race/odds/wide/2605040211",
+  "field": [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17],
+  "budget_yen": 5000,
+  "tickets": [
+    {"type":"WIDE","horses":[2,16],"stake_yen":1500},
+    {"type":"WIDE","horses":[6,16],"stake_yen":1200},
+    {"type":"WIDE","horses":[1,16],"stake_yen":800},
+    {"type":"WIDE","horses":[14,16],"stake_yen":500},
+    {"type":"QUINELLA","horses":[2,16],"stake_yen":1000}
+  ]
+}
+

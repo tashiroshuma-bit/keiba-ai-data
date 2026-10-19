@@ -1,0 +1,190 @@
+{
+  "imported_sources": [
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "joint_top3_model.py",
+      "source_sha256": "50c7338a319f2e37905bd6a8950319030a5f085c6dec21995524ec04fd50cd0d",
+      "imported_path": "research/legacy_20261007/joint_top3_model.py",
+      "imported_sha256": "1db94e11b69974941c214ebff88e25ba2a0d21dcb1378b65d9a36af08fc7ce8b",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "graded_joint_model.py",
+      "source_sha256": "a34b56c2b26c669a537712f85d4fa33c74625e1a99b0716738e79ba7958bb418",
+      "imported_path": "research/legacy_20261007/graded_joint_model.py",
+      "imported_sha256": "3a7cbfaba5c535196779326947f7abe29bbdcd64b98ed584f7e393438836c427",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "test_joint_top3_model.py",
+      "source_sha256": "443dca697e2c67a75b296a0140e02e283d8f7586b70827f3ca3fa166701c8829",
+      "imported_path": "research/legacy_20261007/test_joint_top3_model.py",
+      "imported_sha256": "bb22d67de25f46c30d46cb1224195e1f6bfd0ef7ef680317da569550216ad0d7",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "README_joint_top3.md",
+      "source_sha256": "8cc3ae8988bae37b16d7fedda25c24dc682b5ae55636512ec7df0f94d8fc1b25",
+      "imported_path": "research/legacy_20261007/README_joint_top3.md",
+      "imported_sha256": "2ed9d4f900457088e24535d26073efcd7073d917f0c423b10dc6d7214a414ed2",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "joint_top3_outputs/joint_top3_model.json",
+      "source_sha256": "de1c9b13cdcd4353246e6c2fec32ac64a8d384476fd308256069dd0634ac19e0",
+      "imported_path": "research/legacy_20261007/joint_top3_outputs/joint_top3_model.json",
+      "imported_sha256": "c7439ec03fa73c32b415452d4509bff03e0ea092ba651a8681296ca163e2db9c",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "joint_top3_outputs/joint_top3_diagnostic.json",
+      "source_sha256": "aabc635147199bb856cc98da55309f1e8525af4de41620ad64a6ebe9cfa29def",
+      "imported_path": "research/legacy_20261007/joint_top3_outputs/joint_top3_diagnostic.json",
+      "imported_sha256": "2ede32edb13f0c3e6027fa9391cbcf8ba5c0218b0b37988aec9386e5c2d8d673",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "joint_top3_outputs/graded_only_model.json",
+      "source_sha256": "d304db14f9c4a706a5614dc12d04b8584239d8724d30cff3693ff55d00b6bc4c",
+      "imported_path": "research/legacy_20261007/joint_top3_outputs/graded_only_model.json",
+      "imported_sha256": "ee34f10f6bd5e6d523eaa64fd281bc087a79483c02b7763aee764f880b1539ff",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA着順確率モデル_診断版_20261007.zip",
+      "archive_sha256": "d9bd432ddf1829976be07c24f2c89e78f72a326c7e16c713baf6ff8084bee154",
+      "member": "joint_top3_outputs/graded_only_diagnostic.json",
+      "source_sha256": "b847953c7030f7a763468c35dc73a4b2c9e7a86553e7a3abbefd8315fa549bc8",
+      "imported_path": "research/legacy_20261007/joint_top3_outputs/graded_only_diagnostic.json",
+      "imported_sha256": "210a8ffcba7bc9adec9c3d315fbd21dc983e8966c2bffbe566c4839fac30465e",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "ticket_math.py",
+      "source_sha256": "91e24c358a0b2616387036ba0c5d37082137e6628b130fb40c6a2a740a09d156",
+      "imported_path": "research/legacy_20261007/ticket_math.py",
+      "imported_sha256": "4cd47c0e821695190cd4eb227165bf10d8499eb43ef79e68a5723ec87c914792",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "test_ticket_math.py",
+      "source_sha256": "2873759863d4478140f5cb9b974b2fcb2ac539f28e47b66aa838040988b7a147",
+      "imported_path": "research/legacy_20261007/test_ticket_math.py",
+      "imported_sha256": "48cb7704deaace6992bc95517ccc8c253ed4865de53842153bad4c136d8b8a16",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "README_ticket_target.md",
+      "source_sha256": "6832ae07636eba84653c8a6237d5d3642baf84dea7fb6b30834ccfb0299ac979",
+      "imported_path": "research/legacy_20261007/README_ticket_target.md",
+      "imported_sha256": "7dbdaad198873b8bdf4633382e8b23533acb55c80b2d17f31f250aee9520bb42",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "audit_ticket_baseline.py",
+      "source_sha256": "f03f2f6f8479cd8e1df7f8a0cdd77f286d33d7d8d97c40672e75ee7d246d7537",
+      "imported_path": "research/legacy_20261007/audit_ticket_baseline.py",
+      "imported_sha256": "e5d1f0096573b56511d0ca50ed0a5fba2fbc61dd9c08270300d7fc1680dcf230",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "examples/kyoto_20261004_plan.json",
+      "source_sha256": "f32c53321c7ed689a7bec53b1321920b66d9b1ef669afca2b2a008613a15d519",
+      "imported_path": "research/legacy_20261007/examples/kyoto_20261004_plan.json",
+      "imported_sha256": "f4fc3e2da5b3c34f1c89794811ac664701c7031d2f8dd4f6bd6fb255c82b4829",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "examples/kyoto_20261004_result.json",
+      "source_sha256": "a53385bd7c4c03767a062ab92b4f6ab2c8ab2c0a9a758de792830e48875668fb",
+      "imported_path": "research/legacy_20261007/examples/kyoto_20261004_result.json",
+      "imported_sha256": "d08acfbefba1e808d3302fcccd6b4195b27999bd5502861971df9edb16f907a8",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "examples/tokyo_20261004_plan.json",
+      "source_sha256": "95c359dabf359e5b2d99756d8e83393b6457779665aff0f3af486ca592227ffc",
+      "imported_path": "research/legacy_20261007/examples/tokyo_20261004_plan.json",
+      "imported_sha256": "8e41b38de5605ffa7dbbb5d9eada8bd8949095dd097d7ea244c58f143b728644",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "JRA馬券的中計算_v1_20261007.zip",
+      "archive_sha256": "30e23d82b916056c638e73108a1a97b26a46618fd5457e62b8202874543c1012",
+      "member": "examples/tokyo_20261004_result.json",
+      "source_sha256": "69f4769871968da316d169bec32c62263b984e81b8451b64f09f8ba18c5d7685",
+      "imported_path": "research/legacy_20261007/examples/tokyo_20261004_result.json",
+      "imported_sha256": "36edb9f410dae727f15b9a26b60b89eabab067c2d24e1652bca35f635f035128",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "keiba_v48_audit_and_reproduction_20261019.zip",
+      "archive_sha256": "5dc0cbd502f492c091fd5cbf22200a233097756fff9fa16ddc8ec68e841c5ace",
+      "member": "audit_keiba_v48.py",
+      "source_sha256": "d2b8f5255e593b3508fa3f7eeb660c31041a72fcb23558fad73bbf8781651a00",
+      "imported_path": "research/audit_20261019/audit_keiba_v48.py",
+      "imported_sha256": "81fcd9e96d2baf7a1a24b7e99e3905d1b054fed7d903f7d150a937c5d35117e6",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "keiba_v48_audit_and_reproduction_20261019.zip",
+      "archive_sha256": "5dc0cbd502f492c091fd5cbf22200a233097756fff9fa16ddc8ec68e841c5ace",
+      "member": "reproduce_v6.py",
+      "source_sha256": "a8547409d2f4b61f2cf978d0bf32a7bfc42c94e2ad051a70639542273789cf72",
+      "imported_path": "research/audit_20261019/reproduce_v6.py",
+      "imported_sha256": "f1fa25864275082e8084bbbc94a3009e2d4288c317eaa638d1a21ab9b1f3b4a1",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "keiba_v48_audit_and_reproduction_20261019.zip",
+      "archive_sha256": "5dc0cbd502f492c091fd5cbf22200a233097756fff9fa16ddc8ec68e841c5ace",
+      "member": "reproduction_results.json",
+      "source_sha256": "1a3f6b4229d1e49b358388dc64f4e85111a2be6cff25701c34a9269282400ede",
+      "imported_path": "research/audit_20261019/reproduction_results.json",
+      "imported_sha256": "e11f59af12d6e1b9cc05db2df5023375ee006e408b7b80a5506098c1f4171189",
+      "normalization": "trailing newline only; Python AST unchanged"
+    },
+    {
+      "source_archive": "keiba_v48_audit_and_reproduction_20261019.zip",
+      "archive_sha256": "5dc0cbd502f492c091fd5cbf22200a233097756fff9fa16ddc8ec68e841c5ace",
+      "member": "audit_summary.json",
+      "source_sha256": "f3d98aad3cd6f7e069cca86ec04c3592db913affcf2932e837b86480659d17be",
+      "imported_path": "research/audit_20261019/audit_summary.json",
+      "imported_sha256": "90d22c8d8cdf03c0b7d8c5224d11c6c42a79e04dbd6f43b4f8a258ceb2025816",
+      "normalization": "trailing newline only; Python AST unchanged"
+    }
+  ],
+  "duplicate_ticket_modules_identical": true,
+  "legacy_tests": 7,
+  "current_tests": 136,
+  "project_state_validation": "passed",
+  "database_downloaded_in_this_integration": false,
+  "production_weights_changed": false
+}

@@ -1,7 +1,7 @@
 {
   "schema": "keiba-project-state-v1",
   "updated_date": "2026-10-20",
-  "baseline_commit": "0cd11a4b2d3fe9a4dd16efc558cd0946d124eff3",
+  "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
   "handoff": "DEVELOPMENT_HANDOFF.md",
@@ -33,7 +33,7 @@
     "live_bet_generation": false
   },
   "latest_research": {
-    "report": "keiba_v48/DEEP_RESEARCH_RESULTS.md",
+    "report": "keiba_v48/ROI95_RESULTS.md",
     "comparison_files": [
       "keiba_v48/reports/deep_audit/repair_comparison_lag2.json",
       "keiba_v48/reports/deep_audit/repair_comparison_lag7.json"
@@ -59,11 +59,28 @@
       }
     ],
     "evaluation_role": "2025 already inspected; exploratory historical final-odds reference only",
-    "adoption_review": "keiba_v48/reports/deep_audit/adoption_review.json",
+    "adoption_review": "keiba_v48/reports/roi95/adoption_review.json",
     "quality_audit": "keiba_v48/reports/deep_audit/data_audit_lag2.json",
     "selected_predictions": "All structural predictions and final-odds paired predictions persisted as deterministic gzip; see artifact_inventory.json",
     "class_level_covered_rows": 132983,
     "current_candidate_return_pct": 49.391304347826086,
+    "current_candidate_return_scope": "structural-only; original fixed 345 races, threshold 1.05; not ROI95 market policy",
+    "roi95_experiment": {
+      "protocol": "keiba_v48/ROI95_PROTOCOL.json",
+      "summary": "keiba_v48/reports/roi95/summary.json",
+      "inventory": "keiba_v48/reports/roi95/artifact_inventory.json",
+      "target_return_pct": 95,
+      "observed_target_met_both_lags": true,
+      "confidence_lower_target_met_both_lags": false,
+      "selection_year": 2024,
+      "evaluation_year": 2025,
+      "evaluation_role": "exploratory historical final-odds only",
+      "scheduled_races": 3314,
+      "selected_bets": {"lag2": 1937, "lag7": 1870},
+      "return_pct": {"lag2": 96.690758905524, "lag7": 104.20855614973262},
+      "live_eligible": false,
+      "research_candidate_promoted_to_live": false
+    },
     "data_classification_fix": {
       "raw_races": 1934,
       "independent_HTML_agreed": 242,
@@ -117,7 +134,7 @@
     },
     {
       "id": "FINANCIAL_VALIDATION",
-      "status": "Current class-repaired candidate ROI 49.39%, longest zero-payout streak 312; not promoted. Market residual still below market baseline."
+      "status": "ROI95 final-odds research policy achieved 96.69%/104.21% on exploratory 2025; lower confidence bounds below 95%, no live promotion. Structural fixed-345 ROI remains 49.39%."
     },
     {
       "id": "COMBINATION_QUOTES",

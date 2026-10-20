@@ -1,0 +1,33 @@
+{
+  "version": "roi95-first-pass-20261020",
+  "target_return_pct": 95,
+  "train_year": 2023,
+  "selection_year": 2024,
+  "exploratory_year": 2025,
+  "lags": [2, 7],
+  "models": [
+    {"family": "structural", "depth": 2, "trees": 150},
+    {"family": "structural", "depth": 3, "trees": 150},
+    {"family": "final_market_residual", "depth": 2, "trees": 150},
+    {"family": "final_market_residual", "depth": 3, "trees": 150}
+  ],
+  "learning_rate": 0.05,
+  "minimum_leaf": 250,
+  "leaf_regularization": 20,
+  "bins": 16,
+  "temperatures": [0.8, 1.0, 1.2, 1.5, 2.0],
+  "model_selection": "2024 race-average log loss; simpler on ties, one selected model per family",
+  "policy_modes": ["top_probability", "maximum_ev"],
+  "odds_caps": [10, 30, null],
+  "ev_thresholds": [1.0, 1.05, 1.15],
+  "minimum_bets": 300,
+  "minimum_bets_per_half": 100,
+  "policy_selection": "maximize minimum half-year ROI, then day-bootstrap lower 95% ROI, then total ROI; 2024 only",
+  "stake_yen": 100,
+  "bootstrap_draws": 1000,
+  "seed": 95,
+  "evaluation": "Frozen before scoring 2025; all attempts retained. Previously inspected 2025 is exploratory, never unseen.",
+  "promotion": "none in this experiment; final-market models and policies are retrospective only",
+  "zero_bets": "undefined ROI; never success",
+  "stop_rule": "one predeclared experiment; do not tune 2025 until target passes"
+}

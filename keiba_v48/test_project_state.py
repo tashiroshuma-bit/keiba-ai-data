@@ -34,6 +34,11 @@ class SharedProjectStateTest(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'size differs'):
             project.verify_database(ROOT / 'jra_2023_2025.sqlite', self.state['database'])
 
+    def test_roi95_claim_must_match_verified_artifacts(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_research']['roi95_experiment']['return_pct']['lag2'] = 150
+        self.assertTrue(any('ROI95 metrics' in error for error in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

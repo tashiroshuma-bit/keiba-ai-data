@@ -62,6 +62,31 @@ def validate_state(state, root=ROOT):
                 actual = hashlib.sha256((root / 'keiba_v48' / filename).read_bytes()).hexdigest()
                 if actual != expected:
                     errors.append('comparison source changed; reconcile research evidence: ' + filename)
+        roi = state['latest_research'].get('roi95_experiment')
+        if roi:
+            summary = read(roi['summary'])
+            inventory = read(roi['inventory'])
+            folder = (root / roi['inventory']).parent
+            for name, evidence in inventory.items():
+                artifact = (folder / name).resolve()
+                if not artifact.is_relative_to(folder.resolve()):
+                    raise ValueError('ROI95 reference escapes evidence directory')
+                if artifact.stat().st_size != evidence['bytes'] or hashlib.sha256(artifact.read_bytes()).hexdigest() != evidence['sha256']:
+                    errors.append('ROI95 artifact identity differs: ' + name)
+            for lag in (2, 7):
+                report = read(str((folder / f'evaluation_lag{lag}.json').relative_to(root)))
+                verification = read(str((folder / f'verification_lag{lag}.json').relative_to(root)))
+                actual = summary[str(lag)]['full_3314_candidate_same_policy']
+                if (actual['return_pct'] != roi['return_pct'][f'lag{lag}'] or
+                    actual['bet_races'] != roi['selected_bets'][f'lag{lag}'] or
+                    report['selected_policy']['exploratory_metrics'] != actual or
+                    not verification['verified'] or
+                    verification['independently_recomputed_return_pct'] != actual['return_pct']):
+                    errors.append('ROI95 metrics differ from verified research evidence')
+                if report['input_db_sha256'] != state['database']['sha256']:
+                    errors.append('ROI95 uses a different database')
+            if roi['live_eligible'] is not False or review['live_model_promotion_approved'] is not False:
+                errors.append('ROI95 retrospective model cannot be live eligible')
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors

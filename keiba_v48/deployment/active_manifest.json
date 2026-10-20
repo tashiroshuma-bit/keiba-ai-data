@@ -18,9 +18,9 @@
   },
   "last_review": {
     "reviewed_date": "2026-10-20",
-    "status": "data_parser_corrections_adopted_candidate_not_promoted",
-    "report": "../reports/deep_audit/adoption_review.json",
-    "paired_races": 345,
+    "status": "historical_final_odds_point_target_met_not_live_promoted",
+    "report": "../reports/roi95/adoption_review.json",
+    "scheduled_races": 3314,
     "model_unchanged": true
   }
 }

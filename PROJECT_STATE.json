@@ -4,6 +4,30 @@
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
+  "latest_data_work": {
+    "report": "keiba_v48/2026_INTEGRATION_RESULTS.md",
+    "evidence_directory": "keiba_v48/reports/annual_2026",
+    "status": "locally_verified_candidate_persistent_save_blocked",
+    "canonical_database_unchanged": true,
+    "year": 2026,
+    "downloaded_originals": 234,
+    "extracted_races": 2808,
+    "extracted_runner_rows": 38608,
+    "latest_race_date": "2026-10-18",
+    "candidate_db_sha256": "c839435fbe829c13a39052849cb6497b24d84800bc8e9bfa1a333ec1d812021d",
+    "candidate_db_bytes": 322084864,
+    "candidate_usable_races": 12763,
+    "candidate_excluded_nonempty_races": 404,
+    "candidate_empty_race_panels": 6,
+    "persistent_save_error": "Required Library upload helper failed at hosted-app tool discovery with HTTP403; no successful replacement or create confirmed",
+    "promotion_approved": false
+  },
+  "historical_source_snapshots": {
+    "annual_parser.py": {
+      "path": "keiba_v48/reports/annual_2026/source/annual_parser.py",
+      "sha256": "fe3b6cb175ad58e444d299c0e10cde3a24fe84814b257dee47b9ec8aaf68860b"
+    }
+  },
   "handoff": "DEVELOPMENT_HANDOFF.md",
   "artifact_registry": "keiba_v48/reports/integration/artifact_registry.json",
   "database": {
@@ -109,7 +133,7 @@
       "id": "CURRENT_YEAR_HISTORY",
       "latest_race_date": "2025-12-28",
       "age_days_asof_2026_10_20": 296,
-      "status": "2026 history needs independently verified source/ID integration; legacy diagnostic CSVs are not automatically live evidence"
+      "status": "234 official 2026 PDFs downloaded and 2808 races extracted into verified local candidate; canonical replacement blocked by required save-path HTTP403. Legacy diagnostic CSVs remain separate."
     },
     {
       "id": "EXCLUSIONS",

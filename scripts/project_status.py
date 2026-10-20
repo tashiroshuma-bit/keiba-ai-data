@@ -61,7 +61,11 @@ def validate_state(state, root=ROOT):
             for filename, expected in report['source_code_sha256'].items():
                 actual = hashlib.sha256((root / 'keiba_v48' / filename).read_bytes()).hexdigest()
                 if actual != expected:
-                    errors.append('comparison source changed; reconcile research evidence: ' + filename)
+                    archived = state.get('historical_source_snapshots', {}).get(filename)
+                    snapshot = (root / archived['path']).resolve() if archived else None
+                    if not (archived and archived['sha256'] == expected and snapshot.is_relative_to(root)
+                            and hashlib.sha256(snapshot.read_bytes()).hexdigest() == expected):
+                        errors.append('comparison source changed; reconcile research evidence: ' + filename)
         roi = state['latest_research'].get('roi95_experiment')
         if roi:
             summary = read(roi['summary'])

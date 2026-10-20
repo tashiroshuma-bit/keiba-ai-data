@@ -7,7 +7,7 @@ import unittest
 from unittest.mock import patch
 
 from annual_reports import discover, download, connect
-from annual_parser import normalize, read_panel
+from annual_parser import normalize, read_panel, parse_jobs
 from outline_digits import signature
 from annual_export import export
 
@@ -97,6 +97,24 @@ class AnnualReportsTests(unittest.TestCase):
         self.assertIsNotNone(race)
         self.assertEqual(race['race_number'],1)
         self.assertEqual(race['surface'],'jump')
+
+    def test_jump_identity_ignores_other_race_number_in_footnote(self):
+        job=dict(year=2026,venue='niigata',meeting=2,day=7,url='https://www.jra.go.jp/example.pdf')
+        chars=self.panel_fixture(jump=True,note='第4競走で出走制限')
+        race=read_panel(chars,job,1,0)
+        self.assertEqual(race['race_number'],1)
+
+    def test_explicit_year_scope_preserves_previous_attested_years(self):
+        import sqlite3
+        with tempfile.TemporaryDirectory() as root:
+            db=connect(str(Path(root)/'a.sqlite'));db.row_factory=sqlite3.Row
+            for year in (2025,2026):
+                db.execute('''INSERT INTO annual_report_documents(url,year,venue,meeting,day,local_path,status,parser_version)
+                    VALUES(?,?,'tokyo',1,1,'saved.pdf','parsed','old')''',(str(year),year))
+            self.assertEqual([r['year'] for r in parse_jobs(db,[2026])],[2026])
+            self.assertEqual([r['year'] for r in parse_jobs(db,[2025])],[2025])
+            with self.assertRaises(ValueError):parse_jobs(db,[])
+            db.close()
 
     def test_discovery_all_venues_and_dedup(self):
         html = '<a href="2025/2025-1tokyo1.pdf">PDF</a>' * 2

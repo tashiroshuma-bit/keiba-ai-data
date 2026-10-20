@@ -1,0 +1,1783 @@
+{
+  "year": 2026,
+  "counters": {
+    "verified_new_originals": 234,
+    "new_payout_evidence_races": 2707,
+    "new_corner_evidence_races": 1828,
+    "new_performance_evidence_races": 2707
+  },
+  "rejections": [
+    {
+      "race_id": "202601010611",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202601010707",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202601010810",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202602010301",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202602010907",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202602011112",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202603010110",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202603010204",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202603010602",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202603020403",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202604010407",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202604010705",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202604020205",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202604020507",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202604020612",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605010308",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202605010309",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202605010310",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202605010311",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202605010312",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202605010504",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605020410",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605020609",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605020902",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605021008",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605021104",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202605030101",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202605030211",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605030601",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202605040104",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202605040112",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202605040204",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202605040504",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606010208",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606010311",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606010504",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606010508",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606010604",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606010704",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606010710",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606020111",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606020204",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606020304",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606020404",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606020709",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606020804",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606030304",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606030404",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606030504",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606030604",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606040101",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606040201",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606040303",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606040307",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606040401",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606040511",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202606040701",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202606040911",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202607010210",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202607010211",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202607010507",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202607020811",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202607030205",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608010308",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608010404",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608010801",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608030104",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608030204",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608030712",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608031204",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608040204",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608040304",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608040310",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608040403",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608040404",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608040406",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202608040604",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202608040612",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609010610",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609010704",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609010804",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609020204",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609020610",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609020804",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609020809",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609030201",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609030312",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609030501",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609040301",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609040311",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202609040601",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202609040901",
+      "stage": "performance",
+      "reason": "unsupported PDF extraction issue"
+    },
+    {
+      "race_id": "202610010107",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610010604",
+      "stage": "performance",
+      "reason": "missing expected runner count"
+    },
+    {
+      "race_id": "202610010609",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610011210",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610020302",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610020502",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610020506",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610020508",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    },
+    {
+      "race_id": "202610020605",
+      "stage": "performance",
+      "reason": "unsupported exceptional result"
+    }
+  ],
+  "linkage": {
+    "horse_linked_rows": 104018,
+    "jockey_linked_rows": 174996,
+    "both_linked_rows": 100475,
+    "profile_source_row_linked": 1950,
+    "direct_source_row_linked": 15813,
+    "distinct_attested_horses": 9549,
+    "distinct_attested_jockeys": 161,
+    "ambiguous_horse_keys": 0,
+    "ambiguous_jockey_names": 0,
+    "strict_historical_publication_verified_rows": 0,
+    "attested_pdf_jockey_aliases": 8
+  },
+  "identity_audit": {
+    "source_attested_rows": 16371,
+    "profile_start_attested_rows": 2859,
+    "profile_start_distinct_horses": 248,
+    "page_statuses": {
+      "matched": 1190,
+      "official_void": 1
+    },
+    "source_errors": [],
+    "rank_disagreements": 0,
+    "linked_rows_by_year": [
+      {
+        "year": "2023",
+        "rows": 47672,
+        "horse_linked": 32918,
+        "jockey_linked": 46237,
+        "both_linked": 31949
+      },
+      {
+        "year": "2024",
+        "rows": 47181,
+        "horse_linked": 31843,
+        "jockey_linked": 45310,
+        "both_linked": 30585
+      },
+      {
+        "year": "2025",
+        "rows": 47884,
+        "horse_linked": 26670,
+        "jockey_linked": 46039,
+        "both_linked": 25724
+      },
+      {
+        "year": "2026",
+        "rows": 38608,
+        "horse_linked": 12587,
+        "jockey_linked": 37410,
+        "both_linked": 12217
+      }
+    ],
+    "unlinked_jockey_names": [
+      {
+        "name": "D.レーン",
+        "rows": 397
+      },
+      {
+        "name": "J.モレイラ",
+        "rows": 389
+      },
+      {
+        "name": "R.キング",
+        "rows": 382
+      },
+      {
+        "name": "T.マーカンド",
+        "rows": 365
+      },
+      {
+        "name": "B.ムルザバエフ",
+        "rows": 322
+      },
+      {
+        "name": "M.ディー",
+        "rows": 287
+      },
+      {
+        "name": "C.デムーロ",
+        "rows": 277
+      },
+      {
+        "name": "A.シュタルケ",
+        "rows": 233
+      },
+      {
+        "name": "A.ルメートル",
+        "rows": 218
+      },
+      {
+        "name": "H.ドイル",
+        "rows": 197
+      },
+      {
+        "name": "F.ゴンサルベス",
+        "rows": 151
+      },
+      {
+        "name": "T.オシェア",
+        "rows": 133
+      },
+      {
+        "name": "A.プーシャン",
+        "rows": 121
+      },
+      {
+        "name": "T.ハマーハンセン",
+        "rows": 116
+      },
+      {
+        "name": "T.バシュロ",
+        "rows": 96
+      },
+      {
+        "name": "吉村智洋",
+        "rows": 94
+      },
+      {
+        "name": "石川倭",
+        "rows": 91
+      },
+      {
+        "name": "R.ムーア",
+        "rows": 90
+      },
+      {
+        "name": "J.コレット",
+        "rows": 86
+      },
+      {
+        "name": "R.ピーヒュレク",
+        "rows": 79
+      },
+      {
+        "name": "渡辺竜也",
+        "rows": 74
+      },
+      {
+        "name": "A.バデル",
+        "rows": 66
+      },
+      {
+        "name": "L.モリス",
+        "rows": 65
+      },
+      {
+        "name": "R.キングスコート",
+        "rows": 62
+      },
+      {
+        "name": "D.イーガン",
+        "rows": 61
+      },
+      {
+        "name": "落合玄太",
+        "rows": 60
+      },
+      {
+        "name": "F.ジェルー",
+        "rows": 56
+      },
+      {
+        "name": "W.ビュイック",
+        "rows": 54
+      },
+      {
+        "name": ".レーン",
+        "rows": 48
+      },
+      {
+        "name": "M.ミシェル",
+        "rows": 46
+      }
+    ],
+    "time_evidence_rows": 13176,
+    "result_page_off_times_recorded": 1187,
+    "pdf_vs_result_page_off_differences": [
+      {
+        "race_id": "202303010412",
+        "pdf_scheduled_off_at": "2023-04-16T16:00:00+09:00",
+        "result_page_off_at": "2023-04-16T16:01:00+09:00"
+      },
+      {
+        "race_id": "202303010512",
+        "pdf_scheduled_off_at": "2023-04-22T16:00:00+09:00",
+        "result_page_off_at": "2023-04-22T16:01:00+09:00"
+      },
+      {
+        "race_id": "202303020109",
+        "pdf_scheduled_off_at": "2023-07-01T14:35:00+09:00",
+        "result_page_off_at": "2023-07-01T14:36:00+09:00"
+      },
+      {
+        "race_id": "202303020110",
+        "pdf_scheduled_off_at": "2023-07-01T15:10:00+09:00",
+        "result_page_off_at": "2023-07-01T15:11:00+09:00"
+      },
+      {
+        "race_id": "202303020209",
+        "pdf_scheduled_off_at": "2023-07-02T14:35:00+09:00",
+        "result_page_off_at": "2023-07-02T14:36:00+09:00"
+      },
+      {
+        "race_id": "202303020210",
+        "pdf_scheduled_off_at": "2023-07-02T15:10:00+09:00",
+        "result_page_off_at": "2023-07-02T15:11:00+09:00"
+      },
+      {
+        "race_id": "202303020601",
+        "pdf_scheduled_off_at": "2023-07-16T10:00:00+09:00",
+        "result_page_off_at": "2023-07-16T10:01:00+09:00"
+      },
+      {
+        "race_id": "202303020710",
+        "pdf_scheduled_off_at": "2023-07-22T15:10:00+09:00",
+        "result_page_off_at": "2023-07-22T15:11:00+09:00"
+      },
+      {
+        "race_id": "202303030112",
+        "pdf_scheduled_off_at": "2023-11-04T16:00:00+09:00",
+        "result_page_off_at": "2023-11-04T16:01:00+09:00"
+      },
+      {
+        "race_id": "202303030212",
+        "pdf_scheduled_off_at": "2023-11-05T16:00:00+09:00",
+        "result_page_off_at": "2023-11-05T16:01:00+09:00"
+      },
+      {
+        "race_id": "202303030404",
+        "pdf_scheduled_off_at": "2023-11-12T11:10:00+09:00",
+        "result_page_off_at": "2023-11-12T11:15:00+09:00"
+      },
+      {
+        "race_id": "202304010112",
+        "pdf_scheduled_off_at": "2023-04-29T16:00:00+09:00",
+        "result_page_off_at": "2023-04-29T16:01:00+09:00"
+      },
+      {
+        "race_id": "202304010512",
+        "pdf_scheduled_off_at": "2023-05-13T16:00:00+09:00",
+        "result_page_off_at": "2023-05-13T16:01:00+09:00"
+      },
+      {
+        "race_id": "202304010612",
+        "pdf_scheduled_off_at": "2023-05-14T16:00:00+09:00",
+        "result_page_off_at": "2023-05-14T16:01:00+09:00"
+      },
+      {
+        "race_id": "202304030310",
+        "pdf_scheduled_off_at": "2023-08-19T15:10:00+09:00",
+        "result_page_off_at": "2023-08-19T15:11:00+09:00"
+      },
+      {
+        "race_id": "202304040112",
+        "pdf_scheduled_off_at": "2023-10-14T16:00:00+09:00",
+        "result_page_off_at": "2023-10-14T16:01:00+09:00"
+      },
+      {
+        "race_id": "202304040212",
+        "pdf_scheduled_off_at": "2023-10-15T16:00:00+09:00",
+        "result_page_off_at": "2023-10-15T16:01:00+09:00"
+      },
+      {
+        "race_id": "202305010108",
+        "pdf_scheduled_off_at": "2023-01-28T14:00:00+09:00",
+        "result_page_off_at": "2023-01-28T14:01:00+09:00"
+      },
+      {
+        "race_id": "202305030102",
+        "pdf_scheduled_off_at": "2023-06-03T10:40:00+09:00",
+        "result_page_off_at": "2023-06-03T10:45:00+09:00"
+      },
+      {
+        "race_id": "202305030108",
+        "pdf_scheduled_off_at": "2023-06-03T14:00:00+09:00",
+        "result_page_off_at": "2023-06-03T14:01:00+09:00"
+      },
+      {
+        "race_id": "202305030210",
+        "pdf_scheduled_off_at": "2023-06-04T15:00:00+09:00",
+        "result_page_off_at": "2023-06-04T15:01:00+09:00"
+      },
+      {
+        "race_id": "202305040308",
+        "pdf_scheduled_off_at": "2023-10-09T14:00:00+09:00",
+        "result_page_off_at": "2023-10-09T14:01:00+09:00"
+      },
+      {
+        "race_id": "202306010110",
+        "pdf_scheduled_off_at": "2023-01-05T15:00:00+09:00",
+        "result_page_off_at": "2023-01-05T15:01:00+09:00"
+      },
+      {
+        "race_id": "202306010210",
+        "pdf_scheduled_off_at": "2023-01-07T15:00:00+09:00",
+        "result_page_off_at": "2023-01-07T15:01:00+09:00"
+      },
+      {
+        "race_id": "202306010310",
+        "pdf_scheduled_off_at": "2023-01-08T15:00:00+09:00",
+        "result_page_off_at": "2023-01-08T15:01:00+09:00"
+      },
+      {
+        "race_id": "202306010410",
+        "pdf_scheduled_off_at": "2023-01-09T15:00:00+09:00",
+        "result_page_off_at": "2023-01-09T15:01:00+09:00"
+      },
+      {
+        "race_id": "202306030308",
+        "pdf_scheduled_off_at": "2023-04-01T14:00:00+09:00",
+        "result_page_off_at": "2023-04-01T14:01:00+09:00"
+      },
+      {
+        "race_id": "202306040708",
+        "pdf_scheduled_off_at": "2023-09-24T14:00:00+09:00",
+        "result_page_off_at": "2023-09-24T14:01:00+09:00"
+      },
+      {
+        "race_id": "202306040808",
+        "pdf_scheduled_off_at": "2023-09-30T14:00:00+09:00",
+        "result_page_off_at": "2023-09-30T14:01:00+09:00"
+      },
+      {
+        "race_id": "202307010106",
+        "pdf_scheduled_off_at": "2023-01-05T13:00:00+09:00",
+        "result_page_off_at": "2023-01-05T13:01:00+09:00"
+      },
+      {
+        "race_id": "202307010306",
+        "pdf_scheduled_off_at": "2023-01-08T13:00:00+09:00",
+        "result_page_off_at": "2023-01-08T13:01:00+09:00"
+      },
+      {
+        "race_id": "202307010308",
+        "pdf_scheduled_off_at": "2023-01-08T14:00:00+09:00",
+        "result_page_off_at": "2023-01-08T14:01:00+09:00"
+      },
+      {
+        "race_id": "202307010406",
+        "pdf_scheduled_off_at": "2023-01-09T13:00:00+09:00",
+        "result_page_off_at": "2023-01-09T13:01:00+09:00"
+      },
+      {
+        "race_id": "202307011101",
+        "pdf_scheduled_off_at": "2023-02-04T10:00:00+09:00",
+        "result_page_off_at": "2023-02-04T10:01:00+09:00"
+      },
+      {
+        "race_id": "202307020112",
+        "pdf_scheduled_off_at": "2023-03-11T16:00:00+09:00",
+        "result_page_off_at": "2023-03-11T16:01:00+09:00"
+      },
+      {
+        "race_id": "202307020512",
+        "pdf_scheduled_off_at": "2023-03-25T16:00:00+09:00",
+        "result_page_off_at": "2023-03-25T16:01:00+09:00"
+      },
+      {
+        "race_id": "202307030101",
+        "pdf_scheduled_off_at": "2023-07-01T10:00:00+09:00",
+        "result_page_off_at": "2023-07-01T10:01:00+09:00"
+      },
+      {
+        "race_id": "202307030103",
+        "pdf_scheduled_off_at": "2023-07-01T11:05:00+09:00",
+        "result_page_off_at": "2023-07-01T11:10:00+09:00"
+      },
+      {
+        "race_id": "202307030110",
+        "pdf_scheduled_off_at": "2023-07-01T15:00:00+09:00",
+        "result_page_off_at": "2023-07-01T15:01:00+09:00"
+      },
+      {
+        "race_id": "202307030201",
+        "pdf_scheduled_off_at": "2023-07-02T10:00:00+09:00",
+        "result_page_off_at": "2023-07-02T10:01:00+09:00"
+      },
+      {
+        "race_id": "202307030210",
+        "pdf_scheduled_off_at": "2023-07-02T15:00:00+09:00",
+        "result_page_off_at": "2023-07-02T15:01:00+09:00"
+      },
+      {
+        "race_id": "202307030310",
+        "pdf_scheduled_off_at": "2023-07-08T15:00:00+09:00",
+        "result_page_off_at": "2023-07-08T15:01:00+09:00"
+      },
+      {
+        "race_id": "202307040612",
+        "pdf_scheduled_off_at": "2023-12-17T16:00:00+09:00",
+        "result_page_off_at": "2023-12-17T16:01:00+09:00"
+      },
+      {
+        "race_id": "202308010201",
+        "pdf_scheduled_off_at": "2023-04-23T10:00:00+09:00",
+        "result_page_off_at": "2023-04-23T10:01:00+09:00"
+      },
+      {
+        "race_id": "202308010901",
+        "pdf_scheduled_off_at": "2023-05-20T10:00:00+09:00",
+        "result_page_off_at": "2023-05-20T10:01:00+09:00"
+      },
+      {
+        "race_id": "202308020401",
+        "pdf_scheduled_off_at": "2023-10-14T10:00:00+09:00",
+        "result_page_off_at": "2023-10-14T10:01:00+09:00"
+      },
+      {
+        "race_id": "202308020410",
+        "pdf_scheduled_off_at": "2023-10-14T15:00:00+09:00",
+        "result_page_off_at": "2023-10-14T15:01:00+09:00"
+      },
+      {
+        "race_id": "202308020510",
+        "pdf_scheduled_off_at": "2023-10-15T15:00:00+09:00",
+        "result_page_off_at": "2023-10-15T15:01:00+09:00"
+      },
+      {
+        "race_id": "202308020710",
+        "pdf_scheduled_off_at": "2023-10-22T15:00:00+09:00",
+        "result_page_off_at": "2023-10-22T15:01:00+09:00"
+      },
+      {
+        "race_id": "202308020801",
+        "pdf_scheduled_off_at": "2023-10-28T10:00:00+09:00",
+        "result_page_off_at": "2023-10-28T10:01:00+09:00"
+      },
+      {
+        "race_id": "202308030412",
+        "pdf_scheduled_off_at": "2023-11-12T16:20:00+09:00",
+        "result_page_off_at": "2023-11-12T16:25:00+09:00"
+      },
+      {
+        "race_id": "202308030709",
+        "pdf_scheduled_off_at": "2023-11-25T14:30:00+09:00",
+        "result_page_off_at": "2023-11-25T14:31:00+09:00"
+      },
+      {
+        "race_id": "202309011210",
+        "pdf_scheduled_off_at": "2023-03-19T15:00:00+09:00",
+        "result_page_off_at": "2023-03-19T15:01:00+09:00"
+      },
+      {
+        "race_id": "202309020110",
+        "pdf_scheduled_off_at": "2023-03-25T15:00:00+09:00",
+        "result_page_off_at": "2023-03-25T15:01:00+09:00"
+      },
+      {
+        "race_id": "202309020610",
+        "pdf_scheduled_off_at": "2023-04-09T15:00:00+09:00",
+        "result_page_off_at": "2023-04-09T15:01:00+09:00"
+      },
+      {
+        "race_id": "202309030110",
+        "pdf_scheduled_off_at": "2023-06-03T15:00:00+09:00",
+        "result_page_off_at": "2023-06-03T15:01:00+09:00"
+      },
+      {
+        "race_id": "202309030301",
+        "pdf_scheduled_off_at": "2023-06-10T10:00:00+09:00",
+        "result_page_off_at": "2023-06-10T10:01:00+09:00"
+      },
+      {
+        "race_id": "202309030810",
+        "pdf_scheduled_off_at": "2023-06-25T15:00:00+09:00",
+        "result_page_off_at": "2023-06-25T15:01:00+09:00"
+      },
+      {
+        "race_id": "202309050610",
+        "pdf_scheduled_off_at": "2023-12-17T15:00:00+09:00",
+        "result_page_off_at": "2023-12-17T15:01:00+09:00"
+      },
+      {
+        "race_id": "202310030710",
+        "pdf_scheduled_off_at": "2023-09-02T15:00:00+09:00",
+        "result_page_off_at": "2023-09-02T15:01:00+09:00"
+      },
+      {
+        "race_id": "202401020609",
+        "pdf_scheduled_off_at": "2024-08-25T14:25:00+09:00",
+        "result_page_off_at": "2024-08-25T14:26:00+09:00"
+      },
+      {
+        "race_id": "202403010412",
+        "pdf_scheduled_off_at": "2024-04-14T16:00:00+09:00",
+        "result_page_off_at": "2024-04-14T16:01:00+09:00"
+      },
+      {
+        "race_id": "202403020709",
+        "pdf_scheduled_off_at": "2024-07-20T14:35:00+09:00",
+        "result_page_off_at": "2024-07-20T14:36:00+09:00"
+      },
+      {
+        "race_id": "202404010612",
+        "pdf_scheduled_off_at": "2024-05-12T16:00:00+09:00",
+        "result_page_off_at": "2024-05-12T16:01:00+09:00"
+      },
+      {
+        "race_id": "202404030310",
+        "pdf_scheduled_off_at": "2024-08-17T15:10:00+09:00",
+        "result_page_off_at": "2024-08-17T15:11:00+09:00"
+      },
+      {
+        "race_id": "202404040310",
+        "pdf_scheduled_off_at": "2024-10-12T15:00:00+09:00",
+        "result_page_off_at": "2024-10-12T15:01:00+09:00"
+      },
+      {
+        "race_id": "202404040410",
+        "pdf_scheduled_off_at": "2024-10-14T15:00:00+09:00",
+        "result_page_off_at": "2024-10-14T15:01:00+09:00"
+      },
+      {
+        "race_id": "202404040512",
+        "pdf_scheduled_off_at": "2024-10-19T16:00:00+09:00",
+        "result_page_off_at": "2024-10-19T16:01:00+09:00"
+      },
+      {
+        "race_id": "202405010608",
+        "pdf_scheduled_off_at": "2024-02-11T14:00:00+09:00",
+        "result_page_off_at": "2024-02-11T14:01:00+09:00"
+      },
+      {
+        "race_id": "202405030108",
+        "pdf_scheduled_off_at": "2024-06-01T14:00:00+09:00",
+        "result_page_off_at": "2024-06-01T14:01:00+09:00"
+      },
+      {
+        "race_id": "202405030210",
+        "pdf_scheduled_off_at": "2024-06-02T15:00:00+09:00",
+        "result_page_off_at": "2024-06-02T15:01:00+09:00"
+      },
+      {
+        "race_id": "202406010208",
+        "pdf_scheduled_off_at": "2024-01-07T14:00:00+09:00",
+        "result_page_off_at": "2024-01-07T14:01:00+09:00"
+      },
+      {
+        "race_id": "202406040708",
+        "pdf_scheduled_off_at": "2024-09-22T14:00:00+09:00",
+        "result_page_off_at": "2024-09-22T14:01:00+09:00"
+      },
+      {
+        "race_id": "202407010512",
+        "pdf_scheduled_off_at": "2024-03-23T16:00:00+09:00",
+        "result_page_off_at": "2024-03-23T16:01:00+09:00"
+      },
+      {
+        "race_id": "202407020210",
+        "pdf_scheduled_off_at": "2024-08-11T15:00:00+09:00",
+        "result_page_off_at": "2024-08-11T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408010110",
+        "pdf_scheduled_off_at": "2024-01-06T15:00:00+09:00",
+        "result_page_off_at": "2024-01-06T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408010210",
+        "pdf_scheduled_off_at": "2024-01-07T15:00:00+09:00",
+        "result_page_off_at": "2024-01-07T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408010310",
+        "pdf_scheduled_off_at": "2024-01-08T15:00:00+09:00",
+        "result_page_off_at": "2024-01-08T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408020501",
+        "pdf_scheduled_off_at": "2024-02-10T10:00:00+09:00",
+        "result_page_off_at": "2024-02-10T10:01:00+09:00"
+      },
+      {
+        "race_id": "202408020510",
+        "pdf_scheduled_off_at": "2024-02-10T15:00:00+09:00",
+        "result_page_off_at": "2024-02-10T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408020601",
+        "pdf_scheduled_off_at": "2024-02-11T10:00:00+09:00",
+        "result_page_off_at": "2024-02-11T10:01:00+09:00"
+      },
+      {
+        "race_id": "202408020610",
+        "pdf_scheduled_off_at": "2024-02-11T15:00:00+09:00",
+        "result_page_off_at": "2024-02-11T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408030910",
+        "pdf_scheduled_off_at": "2024-05-18T15:00:00+09:00",
+        "result_page_off_at": "2024-05-18T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408040110",
+        "pdf_scheduled_off_at": "2024-06-01T15:00:00+09:00",
+        "result_page_off_at": "2024-06-01T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408040310",
+        "pdf_scheduled_off_at": "2024-06-08T15:00:00+09:00",
+        "result_page_off_at": "2024-06-08T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408050308",
+        "pdf_scheduled_off_at": "2024-10-12T14:00:00+09:00",
+        "result_page_off_at": "2024-10-12T14:01:00+09:00"
+      },
+      {
+        "race_id": "202408050410",
+        "pdf_scheduled_off_at": "2024-10-13T15:00:00+09:00",
+        "result_page_off_at": "2024-10-13T15:01:00+09:00"
+      },
+      {
+        "race_id": "202408070510",
+        "pdf_scheduled_off_at": "2024-12-14T15:00:00+09:00",
+        "result_page_off_at": "2024-12-14T15:01:00+09:00"
+      },
+      {
+        "race_id": "202409010410",
+        "pdf_scheduled_off_at": "2024-03-03T15:00:00+09:00",
+        "result_page_off_at": "2024-03-03T15:01:00+09:00"
+      },
+      {
+        "race_id": "202409020410",
+        "pdf_scheduled_off_at": "2024-03-31T15:00:00+09:00",
+        "result_page_off_at": "2024-03-31T15:01:00+09:00"
+      },
+      {
+        "race_id": "202410010112",
+        "pdf_scheduled_off_at": "2024-01-13T16:00:00+09:00",
+        "result_page_off_at": "2024-01-13T16:01:00+09:00"
+      },
+      {
+        "race_id": "202410010804",
+        "pdf_scheduled_off_at": "2024-02-04T11:20:00+09:00",
+        "result_page_off_at": "2024-02-04T11:25:00+09:00"
+      },
+      {
+        "race_id": "202410020112",
+        "pdf_scheduled_off_at": "2024-02-10T16:00:00+09:00",
+        "result_page_off_at": "2024-02-10T16:01:00+09:00"
+      },
+      {
+        "race_id": "202410020312",
+        "pdf_scheduled_off_at": "2024-02-17T16:00:00+09:00",
+        "result_page_off_at": "2024-02-17T16:01:00+09:00"
+      },
+      {
+        "race_id": "202501010112",
+        "pdf_scheduled_off_at": "2025-07-26T16:00:00+09:00",
+        "result_page_off_at": "2025-07-26T16:01:00+09:00"
+      },
+      {
+        "race_id": "202501010212",
+        "pdf_scheduled_off_at": "2025-07-27T16:00:00+09:00",
+        "result_page_off_at": "2025-07-27T16:01:00+09:00"
+      },
+      {
+        "race_id": "202504010312",
+        "pdf_scheduled_off_at": "2025-05-10T16:00:00+09:00",
+        "result_page_off_at": "2025-05-10T16:01:00+09:00"
+      },
+      {
+        "race_id": "202504020208",
+        "pdf_scheduled_off_at": "2025-07-27T16:20:00+09:00",
+        "result_page_off_at": "2025-07-27T16:25:00+09:00"
+      },
+      {
+        "race_id": "202504040112",
+        "pdf_scheduled_off_at": "2025-10-18T16:00:00+09:00",
+        "result_page_off_at": "2025-10-18T16:01:00+09:00"
+      },
+      {
+        "race_id": "202504040212",
+        "pdf_scheduled_off_at": "2025-10-19T16:00:00+09:00",
+        "result_page_off_at": "2025-10-19T16:01:00+09:00"
+      },
+      {
+        "race_id": "202505021108",
+        "pdf_scheduled_off_at": "2025-05-31T14:00:00+09:00",
+        "result_page_off_at": "2025-05-31T14:01:00+09:00"
+      },
+      {
+        "race_id": "202505021110",
+        "pdf_scheduled_off_at": "2025-05-31T15:10:00+09:00",
+        "result_page_off_at": "2025-05-31T15:40:00+09:00"
+      },
+      {
+        "race_id": "202505021111",
+        "pdf_scheduled_off_at": "2025-05-31T15:45:00+09:00",
+        "result_page_off_at": "2025-05-31T16:10:00+09:00"
+      },
+      {
+        "race_id": "202505021112",
+        "pdf_scheduled_off_at": "2025-05-31T16:30:00+09:00",
+        "result_page_off_at": "2025-05-31T16:40:00+09:00"
+      },
+      {
+        "race_id": "202505040610",
+        "pdf_scheduled_off_at": "2025-10-18T15:00:00+09:00",
+        "result_page_off_at": "2025-10-18T15:01:00+09:00"
+      },
+      {
+        "race_id": "202505040702",
+        "pdf_scheduled_off_at": "2025-10-19T10:20:00+09:00",
+        "result_page_off_at": "2025-10-19T10:25:00+09:00"
+      },
+      {
+        "race_id": "202506010108",
+        "pdf_scheduled_off_at": "2025-01-05T14:00:00+09:00",
+        "result_page_off_at": "2025-01-05T14:01:00+09:00"
+      },
+      {
+        "race_id": "202506010910",
+        "pdf_scheduled_off_at": "2025-01-26T15:00:00+09:00",
+        "result_page_off_at": "2025-01-26T15:01:00+09:00"
+      },
+      {
+        "race_id": "202507010810",
+        "pdf_scheduled_off_at": "2025-01-25T15:00:00+09:00",
+        "result_page_off_at": "2025-01-25T15:01:00+09:00"
+      },
+      {
+        "race_id": "202507030106",
+        "pdf_scheduled_off_at": "2025-07-26T15:00:00+09:00",
+        "result_page_off_at": "2025-07-26T15:01:00+09:00"
+      },
+      {
+        "race_id": "202507030206",
+        "pdf_scheduled_off_at": "2025-07-27T15:00:00+09:00",
+        "result_page_off_at": "2025-07-27T15:01:00+09:00"
+      },
+      {
+        "race_id": "202508020210",
+        "pdf_scheduled_off_at": "2025-04-27T15:00:00+09:00",
+        "result_page_off_at": "2025-04-27T15:01:00+09:00"
+      },
+      {
+        "race_id": "202508021110",
+        "pdf_scheduled_off_at": "2025-05-31T15:00:00+09:00",
+        "result_page_off_at": "2025-05-31T15:01:00+09:00"
+      },
+      {
+        "race_id": "202508030701",
+        "pdf_scheduled_off_at": "2025-10-19T10:00:00+09:00",
+        "result_page_off_at": "2025-10-19T10:01:00+09:00"
+      },
+      {
+        "race_id": "202508030710",
+        "pdf_scheduled_off_at": "2025-10-19T15:00:00+09:00",
+        "result_page_off_at": "2025-10-19T15:01:00+09:00"
+      },
+      {
+        "race_id": "202509010510",
+        "pdf_scheduled_off_at": "2025-03-15T15:00:00+09:00",
+        "result_page_off_at": "2025-03-15T15:01:00+09:00"
+      },
+      {
+        "race_id": "202510010512",
+        "pdf_scheduled_off_at": "2025-02-08T16:00:00+09:00",
+        "result_page_off_at": "2025-02-08T16:01:00+09:00"
+      }
+    ],
+    "verified_exact_publication_times": 0,
+    "integrity_check": "ok",
+    "foreign_key_violations": 0
+  },
+  "unlinked_causes": {
+    "horse_unlinked": {
+      "no_unique_attested_name_birth_key": 77284,
+      "missing_birth_year": 24,
+      "unresolved_pdf_glyph": 19
+    },
+    "jockey_unlinked": {
+      "no_attested_source_code": 1078,
+      "official_result_has_name_but_no_code": 4843,
+      "ambiguous_or_insufficient_pdf_alias": 418,
+      "unresolved_pdf_glyph": 10
+    },
+    "total_horse_unlinked": 77327,
+    "total_jockey_unlinked": 6349,
+    "alias_decisions": [
+      {
+        "alias": "(cid:8)島克駿",
+        "canonical_name": "鮫島克駿",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".イーガン",
+        "canonical_name": "D.イーガン",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".キング",
+        "canonical_name": "R.キング",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".デムーロ",
+        "canonical_name": "M.デムーロ",
+        "jockey_id": "jra:005212",
+        "supporting_races": 5,
+        "status": "attested"
+      },
+      {
+        "alias": ".ドイル",
+        "canonical_name": "H.ドイル",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".ホー",
+        "canonical_name": "C.ホー",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".ムルザバエフ",
+        "canonical_name": "B.ムルザバエフ",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".モリス",
+        "canonical_name": "L.モリス",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": ".ルメール",
+        "canonical_name": "C.ルメール",
+        "jockey_id": "jra:005339",
+        "supporting_races": 10,
+        "status": "attested"
+      },
+      {
+        "alias": ".レーン",
+        "canonical_name": "D.レーン",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "M.ディータ",
+        "canonical_name": "M.ディー",
+        "jockey_id": null,
+        "supporting_races": 0,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "中井裕二フ",
+        "canonical_name": "中井裕二",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "丹内祐次タ",
+        "canonical_name": "丹内祐次",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "井上敏樹タ",
+        "canonical_name": "井上敏樹",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "原優介フ",
+        "canonical_name": "原優介",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "古川吉洋ま",
+        "canonical_name": "古川吉洋",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "古川吉洋タ",
+        "canonical_name": "古川吉洋",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "古川吉洋ロ",
+        "canonical_name": "古川吉洋",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "吉村誠之助タ",
+        "canonical_name": "吉村誠之助",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "和田竜二ま",
+        "canonical_name": "和田竜二",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "和田竜二タ",
+        "canonical_name": "和田竜二",
+        "jockey_id": "jra:001018",
+        "supporting_races": 3,
+        "status": "attested"
+      },
+      {
+        "alias": "団野大成タ",
+        "canonical_name": "団野大成",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "団野大成フ",
+        "canonical_name": "団野大成",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "国分優作フ",
+        "canonical_name": "国分優作",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "国分優作ロ",
+        "canonical_name": "国分優作",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "坂井瑠星ロ",
+        "canonical_name": "坂井瑠星",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "大野拓弥タ",
+        "canonical_name": "大野拓弥",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "太宰啓介ロ",
+        "canonical_name": "太宰啓介",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "富田暁ま",
+        "canonical_name": "富田暁",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "富田暁タ",
+        "canonical_name": "富田暁",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "小野寺祐太タ",
+        "canonical_name": "小野寺祐太",
+        "jockey_id": "jra:001123",
+        "supporting_races": 4,
+        "status": "attested"
+      },
+      {
+        "alias": "岩部純二ト",
+        "canonical_name": "岩部純二",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "島克駿",
+        "canonical_name": "鮫島克駿",
+        "jockey_id": "jra:001157",
+        "supporting_races": 287,
+        "status": "attested"
+      },
+      {
+        "alias": "島良太",
+        "canonical_name": "鮫島良太",
+        "jockey_id": "jra:001099",
+        "supporting_races": 31,
+        "status": "attested"
+      },
+      {
+        "alias": "幸英明ロ",
+        "canonical_name": "幸英明",
+        "jockey_id": "jra:000732",
+        "supporting_races": 3,
+        "status": "attested"
+      },
+      {
+        "alias": "戸崎圭太ド",
+        "canonical_name": "戸崎圭太",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "斎藤新タ",
+        "canonical_name": "斎藤新",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "木幡巧也ロ",
+        "canonical_name": "木幡巧也",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "松山弘平ロ",
+        "canonical_name": "松山弘平",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "松本大輝フ",
+        "canonical_name": "松本大輝",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "松若風馬タ",
+        "canonical_name": "松若風馬",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "柴田裕一郎フ",
+        "canonical_name": "柴田裕一郎",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "柴田裕一郎ロ",
+        "canonical_name": "柴田裕一郎",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "横山琉人タ",
+        "canonical_name": "横山琉人",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "武豊タ",
+        "canonical_name": "武豊",
+        "jockey_id": "jra:000666",
+        "supporting_races": 3,
+        "status": "attested"
+      },
+      {
+        "alias": "水沼元輝ミ",
+        "canonical_name": "水沼元輝",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "永島まなみト",
+        "canonical_name": "永島まなみ",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "永野猛蔵タ",
+        "canonical_name": "永野猛蔵",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "江田照男ト",
+        "canonical_name": "江田照男",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "池添謙一タ",
+        "canonical_name": "池添謙一",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "河原田菜々ド",
+        "canonical_name": "河原田菜々",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "田中健タ",
+        "canonical_name": "田中健",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "田口貫太タ",
+        "canonical_name": "田口貫太",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "田山旺佑タ",
+        "canonical_name": "田山旺佑",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "石川裕紀人タ",
+        "canonical_name": "石川裕紀人",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "菅原明良フ",
+        "canonical_name": "菅原明良",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "菊沢一樹タ",
+        "canonical_name": "菊沢一樹",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "菱田裕二タ",
+        "canonical_name": "菱田裕二",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "菱田裕二フ",
+        "canonical_name": "菱田裕二",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "藤岡康太ド",
+        "canonical_name": "藤岡康太",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "西村淳也フ",
+        "canonical_name": "西村淳也",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "角田大和タ",
+        "canonical_name": "角田大和",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "角田大河タ",
+        "canonical_name": "角田大河",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "長岡禎仁タ",
+        "canonical_name": "長岡禎仁",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "高杉吏麒タ",
+        "canonical_name": "高杉吏麒",
+        "jockey_id": null,
+        "supporting_races": 2,
+        "status": "ambiguous_or_insufficient"
+      },
+      {
+        "alias": "鷲頭虎太ロ",
+        "canonical_name": "鷲頭虎太",
+        "jockey_id": null,
+        "supporting_races": 1,
+        "status": "ambiguous_or_insufficient"
+      }
+    ]
+  },
+  "earlier_raw_history_unchanged": true,
+  "earlier_raw_history_sha256": "13db48a7162b1a5ab188f29275803870dde6e84787c8ddac637ee9b37982943b",
+  "source_document_statuses": {
+    "parsed": 234
+  },
+  "race_counts_by_year": {
+    "2023": 3456,
+    "2024": 3456,
+    "2025": 3456,
+    "2026": 2808
+  },
+  "runner_counts_by_year": {
+    "2023": 47672,
+    "2024": 47181,
+    "2025": 47884,
+    "2026": 38608
+  },
+  "last_race_date": "2026-10-18",
+  "output_db_sha256": "c839435fbe829c13a39052849cb6497b24d84800bc8e9bfa1a333ec1d812021d",
+  "output_db_bytes": 322084864
+}

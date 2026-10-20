@@ -2,6 +2,8 @@
 
 開発・データ修復・予想・結果検証の共通入口です。別スレッドや古いZIPから作業を再開する場合も、最初に最新mainの [DEVELOPMENT_HANDOFF.md](DEVELOPMENT_HANDOFF.md) と [PROJECT_STATE.json](PROJECT_STATE.json) を確認してください。
 
+2026年公式成績の[取り込み報告](keiba_v48/2026_INTEGRATION_RESULTS.md)：234原本・2,808レース・38,608行を抽出、最新10月18日。更新候補は検証済みですが、保存経路のHTTP403で永続保存が止まっており、正本DBはversion 8のままです。
+
 | 対象 | 正本 |
 |---|---|
 | コード・変更履歴 | このリポジトリのmain |

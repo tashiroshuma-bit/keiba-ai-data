@@ -14,7 +14,7 @@ import pdfplumber
 from pdfplumber.utils import extract_text
 from annual_reports import connect, VENUES
 
-VERSION = 'annual-layout-5'
+VERSION = 'annual-layout-6'
 
 
 def normalize(value):
@@ -35,11 +35,17 @@ def cell(chars, left, right, top, tolerance=1.4):
 def read_panel(chars, job, page_number, panel, outline_recovered=False):
     raw = extract_text(chars, x_tolerance=1, y_tolerance=2) or ''
     text = normalize(raw)
-    race_match = re.search(r'第\s*(\d+)\s*競走', text)
+    # Program-change appendices are notices, not another result panel.
+    if '競馬番組' in text[:150] and '競走の取りやめ' in compact(text):
+        return None
+    result_header = re.split(r'本\s*賞|負担重量', text, maxsplit=1)[0]
+    # Footnotes can mention a different race number. Never use that as this
+    # panel's identity when a jump title prints the actual number separately.
+    race_match = re.search(r'第\s*(\d+)\s*競走', result_header)
     if not race_match:
         # In graded jump reports the large race number is printed ABOVE the
         # ordinary header, on the title's line, leaving "第 競走" below.
-        race_match = re.search(r'(?:^|\n)\s*(\d{1,2})\s+(?=[^\n]*ジャンプ)', text)
+        race_match = re.search(r'(?:^|\n)\s*(\d{1,2})\s+(?=[^\n]*ジャンプ)', result_header)
     inferred_race_number = False
     if not race_match:
         if not outline_recovered or '競走' not in compact(text) or page_number > 6:
@@ -184,13 +190,23 @@ def parse_document(job):
         return {'job': job, 'races': [], 'error': str(exc)}
 
 
-def ingest(db_path, workers=4, limit=None, review_only=False):
+def parse_jobs(db, years=None, review_only=False):
+    condition = " AND status='parse_review'" if review_only else ''
+    parameters = [VERSION]
+    if years is not None:
+        if not years or any(type(y) is not int or not 2000 <= y <= 2100 for y in years):
+            raise ValueError('valid explicit years required')
+        condition += ' AND year IN (' + ','.join('?' for _ in years) + ')'
+        parameters.extend(years)
+    return [dict(r) for r in db.execute("SELECT * FROM annual_report_documents WHERE local_path IS NOT NULL AND (parser_version IS NULL OR parser_version!=?)" + condition, parameters)]
+
+
+def ingest(db_path, workers=4, limit=None, review_only=False, years=None):
     if not 1 <= workers <= 4:
         raise ValueError('workers must be 1..4')
     db = connect(db_path)
     db.row_factory = __import__('sqlite3').Row
-    condition = " AND status='parse_review'" if review_only else ''
-    jobs = [dict(r) for r in db.execute("SELECT * FROM annual_report_documents WHERE local_path IS NOT NULL AND (parser_version IS NULL OR parser_version!=?)" + condition, (VERSION,))]
+    jobs = parse_jobs(db, years, review_only)
     if limit:
         jobs = jobs[:limit]
     with concurrent.futures.ProcessPoolExecutor(max_workers=workers) as pool:
@@ -229,5 +245,6 @@ if __name__ == '__main__':
     ap.add_argument('--workers', type=int, default=4)
     ap.add_argument('--limit', type=int)
     ap.add_argument('--review-only', action='store_true')
+    ap.add_argument('--years', type=int, nargs='+', help='Limit parsing to these years; preserve attested earlier years')
     args = ap.parse_args()
-    ingest(args.db, args.workers, args.limit, args.review_only)
+    ingest(args.db, args.workers, args.limit, args.review_only, args.years)

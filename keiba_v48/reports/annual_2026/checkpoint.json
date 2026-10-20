@@ -1,0 +1,14 @@
+{
+  "database": {
+    "path": "/workspace/scratch/6a4f878c3b0d/completion2026.14II79/checkpoint-v9/jra_2023_2025.sqlite",
+    "bytes": 322084864,
+    "sha256": "c839435fbe829c13a39052849cb6497b24d84800bc8e9bfa1a333ec1d812021d"
+  },
+  "originals": {
+    "path": "/workspace/scratch/6a4f878c3b0d/completion2026.14II79/checkpoint-v9/jra_pdf_2026_checkpoint_20261020.zip",
+    "bytes": 156103754,
+    "sha256": "4440d2bbcbed273181ec2662f569054e9fd2a7cf0fb683922cf022cbc3323d7c"
+  },
+  "update_report": "/workspace/scratch/6a4f878c3b0d/completion2026.14II79/checkpoint-v9/update.json",
+  "audit_report": "/workspace/scratch/6a4f878c3b0d/completion2026.14II79/checkpoint-v9/data_audit.json"
+}

@@ -39,6 +39,11 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['latest_research']['roi95_experiment']['return_pct']['lag2'] = 150
         self.assertTrue(any('ROI95 metrics' in error for error in project.validate_state(stale)))
 
+    def test_historical_source_snapshot_requires_exact_hash(self):
+        stale = copy.deepcopy(self.state)
+        stale['historical_source_snapshots']['annual_parser.py']['sha256'] = '0' * 64
+        self.assertTrue(any('comparison source changed' in error for error in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

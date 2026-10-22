@@ -1,0 +1,18 @@
+{
+  "verified": true,
+  "lag_days": 7,
+  "races": 6036,
+  "input_db_sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+  "predictions_sha256": "2a3cea6fa549b168f98aa66151e99764e41cf6415dba2ee91d702b3435b99d34",
+  "model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "checks": [
+    "all saved race IDs and result labels",
+    "marginal normalization and occupancy",
+    "probability-ranked picks",
+    "independently counted hits and log losses",
+    "calibration-selection artifact and source hashes",
+    "model JSON roundtrip"
+  ],
+  "full_feature_replay": false,
+  "independent_ordered_MAP_replay": false
+}

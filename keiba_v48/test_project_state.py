@@ -59,6 +59,16 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['sources']['annual_2026']['sha256'] = '0' * 64
         self.assertTrue(any('originals differ' in e for e in project.validate_state(stale)))
 
+    def test_rank_claims_must_match_saved_evaluation(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_rank_research']['metrics']['lag2']['2025']['candidate']['winner_hit'] = .8
+        self.assertTrue(any('rank verified metrics' in e for e in project.validate_state(stale)))
+
+    def test_rank_input_database_is_pinned(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_rank_research']['database']['sha256'] = '0'*64
+        self.assertTrue(any('rank artifact identity' in e for e in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

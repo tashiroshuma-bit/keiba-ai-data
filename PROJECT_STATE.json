@@ -235,6 +235,265 @@
     "missing approval activation veto",
     "post-off-time class metadata extraction",
     "selected weights and complete research predictions persistence"
-  ]
+  ],
+  "development_objective": {
+    "primary": "rank_prediction_accuracy",
+    "return_rate_optimization": "deferred_by_user_2026_10_22",
+    "protocol": "keiba_v48/RANKING_PROTOCOL.json",
+    "selection_metric": "top3_recall",
+    "reported_metrics": [
+      "winner_hit",
+      "top3_recall",
+      "top3_all_hit",
+      "ordered_all_hit",
+      "mean_rank_log_loss"
+    ]
+  },
+  "latest_rank_research": {
+    "report": "keiba_v48/RANKING_RESULTS.md",
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 9,
+      "bytes": 322084864,
+      "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+      "file_id": "file_00000000a16881f6be82d7a725283af0"
+    },
+    "baseline_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "protocol": "keiba_v48/RANKING_PROTOCOL.json",
+    "evaluation_files": [
+      "keiba_v48/reports/ranking/evaluation_lag2.json",
+      "keiba_v48/reports/ranking/evaluation_lag7.json"
+    ],
+    "predictions_registry": "keiba_v48/reports/ranking/predictions_registry.json",
+    "selected_family": "stagewise_top3",
+    "regularization": 0.05,
+    "shadow_entrypoint": "keiba_v48/rank_forecast.py",
+    "shadow_ready": true,
+    "active_model_replaced": false,
+    "strict_production_validated": false,
+    "forward_observed_races": 0,
+    "evaluation_role": "2025 and 2026 already inspected; retrospective exploratory",
+    "metrics": {
+      "lag2": {
+        "2025": {
+          "baseline": {
+            "mean_rank_log_loss": 2.4607255035560525,
+            "ordered_all_hit": 0.007810153199158907,
+            "ordered_position_hits": [
+              0.19975968759387203,
+              0.13036948032442175,
+              0.10393511565034545
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03394412736557525,
+            "top3_recall": 0.4100330429558426,
+            "winner_hit": 0.19975968759387203,
+            "winner_log_loss": 2.4018238164530734
+          },
+          "candidate": {
+            "mean_rank_log_loss": 2.4421813583309158,
+            "ordered_all_hit": 0.009912886752778613,
+            "ordered_position_hits": [
+              0.22108741363772905,
+              0.15470111144487833,
+              0.1078401922499249
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.4248523080004005,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.3703828990289297
+          },
+          "evaluation_role": "already inspected exploratory retrospective; no forward claim",
+          "paired_day_bootstrap_95pct_delta": {
+            "mean_rank_log_loss": [
+              -0.025820223856387384,
+              -0.0113336140452472
+            ],
+            "ordered_all_hit": [
+              -0.0017900295976937752,
+              0.0056658556338273994
+            ],
+            "top3_all_hit": [
+              0.0002979715592594131,
+              0.010811087484091287
+            ],
+            "top3_recall": [
+              0.008875430206936374,
+              0.020562923181050033
+            ],
+            "winner_hit": [
+              0.01127517187878761,
+              0.03320469515013769
+            ]
+          }
+        },
+        "2026": {
+          "baseline": {
+            "mean_rank_log_loss": 2.485536713112552,
+            "ordered_all_hit": 0.004802364240857037,
+            "ordered_position_hits": [
+              0.18618396749168822,
+              0.12153675655707426,
+              0.1041743627632065
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.034355374953823424,
+            "top3_recall": 0.4005664327053318,
+            "winner_hit": 0.18618396749168822,
+            "winner_log_loss": 2.4415099915728513
+          },
+          "candidate": {
+            "mean_rank_log_loss": 2.475540737702957,
+            "ordered_all_hit": 0.008496490579977835,
+            "ordered_position_hits": [
+              0.2065016623568526,
+              0.13631326191355744,
+              0.1115626154414481
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4038911464105405,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.409342579183708
+          },
+          "evaluation_role": "already inspected exploratory retrospective; no forward claim",
+          "paired_day_bootstrap_95pct_delta": {
+            "mean_rank_log_loss": [
+              -0.01609544537092369,
+              -0.004474602929046681
+            ],
+            "ordered_all_hit": [
+              0.0010506854256854261,
+              0.006854639050374071
+            ],
+            "top3_all_hit": [
+              -0.00632464039546519,
+              0.00707334851067059
+            ],
+            "top3_recall": [
+              -0.002693807600160887,
+              0.009225037205514841
+            ],
+            "winner_hit": [
+              0.005653551678961216,
+              0.026171927446921525
+            ]
+          }
+        }
+      },
+      "lag7": {
+        "2025": {
+          "baseline": {
+            "mean_rank_log_loss": 2.460776402842724,
+            "ordered_all_hit": 0.007810153199158907,
+            "ordered_position_hits": [
+              0.19885851607089217,
+              0.13097026133974166,
+              0.10363472514268549
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03394412736557525,
+            "top3_recall": 0.4093321317713026,
+            "winner_hit": 0.19885851607089217,
+            "winner_log_loss": 2.4016081264248443
+          },
+          "candidate": {
+            "mean_rank_log_loss": 2.4425291359054255,
+            "ordered_all_hit": 0.009612496245118654,
+            "ordered_position_hits": [
+              0.22048663262240914,
+              0.15410033042955842,
+              0.1093421447882247
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.4249524381696205,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3703842251293934
+          },
+          "evaluation_role": "already inspected exploratory retrospective; no forward claim",
+          "paired_day_bootstrap_95pct_delta": {
+            "mean_rank_log_loss": [
+              -0.025495737743196564,
+              -0.011061933074502091
+            ],
+            "ordered_all_hit": [
+              -0.0020579020739135037,
+              0.005369172721280578
+            ],
+            "top3_all_hit": [
+              0.0002954858743338124,
+              0.01080764643358459
+            ],
+            "top3_recall": [
+              0.00959632318830942,
+              0.02138140748302399
+            ],
+            "winner_hit": [
+              0.011869483473060645,
+              0.03433505746376717
+            ]
+          }
+        },
+        "2026": {
+          "baseline": {
+            "mean_rank_log_loss": 2.4854684003958876,
+            "ordered_all_hit": 0.004802364240857037,
+            "ordered_position_hits": [
+              0.18618396749168822,
+              0.12153675655707426,
+              0.1041743627632065
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4001970200714198,
+            "winner_hit": 0.18618396749168822,
+            "winner_log_loss": 2.4413321352183996
+          },
+          "candidate": {
+            "mean_rank_log_loss": 2.4756919376990476,
+            "ordered_all_hit": 0.008127077946065755,
+            "ordered_position_hits": [
+              0.20687107499076468,
+              0.13520502401182122,
+              0.11008496490579978
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4038911464105405,
+            "winner_hit": 0.2013298854820835,
+            "winner_log_loss": 2.4092281435126672
+          },
+          "evaluation_role": "already inspected exploratory retrospective; no forward claim",
+          "paired_day_bootstrap_95pct_delta": {
+            "mean_rank_log_loss": [
+              -0.01595915852065438,
+              -0.004211612847422383
+            ],
+            "ordered_all_hit": [
+              0.00037336782800773696,
+              0.006359381026807378
+            ],
+            "top3_all_hit": [
+              -0.006410427807486631,
+              0.006390726553229782
+            ],
+            "top3_recall": [
+              -0.002540661556391013,
+              0.00973027079826175
+            ],
+            "winner_hit": [
+              0.004280465915107375,
+              0.025398905586697246
+            ]
+          }
+        }
+      }
+    }
+  }
 }
 

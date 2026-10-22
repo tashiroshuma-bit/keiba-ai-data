@@ -121,6 +121,36 @@ def validate_state(state, root=ROOT):
             for key in ('sha256', 'bytes'):
                 if saved['baseline'][key] != research_db[key]:
                     errors.append('historical research database differs from preserved baseline: ' + key)
+        rank = state.get('latest_rank_research')
+        if rank:
+            if state['development_objective']['primary'] != 'rank_prediction_accuracy':
+                errors.append('rank development objective differs')
+            registry = read(rank['predictions_registry'])
+            for name in rank['evaluation_files']:
+                report = read(name)
+                folder = (root / name).parent
+                lag = '2' if name.endswith('lag2.json') else '7'
+                selection = read(str((folder / f'selection_lag{lag}.json').relative_to(root)))
+                verification = read(str((folder / f'verification_lag{lag}.json').relative_to(root)))
+                artifact = (folder / f'model_lag{lag}.json')
+                if (hashlib.sha256(artifact.read_bytes()).hexdigest() != report['model_sha256'] or
+                        report['model_sha256'] != selection['model_sha256'] or
+                        report['predictions_sha256'] != registry[lag]['sha256'] or
+                        report['predictions_sha256'] != verification['predictions_sha256'] or
+                        report['input_db_sha256'] != rank['database']['sha256'] or
+                        report['baseline_model_sha256'] != rank['baseline_model_sha256']):
+                    errors.append('rank artifact identity differs')
+                if (report['years'] != rank['metrics']['lag'+lag] or verification['verified'] is not True or
+                        verification['races'] != sum(v['candidate']['races'] for v in report['years'].values()) or
+                        registry[lag]['races'] != verification['races'] or
+                        report['maximum_reload_error'] != 0 or report['database_unchanged'] is not True or
+                        report['live_model_promoted'] is not False):
+                    errors.append('rank verified metrics differ')
+                if hashlib.sha256((folder / f'selection_lag{lag}.json').read_bytes()).hexdigest() != report['selection_sha256']:
+                    errors.append('rank selection was changed after evaluation')
+                for source, expected in selection['source_sha256'].items():
+                    if hashlib.sha256((root / 'keiba_v48' / source).read_bytes()).hexdigest() != expected:
+                        errors.append('rank source changed; reconcile evidence: '+source)
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors

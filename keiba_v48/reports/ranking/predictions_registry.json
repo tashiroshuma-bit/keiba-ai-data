@@ -1,0 +1,20 @@
+{
+  "2": {
+    "library_file_id": "libfile_c4f9bdb7d754819184ba658a6da61ea9",
+    "file_id": "file_00000000e82481fb9a6defda78025e54",
+    "version": 0,
+    "name": "ranking_predictions_20261022_lag2.json.gz",
+    "bytes": 5679648,
+    "sha256": "28c181deeeee46be0e93c02716158328657fb5607d1351448e68c7b161c6e8dd",
+    "races": 6036
+  },
+  "7": {
+    "library_file_id": "libfile_7ffd21f05f7481918b83321046061db4",
+    "file_id": "file_00000000bee481f5a08269d4c94bade6",
+    "version": 0,
+    "name": "ranking_predictions_20261022_lag7.json.gz",
+    "bytes": 5679302,
+    "sha256": "2a3cea6fa549b168f98aa66151e99764e41cf6415dba2ee91d702b3435b99d34",
+    "races": 6036
+  }
+}

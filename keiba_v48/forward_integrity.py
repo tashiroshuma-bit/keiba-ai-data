@@ -47,6 +47,13 @@ def audit(path):
                 inputs = p.get("inputs", {}).get("runners", [])
                 if len(inputs) != len(runners):
                     raise ValueError("input runner count mismatch")
+                forbidden = ("pre_off_odds", "final_win_odds", "finish_position", "payouts",
+                             "win_payout_100", "finish_time_seconds", "margin_seconds",
+                             "relative_speed_z", "corner4_position", "last_3f_rank")
+                if any(any(r.get(field) not in (None, "") for field in forbidden) for r in inputs):
+                    raise ValueError("outcome or market field in frozen inputs")
+                if {str(r["horse_number"]) for r in inputs} != {str(r["horse_number"]) for r in runners}:
+                    raise ValueError("input/output runner identity mismatch")
                 if any(_time(r["features_asof"]) > created for r in inputs):
                     raise ValueError("unobserved runner input")
                 if p.get("allocation", {}).get("bets"):

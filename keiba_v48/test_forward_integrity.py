@@ -49,6 +49,32 @@ class ForwardIntegrityTests(unittest.TestCase):
         self.insert(wrong_hash=True)
         self.assertEqual(len(audit(self.path)["rejected"]), 1)
 
+    def test_result_leakage_is_rejected(self):
+        self.insert()
+        with self.ledger.db:
+            key, raw = self.ledger.db.execute("SELECT id,payload FROM predictions").fetchone()
+            self.ledger.db.execute("DROP TRIGGER immutable_predictions_update")
+            p = json.loads(raw)
+            p["inputs"]["runners"][0]["finish_position"] = 1
+            changed = canonical(p)
+            model_hash = hashlib.sha256(canonical(p["model_artifact"]).encode()).hexdigest()
+            new_key = hashlib.sha256(("forward" + model_hash + changed).encode()).hexdigest()
+            self.ledger.db.execute("UPDATE predictions SET id=?,payload=? WHERE id=?", (new_key, changed, key))
+        self.assertIn("outcome or market", audit(self.path)["rejected"][0]["reason"])
+
+    def test_runner_mismatch_is_rejected(self):
+        self.insert()
+        with self.ledger.db:
+            key, raw = self.ledger.db.execute("SELECT id,payload FROM predictions").fetchone()
+            self.ledger.db.execute("DROP TRIGGER immutable_predictions_update")
+            p = json.loads(raw)
+            p["inputs"]["runners"][0]["horse_number"] = 2
+            changed = canonical(p)
+            model_hash = hashlib.sha256(canonical(p["model_artifact"]).encode()).hexdigest()
+            new_key = hashlib.sha256(("forward" + model_hash + changed).encode()).hexdigest()
+            self.ledger.db.execute("UPDATE predictions SET id=?,payload=? WHERE id=?", (new_key, changed, key))
+        self.assertIn("identity mismatch", audit(self.path)["rejected"][0]["reason"])
+
     def test_empty_is_not_forward(self):
         self.assertEqual(audit(self.path)["eligible_forward_races"], 0)
 

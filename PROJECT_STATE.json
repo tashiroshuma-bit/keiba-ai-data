@@ -240,14 +240,20 @@
     "primary": "rank_prediction_accuracy",
     "return_rate_optimization": "deferred_by_user_2026_10_22",
     "protocol": "keiba_v48/RANKING_PROTOCOL.json",
-    "selection_metric": "top3_recall",
+    "selection_metric": "three_exact_rank_hit_rates",
     "reported_metrics": [
       "winner_hit",
       "top3_recall",
       "top3_all_hit",
       "ordered_all_hit",
       "mean_rank_log_loss"
-    ]
+    ],
+    "targets": {
+      "winner_hit": 0.8,
+      "ordered_all_hit": 0.5,
+      "top3_all_hit": 0.6
+    },
+    "exact_protocol": "keiba_v48/EXACT_RANK_PROTOCOL.json"
   },
   "latest_rank_research": {
     "report": "keiba_v48/RANKING_RESULTS.md",
@@ -493,6 +499,60 @@
           }
         }
       }
+    }
+  },
+  "latest_exact_rank_research": {
+    "report": "keiba_v48/EXACT_RANK_RESULTS.md",
+    "protocol": "keiba_v48/EXACT_RANK_PROTOCOL.json",
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 9,
+      "bytes": 322084864,
+      "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+      "file_id": "file_00000000a16881f6be82d7a725283af0"
+    },
+    "predictions_registry": "keiba_v48/reports/exact_rank/predictions_registry.json",
+    "all_targets_met": false,
+    "evaluation_role": "2025/2026 already inspected retrospective",
+    "active_model_replaced": false,
+    "forward_observed_races": 0,
+    "shadow_entrypoint": "keiba_v48/rank_forecast.py",
+    "metrics": {
+      "lag2": {
+        "2025": {
+          "winner_hit": 0.22198858516070893,
+          "ordered_all_hit": 0.009912886752778613,
+          "top3_all_hit": 0.03905076599579453
+        },
+        "2026": {
+          "winner_hit": 0.20243812338381972,
+          "ordered_all_hit": 0.008496490579977835,
+          "top3_all_hit": 0.0347247875877355
+        }
+      },
+      "lag7": {
+        "2025": {
+          "winner_hit": 0.22168819465304895,
+          "ordered_all_hit": 0.009612496245118654,
+          "top3_all_hit": 0.03905076599579453
+        },
+        "2026": {
+          "winner_hit": 0.2013298854820835,
+          "ordered_all_hit": 0.008127077946065755,
+          "top3_all_hit": 0.03620243812338382
+        }
+      }
+    },
+    "selected": {
+      "lag2": "incumbent_original",
+      "lag7": "incumbent_exact_set"
+    },
+    "shadow_set_policy": {
+      "lag2": "marginal_recall",
+      "lag7": "exact_set"
     }
   }
 }

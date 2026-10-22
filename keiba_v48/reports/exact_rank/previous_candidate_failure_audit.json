@@ -1,0 +1,205 @@
+{
+  "scope": "fixed previous rank candidate; diagnostic only, no subset selected for target claims",
+  "segments": [
+    {
+      "year": "2025",
+      "dimension": "field_size",
+      "segment": "13_or_more",
+      "races": 2327,
+      "coverage": 0.6990087113247221,
+      "winner_hit": 0.21143102707348518,
+      "top3_all_hit": 0.022776106574989255,
+      "ordered_all_hit": 0.006446067898581865
+    },
+    {
+      "year": "2025",
+      "dimension": "field_size",
+      "segment": "3_to_8",
+      "races": 217,
+      "coverage": 0.06518474016221087,
+      "winner_hit": 0.271889400921659,
+      "top3_all_hit": 0.12903225806451613,
+      "ordered_all_hit": 0.018433179723502304
+    },
+    {
+      "year": "2025",
+      "dimension": "field_size",
+      "segment": "9_to_12",
+      "races": 785,
+      "coverage": 0.23580654851306698,
+      "winner_hit": 0.2394904458598726,
+      "top3_all_hit": 0.062420382165605096,
+      "ordered_all_hit": 0.017834394904458598
+    },
+    {
+      "year": "2025",
+      "dimension": "identity",
+      "segment": "all_linked",
+      "races": 410,
+      "coverage": 0.12316010814058276,
+      "winner_hit": 0.275609756097561,
+      "top3_all_hit": 0.04878048780487805,
+      "ordered_all_hit": 0.012195121951219513
+    },
+    {
+      "year": "2025",
+      "dimension": "identity",
+      "segment": "more_than_half_unlinked",
+      "races": 1429,
+      "coverage": 0.4292580354460799,
+      "winner_hit": 0.22463261021693492,
+      "top3_all_hit": 0.0363890832750175,
+      "ordered_all_hit": 0.005598320503848845
+    },
+    {
+      "year": "2025",
+      "dimension": "identity",
+      "segment": "up_to_half_unlinked",
+      "races": 1490,
+      "coverage": 0.44758185641333736,
+      "winner_hit": 0.20469798657718122,
+      "top3_all_hit": 0.038926174496644296,
+      "ordered_all_hit": 0.013422818791946308
+    },
+    {
+      "year": "2025",
+      "dimension": "winner_confidence",
+      "segment": "40_to_60pct",
+      "races": 563,
+      "coverage": 0.1691198558125563,
+      "winner_hit": 0.2682060390763766,
+      "top3_all_hit": 0.07992895204262877,
+      "ordered_all_hit": 0.021314387211367674
+    },
+    {
+      "year": "2025",
+      "dimension": "winner_confidence",
+      "segment": "60_to_80pct",
+      "races": 143,
+      "coverage": 0.04295584259537399,
+      "winner_hit": 0.3146853146853147,
+      "top3_all_hit": 0.06993006993006994,
+      "ordered_all_hit": 0.02097902097902098
+    },
+    {
+      "year": "2025",
+      "dimension": "winner_confidence",
+      "segment": "80pct_or_more",
+      "races": 14,
+      "coverage": 0.004205467107239411,
+      "winner_hit": 0.35714285714285715,
+      "top3_all_hit": 0.07142857142857142,
+      "ordered_all_hit": 0.0
+    },
+    {
+      "year": "2025",
+      "dimension": "winner_confidence",
+      "segment": "below_40pct",
+      "races": 2609,
+      "coverage": 0.7837188344848303,
+      "winner_hit": 0.20620927558451513,
+      "top3_all_hit": 0.028363357608279034,
+      "ordered_all_hit": 0.006899195093905711
+    },
+    {
+      "year": "2026",
+      "dimension": "field_size",
+      "segment": "13_or_more",
+      "races": 1823,
+      "coverage": 0.6734392316217215,
+      "winner_hit": 0.18540866703236422,
+      "top3_all_hit": 0.021941854086670324,
+      "ordered_all_hit": 0.0038398244651673065
+    },
+    {
+      "year": "2026",
+      "dimension": "field_size",
+      "segment": "3_to_8",
+      "races": 167,
+      "coverage": 0.061691909863317324,
+      "winner_hit": 0.281437125748503,
+      "top3_all_hit": 0.12574850299401197,
+      "ordered_all_hit": 0.029940119760479042
+    },
+    {
+      "year": "2026",
+      "dimension": "field_size",
+      "segment": "9_to_12",
+      "races": 717,
+      "coverage": 0.2648688585149612,
+      "winner_hit": 0.22733612273361228,
+      "top3_all_hit": 0.04602510460251046,
+      "ordered_all_hit": 0.015341701534170154
+    },
+    {
+      "year": "2026",
+      "dimension": "identity",
+      "segment": "all_linked",
+      "races": 17,
+      "coverage": 0.006280014776505356,
+      "winner_hit": 0.47058823529411764,
+      "top3_all_hit": 0.058823529411764705,
+      "ordered_all_hit": 0.0
+    },
+    {
+      "year": "2026",
+      "dimension": "identity",
+      "segment": "more_than_half_unlinked",
+      "races": 1801,
+      "coverage": 0.6653121536756557,
+      "winner_hit": 0.2071071626873959,
+      "top3_all_hit": 0.038312048861743477,
+      "ordered_all_hit": 0.008883953359244865
+    },
+    {
+      "year": "2026",
+      "dimension": "identity",
+      "segment": "up_to_half_unlinked",
+      "races": 889,
+      "coverage": 0.3284078315478389,
+      "winner_hit": 0.18785151856017998,
+      "top3_all_hit": 0.02699662542182227,
+      "ordered_all_hit": 0.007874015748031496
+    },
+    {
+      "year": "2026",
+      "dimension": "winner_confidence",
+      "segment": "40_to_60pct",
+      "races": 354,
+      "coverage": 0.13077207240487626,
+      "winner_hit": 0.2627118644067797,
+      "top3_all_hit": 0.05084745762711865,
+      "ordered_all_hit": 0.014124293785310734
+    },
+    {
+      "year": "2026",
+      "dimension": "winner_confidence",
+      "segment": "60_to_80pct",
+      "races": 77,
+      "coverage": 0.028444772811230146,
+      "winner_hit": 0.3116883116883117,
+      "top3_all_hit": 0.03896103896103896,
+      "ordered_all_hit": 0.0
+    },
+    {
+      "year": "2026",
+      "dimension": "winner_confidence",
+      "segment": "80pct_or_more",
+      "races": 14,
+      "coverage": 0.005171776874769117,
+      "winner_hit": 0.5,
+      "top3_all_hit": 0.07142857142857142,
+      "ordered_all_hit": 0.0
+    },
+    {
+      "year": "2026",
+      "dimension": "winner_confidence",
+      "segment": "below_40pct",
+      "races": 2262,
+      "coverage": 0.8356113779091245,
+      "winner_hit": 0.1874447391688771,
+      "top3_all_hit": 0.03183023872679045,
+      "ordered_all_hit": 0.007957559681697613
+    }
+  ]
+}

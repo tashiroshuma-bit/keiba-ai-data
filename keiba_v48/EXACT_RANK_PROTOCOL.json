@@ -1,0 +1,25 @@
+{
+  "schema": "keiba-exact-rank-v1",
+  "targets": {"winner_hit": 0.8, "ordered_all_hit": 0.5, "top3_all_hit": 0.6},
+  "coverage": "all rank-eligible races; no confidence selection, no extra picks, one winner/ordered triple/unordered triple per race",
+  "training": 2023,
+  "calibration": "2024 January-June after training labels",
+  "selection": "2024 July-December after calibration labels",
+  "selection_rule": "candidate must not reduce any of the three exact hit rates versus incumbent on selection races; then maximize product of target-normalized hit rates, then lower joint target NLL, then name; incumbent fallback",
+  "unordered_decision": "maximum sum of the six ordered joint probabilities for exactly three distinct horses",
+  "models": [
+    {"name":"boost_win_d2", "family":"win", "depth":2},
+    {"name":"boost_win_d3", "family":"win", "depth":3},
+    {"name":"boost_shared_d2", "family":"shared_top3", "depth":2},
+    {"name":"boost_stage_d2", "family":"stagewise_top3", "depth":2},
+    {"name":"boost_stage_d3", "family":"stagewise_top3", "depth":3}
+  ],
+  "trees": 120, "learning_rate": 0.05, "minimum_leaf": 250, "leaf_regularization": 20, "bins": 16,
+  "temperatures": [0.75,1.0,1.25,1.5,2.0],
+  "evaluation_years": [2025,2026], "lag_days": [2,7],
+  "evaluation_role": "already inspected exploratory retrospective; never unseen or forward",
+  "missing_data": "preserve isolated unlinked rows and masked current going/weight; no inferred IDs or timestamps",
+  "forbidden": "no odds, payouts, EV, result-time input features, changes to 2025/2026 conditions after results",
+  "bootstrap": {"unit":"day", "draws":1000, "seed":48},
+  "promotion": "no automatic live model replacement; keep all rejected candidates in selection table"
+}

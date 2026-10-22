@@ -1,0 +1,11 @@
+{
+  "verified": true,
+  "races": 6036,
+  "lag_days": 2,
+  "predictions_sha256": "1a1abe41ee6b60c2b54808fe267dacdc94711019dd45131632a47a952f846e74",
+  "model_sha256": "2e29f176bece2fb3c7ffe481a78550e34202be4a4644acd54de89743e81dd467",
+  "reference_predictions_sha256": "28c181deeeee46be0e93c02716158328657fb5607d1351448e68c7b161c6e8dd",
+  "all_race_coverage_matches_prior": true,
+  "all_hit_counts_recomputed": true,
+  "independent_full_feature_or_joint_MAP_replay": false
+}

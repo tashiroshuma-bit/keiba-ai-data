@@ -69,6 +69,16 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['latest_rank_research']['database']['sha256'] = '0'*64
         self.assertTrue(any('rank artifact identity' in e for e in project.validate_state(stale)))
 
+    def test_unmet_exact_targets_cannot_be_reported_as_met(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_exact_rank_research']['all_targets_met'] = True
+        self.assertTrue(any('target attainment' in e for e in project.validate_state(stale)))
+
+    def test_user_exact_goals_are_pinned(self):
+        stale = copy.deepcopy(self.state)
+        stale['development_objective']['targets']['winner_hit'] = .2
+        self.assertTrue(any('targets differ' in e for e in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

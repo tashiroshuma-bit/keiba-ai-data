@@ -151,6 +151,47 @@ def validate_state(state, root=ROOT):
                 for source, expected in selection['source_sha256'].items():
                     if hashlib.sha256((root / 'keiba_v48' / source).read_bytes()).hexdigest() != expected:
                         errors.append('rank source changed; reconcile evidence: '+source)
+        exact = state.get('latest_exact_rank_research')
+        if exact:
+            protocol = read(exact['protocol'])
+            targets = protocol['targets']
+            if targets != state['development_objective']['targets']:
+                errors.append('exact rank targets differ from user goal protocol')
+            registry = read(exact['predictions_registry'])
+            all_met = True
+            for lag in ('2', '7'):
+                folder = 'keiba_v48/reports/exact_rank/'
+                report = read(folder + f'evaluation_lag{lag}.json')
+                selection = read(folder + f'selection_lag{lag}.json')
+                checked = read(folder + f'verification_lag{lag}.json')
+                if (report['input_db_sha256'] != exact['database']['sha256'] or
+                        report['model_sha256'] != hashlib.sha256((root / folder / f'model_lag{lag}.json').read_bytes()).hexdigest() or
+                        report['model_sha256'] != selection['model_sha256'] or
+                        report['predictions_sha256'] != registry[lag]['sha256'] or
+                        report['predictions_sha256'] != checked['predictions_sha256'] or checked['verified'] is not True or
+                        selection['selected'] != report['selected'] or
+                        report['selected'] != exact['selected']['lag'+lag] or
+                        report['prediction_set_policy'] != exact['shadow_set_policy']['lag'+lag]):
+                    errors.append('exact rank saved evidence differs')
+                if (hashlib.sha256((root / folder / f'selection_lag{lag}.json').read_bytes()).hexdigest() != report['selection_sha256'] or
+                        report['maximum_reload_error'] != 0 or not report['database_unchanged'] or
+                        report['live_model_promoted'] is not False):
+                    errors.append('exact rank freeze or reload verification differs')
+                for name, expected in selection['source_sha256'].items():
+                    if hashlib.sha256((root/'keiba_v48'/name).read_bytes()).hexdigest() != expected:
+                        errors.append('exact rank source changed: '+name)
+                for year, values in report['years'].items():
+                    metrics = {k: values['candidate'][k] for k in targets}
+                    met = all(metrics[k] >= targets[k] for k in targets)
+                    all_met = all_met and met
+                    if (metrics != exact['metrics']['lag'+lag][year] or
+                            values['candidate']['all_targets_met'] != met or values['full_coverage'] is not True or
+                            values['coverage_races'] != values['candidate']['races']):
+                        errors.append('exact rank hit claims differ from all-race evidence')
+                if checked['races'] != sum(v['candidate']['races'] for v in report['years'].values()):
+                    errors.append('exact rank race coverage differs')
+            if exact['all_targets_met'] != all_met:
+                errors.append('exact rank target attainment is unsupported')
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors

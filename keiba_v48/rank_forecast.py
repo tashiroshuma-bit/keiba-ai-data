@@ -6,7 +6,8 @@ from pathlib import Path
 from completion_validation import sha
 from enriched_features import load_observed_enriched, history_index, build_enriched
 from features import timestamp
-from ranking_model import RankModel, augment, picks
+from ranking_model import RankModel, augment, picks, joint_distribution
+from exact_rank_model import ExactRankTree, exact_set
 from strategy import validate_field
 from validation import Ledger, canonical
 
@@ -16,7 +17,8 @@ def forecast(db, rows, model_path, selection_path):
     selected = json.loads(Path(selection_path).read_text())
     if sha(model_path) != selected['model_sha256']:
         raise ValueError('rank model differs from selected artifact')
-    model = RankModel.from_dict(artifact)
+    model = (ExactRankTree.from_dict(artifact) if artifact.get('schema') == 'keiba-exact-rank-trees-v1'
+             else RankModel.from_dict(artifact))
     now = dt.datetime.now(dt.timezone.utc)
     forbidden = ('pre_off_odds', 'final_win_odds', 'finish_position', 'payouts', 'win_payout_100',
                  'finish_time_seconds', 'margin_seconds', 'relative_speed_z', 'corner4_position', 'last_3f_rank')
@@ -37,9 +39,15 @@ def forecast(db, rows, model_path, selection_path):
                 for r in rows]
     features = build_enriched(history_index(history, assumed=False), prepared)
     race = augment(dict(rows=prepared, features=features))
-    p, q = model.predict(race['features'])
+    p, q = (joint_distribution(model.raw([race])[0], model.temperature) if isinstance(model, ExactRankTree)
+            else model.predict(race['features']))
     numbers = [r['horse_number'] for r in prepared]
     winner, trio, ordered = picks(p, q, numbers)
+    set_policy = selected.get('prediction_set_policy', 'marginal_recall')
+    if set_policy == 'exact_set':
+        trio, _ = exact_set(q, numbers)
+    elif set_policy != 'marginal_recall':
+        raise ValueError('unknown rank set decision policy')
     return dict(version='4.8-rank-shadow', deployment_status='experimental_rank_shadow',
         race_id=rows[0]['race_id'], off_timestamp=rows[0]['off_timestamp'], cutoff_timestamp=cutoff.isoformat(),
         created_at=now.isoformat(), history_time_policy='actual_source_and_identity_observation',
@@ -49,7 +57,7 @@ def forecast(db, rows, model_path, selection_path):
                       p_top3=float(p[i].sum()), history_starts=features[i]['history_starts'])
                  for i,r in enumerate(prepared)],
         winner_pick=numbers[winner], top3_pick=[numbers[i] for i in trio],
-        ordered_pick=[numbers[i] for i in ordered],
+        ordered_pick=[numbers[i] for i in ordered], unordered_decision_policy=set_policy,
         inputs=dict(runners=prepared, features=race['features']),
         allocation=dict(bets=[], stake_yen=0), strict_production_validated=False)
 

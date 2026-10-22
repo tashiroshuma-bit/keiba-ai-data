@@ -45,8 +45,9 @@ def validate_state(state, root=ROOT):
         if review['forward_observed_races'] != state['forward']['observed_races']:
             errors.append('forward count differs from review')
         audit = read(state['latest_research']['data_audit'])
+        research_db = state['latest_research'].get('database', state['database'])
         for source, target in (('repaired_db_sha256', 'sha256'), ('repaired_db_bytes', 'bytes')):
-            if audit[source] != state['database'][target]:
+            if audit[source] != research_db[target]:
                 errors.append('database identity differs from latest repair evidence: ' + target)
         if audit['usable_races_after'] != state['latest_research']['usable_races']:
             errors.append('usable race count differs from latest repair evidence')
@@ -54,7 +55,7 @@ def validate_state(state, root=ROOT):
             errors.append('excluded race count differs from latest repair evidence')
         for name in state['latest_research']['comparison_files']:
             report = read(name)
-            if report['input_db_sha256'] != state['database']['sha256']:
+            if report['input_db_sha256'] != research_db['sha256']:
                 errors.append('comparison uses a different database: ' + name)
             if report['exact_original_EV_cohort_structural_vs_original']['races'] != state['latest_research']['paired_cohort']:
                 errors.append('comparison cohort differs: ' + name)
@@ -87,10 +88,39 @@ def validate_state(state, root=ROOT):
                     not verification['verified'] or
                     verification['independently_recomputed_return_pct'] != actual['return_pct']):
                     errors.append('ROI95 metrics differ from verified research evidence')
-                if report['input_db_sha256'] != state['database']['sha256']:
+                if report['input_db_sha256'] != research_db['sha256']:
                     errors.append('ROI95 uses a different database')
             if roi['live_eligible'] is not False or review['live_model_promotion_approved'] is not False:
                 errors.append('ROI95 retrospective model cannot be live eligible')
+        current = state.get('latest_data_work', {})
+        if (research_db['sha256'] != state['database']['sha256'] and
+                current.get('status') != 'saved_and_roundtrip_verified'):
+            errors.append('current database changed without verified saved readback')
+        if current.get('status') == 'saved_and_roundtrip_verified':
+            saved = read(current['verification'])
+            quality = read(current['data_audit'])
+            if saved['verified'] is not True or saved['earlier_raw_history_unchanged'] is not True:
+                errors.append('current database roundtrip is not verified')
+            for key in ('sha256', 'bytes', 'library_file_id', 'version'):
+                if saved['database'][key] != state['database'][key]:
+                    errors.append('current database differs from saved readback: ' + key)
+            if (quality['input_db_sha256'] != state['database']['sha256'] or
+                    quality['input_db_bytes'] != state['database']['bytes'] or
+                    saved['usable'] != quality['usable'] or
+                    saved['latest_race_date'] != current['latest_race_date']):
+                errors.append('current database audit differs from saved readback')
+            if (quality['integrity'] != {'sqlite': 'ok', 'foreign_key_violations': 0} or
+                    quality['runner_key_duplicate_groups'] != 0 or
+                    quality['identity_link_disagreements'] != 0 or
+                    quality['full_field_headcount_mismatches'] != 0 or
+                    saved['usable']['races'] != current['usable_races']):
+                errors.append('current database quality gate failed')
+            for key in ('sha256', 'bytes', 'library_file_id', 'version'):
+                if saved['originals'][key] != state['sources']['annual_2026'][key]:
+                    errors.append('current originals differ from saved readback: ' + key)
+            for key in ('sha256', 'bytes'):
+                if saved['baseline'][key] != research_db[key]:
+                    errors.append('historical research database differs from preserved baseline: ' + key)
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors
@@ -127,7 +157,8 @@ def main():
     print(json.dumps(dict(valid=not errors, errors=errors,
                          database_version=state['database']['version'],
                          database_local_verified=verified,
-                         usable_races=state['latest_research']['usable_races'],
+                         usable_races=(state.get('latest_data_work', {}).get('usable_races')
+                                       or state['latest_research']['usable_races']),
                          live_bet_generation=state['active_model']['live_bet_generation']),
                      ensure_ascii=False))
     raise SystemExit(bool(errors))

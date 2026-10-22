@@ -1,0 +1,51 @@
+{
+  "schema": "keiba-annual-library-roundtrip-v1",
+  "verified": true,
+  "verified_at": "2026-10-22T10:05:09.168417+09:00",
+  "database": {
+    "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+    "bytes": 322084864,
+    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "version": 9
+  },
+  "originals": {
+    "sha256": "ef7ea007706af350897de975d92edf918a3cd2cf58ef255fdba5375b4365ea54",
+    "bytes": 152283467,
+    "library_file_id": "libfile_46eebc5b1a30819196eb1ac98c1e038c",
+    "version": 0
+  },
+  "baseline": {
+    "sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+    "bytes": 261660672
+  },
+  "official_originals": 234,
+  "original_hashes_match_previous": 234,
+  "zip_crc": "ok",
+  "earlier_raw_history_unchanged": true,
+  "earlier_raw_history_sha256": "13db48a7162b1a5ab188f29275803870dde6e84787c8ddac637ee9b37982943b",
+  "race_counts_by_year": {
+    "2023": 3456,
+    "2024": 3456,
+    "2025": 3456,
+    "2026": 2808
+  },
+  "runner_counts_by_year": {
+    "2023": 47672,
+    "2024": 47181,
+    "2025": 47884,
+    "2026": 38608
+  },
+  "empty_race_panels": 6,
+  "usable": {
+    "races": 12763,
+    "runner_rows": 175102,
+    "history_rows": 175102,
+    "excluded_races": 404,
+    "void_races": 3
+  },
+  "integrity": {
+    "sqlite": "ok",
+    "foreign_key_violations": 0
+  },
+  "latest_race_date": "2026-10-18"
+}

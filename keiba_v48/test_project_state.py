@@ -44,6 +44,21 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['historical_source_snapshots']['annual_parser.py']['sha256'] = '0' * 64
         self.assertTrue(any('comparison source changed' in error for error in project.validate_state(stale)))
 
+    def test_current_database_requires_completed_roundtrip(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_data_work']['status'] = 'locally_verified_candidate_persistent_save_blocked'
+        self.assertTrue(any('without verified saved readback' in e for e in project.validate_state(stale)))
+
+    def test_research_keeps_its_actual_database(self):
+        stale = copy.deepcopy(self.state)
+        stale['latest_research']['database'] = copy.deepcopy(stale['database'])
+        self.assertTrue(any('different database' in e or 'database identity' in e for e in project.validate_state(stale)))
+
+    def test_saved_originals_identity_is_checked(self):
+        stale = copy.deepcopy(self.state)
+        stale['sources']['annual_2026']['sha256'] = '0' * 64
+        self.assertTrue(any('originals differ' in e for e in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

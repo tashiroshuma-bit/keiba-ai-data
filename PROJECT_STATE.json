@@ -1,26 +1,26 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-20",
+  "updated_date": "2026-10-22",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
   "latest_data_work": {
-    "report": "keiba_v48/2026_INTEGRATION_RESULTS.md",
-    "evidence_directory": "keiba_v48/reports/annual_2026",
-    "status": "locally_verified_candidate_persistent_save_blocked",
-    "canonical_database_unchanged": true,
+    "report": "keiba_v48/2026_SAVE_RESULTS.md",
+    "evidence_directory": "keiba_v48/reports/annual_2026_saved",
+    "status": "saved_and_roundtrip_verified",
+    "canonical_database_unchanged": false,
     "year": 2026,
     "downloaded_originals": 234,
     "extracted_races": 2808,
     "extracted_runner_rows": 38608,
     "latest_race_date": "2026-10-18",
-    "candidate_db_sha256": "c839435fbe829c13a39052849cb6497b24d84800bc8e9bfa1a333ec1d812021d",
-    "candidate_db_bytes": 322084864,
-    "candidate_usable_races": 12763,
-    "candidate_excluded_nonempty_races": 404,
-    "candidate_empty_race_panels": 6,
-    "persistent_save_error": "Required Library upload helper failed at hosted-app tool discovery with HTTP403; no successful replacement or create confirmed",
-    "promotion_approved": false
+    "usable_races": 12763,
+    "excluded_nonempty_races": 404,
+    "empty_race_panels": 6,
+    "verification": "keiba_v48/reports/annual_2026_saved/verification.json",
+    "data_audit": "keiba_v48/reports/annual_2026_saved/data_audit.json",
+    "promotion_approved": false,
+    "model_retrained": false
   },
   "historical_source_snapshots": {
     "annual_parser.py": {
@@ -33,11 +33,12 @@
   "database": {
     "name": "jra_2023_2025.sqlite",
     "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
-    "version": 8,
-    "bytes": 261660672,
-    "sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+    "version": 9,
+    "bytes": 322084864,
+    "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
     "repository_root_copy": "historical_ingestion_stub_not_canonical",
-    "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use."
+    "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+    "file_id": "file_00000000a16881f6be82d7a725283af0"
   },
   "sources": {
     "cache": {
@@ -45,8 +46,18 @@
       "version": 2,
       "sha256": "3e02e16253db79e12e01d1b36ddc4aa0379c1d1dfe89b69282297bb28a3e8acd"
     },
-    "pdf_documents": 864,
-    "known_refused_sources": "JRA accessS.html and JBIS HTTP403; no retries or bypass"
+    "pdf_documents": 1098,
+    "known_refused_sources": "JRA accessS.html and JBIS HTTP403; no retries or bypass",
+    "annual_2026": {
+      "library_file_id": "libfile_46eebc5b1a30819196eb1ac98c1e038c",
+      "file_id": "file_0000000058c081f690ee9d8537b90750",
+      "version": 0,
+      "name": "jra_pdf_2026_checkpoint_20261022.zip",
+      "bytes": 152283467,
+      "sha256": "ef7ea007706af350897de975d92edf918a3cd2cf58ef255fdba5375b4365ea54",
+      "documents": 234,
+      "contents": "234 official result PDFs, annual index and manifest; catalog/votes samples from the lost staging area are not included"
+    }
   },
   "active_model": {
     "manifest": "keiba_v48/deployment/active_manifest.json",
@@ -100,8 +111,14 @@
       "evaluation_year": 2025,
       "evaluation_role": "exploratory historical final-odds only",
       "scheduled_races": 3314,
-      "selected_bets": {"lag2": 1937, "lag7": 1870},
-      "return_pct": {"lag2": 96.690758905524, "lag7": 104.20855614973262},
+      "selected_bets": {
+        "lag2": 1937,
+        "lag7": 1870
+      },
+      "return_pct": {
+        "lag2": 96.690758905524,
+        "lag7": 104.20855614973262
+      },
       "live_eligible": false,
       "research_candidate_promoted_to_live": false
     },
@@ -110,6 +127,15 @@
       "independent_HTML_agreed": 242,
       "conflicts": 0,
       "learned_model_promoted": false
+    },
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 8,
+      "bytes": 261660672,
+      "sha256": "4529e684f37a47d5223108382d22f4e530d0dc7b76f5dbe0c77aa4a5631d37cd",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use."
     }
   },
   "forward": {
@@ -131,26 +157,26 @@
   "unresolved": [
     {
       "id": "CURRENT_YEAR_HISTORY",
-      "latest_race_date": "2025-12-28",
-      "age_days_asof_2026_10_20": 296,
-      "status": "234 official 2026 PDFs downloaded and 2808 races extracted into verified local candidate; canonical replacement blocked by required save-path HTTP403. Legacy diagnostic CSVs remain separate."
+      "latest_race_date": "2026-10-18",
+      "age_days_asof_2026_10_22": 4,
+      "status": "Annual PDF history saved as canonical version 9 and independently read back; 95 nonempty exclusions and 6 empty panels in 2026 remain."
     },
     {
       "id": "EXCLUSIONS",
-      "count": 309,
-      "details": {
-        "unsupported_exceptional_result": 210,
-        "unsupported_pdf_extraction_issue": 97,
-        "missing_expected_runner_count": 2
-      }
+      "count": 404,
+      "empty_race_panels": 6,
+      "previous_years_nonempty": 309,
+      "year_2026_nonempty": 95
     },
     {
       "id": "HORSE_IDS",
-      "unlinked_rows": 51306
+      "unlinked_rows": 77327,
+      "year_2026": 26021
     },
     {
       "id": "JOCKEY_IDS",
-      "unlinked_rows": 5151
+      "unlinked_rows": 6349,
+      "year_2026": 1198
     },
     {
       "id": "PUBLICATION_TIMES",

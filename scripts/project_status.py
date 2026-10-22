@@ -179,6 +179,54 @@ def validate_state(state, root=ROOT):
                     for name,expected in artifact['source_sha256'].items():
                         if hashlib.sha256((root/'keiba_v48'/name).read_bytes()).hexdigest()!=expected:
                             errors.append('probability correction source differs: '+name)
+        history = state.get('latest_history_research')
+        if history:
+            registry=read(history['predictions_registry']);folder=(root/history['predictions_registry']).parent
+            for lag in ('2','7'):
+                selection=read(str((folder/f'selection_lag{lag}.json').relative_to(root)))
+                report=read(str((folder/f'evaluation_lag{lag}.json').relative_to(root)))
+                verification=read(str((folder/f'verification_lag{lag}.json').relative_to(root)))
+                for prefix,key in (('model','model_sha256'),('selection','selection_sha256')):
+                    if hashlib.sha256((folder/f'{prefix}_lag{lag}.json').read_bytes()).hexdigest()!=report[key]:
+                        errors.append('history rank artifact differs: '+prefix)
+                if (report['predictions_sha256'] != registry[lag]['sha256'] or
+                        report['predictions_sha256'] != verification['predictions_sha256'] or
+                        report['model_sha256'] != verification['model_sha256'] or
+                        selection['model_sha256'] != report['model_sha256'] or
+                        verification['verified'] is not True or verification['races'] != 6036 or registry[lag]['races'] != verification['races'] or
+                        verification['largest_independent_probability_error'] >= 1e-11 or
+                        report['input_db_sha256'] != history['database']['sha256'] or
+                        report['years'] != history['metrics']['lag'+lag] or
+                        report['maximum_reload_error'] != 0 or report['database_unchanged'] is not True or
+                        report['active_model_promoted'] is not False or history['active_model_replaced'] is not False):
+                    errors.append('history rank evidence differs')
+                targets=state['development_objective']['targets']
+                if report['all_targets_met'] != all(v['candidate'][k]>=t for v in report['years'].values() for k,t in targets.items()):
+                    errors.append('history target attainment differs')
+                baseline=selection['grid'][0]['metrics'];options=[]
+                for candidate in selection['grid']:
+                    m=candidate['metrics']
+                    if all(round(m[k]*m['races'])>=round(baseline[k]*baseline['races']) for k in targets):options.append(candidate)
+                def score(candidate):
+                    m=candidate['metrics'];product=1
+                    for k,t in targets.items():product*=m[k]/t
+                    return (-product,m['joint_log_loss'],candidate['name'])
+                if (min(options,key=score)['name'] != selection['selected'] or report['selected'] != selection['selected'] or
+                        history['selected']['lag'+lag] != selection['selected']):
+                    errors.append('history candidate violates frozen selection')
+                for name,digest in selection['source_sha256'].items():
+                    if hashlib.sha256((root/'keiba_v48'/name).read_bytes()).hexdigest()!=digest:
+                        errors.append('history source differs: '+name)
+            attained=all(v['candidate'][k]>=t for annual in history['metrics'].values() for v in annual.values() for k,t in targets.items())
+            if history['all_targets_met'] != attained:errors.append('history target attainment differs from shared state')
+        preoff=state.get('preoff_information')
+        if preoff:
+            observed=read(preoff['observation'])
+            raw_path=(root/preoff['observation'].replace('_observation.json','.html')).resolve()
+            if (not raw_path.is_relative_to(root) or hashlib.sha256(raw_path.read_bytes()).hexdigest()!=observed['sha256'] or
+                    (observed['full_field_attested'] is False and preoff['complete_future_fields']!=0) or
+                    preoff['forecast_created'] != observed['forecast_created']):
+                errors.append('preoff observation provenance or coverage differs')
         rank = state.get('latest_rank_research')
         if rank:
             if state['development_objective']['primary'] != 'rank_prediction_accuracy':

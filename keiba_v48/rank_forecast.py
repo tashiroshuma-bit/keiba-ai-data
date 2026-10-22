@@ -13,6 +13,7 @@ from validation import Ledger, canonical
 from preoff_snapshot import audit_snapshot
 from rank_calibration import mix_joint, validate_artifact
 from confidence_calibration import alpha_for
+from history_blend_model import HistoryBlendModel,augment_blend
 
 
 def forecast(db, rows, model_path, selection_path, calibration_path=None):
@@ -20,7 +21,8 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     selected = json.loads(Path(selection_path).read_text())
     if sha(model_path) != selected['model_sha256']:
         raise ValueError('rank model differs from selected artifact')
-    model = (ExactRankTree.from_dict(artifact) if artifact.get('schema') == 'keiba-exact-rank-trees-v1'
+    model = (HistoryBlendModel.from_dict(artifact) if artifact.get('schema')=='keiba-history-blend-model-v1' else
+             ExactRankTree.from_dict(artifact) if artifact.get('schema') == 'keiba-exact-rank-trees-v1'
              else RankModel.from_dict(artifact))
     now = dt.datetime.now(dt.timezone.utc)
     forbidden = ('pre_off_odds', 'final_win_odds', 'finish_position', 'payouts', 'win_payout_100',
@@ -41,10 +43,17 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     history = load_observed_enriched(db, min(cutoff, now))
     prepared = [{**r, 'race_date':timestamp(r['off_timestamp']).astimezone(dt.timezone(dt.timedelta(hours=9))).date().isoformat()}
                 for r in rows]
-    features = build_enriched(history_index(history, assumed=False), prepared)
-    race = augment(dict(rows=prepared, features=features))
+    index=history_index(history,assumed=False)
+    features = build_enriched(index, prepared)
+    raw=dict(rows=prepared,features=features,race_id=rows[0]['race_id'],off_timestamp=rows[0]['off_timestamp'])
+    race = augment_blend(raw,index) if isinstance(model,HistoryBlendModel) else augment(raw)
     p, q = (joint_distribution(model.raw([race])[0], model.temperature) if isinstance(model, ExactRankTree)
             else model.predict(race['features']))
+    calibration_info=None
+    if selected.get('schema')=='keiba-history-blend-selection-v1':
+        p,q=mix_joint(p,q,selected['alpha'])
+        calibration_info=dict(method='selected_history_mixture',alpha=selected['alpha'],
+                              selection_sha256=sha(selection_path),status='research_only')
     numbers = [r['horse_number'] for r in prepared]
     winner, trio, ordered = picks(p, q, numbers)
     set_policy = selected.get('prediction_set_policy', 'marginal_recall')
@@ -52,7 +61,6 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         trio, _ = exact_set(q, numbers)
     elif set_policy != 'marginal_recall':
         raise ValueError('unknown rank set decision policy')
-    calibration_info=None
     if calibration_path:
         adjustment=json.loads(Path(calibration_path).read_text())
         alpha=(alpha_for(adjustment,p,sha(model_path),sha(selection_path))

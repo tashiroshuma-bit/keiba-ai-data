@@ -1,0 +1,178 @@
+{
+  "2": {
+    "2025": {
+      "metrics": {
+        "winner_hit": {
+          "hits": 739,
+          "races": 3329,
+          "rate": 0.22198858516070893,
+          "wilson_95": [
+            0.2081962927883334,
+            0.2364217537433594
+          ],
+          "target": 0.8,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "ordered_all_hit": {
+          "hits": 33,
+          "races": 3329,
+          "rate": 0.009912886752778613,
+          "wilson_95": [
+            0.007067267053824567,
+            0.013888262839699713
+          ],
+          "target": 0.5,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "top3_all_hit": {
+          "hits": 130,
+          "races": 3329,
+          "rate": 0.03905076599579453,
+          "wilson_95": [
+            0.03298396869066327,
+            0.04618015059932324
+          ],
+          "target": 0.6,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        }
+      },
+      "all_point_targets_met": false,
+      "all_lower_bound_targets_met": false,
+      "note": "Independent race Wilson intervals ignore same-day dependence; use day-cluster bootstrap for promotion decisions. Previously inspected years are retrospective, not forward validation."
+    },
+    "2026": {
+      "metrics": {
+        "winner_hit": {
+          "hits": 548,
+          "races": 2707,
+          "rate": 0.20243812338381972,
+          "wilson_95": [
+            0.1877279041275136,
+            0.21799167613121595
+          ],
+          "target": 0.8,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "ordered_all_hit": {
+          "hits": 23,
+          "races": 2707,
+          "rate": 0.008496490579977835,
+          "wilson_95": [
+            0.005668366014846839,
+            0.012717607336164546
+          ],
+          "target": 0.5,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "top3_all_hit": {
+          "hits": 94,
+          "races": 2707,
+          "rate": 0.0347247875877355,
+          "wilson_95": [
+            0.02846071150963237,
+            0.04230752106127993
+          ],
+          "target": 0.6,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        }
+      },
+      "all_point_targets_met": false,
+      "all_lower_bound_targets_met": false,
+      "note": "Independent race Wilson intervals ignore same-day dependence; use day-cluster bootstrap for promotion decisions. Previously inspected years are retrospective, not forward validation."
+    }
+  },
+  "7": {
+    "2025": {
+      "metrics": {
+        "winner_hit": {
+          "hits": 738,
+          "races": 3329,
+          "rate": 0.22168819465304895,
+          "wilson_95": [
+            0.20790306652781887,
+            0.23611489145339487
+          ],
+          "target": 0.8,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "ordered_all_hit": {
+          "hits": 31,
+          "races": 3329,
+          "rate": 0.009312105737458696,
+          "wilson_95": [
+            0.006568125601347459,
+            0.013187227191218835
+          ],
+          "target": 0.5,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "top3_all_hit": {
+          "hits": 131,
+          "races": 3329,
+          "rate": 0.03935115650345449,
+          "wilson_95": [
+            0.033259904618461344,
+            0.046504303222004176
+          ],
+          "target": 0.6,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        }
+      },
+      "all_point_targets_met": false,
+      "all_lower_bound_targets_met": false,
+      "note": "Independent race Wilson intervals ignore same-day dependence; use day-cluster bootstrap for promotion decisions. Previously inspected years are retrospective, not forward validation."
+    },
+    "2026": {
+      "metrics": {
+        "winner_hit": {
+          "hits": 547,
+          "races": 2707,
+          "rate": 0.20206871074990765,
+          "wilson_95": [
+            0.1873693043614809,
+            0.21761249759837684
+          ],
+          "target": 0.8,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "ordered_all_hit": {
+          "hits": 23,
+          "races": 2707,
+          "rate": 0.008496490579977835,
+          "wilson_95": [
+            0.005668366014846839,
+            0.012717607336164546
+          ],
+          "target": 0.5,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        },
+        "top3_all_hit": {
+          "hits": 95,
+          "races": 2707,
+          "rate": 0.03509420022164758,
+          "wilson_95": [
+            0.028794573212964632,
+            0.04271143765681953
+          ],
+          "target": 0.6,
+          "point_target_met": false,
+          "lower_bound_target_met": false
+        }
+      },
+      "all_point_targets_met": false,
+      "all_lower_bound_targets_met": false,
+      "note": "Independent race Wilson intervals ignore same-day dependence; use day-cluster bootstrap for promotion decisions. Previously inspected years are retrospective, not forward validation."
+    }
+  }
+}

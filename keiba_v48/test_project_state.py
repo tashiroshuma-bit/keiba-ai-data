@@ -79,6 +79,17 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['development_objective']['targets']['winner_hit'] = .2
         self.assertTrue(any('targets differ' in e for e in project.validate_state(stale)))
 
+    def test_history_metrics_and_goal_claims_match_saved_replay(self):
+        stale=copy.deepcopy(self.state)
+        stale['latest_history_research']['metrics']['lag7']['2026']['candidate']['winner_hit']=.8
+        self.assertTrue(any('history rank evidence' in e for e in project.validate_state(stale)))
+        stale=copy.deepcopy(self.state);stale['latest_history_research']['all_targets_met']=True
+        self.assertTrue(any('history target attainment' in e for e in project.validate_state(stale)))
+
+    def test_empty_preoff_page_cannot_count_as_complete_field(self):
+        stale=copy.deepcopy(self.state);stale['preoff_information']['complete_future_fields']=1
+        self.assertTrue(any('preoff observation' in e for e in project.validate_state(stale)))
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -1,0 +1,24 @@
+{
+  "verified": true,
+  "races": 6036,
+  "input_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "selected": "win_reg0.2_weight0.1_marginal_recall",
+  "model_sha256": "be2435172a9cb9b8b05a84a918b9df80c93614e4a5639825fc4a013be030f983",
+  "selection_sha256": "fb9e321fbfe4fecd3d86ec1c2f98117583641d421c4b74284f252fc4dabcfdb0",
+  "predictions_sha256": "5522bb7e4143f989f63e576013e325b73f55ca09d806e836cbae7f7da7887034",
+  "largest_independent_probability_error": 6.106226635438361e-16,
+  "features_rebuilt_from_canonical": true,
+  "independent_feature_implementation": false,
+  "independent_coefficient_and_joint_math": true,
+  "MAP_checked_with_tolerance": 1e-11,
+  "repair_probability_changed_races": 325,
+  "changed_picks": {
+    "repair_winner": 0,
+    "repair_order": 0,
+    "repair_set": 0,
+    "model_winner": 25,
+    "model_order": 185,
+    "model_set": 258
+  },
+  "database_unchanged": true
+}

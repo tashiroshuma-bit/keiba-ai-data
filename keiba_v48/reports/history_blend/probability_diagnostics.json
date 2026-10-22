@@ -1,0 +1,566 @@
+{
+  "2": {
+    "2025": {
+      "previous": {
+        "winner_brier": 0.8896706346718163,
+        "top_label_ece": 0.0634626308504329,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 929,
+            "mean_probability": 0.15949842142641193,
+            "hit_rate": 0.15608180839612487
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1826,
+            "mean_probability": 0.28100367202376386,
+            "hit_rate": 0.2343921139101862
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 478,
+            "mean_probability": 0.47057631079176215,
+            "hit_rate": 0.27615062761506276
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 92,
+            "mean_probability": 0.6609034712022428,
+            "hit_rate": 0.34782608695652173
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 4,
+            "mean_probability": 0.8104408928732397,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "repaired_baseline": {
+        "winner_brier": 0.8896700946087257,
+        "top_label_ece": 0.06346216965085479,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 929,
+            "mean_probability": 0.15949749580603992,
+            "hit_rate": 0.15608180839612487
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1826,
+            "mean_probability": 0.2810033662759765,
+            "hit_rate": 0.2343921139101862
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 478,
+            "mean_probability": 0.4705760802817751,
+            "hit_rate": 0.27615062761506276
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 92,
+            "mean_probability": 0.6609033956279341,
+            "hit_rate": 0.34782608695652173
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 4,
+            "mean_probability": 0.8104408928732397,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "candidate": {
+        "winner_brier": 0.8896700946087257,
+        "top_label_ece": 0.06346216965085479,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 929,
+            "mean_probability": 0.15949749580603992,
+            "hit_rate": 0.15608180839612487
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1826,
+            "mean_probability": 0.2810033662759765,
+            "hit_rate": 0.2343921139101862
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 478,
+            "mean_probability": 0.4705760802817751,
+            "hit_rate": 0.27615062761506276
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 92,
+            "mean_probability": 0.6609033956279341,
+            "hit_rate": 0.34782608695652173
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 4,
+            "mean_probability": 0.8104408928732397,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "fixed_original_80pct_group": {
+        "races": 14,
+        "previous": {
+          "mean_max_probability": 0.7783432198395815,
+          "hit_rate": 0.35714285714285715
+        },
+        "repaired_baseline": {
+          "mean_max_probability": 0.7783428169669694,
+          "hit_rate": 0.35714285714285715
+        },
+        "candidate": {
+          "mean_max_probability": 0.7783428169669694,
+          "hit_rate": 0.35714285714285715
+        }
+      }
+    },
+    "2026": {
+      "previous": {
+        "winner_brier": 0.8959801255817427,
+        "top_label_ece": 0.0636236517562437,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1051,
+            "mean_probability": 0.15663816271884612,
+            "hit_rate": 0.1636536631779258
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1309,
+            "mean_probability": 0.2791580685785098,
+            "hit_rate": 0.2131398013750955
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 294,
+            "mean_probability": 0.4715995151160837,
+            "hit_rate": 0.2619047619047619
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 50,
+            "mean_probability": 0.6868762158844863,
+            "hit_rate": 0.38
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 3,
+            "mean_probability": 0.8146514380122417,
+            "hit_rate": 0.3333333333333333
+          }
+        ]
+      },
+      "repaired_baseline": {
+        "winner_brier": 0.8959804488166103,
+        "top_label_ece": 0.06362458548558586,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1051,
+            "mean_probability": 0.1566394713207601,
+            "hit_rate": 0.1636536631779258
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1309,
+            "mean_probability": 0.27915989089891924,
+            "hit_rate": 0.2131398013750955
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 294,
+            "mean_probability": 0.4716047746097068,
+            "hit_rate": 0.2619047619047619
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 50,
+            "mean_probability": 0.6868756406324795,
+            "hit_rate": 0.38
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 3,
+            "mean_probability": 0.8146514380122417,
+            "hit_rate": 0.3333333333333333
+          }
+        ]
+      },
+      "candidate": {
+        "winner_brier": 0.8959804488166103,
+        "top_label_ece": 0.06362458548558586,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1051,
+            "mean_probability": 0.1566394713207601,
+            "hit_rate": 0.1636536631779258
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1309,
+            "mean_probability": 0.27915989089891924,
+            "hit_rate": 0.2131398013750955
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 294,
+            "mean_probability": 0.4716047746097068,
+            "hit_rate": 0.2619047619047619
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 50,
+            "mean_probability": 0.6868756406324795,
+            "hit_rate": 0.38
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 3,
+            "mean_probability": 0.8146514380122417,
+            "hit_rate": 0.3333333333333333
+          }
+        ]
+      },
+      "fixed_original_80pct_group": {
+        "races": 14,
+        "previous": {
+          "mean_max_probability": 0.7793761949962973,
+          "hit_rate": 0.5
+        },
+        "repaired_baseline": {
+          "mean_max_probability": 0.7793761949962973,
+          "hit_rate": 0.5
+        },
+        "candidate": {
+          "mean_max_probability": 0.7793761949962973,
+          "hit_rate": 0.5
+        }
+      }
+    }
+  },
+  "7": {
+    "2025": {
+      "previous": {
+        "winner_brier": 0.8897583232647899,
+        "top_label_ece": 0.06374473089205326,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 923,
+            "mean_probability": 0.15927391171558883,
+            "hit_rate": 0.1581798483206934
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1834,
+            "mean_probability": 0.280797044321521,
+            "hit_rate": 0.23227917121046893
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 476,
+            "mean_probability": 0.47088943343088596,
+            "hit_rate": 0.2773109243697479
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 92,
+            "mean_probability": 0.6611751266321703,
+            "hit_rate": 0.34782608695652173
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 4,
+            "mean_probability": 0.8107818443064791,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "repaired_baseline": {
+        "winner_brier": 0.8897577354065691,
+        "top_label_ece": 0.06374417275823842,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 923,
+            "mean_probability": 0.15927300100654948,
+            "hit_rate": 0.1581798483206934
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1834,
+            "mean_probability": 0.28079656676431247,
+            "hit_rate": 0.23227917121046893
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 476,
+            "mean_probability": 0.47088915031685485,
+            "hit_rate": 0.2773109243697479
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 92,
+            "mean_probability": 0.6611750522753548,
+            "hit_rate": 0.34782608695652173
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 4,
+            "mean_probability": 0.8107818443064791,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "candidate": {
+        "winner_brier": 0.8883416057563459,
+        "top_label_ece": 0.058808074361016566,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 972,
+            "mean_probability": 0.15910701369982605,
+            "hit_rate": 0.15946502057613168
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1831,
+            "mean_probability": 0.2804988520355603,
+            "hit_rate": 0.2359366466411797
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 445,
+            "mean_probability": 0.472116374459219,
+            "hit_rate": 0.2696629213483146
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 79,
+            "mean_probability": 0.6627072027243013,
+            "hit_rate": 0.3670886075949367
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 2,
+            "mean_probability": 0.8074784313140414,
+            "hit_rate": 1.0
+          }
+        ]
+      },
+      "fixed_original_80pct_group": {
+        "races": 14,
+        "previous": {
+          "mean_max_probability": 0.7781467006500236,
+          "hit_rate": 0.35714285714285715
+        },
+        "repaired_baseline": {
+          "mean_max_probability": 0.7781463017892953,
+          "hit_rate": 0.35714285714285715
+        },
+        "candidate": {
+          "mean_max_probability": 0.7672162808802993,
+          "hit_rate": 0.35714285714285715
+        }
+      }
+    },
+    "2026": {
+      "previous": {
+        "winner_brier": 0.8959436252991146,
+        "top_label_ece": 0.06323981498027775,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1056,
+            "mean_probability": 0.15697490563239003,
+            "hit_rate": 0.16193181818181818
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1305,
+            "mean_probability": 0.27967107312223644,
+            "hit_rate": 0.21226053639846743
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 293,
+            "mean_probability": 0.47166230768185363,
+            "hit_rate": 0.2627986348122867
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 50,
+            "mean_probability": 0.6868841367837453,
+            "hit_rate": 0.38
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 3,
+            "mean_probability": 0.8145553616422742,
+            "hit_rate": 0.3333333333333333
+          }
+        ]
+      },
+      "repaired_baseline": {
+        "winner_brier": 0.8959439469538343,
+        "top_label_ece": 0.06324074129756171,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1056,
+            "mean_probability": 0.15697619108350244,
+            "hit_rate": 0.16193181818181818
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1305,
+            "mean_probability": 0.2796729423419327,
+            "hit_rate": 0.21226053639846743
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 293,
+            "mean_probability": 0.47166726828038996,
+            "hit_rate": 0.2627986348122867
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 50,
+            "mean_probability": 0.686883580587498,
+            "hit_rate": 0.38
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 3,
+            "mean_probability": 0.8145553616422742,
+            "hit_rate": 0.3333333333333333
+          }
+        ]
+      },
+      "candidate": {
+        "winner_brier": 0.8947052667802072,
+        "top_label_ece": 0.06068850910731784,
+        "reliability": [
+          {
+            "lower": 0,
+            "upper": 0.2,
+            "races": 1086,
+            "mean_probability": 0.15597266339489604,
+            "hit_rate": 0.16482504604051565
+          },
+          {
+            "lower": 0.2,
+            "upper": 0.4,
+            "races": 1299,
+            "mean_probability": 0.27794512198747784,
+            "hit_rate": 0.21709006928406466
+          },
+          {
+            "lower": 0.4,
+            "upper": 0.6,
+            "races": 273,
+            "mean_probability": 0.46855878794734507,
+            "hit_rate": 0.2454212454212454
+          },
+          {
+            "lower": 0.6,
+            "upper": 0.8,
+            "races": 47,
+            "mean_probability": 0.6824846197318092,
+            "hit_rate": 0.3829787234042553
+          },
+          {
+            "lower": 0.8,
+            "upper": 1,
+            "races": 2,
+            "mean_probability": 0.8130334508062597,
+            "hit_rate": 0.5
+          }
+        ]
+      },
+      "fixed_original_80pct_group": {
+        "races": 14,
+        "previous": {
+          "mean_max_probability": 0.7793263293342484,
+          "hit_rate": 0.5
+        },
+        "repaired_baseline": {
+          "mean_max_probability": 0.7793263293342484,
+          "hit_rate": 0.5
+        },
+        "candidate": {
+          "mean_max_probability": 0.7682817056003544,
+          "hit_rate": 0.5
+        }
+      }
+    }
+  }
+}

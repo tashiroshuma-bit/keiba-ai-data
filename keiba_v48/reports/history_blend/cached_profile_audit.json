@@ -1,0 +1,1258 @@
+{
+  "schema": "keiba-cached-profile-id-audit-v1",
+  "input_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "counts": {
+    "cached_profiles": 248,
+    "starts_with_official_jockey_code": 4406,
+    "coded_starts_matching_database_horse": 3248,
+    "starts_without_official_jockey_code": 101,
+    "uncoded_starts_matching_missing_database_jockey": 81
+  },
+  "sources": [
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103065%2F11",
+      "sha256": "fb3f9c026bfe6f09f915eb5176c5622e0c822d917978b9d1c677ed3b85d8cb20",
+      "observed_at": "2026-10-19T10:26:18.820065+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104764%2F65",
+      "sha256": "733618abc778ad31281b7e1f11ff6ab64d3c51139d454320a64b90abe4c624ff",
+      "observed_at": "2026-10-19T10:26:12.990163+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106694%2F65",
+      "sha256": "605524a5eccb7b5d98798d80cd91aa670b61e6c45e0b9fee206548c545db5dc3",
+      "observed_at": "2026-10-19T10:26:38.015270+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018101166%2FCC",
+      "sha256": "a34fb52133ef9a52c4cd3ea5ad5bf5a9ccd0645546762e06e689b5d94f1c4c44",
+      "observed_at": "2026-10-19T10:27:08.313005+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018102799%2F6A",
+      "sha256": "1d98849dac21cb50166d0e8bb7cb17ac375b6443e43bd240e967f366e084ac8f",
+      "observed_at": "2026-10-19T10:26:57.612541+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105491%2F17",
+      "sha256": "03d7f803a65cb90eeac5e1bfb35aa50c21f96a89db232b30b3d42ed7ba02263d",
+      "observed_at": "2026-10-19T10:26:47.505262+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022101764%2F2F",
+      "sha256": "381cb3bc04208bf289e8abacdb3acb716ea195088b7bde44881f38f02a165dd7",
+      "observed_at": "2026-10-19T10:26:24.103035+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104790%2F48",
+      "sha256": "479ee7c41578f38ef1bfaacf2a342a1f3a3e52651e5655e6f3faeceb1ebc80ff",
+      "observed_at": "2026-10-19T10:26:29.810799+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102676%2F4C",
+      "sha256": "db034febb28c4e2b3af579e4365fe1cf62261dd6d9bce4c64bb231c2b0851817",
+      "observed_at": "2026-10-19T10:27:01.738766+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022105610%2F9E",
+      "sha256": "269ccc7d1aa17599dbb0b162f0ce6601637240e82fb262ec4f132441bc468fb1",
+      "observed_at": "2026-10-19T10:26:25.190494+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105324%2FCF",
+      "sha256": "b8cda59cdcc8e6d5586c8bc1d55d74a410d5ede0998f70cc9aa8ad2ebd83b3c5",
+      "observed_at": "2026-10-19T10:26:46.249798+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100382%2F9E",
+      "sha256": "2dbfb96cae2200343103a944cead58dcf8518aa6afd167807952fc94d7aad2e2",
+      "observed_at": "2026-10-19T10:27:20.436558+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100844%2FBA",
+      "sha256": "f8b93aa67df1a372c739b77a86c5818c4690cd98d0c9821100de0411ffa11bb6",
+      "observed_at": "2026-10-19T10:27:06.208405+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102145%2F33",
+      "sha256": "42b2fb5f954697d8994b2e9a395b52d6fbbf76c14d1b72b8812787b9ab635e7e",
+      "observed_at": "2026-10-19T10:26:45.474166+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105627%2FBB",
+      "sha256": "bd2059c90440585dc4e09c4eb0b12dacd813f9400801236ae9d3f6e4315b56e8",
+      "observed_at": "2026-10-19T10:26:43.426894+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103155%2FBE",
+      "sha256": "29b0ecd10163eb97447ec026a31d8ef7d8ff0d5047762a890d2f8286bac7172a",
+      "observed_at": "2026-10-19T10:26:49.881956+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023100771%2F83",
+      "sha256": "05c33f1fd8b55eaa10919b039e894f4481bfcd6347708cabfce5ba63f172f6fb",
+      "observed_at": "2026-10-19T10:26:43.351407+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104634%2F83",
+      "sha256": "58a0fe93cb21c12e8780c73c7ff7b862331bdc8a029d64050ba38ff2cbd33dda",
+      "observed_at": "2026-10-19T10:27:05.018321+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105656%2F04",
+      "sha256": "c5c56f9f281a6920552957756eba1c7d587b381bb6aa07ed3aac8ee7bef01700",
+      "observed_at": "2026-10-19T10:26:26.197044+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103875%2FA9",
+      "sha256": "26197f1e4f0041f9fdf14e0caa7099eb6220b688e69928da764af4317c4185c8",
+      "observed_at": "2026-10-19T10:27:09.980394+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106680%2FE5",
+      "sha256": "fda3b4ae6f970c030cc83b59e3ffeb3beae65546733c3f559c27418ed8b83169",
+      "observed_at": "2026-10-19T10:26:21.314741+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104773%2F02",
+      "sha256": "e160fb13f72de793b731a3fc253b2de2f81cc26ba7dfc5e30a45eaf78a260462",
+      "observed_at": "2026-10-19T10:27:02.833547+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021110021%2F92",
+      "sha256": "ada12b2a08dc33ffab4a523aaf708e680a63aae5fe7ddb2691a1f8c5bb30173f",
+      "observed_at": "2026-10-19T10:27:22.743149+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100656%2FCD",
+      "sha256": "16de4c999f96db4fa34f28d4fafaf4493c8fd0aabe7c731ee6985436015a8ac8",
+      "observed_at": "2026-10-19T10:27:25.074724+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022104089%2F04",
+      "sha256": "630c516c398125a9483fd16481118862ff71246db97030be3a9501be99cbf2e6",
+      "observed_at": "2026-10-19T10:26:36.752317+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102747%2FC0",
+      "sha256": "428f49dcceda0ef518e5ac9ab0b6434abe4f6fd791129bc1d6b7d3355b64a970",
+      "observed_at": "2026-10-19T10:27:25.147971+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018102216%2F9C",
+      "sha256": "8cf3fa634e46f7b574d5dfc164bb32ed7b95a3ba32419ae4a780d59d01351af6",
+      "observed_at": "2026-10-19T10:26:27.369272+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102901%2FAF",
+      "sha256": "f7c674eedad8e374020188a2a966bf9896fc0a402d48ee6bdec4f9b75ecd57bc",
+      "observed_at": "2026-10-19T10:27:17.189468+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022106620%2F9D",
+      "sha256": "854bbb2c508057cd3414489c44fe85b3efef7a94320ec8c84f92e4ea7d1ab6a2",
+      "observed_at": "2026-10-19T10:26:36.867347+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021100446%2FE7",
+      "sha256": "ea8d5328151a782fdbbd31b15b88c849d4f2837136d231f89d27e39e40749adb",
+      "observed_at": "2026-10-19T10:26:26.173786+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103726%2F1C",
+      "sha256": "082e8db9d4db8cbd1f3e8cb9809365bab914281ae5a37be03a397e97fac5175c",
+      "observed_at": "2026-10-19T10:26:54.245284+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022103758%2FC9",
+      "sha256": "26f9e5adb0aa576015b88d733b74d9122211e28dcdb32cb8ffe64d566d70a968",
+      "observed_at": "2026-10-19T10:26:39.148009+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105415%2FE4",
+      "sha256": "a0c0cf4eebbd83b12b036c7fcccba6a5206d2922547b111f511e63cb8300da42",
+      "observed_at": "2026-10-19T10:26:17.190286+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103962%2F71",
+      "sha256": "e387dea42bfcc58261c27b64760e93c3b9dfe1620ca5b35d7b0a44b6a2e945c7",
+      "observed_at": "2026-10-19T10:26:11.510564+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022100525%2F11",
+      "sha256": "007d6c62a25390802bf2907b4b5a3ca4b75af0cec06233863fa2f578165c6de2",
+      "observed_at": "2026-10-19T10:26:40.145133+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023100433%2F96",
+      "sha256": "bb9be51230dca61a0114e3e62e98afc8c8bdd2afe473a3999e1a4612aecbb68c",
+      "observed_at": "2026-10-19T10:26:37.985329+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022104886%2F33",
+      "sha256": "c04afcc1c69aa8320a7059d22e7fb00dd76f2a4c383546ca2e52855e17b8ff6c",
+      "observed_at": "2026-10-19T10:26:42.187005+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106714%2F72",
+      "sha256": "6b79669e1d6fff8ce197f466cc96650198633868143e528eb799d771338dec5c",
+      "observed_at": "2026-10-19T10:26:45.518368+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100078%2FAD",
+      "sha256": "25646f86541a8397f39dbc90b850875e115fc713b16e4d30743c9c42354d2e35",
+      "observed_at": "2026-10-19T10:27:12.401902+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101250%2F46",
+      "sha256": "58bfea55cb9ff2613b13ed5d9b9a5192cd353777ab5d8c4fd0d2999f4b874eb6",
+      "observed_at": "2026-10-19T10:27:06.247503+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103488%2FCF",
+      "sha256": "5c38cb7f368e6eed64a4d7f15971fb7955c175904768022dbeaac61a32c76126",
+      "observed_at": "2026-10-19T10:27:11.295170+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104318%2F28",
+      "sha256": "2b37d5661ce38c2de3628bce6c3cb4fa0c9e032ff360175f4953c3e7137fd1c9",
+      "observed_at": "2026-10-19T10:26:50.105580+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102700%2F66",
+      "sha256": "24401b71c2ecaeb64844415f6214a703eb87b13a289fca31ce352323bf4f50dc",
+      "observed_at": "2026-10-19T10:26:52.156437+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022105946%2F13",
+      "sha256": "6766886e7f164b67e050196c32188da029178b8b11f7e58fdad41a2d12076fcb",
+      "observed_at": "2026-10-19T10:26:22.059432+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106635%2FD4",
+      "sha256": "a15c31b4a02980ad349540387386e2c75d1c25a966316c83025561080d540a0b",
+      "observed_at": "2026-10-19T10:26:28.659516+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102191%2FCF",
+      "sha256": "821e8c40f87ef3ea32d6051c0a3fe62ff58fc2a9a5630545db677a2631853640",
+      "observed_at": "2026-10-19T10:26:41.256120+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106062%2F85",
+      "sha256": "76396687a26bca47d0adc809bc44dfe7ff88b5164a13000292aadfc693c89f19",
+      "observed_at": "2026-10-19T10:26:57.370232+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101239%2F31",
+      "sha256": "795f443c58237d92df851f41cc32a2c6637f9ea217c7c1395fae624aca739848",
+      "observed_at": "2026-10-19T10:26:13.801815+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102016102333%2F7C",
+      "sha256": "0d8e6c674232bc54b44795653256a2c7469fc2c5b97d7ff7b99f3965fc9ac5da",
+      "observed_at": "2026-10-19T10:26:14.695569+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105211%2FC1",
+      "sha256": "90da9fcd54b9bffb0a9b381d90e009b4199f678fe1a289d7423df23fc6e4d8ee",
+      "observed_at": "2026-10-19T10:26:20.090412+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103806%2F2D",
+      "sha256": "54fd7433767531e16ae87d609a8d0bad0a406fa5fabd0ba79493c026e77e9431",
+      "observed_at": "2026-10-19T10:27:22.857849+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102816%2F59",
+      "sha256": "854ad2bbbf0bdb77ffa3c45b727f3209cc14e39541b0487c991d3a2583296a92",
+      "observed_at": "2026-10-19T10:26:27.269017+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022100133%2F77",
+      "sha256": "21465ab2a7836a524c42916dc195ee90f95f611efb2221b6d26453c384a786fb",
+      "observed_at": "2026-10-19T10:26:30.645427+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101237%2FD7",
+      "sha256": "91eafe1ed6215f48dd0bc18b6a8f7b682ca86f27e900aa1e1d362833d77e61e5",
+      "observed_at": "2026-10-19T10:26:29.871543+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106746%2F14",
+      "sha256": "ad7462205e1aa6a32f32e459162d1617d4944f13cd76eeb2601e53254317207b",
+      "observed_at": "2026-10-19T10:26:28.950372+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023105862%2FC2",
+      "sha256": "9710bbd31ecb7a89829ffd5256dfcef15b7989536a237c1766aca3abde933d8c",
+      "observed_at": "2026-10-19T10:26:34.528540+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020107143%2FF8",
+      "sha256": "8cc80335894172ce8aebc18687e0fb114017db6c3d6ab1a7163fc02ead355519",
+      "observed_at": "2026-10-19T10:26:41.204688+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018103485%2FEA",
+      "sha256": "50de343b7cb6bea18d18c33e0e472af18464063bd104d24e1192ed281eb3a7e7",
+      "observed_at": "2026-10-19T10:27:24.064537+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104817%2F1E",
+      "sha256": "ee379278ce434d6f81cc41f9d6bd204a85dde57fdbb6eca7852c50b0d24df956",
+      "observed_at": "2026-10-19T10:26:47.413881+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102976%2F5E",
+      "sha256": "bf03a93b09e118abf705c5d41fb563a232ca3b2ebb944ba5053506ed0044ac8d",
+      "observed_at": "2026-10-19T10:26:38.015041+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105415%2F63",
+      "sha256": "506f897b8da7c8d352f036b5322704f9354c1d7c5f8a1a6eecd4a28dd1f94fa4",
+      "observed_at": "2026-10-19T10:26:49.917914+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017100968%2FBF",
+      "sha256": "54284363baf0a6b8208b0744b6be6d483fede9e42bf7e6a50bf5428bb684798a",
+      "observed_at": "2026-10-19T10:26:59.167256+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104295%2F92",
+      "sha256": "c59f77867d05bf80f66fb404b91b7b5625b7d86d23a9fef1e14062ca8832c670",
+      "observed_at": "2026-10-19T10:26:47.500656+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102481%2FBB",
+      "sha256": "8586fc0b86d30f050e7764db2651e6ea80c5d1995abd194fb1a48d1c7ed844bb",
+      "observed_at": "2026-10-19T10:26:54.201769+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018106145%2FE4",
+      "sha256": "a63dfbaae8e5426a7c2cf4d900318ea670070d043fa7b86a76d390da2ece2e19",
+      "observed_at": "2026-10-19T10:27:22.869991+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104467%2F2B",
+      "sha256": "56441493157b59ab1518a32547211992d5cadaa3a95c74615ae4ae0d96ebdfc6",
+      "observed_at": "2026-10-19T10:27:16.442604+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105933%2F92",
+      "sha256": "c525abf875e6453f1217ef0e42b7510d90199a31c0d8b3684c1a02416d40afb9",
+      "observed_at": "2026-10-19T10:26:19.330703+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103575%2F16",
+      "sha256": "2e299b0b2c7fbeacfd10026f38f25a82ddf71dcd11d9f88516506ff19770bb65",
+      "observed_at": "2026-10-19T10:26:48.808537+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103435%2FA5",
+      "sha256": "d2ff8d11431110a8926a08622060e43a81ef36fd0632fc913f6561507ece74e9",
+      "observed_at": "2026-10-19T10:26:49.630342+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106063%2F84",
+      "sha256": "9a853fd5f2ee875534e98cb14034e0759ac8d34fd892fa706691f7cf4f358749",
+      "observed_at": "2026-10-19T10:26:36.857972+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106306%2F84",
+      "sha256": "312039a34c849b212a64f3b59e033cde26c7b768cf3f91f5b315ace500103555",
+      "observed_at": "2026-10-19T10:26:20.151394+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022106593%2F35",
+      "sha256": "78fda337c26a79e3df6198ba4748414553d85cfa4d6fb1e8b63701c3a360e6cd",
+      "observed_at": "2026-10-19T10:26:32.932042+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104354%2F10",
+      "sha256": "900630e2732117e75cd4d2b7cedd1d838ecbf903b8a5a737fcfa2d0e9915a9df",
+      "observed_at": "2026-10-19T10:27:12.473258+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104951%2FDD",
+      "sha256": "81593191bff5d434594992823c27d6a6549ed27ed35c19cc915c6bf4e02f76e6",
+      "observed_at": "2026-10-19T10:26:35.488087+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105143%2F9B",
+      "sha256": "c9654ea7c50c52d7eccea8175da4e9a96c487602e07204615c17a627b51dfa0f",
+      "observed_at": "2026-10-19T10:27:10.271860+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101461%2FB7",
+      "sha256": "e8a3b4a7f414676cef2d3e55008585f402bb17ee82c92ca26ce96eeacd5e4a2f",
+      "observed_at": "2026-10-19T10:26:50.911743+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018102231%2F7D",
+      "sha256": "73d372bba939700512820d6a5648886ca8e54e98e3b800086b407dd036567e83",
+      "observed_at": "2026-10-19T10:27:00.751192+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019101920%2FEE",
+      "sha256": "538035fa5f5b7617d881c54d0f61dcdfdd64182b25cf74bd6c1e042ccec7d3de",
+      "observed_at": "2026-10-19T10:27:05.038919+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103825%2FDA",
+      "sha256": "03a2d9134d93f34c01ffdfad618754b7d973d8805407484e9bd29eff90ed0e0f",
+      "observed_at": "2026-10-19T10:26:53.220892+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102177%2FCA",
+      "sha256": "b171de0c3c54c890a429a222f77e0e3b6309cda98520ad584f101bb9177055a0",
+      "observed_at": "2026-10-19T10:26:15.888515+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022103065%2F29",
+      "sha256": "f5bf07e12ef23b92d7d9993c51367e620698a12a9cc59ed94c25cdd1ad24da57",
+      "observed_at": "2026-10-19T10:26:31.891925+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103562%2F2E",
+      "sha256": "1e566d1e483e8d2d92ba61b206458d064a2f13626864b3de37a0b282f80753e5",
+      "observed_at": "2026-10-19T10:26:20.329260+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105123%2F86",
+      "sha256": "abdd072ad1106d62cf49f7da3dd6e6f7fb5483d10bde95dc049c525a9af58615",
+      "observed_at": "2026-10-19T10:26:39.063570+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104945%2F99",
+      "sha256": "1ea8088f0d20d81dcab0120edba813dd7d830e82951ba7fcb6d682ce6667f3e5",
+      "observed_at": "2026-10-19T10:27:12.579015+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106307%2F83",
+      "sha256": "32e3f0e994a38d15f478e6221f350d1b93da0986e81880767d37d8cc217c47df",
+      "observed_at": "2026-10-19T10:26:34.618578+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100682%2FB2",
+      "sha256": "ece89687b552716ac8a49f2685b3cc3a1e7364c1bda8b887837342f1074531b0",
+      "observed_at": "2026-10-19T10:27:03.961730+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018102813%2F69",
+      "sha256": "93761688241f3effbb8a42ddd5ecb1504b5b9196120fdc7af283b5203ce7e82b",
+      "observed_at": "2026-10-19T10:27:07.236452+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104356%2F77",
+      "sha256": "7dc9d30defc64ee3763340720fde9709edd81cad343d576b9992c9b9c92bc610",
+      "observed_at": "2026-10-19T10:27:21.451594+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103096%2F35",
+      "sha256": "b3bbf8ccc4df7e63656eec8ebc97f6910a79bfb2babdafdfe2601188d1bd6ee9",
+      "observed_at": "2026-10-19T10:26:59.225673+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023102661%2F20",
+      "sha256": "6bb25be46544ac58d885d7f8ab8878f36417dd4c9377e99093e0c538dd9929b4",
+      "observed_at": "2026-10-19T10:26:35.573029+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103064%2F2A",
+      "sha256": "b6836a011c0de5160835756f481ec1c56c3ad9231a18294f2e3d10b92c5dbf12",
+      "observed_at": "2026-10-19T10:26:30.645572+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017104947%2FE8",
+      "sha256": "119a7b8bf04180d6341fd18d030e8f19025b78ba391ac6b4326fa4b6aff29885",
+      "observed_at": "2026-10-19T10:27:04.126923+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102383%2F70",
+      "sha256": "8975fa95df5c6a61cf66d90d878ebfb117a1e81273fd23ad4d36f2e822cf2a2e",
+      "observed_at": "2026-10-19T10:26:15.933043+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106013%2FA8",
+      "sha256": "4fb3d7205f76dd199149cebf213bc5f481c3eea7a59213e058d8ce1c8309180f",
+      "observed_at": "2026-10-19T10:27:18.731287+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104358%2FDC",
+      "sha256": "dd92e0e6122592602dec949096a05064926d986a8bc5720b6cf135491b7a7c7b",
+      "observed_at": "2026-10-19T10:26:46.562142+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105170%2F72",
+      "sha256": "5c816008d795b7116c798bb0ebdbc615697d3e4536ae3408adacce255a1d3349",
+      "observed_at": "2026-10-19T10:26:14.725334+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101803%2F75",
+      "sha256": "10f93b55c3543f308fef7cee8f9b809bd01a91b9199b30e43b04149554b1fc68",
+      "observed_at": "2026-10-19T10:27:13.392891+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100177%2F6B",
+      "sha256": "be13dfeeb2a1a92aade421b5644e26b32390acc67b6be89d8ff56442be988a9d",
+      "observed_at": "2026-10-19T10:26:19.162375+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020107073%2FF7",
+      "sha256": "308125a7ce06121cd1a2eb72bd8c64e45161fd38958dc217d13d3dc43ff0a117",
+      "observed_at": "2026-10-19T10:26:48.777007+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103442%2FDD",
+      "sha256": "63519e9c12992d8d9860b045b1632c7c1d6739d33dc304121984bc6918caf2e3",
+      "observed_at": "2026-10-19T10:26:51.188375+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102016103409%2F1E",
+      "sha256": "ee266b0043cbe9bcb69d93eb5e6cc3e2170f2a406fa8b7e3bc4873036e3debbc",
+      "observed_at": "2026-10-19T10:27:07.317925+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103005%2F3D",
+      "sha256": "99b80e503067930f1530ce1edd206fde022e0f2f8229125ec76d670937867164",
+      "observed_at": "2026-10-19T10:27:24.997229+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021107350%2F9D",
+      "sha256": "3c760869b7189f08c18de2a2b96aba112f747fb0e5a99c99ea51d4b89bcfb192",
+      "observed_at": "2026-10-19T10:26:12.718425+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101608%2F52",
+      "sha256": "45c68c76c8ab07242aa0762058740eabc2ba76082c6ca0bcb896aa3045e54828",
+      "observed_at": "2026-10-19T10:26:15.932852+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100915%2F2E",
+      "sha256": "017eb401cd2898cc05b125285c3636966cce376a4e1cbc24909acbed1591d8e7",
+      "observed_at": "2026-10-19T10:26:36.957488+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105813%2F41",
+      "sha256": "eb64c622189fe2842d89e48161adc60771aba70cc8537a28b51615d6488107ac",
+      "observed_at": "2026-10-19T10:26:39.147963+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018105012%2F3B",
+      "sha256": "f2ff70c051ee9779e908409471b7afe52823f0f36820a53f1e04372bce6aba81",
+      "observed_at": "2026-10-19T10:26:30.686204+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023102163%2F11",
+      "sha256": "b2aca6ae77fe6ef1b2c1e73f263539e2ee73367d504393cf4df724d8ad3b37b6",
+      "observed_at": "2026-10-19T10:26:34.425996+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102952%2F8A",
+      "sha256": "13a9c2d4f1648edacb066ec4749a413cfe5c6987789637e22d1184a6d296d9ae",
+      "observed_at": "2026-10-19T10:26:33.630035+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103690%2FB4",
+      "sha256": "0b9ec4b1cffdb44f2685583363f1f7d8ff3ac06a80fec4671711fd897966a6ef",
+      "observed_at": "2026-10-19T10:26:23.171258+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105381%2FD6",
+      "sha256": "47abc7410e47ff32a4cbabf3d59482753010bc99843e5f6f4c06f8050a414a6d",
+      "observed_at": "2026-10-19T10:27:19.642442+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102530%2FA8",
+      "sha256": "99c3fb6862daf79ecc2570e5a154e8d114dadb328801a717ebc34c2465e9d0fd",
+      "observed_at": "2026-10-19T10:26:14.676752+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102110%2FC4",
+      "sha256": "703e5c25abae5533f3404a7d5354964feb3ea626383690e63a0f0e6d34e9ed5e",
+      "observed_at": "2026-10-19T10:26:46.543724+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101709%2FF6",
+      "sha256": "4aa977312ca057993bbf0809c0f4b3fbcdf146f1ceeeec95493a068c404a0336",
+      "observed_at": "2026-10-19T10:27:06.354657+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022103446%2F40",
+      "sha256": "24d7e5eb8e01405cfd1e3f32131bbca2b1e62cb562406f4f964f850110b740c0",
+      "observed_at": "2026-10-19T10:26:41.073812+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104250%2F13",
+      "sha256": "d8212999cace7cf2c87e122cdaad1902af15db24ac0028644b2c4147854a6c18",
+      "observed_at": "2026-10-19T10:26:34.383483+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017101726%2F26",
+      "sha256": "06bbb13f54f64d699ef06e66f4c585382038f062912c540437be88eabee3d02c",
+      "observed_at": "2026-10-19T10:26:56.216606+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105471%2FF7",
+      "sha256": "9e1cd8641105531fe5c658ca42b71b9001c3912e43b373e6ce5b906211f9b386",
+      "observed_at": "2026-10-19T10:27:17.216107+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104020%2F81",
+      "sha256": "99a3f3a44b5462ea390499131bbf33d1bf301e39b9046d5e755795b090f87baa",
+      "observed_at": "2026-10-19T10:27:21.481819+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106085%2F8A",
+      "sha256": "104638558573510929304f2fe4b1e5f2acdec592e39e85679c2a0254e421601b",
+      "observed_at": "2026-10-19T10:26:22.187086+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101568%2F81",
+      "sha256": "64123f11b05ae6d8d33823b7dd41e129630a6a6e8040f6d8a4d138660a85b680",
+      "observed_at": "2026-10-19T10:26:11.213706+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101008%2F2C",
+      "sha256": "b038062baa05197236530c7f9385c59a340846255d21b156344f1610795fe78b",
+      "observed_at": "2026-10-19T10:27:13.382424+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103421%2F4A",
+      "sha256": "a66360ea81b056c13e0a2cda65c720a29e619975c5f788a39dd02bd82895746e",
+      "observed_at": "2026-10-19T10:26:54.365022+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018105020%2F65",
+      "sha256": "892f075bd069f0723eef616e2fc2524a8555377eb42b994d937875869b58fcb9",
+      "observed_at": "2026-10-19T10:26:27.367161+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104952%2FDC",
+      "sha256": "88f879607ce9eff301b3268a6fc1321db6bbc4f9d073b18bdc9eb0c733622ce8",
+      "observed_at": "2026-10-19T10:26:31.888924+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105061%2F23",
+      "sha256": "5c64dcc1d75f0fa84f2c11039b2868513142e3c9c83af4950fa629153fcd097a",
+      "observed_at": "2026-10-19T10:27:18.437116+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101335%2F96",
+      "sha256": "90b2ddcde282a6f0425ceff51f6f643f936dab9736e8cd919a4023bc503ec2c5",
+      "observed_at": "2026-10-19T10:26:30.704750+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101578%2F91",
+      "sha256": "a09891f4ce7c88360c72785b2039627b1a2c74c118bfc18500e11aecaf9d0c3e",
+      "observed_at": "2026-10-19T10:26:58.335353+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102016104556%2F35",
+      "sha256": "1d8626e6e17226b907a977a03a44b2add4df1bfae59586c3e7b9af568f53723a",
+      "observed_at": "2026-10-19T10:26:11.937812+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019106357%2FC8",
+      "sha256": "03f834a9821fe40af7f8ff4ed8e7d9811824c185004602ecc782757e65ff5237",
+      "observed_at": "2026-10-19T10:26:42.189163+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103553%2F91",
+      "sha256": "e557e87570c82a92bc281e55079a279c7ababa4754592151e4777562414f9684",
+      "observed_at": "2026-10-19T10:26:13.932911+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102424%2FBF",
+      "sha256": "efb9fb17d06e46dfa0d3532d3790e440fa029ec9a458d1f18513bfeddbedbcef",
+      "observed_at": "2026-10-19T10:26:40.141555+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103446%2F28",
+      "sha256": "d24593abdd563617f9f221580387b000a42a6bcad38e9cf56ef6c9cc976845be",
+      "observed_at": "2026-10-19T10:26:31.900172+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103074%2FAE",
+      "sha256": "526490f0247e83b9bc3c485dc63313c0ef3f646a8c1680f023395bfeb257cd75",
+      "observed_at": "2026-10-19T10:26:57.412572+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103960%2F8B",
+      "sha256": "eb4a47c250e26619958a14fc1d807e9b2e3ac70a48cb3ad3d07763843d5c4a1e",
+      "observed_at": "2026-10-19T10:26:46.615963+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105888%2F7C",
+      "sha256": "980b68b11b5168021ae06a10a21c8d3f4129bf7faf51c13efce7a2ff665f3982",
+      "observed_at": "2026-10-19T10:27:24.013407+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019106707%2F3C",
+      "sha256": "6e2c30d40598f4805c77249989eb24e5236b813c475055484a95fe222b157f52",
+      "observed_at": "2026-10-19T10:27:21.462477+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104617%2F48",
+      "sha256": "52cb9182b1e7dcc79fb879d0021251d0d016ab6d9466d010c1f4477c9b8f4905",
+      "observed_at": "2026-10-19T10:26:24.314384+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104479%2FA0",
+      "sha256": "10a32547ef1efe5ffeb5dfa93bdf9c127b1143fa2b16f74c6c215d9f97e0296e",
+      "observed_at": "2026-10-19T10:27:12.162332+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104086%2F93",
+      "sha256": "53ec1971f146e772c304a3a9f2bfbf87289d0d961fb3db2f70dcf8248878b6e3",
+      "observed_at": "2026-10-19T10:27:05.011086+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018105159%2FD1",
+      "sha256": "9fa33ed346b0a79cdbdbc51c91cfd2b87780b960f31d05e41f5dd343086c3f85",
+      "observed_at": "2026-10-19T10:26:17.954520+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101415%2FA7",
+      "sha256": "c61f334c71489845b73361e1592e715257a7b90f05dc231e7fc207bc9c570cf4",
+      "observed_at": "2026-10-19T10:26:45.521259+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017105027%2FFE",
+      "sha256": "ad76df1f6740fa4aa01fd151ce41e3943226b4ecf07bfa4ecbe6fffdcab373f2",
+      "observed_at": "2026-10-19T10:26:22.186621+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020110121%2F37",
+      "sha256": "cfb8dd82160435932d4f835895c26bce3865588945cb66d7c6f0f4e96669baa0",
+      "observed_at": "2026-10-19T10:27:11.286200+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104052%2F97",
+      "sha256": "29f0468d6e587b7b3b0d00d6c626362741e79a6885a836bc2f2d19dd2f2d4eac",
+      "observed_at": "2026-10-19T10:27:07.251838+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101654%2F62",
+      "sha256": "5296727bbab4bcf07148398fe4fdc451b17fd0cc8cade173986c546e2d1de535",
+      "observed_at": "2026-10-19T10:27:24.755834+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103142%2F55",
+      "sha256": "894f0d1631387a0708e1b50a10c65a02ecd5171b74349857818d007fb46e0a3c",
+      "observed_at": "2026-10-19T10:26:29.413100+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018104014%2F32",
+      "sha256": "269cacbb3ceaf22098131964bf27701c47a17d375e82fabd466aeb630f07abab",
+      "observed_at": "2026-10-19T10:26:24.456734+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020110035%2FE2",
+      "sha256": "702c5f99a9e3039ffabb914eef3a305fe532c6c04958ff0e28cfca9ae33ddc73",
+      "observed_at": "2026-10-19T10:27:19.247203+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018104333%2F72",
+      "sha256": "e24641ee53080f4f930eac6b9797a6b99d838ada6c28c2f5e881f6303590b64e",
+      "observed_at": "2026-10-19T10:26:55.361288+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101508%2F21",
+      "sha256": "be800cee9d233b6e3a1ac3186b0b18569647998302695207b79143e940f2c046",
+      "observed_at": "2026-10-19T10:27:11.303377+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020110020%2F93",
+      "sha256": "79df7d06399145095b849e52fe3258b8ff4d192871229d54ad0c74fca56e1399",
+      "observed_at": "2026-10-19T10:27:20.474831+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101856%2F1E",
+      "sha256": "af567d785276ccdb7e32cebe2f04fdf4c7f5b0832058861e8bd8b49b3d92d789",
+      "observed_at": "2026-10-19T10:27:08.234195+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100066%2FB7",
+      "sha256": "bee88334bf8e44f7b43ea269578278dcea028667520c42dfdc4bdec6bffc9727",
+      "observed_at": "2026-10-19T10:27:17.206451+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100424%2F55",
+      "sha256": "eef94cc43717f609f3ab784c0dd46c525545d703db10891b40fa8c2aa0766b78",
+      "observed_at": "2026-10-19T10:26:45.728131+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105459%2FFB",
+      "sha256": "57875a234c0a1164fac08853b54ba952353cf99e8ef0fc5ab479e3ec63bb69d5",
+      "observed_at": "2026-10-19T10:26:43.099059+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101465%2FF7",
+      "sha256": "310935e3e08d8e8ff6db532ab53c9873aa8de4de0127ae77ac9cbb7ab70e23b2",
+      "observed_at": "2026-10-19T10:27:18.383617+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105770%2F17",
+      "sha256": "6faff3edb6d1ea698472fab64463306352193a700b2dd378c4e758339d936256",
+      "observed_at": "2026-10-19T10:27:19.660148+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100039%2FE0",
+      "sha256": "b3648396b7da5734ed1984d3af10ea5cd1621947442810be34c27c6af3524020",
+      "observed_at": "2026-10-19T10:26:47.954998+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103763%2F82",
+      "sha256": "588bb242d74541f95afa03b119e905cfd59c97cf2c3fb89c098c73b67df303c3",
+      "observed_at": "2026-10-19T10:26:15.544788+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019101165%2FE5",
+      "sha256": "1cd408c9a70a7304152ddffd3ff3be0907cf88cd536f008f3d7e25f527f6ac71",
+      "observed_at": "2026-10-19T10:26:12.749403+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022105506%2F0F",
+      "sha256": "f5555185691fe6e065b311f1b92171f1a2912a330ef6f232c90490cfd3cd0b69",
+      "observed_at": "2026-10-19T10:26:41.225420+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018101114%2F96",
+      "sha256": "fdaffc5077ac240585bdfe8e9b751ae7e7c5ac566087b14a7dfa1d5d54d425da",
+      "observed_at": "2026-10-19T10:26:13.898158+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102562%2FBE",
+      "sha256": "ade465174cf8b0925b59185604f89f02640843d901e1f5a770e66f0576009ebb",
+      "observed_at": "2026-10-19T10:26:49.132340+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102953%2F66",
+      "sha256": "1215ddbe1bfe753d01e9ee7075bb8685950f7dacb11338e2d2140990679b8a5d",
+      "observed_at": "2026-10-19T10:27:11.303818+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103218%2F7C",
+      "sha256": "9bc58643e254f7d3f11544106a4a25c3bd5d7cff0c537eb6046c16fb6688edab",
+      "observed_at": "2026-10-19T10:26:24.116124+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103996%2FEE",
+      "sha256": "34301ce6cbf6344b3d5e6cef305dab325937c00dc76c3fb2fba7d74841e683bf",
+      "observed_at": "2026-10-19T10:26:55.343192+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023100541%2FF1",
+      "sha256": "75731412722732629cf67b257ebffd67e5df6c101cd502890e71d935ca5d4ea6",
+      "observed_at": "2026-10-19T10:26:43.522598+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103027%2F38",
+      "sha256": "64c4ec4b3d762c30a984e5ef87a5b070c07a22189e03369ebb722836cc3dd298",
+      "observed_at": "2026-10-19T10:26:53.248494+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102817%2F40",
+      "sha256": "fd280e1c9e3b1086d8d8a484588677430940a0464654772f64495c68ef9d88c0",
+      "observed_at": "2026-10-19T10:26:21.097421+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106354%2FEE",
+      "sha256": "8d7357acc3c80242ed3960bc3aa69db987563d9e4d86f54e7e1ec7c4c45e3184",
+      "observed_at": "2026-10-19T10:27:19.307472+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101275%2F31",
+      "sha256": "94dfaf5641bf89381436c7b4de7f0c808bfba47621ecdfd5c7e022b5e8205ca3",
+      "observed_at": "2026-10-19T10:26:26.201742+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102522%2FFF",
+      "sha256": "7b995864102e2b21bef1130282650ff2245291da04c976644da9394eec643063",
+      "observed_at": "2026-10-19T10:26:28.589738+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103767%2FCF",
+      "sha256": "7393716fb95ad3f36e0e455da61ac0e0cbd455d80c27afdd84a46dcc8517b2c1",
+      "observed_at": "2026-10-19T10:26:25.417085+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018103330%2F2A",
+      "sha256": "1cfb0ddf9b2c2b120c12d98445db978f40c083280a6ec57076820011bcc36940",
+      "observed_at": "2026-10-19T10:27:01.679606+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022106203%2F12",
+      "sha256": "e3378972d0c8ee66306becdb68eb5a20f7a0298c6a492a26cb008ef992bbd981",
+      "observed_at": "2026-10-19T10:26:25.373841+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017103267%2FC2",
+      "sha256": "ecce14d5b6ff121957c8b595aeeeb3340ef791e9697df31a8d238f7db1946423",
+      "observed_at": "2026-10-19T10:26:23.233419+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101968%2F45",
+      "sha256": "0e52df1151ef469c806960b38e33d6aa74afaeec2ee12f46ea98e538b51cf9bd",
+      "observed_at": "2026-10-19T10:26:56.518667+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018105418%2FB1",
+      "sha256": "fbea04963a0a387569091924053bea06ce10c5baf981138ada945dd132358f63",
+      "observed_at": "2026-10-19T10:26:18.324552+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106733%2F1F",
+      "sha256": "fb694f7bc0dc75af8717f5089af5b6b6435b331ff1f76dc2199c787bcfcc9de5",
+      "observed_at": "2026-10-19T10:26:55.416997+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019106097%2F75",
+      "sha256": "9f1ff6dc0883b7d8b34550134b369b2da8661dd08f63cc68339c5a08818485e0",
+      "observed_at": "2026-10-19T10:27:03.066773+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019101330%2FD8",
+      "sha256": "50ddf84d0aab662b92aeb0153d5d916249789549f52d58a492542bb41b04afc4",
+      "observed_at": "2026-10-19T10:27:01.713746+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104303%2FCE",
+      "sha256": "f989bd5799457ec6bf02ddbf6a941f3c255bf1e47f26810e6ae28060e88909b2",
+      "observed_at": "2026-10-19T10:27:08.426908+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019106593%2F9E",
+      "sha256": "81f771f522ea7bbc4e6bd3ff2cb776401406a1cb027db37f1b6d600fffb0224f",
+      "observed_at": "2026-10-19T10:26:56.620323+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105605%2F41",
+      "sha256": "c2d46df306578cbec85bc0be92b3f5ca2102936665fbe35954e6deb7fb27de1f",
+      "observed_at": "2026-10-19T10:27:21.480317+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104958%2F83",
+      "sha256": "5d23865be8d8e06878f50e28585e66620feff75e6eada6da4c90cc594f26fcf5",
+      "observed_at": "2026-10-19T10:27:05.922231+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022101428%2F28",
+      "sha256": "3e49a7a92479a05fcbceddbe9ae8ea20e48cfe121dc86e2bae8479e483d3635f",
+      "observed_at": "2026-10-19T10:26:42.283300+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102303%2FF0",
+      "sha256": "761f927d2be065802a2497a05b7d8058e391bddb733d8bf95e38e68d2a6b9312",
+      "observed_at": "2026-10-19T10:26:13.497739+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020110127%2FE9",
+      "sha256": "7942a4725380d9a0d6526263bf6f7aaf0c712f1c20fcaa120cd4627eb7d6e583",
+      "observed_at": "2026-10-19T10:26:52.185821+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100851%2FF0",
+      "sha256": "aa1cf5e1d06d2eeeb11974624cb004bc41b9be73c55f6916eb67248f6d28465d",
+      "observed_at": "2026-10-19T10:26:16.995256+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018102453%2FE5",
+      "sha256": "14b0328ef6498de8a19429927d5211cc44deb041f002c5226413bcc963955676",
+      "observed_at": "2026-10-19T10:27:02.859063+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022104113%2F13",
+      "sha256": "74d2cdb1ff9ecdce21b885bb905015d0580eff8bbda62ea26f00e25ae8718f6c",
+      "observed_at": "2026-10-19T10:26:39.107514+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106385%2F91",
+      "sha256": "99d3417585c04b8bf71bb652c1a088817d727b2c53d1935b6ade7576c985c99e",
+      "observed_at": "2026-10-19T10:27:10.277506+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022104761%2FA3",
+      "sha256": "d65462f5dfacf6cc4fa993f34472f46459c6163b5e8c1e01e5adfa92d69c64d9",
+      "observed_at": "2026-10-19T10:26:40.009128+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020109129%2F68",
+      "sha256": "b978bf46e0f05f9254e86eddaec669b2d77bf515b5f368edf2eeba734413c0a2",
+      "observed_at": "2026-10-19T10:26:50.951603+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100284%2FD4",
+      "sha256": "bcc412860dbe8c5423b1427824a99887caa6b8337d95f8e02ea64b78047c9499",
+      "observed_at": "2026-10-19T10:27:03.069610+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105578%2FCE",
+      "sha256": "46e3f7be2bf7be251cd1317c9c80c393593977be5f18171297747e362fd74496",
+      "observed_at": "2026-10-19T10:26:16.870997+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019101896%2FDF",
+      "sha256": "04422fad6e148f0d443e52159196242ca26390a06a9378189ad7ad002c6c4895",
+      "observed_at": "2026-10-19T10:27:13.354491+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103193%2F0D",
+      "sha256": "917fff6bce4a4dcc4f724d591c1cfb411f03a5504062d4c7655367230f28a03a",
+      "observed_at": "2026-10-19T10:27:24.045723+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101143%2F5E",
+      "sha256": "f4170a10d8893491fbad4492993165bc9d5491c985957e42759dc8217551cab0",
+      "observed_at": "2026-10-19T10:27:08.189462+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100675%2FFB",
+      "sha256": "aa8ab945710effb9d1b76438328473818941351b3c94dde9fe7bad4e2f6777dd",
+      "observed_at": "2026-10-19T10:27:10.261132+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101395%2FF6",
+      "sha256": "c350d6d873e354a7f0846d3d9bcddbeac32ca8db0c0da4832f826b3e1c24b46e",
+      "observed_at": "2026-10-19T10:26:21.255304+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102953%2F71",
+      "sha256": "36fe48dbdd750a2424e4b70fb1c6fa0d96f3401440a5c1388e2e5da975ea3799",
+      "observed_at": "2026-10-19T10:26:52.354687+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103809%2F91",
+      "sha256": "2dd1d9da42aaa38cae7067aa58a595e4d1298b5b04195bc866cc6ff5eac4565a",
+      "observed_at": "2026-10-19T10:26:40.137624+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100110%2F67",
+      "sha256": "bbb876cfdbfb4e773be48e3dbe1b9a758e0721d9f18939025cd482072053facc",
+      "observed_at": "2026-10-19T10:26:52.927149+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105241%2FE6",
+      "sha256": "3c92dae007a928efe300f2301bb7021df7084719aea9ee96287458ff33a1d7f5",
+      "observed_at": "2026-10-19T10:26:56.463290+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022106213%2F22",
+      "sha256": "2259e8c79c54960a1ece8b76a43ff973dee06bfbeffe7de455690dd9ebd6e656",
+      "observed_at": "2026-10-19T10:26:33.123532+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106345%2F51",
+      "sha256": "d07a7deb66da994899bc5c5da123a25addc9ddbe21288d0f5e5334750d0aab6a",
+      "observed_at": "2026-10-19T10:26:48.720066+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104549%2F22",
+      "sha256": "6f404132e9d4ef7f24b1266553218e63c6121f63a9a5452bd47ecebe97cba771",
+      "observed_at": "2026-10-19T10:26:55.391447+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106795%2F65",
+      "sha256": "07ad6680e81e4dc1b1d65163d8920916d7f92bdfcc247587264a536c1fe23aef",
+      "observed_at": "2026-10-19T10:26:54.364557+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103819%2FA1",
+      "sha256": "d828a014283f96cfdbdbd17231b93e6b0668544db7ab8f340c87e4a416f92bfa",
+      "observed_at": "2026-10-19T10:26:51.877732+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103088%2F8A",
+      "sha256": "1f2ff35de05ed17551cbf41a2f91462425701dbe25b4b5f61b79dfa827b26958",
+      "observed_at": "2026-10-19T10:27:20.524663+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105860%2F38",
+      "sha256": "d7a9d36a316adae4fddd2809dfa33c7c0cc3b9d8e2eb6a56655b61aaba657a38",
+      "observed_at": "2026-10-19T10:27:20.709819+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103907%2FDC",
+      "sha256": "1087153ffc1a4cdc1ae11500f0a17a0c0906a86534a34561a615dfcb0f7007f3",
+      "observed_at": "2026-10-19T10:26:27.366462+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105358%2F57",
+      "sha256": "dccb498aa2f034e6e12b56f4a187dbc0a5a4791b588aae8b4b50b2697b5bf3b8",
+      "observed_at": "2026-10-19T10:26:35.512252+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104399%2F1B",
+      "sha256": "393789d494a039dc5dfb692bf01b3e72a5517b0fc65e2fcb99acf90c0a72ab46",
+      "observed_at": "2026-10-19T10:26:11.585711+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105156%2F83",
+      "sha256": "686c112ded09997072f89a4e8813b2c0e6b0c7481915460e718301a66a8ea6f9",
+      "observed_at": "2026-10-19T10:26:50.935812+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019109109%2FC9",
+      "sha256": "1ef4b0d4da35e480d974d1fad876359cb866754136fe4999b1cb231910abe036",
+      "observed_at": "2026-10-19T10:26:14.716963+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101576%2F37",
+      "sha256": "2dce4d2899bbaf933098af9f5f51ece087e13873323c151342a6559e3b747526",
+      "observed_at": "2026-10-19T10:27:26.169529+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103543%2F81",
+      "sha256": "e38856f55422dd992b6941447501505740d6a9159c6cb17803d5f02b5559ce15",
+      "observed_at": "2026-10-19T10:27:01.775665+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021103575%2FA2",
+      "sha256": "623232abe3d814314a6f0771230cfdde43b447db50d5968dead8a154cd02b683",
+      "observed_at": "2026-10-19T10:26:12.807113+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105877%2FEE",
+      "sha256": "65d24bfe862e60c85c30c0c21ac5051db8977c01834cbe4a6293e358bc4c3ee6",
+      "observed_at": "2026-10-19T10:26:18.024306+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018106064%2F60",
+      "sha256": "07ef7088e6dccfbefcceb6de7b84cbee4da2206781c7c341a54af4560a99d698",
+      "observed_at": "2026-10-19T10:26:19.119146+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104901%2F19",
+      "sha256": "cc62cc26b25cf014f8a18f6c66b564b3a7feb226e48ec1b4a9661c91e1a8b0be",
+      "observed_at": "2026-10-19T10:26:23.165186+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104646%2FFA",
+      "sha256": "6f1f8393faa2e14a55db60e5e7fdee0203e857c7e225fed29b53884cb2b93f2e",
+      "observed_at": "2026-10-19T10:26:59.104873+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100138%2F9E",
+      "sha256": "0f7fc8d16f76ac0d4b8b28b0badc77ef9fea22c1407b36f93c7d6b9cfaab13e6",
+      "observed_at": "2026-10-19T10:26:28.643221+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020105675%2F25",
+      "sha256": "00a062d6a9a5d5dd85f00e4c4615ecd730b3db333e90999f0922e8d3a1c209a5",
+      "observed_at": "2026-10-19T10:27:18.146360+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104452%2F5B",
+      "sha256": "3637251151f9175548a9979c7552eb8269b1af2afca3c9ebbc8db264fe9c1da7",
+      "observed_at": "2026-10-19T10:27:17.224223+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023104705%2F9B",
+      "sha256": "8be7f2f17594d6cfd19cc3bd53cbb3e2e1c90266c1e7ad83a65d6881fd427028",
+      "observed_at": "2026-10-19T10:26:33.263671+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102563%2F31",
+      "sha256": "affccd62730f3a0da49ba7222d3504d3d00e524ab124b4d2a0a70c572da81ff3",
+      "observed_at": "2026-10-19T10:27:22.859375+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022100101%2F61",
+      "sha256": "8903f1b968b1c0b25ed63298b9cfa86fcb7595235d1fcbf0b6b23b04faae55d4",
+      "observed_at": "2026-10-19T10:26:42.165756+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105739%2F6E",
+      "sha256": "912f75fd59b0b4c81471eb28baf79f883ac8cbb48f197c1e1cfe444017a8b0ee",
+      "observed_at": "2026-10-19T10:26:23.218012+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018100186%2FFD",
+      "sha256": "68500aeb482ce655e161a53a2dd332f787eb3870a0507e2794115c5073ca073b",
+      "observed_at": "2026-10-19T10:27:03.685043+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104773%2F81",
+      "sha256": "de9830af4afe6120e4af98844172a2e4e1d602df07274f3ef95e98a55fe3b5b9",
+      "observed_at": "2026-10-19T10:26:17.980694+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102017103201%2FB0",
+      "sha256": "fb40cc430709ef9b699034e3643d1011e92f9687c461e117cde2d8e74c21c1b1",
+      "observed_at": "2026-10-19T10:26:26.228937+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103122%2F2A",
+      "sha256": "eb7cf88b8c7157c5a615d58262aa1bddb2b1a13a95212d67f5f5aa4d0de57855",
+      "observed_at": "2026-10-19T10:27:04.999912+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106927%2F3D",
+      "sha256": "2e2fa1720cf7c0eb4e9956ed56b1ba95d75cabddb8ae1a18ef25e649fd15e72c",
+      "observed_at": "2026-10-19T10:26:20.125298+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022110038%2F53",
+      "sha256": "f2ad1f257bbddd9ffafe81745ebe183a7b1e077b77e33316a1dd61c6de35a2b3",
+      "observed_at": "2026-10-19T10:26:38.299716+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102914%2FA4",
+      "sha256": "6626094ceb789fb1ee1a1039a5d77be63140dc4b4546a0c211e253c97069fdec",
+      "observed_at": "2026-10-19T10:27:23.737818+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104570%2FC6",
+      "sha256": "5f4ce5191e79695add18cf71921db4735811d958477a82bdff5a3d26b0b86ee8",
+      "observed_at": "2026-10-19T10:27:06.849165+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103020%2F13",
+      "sha256": "52f624d4c13735ed8660008f1632d49e515e3376dcf0659e5f864e30c4c5acd2",
+      "observed_at": "2026-10-19T10:26:29.713962+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021105503%2F2A",
+      "sha256": "7daa2043eb26085780e1df56c647988ac3765ef73847b085fa592b2503204f0f",
+      "observed_at": "2026-10-19T10:26:25.218192+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102573%2FCD",
+      "sha256": "6e0aaf9786b9f5b10ce807b4e186a3a43f238aa5754ddc82d9e1ab9b918dc949",
+      "observed_at": "2026-10-19T10:26:53.207176+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104484%2FFD",
+      "sha256": "c77419c4ee3553aec0995f79487ab0f0dc08cb49990081b6fa50268057e34588",
+      "observed_at": "2026-10-19T10:26:21.647095+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103544%2FF4",
+      "sha256": "529ccfa343b10f10f9c7b93dc6ffde7f40e95f1d6ddb374a94dc686286d37eb1",
+      "observed_at": "2026-10-19T10:26:16.803386+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019105186%2F34",
+      "sha256": "6df1daeeb511507638b8f0501dcfdafaf84341b39ffef3a44c9c3daa6e2b5b72",
+      "observed_at": "2026-10-19T10:26:21.146426+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018104559%2FA6",
+      "sha256": "87596f55c853bb3502d95381602e82a94183ecf188912b738ae633f0370f4d9d",
+      "observed_at": "2026-10-19T10:26:31.913151+00:00"
+    },
+    {
+      "url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019101462%2F1F",
+      "sha256": "e2cac87fd1872f66613abde74653a102be89a6dc092459fbdded4bed89d87ae1",
+      "observed_at": "2026-10-19T10:26:35.489847+00:00"
+    }
+  ],
+  "additional_jockey_candidates": 0,
+  "candidates": [],
+  "network_requests": 0,
+  "database_unchanged": true,
+  "implementation_sha256": "d77c7185a8a87e5a64572bf92b21d049e8616c7a98aa46ed5c07be251070b10a"
+}

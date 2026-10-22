@@ -1,0 +1,24 @@
+{
+  "verified": true,
+  "races": 6036,
+  "input_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "selected": "incumbent_repaired_data",
+  "model_sha256": "2e29f176bece2fb3c7ffe481a78550e34202be4a4644acd54de89743e81dd467",
+  "selection_sha256": "6003070eda24e001014eaeee61cacfeea1766254111c31fffa6f4e314e4d0937",
+  "predictions_sha256": "4da90bea028ac9d8e9792a5e00b2897930a67c6b1252b86c0f38aac38ca32850",
+  "largest_independent_probability_error": 6.106226635438361e-16,
+  "features_rebuilt_from_canonical": true,
+  "independent_feature_implementation": false,
+  "independent_coefficient_and_joint_math": true,
+  "MAP_checked_with_tolerance": 1e-11,
+  "repair_probability_changed_races": 324,
+  "changed_picks": {
+    "repair_winner": 0,
+    "repair_order": 0,
+    "repair_set": 1,
+    "model_winner": 0,
+    "model_order": 0,
+    "model_set": 0
+  },
+  "database_unchanged": true
+}

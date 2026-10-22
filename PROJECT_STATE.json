@@ -1097,10 +1097,420 @@
     "correction_usage": "Explicit --calibration path; model weights and both selections must match; research shadow only"
   },
   "preoff_information": {
-    "status": "publication_pending_at_actual_observation",
-    "observation": "operations/source_observations/2026-10-22/kikka_card_observation.json",
+    "status": "http_200_without_confirmed_card_content",
+    "observation": "operations/source_observations/2026-10-22/kikka_card_194807_observation.json",
     "complete_future_fields": 0,
     "forecast_created": false,
-    "guards": "Announced weight and same-day going require their own actual observation, source URL and SHA256; missing fields remain explicit."
+    "guards": "Announced weight and same-day going require their own actual observation, source URL and SHA256; missing fields remain explicit.",
+    "previous_observation": "operations/source_observations/2026-10-22/kikka_card_observation.json"
+  },
+  "latest_history_research": {
+    "report": "keiba_v48/HISTORY_BLEND_RESULTS.md",
+    "protocol": "keiba_v48/HISTORY_BLEND_PROTOCOL.json",
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 10,
+      "bytes": 322121728,
+      "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+      "file_id": "file_0000000014b081f5b65d21faae9e9fdd"
+    },
+    "predictions_registry": "keiba_v48/reports/history_blend/predictions_registry.json",
+    "metrics": {
+      "lag2": {
+        "2025": {
+          "candidate": {
+            "joint_log_loss": 6.968724627249613,
+            "mean_rank_log_loss": 2.4356922919082002,
+            "ordered_all_hit": 0.009912886752778613,
+            "ordered_position_hits": [
+              0.22108741363772905,
+              0.15470111144487833,
+              0.1078401922499249
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.42495243816962047,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.3558688555647698
+          },
+          "evaluation_role": "Already inspected retrospective; previous interrupted candidate results also inspected, never unseen",
+          "full_coverage": true,
+          "paired_data_repair_delta": {
+            "mean_rank_log_loss": [
+              -0.00001327450215491415,
+              0.000009065855579675072
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0.0003141888131090117
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "paired_model_delta": {
+            "mean_rank_log_loss": [
+              0,
+              0
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "previous": {
+            "joint_log_loss": 6.96873998420097,
+            "mean_rank_log_loss": 2.4356935149866206,
+            "ordered_all_hit": 0.009912886752778613,
+            "ordered_position_hits": [
+              0.22108741363772905,
+              0.15470111144487833,
+              0.1078401922499249
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.4248523080004005,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.355879593976627
+          },
+          "races": 3329,
+          "repaired_baseline": {
+            "joint_log_loss": 6.968724627249613,
+            "mean_rank_log_loss": 2.4356922919082002,
+            "ordered_all_hit": 0.009912886752778613,
+            "ordered_position_hits": [
+              0.22108741363772905,
+              0.15470111144487833,
+              0.1078401922499249
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.42495243816962047,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.3558688555647698
+          }
+        },
+        "2026": {
+          "candidate": {
+            "joint_log_loss": 7.0869523467786015,
+            "mean_rank_log_loss": 2.469841762027304,
+            "ordered_all_hit": 0.008496490579977835,
+            "ordered_position_hits": [
+              0.2065016623568526,
+              0.13631326191355744,
+              0.1115626154414481
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4038911464105405,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.3979492786793415
+          },
+          "evaluation_role": "Already inspected retrospective; previous interrupted candidate results also inspected, never unseen",
+          "full_coverage": true,
+          "paired_data_repair_delta": {
+            "mean_rank_log_loss": [
+              -0.000015252796802291577,
+              -2.2943359493281933e-7
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "paired_model_delta": {
+            "mean_rank_log_loss": [
+              0,
+              0
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "previous": {
+            "joint_log_loss": 7.086970825544728,
+            "mean_rank_log_loss": 2.46984820662788,
+            "ordered_all_hit": 0.008496490579977835,
+            "ordered_position_hits": [
+              0.2065016623568526,
+              0.13631326191355744,
+              0.1115626154414481
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4038911464105405,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.3979533487949847
+          },
+          "races": 2707,
+          "repaired_baseline": {
+            "joint_log_loss": 7.0869523467786015,
+            "mean_rank_log_loss": 2.469841762027304,
+            "ordered_all_hit": 0.008496490579977835,
+            "ordered_position_hits": [
+              0.2065016623568526,
+              0.13631326191355744,
+              0.1115626154414481
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top3_recall": 0.4038911464105405,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.3979492786793415
+          }
+        }
+      },
+      "lag7": {
+        "2025": {
+          "candidate": {
+            "joint_log_loss": 6.958548089512328,
+            "mean_rank_log_loss": 2.433040965367223,
+            "ordered_all_hit": 0.009312105737458696,
+            "ordered_position_hits": [
+              0.2198858516070892,
+              0.15349954941423852,
+              0.10844097326524482
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03935115650345449,
+            "top3_recall": 0.4246520476619605,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3518524527702565
+          },
+          "evaluation_role": "Already inspected retrospective; previous interrupted candidate results also inspected, never unseen",
+          "full_coverage": true,
+          "paired_data_repair_delta": {
+            "mean_rank_log_loss": [
+              -0.000013281612810237844,
+              0.000009067991106595328
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "paired_model_delta": {
+            "mean_rank_log_loss": [
+              -0.003511214720169777,
+              -0.0025657555896254776
+            ],
+            "ordered_all_hit": [
+              -0.0009167951324648142,
+              0
+            ],
+            "top3_all_hit": [
+              -0.0009349217700295995,
+              0.001578773145988935
+            ],
+            "top3_recall": [
+              -0.001602977636106051,
+              0.0010873341598339145
+            ],
+            "winner_hit": [
+              -0.0015309716105928349,
+              0.0017276568561862802
+            ]
+          },
+          "previous": {
+            "joint_log_loss": 6.969755912026483,
+            "mean_rank_log_loss": 2.4360735444041124,
+            "ordered_all_hit": 0.009612496245118654,
+            "ordered_position_hits": [
+              0.22048663262240914,
+              0.15410033042955842,
+              0.1093421447882247
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.42495243816962047,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3559128785904018
+          },
+          "races": 3329,
+          "repaired_baseline": {
+            "joint_log_loss": 6.96974083574995,
+            "mean_rank_log_loss": 2.436072314832003,
+            "ordered_all_hit": 0.009612496245118654,
+            "ordered_position_hits": [
+              0.22048663262240914,
+              0.15410033042955842,
+              0.1093421447882247
+            ],
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top3_recall": 0.42495243816962047,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3559020901531182
+          }
+        },
+        "2026": {
+          "candidate": {
+            "joint_log_loss": 7.07606482465189,
+            "mean_rank_log_loss": 2.4667913456735575,
+            "ordered_all_hit": 0.008496490579977835,
+            "ordered_position_hits": [
+              0.2065016623568526,
+              0.13779091244920577,
+              0.11304026597709642
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.03509420022164758,
+            "top3_recall": 0.40462997167836473,
+            "winner_hit": 0.20206871074990765,
+            "winner_log_loss": 2.3944791797056735
+          },
+          "evaluation_role": "Already inspected retrospective; previous interrupted candidate results also inspected, never unseen",
+          "full_coverage": true,
+          "paired_data_repair_delta": {
+            "mean_rank_log_loss": [
+              -0.000015289074311999807,
+              -2.7411191709857974e-7
+            ],
+            "ordered_all_hit": [
+              0,
+              0
+            ],
+            "top3_all_hit": [
+              0,
+              0
+            ],
+            "top3_recall": [
+              0,
+              0
+            ],
+            "winner_hit": [
+              0,
+              0
+            ]
+          },
+          "paired_model_delta": {
+            "mean_rank_log_loss": [
+              -0.0036377425358476616,
+              -0.0027844835735535514
+            ],
+            "ordered_all_hit": [
+              0,
+              0.0014357888719816938
+            ],
+            "top3_all_hit": [
+              -0.00278192728529234,
+              0.00037204114197859537
+            ],
+            "top3_recall": [
+              -0.0015469104091554633,
+              0.0024605598129697538
+            ],
+            "winner_hit": [
+              0,
+              0.0018610025406054617
+            ]
+          },
+          "previous": {
+            "joint_log_loss": 7.0874510845537175,
+            "mean_rank_log_loss": 2.4700247056193443,
+            "ordered_all_hit": 0.008127077946065755,
+            "ordered_position_hits": [
+              0.20687107499076468,
+              0.13520502401182122,
+              0.11008496490579978
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.03620243812338382,
+            "top3_recall": 0.4042605590444526,
+            "winner_hit": 0.2013298854820835,
+            "winner_log_loss": 2.39784484581208
+          },
+          "races": 2707,
+          "repaired_baseline": {
+            "joint_log_loss": 7.087432594745152,
+            "mean_rank_log_loss": 2.4700182726256124,
+            "ordered_all_hit": 0.008127077946065755,
+            "ordered_position_hits": [
+              0.20687107499076468,
+              0.13520502401182122,
+              0.11008496490579978
+            ],
+            "races": 2707,
+            "top3_all_hit": 0.03620243812338382,
+            "top3_recall": 0.4042605590444526,
+            "winner_hit": 0.2013298854820835,
+            "winner_log_loss": 2.397840759365431
+          }
+        }
+      }
+    },
+    "selected": {
+      "lag2": "incumbent_repaired_data",
+      "lag7": "win_reg0.2_weight0.1_marginal_recall"
+    },
+    "all_targets_met": false,
+    "active_model_replaced": false,
+    "existing_shadow_default_changed": false,
+    "forward_observed_races": 0,
+    "role": "Research challengers only; 2025/2026 retrospective, previously inspected; 7-day candidate trades unordered hits for winner/order hits",
+    "shadow_entrypoint": "keiba_v48/rank_forecast.py",
+    "cached_profile_audit": "keiba_v48/reports/history_blend/cached_profile_audit.json",
+    "reproduced_after_transient_files_lost": true
   }
 }

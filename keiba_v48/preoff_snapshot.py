@@ -55,9 +55,12 @@ def static_card_status(body,meta):
             or not url.path.startswith('/keiba/') or not url.path.endswith('/syutsuba.html')):
         raise ValueError('static official entry page required')
     if hashlib.sha256(body).hexdigest()!=meta['sha256']:raise ValueError('entry source hash mismatch')
-    text=parse_html(body,'lxml').get_text(' ',strip=True)
+    soup=parse_html(body,'lxml');text=soup.get_text(' ',strip=True)
+    title=soup.title.get_text(' ',strip=True) if soup.title else ''
     pending='出馬表は、' in text and '公開予定です' in text
-    return dict({**meta,'http_status':meta.get('status'),'status':'publication_pending' if pending else 'requires_card_parser_review'},
+    status=('source_unavailable' if meta.get('status')!=200 else 'publication_pending' if pending else
+            'source_page_not_confirmed' if '出馬表' not in title else 'requires_card_parser_review')
+    return dict({**meta,'http_status':meta.get('status'),'status':status,'document_title':title},
         full_field_attested=False,forecast_created=False,
         missing=['complete_active_field','official_identity_links','gate','announced_carried_weight','race_day_going'],
         note='Publication notice is not an actual publication timestamp or a complete runner field.')

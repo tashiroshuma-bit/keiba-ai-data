@@ -32,6 +32,13 @@ def normalized(value):
     return re.sub(r'\s+', '', unicodedata.normalize('NFKC', value or ''))
 
 
+def printed_age(value):
+    # PDF glyph numbers such as (cid:8) are font identifiers, never an age.
+    text = re.sub(r'\(cid:\d+\)', '', normalized(value))
+    match = re.search(r'\d+', text)
+    return int(match[0]) if match and 1 <= int(match[0]) <= 30 else None
+
+
 def jockey_name(value):
     # Printed apprentice allowance symbols are not part of the rider's name.
     return normalized(value).lstrip('▲△☆★◇')
@@ -262,9 +269,9 @@ def attest(db, rows, meta):
         if not target:
             continue
         payload = json.loads(target[2])
-        age = re.search(r'(\d+)', payload.get('sex_age', ''))
+        age = printed_age(payload.get('sex_age', ''))
         if (target[0] != row['race_date'] or normalized(target[1]) != row['horse_name'] or
-                not age or int(target[0][:4]) - int(age[1]) != row['birth_year']):
+                not age or int(target[0][:4]) - age != row['birth_year']):
             continue
         # A conflicting previously attested source is a hard error, not last-write-wins.
         old = db.execute('SELECT horse_id,jockey_id FROM official_identity_evidence WHERE race_id=? AND horse_number=?',
@@ -330,8 +337,8 @@ def propagate(db):
     direct = {}
     for rid, num, hid, jid, name, birth in db.execute('SELECT race_id,horse_number,horse_id,jockey_id,horse_name,birth_year FROM official_identity_evidence'):
         direct[rid, num] = (hid, jid, name, birth)
-    profile_direct = {(rid, num): (hid, jid) for rid, num, hid, jid in db.execute(
-        'SELECT race_id,horse_number,profile_horse_id,jockey_id FROM official_profile_start_evidence')}
+    profile_direct = {(rid, num): (hid, jid, name, date, rider) for rid, num, hid, jid, name, date, rider in db.execute(
+        'SELECT race_id,horse_number,profile_horse_id,jockey_id,horse_name,race_date,jockey_name FROM official_profile_start_evidence')}
     query = '''SELECT race_id,horse_number,horse_name,birth_year,horse_id,jockey_name,jockey_id
         FROM official_identity_evidence ORDER BY race_id,horse_number'''
     for rid, num, name, birth, hid, jname, jid in db.execute(query):
@@ -346,8 +353,8 @@ def propagate(db):
         JOIN annual_report_races r USING(race_id)
         ORDER BY e.race_id,e.horse_number'''
     for rid,num,raw,payload,jid,hname,hpayload,date,source_name,source_birth in db.execute(alias_query):
-        proof_row=json.loads(payload);age=re.search(r'(\d+)',json.loads(hpayload).get('sex_age',''))
-        if not age or not date or normalized(hname)!=source_name or int(date[:4])-int(age[1])!=source_birth:
+        proof_row=json.loads(payload);age=printed_age(json.loads(hpayload).get('sex_age',''))
+        if not age or not date or normalized(hname)!=source_name or int(date[:4])-age!=source_birth:
             continue
         canonical = jockey_name(json.loads(payload).get('jockey_name'))
         alias = jockey_name(raw)
@@ -375,8 +382,8 @@ def propagate(db):
         FROM annual_report_runners h JOIN annual_report_races r USING(race_id)'''
     for rid, num, hname, jname, payload, date in db.execute(query):
         row = json.loads(payload)
-        age = re.search(r'(\d+)', row.get('sex_age', ''))
-        birth = int(date[:4]) - int(age[1]) if date and age else None
+        age = printed_age(row.get('sex_age', ''))
+        birth = int(date[:4]) - age if date and age else None
         hs = horses.get((normalized(hname), birth), set())
         js = jockeys.get(jockey_name(jname), set())
         hid = next(iter(hs)) if len(hs) == 1 else None
@@ -391,8 +398,13 @@ def propagate(db):
             hid, jid = evidence[:2]
             counts['direct_source_row_linked'] += bool(hid and jid)
         profile_evidence = profile_direct.get((rid, num)) if not evidence else None
+        if profile_evidence and (normalized(profile_evidence[2]) != normalized(hname) or
+                (date is not None and profile_evidence[3] != date) or
+                jockey_name(profile_evidence[4]) != jockey_name(jname) or
+                (birth is not None and int(profile_evidence[0][4:8]) != birth)):
+            profile_evidence = None  # Annual reparses must not reuse a stale profile row.
         if profile_evidence:
-            hid, jid = profile_evidence
+            hid, jid = profile_evidence[:2]
             counts['profile_source_row_linked'] += bool(hid and jid)
         hp = (rid, num) if evidence and hid else horse_proof.get((normalized(hname), birth, hid), (None, None))
         jp = (rid, num) if evidence and jid else jockey_proof.get((jockey_name(jname), jid), (None, None))
@@ -467,6 +479,9 @@ def audit(db):
 
 
 def unlinked_causes(db):
+    horse_keys=collections.defaultdict(set)
+    for name,birth,hid in db.execute('SELECT horse_name,birth_year,horse_id FROM official_identity_evidence'):
+        horse_keys[normalized(name),birth].add(hid)
     observed_riders = collections.defaultdict(set)
     for payload, jid in db.execute('SELECT payload_json,jockey_id FROM official_identity_evidence'):
         name=jockey_name(json.loads(payload).get('jockey_name'))
@@ -478,9 +493,13 @@ def unlinked_causes(db):
         FROM annual_report_runners h JOIN annual_report_races r USING(race_id)'''):
         if not hid:
             p=json.loads(payload)
+            age=printed_age(p.get('sex_age',''))
+            birth=int(date[:4])-age if date and age else None
+            evidence=horse_keys.get((normalized(hname),birth),set())
             cause=('unresolved_pdf_glyph' if '(cid:' in hname else
-                   'missing_birth_year' if not date or not re.search(r'\d+',p.get('sex_age','')) else
-                   'no_unique_attested_name_birth_key')
+                   'missing_birth_year' if birth is None else
+                   'conflicting_official_ids' if len(evidence)>1 else
+                   'attested_key_not_applied' if evidence else 'no_official_name_birth_evidence')
             horse_counts[cause]+=1
         if not jid:
             name=jockey_name(jname)

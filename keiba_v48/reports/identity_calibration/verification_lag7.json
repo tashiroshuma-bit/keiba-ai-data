@@ -1,0 +1,48 @@
+{
+  "verified": true,
+  "races": 6036,
+  "maximum_probability_replay_error": 0,
+  "years": {
+    "2025": {
+      "races": 3329,
+      "paired_day_bootstrap_95pct_delta": {
+        "winner_log_loss": [
+          -0.018716625119861524,
+          -0.010574794254321151
+        ],
+        "joint_log_loss": [
+          -0.04378721158962824,
+          -0.02583946884511894
+        ],
+        "winner_brier": [
+          -0.007561702074299888,
+          -0.005578705066041317
+        ]
+      }
+    },
+    "2026": {
+      "races": 2707,
+      "paired_day_bootstrap_95pct_delta": {
+        "winner_log_loss": [
+          -0.014773709868246904,
+          -0.00802456792171656
+        ],
+        "joint_log_loss": [
+          -0.04247146013224308,
+          -0.025101602461041525
+        ],
+        "winner_brier": [
+          -0.006061711941763122,
+          -0.004374005145795057
+        ]
+      }
+    }
+  },
+  "predictions_sha256": "b89d9597b5afd79796777cfd6f852f0cf09f81d01b7736f334afd353220bd784",
+  "calibration_sha256": "e6411a60c4e322bcba4e17d882243d570457bbd631b1fa41cd72aab9727a435c",
+  "base_predictions_sha256": "687645ce65bb2eb8b97a4026dbd689e94059d56a516cc890719ba167863f035a",
+  "rank_decisions_changed": 0,
+  "independent_features_rebuilt": false,
+  "independent_joint_MAP_replayed": false,
+  "scope": "Affine probabilities, labels, picks, cohort and proper scores; base feature and joint MAP verification retained from prior evidence"
+}

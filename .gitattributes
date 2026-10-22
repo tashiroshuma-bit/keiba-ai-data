@@ -1,0 +1,2 @@
+# Official observation bytes retain their original whitespace for SHA256 evidence.
+operations/source_observations/**/*.html -whitespace

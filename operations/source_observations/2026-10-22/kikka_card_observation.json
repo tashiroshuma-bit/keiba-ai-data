@@ -1,0 +1,17 @@
+{
+  "url": "https://www.jra.go.jp/keiba/g1/kikka/syutsuba.html",
+  "status": "publication_pending",
+  "observed_at": "2026-10-22T03:59:13.275132+00:00",
+  "sha256": "b4c2dc72f180292cf40957d6467a57d4ceeb01ecb31a7952fd72518bbd0815cd",
+  "http_status": 200,
+  "full_field_attested": false,
+  "forecast_created": false,
+  "missing": [
+    "complete_active_field",
+    "official_identity_links",
+    "gate",
+    "announced_carried_weight",
+    "race_day_going"
+  ],
+  "note": "Publication notice is not an actual publication timestamp or a complete runner field."
+}

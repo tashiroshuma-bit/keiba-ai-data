@@ -94,7 +94,7 @@ def validate_state(state, root=ROOT):
                 errors.append('ROI95 retrospective model cannot be live eligible')
         current = state.get('latest_data_work', {})
         if (research_db['sha256'] != state['database']['sha256'] and
-                current.get('status') != 'saved_and_roundtrip_verified'):
+                current.get('status') not in ('saved_and_roundtrip_verified','identity_repaired_saved_and_roundtrip_verified')):
             errors.append('current database changed without verified saved readback')
         if current.get('status') == 'saved_and_roundtrip_verified':
             saved = read(current['verification'])
@@ -121,6 +121,64 @@ def validate_state(state, root=ROOT):
             for key in ('sha256', 'bytes'):
                 if saved['baseline'][key] != research_db[key]:
                     errors.append('historical research database differs from preserved baseline: ' + key)
+        if current.get('status') == 'identity_repaired_saved_and_roundtrip_verified':
+            saved=read(current['verification']);quality=read(current['data_audit']);repair=read(current['recovery'])
+            previous_saved=read(state['previous_data_work']['verification'])
+            if previous_saved['database']['sha256'] != saved['input_database_sha256']:
+                errors.append('identity recovery input differs from previous saved database')
+            for key in ('sha256','bytes','library_file_id','version'):
+                if previous_saved['originals'][key] != state['sources']['annual_2026'][key]:
+                    errors.append('current originals differ from previous saved readback: '+key)
+            if (saved.get('verified') is not True or saved.get('saved_readback') is not True or
+                    saved.get('outcomes_and_nonidentity_payload_unchanged') is not True or
+                    saved.get('names_corrected_with_original_text_preserved') != len(repair['text_repairs']) or
+                    saved.get('newly_linked_rows') != repair['newly_linked_rows'] or
+                    saved['input_database_sha256'] != repair['input_sha256']):
+                errors.append('identity repair readback or preservation evidence differs')
+            for key in ('sha256','bytes','library_file_id','version'):
+                if saved['database'][key] != state['database'][key]:
+                    errors.append('identity database differs from saved readback: '+key)
+            if (quality['input_db_sha256'] != saved['database']['sha256'] or
+                    repair['output_sha256'] != saved['database']['sha256'] or
+                    quality['input_db_bytes'] != saved['database']['bytes'] or
+                    quality['integrity'] != {'sqlite':'ok','foreign_key_violations':0} or
+                    quality['identity_link_disagreements'] != 0 or
+                    quality['runner_key_duplicate_groups'] != 0 or
+                    quality['full_field_headcount_mismatches'] != 0 or
+                    saved['usable'] != quality['usable'] or saved['usable']['races'] != current['usable_races'] or
+                    saved['observed_identity_errors'] or saved['latest_race_date'] != current['latest_race_date']):
+                errors.append('identity repair database quality gate failed')
+        probability=state.get('latest_probability_research')
+        if probability:
+            registry=read(probability['predictions_registry'])
+            folder=(root/probability['predictions_registry']).parent
+            for lag in ('2','7'):
+                report=read(str((folder/f'confidence_evaluation_lag{lag}.json').relative_to(root)))
+                rule_path=folder/f'confidence_lag{lag}.json'
+                rule=read(str(rule_path.relative_to(root)))
+                verified=read(str((folder/f'verification_lag{lag}.json').relative_to(root)))
+                global_rule=read(str((folder/f'calibration_lag{lag}.json').relative_to(root)))
+                if (hashlib.sha256(rule_path.read_bytes()).hexdigest() != report['calibration_sha256'] or
+                        verified['calibration_sha256'] != report['calibration_sha256'] or
+                        verified['predictions_sha256'] != report['predictions_sha256'] or
+                        registry['confidence_predictions'][lag]['sha256'] != report['predictions_sha256'] or
+                        registry['fit_evidence'][lag]['sha256'] != rule['fit_evidence_sha256'] or
+                        report['years'] != probability['metrics']['lag'+lag] or
+                        report['input_db_sha256'] != probability['database']['sha256'] or
+                        report['rank_decisions_changed'] != 0 or report['active_model_promoted'] is not False or
+                        verified['verified'] is not True or verified['races'] != 6036 or
+                        verified['maximum_probability_replay_error'] != 0):
+                    errors.append('probability correction evidence differs')
+                selection_path=root/f'keiba_v48/reports/exact_rank/selection_lag{lag}.json'
+                model_path=root/f'keiba_v48/reports/exact_rank/model_lag{lag}.json'
+                if (rule['model_sha256'] != hashlib.sha256(model_path.read_bytes()).hexdigest() or
+                        rule['base_selection_sha256'] != hashlib.sha256(selection_path.read_bytes()).hexdigest() or
+                        rule['global_calibration_sha256'] != hashlib.sha256((folder/f'calibration_lag{lag}.json').read_bytes()).hexdigest()):
+                    errors.append('probability correction base model differs')
+                for artifact in (rule,global_rule):
+                    for name,expected in artifact['source_sha256'].items():
+                        if hashlib.sha256((root/'keiba_v48'/name).read_bytes()).hexdigest()!=expected:
+                            errors.append('probability correction source differs: '+name)
         rank = state.get('latest_rank_research')
         if rank:
             if state['development_objective']['primary'] != 'rank_prediction_accuracy':

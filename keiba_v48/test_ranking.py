@@ -101,6 +101,16 @@ class RankTests(unittest.TestCase):
                 self.assertEqual(result['deployment_status'], 'experimental_rank_shadow')
                 self.assertAlmostEqual(sum(r['p_first'] for r in result['runners']), 1)
                 self.assertEqual(len(set(result['ordered_pick'])), 3)
+                calibration=root/'calibration.json'
+                calibration.write_text(json.dumps(dict(schema='keiba-rank-uniform-joint-calibration-v1',
+                    alpha=.1,model_sha256=sha(m),base_selection_sha256=sha(selection),
+                    selection_year=2024,research_only=True,selection_end='2024-12-31T12:00:00+09:00')))
+                corrected=forecast(db,rows,m,selection,calibration)
+                for key in ('winner_pick','ordered_pick','top3_pick'):
+                    self.assertEqual(corrected[key],result[key])
+                np.testing.assert_allclose([r['p_first'] for r in corrected['runners']],
+                    [.9*r['p_first']+.1/4 for r in result['runners']])
+                self.assertEqual(corrected['probability_calibration']['alpha'],.1)
                 for bad in ({'finish_position':1}, {'final_win_odds':10}, {'pre_off_odds':10},
                             {'features_asof':(now+dt.timedelta(hours=1)).isoformat()},
                             {'off_timestamp':(now-dt.timedelta(hours=1)).isoformat()}):

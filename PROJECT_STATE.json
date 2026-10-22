@@ -5,27 +5,32 @@
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
   "latest_data_work": {
-    "report": "keiba_v48/2026_SAVE_RESULTS.md",
-    "evidence_directory": "keiba_v48/reports/annual_2026_saved",
-    "status": "saved_and_roundtrip_verified",
-    "canonical_database_unchanged": false,
-    "year": 2026,
-    "downloaded_originals": 234,
-    "extracted_races": 2808,
-    "extracted_runner_rows": 38608,
+    "report": "keiba_v48/IDENTITY_CALIBRATION_RESULTS.md",
+    "evidence_directory": "keiba_v48/reports/identity_calibration",
+    "status": "identity_repaired_saved_and_roundtrip_verified",
+    "recovery": "keiba_v48/reports/identity_calibration/identity_recovery.json",
+    "verification": "keiba_v48/reports/identity_calibration/verification.json",
+    "data_audit": "keiba_v48/reports/identity_calibration/data_audit.json",
     "latest_race_date": "2026-10-18",
     "usable_races": 12763,
     "excluded_nonempty_races": 404,
     "empty_race_panels": 6,
-    "verification": "keiba_v48/reports/annual_2026_saved/verification.json",
-    "data_audit": "keiba_v48/reports/annual_2026_saved/data_audit.json",
-    "promotion_approved": false,
-    "model_retrained": false
+    "newly_linked_horse_rows": 10,
+    "model_retrained": false,
+    "promotion_approved": false
   },
   "historical_source_snapshots": {
     "annual_parser.py": {
       "path": "keiba_v48/reports/annual_2026/source/annual_parser.py",
       "sha256": "fe3b6cb175ad58e444d299c0e10cde3a24fe84814b257dee47b9ec8aaf68860b"
+    },
+    "official_linkage.py": {
+      "path": "keiba_v48/reports/identity_calibration/source_before/official_linkage.py",
+      "sha256": "948f8c958856ada3f1ae4c83fbc413c568c38545a4b94101cca072ea8501ab31"
+    },
+    "enriched_features.py": {
+      "path": "keiba_v48/reports/identity_calibration/source_before/enriched_features.py",
+      "sha256": "d8d522fceca12c4513e22c60e36b843e75a04188a1a569a50cdc291fbf14c0e9"
     }
   },
   "handoff": "DEVELOPMENT_HANDOFF.md",
@@ -33,12 +38,12 @@
   "database": {
     "name": "jra_2023_2025.sqlite",
     "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
-    "version": 9,
-    "bytes": 322084864,
-    "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+    "version": 10,
+    "bytes": 322121728,
+    "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
     "repository_root_copy": "historical_ingestion_stub_not_canonical",
     "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
-    "file_id": "file_00000000a16881f6be82d7a725283af0"
+    "file_id": "file_0000000014b081f5b65d21faae9e9fdd"
   },
   "sources": {
     "cache": {
@@ -159,7 +164,7 @@
       "id": "CURRENT_YEAR_HISTORY",
       "latest_race_date": "2026-10-18",
       "age_days_asof_2026_10_22": 4,
-      "status": "Annual PDF history saved as canonical version 9 and independently read back; 95 nonempty exclusions and 6 empty panels in 2026 remain."
+      "status": "Canonical version 10 saved and read back; 10 additional historical horse rows linked, 2026 coverage unchanged."
     },
     {
       "id": "EXCLUSIONS",
@@ -170,7 +175,7 @@
     },
     {
       "id": "HORSE_IDS",
-      "unlinked_rows": 77327,
+      "unlinked_rows": 77317,
       "year_2026": 26021
     },
     {
@@ -554,6 +559,548 @@
       "lag2": "marginal_recall",
       "lag7": "exact_set"
     }
+  },
+  "previous_data_work": {
+    "report": "keiba_v48/2026_SAVE_RESULTS.md",
+    "evidence_directory": "keiba_v48/reports/annual_2026_saved",
+    "status": "saved_and_roundtrip_verified",
+    "canonical_database_unchanged": false,
+    "year": 2026,
+    "downloaded_originals": 234,
+    "extracted_races": 2808,
+    "extracted_runner_rows": 38608,
+    "latest_race_date": "2026-10-18",
+    "usable_races": 12763,
+    "excluded_nonempty_races": 404,
+    "empty_race_panels": 6,
+    "verification": "keiba_v48/reports/annual_2026_saved/verification.json",
+    "data_audit": "keiba_v48/reports/annual_2026_saved/data_audit.json",
+    "promotion_approved": false,
+    "model_retrained": false
+  },
+  "latest_probability_research": {
+    "report": "keiba_v48/IDENTITY_CALIBRATION_RESULTS.md",
+    "protocol": "keiba_v48/CALIBRATION_PROTOCOL.json",
+    "confidence_protocol": "keiba_v48/CONFIDENCE_PROTOCOL.json",
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 9,
+      "bytes": 322084864,
+      "sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+      "file_id": "file_00000000a16881f6be82d7a725283af0"
+    },
+    "predictions_registry": "keiba_v48/reports/identity_calibration/predictions_registry.json",
+    "metrics": {
+      "lag2": {
+        "2025": {
+          "after": {
+            "joint_log_loss": 6.96873998420097,
+            "ordered_all_hit": 0.009912886752778613,
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top_label_ece": 0.0634626308504329,
+            "winner_brier": 0.8896706346718163,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.355879593976627,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.15608180839612487,
+                "lower": 0,
+                "mean_probability": 0.15949842142641193,
+                "races": 929,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.2343921139101862,
+                "lower": 0.2,
+                "mean_probability": 0.28100367202376386,
+                "races": 1826,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.27615062761506276,
+                "lower": 0.4,
+                "mean_probability": 0.47057631079176215,
+                "races": 478,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.34782608695652173,
+                "lower": 0.6,
+                "mean_probability": 0.6609034712022428,
+                "races": 92,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.5,
+                "lower": 0.8,
+                "mean_probability": 0.8104408928732397,
+                "races": 4,
+                "upper": 1
+              }
+            ]
+          },
+          "before": {
+            "joint_log_loss": 7.002915928403652,
+            "ordered_all_hit": 0.009912886752778613,
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top_label_ece": 0.08662926578879826,
+            "winner_brier": 0.8961972772628829,
+            "winner_hit": 0.22198858516070893,
+            "winner_log_loss": 2.3703828990289297,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.14341590612777053,
+                "lower": 0,
+                "mean_probability": 0.1616825331286589,
+                "races": 767,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.23235613463626492,
+                "lower": 0.2,
+                "mean_probability": 0.2859704242876311,
+                "races": 1842,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.2682060390763766,
+                "lower": 0.4,
+                "mean_probability": 0.4765494741520537,
+                "races": 563,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.3146853146853147,
+                "lower": 0.6,
+                "mean_probability": 0.6740295927819087,
+                "races": 143,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.35714285714285715,
+                "lower": 0.8,
+                "mean_probability": 0.8526582605708847,
+                "races": 14,
+                "upper": 1
+              }
+            ]
+          },
+          "fixed_original_confidence_groups": [
+            {
+              "after_mean": 0.4373527033018058,
+              "before_mean": 0.4765494741520537,
+              "hit_rate": 0.2682060390763766,
+              "original_lower": 0.4,
+              "original_upper": 0.6,
+              "races": 563
+            },
+            {
+              "after_mean": 0.6157926984822056,
+              "before_mean": 0.6740295927819087,
+              "hit_rate": 0.3146853146853147,
+              "original_lower": 0.6,
+              "original_upper": 0.8,
+              "races": 143
+            },
+            {
+              "after_mean": 0.7783432198395815,
+              "before_mean": 0.8526582605708847,
+              "hit_rate": 0.35714285714285715,
+              "original_lower": 0.8,
+              "original_upper": 1,
+              "races": 14
+            }
+          ]
+        },
+        "2026": {
+          "after": {
+            "joint_log_loss": 7.086970825544728,
+            "ordered_all_hit": 0.008496490579977835,
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top_label_ece": 0.0636236517562437,
+            "winner_brier": 0.8959801255817427,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.3979533487949847,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.1636536631779258,
+                "lower": 0,
+                "mean_probability": 0.15663816271884612,
+                "races": 1051,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.2131398013750955,
+                "lower": 0.2,
+                "mean_probability": 0.2791580685785098,
+                "races": 1309,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.2619047619047619,
+                "lower": 0.4,
+                "mean_probability": 0.4715995151160837,
+                "races": 294,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.38,
+                "lower": 0.6,
+                "mean_probability": 0.6868762158844863,
+                "races": 50,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.3333333333333333,
+                "lower": 0.8,
+                "mean_probability": 0.8146514380122417,
+                "races": 3,
+                "upper": 1
+              }
+            ]
+          },
+          "before": {
+            "joint_log_loss": 7.120796543188297,
+            "ordered_all_hit": 0.008496490579977835,
+            "races": 2707,
+            "top3_all_hit": 0.0347247875877355,
+            "top_label_ece": 0.07856107160647771,
+            "winner_brier": 0.9012516489910151,
+            "winner_hit": 0.20243812338381972,
+            "winner_log_loss": 2.409342579183708,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.15300546448087432,
+                "lower": 0,
+                "mean_probability": 0.16015248164049348,
+                "races": 915,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.21083890126206384,
+                "lower": 0.2,
+                "mean_probability": 0.28345346108383473,
+                "races": 1347,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.2627118644067797,
+                "lower": 0.4,
+                "mean_probability": 0.47480606104888073,
+                "races": 354,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.3116883116883117,
+                "lower": 0.6,
+                "mean_probability": 0.6787760915531391,
+                "races": 77,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.5,
+                "lower": 0.8,
+                "mean_probability": 0.8547416712044834,
+                "races": 14,
+                "upper": 1
+              }
+            ]
+          },
+          "fixed_original_confidence_groups": [
+            {
+              "after_mean": 0.436085404998185,
+              "before_mean": 0.47480606104888073,
+              "hit_rate": 0.2627118644067797,
+              "original_lower": 0.4,
+              "original_upper": 0.6,
+              "races": 354
+            },
+            {
+              "after_mean": 0.6193568950063523,
+              "before_mean": 0.6787760915531391,
+              "hit_rate": 0.3116883116883117,
+              "original_lower": 0.6,
+              "original_upper": 0.8,
+              "races": 77
+            },
+            {
+              "after_mean": 0.7793761949962973,
+              "before_mean": 0.8547416712044834,
+              "hit_rate": 0.5,
+              "original_lower": 0.8,
+              "original_upper": 1,
+              "races": 14
+            }
+          ]
+        }
+      },
+      "lag7": {
+        "2025": {
+          "after": {
+            "joint_log_loss": 6.969755912026483,
+            "ordered_all_hit": 0.009612496245118654,
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top_label_ece": 0.06374473089205326,
+            "winner_brier": 0.8897583232647899,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3559128785904018,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.1581798483206934,
+                "lower": 0,
+                "mean_probability": 0.15927391171558883,
+                "races": 923,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.23227917121046893,
+                "lower": 0.2,
+                "mean_probability": 0.280797044321521,
+                "races": 1834,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.2773109243697479,
+                "lower": 0.4,
+                "mean_probability": 0.47088943343088596,
+                "races": 476,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.34782608695652173,
+                "lower": 0.6,
+                "mean_probability": 0.6611751266321703,
+                "races": 92,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.5,
+                "lower": 0.8,
+                "mean_probability": 0.8107818443064791,
+                "races": 4,
+                "upper": 1
+              }
+            ]
+          },
+          "before": {
+            "joint_log_loss": 7.003640556331184,
+            "ordered_all_hit": 0.009612496245118654,
+            "races": 3329,
+            "top3_all_hit": 0.03905076599579453,
+            "top_label_ece": 0.08690933355641427,
+            "winner_brier": 0.8962913222136234,
+            "winner_hit": 0.22168819465304895,
+            "winner_log_loss": 2.3703842251293934,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.14993481095176012,
+                "lower": 0,
+                "mean_probability": 0.1617347144654633,
+                "races": 767,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.22947253942359977,
+                "lower": 0.2,
+                "mean_probability": 0.2856894986792613,
+                "races": 1839,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.26631393298059963,
+                "lower": 0.4,
+                "mean_probability": 0.4764508687946663,
+                "races": 567,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.31690140845070425,
+                "lower": 0.6,
+                "mean_probability": 0.674689127138971,
+                "races": 142,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.35714285714285715,
+                "lower": 0.8,
+                "mean_probability": 0.8524399059158201,
+                "races": 14,
+                "upper": 1
+              }
+            ]
+          },
+          "fixed_original_confidence_groups": [
+            {
+              "after_mean": 0.43725739805044483,
+              "before_mean": 0.4764508687946663,
+              "hit_rate": 0.26631393298059963,
+              "original_lower": 0.4,
+              "original_upper": 0.6,
+              "races": 567
+            },
+            {
+              "after_mean": 0.6164005273460663,
+              "before_mean": 0.674689127138971,
+              "hit_rate": 0.31690140845070425,
+              "original_lower": 0.6,
+              "original_upper": 0.8,
+              "races": 142
+            },
+            {
+              "after_mean": 0.7781467006500236,
+              "before_mean": 0.8524399059158201,
+              "hit_rate": 0.35714285714285715,
+              "original_lower": 0.8,
+              "original_upper": 1,
+              "races": 14
+            }
+          ]
+        },
+        "2026": {
+          "after": {
+            "joint_log_loss": 7.0874510845537175,
+            "ordered_all_hit": 0.008127077946065755,
+            "races": 2707,
+            "top3_all_hit": 0.03620243812338382,
+            "top_label_ece": 0.06323981498027775,
+            "winner_brier": 0.8959436252991146,
+            "winner_hit": 0.2013298854820835,
+            "winner_log_loss": 2.39784484581208,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.16193181818181818,
+                "lower": 0,
+                "mean_probability": 0.15697490563239003,
+                "races": 1056,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.21226053639846743,
+                "lower": 0.2,
+                "mean_probability": 0.27967107312223644,
+                "races": 1305,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.2627986348122867,
+                "lower": 0.4,
+                "mean_probability": 0.47166230768185363,
+                "races": 293,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.38,
+                "lower": 0.6,
+                "mean_probability": 0.6868841367837453,
+                "races": 50,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.3333333333333333,
+                "lower": 0.8,
+                "mean_probability": 0.8145553616422742,
+                "races": 3,
+                "upper": 1
+              }
+            ]
+          },
+          "before": {
+            "joint_log_loss": 7.121146215789667,
+            "ordered_all_hit": 0.008127077946065755,
+            "races": 2707,
+            "top3_all_hit": 0.03620243812338382,
+            "top_label_ece": 0.07976721884124083,
+            "winner_brier": 0.9012134350158938,
+            "winner_hit": 0.2013298854820835,
+            "winner_log_loss": 2.4092281435126672,
+            "winner_reliability": [
+              {
+                "hit_rate": 0.15065502183406113,
+                "lower": 0,
+                "mean_probability": 0.1603540186051668,
+                "races": 916,
+                "upper": 0.2
+              },
+              {
+                "hit_rate": 0.21115241635687731,
+                "lower": 0.2,
+                "mean_probability": 0.28356558145810906,
+                "races": 1345,
+                "upper": 0.4
+              },
+              {
+                "hit_rate": 0.25842696629213485,
+                "lower": 0.4,
+                "mean_probability": 0.4748903379659172,
+                "races": 356,
+                "upper": 0.6
+              },
+              {
+                "hit_rate": 0.3157894736842105,
+                "lower": 0.6,
+                "mean_probability": 0.6792540167775851,
+                "races": 76,
+                "upper": 0.8
+              },
+              {
+                "hit_rate": 0.5,
+                "lower": 0.8,
+                "mean_probability": 0.8546862649133178,
+                "races": 14,
+                "upper": 1
+              }
+            ]
+          },
+          "fixed_original_confidence_groups": [
+            {
+              "after_mean": 0.4361670627415529,
+              "before_mean": 0.4748903379659172,
+              "hit_rate": 0.25842696629213485,
+              "original_lower": 0.4,
+              "original_upper": 0.6,
+              "races": 356
+            },
+            {
+              "after_mean": 0.6197787053862173,
+              "before_mean": 0.6792540167775851,
+              "hit_rate": 0.3157894736842105,
+              "original_lower": 0.6,
+              "original_upper": 0.8,
+              "races": 76
+            },
+            {
+              "after_mean": 0.7793263293342484,
+              "before_mean": 0.8546862649133178,
+              "hit_rate": 0.5,
+              "original_lower": 0.8,
+              "original_upper": 1,
+              "races": 14
+            }
+          ]
+        }
+      }
+    },
+    "selected_alpha": 0.1,
+    "confidence_stratified_candidate_adopted": false,
+    "high_confidence_fully_resolved": false,
+    "rank_decisions_changed": 0,
+    "active_model_replaced": false,
+    "forward_observed_races": 0,
+    "shadow_entrypoint": "keiba_v48/rank_forecast.py",
+    "correction_usage": "Explicit --calibration path; model weights and both selections must match; research shadow only"
+  },
+  "preoff_information": {
+    "status": "publication_pending_at_actual_observation",
+    "observation": "operations/source_observations/2026-10-22/kikka_card_observation.json",
+    "complete_future_fields": 0,
+    "forecast_created": false,
+    "guards": "Announced weight and same-day going require their own actual observation, source URL and SHA256; missing fields remain explicit."
   }
 }
-

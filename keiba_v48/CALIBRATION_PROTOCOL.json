@@ -1,0 +1,16 @@
+{
+  "schema": "keiba-rank-calibration-protocol-v1",
+  "base_weights": "Frozen stagewise rank models trained in 2023; no refit",
+  "input_database_version": 9,
+  "fit_period": "2024 H1 after training label availability",
+  "gate_period": "2024 H2 after H1 label availability",
+  "alpha_grid": [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+  "fit_objective": "winner categorical log loss; ties prefer smaller alpha",
+  "gate": "H2 winner log loss and complete ordered-triple log loss must both not increase; otherwise alpha 0",
+  "distribution": "(1-alpha) times original joint plus alpha times uniform over distinct ordered triples",
+  "decision_policy": "Original winner, exact ordered triple and each existing unordered decision preserved for alpha less than one",
+  "exploratory_evaluation_years": [2025, 2026],
+  "evaluation_role": "Already inspected retrospective, not independent unseen or forward",
+  "odds_or_profit_selection": false,
+  "active_model_promotion": false
+}

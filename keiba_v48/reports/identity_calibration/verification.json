@@ -1,0 +1,42 @@
+{
+  "schema": "keiba-identity-recovery-readback-v1",
+  "verified": true,
+  "verified_at": "2026-10-22T04:14:28.132837+00:00",
+  "database": {
+    "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "bytes": 322121728,
+    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "version": 10
+  },
+  "input_database_sha256": "1c322ba4fb1d7e6d4af3da59cb93f32a8172c9d6c5596a7f9b023a66e2c56f7f",
+  "saved_readback": true,
+  "outcomes_and_nonidentity_payload_unchanged": true,
+  "names_corrected_with_original_text_preserved": 2,
+  "newly_linked_rows": 10,
+  "rows_checked": 181345,
+  "immutable_tables_checked": {
+    "annual_report_documents": 1098,
+    "annual_report_races": 13176,
+    "document_artifact_times": 1098,
+    "documents": 279,
+    "enriched_results": 1187,
+    "official_linkage_pages": 1191,
+    "official_profile_start_evidence": 2859,
+    "official_void_races": 3,
+    "pdf_payout_evidence": 12706,
+    "pdf_performance_evidence": 12705,
+    "races": 418,
+    "runner_results": 18
+  },
+  "observed_identity_rows": 104028,
+  "observed_identity_errors": {},
+  "source_database_unchanged": true,
+  "usable": {
+    "races": 12763,
+    "runner_rows": 175102,
+    "history_rows": 175102,
+    "excluded_races": 404,
+    "void_races": 3
+  },
+  "latest_race_date": "2026-10-18"
+}

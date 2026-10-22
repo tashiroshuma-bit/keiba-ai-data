@@ -158,17 +158,15 @@ def previous_contract_index(rows,assumed=True):
 
 
 def load_observed_enriched(db_path,cutoff):
+    from observed_identity import identity_observations
     history,_,_=load_archive(db_path)
     db=sqlite3.connect('file:'+str(Path(db_path).resolve())+'?mode=ro',uri=True)
-    proofs={}
-    for rid,num,ho,jo in db.execute('''SELECT l.race_id,l.horse_number,h.observed_at,j.observed_at FROM annual_identity_links l
-        LEFT JOIN official_identity_evidence h ON h.race_id=l.horse_evidence_race_id AND h.horse_number=l.horse_evidence_horse_number
-        LEFT JOIN official_identity_evidence j ON j.race_id=l.jockey_evidence_race_id AND j.horse_number=l.jockey_evidence_horse_number'''):
-        proofs[rid,str(num)]=[x for x in (ho,jo) if x]
+    proofs,_=identity_observations(db)
     db.close();rows=[]
     for r in history:
-        times=[r['result_observed_at']]+([r['identity_observed_at']] if r.get('identity_observed_at') else proofs.get((r['race_id'],str(r['horse_number'])),[]))
-        at=max(map(timestamp,times))
+        identity_at=r.get('identity_observed_at') or proofs.get((r['race_id'],str(r['horse_number'])))
+        if identity_at is None:continue  # Missing proof is never proof of early availability.
+        at=max(timestamp(r['result_observed_at']),timestamp(identity_at) if isinstance(identity_at,str) else identity_at)
         if at<=cutoff:
             rows.append({**r,'result_available_at':at.isoformat(),'availability_basis':'observed_source_and_identity_proof'})
     return rows

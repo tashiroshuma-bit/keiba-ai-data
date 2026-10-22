@@ -10,9 +10,12 @@ from ranking_model import RankModel, augment, picks, joint_distribution
 from exact_rank_model import ExactRankTree, exact_set
 from strategy import validate_field
 from validation import Ledger, canonical
+from preoff_snapshot import audit_snapshot
+from rank_calibration import mix_joint, validate_artifact
+from confidence_calibration import alpha_for
 
 
-def forecast(db, rows, model_path, selection_path):
+def forecast(db, rows, model_path, selection_path, calibration_path=None):
     artifact = json.loads(Path(model_path).read_text())
     selected = json.loads(Path(selection_path).read_text())
     if sha(model_path) != selected['model_sha256']:
@@ -30,6 +33,7 @@ def forecast(db, rows, model_path, selection_path):
         if any(row.get(k) and timestamp(row[k]) > now for k in ('features_asof', 'going_asof')):
             raise ValueError('future observation time')
     cutoff = validate_field(rows, require_odds=False)
+    input_quality = audit_snapshot(rows,now,cutoff)
     if now > cutoff:
         raise ValueError('rank forecast cutoff has passed')
     if timestamp(selected['selection_end']) >= cutoff:
@@ -48,6 +52,18 @@ def forecast(db, rows, model_path, selection_path):
         trio, _ = exact_set(q, numbers)
     elif set_policy != 'marginal_recall':
         raise ValueError('unknown rank set decision policy')
+    calibration_info=None
+    if calibration_path:
+        adjustment=json.loads(Path(calibration_path).read_text())
+        alpha=(alpha_for(adjustment,p,sha(model_path),sha(selection_path))
+               if adjustment.get('schema')=='keiba-rank-confidence-calibration-v1'
+               else validate_artifact(adjustment,sha(model_path),sha(selection_path)))
+        if timestamp(adjustment['selection_end'])>=cutoff:
+            raise ValueError('calibration selection must precede forecast cutoff')
+        p,q=mix_joint(p,q,alpha)
+        calibration_info=dict(sha256=sha(calibration_path),alpha=alpha,
+                              method='uniform_distinct_ordered_triple_mixture',
+                              status='retrospective_evaluated_research_only')
     return dict(version='4.8-rank-shadow', deployment_status='experimental_rank_shadow',
         race_id=rows[0]['race_id'], off_timestamp=rows[0]['off_timestamp'], cutoff_timestamp=cutoff.isoformat(),
         created_at=now.isoformat(), history_time_policy='actual_source_and_identity_observation',
@@ -58,6 +74,7 @@ def forecast(db, rows, model_path, selection_path):
                  for i,r in enumerate(prepared)],
         winner_pick=numbers[winner], top3_pick=[numbers[i] for i in trio],
         ordered_pick=[numbers[i] for i in ordered], unordered_decision_policy=set_policy,
+        input_quality=input_quality,probability_calibration=calibration_info,
         inputs=dict(runners=prepared, features=race['features']),
         allocation=dict(bets=[], stake_yen=0), strict_production_validated=False)
 
@@ -66,8 +83,9 @@ if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
     for name in ('db', 'runners', 'model', 'selection', 'ledger', 'output'):
         p.add_argument('--' + name, required=True)
+    p.add_argument('--calibration')
     a = p.parse_args()
-    result = forecast(a.db, json.loads(Path(a.runners).read_text()), a.model, a.selection)
+    result = forecast(a.db, json.loads(Path(a.runners).read_text()), a.model, a.selection,a.calibration)
     key = Ledger(a.ledger).freeze(result, json.loads(Path(a.model).read_text()), mode='forward')
     Path(a.output).write_text(canonical(dict(prediction_id=key, **result)))
     print(key)

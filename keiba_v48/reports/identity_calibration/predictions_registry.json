@@ -1,0 +1,69 @@
+{
+  "schema": "keiba-probability-artifacts-v1",
+  "fit_evidence": {
+    "2": {
+      "name": "calibration_fit_evidence_20261022_lag2.json.gz",
+      "library_file_id": "libfile_a168ebd73f948191b54704d2ff5cbfee",
+      "file_id": "file_00000000ab2c81f59eb5a9d601f7777f",
+      "version": 0,
+      "bytes": 1509233,
+      "sha256": "018257e1a3cb6fbaa99627abd932d36a49b39bcd68aa78590dbde7999843c242",
+      "races": {
+        "fit": 1745,
+        "gate": 1615
+      }
+    },
+    "7": {
+      "name": "calibration_fit_evidence_20261022_lag7.json.gz",
+      "library_file_id": "libfile_285397e2fe44819181afefb1d3084bd4",
+      "file_id": "file_00000000fca481f5bc11d25134499376",
+      "version": 0,
+      "bytes": 1495464,
+      "sha256": "f073a9b823d874a8ffa4e3081b10927eab26b15c95b587e5ee75ed29f7ac0bc6",
+      "races": {
+        "fit": 1745,
+        "gate": 1579
+      }
+    }
+  },
+  "global_predictions": {
+    "2": {
+      "name": "calibration_predictions_20261022_lag2.json.gz",
+      "library_file_id": "libfile_66b59bdef0ec819197d83528a03f6be0",
+      "file_id": "file_0000000046e081f5b2a90e34fad4287e",
+      "version": 0,
+      "bytes": 5447651,
+      "sha256": "83f283d73eb3f7f1b2e41888defd2168ff1e5088580a266d6077d671093f9931",
+      "races": 6036
+    },
+    "7": {
+      "name": "calibration_predictions_20261022_lag7.json.gz",
+      "library_file_id": "libfile_ecf31c9f6c34819182dbad2359001116",
+      "file_id": "file_00000000ca5c81f59a11d44ee463ddbe",
+      "version": 0,
+      "bytes": 5443127,
+      "sha256": "ca208cae75f43777e63875ca35376318918cd8dbca1a11bc12da5320f0ae95a8",
+      "races": 6036
+    }
+  },
+  "confidence_predictions": {
+    "2": {
+      "name": "confidence_predictions_20261022_lag2.json.gz",
+      "library_file_id": "libfile_5317b439b56c8191a2c8e6a76ed1c953",
+      "file_id": "file_00000000e15481f59acdb2a782a6b308",
+      "version": 0,
+      "bytes": 5452248,
+      "sha256": "b04c22fd4c5eff8d4f829ce74becc01d7826ba9658bb832888fa542f4b3fab1c",
+      "races": 6036
+    },
+    "7": {
+      "name": "confidence_predictions_20261022_lag7.json.gz",
+      "library_file_id": "libfile_66d612ec6e5c819186076a1a235d8063",
+      "file_id": "file_00000000d51c81f5afbf6dcb17b00dd3",
+      "version": 0,
+      "bytes": 5447633,
+      "sha256": "b89d9597b5afd79796777cfd6f852f0cf09f81d01b7736f334afd353220bd784",
+      "races": 6036
+    }
+  }
+}

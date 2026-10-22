@@ -1,0 +1,16 @@
+{
+  "schema": "keiba-rank-confidence-protocol-v1",
+  "fit_period": "2024 H1; prior frozen rank weights, no refit",
+  "gate_period": "2024 H2; reused model selection period, not independent validation",
+  "base_probability_strata": [0, 0.4, 1.00000001],
+  "minimum_fit_races_per_stratum": 100,
+  "alpha_grid": [0, 0.05, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9],
+  "fit_objective": "Winner categorical log loss per predeclared stratum; ties prefer smaller alpha",
+  "fallback": "Previously frozen global mixture when support or gate fails",
+  "gate": "2024 H2 winner and ordered-triple log loss must not increase versus global mixture; original-high-confidence absolute gap must decrease",
+  "distribution": "Per-race uniform ordered-triple mixture; raw winner maximum determines stratum",
+  "decisions": "Same single winner, ordered triple and unordered set for every eligible race",
+  "evaluation": "2025 and 2026 already inspected, retrospective only",
+  "probability_bins_are_not_accuracy_subsets": true,
+  "active_model_promotion": false
+}

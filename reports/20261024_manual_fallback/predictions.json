@@ -1,0 +1,4633 @@
+{
+  "created_at": "2026-10-24T07:49:22.415387+00:00",
+  "kind": "retrospective_20261024_uncalibrated_baseline_NOT_V43",
+  "races": [
+    {
+      "track": "東京",
+      "race": 1,
+      "horses": [
+        {
+          "number": 12,
+          "name": "スターフラッシュ",
+          "earnings": 550.0,
+          "record": [
+            0,
+            2,
+            0,
+            0
+          ],
+          "relative_weight_pct": 16.778
+        },
+        {
+          "number": 7,
+          "name": "マーゴットパラディ",
+          "earnings": 240.0,
+          "record": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "relative_weight_pct": 11.976
+        },
+        {
+          "number": 8,
+          "name": "オーケーエース",
+          "earnings": 359.0,
+          "record": [
+            0,
+            0,
+            1,
+            3
+          ],
+          "relative_weight_pct": 11.812
+        },
+        {
+          "number": 3,
+          "name": "レッドアバンドーネ",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 10.745
+        },
+        {
+          "number": 10,
+          "name": "クラオルグジェシダ",
+          "earnings": 167.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 9.466
+        },
+        {
+          "number": 2,
+          "name": "タイセイリッター",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 8.81
+        },
+        {
+          "number": 13,
+          "name": "ヴィンチェローズ",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 8.81
+        },
+        {
+          "number": 1,
+          "name": "エレガントステップ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 4,
+          "name": "ナムラマシュー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 5,
+          "name": "ムードメーカー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 6,
+          "name": "エマルタ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 9,
+          "name": "モーモーワン",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 11,
+          "name": "マインドブレイズ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 3.086
+        },
+        {
+          "number": 14,
+          "name": "アルタイルテソーロ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 3.086
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040801"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "horses": [
+        {
+          "number": 4,
+          "name": "イニシャルポイント",
+          "earnings": 609.0,
+          "record": [
+            0,
+            2,
+            0,
+            1
+          ],
+          "relative_weight_pct": 22.639
+        },
+        {
+          "number": 7,
+          "name": "ファーストアライヴ",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 18.029
+        },
+        {
+          "number": 1,
+          "name": "サントシャペル",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 14.827
+        },
+        {
+          "number": 5,
+          "name": "ホウオウビースト",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 14.827
+        },
+        {
+          "number": 3,
+          "name": "エムアイブレイズ",
+          "earnings": 179.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 13.261
+        },
+        {
+          "number": 6,
+          "name": "ミツカネリゲル",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 12.158
+        },
+        {
+          "number": 2,
+          "name": "ビタークレス",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.258
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040802"
+    },
+    {
+      "track": "東京",
+      "race": 3,
+      "horses": [
+        {
+          "number": 8,
+          "name": "タンタフェリチア",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 17.973
+        },
+        {
+          "number": 10,
+          "name": "リーベラーリア",
+          "earnings": 240.0,
+          "record": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "relative_weight_pct": 16.475
+        },
+        {
+          "number": 4,
+          "name": "ミラマルニ",
+          "earnings": 228.0,
+          "record": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "relative_weight_pct": 14.989
+        },
+        {
+          "number": 7,
+          "name": "ディアム",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 14.782
+        },
+        {
+          "number": 5,
+          "name": "スターマイン",
+          "earnings": 209.0,
+          "record": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "relative_weight_pct": 14.555
+        },
+        {
+          "number": 1,
+          "name": "ワールドプラージュ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.245
+        },
+        {
+          "number": 2,
+          "name": "ウマッター",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 4.245
+        },
+        {
+          "number": 3,
+          "name": "スードランダム",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 4.245
+        },
+        {
+          "number": 6,
+          "name": "セールデュクール",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 4.245
+        },
+        {
+          "number": 9,
+          "name": "シーズアウルフ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.245
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040803"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "horses": [
+        {
+          "number": 4,
+          "name": "ラヴアンドライク",
+          "earnings": 1770.0,
+          "record": [
+            1,
+            2,
+            1,
+            5
+          ],
+          "relative_weight_pct": 11.265
+        },
+        {
+          "number": 9,
+          "name": "ディペンダブル",
+          "earnings": 1875.0,
+          "record": [
+            1,
+            2,
+            3,
+            9
+          ],
+          "relative_weight_pct": 10.79
+        },
+        {
+          "number": 12,
+          "name": "ブルーサーマル",
+          "earnings": 1379.0,
+          "record": [
+            1,
+            2,
+            0,
+            5
+          ],
+          "relative_weight_pct": 10.565
+        },
+        {
+          "number": 5,
+          "name": "グロリアス",
+          "earnings": 1464.0,
+          "record": [
+            1,
+            1,
+            2,
+            9
+          ],
+          "relative_weight_pct": 9.728
+        },
+        {
+          "number": 11,
+          "name": "イージーブリージー",
+          "earnings": 1887.0,
+          "record": [
+            1,
+            1,
+            2,
+            16
+          ],
+          "relative_weight_pct": 9.653
+        },
+        {
+          "number": 3,
+          "name": "サイモンセレーノ",
+          "earnings": 1029.0,
+          "record": [
+            1,
+            1,
+            0,
+            4
+          ],
+          "relative_weight_pct": 9.605
+        },
+        {
+          "number": 1,
+          "name": "オーケーリアン",
+          "earnings": 991.0,
+          "record": [
+            1,
+            1,
+            0,
+            4
+          ],
+          "relative_weight_pct": 9.526
+        },
+        {
+          "number": 7,
+          "name": "ガンバレベアー",
+          "earnings": 1177.0,
+          "record": [
+            0,
+            2,
+            4,
+            9
+          ],
+          "relative_weight_pct": 9.036
+        },
+        {
+          "number": 10,
+          "name": "コルヴィル",
+          "earnings": 722.0,
+          "record": [
+            0,
+            1,
+            0,
+            15
+          ],
+          "relative_weight_pct": 7.032
+        },
+        {
+          "number": 2,
+          "name": "ブエナディオサ",
+          "earnings": 480.0,
+          "record": [
+            0,
+            0,
+            0,
+            28
+          ],
+          "relative_weight_pct": 6.138
+        },
+        {
+          "number": 8,
+          "name": "サンクレゾン",
+          "earnings": 150.0,
+          "record": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "relative_weight_pct": 5.071
+        },
+        {
+          "number": 6,
+          "name": "タイヨウノユビワ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 1.59
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040807"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "horses": [
+        {
+          "number": 11,
+          "name": "マテンロウオリジン",
+          "earnings": 1782.0,
+          "record": [
+            1,
+            4,
+            1,
+            1
+          ],
+          "relative_weight_pct": 11.16
+        },
+        {
+          "number": 10,
+          "name": "ノンブルドール",
+          "earnings": 2154.0,
+          "record": [
+            1,
+            3,
+            2,
+            2
+          ],
+          "relative_weight_pct": 10.657
+        },
+        {
+          "number": 5,
+          "name": "アートバーゼル",
+          "earnings": 1430.0,
+          "record": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 9.795
+        },
+        {
+          "number": 4,
+          "name": "サンセットビュー",
+          "earnings": 3372.0,
+          "record": [
+            1,
+            3,
+            3,
+            19
+          ],
+          "relative_weight_pct": 9.031
+        },
+        {
+          "number": 13,
+          "name": "コスモアチーブ",
+          "earnings": 2269.0,
+          "record": [
+            1,
+            2,
+            3,
+            14
+          ],
+          "relative_weight_pct": 8.373
+        },
+        {
+          "number": 12,
+          "name": "ダノンテムズ",
+          "earnings": 1140.0,
+          "record": [
+            1,
+            1,
+            1,
+            3
+          ],
+          "relative_weight_pct": 8.073
+        },
+        {
+          "number": 3,
+          "name": "ニシノマルガリート",
+          "earnings": 879.0,
+          "record": [
+            1,
+            1,
+            0,
+            3
+          ],
+          "relative_weight_pct": 7.533
+        },
+        {
+          "number": 9,
+          "name": "バルドル",
+          "earnings": 1059.0,
+          "record": [
+            1,
+            0,
+            1,
+            3
+          ],
+          "relative_weight_pct": 7.422
+        },
+        {
+          "number": 7,
+          "name": "ウィンスタンリー",
+          "earnings": 962.0,
+          "record": [
+            1,
+            0,
+            2,
+            4
+          ],
+          "relative_weight_pct": 7.217
+        },
+        {
+          "number": 1,
+          "name": "ウインファヴォリ",
+          "earnings": 930.0,
+          "record": [
+            1,
+            0,
+            1,
+            4
+          ],
+          "relative_weight_pct": 7.031
+        },
+        {
+          "number": 8,
+          "name": "セイウンラピス",
+          "earnings": 679.0,
+          "record": [
+            1,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 6.809
+        },
+        {
+          "number": 6,
+          "name": "グランフルス",
+          "earnings": 174.0,
+          "record": [
+            0,
+            0,
+            0,
+            10
+          ],
+          "relative_weight_pct": 3.871
+        },
+        {
+          "number": 2,
+          "name": "ウーバーストロング",
+          "earnings": 56.0,
+          "record": [
+            0,
+            0,
+            0,
+            16
+          ],
+          "relative_weight_pct": 3.028
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040808"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "horses": [
+        {
+          "number": 13,
+          "name": "アドマイヤジェイ",
+          "earnings": 5317.0,
+          "record": [
+            2,
+            8,
+            1,
+            10
+          ],
+          "relative_weight_pct": 9.892
+        },
+        {
+          "number": 6,
+          "name": "レイククレセント",
+          "earnings": 4949.0,
+          "record": [
+            2,
+            3,
+            5,
+            10
+          ],
+          "relative_weight_pct": 8.785
+        },
+        {
+          "number": 3,
+          "name": "メイケイバートン",
+          "earnings": 5853.0,
+          "record": [
+            2,
+            5,
+            5,
+            20
+          ],
+          "relative_weight_pct": 8.502
+        },
+        {
+          "number": 8,
+          "name": "アジュマン",
+          "earnings": 3540.0,
+          "record": [
+            2,
+            3,
+            2,
+            9
+          ],
+          "relative_weight_pct": 8.225
+        },
+        {
+          "number": 12,
+          "name": "ダガーリング",
+          "earnings": 3200.0,
+          "record": [
+            1,
+            3,
+            2,
+            7
+          ],
+          "relative_weight_pct": 7.693
+        },
+        {
+          "number": 11,
+          "name": "レオアジャイル",
+          "earnings": 2751.0,
+          "record": [
+            2,
+            0,
+            1,
+            5
+          ],
+          "relative_weight_pct": 7.607
+        },
+        {
+          "number": 9,
+          "name": "ウインイザナミ",
+          "earnings": 2533.0,
+          "record": [
+            2,
+            2,
+            3,
+            9
+          ],
+          "relative_weight_pct": 7.455
+        },
+        {
+          "number": 10,
+          "name": "ブルーサンセット",
+          "earnings": 2788.0,
+          "record": [
+            2,
+            1,
+            3,
+            9
+          ],
+          "relative_weight_pct": 7.38
+        },
+        {
+          "number": 7,
+          "name": "エールトゥヘヴン",
+          "earnings": 4253.0,
+          "record": [
+            2,
+            3,
+            1,
+            27
+          ],
+          "relative_weight_pct": 7.132
+        },
+        {
+          "number": 1,
+          "name": "レイユール",
+          "earnings": 3060.0,
+          "record": [
+            2,
+            2,
+            0,
+            14
+          ],
+          "relative_weight_pct": 7.093
+        },
+        {
+          "number": 2,
+          "name": "ハクサンイーグル",
+          "earnings": 2505.0,
+          "record": [
+            2,
+            0,
+            3,
+            10
+          ],
+          "relative_weight_pct": 6.862
+        },
+        {
+          "number": 5,
+          "name": "タナスーペルノーバ",
+          "earnings": 2128.0,
+          "record": [
+            2,
+            1,
+            1,
+            9
+          ],
+          "relative_weight_pct": 6.858
+        },
+        {
+          "number": 4,
+          "name": "ギフテッド",
+          "earnings": 1600.0,
+          "record": [
+            2,
+            1,
+            0,
+            8
+          ],
+          "relative_weight_pct": 6.515
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040809"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "horses": [
+        {
+          "number": 12,
+          "name": "サムシャイン",
+          "earnings": 5975.0,
+          "record": [
+            3,
+            6,
+            2,
+            3
+          ],
+          "relative_weight_pct": 8.316
+        },
+        {
+          "number": 13,
+          "name": "サノノワンダー",
+          "earnings": 7730.0,
+          "record": [
+            3,
+            4,
+            5,
+            6
+          ],
+          "relative_weight_pct": 7.588
+        },
+        {
+          "number": 6,
+          "name": "テリフィックプラン",
+          "earnings": 5370.0,
+          "record": [
+            3,
+            3,
+            1,
+            5
+          ],
+          "relative_weight_pct": 7.214
+        },
+        {
+          "number": 10,
+          "name": "リフレックス",
+          "earnings": 4870.0,
+          "record": [
+            3,
+            2,
+            3,
+            4
+          ],
+          "relative_weight_pct": 7.034
+        },
+        {
+          "number": 5,
+          "name": "ダンツファイター",
+          "earnings": 5467.0,
+          "record": [
+            3,
+            2,
+            2,
+            6
+          ],
+          "relative_weight_pct": 6.806
+        },
+        {
+          "number": 16,
+          "name": "パフ",
+          "earnings": 7554.0,
+          "record": [
+            3,
+            4,
+            5,
+            12
+          ],
+          "relative_weight_pct": 6.745
+        },
+        {
+          "number": 14,
+          "name": "ロカヒ",
+          "earnings": 4131.0,
+          "record": [
+            3,
+            2,
+            3,
+            5
+          ],
+          "relative_weight_pct": 6.569
+        },
+        {
+          "number": 7,
+          "name": "ジェイエルマスター",
+          "earnings": 3880.0,
+          "record": [
+            3,
+            2,
+            2,
+            5
+          ],
+          "relative_weight_pct": 6.512
+        },
+        {
+          "number": 4,
+          "name": "リバートゥルー",
+          "earnings": 6892.0,
+          "record": [
+            3,
+            3,
+            4,
+            15
+          ],
+          "relative_weight_pct": 6.216
+        },
+        {
+          "number": 11,
+          "name": "ワイドクリーガー",
+          "earnings": 4431.0,
+          "record": [
+            3,
+            3,
+            1,
+            9
+          ],
+          "relative_weight_pct": 6.19
+        },
+        {
+          "number": 8,
+          "name": "アデランテ",
+          "earnings": 3248.0,
+          "record": [
+            3,
+            1,
+            1,
+            9
+          ],
+          "relative_weight_pct": 5.475
+        },
+        {
+          "number": 3,
+          "name": "ラッキーキッド",
+          "earnings": 2750.0,
+          "record": [
+            2,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 5.428
+        },
+        {
+          "number": 1,
+          "name": "トルショー",
+          "earnings": 3748.0,
+          "record": [
+            3,
+            0,
+            2,
+            10
+          ],
+          "relative_weight_pct": 5.391
+        },
+        {
+          "number": 2,
+          "name": "ルシフェル",
+          "earnings": 3934.0,
+          "record": [
+            2,
+            2,
+            1,
+            10
+          ],
+          "relative_weight_pct": 5.324
+        },
+        {
+          "number": 15,
+          "name": "パルデンス",
+          "earnings": 5414.0,
+          "record": [
+            3,
+            2,
+            3,
+            37
+          ],
+          "relative_weight_pct": 4.967
+        },
+        {
+          "number": 9,
+          "name": "デコラシオン",
+          "earnings": 1177.0,
+          "record": [
+            3,
+            6,
+            4,
+            20
+          ],
+          "relative_weight_pct": 4.224
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040810"
+    },
+    {
+      "track": "東京",
+      "race": 11,
+      "horses": [
+        {
+          "number": 5,
+          "name": "シティオブドリーム",
+          "earnings": 1460.0,
+          "record": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.172
+        },
+        {
+          "number": 10,
+          "name": "ジーティーキャリー",
+          "earnings": 900.0,
+          "record": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 9.151
+        },
+        {
+          "number": 2,
+          "name": "マリアンデール",
+          "earnings": 790.0,
+          "record": [
+            1,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 8.183
+        },
+        {
+          "number": 3,
+          "name": "ファミーリエ",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 4,
+          "name": "ピコベリー",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 6,
+          "name": "リスグロワール",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 7,
+          "name": "ホウオウプレマ",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 9,
+          "name": "プルヴィナル",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 11,
+          "name": "カナデルペガサス",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 13,
+          "name": "ローズサルーテ",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.076
+        },
+        {
+          "number": 1,
+          "name": "タプティ",
+          "earnings": 668.0,
+          "record": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 7.334
+        },
+        {
+          "number": 12,
+          "name": "サトノスプレマシー",
+          "earnings": 668.0,
+          "record": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 7.334
+        },
+        {
+          "number": 8,
+          "name": "ベストプラージュ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 1.293
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040811"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "horses": [
+        {
+          "number": 1,
+          "name": "セントラルヴァレー",
+          "earnings": 5829.0,
+          "record": [
+            2,
+            6,
+            3,
+            11
+          ],
+          "relative_weight_pct": 10.931
+        },
+        {
+          "number": 3,
+          "name": "レーティッシュ",
+          "earnings": 4130.0,
+          "record": [
+            2,
+            4,
+            3,
+            8
+          ],
+          "relative_weight_pct": 10.225
+        },
+        {
+          "number": 7,
+          "name": "マサノユニコーン",
+          "earnings": 3564.0,
+          "record": [
+            2,
+            3,
+            0,
+            6
+          ],
+          "relative_weight_pct": 10.079
+        },
+        {
+          "number": 6,
+          "name": "キタノライブリー",
+          "earnings": 3291.0,
+          "record": [
+            2,
+            6,
+            2,
+            10
+          ],
+          "relative_weight_pct": 9.802
+        },
+        {
+          "number": 8,
+          "name": "チームユートピア",
+          "earnings": 2070.0,
+          "record": [
+            2,
+            2,
+            0,
+            3
+          ],
+          "relative_weight_pct": 9.636
+        },
+        {
+          "number": 4,
+          "name": "トヨサカエ",
+          "earnings": 2039.0,
+          "record": [
+            2,
+            1,
+            1,
+            2
+          ],
+          "relative_weight_pct": 9.615
+        },
+        {
+          "number": 9,
+          "name": "トラヴェリンバンド",
+          "earnings": 3039.0,
+          "record": [
+            2,
+            2,
+            4,
+            7
+          ],
+          "relative_weight_pct": 9.265
+        },
+        {
+          "number": 10,
+          "name": "ジェミート",
+          "earnings": 2277.0,
+          "record": [
+            2,
+            1,
+            2,
+            8
+          ],
+          "relative_weight_pct": 8.184
+        },
+        {
+          "number": 5,
+          "name": "ショコラキュイ",
+          "earnings": 1649.0,
+          "record": [
+            2,
+            0,
+            1,
+            4
+          ],
+          "relative_weight_pct": 8.045
+        },
+        {
+          "number": 2,
+          "name": "ハッピーウィズユー",
+          "earnings": 1940.0,
+          "record": [
+            2,
+            0,
+            2,
+            12
+          ],
+          "relative_weight_pct": 7.179
+        },
+        {
+          "number": 11,
+          "name": "メッエフアパラ",
+          "earnings": 2220.0,
+          "record": [
+            2,
+            0,
+            1,
+            16
+          ],
+          "relative_weight_pct": 7.039
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040812"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "horses": [
+        {
+          "number": 11,
+          "name": "マーノマエストロ",
+          "earnings": 399.0,
+          "record": [
+            0,
+            1,
+            0,
+            1
+          ],
+          "relative_weight_pct": 17.873
+        },
+        {
+          "number": 7,
+          "name": "マーゴットバサラ",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 17.452
+        },
+        {
+          "number": 9,
+          "name": "アメリカンステラ",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 17.452
+        },
+        {
+          "number": 2,
+          "name": "アントラヴァースト",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 11.769
+        },
+        {
+          "number": 6,
+          "name": "メイショウリベロ",
+          "earnings": 78.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 10.721
+        },
+        {
+          "number": 1,
+          "name": "タンバゲッコー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.122
+        },
+        {
+          "number": 3,
+          "name": "ロードグレイル",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.122
+        },
+        {
+          "number": 4,
+          "name": "ベンゲル",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 4.122
+        },
+        {
+          "number": 5,
+          "name": "オーラムミーティア",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 4.122
+        },
+        {
+          "number": 8,
+          "name": "タガノクレーキング",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.122
+        },
+        {
+          "number": 10,
+          "name": "ドリームアムニス",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 4.122
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040801"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "horses": [
+        {
+          "number": 1,
+          "name": "アンバーライト",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 21.672
+        },
+        {
+          "number": 8,
+          "name": "ドナズエクリプス",
+          "earnings": 329.0,
+          "record": [
+            0,
+            1,
+            0,
+            3
+          ],
+          "relative_weight_pct": 20.464
+        },
+        {
+          "number": 4,
+          "name": "アーケントレイル",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 14.615
+        },
+        {
+          "number": 10,
+          "name": "ディープナイト",
+          "earnings": 59.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 12.536
+        },
+        {
+          "number": 2,
+          "name": "コルソヴェローチェ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        },
+        {
+          "number": 3,
+          "name": "ドマ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        },
+        {
+          "number": 5,
+          "name": "ナリタトップライト",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        },
+        {
+          "number": 6,
+          "name": "エーテルワーム",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        },
+        {
+          "number": 7,
+          "name": "テムルーラー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        },
+        {
+          "number": 9,
+          "name": "リバティサンライズ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.119
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040802"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "horses": [
+        {
+          "number": 5,
+          "name": "ヴィエントデコラ",
+          "earnings": 1690.0,
+          "record": [
+            1,
+            3,
+            1,
+            6
+          ],
+          "relative_weight_pct": 10.267
+        },
+        {
+          "number": 1,
+          "name": "ダイヤモンド",
+          "earnings": 2034.0,
+          "record": [
+            1,
+            4,
+            0,
+            10
+          ],
+          "relative_weight_pct": 10.215
+        },
+        {
+          "number": 11,
+          "name": "ブルーレース",
+          "earnings": 1820.0,
+          "record": [
+            1,
+            1,
+            2,
+            7
+          ],
+          "relative_weight_pct": 9.481
+        },
+        {
+          "number": 12,
+          "name": "カネコメファミリー",
+          "earnings": 2165.0,
+          "record": [
+            0,
+            4,
+            2,
+            15
+          ],
+          "relative_weight_pct": 9.267
+        },
+        {
+          "number": 6,
+          "name": "ラッキーバック",
+          "earnings": 1342.0,
+          "record": [
+            1,
+            2,
+            1,
+            7
+          ],
+          "relative_weight_pct": 9.171
+        },
+        {
+          "number": 8,
+          "name": "リアルアルバ",
+          "earnings": 1280.0,
+          "record": [
+            1,
+            2,
+            0,
+            11
+          ],
+          "relative_weight_pct": 8.456
+        },
+        {
+          "number": 4,
+          "name": "サヨノパララックス",
+          "earnings": 944.0,
+          "record": [
+            1,
+            1,
+            0,
+            9
+          ],
+          "relative_weight_pct": 7.749
+        },
+        {
+          "number": 7,
+          "name": "ゼットスパンキー",
+          "earnings": 1240.0,
+          "record": [
+            0,
+            2,
+            2,
+            19
+          ],
+          "relative_weight_pct": 7.549
+        },
+        {
+          "number": 3,
+          "name": "ビサーロ",
+          "earnings": 590.0,
+          "record": [
+            1,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 7.328
+        },
+        {
+          "number": 9,
+          "name": "ジーティームッシュ",
+          "earnings": 912.0,
+          "record": [
+            0,
+            2,
+            1,
+            12
+          ],
+          "relative_weight_pct": 7.201
+        },
+        {
+          "number": 10,
+          "name": "クレマチス",
+          "earnings": 721.0,
+          "record": [
+            1,
+            0,
+            0,
+            6
+          ],
+          "relative_weight_pct": 7.182
+        },
+        {
+          "number": 2,
+          "name": "アイファーファイト",
+          "earnings": 680.0,
+          "record": [
+            0,
+            1,
+            0,
+            32
+          ],
+          "relative_weight_pct": 6.133
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040806"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "horses": [
+        {
+          "number": 8,
+          "name": "デルマサクラサク",
+          "earnings": 2472.0,
+          "record": [
+            1,
+            3,
+            3,
+            12
+          ],
+          "relative_weight_pct": 10.606
+        },
+        {
+          "number": 4,
+          "name": "アンリーベイビー",
+          "earnings": 2216.0,
+          "record": [
+            1,
+            3,
+            3,
+            14
+          ],
+          "relative_weight_pct": 10.141
+        },
+        {
+          "number": 10,
+          "name": "エイコーンドリーム",
+          "earnings": 1231.0,
+          "record": [
+            1,
+            1,
+            1,
+            2
+          ],
+          "relative_weight_pct": 10.066
+        },
+        {
+          "number": 7,
+          "name": "リーチグローリー",
+          "earnings": 1280.0,
+          "record": [
+            1,
+            2,
+            0,
+            4
+          ],
+          "relative_weight_pct": 9.95
+        },
+        {
+          "number": 1,
+          "name": "アリストクラシア",
+          "earnings": 2215.0,
+          "record": [
+            1,
+            2,
+            2,
+            14
+          ],
+          "relative_weight_pct": 9.753
+        },
+        {
+          "number": 3,
+          "name": "エレーデサンライズ",
+          "earnings": 1107.0,
+          "record": [
+            1,
+            1,
+            1,
+            4
+          ],
+          "relative_weight_pct": 9.211
+        },
+        {
+          "number": 11,
+          "name": "ペトリコール",
+          "earnings": 850.0,
+          "record": [
+            1,
+            1,
+            0,
+            2
+          ],
+          "relative_weight_pct": 9.196
+        },
+        {
+          "number": 9,
+          "name": "オヤツノジカン",
+          "earnings": 1039.0,
+          "record": [
+            1,
+            0,
+            2,
+            5
+          ],
+          "relative_weight_pct": 8.501
+        },
+        {
+          "number": 6,
+          "name": "ティエラレイナ",
+          "earnings": 650.0,
+          "record": [
+            1,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 8.34
+        },
+        {
+          "number": 5,
+          "name": "オブシディアーナ",
+          "earnings": 810.0,
+          "record": [
+            0,
+            2,
+            0,
+            11
+          ],
+          "relative_weight_pct": 7.149
+        },
+        {
+          "number": 2,
+          "name": "キタノサリスカ",
+          "earnings": 631.0,
+          "record": [
+            1,
+            0,
+            0,
+            7
+          ],
+          "relative_weight_pct": 7.087
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040807"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "horses": [
+        {
+          "number": 4,
+          "name": "アーリーハーベスト",
+          "earnings": 2420.0,
+          "record": [
+            2,
+            1,
+            0,
+            3
+          ],
+          "relative_weight_pct": 14.915
+        },
+        {
+          "number": 6,
+          "name": "リアド",
+          "earnings": 5380.0,
+          "record": [
+            2,
+            4,
+            0,
+            19
+          ],
+          "relative_weight_pct": 14.396
+        },
+        {
+          "number": 8,
+          "name": "オリバナム",
+          "earnings": 2310.0,
+          "record": [
+            2,
+            2,
+            0,
+            6
+          ],
+          "relative_weight_pct": 13.808
+        },
+        {
+          "number": 7,
+          "name": "ウインリベラシオン",
+          "earnings": 2840.0,
+          "record": [
+            2,
+            2,
+            1,
+            10
+          ],
+          "relative_weight_pct": 13.299
+        },
+        {
+          "number": 3,
+          "name": "ユメハハテシナク",
+          "earnings": 3587.0,
+          "record": [
+            2,
+            3,
+            1,
+            23
+          ],
+          "relative_weight_pct": 12.576
+        },
+        {
+          "number": 5,
+          "name": "キーウェーブ",
+          "earnings": 2398.0,
+          "record": [
+            2,
+            0,
+            2,
+            18
+          ],
+          "relative_weight_pct": 11.128
+        },
+        {
+          "number": 1,
+          "name": "ホウオウトランプ",
+          "earnings": 2094.0,
+          "record": [
+            1,
+            1,
+            2,
+            11
+          ],
+          "relative_weight_pct": 10.98
+        },
+        {
+          "number": 2,
+          "name": "バークシャーシチー",
+          "earnings": 750.0,
+          "record": [
+            1,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 8.899
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040808"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "horses": [
+        {
+          "number": 7,
+          "name": "クラウスーラ",
+          "earnings": 1140.0,
+          "record": [
+            1,
+            2,
+            0,
+            0
+          ],
+          "relative_weight_pct": 13.448
+        },
+        {
+          "number": 6,
+          "name": "スカイメテオ",
+          "earnings": 900.0,
+          "record": [
+            1,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 11.944
+        },
+        {
+          "number": 1,
+          "name": "ムーンベリル",
+          "earnings": 900.0,
+          "record": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "relative_weight_pct": 11.17
+        },
+        {
+          "number": 5,
+          "name": "ペアスターロード",
+          "earnings": 900.0,
+          "record": [
+            1,
+            1,
+            0,
+            1
+          ],
+          "relative_weight_pct": 11.17
+        },
+        {
+          "number": 2,
+          "name": "タケルレジェンド",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.54
+        },
+        {
+          "number": 4,
+          "name": "フィリップヴィル",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.54
+        },
+        {
+          "number": 8,
+          "name": "ポッドビート",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.54
+        },
+        {
+          "number": 9,
+          "name": "ユウライクスター",
+          "earnings": 780.0,
+          "record": [
+            1,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.54
+        },
+        {
+          "number": 3,
+          "name": "ラピッドテソーロ",
+          "earnings": 790.0,
+          "record": [
+            1,
+            0,
+            1,
+            1
+          ],
+          "relative_weight_pct": 10.108
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040809"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "horses": [
+        {
+          "number": 10,
+          "name": "スカイハイ",
+          "earnings": 7197.0,
+          "record": [
+            3,
+            7,
+            4,
+            6
+          ],
+          "relative_weight_pct": 9.61
+        },
+        {
+          "number": 8,
+          "name": "アンダースコア",
+          "earnings": 4650.0,
+          "record": [
+            3,
+            4,
+            2,
+            3
+          ],
+          "relative_weight_pct": 9.273
+        },
+        {
+          "number": 13,
+          "name": "ユハンヌス",
+          "earnings": 8244.0,
+          "record": [
+            3,
+            4,
+            6,
+            16
+          ],
+          "relative_weight_pct": 7.968
+        },
+        {
+          "number": 3,
+          "name": "ヨウシタンレイ",
+          "earnings": 7432.0,
+          "record": [
+            3,
+            7,
+            6,
+            19
+          ],
+          "relative_weight_pct": 7.916
+        },
+        {
+          "number": 4,
+          "name": "サンタンカ",
+          "earnings": 3330.0,
+          "record": [
+            3,
+            2,
+            0,
+            5
+          ],
+          "relative_weight_pct": 7.762
+        },
+        {
+          "number": 14,
+          "name": "ガンマジーティーピ",
+          "earnings": 4300.0,
+          "record": [
+            3,
+            1,
+            2,
+            6
+          ],
+          "relative_weight_pct": 7.647
+        },
+        {
+          "number": 2,
+          "name": "アスミル",
+          "earnings": 4790.0,
+          "record": [
+            3,
+            2,
+            0,
+            9
+          ],
+          "relative_weight_pct": 7.461
+        },
+        {
+          "number": 6,
+          "name": "コスモアディラート",
+          "earnings": 6486.0,
+          "record": [
+            3,
+            4,
+            6,
+            18
+          ],
+          "relative_weight_pct": 7.405
+        },
+        {
+          "number": 11,
+          "name": "トーホウディアス",
+          "earnings": 8198.0,
+          "record": [
+            3,
+            4,
+            7,
+            31
+          ],
+          "relative_weight_pct": 7.13
+        },
+        {
+          "number": 15,
+          "name": "フライングブレード",
+          "earnings": 5007.0,
+          "record": [
+            3,
+            3,
+            4,
+            20
+          ],
+          "relative_weight_pct": 6.702
+        },
+        {
+          "number": 1,
+          "name": "アンビバレント",
+          "earnings": 4574.0,
+          "record": [
+            3,
+            1,
+            3,
+            30
+          ],
+          "relative_weight_pct": 5.9
+        },
+        {
+          "number": 12,
+          "name": "モーデン",
+          "earnings": 4567.0,
+          "record": [
+            2,
+            1,
+            3,
+            25
+          ],
+          "relative_weight_pct": 5.778
+        },
+        {
+          "number": 5,
+          "name": "エイムフォーエース",
+          "earnings": 2350.0,
+          "record": [
+            1,
+            1,
+            0,
+            24
+          ],
+          "relative_weight_pct": 4.623
+        },
+        {
+          "number": 9,
+          "name": "ハンデンドレイク",
+          "earnings": 210.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 2.484
+        },
+        {
+          "number": 7,
+          "name": "ウィルオレオール",
+          "earnings": 160.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 2.341
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040810"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "horses": [
+        {
+          "number": 14,
+          "name": "サブマリーナ",
+          "earnings": 9450.0,
+          "record": [
+            4,
+            2,
+            1,
+            6
+          ],
+          "relative_weight_pct": 8.048
+        },
+        {
+          "number": 1,
+          "name": "オーロラエックス",
+          "earnings": 9200.0,
+          "record": [
+            5,
+            0,
+            2,
+            8
+          ],
+          "relative_weight_pct": 7.705
+        },
+        {
+          "number": 16,
+          "name": "レディーヴァリュー",
+          "earnings": 6113.0,
+          "record": [
+            4,
+            2,
+            0,
+            5
+          ],
+          "relative_weight_pct": 7.675
+        },
+        {
+          "number": 7,
+          "name": "アスクカムオンモア",
+          "earnings": 6660.0,
+          "record": [
+            4,
+            2,
+            2,
+            5
+          ],
+          "relative_weight_pct": 7.65
+        },
+        {
+          "number": 11,
+          "name": "ジーティーアダマン",
+          "earnings": 7040.0,
+          "record": [
+            3,
+            1,
+            2,
+            4
+          ],
+          "relative_weight_pct": 7.208
+        },
+        {
+          "number": 4,
+          "name": "ナムラエイハブ",
+          "earnings": 9683.0,
+          "record": [
+            4,
+            3,
+            4,
+            14
+          ],
+          "relative_weight_pct": 6.886
+        },
+        {
+          "number": 3,
+          "name": "コルレオニス",
+          "earnings": 6557.0,
+          "record": [
+            4,
+            2,
+            2,
+            9
+          ],
+          "relative_weight_pct": 6.797
+        },
+        {
+          "number": 5,
+          "name": "エラトー",
+          "earnings": 6650.0,
+          "record": [
+            4,
+            2,
+            1,
+            10
+          ],
+          "relative_weight_pct": 6.677
+        },
+        {
+          "number": 12,
+          "name": "ディールメーカー",
+          "earnings": 4120.0,
+          "record": [
+            2,
+            2,
+            0,
+            2
+          ],
+          "relative_weight_pct": 6.614
+        },
+        {
+          "number": 9,
+          "name": "アンリーロード",
+          "earnings": 7740.0,
+          "record": [
+            4,
+            2,
+            2,
+            16
+          ],
+          "relative_weight_pct": 6.238
+        },
+        {
+          "number": 8,
+          "name": "アスクドゥポルテ",
+          "earnings": 7758.0,
+          "record": [
+            4,
+            3,
+            3,
+            19
+          ],
+          "relative_weight_pct": 6.156
+        },
+        {
+          "number": 2,
+          "name": "バレエマスター",
+          "earnings": 9456.0,
+          "record": [
+            4,
+            1,
+            3,
+            29
+          ],
+          "relative_weight_pct": 5.733
+        },
+        {
+          "number": 13,
+          "name": "ガイアメンテ",
+          "earnings": 1807.0,
+          "record": [
+            5,
+            4,
+            1,
+            11
+          ],
+          "relative_weight_pct": 5.414
+        },
+        {
+          "number": 10,
+          "name": "オールナット",
+          "earnings": 430.0,
+          "record": [
+            5,
+            1,
+            2,
+            7
+          ],
+          "relative_weight_pct": 4.144
+        },
+        {
+          "number": 15,
+          "name": "タガノエルピーダ",
+          "earnings": 760.0,
+          "record": [
+            3,
+            2,
+            1,
+            11
+          ],
+          "relative_weight_pct": 3.801
+        },
+        {
+          "number": 6,
+          "name": "ゼンダンハヤブサ",
+          "earnings": 227.0,
+          "record": [
+            4,
+            3,
+            2,
+            10
+          ],
+          "relative_weight_pct": 3.254
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040811"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ソウルアンドジャズ",
+          "earnings": 6624.0,
+          "record": [
+            2,
+            5,
+            5,
+            17
+          ],
+          "relative_weight_pct": 12.239
+        },
+        {
+          "number": 6,
+          "name": "エアアルチーナ",
+          "earnings": 1550.0,
+          "record": [
+            2,
+            0,
+            1,
+            2
+          ],
+          "relative_weight_pct": 10.282
+        },
+        {
+          "number": 2,
+          "name": "セイントホース",
+          "earnings": 2309.0,
+          "record": [
+            2,
+            1,
+            0,
+            8
+          ],
+          "relative_weight_pct": 9.628
+        },
+        {
+          "number": 7,
+          "name": "タガノアニマシオン",
+          "earnings": 1900.0,
+          "record": [
+            2,
+            0,
+            2,
+            6
+          ],
+          "relative_weight_pct": 9.393
+        },
+        {
+          "number": 5,
+          "name": "トモジャザーン",
+          "earnings": 2250.0,
+          "record": [
+            1,
+            2,
+            3,
+            9
+          ],
+          "relative_weight_pct": 9.143
+        },
+        {
+          "number": 4,
+          "name": "スターシップ",
+          "earnings": 1450.0,
+          "record": [
+            1,
+            1,
+            0,
+            3
+          ],
+          "relative_weight_pct": 8.697
+        },
+        {
+          "number": 10,
+          "name": "オデット",
+          "earnings": 2281.0,
+          "record": [
+            2,
+            0,
+            2,
+            15
+          ],
+          "relative_weight_pct": 8.59
+        },
+        {
+          "number": 12,
+          "name": "フェイトライン",
+          "earnings": 1955.0,
+          "record": [
+            1,
+            3,
+            2,
+            15
+          ],
+          "relative_weight_pct": 8.485
+        },
+        {
+          "number": 11,
+          "name": "ダブルジャッジ",
+          "earnings": 1996.0,
+          "record": [
+            2,
+            0,
+            1,
+            14
+          ],
+          "relative_weight_pct": 8.329
+        },
+        {
+          "number": 9,
+          "name": "コーリンカルベラ",
+          "earnings": 1680.0,
+          "record": [
+            1,
+            0,
+            3,
+            13
+          ],
+          "relative_weight_pct": 7.648
+        },
+        {
+          "number": 8,
+          "name": "サルタール",
+          "earnings": 740.0,
+          "record": [
+            0,
+            1,
+            3,
+            9
+          ],
+          "relative_weight_pct": 6.27
+        },
+        {
+          "number": 3,
+          "name": "キタノファーンヒル",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            10
+          ],
+          "relative_weight_pct": 1.294
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040812"
+    },
+    {
+      "track": "新潟",
+      "race": 1,
+      "horses": [
+        {
+          "number": 6,
+          "name": "ブルーグラビティ",
+          "earnings": 179.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 17.985
+        },
+        {
+          "number": 2,
+          "name": "ピュアノーブル",
+          "earnings": 78.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 15.02
+        },
+        {
+          "number": 8,
+          "name": "ピュアティアラ",
+          "earnings": 78.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 15.02
+        },
+        {
+          "number": 1,
+          "name": "ギョニソ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 3,
+          "name": "ツーエムマドンナ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 4,
+          "name": "アリアニコ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 5,
+          "name": "ダブルブロッサム",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 7,
+          "name": "リオフラウス",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 9,
+          "name": "コトダマスティール",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 10,
+          "name": "ワンコール",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 11,
+          "name": "コウユーキミガイテ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        },
+        {
+          "number": 12,
+          "name": "ゴールドバーニング",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 5.775
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040301"
+    },
+    {
+      "track": "新潟",
+      "race": 2,
+      "horses": [
+        {
+          "number": 13,
+          "name": "ヨドノプレミアム",
+          "earnings": 499.0,
+          "record": [
+            0,
+            1,
+            1,
+            1
+          ],
+          "relative_weight_pct": 9.08
+        },
+        {
+          "number": 8,
+          "name": "サノノキセキ",
+          "earnings": 500.0,
+          "record": [
+            0,
+            0,
+            3,
+            0
+          ],
+          "relative_weight_pct": 9.003
+        },
+        {
+          "number": 15,
+          "name": "コスモルミナ",
+          "earnings": 407.0,
+          "record": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "relative_weight_pct": 8.159
+        },
+        {
+          "number": 2,
+          "name": "ディーヴァソラーレ",
+          "earnings": 310.0,
+          "record": [
+            0,
+            1,
+            0,
+            0
+          ],
+          "relative_weight_pct": 8.112
+        },
+        {
+          "number": 17,
+          "name": "ルギッドドランジュ",
+          "earnings": 300.0,
+          "record": [
+            0,
+            0,
+            2,
+            1
+          ],
+          "relative_weight_pct": 7.566
+        },
+        {
+          "number": 10,
+          "name": "エコログレイス",
+          "earnings": 240.0,
+          "record": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "relative_weight_pct": 7.271
+        },
+        {
+          "number": 14,
+          "name": "ガーシュウィン",
+          "earnings": 239.0,
+          "record": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "relative_weight_pct": 6.764
+        },
+        {
+          "number": 16,
+          "name": "ワンキャンパス",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            1
+          ],
+          "relative_weight_pct": 6.575
+        },
+        {
+          "number": 18,
+          "name": "ドミナートル",
+          "earnings": 209.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 6.171
+        },
+        {
+          "number": 5,
+          "name": "テイクケア",
+          "earnings": 196.0,
+          "record": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 6.086
+        },
+        {
+          "number": 1,
+          "name": "リーゼントエース",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 5.47
+        },
+        {
+          "number": 4,
+          "name": "マッセート",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 5.47
+        },
+        {
+          "number": 7,
+          "name": "アイデアルカット",
+          "earnings": 59.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 4.692
+        },
+        {
+          "number": 3,
+          "name": "スリーエンジェル",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 1.916
+        },
+        {
+          "number": 6,
+          "name": "ニシノタカオ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 1.916
+        },
+        {
+          "number": 9,
+          "name": "デルマモガミ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 1.916
+        },
+        {
+          "number": 11,
+          "name": "ポケットブック",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 1.916
+        },
+        {
+          "number": 12,
+          "name": "スゴイジャン",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 1.916
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040302"
+    },
+    {
+      "track": "新潟",
+      "race": 3,
+      "horses": [
+        {
+          "number": 6,
+          "name": "エコロメジャー",
+          "earnings": 440.0,
+          "record": [
+            0,
+            1,
+            1,
+            0
+          ],
+          "relative_weight_pct": 12.95
+        },
+        {
+          "number": 5,
+          "name": "ユイノジカンカセギ",
+          "earnings": 450.0,
+          "record": [
+            0,
+            1,
+            0,
+            2
+          ],
+          "relative_weight_pct": 11.831
+        },
+        {
+          "number": 10,
+          "name": "ワイドウィンザー",
+          "earnings": 350.0,
+          "record": [
+            0,
+            0,
+            2,
+            1
+          ],
+          "relative_weight_pct": 11.101
+        },
+        {
+          "number": 2,
+          "name": "カムトゥルー",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            0
+          ],
+          "relative_weight_pct": 9.464
+        },
+        {
+          "number": 12,
+          "name": "コパノキャンペーン",
+          "earnings": 268.0,
+          "record": [
+            0,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 9.242
+        },
+        {
+          "number": 7,
+          "name": "アーバーバイティ",
+          "earnings": 200.0,
+          "record": [
+            0,
+            0,
+            1,
+            2
+          ],
+          "relative_weight_pct": 9.231
+        },
+        {
+          "number": 4,
+          "name": "エイダンバローズ",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 7.76
+        },
+        {
+          "number": 13,
+          "name": "ビーテリオス",
+          "earnings": 120.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 7.76
+        },
+        {
+          "number": 11,
+          "name": "リコルディオーロ",
+          "earnings": 78.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 7.069
+        },
+        {
+          "number": 1,
+          "name": "タッケンエリカ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 2.718
+        },
+        {
+          "number": 3,
+          "name": "チョウサクラ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 2.718
+        },
+        {
+          "number": 8,
+          "name": "ワイプユアアイズ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 2.718
+        },
+        {
+          "number": 9,
+          "name": "ローズガーデン",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 2.718
+        },
+        {
+          "number": 14,
+          "name": "イチザサンダー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 2.718
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040303"
+    },
+    {
+      "track": "新潟",
+      "race": 4,
+      "horses": [
+        {
+          "number": 6,
+          "name": "ビクスバイト",
+          "earnings": 1390.0,
+          "record": [
+            1,
+            2,
+            2,
+            0
+          ],
+          "relative_weight_pct": 10.714
+        },
+        {
+          "number": 3,
+          "name": "シェーンシュティア",
+          "earnings": 1900.0,
+          "record": [
+            1,
+            1,
+            4,
+            4
+          ],
+          "relative_weight_pct": 9.506
+        },
+        {
+          "number": 11,
+          "name": "アグレイビューティ",
+          "earnings": 1280.0,
+          "record": [
+            1,
+            1,
+            2,
+            3
+          ],
+          "relative_weight_pct": 8.801
+        },
+        {
+          "number": 13,
+          "name": "ウィンターガーデン",
+          "earnings": 2555.0,
+          "record": [
+            1,
+            1,
+            6,
+            18
+          ],
+          "relative_weight_pct": 8.776
+        },
+        {
+          "number": 10,
+          "name": "オリーボーレン",
+          "earnings": 2290.0,
+          "record": [
+            1,
+            2,
+            2,
+            17
+          ],
+          "relative_weight_pct": 8.539
+        },
+        {
+          "number": 8,
+          "name": "レーヌマロン",
+          "earnings": 1726.0,
+          "record": [
+            1,
+            1,
+            4,
+            12
+          ],
+          "relative_weight_pct": 8.268
+        },
+        {
+          "number": 9,
+          "name": "エトワールブーケ",
+          "earnings": 880.0,
+          "record": [
+            1,
+            0,
+            1,
+            3
+          ],
+          "relative_weight_pct": 7.499
+        },
+        {
+          "number": 1,
+          "name": "ミッキーテネシー",
+          "earnings": 638.0,
+          "record": [
+            1,
+            0,
+            0,
+            2
+          ],
+          "relative_weight_pct": 7.067
+        },
+        {
+          "number": 2,
+          "name": "フレキシブル",
+          "earnings": 789.0,
+          "record": [
+            1,
+            0,
+            1,
+            5
+          ],
+          "relative_weight_pct": 6.988
+        },
+        {
+          "number": 12,
+          "name": "ルージュカエラ",
+          "earnings": 1076.0,
+          "record": [
+            1,
+            0,
+            1,
+            13
+          ],
+          "relative_weight_pct": 6.844
+        },
+        {
+          "number": 7,
+          "name": "カーヴドヴァン",
+          "earnings": 580.0,
+          "record": [
+            1,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 6.521
+        },
+        {
+          "number": 5,
+          "name": "エバーシャンティ",
+          "earnings": 640.0,
+          "record": [
+            0,
+            1,
+            2,
+            3
+          ],
+          "relative_weight_pct": 6.485
+        },
+        {
+          "number": 4,
+          "name": "ソロンゴ",
+          "earnings": 159.0,
+          "record": [
+            0,
+            0,
+            0,
+            6
+          ],
+          "relative_weight_pct": 3.993
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040304"
+    },
+    {
+      "track": "新潟",
+      "race": 6,
+      "horses": [
+        {
+          "number": 12,
+          "name": "メリフルアス",
+          "earnings": 1479.0,
+          "record": [
+            1,
+            1,
+            3,
+            3
+          ],
+          "relative_weight_pct": 11.413
+        },
+        {
+          "number": 7,
+          "name": "アパレイユ",
+          "earnings": 1424.0,
+          "record": [
+            1,
+            2,
+            1,
+            6
+          ],
+          "relative_weight_pct": 10.825
+        },
+        {
+          "number": 5,
+          "name": "ジャーナーリア",
+          "earnings": 1477.0,
+          "record": [
+            0,
+            3,
+            2,
+            10
+          ],
+          "relative_weight_pct": 9.824
+        },
+        {
+          "number": 10,
+          "name": "ソードマスター",
+          "earnings": 1583.0,
+          "record": [
+            1,
+            1,
+            1,
+            15
+          ],
+          "relative_weight_pct": 9.522
+        },
+        {
+          "number": 3,
+          "name": "ヴァカンツァ",
+          "earnings": 1117.0,
+          "record": [
+            1,
+            0,
+            1,
+            10
+          ],
+          "relative_weight_pct": 8.795
+        },
+        {
+          "number": 9,
+          "name": "マダックス",
+          "earnings": 679.0,
+          "record": [
+            1,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 8.63
+        },
+        {
+          "number": 4,
+          "name": "リトセア",
+          "earnings": 837.0,
+          "record": [
+            1,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 8.62
+        },
+        {
+          "number": 8,
+          "name": "シスター",
+          "earnings": 706.0,
+          "record": [
+            0,
+            2,
+            1,
+            8
+          ],
+          "relative_weight_pct": 8.033
+        },
+        {
+          "number": 11,
+          "name": "マジンタクシー",
+          "earnings": 738.0,
+          "record": [
+            1,
+            0,
+            0,
+            9
+          ],
+          "relative_weight_pct": 7.949
+        },
+        {
+          "number": 6,
+          "name": "チュラヴェール",
+          "earnings": 725.0,
+          "record": [
+            0,
+            1,
+            2,
+            10
+          ],
+          "relative_weight_pct": 7.705
+        },
+        {
+          "number": 2,
+          "name": "セヴェンヌ",
+          "earnings": 486.0,
+          "record": [
+            0,
+            1,
+            0,
+            4
+          ],
+          "relative_weight_pct": 7.043
+        },
+        {
+          "number": 1,
+          "name": "カセノソレイユ",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 1.639
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040306"
+    },
+    {
+      "track": "新潟",
+      "race": 7,
+      "horses": [
+        {
+          "number": 1,
+          "name": "グランセゾン",
+          "earnings": 2578.0,
+          "record": [
+            1,
+            2,
+            4,
+            7
+          ],
+          "relative_weight_pct": 13.801
+        },
+        {
+          "number": 6,
+          "name": "マイリトルヒーロー",
+          "earnings": 1590.0,
+          "record": [
+            1,
+            0,
+            5,
+            2
+          ],
+          "relative_weight_pct": 12.833
+        },
+        {
+          "number": 8,
+          "name": "ヤマメライズ",
+          "earnings": 1150.0,
+          "record": [
+            1,
+            0,
+            1,
+            5
+          ],
+          "relative_weight_pct": 10.516
+        },
+        {
+          "number": 4,
+          "name": "アドマイヤウルトラ",
+          "earnings": 1095.0,
+          "record": [
+            1,
+            0,
+            1,
+            7
+          ],
+          "relative_weight_pct": 10.073
+        },
+        {
+          "number": 12,
+          "name": "メイショウハンター",
+          "earnings": 649.0,
+          "record": [
+            1,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 9.507
+        },
+        {
+          "number": 2,
+          "name": "レッドシュトラール",
+          "earnings": 840.0,
+          "record": [
+            1,
+            0,
+            1,
+            10
+          ],
+          "relative_weight_pct": 9.194
+        },
+        {
+          "number": 9,
+          "name": "ワールドブレイヴ",
+          "earnings": 649.0,
+          "record": [
+            1,
+            0,
+            0,
+            7
+          ],
+          "relative_weight_pct": 8.793
+        },
+        {
+          "number": 10,
+          "name": "メイショウタクボク",
+          "earnings": 958.0,
+          "record": [
+            0,
+            0,
+            2,
+            27
+          ],
+          "relative_weight_pct": 8.409
+        },
+        {
+          "number": 11,
+          "name": "グランツローゼ",
+          "earnings": 265.0,
+          "record": [
+            0,
+            0,
+            0,
+            15
+          ],
+          "relative_weight_pct": 6.186
+        },
+        {
+          "number": 7,
+          "name": "ラヴエナストロ",
+          "earnings": 58.0,
+          "record": [
+            0,
+            0,
+            0,
+            3
+          ],
+          "relative_weight_pct": 4.45
+        },
+        {
+          "number": 5,
+          "name": "マイコンチェルト",
+          "earnings": 56.0,
+          "record": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 4.416
+        },
+        {
+          "number": 3,
+          "name": "アームアンフルール",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 1.824
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040307"
+    },
+    {
+      "track": "新潟",
+      "race": 8,
+      "horses": [
+        {
+          "number": 9,
+          "name": "トルネードアイル",
+          "earnings": 2090.0,
+          "record": [
+            1,
+            4,
+            3,
+            5
+          ],
+          "relative_weight_pct": 12.543
+        },
+        {
+          "number": 7,
+          "name": "アイビーチーキー",
+          "earnings": 1168.0,
+          "record": [
+            1,
+            2,
+            0,
+            2
+          ],
+          "relative_weight_pct": 11.14
+        },
+        {
+          "number": 10,
+          "name": "リアライズオーラム",
+          "earnings": 2285.0,
+          "record": [
+            1,
+            3,
+            2,
+            11
+          ],
+          "relative_weight_pct": 11.084
+        },
+        {
+          "number": 3,
+          "name": "ビービーバザーク",
+          "earnings": 2316.0,
+          "record": [
+            0,
+            5,
+            2,
+            11
+          ],
+          "relative_weight_pct": 10.984
+        },
+        {
+          "number": 4,
+          "name": "ハルノアラシ",
+          "earnings": 1793.0,
+          "record": [
+            1,
+            3,
+            1,
+            16
+          ],
+          "relative_weight_pct": 9.901
+        },
+        {
+          "number": 6,
+          "name": "タイセイデクスター",
+          "earnings": 1090.0,
+          "record": [
+            1,
+            0,
+            3,
+            4
+          ],
+          "relative_weight_pct": 9.435
+        },
+        {
+          "number": 1,
+          "name": "クラッチプレイヤー",
+          "earnings": 1542.0,
+          "record": [
+            1,
+            1,
+            1,
+            14
+          ],
+          "relative_weight_pct": 9.11
+        },
+        {
+          "number": 5,
+          "name": "エマージェンス",
+          "earnings": 1067.0,
+          "record": [
+            0,
+            2,
+            3,
+            5
+          ],
+          "relative_weight_pct": 9.041
+        },
+        {
+          "number": 2,
+          "name": "サトノシャムロック",
+          "earnings": 1090.0,
+          "record": [
+            1,
+            1,
+            1,
+            9
+          ],
+          "relative_weight_pct": 8.863
+        },
+        {
+          "number": 8,
+          "name": "カシノスパーク",
+          "earnings": 874.0,
+          "record": [
+            1,
+            0,
+            1,
+            11
+          ],
+          "relative_weight_pct": 7.898
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040308"
+    },
+    {
+      "track": "新潟",
+      "race": 9,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ベルタソ",
+          "earnings": 2148.0,
+          "record": [
+            1,
+            3,
+            0,
+            22
+          ],
+          "relative_weight_pct": 7.853
+        },
+        {
+          "number": 16,
+          "name": "ブライティアブーケ",
+          "earnings": 1580.0,
+          "record": [
+            1,
+            2,
+            1,
+            11
+          ],
+          "relative_weight_pct": 7.829
+        },
+        {
+          "number": 9,
+          "name": "シャンクス",
+          "earnings": 1281.0,
+          "record": [
+            1,
+            0,
+            2,
+            6
+          ],
+          "relative_weight_pct": 7.412
+        },
+        {
+          "number": 6,
+          "name": "ラブカムーン",
+          "earnings": 1833.0,
+          "record": [
+            1,
+            2,
+            0,
+            27
+          ],
+          "relative_weight_pct": 7.244
+        },
+        {
+          "number": 7,
+          "name": "イングラム",
+          "earnings": 1012.0,
+          "record": [
+            1,
+            1,
+            0,
+            6
+          ],
+          "relative_weight_pct": 7.203
+        },
+        {
+          "number": 11,
+          "name": "サツキレジーナ",
+          "earnings": 1299.0,
+          "record": [
+            1,
+            0,
+            3,
+            13
+          ],
+          "relative_weight_pct": 7.004
+        },
+        {
+          "number": 13,
+          "name": "アカウフリューゲル",
+          "earnings": 800.0,
+          "record": [
+            1,
+            0,
+            1,
+            3
+          ],
+          "relative_weight_pct": 6.998
+        },
+        {
+          "number": 2,
+          "name": "ハッピーサプライズ",
+          "earnings": 1558.0,
+          "record": [
+            1,
+            1,
+            1,
+            27
+          ],
+          "relative_weight_pct": 6.889
+        },
+        {
+          "number": 4,
+          "name": "ゲンテン",
+          "earnings": 728.0,
+          "record": [
+            1,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 6.396
+        },
+        {
+          "number": 15,
+          "name": "ピリカサンライズ",
+          "earnings": 1001.0,
+          "record": [
+            1,
+            0,
+            0,
+            11
+          ],
+          "relative_weight_pct": 6.391
+        },
+        {
+          "number": 10,
+          "name": "ラブアイミー",
+          "earnings": 1050.0,
+          "record": [
+            1,
+            0,
+            0,
+            19
+          ],
+          "relative_weight_pct": 6.211
+        },
+        {
+          "number": 5,
+          "name": "オタルイーグル",
+          "earnings": 761.0,
+          "record": [
+            1,
+            0,
+            0,
+            8
+          ],
+          "relative_weight_pct": 6.184
+        },
+        {
+          "number": 14,
+          "name": "セレブトーチ",
+          "earnings": 580.0,
+          "record": [
+            1,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 6.086
+        },
+        {
+          "number": 12,
+          "name": "ブラヴィーノ",
+          "earnings": 330.0,
+          "record": [
+            0,
+            1,
+            1,
+            31
+          ],
+          "relative_weight_pct": 4.63
+        },
+        {
+          "number": 8,
+          "name": "テンペストヒロイン",
+          "earnings": 220.0,
+          "record": [
+            0,
+            1,
+            0,
+            7
+          ],
+          "relative_weight_pct": 4.416
+        },
+        {
+          "number": 3,
+          "name": "ディープスリー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            6
+          ],
+          "relative_weight_pct": 1.254
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040309"
+    },
+    {
+      "track": "新潟",
+      "race": 10,
+      "horses": [
+        {
+          "number": 13,
+          "name": "ディアウス",
+          "earnings": 3750.0,
+          "record": [
+            2,
+            4,
+            2,
+            4
+          ],
+          "relative_weight_pct": 9.1
+        },
+        {
+          "number": 4,
+          "name": "メイショウクーガー",
+          "earnings": 4593.0,
+          "record": [
+            2,
+            6,
+            3,
+            11
+          ],
+          "relative_weight_pct": 8.501
+        },
+        {
+          "number": 15,
+          "name": "ルーナディサングエ",
+          "earnings": 2774.0,
+          "record": [
+            2,
+            2,
+            0,
+            4
+          ],
+          "relative_weight_pct": 8.066
+        },
+        {
+          "number": 6,
+          "name": "ファルコンミノル",
+          "earnings": 4148.0,
+          "record": [
+            2,
+            3,
+            7,
+            10
+          ],
+          "relative_weight_pct": 7.981
+        },
+        {
+          "number": 10,
+          "name": "リバースザトレンド",
+          "earnings": 2060.0,
+          "record": [
+            2,
+            2,
+            0,
+            4
+          ],
+          "relative_weight_pct": 7.558
+        },
+        {
+          "number": 11,
+          "name": "ヴァイヴァーイ",
+          "earnings": 2049.0,
+          "record": [
+            2,
+            0,
+            2,
+            3
+          ],
+          "relative_weight_pct": 7.193
+        },
+        {
+          "number": 12,
+          "name": "フクチャントウメイ",
+          "earnings": 2620.0,
+          "record": [
+            2,
+            2,
+            2,
+            11
+          ],
+          "relative_weight_pct": 6.793
+        },
+        {
+          "number": 3,
+          "name": "アンドリーナ",
+          "earnings": 2208.0,
+          "record": [
+            2,
+            1,
+            1,
+            7
+          ],
+          "relative_weight_pct": 6.758
+        },
+        {
+          "number": 1,
+          "name": "ケーヴァラ",
+          "earnings": 2173.0,
+          "record": [
+            1,
+            2,
+            3,
+            5
+          ],
+          "relative_weight_pct": 6.706
+        },
+        {
+          "number": 2,
+          "name": "ベルイストワール",
+          "earnings": 3004.0,
+          "record": [
+            2,
+            2,
+            2,
+            17
+          ],
+          "relative_weight_pct": 6.534
+        },
+        {
+          "number": 9,
+          "name": "エンプレスフレーム",
+          "earnings": 2498.0,
+          "record": [
+            2,
+            3,
+            0,
+            15
+          ],
+          "relative_weight_pct": 6.485
+        },
+        {
+          "number": 7,
+          "name": "セザンワールド",
+          "earnings": 2503.0,
+          "record": [
+            0,
+            6,
+            2,
+            17
+          ],
+          "relative_weight_pct": 6.175
+        },
+        {
+          "number": 5,
+          "name": "クロドラバール",
+          "earnings": 2040.0,
+          "record": [
+            2,
+            1,
+            0,
+            18
+          ],
+          "relative_weight_pct": 5.693
+        },
+        {
+          "number": 8,
+          "name": "サイモンコーラル",
+          "earnings": 2471.0,
+          "record": [
+            2,
+            0,
+            1,
+            27
+          ],
+          "relative_weight_pct": 5.566
+        },
+        {
+          "number": 14,
+          "name": "ジェーケーボンバー",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            1
+          ],
+          "relative_weight_pct": 0.891
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040310"
+    },
+    {
+      "track": "新潟",
+      "race": 11,
+      "horses": [
+        {
+          "number": 3,
+          "name": "ユキワリザクラ",
+          "earnings": 5990.0,
+          "record": [
+            3,
+            4,
+            2,
+            2
+          ],
+          "relative_weight_pct": 10.862
+        },
+        {
+          "number": 10,
+          "name": "ミュージシャン",
+          "earnings": 6450.0,
+          "record": [
+            3,
+            4,
+            2,
+            3
+          ],
+          "relative_weight_pct": 10.578
+        },
+        {
+          "number": 11,
+          "name": "マイネルフーガ",
+          "earnings": 5408.0,
+          "record": [
+            3,
+            5,
+            3,
+            6
+          ],
+          "relative_weight_pct": 9.33
+        },
+        {
+          "number": 9,
+          "name": "ハニーコム",
+          "earnings": 5769.0,
+          "record": [
+            3,
+            4,
+            2,
+            10
+          ],
+          "relative_weight_pct": 8.494
+        },
+        {
+          "number": 1,
+          "name": "タイキラフター",
+          "earnings": 8133.0,
+          "record": [
+            3,
+            4,
+            8,
+            17
+          ],
+          "relative_weight_pct": 8.386
+        },
+        {
+          "number": 6,
+          "name": "フィオレストラーダ",
+          "earnings": 4249.0,
+          "record": [
+            3,
+            1,
+            2,
+            5
+          ],
+          "relative_weight_pct": 8.354
+        },
+        {
+          "number": 4,
+          "name": "ワイドアラジン",
+          "earnings": 8499.0,
+          "record": [
+            3,
+            5,
+            4,
+            21
+          ],
+          "relative_weight_pct": 8.203
+        },
+        {
+          "number": 8,
+          "name": "シンゼンカガ",
+          "earnings": 4834.0,
+          "record": [
+            3,
+            2,
+            1,
+            13
+          ],
+          "relative_weight_pct": 7.391
+        },
+        {
+          "number": 12,
+          "name": "ドラゴンヘッド",
+          "earnings": 6844.0,
+          "record": [
+            3,
+            3,
+            4,
+            25
+          ],
+          "relative_weight_pct": 7.333
+        },
+        {
+          "number": 2,
+          "name": "マイネルブリックス",
+          "earnings": 5867.0,
+          "record": [
+            3,
+            1,
+            3,
+            18
+          ],
+          "relative_weight_pct": 7.163
+        },
+        {
+          "number": 7,
+          "name": "フクノブルーレイク",
+          "earnings": 5427.0,
+          "record": [
+            1,
+            2,
+            4,
+            9
+          ],
+          "relative_weight_pct": 7.067
+        },
+        {
+          "number": 5,
+          "name": "アラタマフェーヴル",
+          "earnings": 3718.0,
+          "record": [
+            3,
+            0,
+            2,
+            11
+          ],
+          "relative_weight_pct": 6.839
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040311"
+    },
+    {
+      "track": "新潟",
+      "race": 12,
+      "horses": [
+        {
+          "number": 16,
+          "name": "ノアールビーナス",
+          "earnings": 1730.0,
+          "record": [
+            1,
+            2,
+            0,
+            5
+          ],
+          "relative_weight_pct": 7.487
+        },
+        {
+          "number": 7,
+          "name": "サンデースマッシュ",
+          "earnings": 1070.0,
+          "record": [
+            1,
+            1,
+            1,
+            3
+          ],
+          "relative_weight_pct": 6.826
+        },
+        {
+          "number": 17,
+          "name": "オタルグリーン",
+          "earnings": 1825.0,
+          "record": [
+            1,
+            1,
+            4,
+            14
+          ],
+          "relative_weight_pct": 6.703
+        },
+        {
+          "number": 12,
+          "name": "ジョワイユノエル",
+          "earnings": 1452.0,
+          "record": [
+            1,
+            1,
+            2,
+            8
+          ],
+          "relative_weight_pct": 6.638
+        },
+        {
+          "number": 4,
+          "name": "ペアレンツギフト",
+          "earnings": 890.0,
+          "record": [
+            1,
+            1,
+            0,
+            3
+          ],
+          "relative_weight_pct": 6.475
+        },
+        {
+          "number": 14,
+          "name": "サリーチェ",
+          "earnings": 1313.0,
+          "record": [
+            1,
+            2,
+            0,
+            11
+          ],
+          "relative_weight_pct": 6.352
+        },
+        {
+          "number": 1,
+          "name": "リアライズリバティ",
+          "earnings": 976.0,
+          "record": [
+            1,
+            1,
+            0,
+            5
+          ],
+          "relative_weight_pct": 6.242
+        },
+        {
+          "number": 18,
+          "name": "アルスマグナ",
+          "earnings": 990.0,
+          "record": [
+            1,
+            0,
+            0,
+            6
+          ],
+          "relative_weight_pct": 5.75
+        },
+        {
+          "number": 13,
+          "name": "シャルトル",
+          "earnings": 818.0,
+          "record": [
+            1,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 5.61
+        },
+        {
+          "number": 2,
+          "name": "ベルフラム",
+          "earnings": 870.0,
+          "record": [
+            1,
+            0,
+            0,
+            7
+          ],
+          "relative_weight_pct": 5.511
+        },
+        {
+          "number": 11,
+          "name": "アイアムアヒーロー",
+          "earnings": 679.0,
+          "record": [
+            1,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 5.499
+        },
+        {
+          "number": 6,
+          "name": "リアライズブラーヴ",
+          "earnings": 896.0,
+          "record": [
+            1,
+            0,
+            0,
+            9
+          ],
+          "relative_weight_pct": 5.424
+        },
+        {
+          "number": 5,
+          "name": "マイオウンウェイ",
+          "earnings": 750.0,
+          "record": [
+            1,
+            0,
+            0,
+            7
+          ],
+          "relative_weight_pct": 5.335
+        },
+        {
+          "number": 15,
+          "name": "ザバルガド",
+          "earnings": 560.0,
+          "record": [
+            1,
+            0,
+            0,
+            4
+          ],
+          "relative_weight_pct": 5.273
+        },
+        {
+          "number": 9,
+          "name": "レインオンミー",
+          "earnings": 762.0,
+          "record": [
+            1,
+            0,
+            0,
+            15
+          ],
+          "relative_weight_pct": 5.029
+        },
+        {
+          "number": 10,
+          "name": "フクシマコウヨウ",
+          "earnings": 622.0,
+          "record": [
+            1,
+            0,
+            0,
+            11
+          ],
+          "relative_weight_pct": 4.925
+        },
+        {
+          "number": 8,
+          "name": "スピリットサージ",
+          "earnings": 291.0,
+          "record": [
+            0,
+            0,
+            1,
+            7
+          ],
+          "relative_weight_pct": 3.849
+        },
+        {
+          "number": 3,
+          "name": "エクヴァータル",
+          "earnings": 0.0,
+          "record": [
+            0,
+            0,
+            0,
+            5
+          ],
+          "relative_weight_pct": 1.072
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040312"
+    }
+  ],
+  "failures": [
+    {
+      "track": "東京",
+      "race": 4,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040804"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040805"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040806"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040803"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "error": "IncompleteRead(18710 bytes read)",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040804"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040805"
+    },
+    {
+      "track": "新潟",
+      "race": 5,
+      "error": "incomplete field",
+      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040305"
+    }
+  ]
+}

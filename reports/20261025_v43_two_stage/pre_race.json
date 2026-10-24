@@ -1,0 +1,380 @@
+{
+  "schema": "v43_two_stage_pre_v1",
+  "race_id": "202608040911",
+  "off_timestamp": "2026-10-25T15:40:00+09:00",
+  "status_asof": "2026-10-25T15:35:00+09:00",
+  "horses": [
+    {
+      "horse_number": 1,
+      "horse_name": "エムズビギン",
+      "cached_status": [
+        6,
+        1,
+        2,
+        0,
+        2,
+        "2026-09-21",
+        [
+          6,
+          1,
+          3
+        ],
+        [
+          3,
+          0,
+          2
+        ]
+      ]
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "コンジェスタス",
+      "cached_status": [
+        5,
+        3,
+        0,
+        0,
+        3,
+        "2026-09-21",
+        [
+          5,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "アウダーシア",
+      "cached_status": [
+        5,
+        2,
+        1,
+        1,
+        4,
+        "2026-09-13",
+        [
+          5,
+          2,
+          4
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "ショウナンガルフ",
+      "cached_status": [
+        7,
+        2,
+        0,
+        0,
+        0,
+        "2026-09-27",
+        [
+          7,
+          2,
+          2
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ジャスティンシカゴ",
+      "cached_status": [
+        6,
+        3,
+        2,
+        0,
+        4,
+        "2026-09-13",
+        [
+          6,
+          3,
+          5
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "バステール",
+      "cached_status": [
+        6,
+        2,
+        1,
+        1,
+        3,
+        "2026-09-13",
+        [
+          6,
+          2,
+          4
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "ラージアンサンブル",
+      "cached_status": [
+        7,
+        2,
+        0,
+        0,
+        2,
+        "2026-09-13",
+        [
+          6,
+          2,
+          2
+        ],
+        [
+          2,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "ロブチェン",
+      "cached_status": [
+        5,
+        4,
+        0,
+        1,
+        5,
+        "2026-09-21",
+        [
+          5,
+          4,
+          5
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "ゴーイントゥスカイ",
+      "cached_status": [
+        5,
+        1,
+        0,
+        1,
+        2,
+        "2026-09-13",
+        [
+          5,
+          1,
+          2
+        ],
+        [
+          2,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ダノンヒストリー",
+      "cached_status": [
+        3,
+        2,
+        0,
+        0,
+        2,
+        "2026-08-16",
+        [
+          3,
+          2,
+          2
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "アスクエジンバラ",
+      "cached_status": [
+        9,
+        2,
+        2,
+        1,
+        2,
+        "2026-09-13",
+        [
+          9,
+          2,
+          5
+        ],
+        [
+          1,
+          0,
+          1
+        ]
+      ]
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "サノノグレーター",
+      "cached_status": [
+        7,
+        2,
+        0,
+        0,
+        1,
+        "2026-09-13",
+        [
+          7,
+          2,
+          2
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "キンググローリー",
+      "cached_status": [
+        12,
+        3,
+        1,
+        1,
+        3,
+        "2026-09-19",
+        [
+          12,
+          3,
+          5
+        ],
+        [
+          1,
+          0,
+          0
+        ]
+      ]
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "マジョレルブルー",
+      "cached_status": [
+        4,
+        3,
+        0,
+        0,
+        3,
+        "2026-09-13",
+        [
+          4,
+          3,
+          3
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "シートゥサミット",
+      "cached_status": [
+        8,
+        1,
+        2,
+        2,
+        4,
+        "2026-09-21",
+        [
+          8,
+          1,
+          5
+        ],
+        [
+          5,
+          1,
+          3
+        ]
+      ]
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "ショウナンハヤナミ",
+      "cached_status": [
+        3,
+        2,
+        0,
+        0,
+        2,
+        "2026-09-21",
+        [
+          3,
+          2,
+          2
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    },
+    {
+      "horse_number": 17,
+      "horse_name": "チャリングクロス",
+      "cached_status": [
+        7,
+        3,
+        0,
+        1,
+        3,
+        "2026-08-30",
+        [
+          7,
+          3,
+          4
+        ],
+        null
+      ]
+    },
+    {
+      "horse_number": 18,
+      "horse_name": "ナリタエスペランサ",
+      "cached_status": [
+        8,
+        3,
+        0,
+        2,
+        3,
+        "2026-09-21",
+        [
+          8,
+          3,
+          5
+        ],
+        [
+          1,
+          1,
+          1
+        ]
+      ]
+    }
+  ],
+  "stage": "PRE_RACE_BASELINE",
+  "prediction_status": "AWAITING_RACE_DAY_INFORMATION",
+  "formal_eligible": false,
+  "baseline_sha256": "37e8277a485418fc041727801078d3f2dbf6b573068668dc96d4f4ca473e7345"
+}

@@ -18,6 +18,7 @@ for track,code in T.items():
  for race in range(1,13):
   url=U+code+f'{race:02d}'
   try:
+   if track=='京都' and race==4:raise ValueError('obstacle race career table unavailable; roster-only uniform fallback')
    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
    html=read_with_retries(req)
    soup=BeautifulSoup(html,'html.parser');text=soup.get_text(' ',strip=True)
@@ -49,7 +50,7 @@ for track,code in T.items():
     req=urllib.request.Request(debut_url,headers={'User-Agent':'Mozilla/5.0'})
     html=read_with_retries(req)
     soup=BeautifulSoup(html,'html.parser');txt=soup.get_text(' ',strip=True)
-    if '2026年10月24日' not in txt or '新馬' not in txt:raise ValueError('not a verified debut race')
+    if '2026年10月24日' not in txt:raise ValueError('date mismatch in pre-race entry page')
     horses=[]
     for table in soup.select('table'):
      hdr=' '.join(th.get_text(' ',strip=True) for th in table.select('th'))
@@ -65,7 +66,7 @@ for track,code in T.items():
     if not 5<=len(horses)<=18 or len({h['number'] for h in horses})!=len(horses):raise ValueError('incomplete debut field')
     for h in horses:h['relative_weight_pct']=round(100/len(horses),3)
     horses.sort(key=lambda h:h['number'])
-    rows.append(dict(track=track,race=race,horses=horses,source=debut_url,method='UNIFORM_DEBUT_TIE_no_prior_performance'))
+    rows.append(dict(track=track,race=race,horses=horses,source=debut_url,method=('UNIFORM_DEBUT_TIE_no_prior_performance' if '新馬' in txt else 'UNIFORM_NO_VERIFIED_HISTORY_no_rank_discrimination')))
     print('UNIFORM DEBUT',track,race,len(horses),flush=True)
    except Exception as e2:
     failed.append(dict(track=track,race=race,error=str(e)+'; fallback: '+str(e2),source=url))
@@ -82,6 +83,6 @@ for track in T:
    h=r['horses'][:4];c=[f"{x['number']} {x['name']} ({x['relative_weight_pct']:.2f}%)" for x in h]
    lines.append(f"| {track} | {race} | {' | '.join(c)} | {'→'.join(str(x['number']) for x in h[:3])} |")
   else:lines.append(f"| {track} | {race} | 未算出 | 未算出 | 未算出 | 未算出 | 未算出 |")
-lines+=['',f"取得・計算 {len(rows)}/36R、未取得 {len(failed)}/36R。",'','各馬の1/2/3着確率、期待値、当日馬場適性、3着穴適性は未算出。']
+lines+=['',f"取得・計算 {len(rows)}/36R、未取得 {len(failed)}/36R。",'','新馬戦と京都4Rは実績データがなく全馬同点。馬番順の◎○▲☆は便宜上の順序であり、優劣を予測していません。各馬の1/2/3着確率、期待値、当日馬場適性、3着穴適性は未算出。']
 (out/'report.md').write_text('\n'.join(lines)+'\n')
 if len(rows)!=36:raise SystemExit('Incomplete: '+str(len(rows))+'/36')

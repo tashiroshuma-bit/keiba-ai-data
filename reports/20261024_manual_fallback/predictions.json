@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-24T07:49:22.415387+00:00",
+  "created_at": "2026-10-24T07:51:25.561164+00:00",
   "kind": "retrospective_20261024_uncalibrated_baseline_NOT_V43",
   "races": [
     {
@@ -394,6 +394,630 @@
         }
       ],
       "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040803"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "horses": [
+        {
+          "number": 1,
+          "name": "シツライ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 2,
+          "name": "エンドクレジット",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 3,
+          "name": "トラストユウゼン",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 4,
+          "name": "サターンテソーロ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 5,
+          "name": "ヤマメジャンプ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 6,
+          "name": "ヤマタケゲジオー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 7,
+          "name": "バーンズナイト",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 8,
+          "name": "ファナウ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 9,
+          "name": "ウェディングアイル",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 10,
+          "name": "スペシャルブレンド",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 11,
+          "name": "コスモスピログラフ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 12,
+          "name": "ヘイヴァイタヒチ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 13,
+          "name": "ショーツヨシ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 14,
+          "name": "トーアテンレイ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 15,
+          "name": "ナックドリーム",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 16,
+          "name": "サマーバドブリッジ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2605040804",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ユースフルゼスト",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 2,
+          "name": "ムーンキャスト",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 3,
+          "name": "スミダコンジャク",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 4,
+          "name": "ソウルスピアー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 5,
+          "name": "ラヴレヴァルール",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 6,
+          "name": "マルターズゴラッソ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 7,
+          "name": "ウォークレイズ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 8,
+          "name": "ノーズライダー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 9,
+          "name": "プレイヤ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 10,
+          "name": "ロジダンス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 11,
+          "name": "プラティナライヴァ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 12,
+          "name": "フェニックスロール",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 13,
+          "name": "デスタンドレ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 14,
+          "name": "リラノヴァ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 15,
+          "name": "グレータードリーム",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 16,
+          "name": "マハルキタ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 17,
+          "name": "トウシンシーザー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        },
+        {
+          "number": 18,
+          "name": "エフェソス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 5.556
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2605040805",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ナムラクリスティ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 2,
+          "name": "スルーインアード",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 3,
+          "name": "ダノンアイコニック",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 4,
+          "name": "ハヤブサナイン",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 5,
+          "name": "ポッドスカイ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 6,
+          "name": "キーチパティーナ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 7,
+          "name": "リーズメイリー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 8,
+          "name": "ニューイヤーズベル",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 9,
+          "name": "コスモツクヨミ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 10,
+          "name": "クインズピサ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 11,
+          "name": "アメリカンフレンズ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 12,
+          "name": "ケッパレ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 13,
+          "name": "ココビスケット",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 14,
+          "name": "トラストヨシノブ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 15,
+          "name": "ソウルミュージック",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 16,
+          "name": "ゲンバウマ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2605040806",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
     },
     {
       "track": "東京",
@@ -1638,6 +2262,370 @@
         }
       ],
       "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040802"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ケーリュケイオン",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 2,
+          "name": "シグナルカード",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 3,
+          "name": "ジューンジャムズ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 4,
+          "name": "ヤマカツファイア",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 5,
+          "name": "アメリカンヴェガ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 6,
+          "name": "カネトシブレイン",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 7,
+          "name": "ヴァンダローム",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 8,
+          "name": "モハラ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 9,
+          "name": "ポアサムシュガー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 10,
+          "name": "ノーブルセプター",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 11,
+          "name": "バンペイユ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 12,
+          "name": "シウラナ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 13,
+          "name": "ドラゴンアンセム",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 14,
+          "name": "スリーアイアトラス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 15,
+          "name": "サンフォルティス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        },
+        {
+          "number": 16,
+          "name": "ハメドスタイル",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 6.25
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2608040803",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "horses": [
+        {
+          "number": 1,
+          "name": "アサクサロマンス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 2,
+          "name": "マイヴェール",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 3,
+          "name": "ウォーターアケビ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 4,
+          "name": "ナムラポピー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 5,
+          "name": "オールインアスク",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 6,
+          "name": "カガセレーネ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 7,
+          "name": "スマートピナクル",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 8,
+          "name": "ダブルインバース",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 9,
+          "name": "ブリングインラック",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 10,
+          "name": "ルナヴェリタス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 11,
+          "name": "ディスクレタメンテ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 12,
+          "name": "セレナード",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        },
+        {
+          "number": 13,
+          "name": "レイティス",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.692
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2608040805",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
     },
     {
       "track": "京都",
@@ -3398,6 +4386,182 @@
     },
     {
       "track": "新潟",
+      "race": 5,
+      "horses": [
+        {
+          "number": 1,
+          "name": "クリムゾンペタル",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 2,
+          "name": "アフェクト",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 3,
+          "name": "スイートハーモニー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 4,
+          "name": "ルージュプルート",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 5,
+          "name": "ノーワンノーズ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 6,
+          "name": "ゾンネシュトラール",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 7,
+          "name": "タピオラン",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 8,
+          "name": "ジオロジー",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 9,
+          "name": "ガンサルート",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 10,
+          "name": "ライフオンマーズ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 11,
+          "name": "コスモディプロマ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 12,
+          "name": "ペルフェクト",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 13,
+          "name": "レイズドオンロック",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        },
+        {
+          "number": 14,
+          "name": "サンライズオルフェ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 7.143
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2604040305",
+      "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
+    },
+    {
+      "track": "新潟",
       "race": 6,
       "horses": [
         {
@@ -4588,46 +5752,10 @@
   ],
   "failures": [
     {
-      "track": "東京",
-      "race": 4,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040804"
-    },
-    {
-      "track": "東京",
-      "race": 5,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040805"
-    },
-    {
-      "track": "東京",
-      "race": 6,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2605040806"
-    },
-    {
-      "track": "京都",
-      "race": 3,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040803"
-    },
-    {
       "track": "京都",
       "race": 4,
-      "error": "IncompleteRead(18710 bytes read)",
+      "error": "IncompleteRead(0 bytes read); fallback: not a verified debut race",
       "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040804"
-    },
-    {
-      "track": "京都",
-      "race": 5,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040805"
-    },
-    {
-      "track": "新潟",
-      "race": 5,
-      "error": "incomplete field",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040305"
     }
   ]
 }

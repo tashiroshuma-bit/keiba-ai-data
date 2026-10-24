@@ -1,0 +1,207 @@
+{
+  "schema": "v43_race_day_input_v1",
+  "race_id": "202608040911",
+  "observed_at": "REPLACE_WITH_OBSERVATION_TIMESTAMP_WITH_TIMEZONE",
+  "received_at": "REPLACE_WITH_RECEIPT_TIMESTAMP_WITH_TIMEZONE",
+  "source_url": "REPLACE_WITH_OFFICIAL_HTTPS_SOURCE",
+  "runners": [
+    {
+      "horse_number": 1,
+      "horse_name": "エムズビギン",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "コンジェスタス",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "アウダーシア",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "ショウナンガルフ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ジャスティンシカゴ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "バステール",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "ラージアンサンブル",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "ロブチェン",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "ゴーイントゥスカイ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ダノンヒストリー",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "アスクエジンバラ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "サノノグレーター",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "キンググローリー",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "マジョレルブルー",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "シートゥサミット",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "ショウナンハヤナミ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 17,
+      "horse_name": "チャリングクロス",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    },
+    {
+      "horse_number": 18,
+      "horse_name": "ナリタエスペランサ",
+      "jockey_id": null,
+      "carried_weight": null,
+      "gate": null,
+      "going": null,
+      "track": "京都",
+      "surface": "芝",
+      "distance_m": 3000
+    }
+  ]
+}

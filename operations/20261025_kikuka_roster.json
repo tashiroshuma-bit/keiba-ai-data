@@ -1,0 +1,85 @@
+{
+  "race_id": "202608040911",
+  "off_timestamp": "2026-10-25T15:40:00+09:00",
+  "roster_asof": "2026-10-24T17:00:00+09:00",
+  "source_url": "https://app.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202604091120261025%2FC6",
+  "track": "京都",
+  "surface": "turf",
+  "distance_m": 3000,
+  "expected_runners": 18,
+  "source_status": "manual_transcription_from_previous_JRA_card_unverified_snapshot",
+  "runners": [
+    {
+      "horse_number": 1,
+      "horse_name": "エムズビギン"
+    },
+    {
+      "horse_number": 2,
+      "horse_name": "コンジェスタス"
+    },
+    {
+      "horse_number": 3,
+      "horse_name": "アウダーシア"
+    },
+    {
+      "horse_number": 4,
+      "horse_name": "ショウナンガルフ"
+    },
+    {
+      "horse_number": 5,
+      "horse_name": "ジャスティンシカゴ"
+    },
+    {
+      "horse_number": 6,
+      "horse_name": "バステール"
+    },
+    {
+      "horse_number": 7,
+      "horse_name": "ラージアンサンブル"
+    },
+    {
+      "horse_number": 8,
+      "horse_name": "ロブチェン"
+    },
+    {
+      "horse_number": 9,
+      "horse_name": "ゴーイントゥスカイ"
+    },
+    {
+      "horse_number": 10,
+      "horse_name": "ダノンヒストリー"
+    },
+    {
+      "horse_number": 11,
+      "horse_name": "アスクエジンバラ"
+    },
+    {
+      "horse_number": 12,
+      "horse_name": "サノノグレーター"
+    },
+    {
+      "horse_number": 13,
+      "horse_name": "キンググローリー"
+    },
+    {
+      "horse_number": 14,
+      "horse_name": "マジョレルブルー"
+    },
+    {
+      "horse_number": 15,
+      "horse_name": "シートゥサミット"
+    },
+    {
+      "horse_number": 16,
+      "horse_name": "ショウナンハヤナミ"
+    },
+    {
+      "horse_number": 17,
+      "horse_name": "チャリングクロス"
+    },
+    {
+      "horse_number": 18,
+      "horse_name": "ナリタエスペランサ"
+    }
+  ]
+}

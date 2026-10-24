@@ -3,13 +3,23 @@ from bs4 import BeautifulSoup
 T={'東京':'26050408','京都':'26080408','新潟':'26040403'}
 U='https://sports.yahoo.co.jp/keiba/race/achievement/all/'
 out=pathlib.Path('reports/20261024_manual_fallback');out.mkdir(parents=True,exist_ok=True)
+def read_with_retries(req):
+ last=None
+ for attempt in range(5):
+  try:
+   return urllib.request.urlopen(req,timeout=30).read().decode('utf-8','replace')
+  except Exception as e:
+   last=e
+   time.sleep(1.5*(attempt+1))
+ raise last
+
 rows=[];failed=[]
 for track,code in T.items():
  for race in range(1,13):
   url=U+code+f'{race:02d}'
   try:
    req=urllib.request.Request(url,headers={'User-Agent':'Mozilla/5.0'})
-   html=urllib.request.urlopen(req,timeout=25).read().decode('utf-8','replace')
+   html=read_with_retries(req)
    soup=BeautifulSoup(html,'html.parser');text=soup.get_text(' ',strip=True)
    if '2026年10月24日' not in text:raise ValueError('date mismatch')
    horses=[]
@@ -37,7 +47,7 @@ for track,code in T.items():
    try:
     debut_url='https://sports.yahoo.co.jp/keiba/race/denma/'+code+f'{race:02d}'
     req=urllib.request.Request(debut_url,headers={'User-Agent':'Mozilla/5.0'})
-    html=urllib.request.urlopen(req,timeout=25).read().decode('utf-8','replace')
+    html=read_with_retries(req)
     soup=BeautifulSoup(html,'html.parser');txt=soup.get_text(' ',strip=True)
     if '2026年10月24日' not in txt or '新馬' not in txt:raise ValueError('not a verified debut race')
     horses=[]

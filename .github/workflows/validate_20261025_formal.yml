@@ -1,0 +1,29 @@
+name: 2026-10-25 formal forecast validation gate
+on:
+  push:
+    paths:
+      - 'scripts/validate_20261025_formal_forecast.py'
+      - '.github/workflows/validate_20261025_formal.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Run independent audit, reject unqualified predictions
+        run: python scripts/validate_20261025_formal_forecast.py
+      - name: Persist formal audit evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_allrace_rank_shadow/formal_validation_gate.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Record strict formal forecast gate verdict for October 25"
+            git push
+          fi

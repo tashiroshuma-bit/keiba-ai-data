@@ -1,0 +1,30 @@
+name: 2026-10-25 external AI live reroll
+on:
+  push:
+    paths:
+      - 'scripts/reroll_20261025_external.py'
+      - '.github/workflows/reroll_20261025_external.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  reroll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install parser dependency
+        run: python -m pip install beautifulsoup4
+      - name: Live fetch all 36 external AI races and compare stored forecast
+        run: python scripts/reroll_20261025_external.py
+      - name: Save timestamped reroll to repository
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_allrace_rank_shadow/external_reroll_20261024.json reports/20261025_allrace_rank_shadow/report_external_reroll_20261024.md
+          git diff --cached --quiet || (git commit -m "Save Oct 25 live external AI comparison" && git push)

@@ -32,8 +32,34 @@ for track,code in T.items():
    rows.append(dict(track=track,race=race,horses=horses,source=url))
    print('OK',track,race,len(horses),flush=True)
   except Exception as e:
-   failed.append(dict(track=track,race=race,error=str(e),source=url))
-   print('FAIL',track,race,str(e),flush=True)
+   # All-debutant races lack career statistics. Read pre-race entry list only.
+   # Never read the result page, betting odds, or finishing positions.
+   try:
+    debut_url='https://sports.yahoo.co.jp/keiba/race/denma/'+code+f'{race:02d}'
+    req=urllib.request.Request(debut_url,headers={'User-Agent':'Mozilla/5.0'})
+    html=urllib.request.urlopen(req,timeout=25).read().decode('utf-8','replace')
+    soup=BeautifulSoup(html,'html.parser');txt=soup.get_text(' ',strip=True)
+    if '2026年10月24日' not in txt or '新馬' not in txt:raise ValueError('not a verified debut race')
+    horses=[]
+    for table in soup.select('table'):
+     hdr=' '.join(th.get_text(' ',strip=True) for th in table.select('th'))
+     if not ('馬番' in hdr and '馬名' in hdr):continue
+     for tr in table.select('tr'):
+      c=tr.find_all('td',recursive=False)
+      if len(c)<3:continue
+      no=c[1].get_text(' ',strip=True)
+      if not re.fullmatch(r'\d+',no):continue
+      a=c[2].find('a');name=a.get_text(' ',strip=True) if a else c[2].get_text(' ',strip=True).split(' ')[0]
+      horses.append(dict(number=int(no),name=name,earnings=0,record=[0,0,0,0]))
+     if horses:break
+    if not 5<=len(horses)<=18 or len({h['number'] for h in horses})!=len(horses):raise ValueError('incomplete debut field')
+    for h in horses:h['relative_weight_pct']=round(100/len(horses),3)
+    horses.sort(key=lambda h:h['number'])
+    rows.append(dict(track=track,race=race,horses=horses,source=debut_url,method='UNIFORM_DEBUT_TIE_no_prior_performance'))
+    print('UNIFORM DEBUT',track,race,len(horses),flush=True)
+   except Exception as e2:
+    failed.append(dict(track=track,race=race,error=str(e)+'; fallback: '+str(e2),source=url))
+    print('FAIL',track,race,str(e2),flush=True)
   time.sleep(.2)
 data=dict(created_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),kind='retrospective_20261024_uncalibrated_baseline_NOT_V43',races=rows,failures=failed)
 (out/'predictions.json').write_text(json.dumps(data,ensure_ascii=False,indent=2))

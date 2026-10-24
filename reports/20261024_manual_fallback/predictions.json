@@ -1,5 +1,5 @@
 {
-  "created_at": "2026-10-24T07:51:25.561164+00:00",
+  "created_at": "2026-10-24T07:53:38.975889+00:00",
   "kind": "retrospective_20261024_uncalibrated_baseline_NOT_V43",
   "races": [
     {
@@ -2462,6 +2462,134 @@
       ],
       "source": "https://sports.yahoo.co.jp/keiba/race/denma/2608040803",
       "method": "UNIFORM_DEBUT_TIE_no_prior_performance"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "horses": [
+        {
+          "number": 1,
+          "name": "ヴラディア",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 2,
+          "name": "トゥラッタッタ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 3,
+          "name": "アルマーザアミール",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 4,
+          "name": "バニーラビット",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 5,
+          "name": "スコラーリ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 6,
+          "name": "アメリカンピース",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 7,
+          "name": "ボールドハーテッド",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 8,
+          "name": "ビジューブリランテ",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 9,
+          "name": "フームスムート",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        },
+        {
+          "number": 10,
+          "name": "メイショウトム",
+          "earnings": 0,
+          "record": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "relative_weight_pct": 10.0
+        }
+      ],
+      "source": "https://sports.yahoo.co.jp/keiba/race/denma/2608040804",
+      "method": "UNIFORM_NO_VERIFIED_HISTORY_no_rank_discrimination"
     },
     {
       "track": "京都",
@@ -5750,12 +5878,5 @@
       "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2604040312"
     }
   ],
-  "failures": [
-    {
-      "track": "京都",
-      "race": 4,
-      "error": "IncompleteRead(0 bytes read); fallback: not a verified debut race",
-      "source": "https://sports.yahoo.co.jp/keiba/race/achievement/all/2608040804"
-    }
-  ]
+  "failures": []
 }

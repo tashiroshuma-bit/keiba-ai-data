@@ -1,0 +1,46 @@
+name: 2026-10-25 all race rank shadow
+on:
+  push:
+    paths:
+      - 'scripts/forecast_20261025_rank_shadow.py'
+      - '.github/workflows/forecast_20261025_rank_shadow.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  predict:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/forecast_20261025_rank_shadow.py
+      - name: Validate all-race output
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('reports/20261025_allrace_rank_shadow/all_races.json'))
+          assert p['covered']>=28
+          assert len(p['top5'])==5
+          for r in p['races']:
+            assert len(r['ranked'])==len(r['field'])
+            assert abs(sum(h['p1'] for h in r['ranked'])-1)<1e-6
+            for key in ('win','quinella','trio'):
+              b=r['tickets'][key]
+              assert b['coverage']>=b['target']-1e-8
+              assert len(b['tickets'])==b['count']
+          assert any(r['track']=='京都' and r['race']==11 for r in p['races'])
+          print('PASS',p['covered'],'races and Kikuka')
+          PY
+      - name: Commit results
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_allrace_rank_shadow
+          if ! git diff --cached --quiet; then
+            git commit -m "Store 2026-10-25 all race research shadow rankings and ticket sets"
+            git push
+          fi

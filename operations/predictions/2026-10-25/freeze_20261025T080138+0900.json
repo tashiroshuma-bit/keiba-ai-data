@@ -1,0 +1,116 @@
+{
+  "schema": "keiba-four-model-research-shadow-freeze-v1",
+  "race_date": "2026-10-25",
+  "frozen_at": "2026-10-25T08:01:38+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "repository_commit": "5a897f5bd7115f2696fe8e749315981ec6b36131",
+  "scope": {
+    "flat_races": 35,
+    "model_races": 140,
+    "tracks": ["東京", "京都", "新潟"],
+    "excluded": [
+      {
+        "race": "東京4R",
+        "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+      }
+    ]
+  },
+  "canonical_database": {
+    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "verified_at": "2026-10-25T08:00:00+09:00"
+  },
+  "model_state": {
+    "active_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "active_model_status": "experimental_probability",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "research_rank_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+    "formal_prediction": false
+  },
+  "blend": {
+    "A": {"internal": 1.0, "external": 0.0},
+    "B": {"internal": 0.75, "external": 0.25},
+    "C": {"internal": 0.5, "external": 0.5},
+    "D": {"internal": 0.25, "external": 0.75},
+    "external_softmax_temperature": 20,
+    "placing_approximation": "Plackett-Luce",
+    "ticket_thresholds": {"single": 0.40, "quinella": 0.25, "trio": 0.30}
+  },
+  "immutable_payloads": [
+    {
+      "path": "reports/20261025_four_model_all_probabilities.json",
+      "sha256": "56ead5775b95bbb4f75211b7942b2f889575ede9b027d8af85b5ebe5f24f6240",
+      "git_blob": "0aa12c1dbcb936e1ee09c19ceb7c5cff0b6e3dcc"
+    },
+    {
+      "path": "reports/20261025_four_model_all_tickets_tokyo.json",
+      "sha256": "97b5448a7c5d8df393f432fe81556a420f4d0d70c41b1a6398c15ca8235303ba",
+      "git_blob": "32e30c10a3377af2f72bac0e961896d8888cf225"
+    },
+    {
+      "path": "reports/20261025_four_model_all_tickets_kyoto.json",
+      "sha256": "3605a12050ae1e70a6ab7b5eab241d854849a7a17abd1ab77f109c5f33513c75",
+      "git_blob": "9b07626e1c7308271258d4849202ea4ec3dd2447"
+    },
+    {
+      "path": "reports/20261025_four_model_all_tickets_niigata.json",
+      "sha256": "945f97844edad8d52d193dd75660b11136618014a0f78fc012229cc94de627b0",
+      "git_blob": "a2ac30088479aeacea6e5888360fc1865e8e16e0"
+    },
+    {
+      "path": "reports/20261025_allrace_rank_shadow/all_races.json",
+      "sha256": "276b217f8008ddace6b91752f905865042b84e425a6b3f4ab8809a6b76f3615c",
+      "git_blob": "4cc88c7f300077965cf7b823d59b2d0faa579f15"
+    },
+    {
+      "path": "reports/20261025_allrace_rank_shadow/external_reroll_20261024.json",
+      "git_blob": "50d58725ee566a15d03f9b62717ca3e8816d3452",
+      "captured_at": "2026-10-24T21:32:14.572025+09:00"
+    }
+  ],
+  "integrity": {
+    "status": "PASS",
+    "races": 35,
+    "model_races": 140,
+    "runner_number_name_set_equal_across_models": true,
+    "p1_p2_p3_sums_within_tolerance": true,
+    "full_quinella_trio_probability_mass_within_tolerance": true,
+    "threshold_selection_sorted_and_minimal": true,
+    "max_probability_sum_error": 6.560000000987998e-07,
+    "tolerance": 2e-06,
+    "saved_json_reread": true,
+    "validator": "operations/predictions/2026-10-25/validate_freeze.py"
+  },
+  "race_day_observation": {
+    "observed_at": "2026-10-25T08:01:38+09:00",
+    "jra_program_url": "https://www.jra.go.jp/keiba/calendar2026/2026/10/1025.html",
+    "jra_change_notice_url": "https://jra.jp/news/202610/102405.html",
+    "kikka_card_url": "https://sports.yahoo.co.jp/keiba/race/denma/2608040911?detail=1",
+    "official_full_card_snapshot_sha256": null,
+    "all_35_races_independently_replayed": false,
+    "note": "Program and dated change notice were observed, but the exact race-day input used by the research proxy was not independently replayed from an official full-card snapshot."
+  },
+  "promotion_gate": {
+    "status": "REJECTED_NOT_FORMAL_PREDICTION",
+    "source": "reports/20261025_allrace_rank_shadow/formal_validation_gate.json",
+    "forward_observed_races_added": 0,
+    "blockers": [
+      "NO_TRAINING_IDENTICAL_FEATURE_PROVENANCE",
+      "NO_VERIFIED_OFFICIAL_HORSE_ID_COVERAGE",
+      "MISSING_RACE_DAY_INPUT_ASOF_PROOF",
+      "NO_PROBABILITY_CALIBRATION_REPORT",
+      "NO_INDEPENDENT_PREOFF_FEATURE_REPLAY",
+      "NO_REPRODUCIBLE_SOURCE_SNAPSHOT"
+    ]
+  },
+  "betting": {
+    "recommendation": "NO_BET",
+    "recommended_amount_yen": 0,
+    "actual_purchase": false,
+    "reason": "live_bet_generation=false and the four-model probabilities are uncalibrated research-shadow outputs"
+  }
+}

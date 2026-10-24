@@ -101,7 +101,8 @@ def snapshot(url, asof, off, html=None):
             html = resp.read().decode("utf-8")
     # The page's own update time can be later than the fetch time if cache or
     # source is inconsistent. This is not a safe pre-off snapshot.
-    m = re.search(r"競馬予想の更新日：\s*(\d{4})年(\d{1,2})月(\d{1,2})日\s*(\d{1,2})時(\d{1,2})分", html)
+    plain = re.sub(r"\\s+", " ", re.sub(r"<[^>]+>", " ", html))
+    m = re.search(r"競馬予想の更新日：\\s*(\\d{4})年\\s*(\\d{1,2})月\\s*(\\d{1,2})日\\s*(\\d{1,2})時\\s*(\\d{1,2})分", plain)
     page_updated = None
     if m:
         page_updated = datetime(*map(int, m.groups()), tzinfo=JST)

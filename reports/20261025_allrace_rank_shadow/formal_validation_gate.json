@@ -1,0 +1,29 @@
+{
+  "schema": "keiba-forecast-promotion-gate-v1",
+  "source_sha256": "276b217f8008ddace6b91752f905865042b84e425a6b3f4ab8809a6b76f3615c",
+  "source_races": 35,
+  "source_eligible": 30,
+  "status": "REJECTED_NOT_FORMAL_PREDICTION",
+  "technical_integrity": "PASS",
+  "formal_requirements_passed": false,
+  "blockers": [
+    "NOT_ALL_36_RACES_EVALUATED",
+    "EXCLUDED_OR_FAILED_RACES",
+    "TOP5_NOT_SELECTED_FROM_ALL_36_RACES",
+    "NO_TRAINING_IDENTICAL_FEATURE_PROVENANCE",
+    "NO_VERIFIED_OFFICIAL_HORSE_ID_COVERAGE",
+    "MISSING_RACE_DAY_INPUT_ASOF_PROOF",
+    "NO_PROBABILITY_CALIBRATION_REPORT",
+    "NO_PROSPECTIVE_FROZEN_PREDICTION",
+    "NO_INDEPENDENT_PREOFF_FEATURE_REPLAY",
+    "NO_REPRODUCIBLE_SOURCE_SNAPSHOT"
+  ],
+  "integrity_errors": [],
+  "validation_baseline_2026_lag7": {
+    "first_pick_hit_rate": 0.2013,
+    "ordered_top3_hit_rate": 0.0081,
+    "unordered_top3_hit_rate": 0.0362,
+    "races": 2707
+  },
+  "note": "Backtest baseline is an existing retrospective study, NOT prospective evidence for these 2026-10-25 predictions. Model coverage is not observed accuracy."
+}

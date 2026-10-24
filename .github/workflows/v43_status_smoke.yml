@@ -1,0 +1,45 @@
+name: V43 status cache model integration
+on:
+  push:
+    paths:
+      - 'scripts/v43_status_integration_smoke.py'
+      - 'operations/20261025_kikuka_status_compact.json'
+      - '.github/workflows/v43_status_smoke.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  integration:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -r requirements.txt
+      - run: python scripts/v43_status_integration_smoke.py
+      - name: Verify generated output
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('reports/20261025_v43_status_smoke/result.json'))
+          assert p['status']=='INTEGRATION_SMOKE_ONLY_NOT_VALIDATED_PREDICTION'
+          assert len(p['ranked'])==18
+          assert len({r['number'] for r in p['ranked']})==18
+          assert abs(sum(r['p1'] for r in p['ranked'])-1)<1e-8
+          for k,expected in [('win',18),('pair',153),('trio',816)]:
+            b=p['coverage'][k]
+            assert b['coverage']>=b['target']-1e-8
+            assert b['count']==len(b['tickets'])<=expected
+          print('PASS full model, 18 horses, probabilities, 3 ticket types')
+          PY
+      - name: Commit evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_v43_status_smoke/result.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Store status cache trained model integration smoke evidence"
+            git push
+          fi

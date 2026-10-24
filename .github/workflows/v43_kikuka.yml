@@ -19,6 +19,24 @@ jobs:
           python-version: '3.11'
       - name: Dependencies
         run: python -m pip install numpy beautifulsoup4 lxml
+      - name: Validate installed model and roster before database-dependent prediction
+        run: |
+          python -m compileall -q scripts/run_v43_shadow.py keiba_v48
+          python - <<'PY'
+          import sys,json,datetime
+          sys.path.insert(0,'keiba_v48')
+          from ranking_model import RankModel,NAMES
+          from completion_validation import sha
+          m='keiba_v48/reports/exact_rank/model_lag7.json'
+          s='keiba_v48/reports/exact_rank/selection_lag7.json'
+          selection=json.load(open(s))
+          assert sha(m)==selection['model_sha256']
+          model=RankModel.from_dict(json.load(open(m)))
+          card=json.load(open('operations/20261025_kikuka_roster.json'))
+          assert len(card['runners'])==card['expected_runners']==18
+          assert len(set(x['horse_number'] for x in card['runners']))==18
+          print('PASS trained model deserialize, SHA, source and 18-runner interface',len(NAMES))
+          PY
       - name: Verify training DB and model
         run: |
           python - <<'PY'

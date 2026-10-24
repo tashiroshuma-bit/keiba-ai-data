@@ -1,0 +1,36 @@
+name: V43 two-stage forecast
+on:
+  push:
+    paths:
+      - 'scripts/v43_two_stage.py'
+      - 'tests/test_v43_two_stage.py'
+      - '.github/workflows/v43_two_stage.yml'
+      - 'operations/20261025_kikuka_roster.json'
+      - 'operations/20261025_kikuka_status_compact.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  baseline:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python -m unittest discover -s tests -p test_v43_two_stage.py -v
+      - name: Freeze pre-race baseline
+        run: |
+          if [ ! -f reports/20261025_v43_two_stage/pre_race.json ]; then
+            python scripts/v43_two_stage.py prepare --card operations/20261025_kikuka_roster.json --status operations/20261025_kikuka_status_compact.json --output reports/20261025_v43_two_stage/pre_race.json
+          fi
+      - name: Save baseline
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_v43_two_stage/pre_race.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Freeze 2026 Kikuka V43 pre-race baseline"
+            git push
+          fi

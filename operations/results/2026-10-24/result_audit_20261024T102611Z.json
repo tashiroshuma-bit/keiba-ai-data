@@ -1,0 +1,156 @@
+{
+  "schema": "keiba-result-audit-v1",
+  "date": "2026-10-24",
+  "created_at_utc": "2026-10-24T10:26:11Z",
+  "created_at_jst": "2026-10-24T19:26:11+09:00",
+  "repository_main_commit": "504deabb9aa06068705e3a186207269e40e721ee",
+  "prediction_reference": {
+    "path": "operations/predictions/2026-10-24/preoff_coverage_20261024T000110Z.json",
+    "sha256": "cc5f8aaca7c779a1bd5445e74e40c0a9322b33ac10f3972e59c2d039c7c5c28d",
+    "prediction_sha256": null,
+    "immutable_runner_snapshot_created": false,
+    "model_executed": false,
+    "predictions_frozen": 0,
+    "full_runner_probabilities_frozen": 0,
+    "recommended_tickets_frozen": 0,
+    "recommended_stake_yen": 0
+  },
+  "database_verification": {
+    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "version": 10,
+    "bytes": 322121728,
+    "expected_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "local_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "verified": true
+  },
+  "active_model": {
+    "manifest": "keiba_v48/deployment/active_manifest.json",
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "status": "experimental_probability",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed_by_this_audit": false
+  },
+  "source_observations": [
+    {
+      "name": "JRA年度別全成績（PDF）2026年索引",
+      "url": "https://www.jra.go.jp/datafile/seiseki/report/2026.html",
+      "observed_at_utc": "2026-10-24T10:23:00Z",
+      "status": "2026-10-24 documents not listed",
+      "latest_listed_date": "2026-10-18",
+      "use": "official result publication check"
+    },
+    {
+      "name": "スポーツナビ 東京",
+      "url": "https://sports.yahoo.co.jp/keiba/race/list/26050408",
+      "observed_at_utc": "2026-10-24T10:25:00Z",
+      "status": "12 result summaries observed",
+      "use": "secondary-source provisional coverage only"
+    },
+    {
+      "name": "スポーツナビ 京都",
+      "url": "https://sports.yahoo.co.jp/keiba/race/list/26080408",
+      "observed_at_utc": "2026-10-24T10:25:00Z",
+      "status": "12 result summaries observed",
+      "use": "secondary-source provisional coverage only"
+    },
+    {
+      "name": "スポーツナビ 新潟",
+      "url": "https://sports.yahoo.co.jp/keiba/race/list/26040403",
+      "observed_at_utc": "2026-10-24T10:25:00Z",
+      "status": "12 result summaries observed",
+      "use": "secondary-source provisional coverage only"
+    }
+  ],
+  "coverage": {
+    "scheduled_races": 36,
+    "secondary_result_summaries_observed": 36,
+    "official_result_documents_verified": 0,
+    "official_full_order_verified": 0,
+    "official_payout_tables_verified": 0,
+    "forecast_evaluable_races": 0,
+    "forecast_unevaluable_races": 36,
+    "forward_observed_races_added": 0
+  },
+  "secondary_source_winners": [
+    {"track":"東京","race":1,"horse_number":12,"horse_name":"スターフラッシュ"},
+    {"track":"東京","race":2,"horse_number":4,"horse_name":"イニシャルポイント"},
+    {"track":"東京","race":3,"horse_number":8,"horse_name":"タンタフェリチア"},
+    {"track":"東京","race":4,"horse_number":12,"horse_name":"ヘイヴァイタヒチ"},
+    {"track":"東京","race":5,"horse_number":14,"horse_name":"リラノヴァ"},
+    {"track":"東京","race":6,"horse_number":11,"horse_name":"アメリカンフレンズ"},
+    {"track":"東京","race":7,"horse_number":4,"horse_name":"ラヴアンドライク"},
+    {"track":"東京","race":8,"horse_number":13,"horse_name":"コスモアチーブ"},
+    {"track":"東京","race":9,"horse_number":11,"horse_name":"レオアジャイル"},
+    {"track":"東京","race":10,"horse_number":12,"horse_name":"サムシャイン"},
+    {"track":"東京","race":11,"horse_number":9,"horse_name":"プルヴィナル"},
+    {"track":"東京","race":12,"horse_number":4,"horse_name":"トヨサカエ"},
+    {"track":"京都","race":1,"horse_number":3,"horse_name":"ロードグレイル"},
+    {"track":"京都","race":2,"horse_number":4,"horse_name":"アーケントレイル"},
+    {"track":"京都","race":3,"horse_number":16,"horse_name":"ハメドスタイル"},
+    {"track":"京都","race":4,"horse_number":5,"horse_name":"スコラーリ"},
+    {"track":"京都","race":5,"horse_number":7,"horse_name":"スマートピナクル"},
+    {"track":"京都","race":6,"horse_number":8,"horse_name":"リアルアルバ"},
+    {"track":"京都","race":7,"horse_number":10,"horse_name":"エイコーンドリーム"},
+    {"track":"京都","race":8,"horse_number":8,"horse_name":"オリバナム"},
+    {"track":"京都","race":9,"horse_number":6,"horse_name":"スカイメテオ"},
+    {"track":"京都","race":10,"horse_number":2,"horse_name":"アスミル"},
+    {"track":"京都","race":11,"horse_number":12,"horse_name":"ディールメーカー"},
+    {"track":"京都","race":12,"horse_number":7,"horse_name":"タガノアニマシオン"},
+    {"track":"新潟","race":1,"horse_number":2,"horse_name":"ピュアノーブル"},
+    {"track":"新潟","race":2,"horse_number":8,"horse_name":"サノノキセキ"},
+    {"track":"新潟","race":3,"horse_number":11,"horse_name":"リコルディオーロ"},
+    {"track":"新潟","race":4,"horse_number":7,"horse_name":"カーヴドヴァン"},
+    {"track":"新潟","race":5,"horse_number":2,"horse_name":"アフェクト"},
+    {"track":"新潟","race":6,"horse_number":9,"horse_name":"マダックス"},
+    {"track":"新潟","race":7,"horse_number":1,"horse_name":"グランセゾン"},
+    {"track":"新潟","race":8,"horse_number":10,"horse_name":"リアライズオーラム"},
+    {"track":"新潟","race":9,"horse_number":13,"horse_name":"アカウフリューゲル"},
+    {"track":"新潟","race":10,"horse_number":1,"horse_name":"ケーヴァラ"},
+    {"track":"新潟","race":11,"horse_number":5,"horse_name":"アラタマフェーヴル"},
+    {"track":"新潟","race":12,"horse_number":8,"horse_name":"スピリットサージ"}
+  ],
+  "secondary_source_exceptions_pending_official_confirmation": [
+    {"track":"新潟","race":4,"type":"scratched","horse_number":4,"horse_name":"ソロンゴ"},
+    {"track":"京都","race":7,"type":"excluded","horse_number":7,"horse_name":"リーチグローリー"}
+  ],
+  "metrics": {
+    "log_loss": null,
+    "brier_race_mean": null,
+    "top1_accuracy": null,
+    "winner_in_top3_rate": null,
+    "calibration": null,
+    "reason": "No immutable pre-race runner snapshot or frozen full-field probabilities exist. Results cannot be used to reconstruct them."
+  },
+  "bet_settlement": {
+    "tickets": 0,
+    "stake_yen": 0,
+    "payout_yen": 0,
+    "profit_yen": 0,
+    "roi_pct": null,
+    "drawdown_yen": null,
+    "unused_budget_ceiling_yen": 5000,
+    "reason": "live_bet_generation=false and no tickets were frozen; zero tickets does not define a return rate"
+  },
+  "research_final_odds_evaluation": {
+    "performed": false,
+    "reason": "No predeclared frozen probability/rule artifact exists for this date"
+  },
+  "validation": {
+    "project_status_valid": true,
+    "project_status_database_version": 10,
+    "project_status_database_local_verified": true,
+    "project_status_usable_races": 12763,
+    "unit_tests_run": 209,
+    "unit_tests_passed": 209,
+    "unit_tests_failed": 0
+  },
+  "facts": [
+    "Morning coverage recorded all 36 racecards but did not persist immutable runner rows or execute the model.",
+    "Independent result pages exposed result summaries for all 36 races.",
+    "The official annual all-results index did not yet expose the 2026-10-24 result PDFs at observation time.",
+    "No forecast metric or betting return is computable without post-race fabrication."
+  ],
+  "hypotheses": [],
+  "next_verification": "When the official annual result PDFs are indexed, append a new result audit version with PDF URL/SHA256, full-order and payout validation. Do not modify this file or the morning prediction artifact."
+}

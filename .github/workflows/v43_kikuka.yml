@@ -1,0 +1,58 @@
+name: Existing rank model Kikuka operational smoke test
+on:
+  push:
+    paths:
+      - 'scripts/run_v43_shadow.py'
+      - 'operations/20261025_kikuka_roster.json'
+      - '.github/workflows/v43_kikuka.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Dependencies
+        run: python -m pip install numpy beautifulsoup4 lxml
+      - name: Verify training DB and model
+        run: |
+          python - <<'PY'
+          import sqlite3,pathlib
+          db=pathlib.Path('jra_2023_2025.sqlite')
+          assert db.stat().st_size>100_000_000, f"Database missing or LFS pointer: {db.stat().st_size}"
+          con=sqlite3.connect(str(db))
+          assert con.execute('select count(*) from annual_report_runners').fetchone()[0]>10000
+          print('DB verified',db.stat().st_size)
+          PY
+      - name: Predict Kikuka with trained rank artifact
+        run: python scripts/run_v43_shadow.py
+      - name: Verify full output and bet coverage
+        run: |
+          python - <<'PY'
+          import json
+          p=json.load(open('reports/20261025_v43_shadow/prediction.json'))
+          assert len(p['runners'])==18
+          assert len({r['horse_number'] for r in p['runners']})==18
+          assert abs(sum(r['p_first'] for r in p['runners'])-1)<1e-5
+          for kind in ('win','quinella','trio'):
+            b=p['bets'][kind]
+            assert b['count']==len(b['bets']) and b['cumulative']>=b['target']-1e-7
+            assert len({tuple(x['horses']) for x in b['bets']})==len(b['bets'])
+          assert p['history_name_matches']>0, 'no horse history joined'
+          print('PASS: 18 runners, normalized probabilities, threshold ticket combinations')
+          PY
+      - name: Persist result
+        if: success()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/20261025_v43_shadow
+          if ! git diff --cached --quiet; then
+            git commit -m "Store trained rank model Kikuka shadow prediction and tickets"
+            git push
+          fi

@@ -14,15 +14,15 @@ from pathlib import Path
 
 PDF_MAGIC = b'%PDF-'
 HORSE_NO = re.compile(r'^(?:[1-9]|1[0-8])$')
-WEIGHT = re.compile(r'^(?:[4-5][0-9]|6[0-5])(?:\\.\\d)?$')
-TIME = re.compile(r'(?<!\\d)([0-2]?\\d)\\s*時\\s*([0-5]?\\d)\\s*分')
-REVERSED_TIME = re.compile(r'分\\s*([0-5]?\\d)\\s*時\\s*([0-2]?\\d)')
-RACE = re.compile(r'(?<!\\d)(1[0-2]|[1-9])\\s*R\\b|\\bR\\s*(1[0-2]|[1-9])(?!\\d)', re.I)
+WEIGHT = re.compile(r'^(?:[4-5][0-9]|6[0-5])(?:\.\d)?$')
+TIME = re.compile(r'(?<!\d)([0-2]?\d)\s*時\s*([0-5]?\d)\s*分')
+REVERSED_TIME = re.compile(r'分\s*([0-5]?\d)\s*時\s*([0-2]?\d)')
+RACE = re.compile(r'(?<!\d)(1[0-2]|[1-9])\s*R\b|\bR\s*(1[0-2]|[1-9])(?!\d)', re.I)
 BAD_NAME = re.compile(r'[0-9０-９]|(?:牡|牝|騎手|負担|検量|集合|発走|馬齢|JPN|Turf|Dirt)')
 
 
 def _normal(s):
-    return re.sub(r'\\s+', '', s).replace('　', '')
+    return re.sub(r'\s+', '', s).replace('　', '')
 
 
 def _header_time(text):
@@ -136,7 +136,7 @@ def main(argv=None):
         raise SystemExit('invalid observed-at ISO8601') from exc
     result = probe_pdf_bytes(a.pdf.read_bytes(), a.source_url, a.observed_at)
     a.out.parent.mkdir(parents=True, exist_ok=True)
-    a.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\\n', encoding='utf-8')
+    a.out.write_text(json.dumps(result, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
     print(json.dumps({'status': result['status'], 'race_count': result['race_count'],
                       'sha256': result['pdf_sha256'], 'production_freeze_allowed': False}))
 

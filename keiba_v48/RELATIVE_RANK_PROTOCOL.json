@@ -1,0 +1,28 @@
+{
+  "schema": "keiba-relative-rank-protocol-v1",
+  "training": 2023,
+  "calibration": "2024 H1 after all training labels",
+  "selection": "2024 H2 after all calibration labels; reused exploratory selection period",
+  "evaluation_years": [2025, 2026],
+  "evaluation_role": "previously inspected retrospective; not unseen or prospective",
+  "lags": [2, 7],
+  "features": "ID-linked prior history plus field-relative standardized form and tie-aware percentile; current distance/surface/class/field size",
+  "models": [
+    {"name": "relative_win_d2", "family": "win", "depth": 2},
+    {"name": "relative_shared_d2", "family": "shared_top3", "depth": 2},
+    {"name": "relative_stage_d2", "family": "stagewise_top3", "depth": 2}
+  ],
+  "trees": 120,
+  "rate": 0.05,
+  "minimum_leaf": 250,
+  "regularization": 20,
+  "bins": 16,
+  "temperatures": [0.75, 1, 1.25, 1.5, 2],
+  "uniform_joint_mixture": 0.1,
+  "mixture_weights": [0.1, 0.25, 0.5, 1],
+  "set_policies": ["marginal_recall", "exact_set"],
+  "selection_rule": "Do not reduce any H2 winner/ordered/unordered exact-hit count versus repaired incumbent; maximize product of target-normalized rates, then lower joint NLL, then name; incumbent fallback",
+  "targets": {"winner_hit": 0.8, "ordered_all_hit": 0.5, "top3_all_hit": 0.6},
+  "forbidden": "No odds, payouts, target outcomes, inferred IDs or observation timestamps; no post-2024 candidate choice",
+  "promotion": "Research-only comparison; active deployment unchanged; save same weights, selection and complete prediction evidence"
+}

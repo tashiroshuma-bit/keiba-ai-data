@@ -1,0 +1,25 @@
+{
+  "schema": "next-shadow-review-policy-v1",
+  "status": "RESEARCH_ONLY",
+  "active_model_replaced": false,
+  "production_exponent": 1.0,
+  "exploratory_exponents": {
+    "A": 4.0,
+    "B": 3.0,
+    "C": 2.0,
+    "D": 1.5
+  },
+  "adopt_exploratory_exponents": false,
+  "market_blend_default": 0,
+  "market_blend_020": "explicit separate sensitivity branch only; not selected by this weekend",
+  "scratch_revision_command": "python scripts/revise_research_shadow.py BASE_JSON REQUEST_JSON NEW_OUTPUT_JSON",
+  "parent_hash_required": true,
+  "preoff_evidence_required": true,
+  "overwrite_existing_prediction": false,
+  "p1_p2_p3_and_joint_recompute": true,
+  "wide_selection_threshold": null,
+  "uniform_or_tied_top_rank": "flag prominently; deterministic horse-number tie break retained in all-race evaluation",
+  "formal_forward_count_added": 0,
+  "calibration_adoption_gate": "Select on matching-model 2024 data and prospective fixed evidence; not this 2026 weekend",
+  "race_results_primary_verification": "pending; do not merge into canonical DB yet"
+}

@@ -1,0 +1,54 @@
+{
+  "reports/weekend_20261024_25/race_scores.json": {
+    "sha256": "6f281018d074dd5de5f57736a5f12fbe362a3c00938341ac07905f8c3e6d63f0",
+    "bytes": 81727
+  },
+  "reports/weekend_20261024_25/all_72_races.csv": {
+    "sha256": "433489866f0e286f51230a349ddb7b228cf85447543832bbea89c205dc76e775",
+    "bytes": 7583
+  },
+  "reports/weekend_20261024_25/REVIEW.md": {
+    "sha256": "f0ad2193d2ff53a06948dd15a5ba345451332efb719b282a48f03fb61345e1d1",
+    "bytes": 7574
+  },
+  "reports/weekend_20261024_25/ticket_settlement.json": {
+    "sha256": "1bb7f62bda7313f405f572c0618c661d76e6854d334940ebf8ae53c277d6cbae",
+    "bytes": 126168
+  },
+  "reports/weekend_20261024_25/validation.json": {
+    "sha256": "39816cfb32cca9d2dabc13d98393ce76500dabede74d2b4cd274d7f6f1844e8c",
+    "bytes": 759
+  },
+  "reports/weekend_20261024_25/next_shadow_policy.json": {
+    "sha256": "b2d28fa6c5515bbfff00818627f2f9a4a78c43eccf0a2a807d09b81e303d1f3b",
+    "bytes": 1058
+  },
+  "reports/weekend_20261024_25/review.json": {
+    "sha256": "457be750e14d34f6d59460c6c25d516b20d93988c45747dafd300c38098c21cc",
+    "bytes": 60606
+  },
+  "reports/weekend_20261024_25/scratch_correction_example.json": {
+    "sha256": "a0c58910847193223849c3ba897b32e24b8d49fe2c9f77ab63c3d5701e457417",
+    "bytes": 6678
+  },
+  "operations/results/2026-10-25/weekend_observations.json": {
+    "sha256": "956eeb396d242788af79886d20ae2237a63fbbb65ddd427088ec532116d0b60d",
+    "bytes": 75709
+  },
+  "scripts/weekend_prediction_review.py": {
+    "sha256": "00a1815469bd96850b5fc2730bb8691a2fe1fae095201abf850f891b7354f037",
+    "bytes": 14468
+  },
+  "scripts/import_weekend_result_observations.py": {
+    "sha256": "0ac219301358caa8c00869d9aa4c1bde6cfbb97f77e25580bc16876aaf056ccc",
+    "bytes": 5044
+  },
+  "scripts/revise_research_shadow.py": {
+    "sha256": "108ef34c8a3db6234b1f39509a680b14e4899b2aa3b0100733262bcdacda5d96",
+    "bytes": 4076
+  },
+  "keiba_v48/test_weekend_prediction_review.py": {
+    "sha256": "3a92301640878ef8f796c6a5a052269e57daebf7c33ed035163cdc04775bb84b",
+    "bytes": 3852
+  }
+}

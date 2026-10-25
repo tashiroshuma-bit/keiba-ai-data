@@ -1,0 +1,22 @@
+{
+  "status": "PASS",
+  "unit_test_command": "python -m unittest discover -s keiba_v48 -q",
+  "unit_tests_passed": 219,
+  "project_status_valid": true,
+  "database_local_verified": false,
+  "official_results_verified": false,
+  "checks": [
+    "72 unique race keys",
+    "71 cross-source top-three and payout matches",
+    "two third-place dead heats preserved",
+    "five immutable payload hashes match freeze",
+    "independent saved-row hit counts match report",
+    "refund, wide union, scratch recomputation and revision lineage tests passed"
+  ],
+  "limitations": [
+    "Kyoto 12R one secondary source",
+    "official PDF result import pending",
+    "actual betting evidence absent",
+    "same-day calibration diagnostic is not future validation"
+  ]
+}

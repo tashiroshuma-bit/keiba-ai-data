@@ -1,0 +1,3410 @@
+{
+  "schema": "weekend-results-v1",
+  "observation_date": "2026-10-25",
+  "official_verified": false,
+  "races": [
+    {
+      "date": "20261024",
+      "race": "東京1R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 130
+        },
+        "quinella": {
+          "8-12": 550
+        },
+        "wide": {
+          "8-12": 200,
+          "7-12": 120,
+          "7-8": 260
+        },
+        "trio": {
+          "7-8-12": 280
+        },
+        "trifecta": {
+          "12-8-7": 1370
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京2R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 400
+        },
+        "quinella": {
+          "1-4": 560
+        },
+        "wide": {
+          "1-4": 180,
+          "4-7": 170,
+          "1-7": 160
+        },
+        "trio": {
+          "1-4-7": 360
+        },
+        "trifecta": {
+          "4-1-7": 2360
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京3R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 220
+        },
+        "quinella": {
+          "8-10": 320
+        },
+        "wide": {
+          "8-10": 170,
+          "5-8": 420,
+          "5-10": 440
+        },
+        "trio": {
+          "5-8-10": 1020
+        },
+        "trifecta": {
+          "8-10-5": 3160
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京4R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          15
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 350
+        },
+        "quinella": {
+          "10-12": 290
+        },
+        "wide": {
+          "10-12": 190,
+          "12-15": 1060,
+          "10-15": 870
+        },
+        "trio": {
+          "10-12-15": 1630
+        },
+        "trifecta": {
+          "12-10-15": 6570
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京5R",
+      "top3": [
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          16
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "14": 500
+        },
+        "quinella": {
+          "14-16": 12910
+        },
+        "wide": {
+          "14-16": 2790,
+          "2-14": 420,
+          "2-16": 2930
+        },
+        "trio": {
+          "2-14-16": 12380
+        },
+        "trifecta": {
+          "14-16-2": 87310
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京6R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 480
+        },
+        "quinella": {
+          "3-11": 830
+        },
+        "wide": {
+          "3-11": 290,
+          "7-11": 280,
+          "3-7": 230
+        },
+        "trio": {
+          "3-7-11": 810
+        },
+        "trifecta": {
+          "11-3-7": 5240
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京7R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 220
+        },
+        "quinella": {
+          "4-5": 1280
+        },
+        "wide": {
+          "4-5": 460,
+          "4-9": 220,
+          "5-9": 670
+        },
+        "trio": {
+          "4-5-9": 1470
+        },
+        "trifecta": {
+          "4-5-9": 6000
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京8R",
+      "top3": [
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "13": 1370
+        },
+        "quinella": {
+          "11-13": 2880
+        },
+        "wide": {
+          "11-13": 850,
+          "5-13": 650,
+          "5-11": 340
+        },
+        "trio": {
+          "5-11-13": 2710
+        },
+        "trifecta": {
+          "13-11-5": 37410
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京9R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 750
+        },
+        "quinella": {
+          "11-12": 660
+        },
+        "wide": {
+          "11-12": 340,
+          "9-11": 1820,
+          "9-12": 640
+        },
+        "trio": {
+          "9-11-12": 2940
+        },
+        "trifecta": {
+          "11-12-9": 17100
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京10R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 220
+        },
+        "quinella": {
+          "7-12": 1240
+        },
+        "wide": {
+          "7-12": 580,
+          "4-12": 690,
+          "4-7": 2710
+        },
+        "trio": {
+          "4-7-12": 7300
+        },
+        "trifecta": {
+          "12-7-4": 24190
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京11R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 290
+        },
+        "quinella": {
+          "9-13": 6200
+        },
+        "wide": {
+          "9-13": 1630,
+          "5-9": 370,
+          "5-13": 2620
+        },
+        "trio": {
+          "5-9-13": 11170
+        },
+        "trifecta": {
+          "9-13-5": 67050
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "東京12R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 250
+        },
+        "quinella": {
+          "4-9": 580
+        },
+        "wide": {
+          "4-9": 280,
+          "3-4": 270,
+          "3-9": 570
+        },
+        "trio": {
+          "3-4-9": 920
+        },
+        "trifecta": {
+          "4-9-3": 4310
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026050408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050408"
+      ],
+      "source_text_export_sha256": [
+        "3a4d7e5e6ea7f36ebaf0107ca6a5c7d47b350256a0b08f3cbcb7a2d100a3a95f",
+        "1faeb832a156d4410f3d74b5de5e811db060ec813e8e83de04b32169c0a9260e"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都1R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 990
+        },
+        "quinella": {
+          "3-9": 920
+        },
+        "wide": {
+          "3-9": 400,
+          "3-11": 1060,
+          "9-11": 370
+        },
+        "trio": {
+          "3-9-11": 2160
+        },
+        "trifecta": {
+          "3-9-11": 12850
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都2R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 240
+        },
+        "quinella": {
+          "4-5": 5450
+        },
+        "wide": {
+          "4-5": 1380,
+          "1-4": 230,
+          "1-5": 2190
+        },
+        "trio": {
+          "1-4-5": 5430
+        },
+        "trifecta": {
+          "4-5-1": 36230
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都3R",
+      "top3": [
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "16": 880
+        },
+        "quinella": {
+          "9-16": 2250
+        },
+        "wide": {
+          "9-16": 930,
+          "1-16": 1440,
+          "1-9": 1150
+        },
+        "trio": {
+          "1-9-16": 6930
+        },
+        "trifecta": {
+          "16-9-1": 37740
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都4R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 910
+        },
+        "quinella": {
+          "3-5": 2680
+        },
+        "wide": {
+          "3-5": 1000,
+          "2-5": 770,
+          "2-3": 440
+        },
+        "trio": {
+          "2-3-5": 3900
+        },
+        "trifecta": {
+          "5-3-2": 23790
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都5R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 260
+        },
+        "quinella": {
+          "2-7": 1520
+        },
+        "wide": {
+          "2-7": 650,
+          "7-8": 540,
+          "2-8": 1540
+        },
+        "trio": {
+          "2-7-8": 3670
+        },
+        "trifecta": {
+          "7-2-8": 14210
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都6R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 1790
+        },
+        "quinella": {
+          "8-11": 3310
+        },
+        "wide": {
+          "8-11": 1330,
+          "5-8": 2520,
+          "5-11": 1270
+        },
+        "trio": {
+          "5-8-11": 12270
+        },
+        "trifecta": {
+          "8-11-5": 107030
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都7R",
+      "top3": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "10": 200
+        },
+        "quinella": {
+          "4-10": 1180
+        },
+        "wide": {
+          "4-10": 480,
+          "10-11": 300,
+          "4-11": 1120
+        },
+        "trio": {
+          "4-10-11": 2300
+        },
+        "trifecta": {
+          "10-4-11": 8850
+        }
+      },
+      "nonstarters": [
+        7
+      ],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都8R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 520
+        },
+        "quinella": {
+          "4-8": 360
+        },
+        "wide": {
+          "4-8": 240,
+          "5-8": 2250,
+          "4-5": 1580
+        },
+        "trio": {
+          "4-5-8": 3880
+        },
+        "trifecta": {
+          "8-4-5": 16910
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都9R",
+      "top3": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "6": 420
+        },
+        "quinella": {
+          "5-6": 1330
+        },
+        "wide": {
+          "5-6": 450,
+          "2-6": 430,
+          "2-5": 710
+        },
+        "trio": {
+          "2-5-6": 1870
+        },
+        "trifecta": {
+          "6-5-2": 9530
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都10R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 380
+        },
+        "quinella": {
+          "2-8": 2140
+        },
+        "wide": {
+          "2-8": 770,
+          "2-4": 510,
+          "4-8": 770
+        },
+        "trio": {
+          "2-4-8": 3450
+        },
+        "trifecta": {
+          "2-8-4": 15040
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都11R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          15
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 640
+        },
+        "quinella": {
+          "11-12": 970
+        },
+        "wide": {
+          "11-12": 470,
+          "12-15": 1580,
+          "11-15": 790
+        },
+        "trio": {
+          "11-12-15": 3660
+        },
+        "trifecta": {
+          "12-11-15": 19410
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "京都12R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 2170
+        },
+        "quinella": {
+          "2-7": 9930
+        },
+        "wide": {
+          "2-7": 1660,
+          "6-7": 410,
+          "2-6": 410
+        },
+        "trio": {
+          "2-6-7": 2250
+        },
+        "trifecta": {
+          "7-2-6": 54000
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026080408",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080408"
+      ],
+      "source_text_export_sha256": [
+        "61025825c8782c2e514c7c0f3a46adedd6983b8a25b3272fc1186359409d77a8",
+        "fa875dfff4cc34de25e79068f615adb09127ab57ae4b2e032685cc40e2a24b0d"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟1R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 380
+        },
+        "quinella": {
+          "2-8": 870
+        },
+        "wide": {
+          "2-8": 390,
+          "2-4": 830,
+          "4-8": 1060
+        },
+        "trio": {
+          "2-4-8": 3220
+        },
+        "trifecta": {
+          "2-8-4": 14150
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟2R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 430
+        },
+        "quinella": {
+          "2-8": 1630
+        },
+        "wide": {
+          "2-8": 600,
+          "8-10": 770,
+          "2-10": 800
+        },
+        "trio": {
+          "2-8-10": 3860
+        },
+        "trifecta": {
+          "8-2-10": 17700
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟3R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 1560
+        },
+        "quinella": {
+          "6-11": 2650
+        },
+        "wide": {
+          "6-11": 770,
+          "4-11": 720,
+          "4-6": 360
+        },
+        "trio": {
+          "4-6-11": 2970
+        },
+        "trifecta": {
+          "11-6-4": 37220
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟4R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 2590
+        },
+        "quinella": {
+          "7-13": 41330
+        },
+        "wide": {
+          "7-13": 9920,
+          "7-10": 7180,
+          "10-13": 5800
+        },
+        "trio": {
+          "7-10-13": 168170
+        },
+        "trifecta": {
+          "7-13-10": 1189290
+        }
+      },
+      "nonstarters": [
+        4
+      ],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟5R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 1140
+        },
+        "quinella": {
+          "2-7": 5840
+        },
+        "wide": {
+          "2-7": 1970,
+          "2-8": 5550,
+          "7-8": 5810
+        },
+        "trio": {
+          "2-7-8": 60570
+        },
+        "trifecta": {
+          "2-7-8": 272500
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟6R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 520
+        },
+        "quinella": {
+          "3-9": 1830
+        },
+        "wide": {
+          "3-9": 520,
+          "8-9": 690,
+          "3-8": 750
+        },
+        "trio": {
+          "3-8-9": 4340
+        },
+        "trifecta": {
+          "9-3-8": 17700
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟7R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 580
+        },
+        "quinella": {
+          "1-2": 4750
+        },
+        "wide": {
+          "1-2": 1060,
+          "1-12": 760,
+          "2-12": 2050
+        },
+        "trio": {
+          "1-2-12": 14650
+        },
+        "trifecta": {
+          "1-2-12": 72140
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟8R",
+      "top3": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "10": 330
+        },
+        "quinella": {
+          "3-10": 620
+        },
+        "wide": {
+          "3-10": 330,
+          "5-10": 1510,
+          "3-5": 1260
+        },
+        "trio": {
+          "3-5-10": 3940
+        },
+        "trifecta": {
+          "10-3-5": 14160
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟9R",
+      "top3": [
+        [
+          1,
+          13
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "13": 150
+        },
+        "quinella": {
+          "5-13": 5500
+        },
+        "wide": {
+          "5-13": 2020,
+          "7-13": 620,
+          "5-7": 5060
+        },
+        "trio": {
+          "5-7-13": 14970
+        },
+        "trifecta": {
+          "13-5-7": 52590
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟10R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 2720
+        },
+        "quinella": {
+          "1-15": 2650
+        },
+        "wide": {
+          "1-15": 1100,
+          "1-13": 2360,
+          "13-15": 320
+        },
+        "trio": {
+          "1-13-15": 4370
+        },
+        "trifecta": {
+          "1-15-13": 53100
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟11R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 1130
+        },
+        "quinella": {
+          "5-10": 1960
+        },
+        "wide": {
+          "5-10": 840,
+          "5-8": 4820,
+          "8-10": 2530
+        },
+        "trio": {
+          "5-8-10": 19450
+        },
+        "trifecta": {
+          "5-10-8": 92580
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261024",
+      "race": "新潟12R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 720
+        },
+        "quinella": {
+          "6-8": 1540
+        },
+        "wide": {
+          "6-8": 640,
+          "1-8": 670,
+          "1-6": 450
+        },
+        "trio": {
+          "1-6-8": 2430
+        },
+        "trifecta": {
+          "8-6-1": 18410
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261024&kaisai_id=2026040403",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040403"
+      ],
+      "source_text_export_sha256": [
+        "2b86b10906a1d2f7a3cf515d7783a7f7dc521de5fd4673760cc79b1c74e5bb1e",
+        "89c16f44ae4225ed7b94301c0175f2f0fd44334b20c4e3c29869193e6a8ff689"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京1R",
+      "top3": [
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "16": 990
+        },
+        "quinella": {
+          "13-16": 1460
+        },
+        "wide": {
+          "13-16": 520,
+          "11-16": 1750,
+          "11-13": 1250
+        },
+        "trio": {
+          "11-13-16": 7710
+        },
+        "trifecta": {
+          "16-13-11": 40860
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京2R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 230
+        },
+        "quinella": {
+          "2-4": 490
+        },
+        "wide": {
+          "2-4": 160,
+          "2-7": 110,
+          "4-7": 140
+        },
+        "trio": {
+          "2-4-7": 250
+        },
+        "trifecta": {
+          "2-4-7": 1500
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京3R",
+      "top3": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "10": 270
+        },
+        "quinella": {
+          "1-10": 970
+        },
+        "wide": {
+          "1-10": 350,
+          "10-11": 1050,
+          "1-11": 1370
+        },
+        "trio": {
+          "1-10-11": 6250
+        },
+        "trifecta": {
+          "10-1-11": 17420
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京4R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 580
+        },
+        "quinella": {
+          "2-3": 1700
+        },
+        "wide": {
+          "2-3": 550,
+          "3-7": 350,
+          "2-7": 410
+        },
+        "trio": {
+          "2-3-7": 1580
+        },
+        "trifecta": {
+          "3-2-7": 12850
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京5R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 160
+        },
+        "quinella": {
+          "3-8": 1440
+        },
+        "wide": {
+          "3-8": 580,
+          "3-5": 400,
+          "5-8": 2260
+        },
+        "trio": {
+          "3-5-8": 3880
+        },
+        "trifecta": {
+          "3-8-5": 12040
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京6R",
+      "top3": [
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "14": 310
+        },
+        "quinella": {
+          "13-14": 1290
+        },
+        "wide": {
+          "13-14": 540,
+          "11-14": 300,
+          "11-13": 760
+        },
+        "trio": {
+          "11-13-14": 1610
+        },
+        "trifecta": {
+          "14-13-11": 6180
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京7R",
+      "top3": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "6": 200
+        },
+        "quinella": {
+          "6-10": 1180
+        },
+        "wide": {
+          "6-10": 570,
+          "6-9": 860,
+          "9-10": 2800
+        },
+        "trio": {
+          "6-9-10": 8180
+        },
+        "trifecta": {
+          "6-10-9": 26140
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京8R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 530
+        },
+        "quinella": {
+          "11-12": 930
+        },
+        "wide": {
+          "11-12": 330,
+          "11-14": 1490,
+          "12-14": 1110
+        },
+        "trio": {
+          "11-12-14": 4690
+        },
+        "trifecta": {
+          "11-12-14": 23330
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京9R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 490
+        },
+        "quinella": {
+          "5-9": 440
+        },
+        "wide": {
+          "5-9": 250,
+          "3-5": 2670,
+          "3-9": 1340
+        },
+        "trio": {
+          "3-5-9": 5290
+        },
+        "trifecta": {
+          "5-9-3": 22380
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京10R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 160
+        },
+        "quinella": {
+          "2-7": 1330
+        },
+        "wide": {
+          "2-7": 520,
+          "2-4": 350,
+          "4-7": 2180
+        },
+        "trio": {
+          "2-4-7": 3880
+        },
+        "trifecta": {
+          "2-7-4": 12790
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京11R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 380
+        },
+        "quinella": {
+          "2-4": 590
+        },
+        "wide": {
+          "2-4": 280,
+          "4-5": 870,
+          "2-5": 880
+        },
+        "trio": {
+          "2-4-5": 2190
+        },
+        "trifecta": {
+          "4-2-5": 7670
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "東京12R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 340
+        },
+        "quinella": {
+          "8-11": 1330
+        },
+        "wide": {
+          "8-11": 520,
+          "2-11": 620,
+          "2-8": 750
+        },
+        "trio": {
+          "2-8-11": 3090
+        },
+        "trifecta": {
+          "11-8-2": 15140
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026050409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050409"
+      ],
+      "source_text_export_sha256": [
+        "1cf528a7bea586deb3dd16b9ff90f682bb46d47c19ff1a5d2374299ecc3e8106",
+        "9ee32ae9bc4caa7ab983dd98630ca9911c021d02d28152ce471f5adbab6e51e4"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都1R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 140
+        },
+        "quinella": {
+          "1-5": 2100
+        },
+        "wide": {
+          "1-5": 720,
+          "1-4": 520,
+          "4-5": 3590
+        },
+        "trio": {
+          "1-4-5": 8520
+        },
+        "trifecta": {
+          "1-5-4": 27870
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都2R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 450
+        },
+        "quinella": {
+          "4-5": 270
+        },
+        "wide": {
+          "4-5": 160,
+          "1-5": 1170,
+          "1-4": 730
+        },
+        "trio": {
+          "1-4-5": 2040
+        },
+        "trifecta": {
+          "5-4-1": 9150
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都3R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 1270
+        },
+        "quinella": {
+          "1-2": 940
+        },
+        "wide": {
+          "1-2": 260,
+          "1-6": 300,
+          "2-6": 150
+        },
+        "trio": {
+          "1-2-6": 470
+        },
+        "trifecta": {
+          "1-2-6": 7070
+        }
+      },
+      "nonstarters": [
+        5
+      ],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都4R",
+      "top3": [
+        [
+          1,
+          11
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "11": 280
+        },
+        "quinella": {
+          "10-11": 6770
+        },
+        "wide": {
+          "10-11": 2260,
+          "3-11": 670,
+          "3-10": 5490
+        },
+        "trio": {
+          "3-10-11": 18740
+        },
+        "trifecta": {
+          "11-10-3": 84990
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都5R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 180
+        },
+        "quinella": {
+          "1-8": 190
+        },
+        "wide": {
+          "1-8": 120,
+          "7-8": 140,
+          "1-7": 160
+        },
+        "trio": {
+          "1-7-8": 170
+        },
+        "trifecta": {
+          "8-1-7": 640
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都6R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 390
+        },
+        "quinella": {
+          "6-12": 3340
+        },
+        "wide": {
+          "6-12": 920,
+          "11-12": 290,
+          "6-11": 540
+        },
+        "trio": {
+          "6-11-12": 2450
+        },
+        "trifecta": {
+          "12-6-11": 18160
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都7R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 180
+        },
+        "quinella": {
+          "2-3": 500
+        },
+        "wide": {
+          "2-3": 190,
+          "3-5": 220,
+          "2-5": 600
+        },
+        "trio": {
+          "2-3-5": 800
+        },
+        "trifecta": {
+          "3-2-5": 2790
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都8R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          18
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 190
+        },
+        "quinella": {
+          "3-18": 1220
+        },
+        "wide": {
+          "3-18": 590,
+          "3-10": 580,
+          "10-18": 2140
+        },
+        "trio": {
+          "3-10-18": 5830
+        },
+        "trifecta": {
+          "3-18-10": 15740
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都9R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 610
+        },
+        "quinella": {
+          "5-7": 1710
+        },
+        "wide": {
+          "5-7": 510,
+          "1-7": 980,
+          "1-5": 1130
+        },
+        "trio": {
+          "1-5-7": 6190
+        },
+        "trifecta": {
+          "7-5-1": 26450
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都10R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 2640
+        },
+        "quinella": {
+          "10-12": 15090
+        },
+        "wide": {
+          "10-12": 3800,
+          "3-12": 3030,
+          "3-10": 2840
+        },
+        "trio": {
+          "3-10-12": 43250
+        },
+        "trifecta": {
+          "12-10-3": 374360
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都11R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 1200
+        },
+        "quinella": {
+          "6-9": 11530
+        },
+        "wide": {
+          "6-9": 2670,
+          "9-10": 700,
+          "6-10": 1270
+        },
+        "trio": {
+          "6-9-10": 8580
+        },
+        "trifecta": {
+          "9-6-10": 113300
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026080409",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080409"
+      ],
+      "source_text_export_sha256": [
+        "6af4328b8069f68c4a08ee48aa7c56802004eb8778642d5938a9b08f43f7aaf3",
+        "ef9524b808561ae1a1941dc2dc487e9eccd3155a9ad6454449930048d6b17cfc"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟1R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 880
+        },
+        "quinella": {
+          "7-12": 20370
+        },
+        "wide": {
+          "7-12": 5770,
+          "7-11": 4100,
+          "11-12": 16260
+        },
+        "trio": {
+          "7-11-12": 149060
+        },
+        "trifecta": {
+          "7-12-11": 642050
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟2R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 250
+        },
+        "quinella": {
+          "4-5": 510
+        },
+        "wide": {
+          "4-5": 230,
+          "5-8": 470,
+          "4-8": 930
+        },
+        "trio": {
+          "4-5-8": 1580
+        },
+        "trifecta": {
+          "5-4-8": 4960
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟3R",
+      "top3": [
+        [
+          1,
+          18
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "18": 1120
+        },
+        "quinella": {
+          "14-18": 2480
+        },
+        "wide": {
+          "14-18": 940,
+          "9-18": 1670,
+          "9-14": 680
+        },
+        "trio": {
+          "9-14-18": 7160
+        },
+        "trifecta": {
+          "18-14-9": 40740
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟4R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 380
+        },
+        "quinella": {
+          "5-13": 2130
+        },
+        "wide": {
+          "5-13": 800,
+          "4-5": 400,
+          "4-13": 390
+        },
+        "trio": {
+          "4-5-13": 2290
+        },
+        "trifecta": {
+          "5-13-4": 10490
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟5R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 730
+        },
+        "quinella": {
+          "2-13": 1750
+        },
+        "wide": {
+          "2-13": 660,
+          "2-3": 530,
+          "3-13": 380
+        },
+        "trio": {
+          "2-3-13": 2330
+        },
+        "trifecta": {
+          "2-13-3": 15370
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟6R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 280
+        },
+        "quinella": {
+          "3-6": 1520
+        },
+        "wide": {
+          "3-6": 480,
+          "3-10": 600,
+          "6-10": 1230
+        },
+        "trio": {
+          "3-6-10": 3960
+        },
+        "trifecta": {
+          "3-6-10": 13810
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟7R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 1360
+        },
+        "quinella": {
+          "2-3": 14230
+        },
+        "wide": {
+          "2-3": 4180,
+          "2-8": 1480,
+          "3-8": 3090
+        },
+        "trio": {
+          "2-3-8": 31630
+        },
+        "trifecta": {
+          "2-3-8": 171590
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟8R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          14
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 470
+        },
+        "quinella": {
+          "12-14": 4110
+        },
+        "wide": {
+          "12-14": 1530,
+          "4-12": 650,
+          "4-14": 830
+        },
+        "trio": {
+          "4-12-14": 6210
+        },
+        "trifecta": {
+          "12-14-4": 31230
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟9R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          13
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 2070
+        },
+        "quinella": {
+          "1-8": 16800
+        },
+        "wide": {
+          "1-8": 5200,
+          "1-13": 5220,
+          "8-13": 2460
+        },
+        "trio": {
+          "1-8-13": 77520
+        },
+        "trifecta": {
+          "1-8-13": 490990
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟10R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 910
+        },
+        "quinella": {
+          "4-8": 6110
+        },
+        "wide": {
+          "4-8": 2040,
+          "8-10": 12680,
+          "4-10": 8160
+        },
+        "trio": {
+          "4-8-10": 166440
+        },
+        "trifecta": {
+          "8-4-10": 1093940
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟11R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          10
+        ],
+        [
+          3,
+          14
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 2120
+        },
+        "quinella": {
+          "9-11": 4970
+        },
+        "wide": {
+          "9-11": 870,
+          "9-10": 3260,
+          "9-14": 580,
+          "10-11": 1470,
+          "11-14": 230
+        },
+        "trio": {
+          "9-10-11": 18620,
+          "9-11-14": 1920
+        },
+        "trifecta": {
+          "9-11-10": 146590,
+          "9-11-14": 22070
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "新潟12R",
+      "top3": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          7
+        ],
+        [
+          3,
+          2
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "6": 6800
+        },
+        "quinella": {
+          "6-7": 63270
+        },
+        "wide": {
+          "6-7": 7860,
+          "2-6": 3680,
+          "6-10": 1530,
+          "2-7": 2350,
+          "7-10": 1110
+        },
+        "trio": {
+          "2-6-7": 64180,
+          "6-7-10": 28060
+        },
+        "trifecta": {
+          "6-7-2": 525920,
+          "6-7-10": 363930
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_SOURCES_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261025&kaisai_id=2026040404",
+        "https://sports.yahoo.co.jp/keiba/race/list/26040404"
+      ],
+      "source_text_export_sha256": [
+        "e65e54e0b78a9b0848f2a6d567268e312ae9d7ab84c0bb3bf3f384890190373c",
+        "57d6797df879741bbddf37b5d29ce01308908ea5b1453bdb59fb011abb855a78"
+      ]
+    },
+    {
+      "date": "20261025",
+      "race": "京都12R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          12
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 620
+        },
+        "quinella": {
+          "5-12": 880
+        },
+        "wide": {
+          "5-12": 390,
+          "5-7": 2790,
+          "7-12": 1850
+        },
+        "trio": {
+          "5-7-12": 11670
+        },
+        "trifecta": {
+          "5-12-7": 61450
+        }
+      },
+      "nonstarters": [],
+      "status": "ONE_SECONDARY_SOURCE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.sp.netkeiba.com/?pid=race_result&race_id=202608040912&rf=rs"
+      ],
+      "source_text_export_sha256": [],
+      "note": "Public completed result; not the desktop estimated-payout table."
+    }
+  ]
+}

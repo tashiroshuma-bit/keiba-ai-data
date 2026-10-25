@@ -1,0 +1,2403 @@
+{
+  "status": "RESEARCH_RECONCILIATION_OFFICIAL_PENDING",
+  "actual_purchase_evidence": false,
+  "actual_roi": null,
+  "official_forward_count_added": 0,
+  "results_races": 72,
+  "frozen_research_races": 35,
+  "retrospective_races": 36,
+  "excluded": [
+    {
+      "date": "20261025",
+      "race": "東京4R",
+      "reason": "No prediction: obstacle outside model domain"
+    }
+  ],
+  "top3_definition": "Frozen p1 descending, ties by horse number; accepted payout sets/orders handle third-place ties.",
+  "brier_definition": "Per-race sum over all frozen runners, then race mean; p1 only.",
+  "hypothetical_returns": "100 yen per stored selected ticket, includes refunds; not actual bets or budget-5000 portfolios.",
+  "summaries": {
+    "A": {
+      "races": 35,
+      "top1_hit": 0.14285714285714285,
+      "winner_in_top3": 0.4857142857142857,
+      "ordered_hit": 0.0,
+      "unordered_hit": 0.0,
+      "top3_capture_count": 1.2571428571428571,
+      "log_loss": 2.45680608766588,
+      "brier_sum": 0.9044346369642214,
+      "top1_probability": 0.10519836339022544,
+      "top1_tied_races": 14,
+      "uniform_races": 5,
+      "calibration_bins": [
+        {
+          "range": [
+            0,
+            0.1
+          ],
+          "races": 16,
+          "mean_forecast": 0.0822376259940177,
+          "observed_hit_rate": 0.0625
+        },
+        {
+          "range": [
+            0.1,
+            0.2
+          ],
+          "races": 19,
+          "mean_forecast": 0.12453372119755829,
+          "observed_hit_rate": 0.21052631578947367
+        }
+      ]
+    },
+    "B": {
+      "races": 35,
+      "top1_hit": 0.2,
+      "winner_in_top3": 0.42857142857142855,
+      "ordered_hit": 0.0,
+      "unordered_hit": 0.05714285714285714,
+      "top3_capture_count": 1.3142857142857143,
+      "log_loss": 2.3676204829967014,
+      "brier_sum": 0.886071822415378,
+      "top1_probability": 0.1286321871396967,
+      "top1_tied_races": 0,
+      "uniform_races": 0,
+      "calibration_bins": [
+        {
+          "range": [
+            0,
+            0.1
+          ],
+          "races": 7,
+          "mean_forecast": 0.08600324400966687,
+          "observed_hit_rate": 0.2857142857142857
+        },
+        {
+          "range": [
+            0.1,
+            0.2
+          ],
+          "races": 24,
+          "mean_forecast": 0.12713820808265203,
+          "observed_hit_rate": 0.08333333333333333
+        },
+        {
+          "range": [
+            0.2,
+            0.3
+          ],
+          "races": 4,
+          "mean_forecast": 0.21219671195951714,
+          "observed_hit_rate": 0.75
+        }
+      ]
+    },
+    "C": {
+      "races": 35,
+      "top1_hit": 0.17142857142857143,
+      "winner_in_top3": 0.45714285714285713,
+      "ordered_hit": 0.0,
+      "unordered_hit": 0.05714285714285714,
+      "top3_capture_count": 1.3142857142857143,
+      "log_loss": 2.3015869179650834,
+      "brier_sum": 0.8721390469511464,
+      "top1_probability": 0.15648216638288348,
+      "top1_tied_races": 0,
+      "uniform_races": 0,
+      "calibration_bins": [
+        {
+          "range": [
+            0,
+            0.1
+          ],
+          "races": 3,
+          "mean_forecast": 0.08331976723191549,
+          "observed_hit_rate": 0.0
+        },
+        {
+          "range": [
+            0.1,
+            0.2
+          ],
+          "races": 27,
+          "mean_forecast": 0.14679685620951038,
+          "observed_hit_rate": 0.1111111111111111
+        },
+        {
+          "range": [
+            0.2,
+            0.3
+          ],
+          "races": 5,
+          "mean_forecast": 0.25268028080967897,
+          "observed_hit_rate": 0.6
+        }
+      ]
+    },
+    "D": {
+      "races": 35,
+      "top1_hit": 0.17142857142857143,
+      "winner_in_top3": 0.45714285714285713,
+      "ordered_hit": 0.0,
+      "unordered_hit": 0.05714285714285714,
+      "top3_capture_count": 1.3142857142857143,
+      "log_loss": 2.2530729238806604,
+      "brier_sum": 0.8626363072052252,
+      "top1_probability": 0.18529907907679793,
+      "top1_tied_races": 0,
+      "uniform_races": 0,
+      "calibration_bins": [
+        {
+          "range": [
+            0,
+            0.1
+          ],
+          "races": 3,
+          "mean_forecast": 0.094887057281985,
+          "observed_hit_rate": 0.0
+        },
+        {
+          "range": [
+            0.1,
+            0.2
+          ],
+          "races": 22,
+          "mean_forecast": 0.16456945109975687,
+          "observed_hit_rate": 0.13636363636363635
+        },
+        {
+          "range": [
+            0.2,
+            0.3
+          ],
+          "races": 7,
+          "mean_forecast": 0.2266873131021325,
+          "observed_hit_rate": 0.14285714285714285
+        },
+        {
+          "range": [
+            0.3,
+            0.5
+          ],
+          "races": 3,
+          "mean_forecast": 0.3311558266441309,
+          "observed_hit_rate": 0.6666666666666666
+        }
+      ]
+    },
+    "POSTRACE_FALLBACK": {
+      "races": 36,
+      "top1_hit": 0.16666666666666666,
+      "winner_in_top3": 0.3888888888888889,
+      "ordered_hit": 0.0,
+      "unordered_hit": 0.05555555555555555,
+      "top3_capture_count": 1.25,
+      "log_loss": 2.4322428836896077,
+      "brier_sum": 0.8993491379845424,
+      "top1_probability": 0.1140928253945255,
+      "top1_tied_races": 7,
+      "uniform_races": 7,
+      "calibration_bins": [
+        {
+          "range": [
+            0,
+            0.1
+          ],
+          "races": 14,
+          "mean_forecast": 0.07751928090960658,
+          "observed_hit_rate": 0.07142857142857142
+        },
+        {
+          "range": [
+            0.1,
+            0.2
+          ],
+          "races": 20,
+          "mean_forecast": 0.1289480842362057,
+          "observed_hit_rate": 0.2
+        },
+        {
+          "range": [
+            0.2,
+            0.3
+          ],
+          "races": 2,
+          "mean_forecast": 0.22155504837215548,
+          "observed_hit_rate": 0.5
+        }
+      ]
+    }
+  },
+  "ticket_totals": [
+    {
+      "model": "A",
+      "market": "single",
+      "races": 35,
+      "points": 176,
+      "hypothetical_stake_yen": 17600,
+      "hypothetical_payout_yen": 7020,
+      "hypothetical_refund_yen": 0,
+      "hit_tickets": 17,
+      "hit_race": 17,
+      "hypothetical_gross_return_pct": 39.88636363636363
+    },
+    {
+      "model": "A",
+      "market": "quinella",
+      "races": 35,
+      "points": 571,
+      "hypothetical_stake_yen": 57100,
+      "hypothetical_payout_yen": 15410,
+      "hypothetical_refund_yen": 100,
+      "hit_tickets": 14,
+      "hit_race": 14,
+      "hypothetical_gross_return_pct": 27.162872154115586
+    },
+    {
+      "model": "A",
+      "market": "trio",
+      "races": 35,
+      "points": 2725,
+      "hypothetical_stake_yen": 272500,
+      "hypothetical_payout_yen": 175110,
+      "hypothetical_refund_yen": 500,
+      "hit_tickets": 16,
+      "hit_race": 16,
+      "hypothetical_gross_return_pct": 64.44403669724771
+    },
+    {
+      "model": "B",
+      "market": "single",
+      "races": 35,
+      "points": 157,
+      "hypothetical_stake_yen": 15700,
+      "hypothetical_payout_yen": 10660,
+      "hypothetical_refund_yen": 100,
+      "hit_tickets": 22,
+      "hit_race": 22,
+      "hypothetical_gross_return_pct": 68.53503184713375
+    },
+    {
+      "model": "B",
+      "market": "quinella",
+      "races": 35,
+      "points": 464,
+      "hypothetical_stake_yen": 46400,
+      "hypothetical_payout_yen": 17020,
+      "hypothetical_refund_yen": 200,
+      "hit_tickets": 17,
+      "hit_race": 17,
+      "hypothetical_gross_return_pct": 37.11206896551724
+    },
+    {
+      "model": "B",
+      "market": "trio",
+      "races": 35,
+      "points": 2154,
+      "hypothetical_stake_yen": 215400,
+      "hypothetical_payout_yen": 65940,
+      "hypothetical_refund_yen": 700,
+      "hit_tickets": 19,
+      "hit_race": 19,
+      "hypothetical_gross_return_pct": 30.937790157845868
+    },
+    {
+      "model": "C",
+      "market": "single",
+      "races": 35,
+      "points": 139,
+      "hypothetical_stake_yen": 13900,
+      "hypothetical_payout_yen": 7820,
+      "hypothetical_refund_yen": 100,
+      "hit_tickets": 19,
+      "hit_race": 19,
+      "hypothetical_gross_return_pct": 56.97841726618705
+    },
+    {
+      "model": "C",
+      "market": "quinella",
+      "races": 35,
+      "points": 362,
+      "hypothetical_stake_yen": 36200,
+      "hypothetical_payout_yen": 13070,
+      "hypothetical_refund_yen": 200,
+      "hit_tickets": 14,
+      "hit_race": 14,
+      "hypothetical_gross_return_pct": 36.65745856353591
+    },
+    {
+      "model": "C",
+      "market": "trio",
+      "races": 35,
+      "points": 1601,
+      "hypothetical_stake_yen": 160100,
+      "hypothetical_payout_yen": 39710,
+      "hypothetical_refund_yen": 500,
+      "hit_tickets": 15,
+      "hit_race": 15,
+      "hypothetical_gross_return_pct": 25.115552779512804
+    },
+    {
+      "model": "D",
+      "market": "single",
+      "races": 35,
+      "points": 119,
+      "hypothetical_stake_yen": 11900,
+      "hypothetical_payout_yen": 6970,
+      "hypothetical_refund_yen": 100,
+      "hit_tickets": 18,
+      "hit_race": 18,
+      "hypothetical_gross_return_pct": 59.411764705882355
+    },
+    {
+      "model": "D",
+      "market": "quinella",
+      "races": 35,
+      "points": 280,
+      "hypothetical_stake_yen": 28000,
+      "hypothetical_payout_yen": 12130,
+      "hypothetical_refund_yen": 200,
+      "hit_tickets": 13,
+      "hit_race": 13,
+      "hypothetical_gross_return_pct": 44.035714285714285
+    },
+    {
+      "model": "D",
+      "market": "trio",
+      "races": 35,
+      "points": 1160,
+      "hypothetical_stake_yen": 116000,
+      "hypothetical_payout_yen": 38840,
+      "hypothetical_refund_yen": 400,
+      "hit_tickets": 15,
+      "hit_race": 15,
+      "hypothetical_gross_return_pct": 33.827586206896555
+    }
+  ],
+  "kikka": [
+    {
+      "version": "morning_and_1515",
+      "model": "A",
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        16
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.09086280727411579,
+      "winner_probability": 0.05040480848785575,
+      "log_loss": 2.9876687019506507,
+      "brier_sum": 0.9574250178982574,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 25,
+          "hypothetical_stake_yen": 2500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 149,
+          "hypothetical_stake_yen": 14900,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.041210337669911445,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            16
+          ],
+          "p": 0.037255081853741635,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.03585537623618561,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.10523801404681442,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.018006699043038015,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.022996717387279687,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.025536853791274277,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "morning_and_1515",
+      "model": "B",
+      "top1": 8,
+      "top3": [
+        8,
+        3,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.11504768000000003,
+      "winner_probability": 0.06741117,
+      "log_loss": 2.696944547792111,
+      "brier_sum": 0.9268326993618621,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 20,
+          "hypothetical_stake_yen": 2000,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 114,
+          "hypothetical_stake_yen": 11400,
+          "hypothetical_payout_yen": 8580,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.054250246913866186,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.0491278938466973,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.04834129275551466,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.13858758287651696,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.02589841069135905,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.02858003020603453,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.02548117571016244,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "morning_and_1515",
+      "model": "C",
+      "top1": 8,
+      "top3": [
+        8,
+        3,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.13923254,
+      "winner_probability": 0.08441753,
+      "log_loss": 2.4719801975253786,
+      "brier_sum": 0.8992790451970597,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 15,
+          "hypothetical_stake_yen": 1500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 81,
+          "hypothetical_stake_yen": 8100,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.0764664895455655,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.07435293109208557,
+          "hit": false
+        },
+        {
+          "numbers": [
+            2,
+            8
+          ],
+          "p": 0.06043081751329919,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.18910157471473943,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.034862206138122055,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.03319010641695276,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.02526163917292597,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "morning_and_1515",
+      "model": "D",
+      "top1": 8,
+      "top3": [
+        8,
+        9,
+        3
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.16341741163417414,
+      "winner_probability": 0.10142389101423892,
+      "log_loss": 2.2884466039968383,
+      "brier_sum": 0.8747640539614754,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 11,
+          "hypothetical_stake_yen": 1100,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 53,
+          "hypothetical_stake_yen": 5300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.10487432545039849,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.1026700685130849,
+          "hit": false
+        },
+        {
+          "numbers": [
+            2,
+            8
+          ],
+          "p": 0.07471864315343353,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.24687162476982547,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.04505111384440952,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.03687389078334315,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.024870874081412964,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "1342_market20",
+      "model": "A",
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        5
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.16966606678664267,
+      "winner_probability": 0.05288942211557689,
+      "log_loss": 2.9395519201205498,
+      "brier_sum": 0.9666767706246793,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 13,
+          "hypothetical_stake_yen": 1300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 73,
+          "hypothetical_stake_yen": 7300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.09851368993282338,
+          "hit": false
+        },
+        {
+          "numbers": [
+            5,
+            8
+          ],
+          "p": 0.06352244255699555,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.061508072414441325,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.20314310343535866,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.016830087390791264,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.031779747142240425,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.029329009610363162,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "1342_market20",
+      "model": "B",
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        3
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.18891889188918892,
+      "winner_probability": 0.06650665066506652,
+      "log_loss": 2.7104533263199952,
+      "brier_sum": 0.945411132772443,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 11,
+          "hypothetical_stake_yen": 1100,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 60,
+          "hypothetical_stake_yen": 6000,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.10499345640657406,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.08028850022602384,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.07970235676898357,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.23789649719862652,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.022760442379038483,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.038520213944664705,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.030165090625831677,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "1342_market20",
+      "model": "C",
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.20827917208279173,
+      "winner_probability": 0.0800919908009199,
+      "log_loss": 2.524579419908157,
+      "brier_sum": 0.9261713364709925,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 9,
+          "hypothetical_stake_yen": 900,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 47,
+          "hypothetical_stake_yen": 4700,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.11065930126185794,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.1056924561441603,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.10147226858849058,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.28079143799740747,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.029502061333461626,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.044694395347097945,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.030928601120386263,
+          "payout_yen": 1270
+        }
+      ]
+    },
+    {
+      "version": "1342_market20",
+      "model": "D",
+      "top1": 8,
+      "top3": [
+        8,
+        9,
+        3
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.2276772322767723,
+      "winner_probability": 0.0936906309369063,
+      "log_loss": 2.367757084738094,
+      "brier_sum": 0.9088797149682092,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 7,
+          "hypothetical_stake_yen": 700,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 35,
+          "hypothetical_stake_yen": 3500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      },
+      "wide_top3_diagnostic": [
+        {
+          "numbers": [
+            8,
+            9
+          ],
+          "p": 0.13514021883639976,
+          "hit": false
+        },
+        {
+          "numbers": [
+            3,
+            8
+          ],
+          "p": 0.12546754748619648,
+          "hit": false
+        },
+        {
+          "numbers": [
+            8,
+            10
+          ],
+          "p": 0.11584358812195315,
+          "hit": false
+        }
+      ],
+      "wide_top3_union": 0.32710608874798525,
+      "wide_winning_pairs": [
+        {
+          "numbers": "6-9",
+          "p": 0.03709167217852665,
+          "payout_yen": 2670
+        },
+        {
+          "numbers": "9-10",
+          "p": 0.05050079127287162,
+          "payout_yen": 700
+        },
+        {
+          "numbers": "6-10",
+          "p": 0.03162139895559411,
+          "payout_yen": 1270
+        }
+      ]
+    }
+  ],
+  "day_of_six_race_update": [
+    {
+      "race": "東京2R",
+      "model": "A",
+      "saved_preoff_proven": true,
+      "top1": 7,
+      "top3": [
+        7,
+        2,
+        4
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 3,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "top1_probability": 0.22992299229922997,
+      "winner_probability": 0.15781578157815782,
+      "log_loss": 1.8463268655700298,
+      "brier_sum": 0.8390250166130726,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 230,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 250,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "B",
+      "saved_preoff_proven": true,
+      "top1": 7,
+      "top3": [
+        7,
+        2,
+        4
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 3,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "top1_probability": 0.2686,
+      "winner_probability": 0.1883,
+      "log_loss": 1.6697188433190304,
+      "brier_sum": 0.79427246,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 230,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 250,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "C",
+      "saved_preoff_proven": true,
+      "top1": 7,
+      "top3": [
+        7,
+        2,
+        4
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 3,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "top1_probability": 0.30726927307269275,
+      "winner_probability": 0.2186781321867813,
+      "log_loss": 1.5201543462997482,
+      "brier_sum": 0.7583134897189213,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 230,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 250,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "D",
+      "saved_preoff_proven": true,
+      "top1": 7,
+      "top3": [
+        7,
+        2,
+        4
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 3,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "top1_probability": 0.3459,
+      "winner_probability": 0.24910000000000002,
+      "log_loss": 1.3899008567140023,
+      "brier_sum": 0.7308536,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 230,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 250,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "A",
+      "saved_preoff_proven": true,
+      "top1": 3,
+      "top3": [
+        3,
+        5,
+        8
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.19618038196180382,
+      "winner_probability": 0.19618038196180382,
+      "log_loss": 1.6287207268512076,
+      "brier_sum": 0.7333928740912531,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 180,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 500,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 12,
+          "hypothetical_stake_yen": 1200,
+          "hypothetical_payout_yen": 800,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "B",
+      "saved_preoff_proven": true,
+      "top1": 3,
+      "top3": [
+        3,
+        5,
+        8
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.2285,
+      "winner_probability": 0.2285,
+      "log_loss": 1.4762190686478776,
+      "brier_sum": 0.67679024,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 180,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 500,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 10,
+          "hypothetical_stake_yen": 1000,
+          "hypothetical_payout_yen": 800,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "C",
+      "saved_preoff_proven": true,
+      "top1": 3,
+      "top3": [
+        3,
+        2,
+        8
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.260747850429914,
+      "winner_probability": 0.260747850429914,
+      "log_loss": 1.3442014289323054,
+      "brier_sum": 0.623316148607911,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 180,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 500,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 8,
+          "hypothetical_stake_yen": 800,
+          "hypothetical_payout_yen": 800,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "D",
+      "saved_preoff_proven": true,
+      "top1": 3,
+      "top3": [
+        3,
+        2,
+        8
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.293,
+      "winner_probability": 0.293,
+      "log_loss": 1.2275826699650698,
+      "brier_sum": 0.5728473400000001,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 180,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 500,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 800,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "A",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        4,
+        1
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.21022102210221022,
+      "winner_probability": 0.21022102210221022,
+      "log_loss": 1.5595958155389529,
+      "brier_sum": 0.7029214172542366,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 160,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 1330,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 14,
+          "hypothetical_stake_yen": 1400,
+          "hypothetical_payout_yen": 3880,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "B",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        4,
+        1
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.2561,
+      "winner_probability": 0.2561,
+      "log_loss": 1.3621872857766575,
+      "brier_sum": 0.62480614,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 160,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 11,
+          "hypothetical_stake_yen": 1100,
+          "hypothetical_payout_yen": 3880,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "C",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        9,
+        4
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.30196980301969806,
+      "winner_probability": 0.30196980301969806,
+      "log_loss": 1.1974282566076007,
+      "brier_sum": 0.5522329878800941,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 160,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 8,
+          "hypothetical_stake_yen": 800,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "D",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        9,
+        4
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.3479,
+      "winner_probability": 0.3479,
+      "log_loss": 1.0558401968242408,
+      "brier_sum": 0.48510848,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 160,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "A",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.22637736226377364,
+      "winner_probability": 0.09149085091490852,
+      "log_loss": 2.3915163017009946,
+      "brier_sum": 0.9573606183027332,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 9,
+          "hypothetical_stake_yen": 900,
+          "hypothetical_payout_yen": 470,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "B",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.24760000000000001,
+      "winner_probability": 0.0996,
+      "log_loss": 2.3065931143915845,
+      "brier_sum": 0.9509224999999999,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 7,
+          "hypothetical_stake_yen": 700,
+          "hypothetical_payout_yen": 470,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "C",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.2694269426942694,
+      "winner_probability": 0.1079107910791079,
+      "log_loss": 2.226450401717715,
+      "brier_sum": 0.9480693243841836,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 940,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "trio": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 470,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "D",
+      "saved_preoff_proven": true,
+      "top1": 2,
+      "top3": [
+        2,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.29179999999999995,
+      "winner_probability": 0.11640000000000002,
+      "log_loss": 2.1507227436847995,
+      "brier_sum": 0.9491177,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 470,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "A",
+      "saved_preoff_proven": false,
+      "top1": 1,
+      "top3": [
+        1,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.21989999999999996,
+      "winner_probability": 0.21989999999999996,
+      "log_loss": 1.5145823814214217,
+      "brier_sum": 0.69622838,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 140,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 10,
+          "hypothetical_stake_yen": 1000,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "B",
+      "saved_preoff_proven": false,
+      "top1": 1,
+      "top3": [
+        1,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.27440000000000003,
+      "winner_probability": 0.27440000000000003,
+      "log_loss": 1.2931683831304068,
+      "brier_sum": 0.6083432200000001,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 140,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 6,
+          "hypothetical_stake_yen": 600,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "C",
+      "saved_preoff_proven": false,
+      "top1": 1,
+      "top3": [
+        1,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.3289,
+      "winner_probability": 0.3289,
+      "log_loss": 1.1120015257871256,
+      "brier_sum": 0.5338259200000001,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 140,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "D",
+      "saved_preoff_proven": false,
+      "top1": 1,
+      "top3": [
+        1,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.38333833383338334,
+      "winner_probability": 0.38333833383338334,
+      "log_loss": 0.9588373015952943,
+      "brier_sum": 0.47281277782743775,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 2,
+          "hypothetical_stake_yen": 200,
+          "hypothetical_payout_yen": 140,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 1,
+          "hypothetical_stake_yen": 100,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 3,
+          "hypothetical_stake_yen": 300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "A",
+      "saved_preoff_proven": true,
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        5
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.15918408159184083,
+      "winner_probability": 0.053994600539946,
+      "log_loss": 2.918871227418196,
+      "brier_sum": 0.9623334036959268,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 5,
+          "hypothetical_stake_yen": 500,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "quinella": {
+          "points": 14,
+          "hypothetical_stake_yen": 1400,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 78,
+          "hypothetical_stake_yen": 7800,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "B",
+      "saved_preoff_proven": true,
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        3
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 0,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.17859999999999998,
+      "winner_probability": 0.06759999999999998,
+      "log_loss": 2.694147295933219,
+      "brier_sum": 0.94073368,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 11,
+          "hypothetical_stake_yen": 1100,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 63,
+          "hypothetical_stake_yen": 6300,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "C",
+      "saved_preoff_proven": true,
+      "top1": 8,
+      "top3": [
+        8,
+        10,
+        9
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.1979,
+      "winner_probability": 0.0812,
+      "log_loss": 2.5108400318145048,
+      "brier_sum": 0.92105572,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 9,
+          "hypothetical_stake_yen": 900,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 49,
+          "hypothetical_stake_yen": 4900,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "D",
+      "saved_preoff_proven": true,
+      "top1": 8,
+      "top3": [
+        8,
+        9,
+        3
+      ],
+      "top1_hit": 0,
+      "winner_in_top3": 1,
+      "top3_capture_count": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "top1_probability": 0.2173,
+      "winner_probability": 0.0948,
+      "log_loss": 2.355985869721161,
+      "brier_sum": 0.9033570599999999,
+      "top1_tied": false,
+      "uniform": false,
+      "tickets": {
+        "single": {
+          "points": 4,
+          "hypothetical_stake_yen": 400,
+          "hypothetical_payout_yen": 1200,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 1,
+          "hit_race": 1
+        },
+        "quinella": {
+          "points": 7,
+          "hypothetical_stake_yen": 700,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        },
+        "trio": {
+          "points": 36,
+          "hypothetical_stake_yen": 3600,
+          "hypothetical_payout_yen": 0,
+          "hypothetical_refund_yen": 0,
+          "hit_tickets": 0,
+          "hit_race": 0
+        }
+      }
+    }
+  ],
+  "calibration_diagnostic": {
+    "A": {
+      "races": 34,
+      "folds": [
+        {
+          "held_out_venue": "東京",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 3.0,
+          "before_log_loss": 2.428999340719732,
+          "after_log_loss": 2.264543361919989
+        },
+        {
+          "held_out_venue": "京都",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 3.0,
+          "before_log_loss": 2.341381188444942,
+          "after_log_loss": 2.1927427910983064
+        },
+        {
+          "held_out_venue": "新潟",
+          "train_races": 22,
+          "test_races": 12,
+          "exponent": 4.0,
+          "before_log_loss": 2.591610414585309,
+          "after_log_loss": 2.656484242223612
+        }
+      ],
+      "crossfit_before_log_loss": 2.458044435171621,
+      "crossfit_after_log_loss": 2.379645840878959,
+      "exploratory_full_sample_exponent": 4.0,
+      "deployment_exponent": 1.0,
+      "decision": "DO_NOT_PROMOTE_2026_OUTCOME_FIT",
+      "reason": "One race day; retrospective venue folds are correlated. Fit on 2024 for adoption; rank order unchanged."
+    },
+    "B": {
+      "races": 34,
+      "folds": [
+        {
+          "held_out_venue": "東京",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 2.0,
+          "before_log_loss": 2.248401994000653,
+          "after_log_loss": 2.0193703949298443
+        },
+        {
+          "held_out_venue": "京都",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 3.0,
+          "before_log_loss": 2.224854017619375,
+          "after_log_loss": 1.9622908980366949
+        },
+        {
+          "held_out_venue": "新潟",
+          "train_races": 22,
+          "test_races": 12,
+          "exponent": 4.0,
+          "before_log_loss": 2.610791036435561,
+          "after_log_loss": 2.960052585814276
+        }
+      ],
+      "crossfit_before_log_loss": 2.3686855460307954,
+      "crossfit_after_log_loss": 2.33290897801186,
+      "exploratory_full_sample_exponent": 3.0,
+      "deployment_exponent": 1.0,
+      "decision": "DO_NOT_PROMOTE_2026_OUTCOME_FIT",
+      "reason": "One race day; retrospective venue folds are correlated. Fit on 2024 for adoption; rank order unchanged."
+    },
+    "C": {
+      "races": 34,
+      "folds": [
+        {
+          "held_out_venue": "東京",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 1.5,
+          "before_log_loss": 2.104251727114768,
+          "after_log_loss": 1.9420173423085823
+        },
+        {
+          "held_out_venue": "京都",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 2.0,
+          "before_log_loss": 2.133208941389921,
+          "after_log_loss": 1.955891909751771
+        },
+        {
+          "held_out_venue": "新潟",
+          "train_races": 22,
+          "test_races": 12,
+          "exponent": 3.0,
+          "before_log_loss": 2.6407460612475115,
+          "after_log_loss": 3.1069513869964673
+        }
+      ],
+      "crossfit_before_log_loss": 2.3029711790741683,
+      "crossfit_after_log_loss": 2.35765936519475,
+      "exploratory_full_sample_exponent": 2.0,
+      "deployment_exponent": 1.0,
+      "decision": "DO_NOT_PROMOTE_2026_OUTCOME_FIT",
+      "reason": "One race day; retrospective venue folds are correlated. Fit on 2024 for adoption; rank order unchanged."
+    },
+    "D": {
+      "races": 34,
+      "folds": [
+        {
+          "held_out_venue": "東京",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 1.0,
+          "before_log_loss": 1.984490034568141,
+          "after_log_loss": 1.984490034568141
+        },
+        {
+          "held_out_venue": "京都",
+          "train_races": 23,
+          "test_races": 11,
+          "exponent": 1.25,
+          "before_log_loss": 2.0574814312561327,
+          "after_log_loss": 1.999339544174785
+        },
+        {
+          "held_out_venue": "新潟",
+          "train_races": 22,
+          "test_races": 12,
+          "exponent": 3.0,
+          "before_log_loss": 2.6843948951248127,
+          "after_log_loss": 3.528682260889751
+        }
+      ],
+      "crossfit_before_log_loss": 2.2551301431048465,
+      "crossfit_after_log_loss": 2.534303308730859,
+      "exploratory_full_sample_exponent": 1.5,
+      "deployment_exponent": 1.0,
+      "decision": "DO_NOT_PROMOTE_2026_OUTCOME_FIT",
+      "reason": "One race day; retrospective venue folds are correlated. Fit on 2024 for adoption; rank order unchanged."
+    }
+  }
+}

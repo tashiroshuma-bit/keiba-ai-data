@@ -1,6 +1,6 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-22",
+  "updated_date": "2026-10-25",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
@@ -1140,8 +1140,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -0.00001327450215491415,
-              0.000009065855579675072
+              -1.327450215491415e-05,
+              9.065855579675072e-06
             ],
             "ordered_all_hit": [
               0,
@@ -1234,8 +1234,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -0.000015252796802291577,
-              -2.2943359493281933e-7
+              -1.5252796802291577e-05,
+              -2.2943359493281933e-07
             ],
             "ordered_all_hit": [
               0,
@@ -1330,8 +1330,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -0.000013281612810237844,
-              0.000009067991106595328
+              -1.3281612810237844e-05,
+              9.067991106595328e-06
             ],
             "ordered_all_hit": [
               0,
@@ -1424,8 +1424,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -0.000015289074311999807,
-              -2.7411191709857974e-7
+              -1.5289074311999807e-05,
+              -2.7411191709857974e-07
             ],
             "ordered_all_hit": [
               0,
@@ -1512,5 +1512,18 @@
     "shadow_entrypoint": "keiba_v48/rank_forecast.py",
     "cached_profile_audit": "keiba_v48/reports/history_blend/cached_profile_audit.json",
     "reproduced_after_transient_files_lost": true
+  },
+  "latest_weekend_review": {
+    "date": "2026-10-25",
+    "report": "reports/weekend_20261024_25/REVIEW.md",
+    "summary": "reports/weekend_20261024_25/review.json",
+    "results": "operations/results/2026-10-25/weekend_observations.json",
+    "next_shadow_policy": "reports/weekend_20261024_25/next_shadow_policy.json",
+    "result_races": 72,
+    "research_frozen_races": 35,
+    "retrospective_races": 36,
+    "official_verified": false,
+    "formal_forward_added": 0,
+    "production_model_changed": false
   }
 }

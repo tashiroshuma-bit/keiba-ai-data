@@ -23,7 +23,11 @@ def create(db,rows,profile,lag):
     artifact=profile['lags'][str(lag)]
     paths={}
     for kind in ('model','selection','calibration'):
-        item=artifact[kind];path=(ROOT/item['path']).resolve()
+        item=artifact[kind]
+        if item is None and kind=='calibration':
+            paths[kind]=None
+            continue
+        path=(ROOT/item['path']).resolve()
         if not path.is_relative_to(ROOT) or sha(path)!=item['sha256']:raise ValueError('profile artifact changed: '+kind)
         paths[kind]=path
     for row in rows:

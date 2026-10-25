@@ -1,0 +1,21 @@
+{
+  "schema": "keiba-evidence-rank-protocol-v1",
+  "base_training": 2023,
+  "fit": "2024 H1 only; same H1 was already used for base temperature, so H2 selection is required",
+  "selection": "2024 H2 only; reused exploratory selection period",
+  "evaluation_years": [2025, 2026],
+  "evaluation_role": "previously inspected retrospective, never forward",
+  "reason": "Audit 2023/2024 input coverage; distinguish actual history support when recalibrating individual runner probabilities",
+  "features": ["centered_log_base_p1", "no_observed_history", "history_strength", "log_p1_no_history", "log_p1_weak_history", "missing_jockey"],
+  "regularization": [0.01, 0.1, 1.0],
+  "iterations": 1000,
+  "learning_rate": 0.1,
+  "base_uniform_joint_mixture": 0.1,
+  "log_probability_total_coefficient_bounds": [0.25, 2.0],
+  "set_policies": ["marginal_recall", "exact_set"],
+  "selection_rule": "Do not reduce any H2 winner/ordered/unordered exact-hit count versus incumbent; maximize product of target-normalized rates, then lower joint NLL, then name; incumbent fallback",
+  "targets": {"winner_hit": 0.8, "ordered_all_hit": 0.5, "top3_all_hit": 0.6},
+  "joint_distribution": "Replace first-place probabilities and retain the base conditional distribution of second/third given first; recompute all placing marginals",
+  "forbidden": "No odds, payouts, target race outcomes, invented history/identity/time or selection using 2025/2026 outcomes",
+  "promotion": "Research only; no automatic live deployment; save all coefficients and rejected selection rows"
+}

@@ -1,0 +1,41 @@
+{
+  "schema": "keiba-observed-history-profile-v1",
+  "status": "research_challenger_for_paired_future_comparison",
+  "live_eligible": false,
+  "database_version": 10,
+  "database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "input_mode": "observed_history",
+  "career_total_proxy_allowed": false,
+  "relative_challenger_adopted": false,
+  "notes": [
+    "Runner-evidence calibration chosen using 2024 H2; 2025/2026 already-inspected retrospective only.",
+    "Keep the incumbent observed_history_rank.json as the paired control.",
+    "Do not add an external confidence artifact: the candidate already embeds its selected probability correction."
+  ],
+  "lags": {
+    "2": {
+      "model": {
+        "path": "keiba_v48/reports/evidence_rank/model_lag2.json",
+        "sha256": "bcc38c4e5073ba3bdee8c7186b75731d7d16dcd2057140aa0211107307c18c22"
+      },
+      "selection": {
+        "path": "keiba_v48/reports/evidence_rank/selection_lag2.json",
+        "sha256": "4aeef43622873efc0d4907322cc8741b978681c92467e0a56662eb6e37f8022b"
+      },
+      "calibration": null
+    },
+    "7": {
+      "model": {
+        "path": "keiba_v48/reports/evidence_rank/model_lag7.json",
+        "sha256": "67a825f8dc0c7bc5c4bb874087261f76c702e13e110b0665197c41a969aeb037"
+      },
+      "selection": {
+        "path": "keiba_v48/reports/evidence_rank/selection_lag7.json",
+        "sha256": "4d1b9f40643e30eff14372b659d617a86d7fac0af8c8743a636b28385cbae4fa"
+      },
+      "calibration": null
+    }
+  },
+  "evidence_challenger_adopted_as_default": false,
+  "future_performance_validated": false
+}

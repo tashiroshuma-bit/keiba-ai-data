@@ -1,0 +1,18 @@
+{
+  "status": "PASS",
+  "unit_tests_passed": 233,
+  "canonical_database_version": 10,
+  "canonical_database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "project_status_valid": true,
+  "database_local_verified": true,
+  "db_unchanged": true,
+  "full_forecasts_per_lag": 6036,
+  "forecast_probability_reload_error": 0,
+  "independent_recount_both_lags": "PASS",
+  "new_official_identity_links": 0,
+  "winner_improved_retrospective_all_four_comparisons": true,
+  "all_three_targets_improved": false,
+  "formal_forward_added": 0,
+  "production_model_replaced": false,
+  "paired_future_comparison_ready": true
+}

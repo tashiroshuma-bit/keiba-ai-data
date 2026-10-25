@@ -87,6 +87,12 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['latest_relative_rank_research']['selected']['lag2']='another_model'
         self.assertTrue(any('relative rank evidence' in e for e in project.validate_state(stale)))
 
+    def test_evidence_challenger_cannot_claim_live_adoption_or_invented_selection(self):
+        stale=copy.deepcopy(self.state);stale['latest_evidence_rank_research']['adopted']=True
+        self.assertTrue(any('not approved for adoption' in e for e in project.validate_state(stale)))
+        stale=copy.deepcopy(self.state);stale['latest_evidence_rank_research']['selected']['lag7']='invented'
+        self.assertTrue(any('evidence rank evidence differs' in e for e in project.validate_state(stale)))
+
     def test_history_metrics_and_goal_claims_match_saved_replay(self):
         stale=copy.deepcopy(self.state)
         stale['latest_history_research']['metrics']['lag7']['2026']['candidate']['winner_hit']=.8

@@ -15,6 +15,7 @@ from rank_calibration import mix_joint, validate_artifact
 from confidence_calibration import alpha_for
 from history_blend_model import HistoryBlendModel,augment_blend
 from relative_rank_model import RelativeRankBlend,augment_relative
+from evidence_rank_model import EvidenceRankModel
 
 
 def forecast(db, rows, model_path, selection_path, calibration_path=None):
@@ -22,7 +23,8 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     selected = json.loads(Path(selection_path).read_text())
     if sha(model_path) != selected['model_sha256']:
         raise ValueError('rank model differs from selected artifact')
-    model = (RelativeRankBlend.from_dict(artifact) if artifact.get('schema')=='keiba-relative-rank-blend-v1' else
+    model = (EvidenceRankModel.from_dict(artifact) if artifact.get('schema')=='keiba-evidence-rank-model-v1' else
+             RelativeRankBlend.from_dict(artifact) if artifact.get('schema')=='keiba-relative-rank-blend-v1' else
              HistoryBlendModel.from_dict(artifact) if artifact.get('schema')=='keiba-history-blend-model-v1' else
              ExactRankTree.from_dict(artifact) if artifact.get('schema') == 'keiba-exact-rank-trees-v1'
              else RankModel.from_dict(artifact))
@@ -56,7 +58,7 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
             joint_distribution(model.raw([race])[0], model.temperature) if isinstance(model, ExactRankTree)
             else model.predict(race['features']))
     calibration_info=None
-    if selected.get('schema') in ('keiba-history-blend-selection-v1','keiba-relative-rank-selection-v1'):
+    if selected.get('schema') in ('keiba-history-blend-selection-v1','keiba-relative-rank-selection-v1','keiba-evidence-rank-selection-v1'):
         p,q=mix_joint(p,q,selected['alpha'])
         calibration_info=dict(method='selected_research_mixture',alpha=selected['alpha'],
                               selection_sha256=sha(selection_path),status='research_only')

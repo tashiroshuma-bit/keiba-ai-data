@@ -5,6 +5,7 @@ import json
 from pathlib import Path
 import tempfile
 import unittest
+import sys
 from unittest.mock import patch
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -13,6 +14,26 @@ profile_module=importlib.util.module_from_spec(spec);spec.loader.exec_module(pro
 
 
 class ObservedProfileTests(unittest.TestCase):
+    def test_paired_challenger_profile_uses_same_complete_field(self):
+        sys.path.insert(0,str(ROOT/'scripts'))
+        from compare_rank_profiles import compare
+        profiles=[json.loads((ROOT/'operations/prediction_policy'/name).read_text()) for name in
+                  ('observed_history_rank.json','evidence_rank_shadow.json')]
+        now=dt.datetime.now(dt.timezone.utc)
+        rows=[dict(race_id='future',horse_number=str(i+1),horse_id=f'jra:{i+1}',jockey_id='jra:1',
+            track='東京',surface='turf',distance_m=1600,sex_age='牡3',field_complete='yes',expected_runners=4,
+            off_timestamp=(now+dt.timedelta(days=2)).isoformat(),features_asof=now.isoformat(),
+            feature_generation_mode='observed_history',source_url='https://example.test/card',source_sha256='a'*64) for i in range(4)]
+        with tempfile.TemporaryDirectory() as tmp:
+            db=Path(tmp)/'db';db.write_bytes(b'fixture')
+            for p in profiles:p['database_sha256']=hashlib.sha256(b'fixture').hexdigest()
+            with patch('rank_forecast.load_observed_enriched',return_value=[]):result=compare(db,rows,*profiles,7)
+            self.assertEqual(result['status'],'RESEARCH_PAIR_NOT_PRODUCTION')
+            for label in ('baseline','candidate'):
+                self.assertEqual(len(result[label]['runners']),4)
+                self.assertAlmostEqual(sum(r['p_first'] for r in result[label]['runners']),1)
+                self.assertEqual(result[label]['allocation'],dict(bets=[],stake_yen=0))
+
     def test_bound_profile_forecasts_full_field_and_discloses_missing_history(self):
         profile=json.loads((ROOT/'operations/prediction_policy/observed_history_rank.json').read_text())
         now=dt.datetime.now(dt.timezone.utc)

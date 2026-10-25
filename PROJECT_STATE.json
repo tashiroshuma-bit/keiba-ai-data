@@ -1560,5 +1560,38 @@
     "observed_history_profile": "operations/prediction_policy/observed_history_rank.json",
     "next_shadow_entrypoint": "scripts/forecast_rank_profile.py",
     "career_total_mean_proxy_allowed_in_profile": false
+  },
+  "latest_evidence_rank_research": {
+    "report": "keiba_v48/EVIDENCE_RANK_RESULTS.md",
+    "protocol": "keiba_v48/EVIDENCE_RANK_PROTOCOL.json",
+    "database": {
+      "name": "jra_2023_2025.sqlite",
+      "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+      "version": 10,
+      "bytes": 322121728,
+      "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+      "repository_root_copy": "historical_ingestion_stub_not_canonical",
+      "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
+      "file_id": "file_0000000014b081f5b65d21faae9e9fdd"
+    },
+    "evaluation_files": [
+      "keiba_v48/reports/evidence_rank/evaluation_lag2.json",
+      "keiba_v48/reports/evidence_rank/evaluation_lag7.json"
+    ],
+    "selected": {
+      "lag2": "evidence_reg0.1_marginal_recall",
+      "lag7": "evidence_reg0.1_marginal_recall"
+    },
+    "adopted": false,
+    "active_model_replaced": false,
+    "all_targets_met": false,
+    "forward_observed_races": 0,
+    "role": "already-inspected retrospective exploratory; future paired shadow comparison only",
+    "observed_history_profile": "operations/prediction_policy/evidence_rank_shadow.json",
+    "paired_entrypoint": "scripts/compare_rank_profiles.py",
+    "winner_hit_improved_in_all_four_retrospective_comparisons": true,
+    "all_three_metrics_improved": false,
+    "official_identity_rows_added": 0,
+    "reason": "Winner and probability-error gains, with unordered-set tradeoffs; no automatic production replacement."
   }
 }

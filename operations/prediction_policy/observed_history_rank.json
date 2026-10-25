@@ -1,0 +1,45 @@
+{
+  "schema": "keiba-observed-history-profile-v1",
+  "status": "research_only",
+  "live_eligible": false,
+  "database_version": 10,
+  "database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "input_mode": "observed_history",
+  "career_total_proxy_allowed": false,
+  "relative_challenger_adopted": false,
+  "notes": [
+    "All observed-history fields are rebuilt from the canonical DB, not the training means.",
+    "Current field and identities must be sourced before cutoff; new race observations are not invented.",
+    "External-AI combinations remain separate uncalibrated research variants."
+  ],
+  "lags": {
+    "2": {
+      "model": {
+        "path": "keiba_v48/reports/exact_rank/model_lag2.json",
+        "sha256": "2e29f176bece2fb3c7ffe481a78550e34202be4a4644acd54de89743e81dd467"
+      },
+      "selection": {
+        "path": "keiba_v48/reports/exact_rank/selection_lag2.json",
+        "sha256": "6f5476560257d24a8d9d567e27e6f49c70d65198ce24f253676b17638958db42"
+      },
+      "calibration": {
+        "path": "keiba_v48/reports/identity_calibration/confidence_lag2.json",
+        "sha256": "f2d79dadbed16254d0a6ed6090c0e0b7eddafdabb293e9b850313d828974d3aa"
+      }
+    },
+    "7": {
+      "model": {
+        "path": "keiba_v48/reports/exact_rank/model_lag7.json",
+        "sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367"
+      },
+      "selection": {
+        "path": "keiba_v48/reports/exact_rank/selection_lag7.json",
+        "sha256": "3c36006227b182a4654048a1e9ffef0701091f3729f23f576ca7b3ade58597b1"
+      },
+      "calibration": {
+        "path": "keiba_v48/reports/identity_calibration/confidence_lag7.json",
+        "sha256": "e6411a60c4e322bcba4e17d882243d570457bbd631b1fa41cd72aab9727a435c"
+      }
+    }
+  }
+}

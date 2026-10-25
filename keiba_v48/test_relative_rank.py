@@ -1,12 +1,18 @@
 import copy
 import json
 import unittest
+import datetime as dt
+import tempfile
+from pathlib import Path
+from unittest.mock import patch
 import numpy as np
 from features import HistoryIndex
 from ranking_model import RankModel,augment
 from relative_rank_model import (relative_values,augment_relative,matrix,RelativeRankTree,
                                  RelativeRankBlend,NAMES,HISTORY_NAMES)
 from test_history_rank import race
+from completion_validation import sha
+from rank_forecast import forecast
 
 
 def prepared(i=0,year=2023):
@@ -16,6 +22,29 @@ def prepared(i=0,year=2023):
 
 
 class RelativeRankTests(unittest.TestCase):
+    def test_future_entrypoint_uses_identical_reloaded_model_and_rejects_proxy(self):
+        rs=[prepared(i) for i in range(4)]
+        base=RankModel().fit([augment(race(i)) for i in range(4)],iterations=5)
+        specialist=RelativeRankTree().fit(rs,'win',trees=2,minimum_leaf=2)
+        model=RelativeRankBlend(base,specialist,.25)
+        now=dt.datetime.now(dt.timezone.utc)
+        rows=[dict(race_id='future',horse_number=str(i+1),horse_id=f'jra:{i+1}',jockey_id='jra:1',
+            track='東京',surface='turf',distance_m=1600,sex_age='牡3',field_complete='yes',expected_runners=4,
+            off_timestamp=(now+dt.timedelta(days=2)).isoformat(),features_asof=now.isoformat(),
+            feature_generation_mode='observed_history',source_url='https://example.test/card') for i in range(4)]
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);m=root/'model.json';s=root/'selection.json';db=root/'db'
+            m.write_text(json.dumps(model.to_dict()));db.write_bytes(b'fixture')
+            s.write_text(json.dumps(dict(schema='keiba-relative-rank-selection-v1',model_sha256=sha(m),
+                selection_end='2024-12-31T00:00:00+09:00',alpha=0,prediction_set_policy='exact_set')))
+            with patch('rank_forecast.load_observed_enriched',return_value=[]):
+                result=forecast(db,rows,m,s)
+                p,_=model.predict_races([dict(rows=rows,features=result['inputs']['features'])])[0]
+                np.testing.assert_allclose(p[:,0],[r['p_first'] for r in result['runners']])
+                self.assertEqual(result['allocation'],dict(bets=[],stake_yen=0))
+                rows[0]['feature_generation_mode']='CAREER_TOTALS_PROXY'
+                with self.assertRaises(ValueError):forecast(db,rows,m,s)
+
     def test_equal_form_has_equal_percentile_and_permutation_equivariance(self):
         values=np.zeros((4,len(HISTORY_NAMES)));values[:,0]=[.2,.2,.4,.6]
         result=relative_values(values)

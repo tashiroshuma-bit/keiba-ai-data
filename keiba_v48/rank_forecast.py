@@ -14,6 +14,7 @@ from preoff_snapshot import audit_snapshot
 from rank_calibration import mix_joint, validate_artifact
 from confidence_calibration import alpha_for
 from history_blend_model import HistoryBlendModel,augment_blend
+from relative_rank_model import RelativeRankBlend,augment_relative
 
 
 def forecast(db, rows, model_path, selection_path, calibration_path=None):
@@ -21,13 +22,16 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     selected = json.loads(Path(selection_path).read_text())
     if sha(model_path) != selected['model_sha256']:
         raise ValueError('rank model differs from selected artifact')
-    model = (HistoryBlendModel.from_dict(artifact) if artifact.get('schema')=='keiba-history-blend-model-v1' else
+    model = (RelativeRankBlend.from_dict(artifact) if artifact.get('schema')=='keiba-relative-rank-blend-v1' else
+             HistoryBlendModel.from_dict(artifact) if artifact.get('schema')=='keiba-history-blend-model-v1' else
              ExactRankTree.from_dict(artifact) if artifact.get('schema') == 'keiba-exact-rank-trees-v1'
              else RankModel.from_dict(artifact))
     now = dt.datetime.now(dt.timezone.utc)
     forbidden = ('pre_off_odds', 'final_win_odds', 'finish_position', 'payouts', 'win_payout_100',
                  'finish_time_seconds', 'margin_seconds', 'relative_speed_z', 'corner4_position', 'last_3f_rank')
     for row in rows:
+        if row.get('feature_generation_mode') not in (None,'observed_history'):
+            raise ValueError('rank shadow requires observed history; career-total proxies are not interchangeable')
         if any(row.get(key) not in (None, '') for key in forbidden):
             raise ValueError('odds/outcome fields cannot enter rank snapshots')
         if not row.get('features_asof'):
@@ -46,13 +50,15 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     index=history_index(history,assumed=False)
     features = build_enriched(index, prepared)
     raw=dict(rows=prepared,features=features,race_id=rows[0]['race_id'],off_timestamp=rows[0]['off_timestamp'])
-    race = augment_blend(raw,index) if isinstance(model,HistoryBlendModel) else augment(raw)
-    p, q = (joint_distribution(model.raw([race])[0], model.temperature) if isinstance(model, ExactRankTree)
+    race = (augment_relative(raw,index) if isinstance(model,RelativeRankBlend) else
+            augment_blend(raw,index) if isinstance(model,HistoryBlendModel) else augment(raw))
+    p, q = (model.predict_races([race])[0] if isinstance(model,RelativeRankBlend) else
+            joint_distribution(model.raw([race])[0], model.temperature) if isinstance(model, ExactRankTree)
             else model.predict(race['features']))
     calibration_info=None
-    if selected.get('schema')=='keiba-history-blend-selection-v1':
+    if selected.get('schema') in ('keiba-history-blend-selection-v1','keiba-relative-rank-selection-v1'):
         p,q=mix_joint(p,q,selected['alpha'])
-        calibration_info=dict(method='selected_history_mixture',alpha=selected['alpha'],
+        calibration_info=dict(method='selected_research_mixture',alpha=selected['alpha'],
                               selection_sha256=sha(selection_path),status='research_only')
     numbers = [r['horse_number'] for r in prepared]
     winner, trio, ordered = picks(p, q, numbers)

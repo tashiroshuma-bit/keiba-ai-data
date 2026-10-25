@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "tests": 226,
+  "command": "python -m unittest discover -s keiba_v48 -q",
+  "canonical_db_version": 10,
+  "canonical_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "db_quick_check": "ok",
+  "project_status_valid": true,
+  "database_local_verified": true,
+  "database_unchanged": true,
+  "full_saved_forecast_races_per_lag": 6036,
+  "maximum_reload_probability_error": 0,
+  "independent_prediction_recount": "PASS on both lags",
+  "performance_improved": false,
+  "candidate_coefficients_adopted": false,
+  "input_path_corrected": true,
+  "new_forward_races": 0,
+  "live_bet_generation": false
+}

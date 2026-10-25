@@ -298,9 +298,53 @@ def validate_state(state, root=ROOT):
                     errors.append('exact rank race coverage differs')
             if exact['all_targets_met'] != all_met:
                 errors.append('exact rank target attainment is unsupported')
+        relative=state.get('latest_relative_rank_research')
+        if relative:
+            if relative['adopted'] or relative['active_model_replaced'] or relative['forward_observed_races']!=0:
+                errors.append('relative rank challenger was not approved for adoption')
+            attained=True
+            for lag in ('2','7'):
+                folder=root/'keiba_v48/reports/relative_rank'
+                report=read(f'keiba_v48/reports/relative_rank/evaluation_lag{lag}.json')
+                selection=read(f'keiba_v48/reports/relative_rank/selection_lag{lag}.json')
+                verification=read(f'keiba_v48/reports/relative_rank/verification_lag{lag}.json')
+                inventory=read(f'keiba_v48/reports/relative_rank/prediction_inventory_lag{lag}.json')
+                if (sha256_file(folder/f'model_lag{lag}.json')!=selection['model_sha256'] or
+                    sha256_file(folder/f'selection_lag{lag}.json')!=report['selection_sha256'] or
+                    report['model_sha256']!=selection['model_sha256'] or
+                    report['input_db_sha256']!=relative['database']['sha256'] or
+                    report['selected']!=selection['selected'] or
+                    relative['selected']['lag'+lag]!=selection['selected'] or
+                    verification['status']!='PASS' or report['maximum_reload_error']!=0 or
+                    not report['database_unchanged'] or report['production_model_changed']):
+                    errors.append('relative rank evidence differs')
+                for name,item in inventory.items():
+                    path=(folder/name).resolve()
+                    if not path.is_relative_to(folder.resolve()) or sha256_file(path)!=item['sha256'] or path.stat().st_size!=item['bytes']:
+                        errors.append('relative rank prediction inventory differs')
+                count=sum(item['races'] for item in inventory.values())
+                if count!=verification['races'] or count!=sum(v['races'] for v in report['years'].values()):
+                    errors.append('relative rank coverage differs')
+                for name,digest in selection['source_sha256'].items():
+                    if sha256_file(root/'keiba_v48'/name)!=digest:errors.append('relative rank source differs: '+name)
+                for v in report['years'].values():
+                    attained=attained and all(v['candidate'][k]>=t for k,t in state['development_objective']['targets'].items())
+            if relative['all_targets_met']!=attained:errors.append('relative rank target attainment unsupported')
+            profile=read(relative['observed_history_profile'])
+            if profile['career_total_proxy_allowed'] or profile['relative_challenger_adopted'] or profile['live_eligible']:
+                errors.append('observed-history profile adoption differs')
+            for artifacts in profile['lags'].values():
+                for item in artifacts.values():
+                    path=(root/item['path']).resolve()
+                    if not path.is_relative_to(root) or sha256_file(path)!=item['sha256']:
+                        errors.append('observed-history profile artifact differs')
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors
+
+
+def sha256_file(path):
+    return hashlib.sha256(Path(path).read_bytes()).hexdigest()
 
 
 def verify_database(path, expected):

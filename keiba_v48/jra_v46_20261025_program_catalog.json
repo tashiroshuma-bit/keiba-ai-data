@@ -1,0 +1,28 @@
+{
+  "schema": "jra-v46-official-program-link-catalog",
+  "race_date": "2026-10-25",
+  "discovered_on": "2026-10-26",
+  "index_url": "https://www.jra.go.jp/keiba/rpdf/",
+  "evidence_kind": "official_index_web_view_only_not_original_bytes",
+  "pdf_original_bytes_acquired": false,
+  "pdf_sha256_verified": false,
+  "preoff_observation": false,
+  "venues": [
+    {
+      "venue": "東京",
+      "url": "https://www.jra.go.jp/keiba/rpdf/pdf/20261025-04tokyo09.pdf",
+      "pdf_pages_in_web_view": 3
+    },
+    {
+      "venue": "京都",
+      "url": "https://www.jra.go.jp/keiba/rpdf/pdf/20261025-04kyoto09.pdf",
+      "pdf_pages_in_web_view": 3
+    },
+    {
+      "venue": "新潟",
+      "url": "https://www.jra.go.jp/keiba/rpdf/pdf/20261025-04niigata04.pdf",
+      "pdf_pages_in_web_view": 3
+    }
+  ],
+  "source_note": "The official JRA index lists these 3 PDFs on 2026-10-26. Browser renders were inspected, but raw bytes could not be downloaded into the execution container (DNS resolution error). This is not evidence of pre-off observation and cannot be used for production freeze. JRA originals must not be committed to GitHub."
+}

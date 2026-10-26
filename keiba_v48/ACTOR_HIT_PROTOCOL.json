@@ -1,0 +1,22 @@
+{
+  "schema": "keiba-actor-hit-protocol-v1",
+  "evaluation_years": [2025, 2026],
+  "evaluation_role": "Previously inspected retrospective initial index-only benchmark, not a new trained classifier or prospective test",
+  "lags": [2, 7],
+  "availability": "Same assumed calendar-day publication delays as prior research; actual historical publication/identity times not reconstructed",
+  "rebuild": "Rebuild joint horse/jockey indices from only full linked fields whose result availability <= target cutoff and off < cutoff",
+  "index_settings": "Unchanged ACTOR_INDICES_PROTOCOL.json settings; no tuning on evaluation outcomes",
+  "rules": ["horse_only", "jockey_only", "horse_plus_jockey"],
+  "combination": "Arithmetic mean of the horse and jockey 0-100 indices; equal weights, no optimized weights",
+  "winner": "Highest win_share index",
+  "ordered": "Three highest finish_performance indices in descending order",
+  "unordered": "Three highest top3_share indices",
+  "ties": "Round comparison scores to 8 decimals, then lower horse number; count tied-leading races explicitly",
+  "unknown": "Unobserved adjusted index stays marked missing; 50 is only the explicit ranking prior. Do not drop missing-index races or treat the prior as observed skill",
+  "cohort": "Exact same 3329 races in 2025 and 2707 races in 2026 as saved evidence-rank comparison, all eligible races included",
+  "baseline": "Saved evidence_rank predictions, baseline=prior rank model, candidate=2024-selected evidence calibration",
+  "pair": "Pair residual index excluded from this initial benchmark; it is not a calibrated win/top3 contribution",
+  "solver": "Warm-start coordinate descent on the same ridge objective, maximum 80 iterations per changed history set; verify against cold as-of reference",
+  "forbidden": "No present-day entity catalogue joined onto historical races; no target outcomes, final odds or payouts in ranking; no best-rule selection using 2025/2026",
+  "promotion": "Report all three rules; no production model replacement or automatic adoption"
+}

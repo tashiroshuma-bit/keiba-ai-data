@@ -1619,5 +1619,27 @@
     "historical_use_requires_per_race_rebuild": true,
     "active_model_replaced": false,
     "formal_forward_added": 0
+  },
+  "latest_actor_hit_research": {
+    "report": "keiba_v48/ACTOR_HIT_RESULTS.md",
+    "protocol": "keiba_v48/ACTOR_HIT_PROTOCOL.json",
+    "database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "evaluation_files": [
+      "keiba_v48/reports/actor_hit/evaluation_lag2.json",
+      "keiba_v48/reports/actor_hit/evaluation_lag7.json"
+    ],
+    "verification_files": [
+      "keiba_v48/reports/actor_hit/verification_lag2.json",
+      "keiba_v48/reports/actor_hit/verification_lag7.json"
+    ],
+    "races_per_lag": 6036,
+    "initial_index_only_benchmark": true,
+    "new_classifier_trained": false,
+    "present_day_catalogue_used_for_past": false,
+    "publication_time_policy": "assumed 2/7 calendar-day delays, not actual historical timestamps",
+    "horse_plus_jockey_improved": false,
+    "adopted": false,
+    "production_model_changed": false,
+    "formal_forward_added": 0
   }
 }

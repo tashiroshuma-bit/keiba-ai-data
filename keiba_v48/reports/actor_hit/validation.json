@@ -1,0 +1,16 @@
+{
+  "status": "PASS",
+  "unit_tests_passed": 252,
+  "canonical_database_version": 10,
+  "project_status_valid": true,
+  "database_local_verified": true,
+  "races_per_lag": 6036,
+  "independent_hit_recount": "PASS",
+  "cold_reference_rebuilds": 4,
+  "all_temporal_checks_pass": true,
+  "present_day_indices_used_for_past": false,
+  "new_classifier_trained": false,
+  "new_rule_adopted": false,
+  "formal_forward_added": 0,
+  "production_model_changed": false
+}

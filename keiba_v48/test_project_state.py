@@ -101,6 +101,12 @@ class SharedProjectStateTest(unittest.TestCase):
         stale['latest_actor_indices']['counts']['horse']['entities']=1
         self.assertTrue(any('index evidence differs' in e for e in project.validate_state(stale)))
 
+    def test_actor_hit_benchmark_cannot_be_relabelled_as_training_or_adoption(self):
+        stale=copy.deepcopy(self.state);stale['latest_actor_hit_research']['new_classifier_trained']=True
+        self.assertTrue(any('actor hit benchmark role differs' in e for e in project.validate_state(stale)))
+        stale=copy.deepcopy(self.state);stale['latest_actor_hit_research']['races_per_lag']=1
+        self.assertTrue(any('actor hit benchmark evidence differs' in e for e in project.validate_state(stale)))
+
     def test_history_metrics_and_goal_claims_match_saved_replay(self):
         stale=copy.deepcopy(self.state)
         stale['latest_history_research']['metrics']['lag7']['2026']['candidate']['winner_hit']=.8

@@ -370,6 +370,31 @@ def validate_state(state, root=ROOT):
                 path=(folder/name).resolve()
                 if not path.is_relative_to(folder) or sha256_file(path)!=item['sha256'] or path.stat().st_size!=item['bytes']:
                     errors.append('horse/jockey index catalogue differs')
+        actor_hits=state.get('latest_actor_hit_research')
+        if actor_hits:
+            if (actor_hits['adopted'] or actor_hits['production_model_changed'] or actor_hits['formal_forward_added'] or
+                actor_hits['new_classifier_trained'] or actor_hits['present_day_catalogue_used_for_past']):
+                errors.append('actor hit benchmark role differs')
+            for lag in ('2','7'):
+                folder=root/'keiba_v48/reports/actor_hit'
+                report=read(f'keiba_v48/reports/actor_hit/evaluation_lag{lag}.json')
+                checked=read(f'keiba_v48/reports/actor_hit/verification_lag{lag}.json')
+                if (report['input_db_sha256']!=actor_hits['database_sha256'] or checked['status']!='PASS' or
+                    checked['evaluation_sha256']!=sha256_file(folder/f'evaluation_lag{lag}.json') or
+                    checked['races']!=actor_hits['races_per_lag'] or not checked['temporal_checks_all_pass'] or
+                    not report['database_unchanged'] or report['production_model_changed'] or
+                    not report['no_post_evaluation_rule_selection'] or report['new_classifier_trained']):
+                    errors.append('actor hit benchmark evidence differs')
+                if sha256_file(folder/f'index_snapshots_lag{lag}.json')!=report['index_snapshot_sha256']:
+                    errors.append('actor hit temporal prefix evidence differs')
+                for name,item in report['predictions_inventory'].items():
+                    path=(folder/name).resolve()
+                    if not path.is_relative_to(folder) or sha256_file(path)!=item['sha256'] or path.stat().st_size!=item['bytes']:
+                        errors.append('actor hit prediction archive differs')
+                if sum(item['races'] for item in report['predictions_inventory'].values())!=actor_hits['races_per_lag']:
+                    errors.append('actor hit full coverage differs')
+                for name,digest in report['source_sha256'].items():
+                    if sha256_file(root/'keiba_v48'/name)!=digest:errors.append('actor hit source differs')
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors

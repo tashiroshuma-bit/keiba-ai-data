@@ -16,6 +16,7 @@ from confidence_calibration import alpha_for
 from history_blend_model import HistoryBlendModel,augment_blend
 from relative_rank_model import RelativeRankBlend,augment_relative
 from evidence_rank_model import EvidenceRankModel
+from actor_indices import ActorIndices
 
 
 def forecast(db, rows, model_path, selection_path, calibration_path=None):
@@ -80,6 +81,8 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         calibration_info=dict(sha256=sha(calibration_path),alpha=alpha,
                               method='uniform_distinct_ordered_triple_mixture',
                               status='retrospective_evaluated_research_only')
+    actor=ActorIndices(history,min(cutoff,now),exclude_race_id=rows[0]['race_id'])
+    actor_rows=actor.runners(prepared)
     return dict(version='4.8-rank-shadow', deployment_status='experimental_rank_shadow',
         race_id=rows[0]['race_id'], off_timestamp=rows[0]['off_timestamp'], cutoff_timestamp=cutoff.isoformat(),
         created_at=now.isoformat(), history_time_policy='actual_source_and_identity_observation',
@@ -91,6 +94,9 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         winner_pick=numbers[winner], top3_pick=[numbers[i] for i in trio],
         ordered_pick=[numbers[i] for i in ordered], unordered_decision_policy=set_policy,
         input_quality=input_quality,probability_calibration=calibration_info,
+        entity_indices=dict(status='research_descriptive_not_calibrated_probabilities',
+                            audit=actor.audit,runners=actor_rows,
+                            used_as_new_probability_features=False),
         inputs=dict(runners=prepared, features=race['features']),
         allocation=dict(bets=[], stake_yen=0), strict_production_validated=False)
 

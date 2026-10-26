@@ -93,6 +93,14 @@ class SharedProjectStateTest(unittest.TestCase):
         stale=copy.deepcopy(self.state);stale['latest_evidence_rank_research']['selected']['lag7']='invented'
         self.assertTrue(any('evidence rank evidence differs' in e for e in project.validate_state(stale)))
 
+    def test_actor_indices_cannot_claim_unmeasured_accuracy_improvement(self):
+        stale=copy.deepcopy(self.state)
+        stale['latest_actor_indices']['probability_improvement_claimed']=True
+        self.assertTrue(any('have not been prediction-validated' in e for e in project.validate_state(stale)))
+        stale=copy.deepcopy(self.state)
+        stale['latest_actor_indices']['counts']['horse']['entities']=1
+        self.assertTrue(any('index evidence differs' in e for e in project.validate_state(stale)))
+
     def test_history_metrics_and_goal_claims_match_saved_replay(self):
         stale=copy.deepcopy(self.state)
         stale['latest_history_research']['metrics']['lag7']['2026']['candidate']['winner_hit']=.8

@@ -348,6 +348,28 @@ def validate_state(state, root=ROOT):
                     path=(root/item['path']).resolve()
                     if not path.is_relative_to(root) or sha256_file(path)!=item['sha256']:
                         errors.append('observed-history profile artifact differs')
+        actor=state.get('latest_actor_indices')
+        if actor:
+            snapshot=read(actor['snapshot']);checked=read(actor['verification'])
+            folder=(root/actor['snapshot']).parent.resolve()
+            if (snapshot['input_db_sha256']!=actor['database_sha256'] or snapshot['counts']!=actor['counts'] or
+                checked['status']!='PASS' or checked['counts']!=snapshot['counts'] or
+                checked['snapshot_sha256']!=sha256_file(root/actor['snapshot']) or
+                actor['adjusted_races']!=snapshot['audit']['adjusted_fields'] or
+                not snapshot['database_unchanged'] or not snapshot['audit']['solver_within_1e_4']):
+                errors.append('horse/jockey index evidence differs')
+            if (actor['new_probability_features_activated'] or actor['probability_improvement_claimed'] or
+                actor['active_model_replaced'] or actor['formal_forward_added']!=0 or
+                not actor['historical_use_requires_per_race_rebuild']):
+                errors.append('horse/jockey indices have not been prediction-validated')
+            if sha256_file(root/actor['protocol'])!=snapshot['protocol_sha256']:
+                errors.append('horse/jockey index protocol differs')
+            for name,digest in snapshot['code_sha256'].items():
+                if sha256_file(root/'keiba_v48'/name)!=digest:errors.append('horse/jockey index source differs')
+            for name,item in snapshot['inventory'].items():
+                path=(folder/name).resolve()
+                if not path.is_relative_to(folder) or sha256_file(path)!=item['sha256'] or path.stat().st_size!=item['bytes']:
+                    errors.append('horse/jockey index catalogue differs')
     except (KeyError, ValueError, OSError) as exc:
         errors.append(str(exc))
     return errors

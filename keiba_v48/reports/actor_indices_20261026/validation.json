@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "unit_tests_passed": 248,
+  "canonical_database_version": 10,
+  "project_status_valid": true,
+  "database_local_verified": true,
+  "actual_observed_history_rows": 100069,
+  "horse_entities": 9551,
+  "jockey_entities": 161,
+  "horse_adjusted_entities": 7336,
+  "jockey_adjusted_entities": 161,
+  "independent_catalogue_verification": "PASS",
+  "new_indices_used_in_probability_model": false,
+  "prediction_accuracy_improvement_claimed": false,
+  "formal_forward_added": 0,
+  "production_model_changed": false
+}

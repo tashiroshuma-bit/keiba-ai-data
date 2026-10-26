@@ -1,6 +1,6 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-25",
+  "updated_date": "2026-10-26",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
@@ -1593,5 +1593,31 @@
     "all_three_metrics_improved": false,
     "official_identity_rows_added": 0,
     "reason": "Winner and probability-error gains, with unordered-set tradeoffs; no automatic production replacement."
+  },
+  "latest_actor_indices": {
+    "report": "keiba_v48/ACTOR_INDICES_RESULTS.md",
+    "protocol": "keiba_v48/ACTOR_INDICES_PROTOCOL.json",
+    "snapshot": "keiba_v48/reports/actor_indices_20261026/snapshot.json",
+    "verification": "keiba_v48/reports/actor_indices_20261026/verification.json",
+    "database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "asof": "2026-10-26T00:55:00+00:00",
+    "counts": {
+      "horse": {
+        "adjusted_entities": 7336,
+        "entities": 9551
+      },
+      "jockey": {
+        "adjusted_entities": 161,
+        "entities": 161
+      }
+    },
+    "actual_observed_source_rows": 100069,
+    "adjusted_races": 1021,
+    "forecast_output": "entity_indices.runners: horse / jockey / pair / jockey_change",
+    "new_probability_features_activated": false,
+    "probability_improvement_claimed": false,
+    "historical_use_requires_per_race_rebuild": true,
+    "active_model_replaced": false,
+    "formal_forward_added": 0
   }
 }

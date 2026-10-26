@@ -1,0 +1,20 @@
+{
+  "schema": "keiba-actor-indices-protocol-v1",
+  "status": "descriptive_research_indices_not_calibrated_probabilities",
+  "identities": "official namespace IDs only; unknown remains null, never name-only joins",
+  "time": "All source/identity observations and race off must precede the requested cutoff; exclude target race; no invented availability",
+  "horse": ["joint-adjusted finishing-performance index", "joint-adjusted win/top2/top3 share indices", "raw win/top2/top3 rates", "recent five starts", "course/distance/going/class records"],
+  "jockey": ["joint-adjusted finishing-performance index", "joint-adjusted win/top2/top3 share indices", "raw win/top2/top3 rates", "recent 90 days", "course/distance/going/class records"],
+  "pair": ["same-pair records", "shrunk joint-model residual index", "rider-change index difference at the same cutoff"],
+  "adjustment": "Joint ridge decomposition: centred observed field performance = horse component + jockey component + race offset. Only complete fields with all horse/jockey IDs enter adjustment.",
+  "heads": ["finish_performance", "win_share", "top2_share", "top3_share"],
+  "ties": "Pairwise finishing percentile gives equal ranks equal credit; top-k share allocates tied boundary positions fractionally",
+  "score_scale": "clip(50+100*component,0,100); 50 is the zero component, not a 50% chance",
+  "settings": {"horse_penalty": 5.0, "jockey_penalty": 50.0, "iterations": 80, "descriptive_prior": 5.0, "pair_penalty": 10.0},
+  "support": "Display sample counts and n/(n+penalty) separately; this support is not probability of correctness",
+  "unknown": "No observed history or no eligible adjustment rows => null index with zero support; never report average as observed ability",
+  "limitations": "Observational estimates depend on connected horse-rider assignments and regularization; not a causal or complete class/opponent-strength separation; sparse condition stats remain sparse",
+  "prediction_integration": "Attach the separate indices to rank_forecast output; existing forecast probabilities unchanged until a separately trained, frozen comparison supports the new features",
+  "targets": {"winner_hit": 0.8, "ordered_all_hit": 0.5, "top3_all_hit": 0.6},
+  "forbidden": "No target outcomes/odds/payouts in current-card indices; no automatic live promotion"
+}

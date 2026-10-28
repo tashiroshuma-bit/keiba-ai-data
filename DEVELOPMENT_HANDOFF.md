@@ -1,3 +1,11 @@
+# 最新追記：2026-10-28 v48公式PDF候補・独立出馬表照合ブリッジ
+
+[実装・検証報告](keiba_v48/JRA_V48_CANDIDATE_CROSSCHECK_20261028.md)を保存。v47 PDF行候補の direct_text_candidate とv46独立照合の direct のスキーマ差を研究用に橋渡し。12レースの馬番・馬名・斤量・発走時刻・頭数の候補整合を検査し、入力欠損、重複、NaN、事後観測、未検証時刻を拒否。合成JSON12テストはローカル合格。GitHub Actions未確認。
+
+2026-10-28の公式PDFウェブ閲覧では10/25の3場PDFを確認したが、コンテナDNS失敗と専用ダウンロード失敗により原本バイト実取得0・実PDF抽出精度検証0。観測時刻は事後であり10/25発走前証拠へ流用しない。候補一致しても source_authenticity_proven=false、official_horse_ids_confirmed=0、production_freeze_allowed=false、result_settlement_allowed=false、forward_prediction_fixed=false。正本v10 SHA256 5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc・稼働モデル不変。新規公式ID0、正式freeze/settle0、未見固定0、再学習0。次は許可された実PDF原本バイト取得と全出走馬の独立照合。
+
+---
+
 # 最新追記：2026-10-27 v47公式PDF馬行解析の研究改善
 
 [実装・検証報告](keiba_v48/JRA_V47_ROW_LAYOUT_RESEARCH_20261027.md)を保存。JRA公式10/25東京のPDFページ画像を観察し、v45の斤量探索帯x=66〜87%が実際の馬行中央の斤量位置とずれる疑いを発見。v47ではx=49〜66%の研究用候補とし、PDF記載頭数と抽出馬番の件数照合、同一行馬名/斤量、逆順時刻・重複・曖昧さの拒否を追加。合成PDF9テストはローカル合格。GitHub Actions結果は未確認。

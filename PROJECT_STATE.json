@@ -1,6 +1,6 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-26",
+  "updated_date": "2026-10-28",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
@@ -1140,8 +1140,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.327450215491415e-05,
-              9.065855579675072e-06
+              -0.00001327450215491415,
+              0.000009065855579675072
             ],
             "ordered_all_hit": [
               0,
@@ -1234,8 +1234,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.5252796802291577e-05,
-              -2.2943359493281933e-07
+              -0.000015252796802291577,
+              -2.2943359493281933e-7
             ],
             "ordered_all_hit": [
               0,
@@ -1330,8 +1330,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.3281612810237844e-05,
-              9.067991106595328e-06
+              -0.000013281612810237844,
+              0.000009067991106595328
             ],
             "ordered_all_hit": [
               0,
@@ -1424,8 +1424,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.5289074311999807e-05,
-              -2.7411191709857974e-07
+              -0.000015289074311999807,
+              -2.7411191709857974e-7
             ],
             "ordered_all_hit": [
               0,
@@ -1641,5 +1641,25 @@
     "adopted": false,
     "production_model_changed": false,
     "formal_forward_added": 0
+  },
+  "latest_program_pdf_research": {
+    "report": "keiba_v48/JRA_V48_CANDIDATE_CROSSCHECK_20261028.md",
+    "code": "keiba_v48/jra_v48_candidate_crosscheck.py",
+    "tests": "keiba_v48/test_jra_v48_candidate_crosscheck.py",
+    "date": "2026-10-28",
+    "stage": "research_only_candidate_consistency",
+    "synthetic_tests_passed": 12,
+    "real_official_pdf_bytes_downloaded": 0,
+    "real_pdf_parser_validated": false,
+    "new_official_horse_ids_confirmed": 0,
+    "formal_preoff_freezes_added": 0,
+    "official_settlements_added": 0,
+    "forward_unseen_races_added": 0,
+    "model_retrained": false,
+    "production_model_changed": false,
+    "canonical_database_changed": false,
+    "production_freeze_allowed": false,
+    "result_settlement_allowed": false,
+    "blocked_on": "Authenticated official PDF bytes, observed timestamps, independent official roster and scratches, real PDF parser evaluation"
   }
 }

@@ -1,6 +1,6 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-28",
+  "updated_date": "2026-10-29",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
@@ -1661,5 +1661,24 @@
     "production_freeze_allowed": false,
     "result_settlement_allowed": false,
     "blocked_on": "Authenticated official PDF bytes, observed timestamps, independent official roster and scratches, real PDF parser evaluation"
+  },
+  "latest_jra_v49_research": {
+    "report": "keiba_v48/JRA_V49_BYTE_BOUND_RESEARCH_20261029.md",
+    "code": "keiba_v48/jra_v49_byte_bound_e2e.py",
+    "tests": "keiba_v48/test_jra_v49_byte_bound_e2e.py",
+    "status": "offline_byte_binding_research_only",
+    "synthetic_local_tests_passed": 10,
+    "synthetic_local_test_dependencies": "v47/v48 stubs; actual integrated tests not run",
+    "real_official_pdf_bytes_acquired": 0,
+    "real_pdf_parser_validations": 0,
+    "new_official_horse_ids": 0,
+    "production_freezes": 0,
+    "result_settlements": 0,
+    "forward_unseen_fixed": 0,
+    "model_retrained": false,
+    "production_promoted": false,
+    "source_authenticity_proven": false,
+    "active_model_unchanged": true,
+    "canonical_db_unchanged": true
   }
 }

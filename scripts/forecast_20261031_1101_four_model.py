@@ -16,6 +16,7 @@ import math
 import re
 import sys
 import time
+from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
@@ -234,6 +235,8 @@ def parse_official_roster(url, date, track, race):
                     h["career_missing"]=False
                     h["career_source"]=detail_url
                     h["career_source_sha256"]=hashlib.sha256(detail_raw).hexdigest()
+    for h in horses:
+        h["horse_profile_url"]=urljoin(url,h.get("horse_profile_href") or "")
     return horses, hashlib.sha256(raw).hexdigest(), weather, going, surface, off_at
 
 
@@ -284,6 +287,52 @@ def parse_internal_roster(date, track, code, race):
         raise ValueError("SECONDARY_EMPTY:"+repr([(t.get_text(" ",strip=True)[:250], [a.get("href") for a in t.select("a")[:3]]) for t in soup.select("table")[:2]]))
     validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     return horses, url, hashlib.sha256(raw).hexdigest()
+
+
+def parse_profile_html(raw, name):
+    text=BeautifulSoup(raw,"html.parser").get_text(" ",strip=True)
+    normalized=re.sub(r"[\s　]","",text)
+    if "競走馬情報"+re.sub(r"[\s　]","",name) not in normalized:
+        raise ValueError("OFFICIAL_PROFILE_NAME_MISMATCH")
+    match=re.search(r"平地\s*[（(]\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*[）)]",text)
+    if match is None:
+        raise ValueError("OFFICIAL_PROFILE_AGGREGATE_MISSING")
+    w,se,t,o,total=map(int,match.groups())
+    if w+se+t+o!=total or total>1000:
+        raise ValueError("OFFICIAL_PROFILE_AGGREGATE_INCONSISTENT")
+    return {"starts":total,"wins":w,"seconds":se,"thirds":t}
+
+
+PROFILE_CACHE={}
+PROFILE_BLOCKED=False
+
+def fill_official_profile(horse):
+    global PROFILE_BLOCKED
+    if PROFILE_BLOCKED:
+        raise ValueError("OFFICIAL_PROFILE_ACCESS_REFUSED_NO_RETRY")
+    url=horse.get("horse_profile_url")
+    if not url or not url.startswith("https://sp.jra.jp/JRADB/accessU.html?"):
+        raise ValueError("OFFICIAL_PROFILE_URL_MISSING")
+    if url not in PROFILE_CACHE:
+        try:
+            raw=get(url)
+        except HTTPError as exc:
+            if exc.code==403: PROFILE_BLOCKED=True
+            raise
+        stats=parse_profile_html(raw,horse["name"])
+        PROFILE_CACHE[url]=dict(stats,career_source=url,career_source_sha256=hashlib.sha256(raw).hexdigest(),
+                                career_observed_at=dt.datetime.now(JST).isoformat(),career_scope="official_all_flat_races")
+    result=dict(horse,**PROFILE_CACHE[url],career_missing=False)
+    return result
+
+
+def fill_missing_profiles(horses):
+    missing=[h for h in horses if h.get("career_missing") and not h.get("withdrawn")]
+    if not missing: return horses
+    with ThreadPoolExecutor(max_workers=4) as executor:
+        recovered=list(executor.map(fill_official_profile,missing))
+    by_name={h["name"]:h for h in recovered}
+    return [by_name.get(h["name"],h) for h in horses]
 
 
 def load_model():
@@ -507,8 +556,10 @@ def main():
                     if numbered and {h["number"]:norm(h["name"]) for h in horses} != {h["number"]:norm(h["name"]) for h in secondary}:
                         raise ValueError("INDEPENDENT_FULL_ROSTER_NUMBER_MISMATCH")
                     secondary_by_name={norm(h["name"]):h for h in secondary}
+                    if not is_obstacle:
+                        horses=fill_missing_profiles(horses)
                     for horse in horses:
-                        if horse.get("career_missing") and not is_obstacle:
+                        if horse.get("career_missing") and not is_obstacle and not horse.get("withdrawn"):
                             if secondary_by_name[norm(horse["name"])].get("starts") is None:
                                 raise ValueError("CAREER_FEATURES_NOT_PUBLISHED:"+horse["name"])
                             for stat in ("starts","wins","seconds","thirds"):
@@ -642,14 +693,10 @@ def probe_real_cards():
             raise ValueError("PROBE_FULL_ROSTER_MISMATCH")
         print("PROBE_OK",date,track,race,len(horses),surface,off,flush=True)
         if date=="2026-11-01" and race==1:
-            for base,h in ((urls[race],horses[0]),("https://sports.yahoo.co.jp",secondary[0])):
-                profile=urljoin(base,h.get("horse_profile_href") or "")
-                try:
-                    raw=get(profile); soup=BeautifulSoup(raw,"html.parser")
-                    print("PROFILE_DIAGNOSTIC",profile,soup.get_text(" ",strip=True)[-14000:],flush=True)
-                except Exception as exc:
-                    print("PROFILE_FAILURE",profile,str(exc),flush=True)
-            raise ValueError("PROFILE_DIAGNOSTIC_ONLY")
+            recovered=fill_missing_profiles(horses)
+            if any(h.get("career_missing") for h in recovered):
+                raise ValueError("PROBE_CAREER_MISSING")
+            print("PROBE_PROFILE_FEATURES_OK",len(recovered),flush=True)
 
 if __name__ == "__main__":
     if "--probe" in sys.argv:

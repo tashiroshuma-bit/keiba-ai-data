@@ -116,6 +116,28 @@ jobs:
                                         'weights': sum(h['weight_candidate'] is not None for h in r['runner_candidates']),
                                         'post_time_method': r['post_time_method'],
                                         'issues': r['issues']} for r in probe['races']]
+                      if venue['venue'] == '東京':
+                          import fitz
+                          from jra_v47_program_row_probe import _spans, NO, HORSE_NAME, WEIGHT
+                          doc = fitz.open(stream=raw, filetype='pdf')
+                          try:
+                              page = doc[0]
+                              width = page.rect.width / 4
+                              height = page.rect.height
+                              item['layout_samples'] = []
+                              for col in range(4):
+                                  ss = _spans(page, page.rect.x0 + col * width, page.rect.x0 + (col + 1) * width)
+                                  def sample(pred, cap=14):
+                                      return [{'text': s['text'][:22], 'x': round(s['x'] / width, 3),
+                                               'y': round(s['y'] / height, 3), 'size': round(s['size'], 1)}
+                                              for s in ss if .17 < s['y'] / height < .96 and pred(s)][:cap]
+                                  item['layout_samples'].append({
+                                      'race': col + 1,
+                                      'anchors': sample(lambda s: NO.fullmatch(s['text']), 24),
+                                      'names': sample(lambda s: HORSE_NAME.fullmatch(s['text']) and s['size'] >= 7, 18),
+                                      'weights': sample(lambda s: WEIGHT.fullmatch(s['text']), 18)})
+                          finally:
+                              doc.close()
                       item['status'] = 'candidate_diagnostics_only'
                   except Exception as exc:
                       item['status'] = 'error'

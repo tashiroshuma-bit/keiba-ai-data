@@ -108,7 +108,8 @@ def row_number_and_frame(cells, horse_cell):
         value = explicit.get_text(" ", strip=True)
         frame_cell = next((c for c in cells if "wban" in c.get("class", [])), None)
         f = frame_cell.get_text(" ", strip=True) if frame_cell else ""
-        return int(value) if value.isdigit() else None, int(f) if f.isdigit() else None
+        m = re.search(r"\d{1,2}", value)
+        return int(m[0]) if m else None, int(f) if f.isdigit() else None
     left = cells[:horse_cell]
     values = []
     for cell in left:
@@ -129,7 +130,7 @@ def validate_complete_field(horses, allow_unnumbered=False):
             raise ValueError("UNNUMBERED_HEADCOUNT_INVALID")
         return
     if any(n is None for n in numbers):
-        raise ValueError("HORSE_NUMBERS_NOT_YET_PUBLISHED")
+        raise ValueError("HORSE_NUMBERS_NOT_YET_PUBLISHED:"+repr([(h["name"],h["number"]) for h in horses]))
     if not 3 <= len(numbers) <= 18 or len(set(numbers)) != len(numbers):
         raise ValueError(f"FIELD_DUPLICATE_OR_INCOMPLETE_{numbers}")
     if set(numbers) != set(range(1, max(numbers) + 1)):
@@ -188,7 +189,7 @@ def parse_official_html(raw, date, track, race):
             break
     validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     # Headers precede horse histories. Do not mistake a past race's going for today's.
-    prefix = text.split("馬名", 1)[0]
+    prefix = text[:text.index(horses[0]["name"])][-2500:]
     weather_match = re.search(r"天候\s*[:：]?\s*(晴|曇|雨|小雨|雪|小雪)", prefix)
     going_match = re.search(r"(?:芝|ダート)\s*[:：]?\s*(不良|稍重|良|重)", prefix)
     course = re.search(r"コース[：:]?\s*[\d,，]+\s*メートル\s*[（(]([^）)]+)", prefix)

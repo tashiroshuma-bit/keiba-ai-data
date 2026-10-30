@@ -1,0 +1,548 @@
+{
+  "schema": "keiba-weekend-four-model-research-freeze-v1",
+  "date": "2026-11-01",
+  "captured_at": "2026-10-30T21:22:21.303336+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "program_source": "https://www.jra.go.jp/keiba/calendar2026/2026/11/1101.html",
+  "official_full_card_independently_replayed": false,
+  "canonical_db": {
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed_outside_action": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc"
+  },
+  "active_model": {
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed": false
+  },
+  "research_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "external_listing_sha256": "4ca1eadc351918342d4db54f0d5dc59e0f7793734809d52598b578d9ccaf8858",
+  "input_snapshot_sha256": "e50e7a463ad7973e1328525d404ea45f2ad66bc77033386d9af59cd7e4a3b188",
+  "weights": {
+    "A": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "external_temperature": 20,
+  "placing_approximation": "Plackett-Luce",
+  "ticket_thresholds": {
+    "single": 0.4,
+    "quinella": 0.25,
+    "trio": 0.3
+  },
+  "per_race_budget_yen_max": 10000,
+  "actual_purchase": false,
+  "covered_flat_races": 1,
+  "failures": [
+    {
+      "track": "東京",
+      "race": 1,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 3,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    }
+  ],
+  "races": [
+    {
+      "race": "東京11R",
+      "track": "東京",
+      "race_number": 11,
+      "surface": "turf",
+      "runner_count": 8,
+      "roster_source": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202604111120261101/33",
+      "roster_sha256": "ec0d164f756eba4e5a66787d13cfd1926c4288983b8732fb6594a619c3ac7142",
+      "roster_method": "JRA_OFFICIAL_CARD_CAREER_TOTALS_PROXY",
+      "jra_meeting_seed_sha256": "78d46d2d79c6b37daf31003f77f917e4fb19a104c4793bb80e0ee5d539ff8638",
+      "weather_observed": null,
+      "going_observed": "良)",
+      "runners": [
+        {
+          "number": 1,
+          "frame": 1,
+          "name": "クロワデュノール",
+          "jockey": "C.デムーロ",
+          "trainer": "斉藤崇史",
+          "assigned_weight_kg": 58.0,
+          "starts": 11,
+          "wins": 7,
+          "seconds": 2,
+          "thirds": 0
+        },
+        {
+          "number": 3,
+          "frame": 2,
+          "name": "レガレイラ",
+          "jockey": "岩田望来",
+          "trainer": "木村哲也",
+          "assigned_weight_kg": 56.0,
+          "starts": 14,
+          "wins": 5,
+          "seconds": 0,
+          "thirds": 1
+        },
+        {
+          "number": 5,
+          "frame": 3,
+          "name": "シャンパンカラー",
+          "jockey": "内田博幸",
+          "trainer": "田中剛",
+          "assigned_weight_kg": 58.0,
+          "starts": 20,
+          "wins": 3,
+          "seconds": 0,
+          "thirds": 1
+        },
+        {
+          "number": 7,
+          "frame": 4,
+          "name": "マスカレードボール",
+          "jockey": "C.ルメール",
+          "trainer": "手塚貴久",
+          "assigned_weight_kg": 58.0,
+          "starts": 10,
+          "wins": 4,
+          "seconds": 3,
+          "thirds": 1
+        },
+        {
+          "number": 9,
+          "frame": 5,
+          "name": "ホウオウビスケッツ",
+          "jockey": "岩田康誠",
+          "trainer": "奥村武",
+          "assigned_weight_kg": 52.7,
+          "starts": 23,
+          "wins": 4,
+          "seconds": 5,
+          "thirds": 3
+        },
+        {
+          "number": 11,
+          "frame": 6,
+          "name": "シェイクユアハート",
+          "jockey": "古川吉洋",
+          "trainer": "宮徹",
+          "assigned_weight_kg": 58.0,
+          "starts": 31,
+          "wins": 7,
+          "seconds": 9,
+          "thirds": 5
+        },
+        {
+          "number": 13,
+          "frame": 7,
+          "name": "リアライズシリウス",
+          "jockey": "津村明秀",
+          "trainer": "手塚貴久",
+          "assigned_weight_kg": 56.0,
+          "starts": 7,
+          "wins": 3,
+          "seconds": 1,
+          "thirds": 0
+        },
+        {
+          "number": 15,
+          "frame": 8,
+          "name": "サクラファレル",
+          "jockey": "佐々木大輔",
+          "trainer": "堀宣行",
+          "assigned_weight_kg": 58.0,
+          "starts": 9,
+          "wins": 4,
+          "seconds": 3,
+          "thirds": 0
+        }
+      ],
+      "external_source": "https://muryou-keiba-ai.jp/predict/2026/10/29/25295/",
+      "external_sha256": "b8e41a9d625636872825c76263429c1ca12b654204cae9ac3764efa7f16779f7",
+      "external_page_updated_at": "2026-10-30T17:07:00+09:00",
+      "external_error": "EXTERNAL_ROSTER_MISMATCH",
+      "external_indices": null,
+      "models": {
+        "A": {
+          "marks": {
+            "◎": 1,
+            "○": 15,
+            "▲": 7,
+            "☆": 13,
+            "△": 11
+          },
+          "ordered_top3": [
+            1,
+            15,
+            7
+          ],
+          "horses": [
+            {
+              "number": 1,
+              "name": "クロワデュノール",
+              "p1": 0.17260390740152176,
+              "p2": 0.16295664706999252,
+              "p3": 0.15214614011258712
+            },
+            {
+              "number": 15,
+              "name": "サクラファレル",
+              "p1": 0.14927123388511407,
+              "p2": 0.14587616690012514,
+              "p3": 0.14165223693003007
+            },
+            {
+              "number": 7,
+              "name": "マスカレードボール",
+              "p1": 0.14685189023883324,
+              "p2": 0.14400135946709666,
+              "p3": 0.14038906069684598
+            },
+            {
+              "number": 13,
+              "name": "リアライズシリウス",
+              "p1": 0.13167142414421076,
+              "p2": 0.13181372280105516,
+              "p3": 0.13168386756638506
+            },
+            {
+              "number": 11,
+              "name": "シェイクユアハート",
+              "p1": 0.11130956476141471,
+              "p2": 0.11436693505820032,
+              "p3": 0.11786253995180923
+            },
+            {
+              "number": 3,
+              "name": "レガレイラ",
+              "p1": 0.11058057796094076,
+              "p2": 0.1137199111765145,
+              "p3": 0.11732182662624871
+            },
+            {
+              "number": 9,
+              "name": "ホウオウビスケッツ",
+              "p1": 0.09868278751467648,
+              "p2": 0.10294896268186814,
+              "p3": 0.10804896833414736
+            },
+            {
+              "number": 5,
+              "name": "シャンパンカラー",
+              "p1": 0.07902861409328818,
+              "p2": 0.08431629484514744,
+              "p3": 0.09089535978194642
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.46872703152546913,
+              "tickets": [
+                {
+                  "numbers": [
+                    1
+                  ],
+                  "p": 0.17260390740152176,
+                  "cumulative": 0.17260390740152176
+                },
+                {
+                  "numbers": [
+                    15
+                  ],
+                  "p": 0.14927123388511407,
+                  "cumulative": 0.32187514128663586
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.14685189023883324,
+                  "cumulative": 0.46872703152546913
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 5,
+              "cumulative": 0.2726112910229259,
+              "tickets": [
+                {
+                  "numbers": [
+                    1,
+                    15
+                  ],
+                  "p": 0.06142517930895478,
+                  "cumulative": 0.06142517930895478
+                },
+                {
+                  "numbers": [
+                    1,
+                    7
+                  ],
+                  "p": 0.0603451269843868,
+                  "cumulative": 0.12177030629334158
+                },
+                {
+                  "numbers": [
+                    1,
+                    13
+                  ],
+                  "p": 0.0536413791067484,
+                  "cumulative": 0.17541168540008997
+                },
+                {
+                  "numbers": [
+                    7,
+                    15
+                  ],
+                  "p": 0.05146101190734325,
+                  "cumulative": 0.22687269730743323
+                },
+                {
+                  "numbers": [
+                    13,
+                    15
+                  ],
+                  "p": 0.04573859371549267,
+                  "cumulative": 0.2726112910229259
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 11,
+              "cumulative": 0.3209371566088503,
+              "tickets": [
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    15
+                  ],
+                  "p": 0.03915735230235404,
+                  "cumulative": 0.03915735230235404
+                },
+                {
+                  "numbers": [
+                    1,
+                    13,
+                    15
+                  ],
+                  "p": 0.03441512808442947,
+                  "cumulative": 0.0735724803867835
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    13
+                  ],
+                  "p": 0.03374763754917789,
+                  "cumulative": 0.10732011793596138
+                },
+                {
+                  "numbers": [
+                    1,
+                    11,
+                    15
+                  ],
+                  "p": 0.028352868632632446,
+                  "cumulative": 0.13567298656859383
+                },
+                {
+                  "numbers": [
+                    7,
+                    13,
+                    15
+                  ],
+                  "p": 0.028264180412207632,
+                  "cumulative": 0.16393716698080146
+                },
+                {
+                  "numbers": [
+                    1,
+                    3,
+                    15
+                  ],
+                  "p": 0.028141789905055177,
+                  "cumulative": 0.19207895688585663
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    11
+                  ],
+                  "p": 0.027802944217014004,
+                  "cumulative": 0.21988190110287065
+                },
+                {
+                  "numbers": [
+                    1,
+                    3,
+                    7
+                  ],
+                  "p": 0.027595958220486258,
+                  "cumulative": 0.24747785932335692
+                },
+                {
+                  "numbers": [
+                    1,
+                    9,
+                    15
+                  ],
+                  "p": 0.024751854063398873,
+                  "cumulative": 0.2722297133867558
+                },
+                {
+                  "numbers": [
+                    1,
+                    11,
+                    13
+                  ],
+                  "p": 0.02443569568604111,
+                  "cumulative": 0.29666540907279687
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    9
+                  ],
+                  "p": 0.024271747536053417,
+                  "cumulative": 0.3209371566088503
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "B": null,
+        "C": null,
+        "D": null
+      }
+    }
+  ]
+}

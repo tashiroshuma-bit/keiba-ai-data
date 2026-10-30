@@ -71,8 +71,14 @@ def _race_column(page, page_no: int, col: int) -> dict:
         post = f"{int(tm.group(2)):02d}:{int(tm.group(1)):02d}" if tm else None
         time_method = "reversed_glyph_order_unverified" if tm else "missing"
         issues.append("post_time_not_directly_readable")
-    anchors = sorted((s for s in spans if .17 * H < s["y"] < .97 * H
-                      and .055 * W <= s["x"] <= .14 * W and NO.fullmatch(s["text"])),
+    # 2026-10-30 real JRA byte probe: printed horse-number glyphs have
+    # x/W about .097-.183 and font size about 10.8-11.5.  Larger 17-18pt
+    # frame numbers were being mistaken for runners, while real runner
+    # numbers in the first two columns were skipped entirely.
+    anchors = sorted((s for s in spans if .145 * H < s["y"] < .975 * H
+                      and .07 * W <= s["x"] <= .21 * W
+                      and 9 <= s["size"] <= 14
+                      and NO.fullmatch(s["text"])),
                      key=lambda s: s["y"])
     seen = set()
     runners = []
@@ -84,7 +90,10 @@ def _race_column(page, page_no: int, col: int) -> dict:
         seen.add(n)
         # Inspect only the primary printed row; pedigree text is below it.
         # Segmented/ambiguous Japanese glyphs remain unresolved, never guessed.
-        row = [s for s in spans if abs(s["y"] - a["y"]) <= .013 * H]
+        # The horse number baseline is offset by ~.014 page heights from
+        # name/weight in several real columns. Adjacent horse rows are
+        # separated by >=.05 heights in the observed sample.
+        row = [s for s in spans if abs(s["y"] - a["y"]) <= .021 * H]
         names = [s["text"] for s in row if .15 * W <= s["x"] <= .51 * W
                  and HORSE_NAME.fullmatch(s["text"]) and s["size"] >= 7]
         weights = [s["text"] for s in row if .49 * W <= s["x"] <= .66 * W

@@ -167,6 +167,21 @@ jobs:
                                                                        'near_spans': near[:9]})
                       finally:
                           doc2.close()
+                      if venue['venue'] == '京都':
+                          import fitz
+                          from jra_v47_program_row_probe import _spans
+                          d3 = fitz.open(stream=raw, filetype='pdf')
+                          try:
+                              p3 = d3[2]
+                              w3 = p3.rect.width / 4
+                              h3 = p3.rect.height
+                              ss3 = _spans(p3, p3.rect.x0 + 2 * w3, p3.rect.x0 + 3 * w3)
+                              item['kyoto11_header_spans'] = [
+                                  {'text': s['text'][:24], 'x': round(s['x'] / w3, 3),
+                                   'y': round(s['y'] / h3, 3), 'size': round(s['size'], 1)}
+                                  for s in ss3 if s['y'] < .225 * h3][:110]
+                          finally:
+                              d3.close()
                       item['status'] = 'candidate_diagnostics_only'
                   except Exception as exc:
                       item['status'] = 'error'

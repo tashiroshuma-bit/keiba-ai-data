@@ -27,7 +27,7 @@ def threshold(items, threshold):
     return {"threshold": threshold, "count": len(chosen), "cumulative": cumulative, "tickets": chosen}
 
 def calculate_model(horses, p1):
-    numbers = [h["number"] for h in horses]
+    numbers = [h.get("display_key", h["number"]) for h in horses]
     p2, p3, triples, pairs, trios = plackett_luce(p1)
     order = sorted(range(len(horses)), key=lambda i: (-p1[i], numbers[i]))
     exact = max(triples, key=triples.get)

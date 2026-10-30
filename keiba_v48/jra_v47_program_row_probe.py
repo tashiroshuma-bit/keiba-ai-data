@@ -16,6 +16,7 @@ PDF_MAGIC = b"%PDF-"
 NO = re.compile(r"^(?:[1-9]|1[0-8])$")
 WEIGHT = re.compile(r"^(?:4[5-9]|5[0-9]|6[0-5])(?:\.\d)?$")
 HORSE_NAME = re.compile(r"^[ァ-ヿぁ-ゖ一-龯ー・･]{2,20}$")
+HORSE_PART = re.compile(r"^[ァ-ヿぁ-ゖ一-龯ー・･]{1,20}$")
 TIME_DIRECT = re.compile(r"(?<!\d)([89]|1[0-8])\s*時\s*([0-5]?\d)\s*分")
 TIME_REVERSED = re.compile(r"分\s*([0-5]?\d)\s*時\s*([89]|1[0-8])")
 RACE = re.compile(r"(?<!\d)(1[0-2]|[1-9])\s*R\b|\bR\s*(1[0-2]|[1-9])(?!\d)", re.I)
@@ -43,6 +44,33 @@ def _spans(page, x0: float, x1: float):
                                 "y": (y_a + y_b) / 2 - page.rect.y0,
                                 "size": s.get("size", 0.0)})
     return out
+
+
+def _name_from_same_baseline(row: list[dict], width: float, height: float) -> tuple[str | None, int]:
+    """Research-only reconstruction of PDF glyphs spaced into separate spans.
+
+    Reject baseline disagreement and overlapping spans rather than joining
+    arbitrary nearby Japanese text. The independent roster must still verify
+    the reconstructed name; this is not a trusted official ID.
+    """
+    parts = sorted((s for s in row if .15 * width <= s["x"] <= .53 * width
+                    and s["size"] >= 7 and HORSE_PART.fullmatch(s["text"])),
+                   key=lambda s: s["x"])
+    if not parts:
+        return None, 0
+    if max(s["y"] for s in parts) - min(s["y"] for s in parts) > .006 * height:
+        return None, len(parts)
+    for prev, cur in zip(parts, parts[1:]):
+        # Approximate Japanese glyph advance by its font size. Two complete
+        # names printed on top of one another must not be concatenated.
+        prev_right = prev["x"] + len(prev["text"]) * prev["size"] * .48
+        cur_left = cur["x"] - len(cur["text"]) * cur["size"] * .48
+        if prev_right >= cur_left:
+            return None, len(parts)
+    name = "".join(s["text"] for s in parts).replace("･", "・")
+    if not HORSE_NAME.fullmatch(name):
+        return None, len(parts)
+    return name, len(parts)
 
 
 def _race_column(page, page_no: int, col: int) -> dict:
@@ -94,14 +122,14 @@ def _race_column(page, page_no: int, col: int) -> dict:
         # name/weight in several real columns. Adjacent horse rows are
         # separated by >=.05 heights in the observed sample.
         row = [s for s in spans if abs(s["y"] - a["y"]) <= .021 * H]
-        names = [s["text"] for s in row if .15 * W <= s["x"] <= .51 * W
-                 and HORSE_NAME.fullmatch(s["text"]) and s["size"] >= 7]
+        name, name_parts = _name_from_same_baseline(row, W, H)
         weights = [s["text"] for s in row if .49 * W <= s["x"] <= .66 * W
                    and WEIGHT.fullmatch(s["text"])]
         runners.append({"horse_number_candidate": n,
-                        "horse_name_candidate": names[0] if len(names) == 1 else None,
+                        "horse_name_candidate": name,
                         "weight_candidate": float(weights[0]) if len(weights) == 1 else None,
-                        "name_candidate_count": len(names),
+                        "name_candidate_count": 1 if name is not None else name_parts,
+                        "name_part_count": name_parts,
                         "weight_candidate_count": len(weights),
                         "anchor_y_fraction": round(a["y"] / H, 5)})
     if not runners:

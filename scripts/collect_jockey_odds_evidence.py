@@ -36,4 +36,4 @@ for name,code in targets:
  try:
   raw,at=fetch(url);out["odds"].append({"race":name,"url":url,"at":at,"sha256":hashlib.sha256(raw).hexdigest(),"text":raw.decode("utf-8",errors="replace")})
  except Exception as e:out["odds"].append({"race":name,"url":url,"error":str(e)})
-p=root/"reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_EVIDENCE.json";p.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")
+p=root/("reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_"+dt.datetime.now(dt.timezone.utc).strftime("%Y%m%dT%H%M%SZ")+".json");p.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")

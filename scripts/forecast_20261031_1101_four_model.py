@@ -68,10 +68,10 @@ PROGRAM = {
 
 def get(url: str) -> bytes:
     last = None
-    for attempt in range(4):
+    for attempt in range(1 if "muryou-keiba-ai.jp" in url else 2):
         try:
             req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; KeibaResearchFreeze/1.0)"})
-            with urlopen(req, timeout=30) as response:
+            with urlopen(req, timeout=8 if "muryou-keiba-ai.jp" in url else 15) as response:
                 return response.read()
         except HTTPError as exc:
             if exc.code == 403:
@@ -395,7 +395,20 @@ def calculate_model(horses, p1):
 
 def main():
     model, model_sha = load_model()
-    ext_pages, listing_sha = external_listing()
+    listing_error = None
+    try:
+        ext_pages, listing_sha = external_listing()
+    except Exception as exc:
+        ext_pages, listing_sha = {}, None
+        listing_error = str(exc)
+    external_cache = {}
+    for cached_date in MEETINGS:
+        cached_path = BASE / "operations/predictions" / cached_date / "preoff_20261030T211246+0900.json"
+        if cached_path.exists():
+            cached = json.loads(cached_path.read_text())
+            for r in cached.get("races", []):
+                if r.get("external_indices") and r.get("external_sha256"):
+                    external_cache[(cached_date,r["track"],r["race_number"])]=dict(r, external_observed_at=cached.get("captured_at"))
     commit = "${GITHUB_SHA}" if "${GITHUB_SHA}" != "$" + "{GITHUB_SHA}" else None
     all_summary = []
     for date, tracks in MEETINGS.items():
@@ -421,6 +434,14 @@ def main():
                         ext_rows, page_updated, ext_sha = parse_external(ext_pages[key], date, track, race)
                     except Exception as exc:
                         ext_error = str(exc)
+                    external_observed_at = NOW.isoformat() if ext_rows else None
+                    external_cache_used = False
+                    if not ext_rows and key in external_cache:
+                        cache = external_cache[key]
+                        ext_rows=cache["external_indices"]; ext_sha=cache["external_sha256"]
+                        page_updated=cache.get("external_page_updated_at")
+                        external_observed_at=cache.get("external_observed_at")
+                        external_cache_used=True
                     roster_method = "JRA_OFFICIAL_CARD_CAREER_TOTALS_PROXY"
                     weather = going = None
                     try:
@@ -469,6 +490,7 @@ def main():
                         "independent_roster_source": secondary_url, "independent_roster_sha256": secondary_sha,
                         "external_source": ext_pages.get(key), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
                         "external_error": ext_error, "external_indices": external_indices, "models": models,
+                        "external_cache_used": external_cache_used, "external_observed_at": external_observed_at,
                     })
                     print("OK", date, track, race, len(horses), flush=True)
                 except Exception as exc:
@@ -490,7 +512,7 @@ def main():
             "program_source": PROGRAM[date], "official_full_card_independently_replayed": official_covered == 23,
             "canonical_db": {"version": 10, "size_bytes": 322121728, "sha256_expected": DB_SHA, "sha256_observed_this_run": None},
             "active_model": {"sha256": ACTIVE_SHA, "strict_production_validated": False, "live_bet_generation": False, "changed": False},
-            "research_model_sha256": model_sha, "external_listing_sha256": listing_sha,
+            "research_model_sha256": model_sha, "external_listing_sha256": listing_sha, "external_listing_error": listing_error,
             "input_snapshot_sha256": input_sha,
             "weights": WEIGHTS, "external_temperature": 20, "placing_approximation": "Plackett-Luce",
             "ticket_thresholds": THRESHOLDS, "per_race_budget_yen_max": 10000, "actual_purchase": False,

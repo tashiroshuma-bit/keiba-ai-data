@@ -160,11 +160,27 @@ def external_listing():
         url = urljoin("https://muryou-keiba-ai.jp", a["href"])
         if url.startswith("https://muryou-keiba-ai.jp/predict/2026/"):
             found[(date, m.group(1), int(m.group(3)))] = url
+    # The public race pages for this weekend are sequential.  Populate all
+    # expected pages, but parse_external still verifies date/track/race text so
+    # a changed or incorrect URL fails closed instead of binding the wrong race.
+    bases = {
+        ("2026-10-31", "東京"): 25260,
+        ("2026-10-31", "京都"): 25272,
+        ("2026-11-01", "東京"): 25284,
+        ("2026-11-01", "京都"): 25296,
+    }
+    for (date, track), base in bases.items():
+        for race in range(1, 13):
+            found.setdefault((date, track, race), f"https://muryou-keiba-ai.jp/predict/2026/10/29/{base + race}/")
     return found, hashlib.sha256(raw).hexdigest()
 
-def parse_external(url):
+def parse_external(url, date, track, race):
     raw = get(url)
     soup = BeautifulSoup(raw, "html.parser")
+    page_text = soup.get_text(" ", strip=True)
+    jpdate = f"{date[:4]}年{int(date[5:7])}月{int(date[8:])}日"
+    if jpdate not in page_text or track not in page_text or f"{race}R" not in page_text:
+        raise ValueError("EXTERNAL_PAGE_IDENTITY_MISMATCH")
     updated = None
     m = re.search(r"競馬予想の更新日：\s*(\d{4})年\s*(\d{1,2})月\s*(\d{1,2})日\s*(\d{1,2})時\s*(\d{1,2})分", soup.get_text(" ", strip=True))
     if m:
@@ -175,13 +191,15 @@ def parse_external(url):
         if "AI予想" not in header:
             continue
         for tr in table.select("tr"):
-            cells = [x.get_text(" ", strip=True) for x in tr.find_all(["th", "td"], recursive=False)]
+            dom = tr.find_all(["th", "td"], recursive=False)
+            cells = [x.get_text(" ", strip=True) for x in dom]
             if len(cells) < 4 or not cells[0].strip().isdigit():
                 continue
             score = re.search(r"(\d+(?:\.\d+)?)", cells[-1])
             if score:
-                raw_name = re.sub(r"(?:軸|紐|穴|消|◎|○|▲|△|☆)+.*$", "", cells[1]).strip()
-                rows.append({"number": int(cells[0]), "name_raw": raw_name, "index": float(score.group(1)), "mark_raw": cells[-1]})
+                links = [a.get_text(" ", strip=True) for a in dom[1].find_all("a") if a.get_text(" ", strip=True)]
+                raw_name = links[0] if links else re.sub(r"(?:軸|紐|穴|消|◎|○|▲|△|☆)+.*$", "", cells[1]).strip()
+                rows.append({"number": int(cells[0]), "name": raw_name, "index": float(score.group(1)), "mark_raw": cells[-1]})
         if rows:
             break
     if not rows:
@@ -249,25 +267,45 @@ def main():
                     failures.append({"track": track, "race": race, "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"})
                     continue
                 try:
-                    horses, roster_url, roster_sha = parse_internal_roster(date, track, meta["code"], race)
-                    p_internal = internal_probabilities(model, horses, track, surface)
                     key = (date, track, race)
-                    if key not in ext_pages:
-                        raise ValueError("EXTERNAL_PAGE_NOT_FOUND")
-                    ext_rows, page_updated, ext_sha = parse_external(ext_pages[key])
-                    by_no = {x["number"]: x for x in ext_rows}
-                    if set(by_no) != {h["number"] for h in horses}:
-                        raise ValueError("EXTERNAL_ROSTER_MISMATCH")
-                    p_external = softmax([by_no[h["number"]]["index"] for h in horses])
-                    models = {}
-                    for label, (wi, we) in WEIGHTS.items():
-                        mixed = [wi * a + we * b for a, b in zip(p_internal, p_external)]
-                        models[label] = calculate_model(horses, mixed)
+                    ext_rows = page_updated = ext_sha = None
+                    ext_error = None
+                    try:
+                        if key not in ext_pages:
+                            raise ValueError("EXTERNAL_PAGE_NOT_FOUND")
+                        ext_rows, page_updated, ext_sha = parse_external(ext_pages[key], date, track, race)
+                    except Exception as exc:
+                        ext_error = str(exc)
+                    roster_method = "CAREER_TOTALS_PROXY"
+                    try:
+                        horses, roster_url, roster_sha = parse_internal_roster(date, track, meta["code"], race)
+                    except Exception as roster_exc:
+                        if not ext_rows:
+                            raise ValueError(f"ROSTER_UNAVAILABLE:{roster_exc};EXTERNAL:{ext_error}")
+                        horses = [{"number": x["number"], "name": x["name"], "starts": 0, "wins": 0, "seconds": 0, "thirds": 0} for x in ext_rows]
+                        roster_url, roster_sha = ext_pages[key], ext_sha
+                        roster_method = "EXTERNAL_ROSTER_NO_HISTORY_TIE"
+                    p_internal = internal_probabilities(model, horses, track, surface)
+                    models = {"A": calculate_model(horses, p_internal)}
+                    if not ext_rows:
+                        models.update({label: None for label in ("B", "C", "D")})
+                        external_indices = None
+                    else:
+                        by_no = {x["number"]: x for x in ext_rows}
+                        if set(by_no) != {h["number"] for h in horses}:
+                            raise ValueError("EXTERNAL_ROSTER_MISMATCH")
+                        p_external = softmax([by_no[h["number"]]["index"] for h in horses])
+                        for label, (wi, we) in WEIGHTS.items():
+                            if label == "A":
+                                continue
+                            mixed = [wi * a + we * b for a, b in zip(p_internal, p_external)]
+                            models[label] = calculate_model(horses, mixed)
+                        external_indices = ext_rows
                     races.append({
                         "race": f"{track}{race}R", "track": track, "race_number": race, "surface": surface,
-                        "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha,
-                        "external_source": ext_pages[key], "external_sha256": ext_sha, "external_page_updated_at": page_updated,
-                        "external_indices": ext_rows, "models": models,
+                        "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,
+                        "external_source": ext_pages.get(key), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
+                        "external_error": ext_error, "external_indices": external_indices, "models": models,
                     })
                     print("OK", date, track, race, len(horses), flush=True)
                 except Exception as exc:
@@ -297,7 +335,11 @@ def main():
         for r in top + [x for x in graded if x not in top]:
             lines += [f"### {r['race']}", "", "|方式|◎|p1|○|▲|☆|△|順序|単/馬連/3連複|", "|---|---|---:|---|---|---|---|---|---:|"]
             for label in WEIGHTS:
-                m = r["models"][label]; h = m["horses"][0]; marks = m["marks"]
+                m = r["models"][label]
+                if m is None:
+                    lines.append(f"|{label}|未算出|—|—|—|—|—|—|—|")
+                    continue
+                h = m["horses"][0]; marks = m["marks"]
                 lines.append(f"|{label}|{marks.get('◎')} {h['name']}|{h['p1']:.2%}|{marks.get('○')}|{marks.get('▲')}|{marks.get('☆')}|{marks.get('△')}|{'→'.join(map(str,m['ordered_top3']))}|{m['priority']['single']['count']}/{m['priority']['quinella']['count']}/{m['priority']['trio']['count']}|")
             lines += ["", "研究用買い目金額: 0円（発走前オッズ欠損・未校正。1レース最大1万円を無理に使用しない）", ""]
         if failures:

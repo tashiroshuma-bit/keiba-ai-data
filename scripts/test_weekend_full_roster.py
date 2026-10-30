@@ -1,13 +1,15 @@
 import ast
 import datetime as dt
 import re
+import itertools
+import math
 from pathlib import Path
 import unittest
 from bs4 import BeautifulSoup
 source = Path(__file__).with_name('forecast_20261031_1101_four_model.py').read_text()
 tree = ast.parse(source)
-names = {'row_number_and_frame','validate_complete_field','parse_official_html'}
-namespace = {'re':re,'dt':dt,'JST':dt.timezone(dt.timedelta(hours=9)), 'BeautifulSoup':BeautifulSoup, 'NOW':dt.datetime(2026,10,31,tzinfo=dt.timezone(dt.timedelta(hours=9)))}
+names = {'row_number_and_frame','validate_complete_field','parse_official_html','calculate_model','plackett_luce','threshold'}
+namespace = {'re':re,'dt':dt,'JST':dt.timezone(dt.timedelta(hours=9)), 'BeautifulSoup':BeautifulSoup, 'itertools':itertools, 'math':math, 'THRESHOLDS':{'single':.8,'quinella':.5,'trio':.6,'wide':.5}, 'NOW':dt.datetime(2026,10,31,tzinfo=dt.timezone(dt.timedelta(hours=9)))}
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in names],type_ignores=[]), '<parser>', 'exec'),namespace)
 class FullRosterTest(unittest.TestCase):
     def fixture(self,n=16):
@@ -30,6 +32,18 @@ class FullRosterTest(unittest.TestCase):
         h,*_=namespace['parse_official_html'](html,'2026-10-31','東京',1)
         self.assertEqual(len(h),16)
         self.assertTrue(all(x['assigned_weight_kg']==56 for x in h))
+    def test_wide_union_matches_enumerated_triples(self):
+        weights=[.4,.3,.2,.1]
+        horses=[{'number':i+1,'name':f'馬{i+1}'} for i in range(4)]
+        out=namespace['calculate_model'](horses,weights)
+        _,_,triples,_,_=namespace['plackett_luce'](weights)
+        chosen=[]
+        for ticket in out['priority']['wide']['tickets']:
+            chosen.append(set(ticket['numbers']))
+            exact=sum(q for triple,q in triples.items() if any(pair.issubset({i+1 for i in triple}) for pair in chosen))
+            self.assertAlmostEqual(ticket['cumulative'],exact)
+        for key in ('p1','p2','p3'):
+            self.assertAlmostEqual(sum(h[key] for h in out['horses']),1)
     def test_reject_old_odd_only_subset(self):
         with self.assertRaisesRegex(ValueError,'FIELD_NUMBER_GAPS'):
             namespace['validate_complete_field']([{'number':n,'name':f'馬{n}'} for n in range(1,17,2)])

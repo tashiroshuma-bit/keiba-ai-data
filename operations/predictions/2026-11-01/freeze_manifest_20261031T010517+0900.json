@@ -1,0 +1,7 @@
+{
+  "json": "operations/predictions/2026-11-01/preoff_20261031T010517+0900.json",
+  "json_sha256": "67399899c613be77aa1f216ac3a1f9d303f87d206743fda9daf2ae3cf3202eb6",
+  "report": "operations/predictions/2026-11-01/REPORT_20261031T010517+0900.md",
+  "report_sha256": "d61da9259686bef2feda01f15364bcbaae3cc642b3fdac94c58b67c3ccffdedb",
+  "verified_reread": true
+}

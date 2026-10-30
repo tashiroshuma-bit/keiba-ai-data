@@ -188,9 +188,8 @@ def parse_official_html(raw, date, track, race):
                               "jockey": jockey, "trainer": trainer, "assigned_weight_kg": assigned_weight,
                               "career_missing": record is None, "withdrawn": bool(re.search(r"出走取消|競走除外|取消|除外", tr.get_text(" ", strip=True))),
                               "starts": w + second + third + other if record else None, "wins": w, "seconds": second, "thirds": third})
-        if candidate:
+        if candidate and (not horses or sum(not h.get("career_missing") for h in candidate) > sum(not h.get("career_missing") for h in horses)):
             horses = candidate
-            break
     validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     # Headers precede horse histories. Do not mistake a past race's going for today's.
     prefix = text[:text.index(horses[0]["name"])][-2500:]
@@ -217,6 +216,24 @@ def parse_official_html(raw, date, track, race):
 def parse_official_roster(url, date, track, race):
     raw = get(url)
     horses, weather, going, surface, off_at = parse_official_html(raw, date, track, race)
+    if any(h.get("career_missing") for h in horses):
+        soup=BeautifulSoup(raw,"html.parser")
+        detail_link=next((a for a in soup.find_all("a",href=True) if "詳細出馬表" in a.get_text(" ",strip=True)),None)
+        if detail_link:
+            detail_url=urljoin(url,detail_link["href"])
+            detail_raw=get(detail_url)
+            detailed,*_=parse_official_html(detail_raw,date,track,race)
+            by_name={re.sub(r"[\s　]","",h["name"]):h for h in detailed}
+            if set(by_name)!={re.sub(r"[\s　]","",h["name"]) for h in horses}:
+                raise ValueError("DETAIL_FULL_ROSTER_MISMATCH")
+            for h in horses:
+                other=by_name[re.sub(r"[\s　]","",h["name"])]
+                if h.get("career_missing") and not other.get("career_missing"):
+                    for stat in ("starts","wins","seconds","thirds"):
+                        h[stat]=other[stat]
+                    h["career_missing"]=False
+                    h["career_source"]=detail_url
+                    h["career_source_sha256"]=hashlib.sha256(detail_raw).hexdigest()
     return horses, hashlib.sha256(raw).hexdigest(), weather, going, surface, off_at
 
 
@@ -247,6 +264,24 @@ def parse_internal_roster(date, track, code, race):
             horses.append({"number":number,"name":link.get_text(" ",strip=True),"starts":w+se+t+o,"wins":w,"seconds":se,"thirds":t})
         if horses:
             break
+    if not horses:
+        url="https://sports.yahoo.co.jp/keiba/race/denma/"+code+f"{race:02d}"
+        raw=get(url); soup=BeautifulSoup(raw,"html.parser")
+        if jpdate not in soup.get_text(" ",strip=True):
+            raise ValueError("SECONDARY_DATE_MISMATCH")
+        for table in soup.select("table"):
+            if "馬名" not in table.get_text(" ",strip=True):
+                continue
+            for tr in table.select("tr"):
+                cells=tr.find_all(["td","th"],recursive=False)
+                ix=next((i for i,c in enumerate(cells) if c.select_one("a[href*='/horse/']")),None)
+                if ix is None: continue
+                number,_=row_number_and_frame(cells,ix)
+                link=cells[ix].select_one("a[href*='/horse/']")
+                horses.append({"number":number,"name":link.get_text(" ",strip=True),"starts":None,"wins":None,"seconds":None,"thirds":None})
+            if horses: break
+    if not horses:
+        raise ValueError("SECONDARY_EMPTY:"+repr([(t.get_text(" ",strip=True)[:250], [a.get("href") for a in t.select("a")[:3]]) for t in soup.select("table")[:2]]))
     validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     return horses, url, hashlib.sha256(raw).hexdigest()
 
@@ -432,9 +467,7 @@ def main():
                 failures.append({"track": track, "race": None, "reason": f"JRA_MEETING_UNAVAILABLE:{exc}"})
             for race in range(1, 13):
                 surface = meta["surface"][race - 1]
-                if surface == "obstacle":
-                    failures.append({"track": track, "race": race, "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"})
-                    continue
+                is_obstacle = surface == "obstacle"
                 try:
                     key = (date, track, race)
                     ext_rows = page_updated = ext_sha = None
@@ -476,9 +509,21 @@ def main():
                     secondary_by_name={norm(h["name"]):h for h in secondary}
                     for horse in horses:
                         if horse.get("career_missing"):
+                            if secondary_by_name[norm(horse["name"])].get("starts") is None:
+                                raise ValueError("CAREER_FEATURES_NOT_PUBLISHED:"+horse["name"])
                             for stat in ("starts","wins","seconds","thirds"):
                                 horse[stat]=secondary_by_name[norm(horse["name"])][stat]
                             horse["career_source"]=secondary_url
+                    if is_obstacle:
+                        races.append({"race":f"{track}{race}R","track":track,"race_number":race,"surface":"obstacle",
+                                      "runner_count":sum(not h.get("withdrawn") for h in horses),"declared_runner_count":len(horses),
+                                      "runners":horses,"horse_numbers_published":numbered,"roster_source":roster_url,"roster_sha256":roster_sha,
+                                      "roster_method":roster_method,"independent_roster_source":secondary_url,"independent_roster_sha256":secondary_sha,
+                                      "weather_observed":weather,"going_observed":going,"off_at":off_at,
+                                      "external_sha256":None,"external_indices":None,"models":{label:None for label in WEIGHTS}})
+                        failures.append({"track":track,"race":race,"reason":"OBSTACLE_ROSTER_VERIFIED_MODEL_OUT_OF_DOMAIN"})
+                        print("ROSTER_ONLY",date,track,race,len(horses),flush=True)
+                        continue
                     active_horses=[h for h in horses if not h.get("withdrawn")]
                     p_internal = internal_probabilities(model, active_horses, track, surface)
                     models = {"A": calculate_model(active_horses, p_internal)}
@@ -526,14 +571,14 @@ def main():
         payload = {
             "schema": "keiba-weekend-four-model-research-freeze-v1", "date": date,
             "captured_at": NOW.isoformat(), "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
-            "program_source": PROGRAM[date], "official_full_card_independently_replayed": official_covered == 23,
+            "program_source": PROGRAM[date], "official_full_card_independently_replayed": official_covered == 24,
             "canonical_db": {"version": 10, "size_bytes": 322121728, "sha256_expected": DB_SHA, "sha256_observed_this_run": None},
             "active_model": {"sha256": ACTIVE_SHA, "strict_production_validated": False, "live_bet_generation": False, "changed": False},
             "research_model_sha256": model_sha, "external_listing_sha256": listing_sha, "external_listing_error": listing_error,
             "input_snapshot_sha256": input_sha,
             "weights": WEIGHTS, "external_temperature": 20, "placing_approximation": "Plackett-Luce",
             "ticket_thresholds": THRESHOLDS, "per_race_budget_yen_max": 10000, "actual_purchase": False,
-            "covered_flat_races": len(races), "failures": failures, "races": races,
+            "covered_flat_races": sum(r["models"].get("A") is not None for r in races), "covered_rosters":len(races), "failures": failures, "races": races,
         }
         raw = json.dumps(payload, ensure_ascii=False, indent=2) + "\n"
         payload_sha = hashlib.sha256(raw.encode()).hexdigest()
@@ -542,13 +587,17 @@ def main():
         stamp = NOW.strftime("%Y%m%dT%H%M%S%z")
         json_path = outdir / f"preoff_{stamp}.json"
         json_path.write_text(raw, encoding="utf-8")
-        top = sorted(races, key=lambda r: -r["models"]["A"]["horses"][0]["p1"])[:5]
+        top = sorted([r for r in races if r["models"].get("A")], key=lambda r: -r["models"]["A"]["horses"][0]["p1"])[:5]
         graded = [r for r in races if (date == "2026-10-31" and r["race"] == "京都11R") or (date == "2026-11-01" and r["race"] == "東京11R")]
-        gate_text = "公式全出馬表を再読込確認済み" if official_covered == 23 else f"公式出馬表確認 {official_covered}/23R（未通過）"
+        gate_text = "公式全出馬表を再読込確認済み" if official_covered == 24 else f"公式出馬表確認 {official_covered}/24R（未通過）"
         lines = [f"# {date} JRA平地4モデル前日研究予測", "", f"固定時刻: {NOW.isoformat()}", "", f"正式モデルではなく、通算成績代理特徴量による研究シャドー。{gate_text}。", "", f"対象 {len(races)}R／未算出・除外 {len(failures)}R。入力SHA256 `{input_sha}`、予測JSON SHA256 `{payload_sha}`、モデルSHA256 `{model_sha}`。", "", "## 上位5レース＋重賞", ""]
         lines += ["## 全レース一覧（モデル内確率・実測的中率ではありません）", "", "|レース|頭数|A本命|単勝1点|馬連1点|ワイド1点|3連複1点|B/C/D|", "|---|---:|---|---:|---:|---:|---:|---|"]
         for r in races:
-            m=r["models"]["A"]; h=m["horses"][0]; pr=m["priority"]
+            m=r["models"]["A"]
+            if m is None:
+                lines.append(f"|{r['race']}|{r['runner_count']}|障害・全頭照合済み／予測モデル対象外|—|—|—|—|対象外|")
+                continue
+            h=m["horses"][0]; pr=m["priority"]
             availability="/".join("計算済" if r["models"].get(label) else "欠損" for label in ("B","C","D"))
             lines.append(f"|{r['race']}|{r['runner_count']}|{h['number']} {h['name']}|{h['p1']:.2%}|{pr['quinella']['tickets'][0]['p']:.2%}|{pr['wide']['tickets'][0]['p']:.2%}|{pr['trio']['tickets'][0]['p']:.2%}|{availability}|")
         lines += ["", "## ベスト5・重賞の全優先組合せ", "", "単勝累積80%、馬連50%、ワイドの少なくとも1点50%、3連複60%まで。ワイドの重複的中は和集合で計算。未校正の研究参考値。", ""]

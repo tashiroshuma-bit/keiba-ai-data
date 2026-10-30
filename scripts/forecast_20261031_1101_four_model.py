@@ -370,14 +370,21 @@ def calculate_model(horses, p1):
     pair_no = {tuple(sorted((numbers[i], numbers[j]))): p for (i, j), p in pairs.items()}
     trio_no = {tuple(sorted((numbers[i], numbers[j], numbers[k]))): p for (i, j, k), p in trios.items()}
     ranked = [{"number": numbers[i], "name": horses[i]["name"], "p1": p1[i], "p2": p2[i], "p3": p3[i]} for i in order]
-    wide_no = {pair: sum(q for ix,q in triples.items() if set(pair).issubset({numbers[i] for i in ix})) for pair in pair_no}
-    wide_tickets, chosen_pairs, union = [], [], 0.0
+    wide_no = {pair: 0.0 for pair in pair_no}
+    for trio, probability in trio_no.items():
+        for pair in itertools.combinations(trio, 2):
+            wide_no[pair] += probability
+    wide_tickets, union = [], 0.0
+    uncovered = dict(trio_no)
     for pair, probability in sorted(wide_no.items(), key=lambda x: (-x[1], x[0])):
-        chosen_pairs.append(set(pair))
-        union = sum(q for ix,q in triples.items() if any(pair.issubset({numbers[i] for i in ix}) for pair in chosen_pairs))
+        hit_trios = [trio for trio in uncovered if all(n in trio for n in pair)]
+        union += sum(uncovered.pop(trio) for trio in hit_trios)
         wide_tickets.append({"numbers":list(pair),"p":probability,"cumulative":union})
         if union >= THRESHOLDS["wide"]:
             break
+    for column in (p1, p2, p3):
+        if not all(math.isfinite(x) and 0 <= x <= 1 for x in column) or abs(sum(column)-1) > 1e-8:
+            raise ValueError("INVALID_FULL_FIELD_PROBABILITY_MASS")
     return {
         "ordered_top3_probability": triples[exact],
         "marks": dict(zip(["◎","○","▲","☆","△"], [r["number"] for r in ranked[:5]])),

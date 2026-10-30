@@ -1,0 +1,2365 @@
+{
+  "schema": "keiba-weekend-four-model-research-freeze-v1",
+  "date": "2026-10-31",
+  "captured_at": "2026-10-30T21:18:59.821640+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "program_source": "https://www.jra.go.jp/keiba/calendar2026/2026/10/1031.html",
+  "official_full_card_independently_replayed": false,
+  "canonical_db": {
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed_outside_action": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc"
+  },
+  "active_model": {
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed": false
+  },
+  "research_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "external_listing_sha256": "4ca1eadc351918342d4db54f0d5dc59e0f7793734809d52598b578d9ccaf8858",
+  "input_snapshot_sha256": "f120e6ac54edac037eab84203c2687e30cae8064b6347ccb147d54606c37ca66",
+  "weights": {
+    "A": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "external_temperature": 20,
+  "placing_approximation": "Plackett-Luce",
+  "ticket_thresholds": {
+    "single": 0.4,
+    "quinella": 0.25,
+    "trio": 0.3
+  },
+  "per_race_budget_yen_max": 10000,
+  "actual_purchase": false,
+  "covered_flat_races": 2,
+  "failures": [
+    {
+      "track": "東京",
+      "race": 1,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 11,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    }
+  ],
+  "races": [
+    {
+      "race": "東京3R",
+      "track": "東京",
+      "race_number": 3,
+      "surface": "turf",
+      "runner_count": 8,
+      "roster_source": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202604100320261031/6B",
+      "roster_sha256": "27bb029f243f39d67eb68b9e031316ed72e42976642f821c6cd41278bea25ee9",
+      "roster_method": "JRA_OFFICIAL_CARD_CAREER_TOTALS_PROXY",
+      "jra_meeting_seed_sha256": "c062f0e36f1f0ce3636d34635c7f54ff3343e63153798e0cf2ee14d9b100cf37",
+      "weather_observed": "曇",
+      "going_observed": "良",
+      "runners": [
+        {
+          "number": 1,
+          "frame": 1,
+          "name": "フィニート",
+          "jockey": "石橋脩",
+          "trainer": "小手川準",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 2,
+          "frame": 2,
+          "name": "グランドストーリー",
+          "jockey": "菊沢一樹",
+          "trainer": "金成貴史",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 1
+        },
+        {
+          "number": 3,
+          "frame": 3,
+          "name": "スカイミラー",
+          "jockey": "津村明秀",
+          "trainer": "和田正一郎",
+          "assigned_weight_kg": 56.0,
+          "starts": 2,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 4,
+          "frame": 4,
+          "name": "リカジョンファンク",
+          "jockey": "大野拓弥",
+          "trainer": "三樹祐輔",
+          "assigned_weight_kg": 56.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 5,
+          "frame": 5,
+          "name": "ゴールドテソーロ",
+          "jockey": "菅原明良",
+          "trainer": "高木登",
+          "assigned_weight_kg": 56.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 6,
+          "frame": 6,
+          "name": "アオイゲート",
+          "jockey": "丹内祐次",
+          "trainer": "伊藤圭三",
+          "assigned_weight_kg": 55.0,
+          "starts": 2,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 1
+        },
+        {
+          "number": 7,
+          "frame": 7,
+          "name": "サラサシンシアズ",
+          "jockey": "横山武史",
+          "trainer": "古賀慎明",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 8,
+          "frame": 8,
+          "name": "アトミックリーチ",
+          "jockey": "C.ルメール",
+          "trainer": "宮田敬介",
+          "assigned_weight_kg": 56.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        }
+      ],
+      "external_source": "https://muryou-keiba-ai.jp/predict/2026/10/29/25263/",
+      "external_sha256": "255ab95b1c2a2bd29c06f33893f197d5e0bd43b5f53af40282e5c2e852059d28",
+      "external_page_updated_at": "2026-10-30T17:07:00+09:00",
+      "external_error": null,
+      "external_indices": [
+        {
+          "number": 8,
+          "name": "アトミックリーチ",
+          "index": 74.0,
+          "mark_raw": "◎ 74.0"
+        },
+        {
+          "number": 2,
+          "name": "グランドストーリー",
+          "index": 66.5,
+          "mark_raw": "○ 66.5"
+        },
+        {
+          "number": 7,
+          "name": "サラサシンシアズ",
+          "index": 58.5,
+          "mark_raw": "▲ 58.5"
+        },
+        {
+          "number": 4,
+          "name": "リカジョンファンク",
+          "index": 55.2,
+          "mark_raw": "△ 55.2"
+        },
+        {
+          "number": 6,
+          "name": "アオイゲート",
+          "index": 52.0,
+          "mark_raw": "☆ 52.0"
+        },
+        {
+          "number": 5,
+          "name": "ゴールドテソーロ",
+          "index": 37.3,
+          "mark_raw": "37.3"
+        },
+        {
+          "number": 1,
+          "name": "フィニート",
+          "index": 34.5,
+          "mark_raw": "34.5"
+        },
+        {
+          "number": 3,
+          "name": "スカイミラー",
+          "index": 30.6,
+          "mark_raw": "30.6"
+        }
+      ],
+      "models": {
+        "A": {
+          "marks": {
+            "◎": 2,
+            "○": 6,
+            "▲": 1,
+            "☆": 4,
+            "△": 5
+          },
+          "ordered_top3": [
+            2,
+            6,
+            1
+          ],
+          "horses": [
+            {
+              "number": 2,
+              "name": "グランドストーリー",
+              "p1": 0.15604108786625345,
+              "p2": 0.14980605439338626,
+              "p3": 0.14285351468179044
+            },
+            {
+              "number": 6,
+              "name": "アオイゲート",
+              "p1": 0.12874135900208863,
+              "p2": 0.1283769394888858,
+              "p3": 0.12787755324888733
+            },
+            {
+              "number": 1,
+              "name": "フィニート",
+              "p1": 0.12167736409031787,
+              "p2": 0.12245614507220656,
+              "p3": 0.1233049306556398
+            },
+            {
+              "number": 4,
+              "name": "リカジョンファンク",
+              "p1": 0.12167736409031787,
+              "p2": 0.12245614507220659,
+              "p3": 0.12330493065563981
+            },
+            {
+              "number": 5,
+              "name": "ゴールドテソーロ",
+              "p1": 0.12167736409031787,
+              "p2": 0.12245614507220659,
+              "p3": 0.12330493065563981
+            },
+            {
+              "number": 7,
+              "name": "サラサシンシアズ",
+              "p1": 0.12167736409031787,
+              "p2": 0.12245614507220659,
+              "p3": 0.12330493065563981
+            },
+            {
+              "number": 8,
+              "name": "アトミックリーチ",
+              "p1": 0.12167736409031787,
+              "p2": 0.12245614507220659,
+              "p3": 0.12330493065563981
+            },
+            {
+              "number": 3,
+              "name": "スカイミラー",
+              "p1": 0.10683073268006857,
+              "p2": 0.10953628075669537,
+              "p3": 0.11274427879112346
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.40645981095865996,
+              "tickets": [
+                {
+                  "numbers": [
+                    2
+                  ],
+                  "p": 0.15604108786625345,
+                  "cumulative": 0.15604108786625345
+                },
+                {
+                  "numbers": [
+                    6
+                  ],
+                  "p": 0.12874135900208863,
+                  "cumulative": 0.2847824468683421
+                },
+                {
+                  "numbers": [
+                    1
+                  ],
+                  "p": 0.12167736409031787,
+                  "cumulative": 0.40645981095865996
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 6,
+              "cumulative": 0.26743115781162313,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    6
+                  ],
+                  "p": 0.0468606026058524,
+                  "cumulative": 0.0468606026058524
+                },
+                {
+                  "numbers": [
+                    1,
+                    2
+                  ],
+                  "p": 0.044114111041154154,
+                  "cumulative": 0.09097471364700654
+                },
+                {
+                  "numbers": [
+                    2,
+                    4
+                  ],
+                  "p": 0.04411411104115415,
+                  "cumulative": 0.1350888246881607
+                },
+                {
+                  "numbers": [
+                    2,
+                    5
+                  ],
+                  "p": 0.04411411104115415,
+                  "cumulative": 0.17920293572931484
+                },
+                {
+                  "numbers": [
+                    2,
+                    7
+                  ],
+                  "p": 0.04411411104115415,
+                  "cumulative": 0.22331704677046899
+                },
+                {
+                  "numbers": [
+                    2,
+                    8
+                  ],
+                  "p": 0.04411411104115415,
+                  "cumulative": 0.26743115781162313
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 14,
+              "cumulative": 0.31279506179507277,
+              "tickets": [
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    6
+                  ],
+                  "p": 0.023290812774275554,
+                  "cumulative": 0.023290812774275554
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    6
+                  ],
+                  "p": 0.023290812774275554,
+                  "cumulative": 0.04658162554855111
+                },
+                {
+                  "numbers": [
+                    2,
+                    5,
+                    6
+                  ],
+                  "p": 0.023290812774275554,
+                  "cumulative": 0.06987243832282666
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    7
+                  ],
+                  "p": 0.023290812774275554,
+                  "cumulative": 0.09316325109710222
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    8
+                  ],
+                  "p": 0.023290812774275554,
+                  "cumulative": 0.11645406387137777
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    4
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.13826973030734388
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    5
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.16008539674331
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    7
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.1819010631792761
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    8
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.2037167296152422
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    5
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.2255323960512083
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.24734806248717442
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    8
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.26916372892314055
+                },
+                {
+                  "numbers": [
+                    2,
+                    5,
+                    7
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.29097939535910666
+                },
+                {
+                  "numbers": [
+                    2,
+                    5,
+                    8
+                  ],
+                  "p": 0.021815666435966108,
+                  "cumulative": 0.31279506179507277
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "B": {
+          "marks": {
+            "◎": 2,
+            "○": 8,
+            "▲": 7,
+            "☆": 6,
+            "△": 4
+          },
+          "ordered_top3": [
+            2,
+            8,
+            7
+          ],
+          "horses": [
+            {
+              "number": 2,
+              "name": "グランドストーリー",
+              "p1": 0.16935115577897264,
+              "p2": 0.16059028259058844,
+              "p3": 0.1506381768816413
+            },
+            {
+              "number": 8,
+              "name": "アトミックリーチ",
+              "p1": 0.1673836684020008,
+              "p2": 0.15920074793647282,
+              "p3": 0.14983515496145372
+            },
+            {
+              "number": 7,
+              "name": "サラサシンシアズ",
+              "p1": 0.12632939570421936,
+              "p2": 0.12728318562350516,
+              "p3": 0.12811119563324597
+            },
+            {
+              "number": 6,
+              "name": "アオイゲート",
+              "p1": 0.12189604531119806,
+              "p2": 0.12352077739183977,
+              "p3": 0.1251762096540671
+            },
+            {
+              "number": 4,
+              "name": "リカジョンファンク",
+              "p1": 0.12099481911993183,
+              "p2": 0.12274881322218964,
+              "p3": 0.12456525828434331
+            },
+            {
+              "number": 5,
+              "name": "ゴールドテソーロ",
+              "p1": 0.10340870389389782,
+              "p2": 0.10721525846260625,
+              "p3": 0.11167398597388717
+            },
+            {
+              "number": 1,
+              "name": "フィニート",
+              "p1": 0.10182131750966246,
+              "p2": 0.10577014688581224,
+              "p3": 0.11041970929139674
+            },
+            {
+              "number": 3,
+              "name": "スカイミラー",
+              "p1": 0.08881489428011705,
+              "p2": 0.09367078788698581,
+              "p3": 0.09958030931996474
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.4630642198851928,
+              "tickets": [
+                {
+                  "numbers": [
+                    2
+                  ],
+                  "p": 0.16935115577897264,
+                  "cumulative": 0.16935115577897264
+                },
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.1673836684020008,
+                  "cumulative": 0.33673482418097345
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.12632939570421936,
+                  "cumulative": 0.4630642198851928
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 5,
+              "cumulative": 0.26435404828289744,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    8
+                  ],
+                  "p": 0.06817110772013087,
+                  "cumulative": 0.06817110772013087
+                },
+                {
+                  "numbers": [
+                    2,
+                    7
+                  ],
+                  "p": 0.05024332759404352,
+                  "cumulative": 0.1184144353141744
+                },
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.049599456451668376,
+                  "cumulative": 0.16801389176584278
+                },
+                {
+                  "numbers": [
+                    2,
+                    6
+                  ],
+                  "p": 0.048360816165965374,
+                  "cumulative": 0.21637470793180816
+                },
+                {
+                  "numbers": [
+                    2,
+                    4
+                  ],
+                  "p": 0.04797934035108927,
+                  "cumulative": 0.26435404828289744
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 11,
+              "cumulative": 0.3137601228667958,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    7,
+                    8
+                  ],
+                  "p": 0.03681754570595667,
+                  "cumulative": 0.03681754570595667
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    8
+                  ],
+                  "p": 0.03532556806732944,
+                  "cumulative": 0.07214311377328611
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    8
+                  ],
+                  "p": 0.035024424079995065,
+                  "cumulative": 0.10716753785328118
+                },
+                {
+                  "numbers": [
+                    2,
+                    5,
+                    8
+                  ],
+                  "p": 0.029287909159770247,
+                  "cumulative": 0.13645544701305143
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    8
+                  ],
+                  "p": 0.02878276788568966,
+                  "cumulative": 0.16523821489874108
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    7
+                  ],
+                  "p": 0.025236479803633072,
+                  "cumulative": 0.19047469470237416
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "p": 0.025021341710920526,
+                  "cumulative": 0.21549603641329468
+                },
+                {
+                  "numbers": [
+                    6,
+                    7,
+                    8
+                  ],
+                  "p": 0.024875061576545853,
+                  "cumulative": 0.24037109798984052
+                },
+                {
+                  "numbers": [
+                    2,
+                    3,
+                    8
+                  ],
+                  "p": 0.024718632983963436,
+                  "cumulative": 0.26508973097380395
+                },
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.024663011285607023,
+                  "cumulative": 0.28975274225941094
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    6
+                  ],
+                  "p": 0.02400738060738484,
+                  "cumulative": 0.3137601228667958
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "C": {
+          "marks": {
+            "◎": 8,
+            "○": 2,
+            "▲": 7,
+            "☆": 4,
+            "△": 6
+          },
+          "ordered_top3": [
+            8,
+            2,
+            7
+          ],
+          "horses": [
+            {
+              "number": 8,
+              "name": "アトミックリーチ",
+              "p1": 0.21308997271368374,
+              "p2": 0.19167910603909086,
+              "p3": 0.16842291701309717
+            },
+            {
+              "number": 2,
+              "name": "グランドストーリー",
+              "p1": 0.18266122369169183,
+              "p2": 0.17294956006954523,
+              "p3": 0.16054542822190707
+            },
+            {
+              "number": 7,
+              "name": "サラサシンシアズ",
+              "p1": 0.13098142731812087,
+              "p2": 0.1335475973235737,
+              "p3": 0.13562418930977244
+            },
+            {
+              "number": 4,
+              "name": "リカジョンファンク",
+              "p1": 0.12031227414954579,
+              "p2": 0.12434853774990198,
+              "p3": 0.1284410545891902
+            },
+            {
+              "number": 6,
+              "name": "アオイゲート",
+              "p1": 0.11505073162030748,
+              "p2": 0.11968807855892281,
+              "p3": 0.12463583730670319
+            },
+            {
+              "number": 5,
+              "name": "ゴールドテソーロ",
+              "p1": 0.08514004369747777,
+              "p2": 0.09171726381859577,
+              "p3": 0.09972787789445446
+            },
+            {
+              "number": 1,
+              "name": "フィニート",
+              "p1": 0.08196527092900704,
+              "p2": 0.08860706799686771,
+              "p3": 0.09676083929668353
+            },
+            {
+              "number": 3,
+              "name": "スカイミラー",
+              "p1": 0.07079905588016552,
+              "p2": 0.07746278844350206,
+              "p3": 0.085841856368192
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.5267326237234965,
+              "tickets": [
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.21308997271368374,
+                  "cumulative": 0.21308997271368374
+                },
+                {
+                  "numbers": [
+                    2
+                  ],
+                  "p": 0.18266122369169183,
+                  "cumulative": 0.3957511964053756
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.13098142731812087,
+                  "cumulative": 0.5267326237234965
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 4,
+              "cumulative": 0.285253807147528,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    8
+                  ],
+                  "p": 0.09708539858707232,
+                  "cumulative": 0.09708539858707232
+                },
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.06758653811385222,
+                  "cumulative": 0.16467193670092456
+                },
+                {
+                  "numbers": [
+                    4,
+                    8
+                  ],
+                  "p": 0.06172344107549464,
+                  "cumulative": 0.22639537777641922
+                },
+                {
+                  "numbers": [
+                    6,
+                    8
+                  ],
+                  "p": 0.058858429371108786,
+                  "cumulative": 0.285253807147528
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 8,
+              "cumulative": 0.3260738076132066,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    7,
+                    8
+                  ],
+                  "p": 0.0575017423125756,
+                  "cumulative": 0.0575017423125756
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    8
+                  ],
+                  "p": 0.052101443367626794,
+                  "cumulative": 0.10960318568020239
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    8
+                  ],
+                  "p": 0.049494507451946154,
+                  "cumulative": 0.15909769313214855
+                },
+                {
+                  "numbers": [
+                    2,
+                    5,
+                    8
+                  ],
+                  "p": 0.0353269470255551,
+                  "cumulative": 0.19442464015770367
+                },
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.03478470465159712,
+                  "cumulative": 0.22920934480930077
+                },
+                {
+                  "numbers": [
+                    1,
+                    2,
+                    8
+                  ],
+                  "p": 0.03388416520175977,
+                  "cumulative": 0.2630935100110605
+                },
+                {
+                  "numbers": [
+                    6,
+                    7,
+                    8
+                  ],
+                  "p": 0.033043106211508945,
+                  "cumulative": 0.2961366162225695
+                },
+                {
+                  "numbers": [
+                    4,
+                    6,
+                    8
+                  ],
+                  "p": 0.0299371913906371,
+                  "cumulative": 0.3260738076132066
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "D": {
+          "marks": {
+            "◎": 8,
+            "○": 2,
+            "▲": 7,
+            "☆": 4,
+            "△": 6
+          },
+          "ordered_top3": [
+            8,
+            2,
+            7
+          ],
+          "horses": [
+            {
+              "number": 8,
+              "name": "アトミックリーチ",
+              "p1": 0.25879627702536667,
+              "p2": 0.22036085058495783,
+              "p3": 0.1803246243025434
+            },
+            {
+              "number": 2,
+              "name": "グランドストーリー",
+              "p1": 0.195971291604411,
+              "p2": 0.18752569488243817,
+              "p3": 0.1729160611173765
+            },
+            {
+              "number": 7,
+              "name": "サラサシンシアズ",
+              "p1": 0.1356334589320224,
+              "p2": 0.14156389530767807,
+              "p3": 0.14651215903743234
+            },
+            {
+              "number": 4,
+              "name": "リカジョンファンク",
+              "p1": 0.11962972917915976,
+              "p2": 0.12737633966454023,
+              "p3": 0.13539772532164362
+            },
+            {
+              "number": 6,
+              "name": "アオイゲート",
+              "p1": 0.1082054179294169,
+              "p2": 0.11678677071664488,
+              "p3": 0.12639649770033365
+            },
+            {
+              "number": 5,
+              "name": "ゴールドテソーロ",
+              "p1": 0.06687138350105772,
+              "p2": 0.07549625148182015,
+              "p3": 0.08659929728649012
+            },
+            {
+              "number": 1,
+              "name": "フィニート",
+              "p1": 0.06210922434835163,
+              "p2": 0.07045784423159597,
+              "p3": 0.0813095345388069
+            },
+            {
+              "number": 3,
+              "name": "スカイミラー",
+              "p1": 0.05278321748021401,
+              "p2": 0.06043235313032498,
+              "p3": 0.0705441006953737
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 2,
+              "cumulative": 0.4547675686297777,
+              "tickets": [
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.25879627702536667,
+                  "cumulative": 0.25879627702536667
+                },
+                {
+                  "numbers": [
+                    2
+                  ],
+                  "p": 0.195971291604411,
+                  "cumulative": 0.4547675686297777
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 3,
+              "cumulative": 0.29640585210231163,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    8
+                  ],
+                  "p": 0.13150284420555836,
+                  "cumulative": 0.13150284420555836
+                },
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.08796676854789486,
+                  "cumulative": 0.21946961275345322
+                },
+                {
+                  "numbers": [
+                    4,
+                    8
+                  ],
+                  "p": 0.07693623934885839,
+                  "cumulative": 0.29640585210231163
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 5,
+              "cumulative": 0.3153399793770867,
+              "tickets": [
+                {
+                  "numbers": [
+                    2,
+                    7,
+                    8
+                  ],
+                  "p": 0.08588693648553268,
+                  "cumulative": 0.08588693648553268
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    8
+                  ],
+                  "p": 0.07420516862335658,
+                  "cumulative": 0.16009210510888927
+                },
+                {
+                  "numbers": [
+                    2,
+                    6,
+                    8
+                  ],
+                  "p": 0.06616861036232424,
+                  "cumulative": 0.2262607154712135
+                },
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.04709386219359599,
+                  "cumulative": 0.27335457766480953
+                },
+                {
+                  "numbers": [
+                    6,
+                    7,
+                    8
+                  ],
+                  "p": 0.04198540171227713,
+                  "cumulative": 0.3153399793770867
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "track": "京都",
+      "race_number": 3,
+      "surface": "turf",
+      "runner_count": 8,
+      "roster_source": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202604100320261031/49",
+      "roster_sha256": "c5a2478ec090d72f2d89c2ff9d2baee57e74001c7c0e2408bf45042fba76ed8c",
+      "roster_method": "JRA_OFFICIAL_CARD_CAREER_TOTALS_PROXY",
+      "jra_meeting_seed_sha256": "63430c300556e2e388b96cb9c2fd727a626ad0fd006f850aa9b4554530986d68",
+      "weather_observed": "小雨",
+      "going_observed": "稍重",
+      "runners": [
+        {
+          "number": 1,
+          "frame": 1,
+          "name": "シルクウォード",
+          "jockey": "西村淳也",
+          "trainer": "庄野靖志",
+          "assigned_weight_kg": 56.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 2,
+          "frame": 2,
+          "name": "ウィリーウィリー",
+          "jockey": "田山旺佑",
+          "trainer": "森田直行",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 3,
+          "frame": 3,
+          "name": "メメヤンチャヒメ",
+          "jockey": "川須栄彦",
+          "trainer": "秋山真一郎",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 4,
+          "frame": 4,
+          "name": "ポカポカヨウキ",
+          "jockey": "岩田望来",
+          "trainer": "東田明士",
+          "assigned_weight_kg": 56.0,
+          "starts": 2,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 2
+        },
+        {
+          "number": 5,
+          "frame": 5,
+          "name": "ブラックミューズ",
+          "jockey": "C.デムーロ",
+          "trainer": "松永幹夫",
+          "assigned_weight_kg": 55.0,
+          "starts": 4,
+          "wins": 0,
+          "seconds": 1,
+          "thirds": 1
+        },
+        {
+          "number": 6,
+          "frame": 6,
+          "name": "サントボーム",
+          "jockey": "酒井学",
+          "trainer": "坂口智康",
+          "assigned_weight_kg": 55.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 0
+        },
+        {
+          "number": 7,
+          "frame": 7,
+          "name": "ディープリメンバー",
+          "jockey": "古川吉洋",
+          "trainer": "四位洋文",
+          "assigned_weight_kg": 56.0,
+          "starts": 1,
+          "wins": 0,
+          "seconds": 1,
+          "thirds": 0
+        },
+        {
+          "number": 8,
+          "frame": 8,
+          "name": "アイオリスパルス",
+          "jockey": "吉村誠之助",
+          "trainer": "長谷川浩大",
+          "assigned_weight_kg": 55.0,
+          "starts": 2,
+          "wins": 0,
+          "seconds": 0,
+          "thirds": 2
+        }
+      ],
+      "external_source": "https://muryou-keiba-ai.jp/predict/2026/10/29/25275/",
+      "external_sha256": "8782c8d9d906bf801965efcee4ec6dc115a6d67134c95390f0907f14cdf6767b",
+      "external_page_updated_at": "2026-10-30T17:07:00+09:00",
+      "external_error": null,
+      "external_indices": [
+        {
+          "number": 8,
+          "name": "アイオリスパルス",
+          "index": 71.6,
+          "mark_raw": "◎ 71.6"
+        },
+        {
+          "number": 7,
+          "name": "ディープリメンバー",
+          "index": 71.1,
+          "mark_raw": "○ 71.1"
+        },
+        {
+          "number": 5,
+          "name": "ブラックミューズ",
+          "index": 65.2,
+          "mark_raw": "▲ 65.2"
+        },
+        {
+          "number": 4,
+          "name": "ポカポカヨウキ",
+          "index": 62.6,
+          "mark_raw": "△ 62.6"
+        },
+        {
+          "number": 1,
+          "name": "シルクウォード",
+          "index": 50.1,
+          "mark_raw": "☆ 50.1"
+        },
+        {
+          "number": 3,
+          "name": "メメヤンチャヒメ",
+          "index": 35.2,
+          "mark_raw": "35.2"
+        },
+        {
+          "number": 2,
+          "name": "ウィリーウィリー",
+          "index": 32.5,
+          "mark_raw": "32.5"
+        },
+        {
+          "number": 6,
+          "name": "サントボーム",
+          "index": 19.1,
+          "mark_raw": "消 19.1"
+        }
+      ],
+      "models": {
+        "A": {
+          "marks": {
+            "◎": 4,
+            "○": 8,
+            "▲": 7,
+            "☆": 1,
+            "△": 2
+          },
+          "ordered_top3": [
+            4,
+            8,
+            7
+          ],
+          "horses": [
+            {
+              "number": 4,
+              "name": "ポカポカヨウキ",
+              "p1": 0.1482301699761991,
+              "p2": 0.14417720065329498,
+              "p3": 0.13947058566924428
+            },
+            {
+              "number": 8,
+              "name": "アイオリスパルス",
+              "p1": 0.1482301699761991,
+              "p2": 0.14417720065329498,
+              "p3": 0.13947058566924428
+            },
+            {
+              "number": 7,
+              "name": "ディープリメンバー",
+              "p1": 0.14747849095723703,
+              "p2": 0.14359873724894862,
+              "p3": 0.13908073231875198
+            },
+            {
+              "number": 1,
+              "name": "シルクウォード",
+              "p1": 0.11135571937828115,
+              "p2": 0.11373583807212441,
+              "p3": 0.11650077033751931
+            },
+            {
+              "number": 2,
+              "name": "ウィリーウィリー",
+              "p1": 0.11135571937828115,
+              "p2": 0.11373583807212441,
+              "p3": 0.11650077033751931
+            },
+            {
+              "number": 3,
+              "name": "メメヤンチャヒメ",
+              "p1": 0.11135571937828115,
+              "p2": 0.11373583807212441,
+              "p3": 0.11650077033751931
+            },
+            {
+              "number": 6,
+              "name": "サントボーム",
+              "p1": 0.11135571937828115,
+              "p2": 0.11373583807212442,
+              "p3": 0.11650077033751934
+            },
+            {
+              "number": 5,
+              "name": "ブラックミューズ",
+              "p1": 0.11063829157724027,
+              "p2": 0.11310350915596387,
+              "p3": 0.11597501499268227
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.4439388309096352,
+              "tickets": [
+                {
+                  "numbers": [
+                    4
+                  ],
+                  "p": 0.1482301699761991,
+                  "cumulative": 0.1482301699761991
+                },
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.1482301699761991,
+                  "cumulative": 0.2964603399523982
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.14747849095723703,
+                  "cumulative": 0.4439388309096352
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 6,
+              "cumulative": 0.268067412684197,
+              "tickets": [
+                {
+                  "numbers": [
+                    4,
+                    8
+                  ],
+                  "p": 0.051591832715086675,
+                  "cumulative": 0.051591832715086675
+                },
+                {
+                  "numbers": [
+                    4,
+                    7
+                  ],
+                  "p": 0.05130757995139589,
+                  "cumulative": 0.10289941266648256
+                },
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.051307579951395885,
+                  "cumulative": 0.15420699261787846
+                },
+                {
+                  "numbers": [
+                    1,
+                    8
+                  ],
+                  "p": 0.0379534733554395,
+                  "cumulative": 0.19216046597331796
+                },
+                {
+                  "numbers": [
+                    2,
+                    8
+                  ],
+                  "p": 0.0379534733554395,
+                  "cumulative": 0.23011393932875746
+                },
+                {
+                  "numbers": [
+                    3,
+                    8
+                  ],
+                  "p": 0.0379534733554395,
+                  "cumulative": 0.268067412684197
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 13,
+              "cumulative": 0.3116266169943215,
+              "tickets": [
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.0324119810497262,
+                  "cumulative": 0.0324119810497262
+                },
+                {
+                  "numbers": [
+                    1,
+                    4,
+                    8
+                  ],
+                  "p": 0.023362411210785756,
+                  "cumulative": 0.05577439226051196
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    8
+                  ],
+                  "p": 0.023362411210785756,
+                  "cumulative": 0.07913680347129771
+                },
+                {
+                  "numbers": [
+                    3,
+                    4,
+                    8
+                  ],
+                  "p": 0.023362411210785756,
+                  "cumulative": 0.10249921468208348
+                },
+                {
+                  "numbers": [
+                    4,
+                    6,
+                    8
+                  ],
+                  "p": 0.023362411210785756,
+                  "cumulative": 0.12586162589286923
+                },
+                {
+                  "numbers": [
+                    1,
+                    4,
+                    7
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.14908224978055076
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    8
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.1723028736682323
+                },
+                {
+                  "numbers": [
+                    2,
+                    4,
+                    7
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.19552349755591383
+                },
+                {
+                  "numbers": [
+                    2,
+                    7,
+                    8
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.21874412144359537
+                },
+                {
+                  "numbers": [
+                    3,
+                    4,
+                    7
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.2419647453312769
+                },
+                {
+                  "numbers": [
+                    3,
+                    7,
+                    8
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.2651853692189584
+                },
+                {
+                  "numbers": [
+                    6,
+                    7,
+                    8
+                  ],
+                  "p": 0.02322062388768153,
+                  "cumulative": 0.28840599310663995
+                },
+                {
+                  "numbers": [
+                    4,
+                    6,
+                    7
+                  ],
+                  "p": 0.023220623887681528,
+                  "cumulative": 0.3116266169943215
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "B": {
+          "marks": {
+            "◎": 8,
+            "○": 7,
+            "▲": 4,
+            "☆": 5,
+            "△": 1
+          },
+          "ordered_top3": [
+            8,
+            7,
+            4
+          ],
+          "horses": [
+            {
+              "number": 8,
+              "name": "アイオリスパルス",
+              "p1": 0.17280340486034668,
+              "p2": 0.1637155733237775,
+              "p3": 0.15321906798714682
+            },
+            {
+              "number": 7,
+              "name": "ディープリメンバー",
+              "p1": 0.1707179762808952,
+              "p2": 0.16225881413769666,
+              "p3": 0.15240276831371904
+            },
+            {
+              "number": 4,
+              "name": "ポカポカヨウキ",
+              "p1": 0.15047014614482232,
+              "p2": 0.14733889406003972,
+              "p3": 0.14322941536554207
+            },
+            {
+              "number": 5,
+              "name": "ブラックミューズ",
+              "p1": 0.12773184833021126,
+              "p2": 0.12899325573904846,
+              "p3": 0.1300940548546369
+            },
+            {
+              "number": 1,
+              "name": "シルクウォード",
+              "p1": 0.10455123551034488,
+              "p2": 0.10868659248825135,
+              "p3": 0.11351190509460156
+            },
+            {
+              "number": 3,
+              "name": "メメヤンチャヒメ",
+              "p1": 0.09350256251905212,
+              "p2": 0.09847360768159145,
+              "p3": 0.1044707392011931
+            },
+            {
+              "number": 2,
+              "name": "ウィリーウィリー",
+              "p1": 0.09224151828150805,
+              "p2": 0.09728687810727558,
+              "p3": 0.1033924304028414
+            },
+            {
+              "number": 6,
+              "name": "サントボーム",
+              "p1": 0.08798130807281952,
+              "p2": 0.09324638446231931,
+              "p3": 0.09967961878031925
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.4939915272860642,
+              "tickets": [
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.17280340486034668,
+                  "cumulative": 0.17280340486034668
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.1707179762808952,
+                  "cumulative": 0.34352138114124187
+                },
+                {
+                  "numbers": [
+                    4
+                  ],
+                  "p": 0.15047014614482232,
+                  "cumulative": 0.4939915272860642
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 5,
+              "cumulative": 0.29777466549096754,
+              "tickets": [
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.07123712674305095,
+                  "cumulative": 0.07123712674305095
+                },
+                {
+                  "numbers": [
+                    4,
+                    8
+                  ],
+                  "p": 0.062040811502933835,
+                  "cumulative": 0.13327793824598477
+                },
+                {
+                  "numbers": [
+                    4,
+                    7
+                  ],
+                  "p": 0.06121399634610588,
+                  "cumulative": 0.19449193459209066
+                },
+                {
+                  "numbers": [
+                    5,
+                    8
+                  ],
+                  "p": 0.051988214038907896,
+                  "cumulative": 0.24648014863099854
+                },
+                {
+                  "numbers": [
+                    5,
+                    7
+                  ],
+                  "p": 0.05129451685996899,
+                  "cumulative": 0.29777466549096754
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 10,
+              "cumulative": 0.31786187959818757,
+              "tickets": [
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.04756226279213749,
+                  "cumulative": 0.04756226279213749
+                },
+                {
+                  "numbers": [
+                    5,
+                    7,
+                    8
+                  ],
+                  "p": 0.0391841171649215,
+                  "cumulative": 0.08674637995705899
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    8
+                  ],
+                  "p": 0.033585504989774556,
+                  "cumulative": 0.12033188494683354
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    7
+                  ],
+                  "p": 0.03308288927061728,
+                  "cumulative": 0.1534147742174508
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    8
+                  ],
+                  "p": 0.03115612159897507,
+                  "cumulative": 0.18457089581642588
+                },
+                {
+                  "numbers": [
+                    3,
+                    7,
+                    8
+                  ],
+                  "p": 0.027495004294414177,
+                  "cumulative": 0.21206590011084006
+                },
+                {
+                  "numbers": [
+                    2,
+                    7,
+                    8
+                  ],
+                  "p": 0.027083530371705963,
+                  "cumulative": 0.23914943048254603
+                },
+                {
+                  "numbers": [
+                    1,
+                    4,
+                    8
+                  ],
+                  "p": 0.026704562025540862,
+                  "cumulative": 0.2658539925080869
+                },
+                {
+                  "numbers": [
+                    1,
+                    4,
+                    7
+                  ],
+                  "p": 0.026305028900898045,
+                  "cumulative": 0.2921590214089849
+                },
+                {
+                  "numbers": [
+                    6,
+                    7,
+                    8
+                  ],
+                  "p": 0.025702858189202624,
+                  "cumulative": 0.31786187959818757
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "C": {
+          "marks": {
+            "◎": 8,
+            "○": 7,
+            "▲": 4,
+            "☆": 5,
+            "△": 1
+          },
+          "ordered_top3": [
+            8,
+            7,
+            4
+          ],
+          "horses": [
+            {
+              "number": 8,
+              "name": "アイオリスパルス",
+              "p1": 0.19737663974449426,
+              "p2": 0.18323613013827658,
+              "p3": 0.16658525632475443
+            },
+            {
+              "number": 7,
+              "name": "ディープリメンバー",
+              "p1": 0.19395746160455335,
+              "p2": 0.18108699132301115,
+              "p3": 0.1656651807757557
+            },
+            {
+              "number": 4,
+              "name": "ポカポカヨウキ",
+              "p1": 0.15271012231344555,
+              "p2": 0.1517997426248465,
+              "p3": 0.1495771021597192
+            },
+            {
+              "number": 5,
+              "name": "ブラックミューズ",
+              "p1": 0.14482540508318223,
+              "p2": 0.14553798596876671,
+              "p3": 0.14535414202735705
+            },
+            {
+              "number": 1,
+              "name": "シルクウォード",
+              "p1": 0.09774675164240862,
+              "p2": 0.10419176792946105,
+              "p3": 0.11199729753880357
+            },
+            {
+              "number": 3,
+              "name": "メメヤンチャヒメ",
+              "p1": 0.0756494056598231,
+              "p2": 0.08264179622903996,
+              "p3": 0.09155680665492275
+            },
+            {
+              "number": 2,
+              "name": "ウィリーウィリー",
+              "p1": 0.07312731718473495,
+              "p2": 0.08010185707034244,
+              "p3": 0.0890342356356836
+            },
+            {
+              "number": 6,
+              "name": "サントボーム",
+              "p1": 0.0646068967673579,
+              "p2": 0.07140372871625562,
+              "p3": 0.08022997888300358
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 3,
+              "cumulative": 0.5440442236624932,
+              "tickets": [
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.19737663974449426,
+                  "cumulative": 0.19737663974449426
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.19395746160455335,
+                  "cumulative": 0.3913341013490476
+                },
+                {
+                  "numbers": [
+                    4
+                  ],
+                  "p": 0.15271012231344555,
+                  "cumulative": 0.5440442236624932
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 4,
+              "cumulative": 0.3090640010898998,
+              "tickets": [
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.09519153729844008,
+                  "cumulative": 0.09519153729844008
+                },
+                {
+                  "numbers": [
+                    4,
+                    8
+                  ],
+                  "p": 0.07312752405522496,
+                  "cumulative": 0.16831906135366503
+                },
+                {
+                  "numbers": [
+                    4,
+                    7
+                  ],
+                  "p": 0.07170418723398601,
+                  "cumulative": 0.24002324858765106
+                },
+                {
+                  "numbers": [
+                    5,
+                    8
+                  ],
+                  "p": 0.06904075250224873,
+                  "cumulative": 0.3090640010898998
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 7,
+              "cumulative": 0.32372777024156985,
+              "tickets": [
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.06736916266153985,
+                  "cumulative": 0.06736916266153985
+                },
+                {
+                  "numbers": [
+                    5,
+                    7,
+                    8
+                  ],
+                  "p": 0.06321473889610925,
+                  "cumulative": 0.1305839015576491
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    8
+                  ],
+                  "p": 0.046924402122147706,
+                  "cumulative": 0.1775083036797968
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    7
+                  ],
+                  "p": 0.04587728732452547,
+                  "cumulative": 0.2233855910043223
+                },
+                {
+                  "numbers": [
+                    1,
+                    7,
+                    8
+                  ],
+                  "p": 0.04019493665677361,
+                  "cumulative": 0.2635805276610959
+                },
+                {
+                  "numbers": [
+                    3,
+                    7,
+                    8
+                  ],
+                  "p": 0.030312980482258882,
+                  "cumulative": 0.2938935081433548
+                },
+                {
+                  "numbers": [
+                    1,
+                    4,
+                    8
+                  ],
+                  "p": 0.029834262098215047,
+                  "cumulative": 0.32372777024156985
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        },
+        "D": {
+          "marks": {
+            "◎": 8,
+            "○": 7,
+            "▲": 5,
+            "☆": 4,
+            "△": 1
+          },
+          "ordered_top3": [
+            8,
+            7,
+            5
+          ],
+          "horses": [
+            {
+              "number": 8,
+              "name": "アイオリスパルス",
+              "p1": 0.22194987462864188,
+              "p2": 0.20319714402051073,
+              "p3": 0.180215849676953
+            },
+            {
+              "number": 7,
+              "name": "ディープリメンバー",
+              "p1": 0.2171969469282115,
+              "p2": 0.20054073713839643,
+              "p3": 0.17951843947864154
+            },
+            {
+              "number": 5,
+              "name": "ブラックミューズ",
+              "p1": 0.1619189618361532,
+              "p2": 0.1631449093408885,
+              "p3": 0.16268914985424388
+            },
+            {
+              "number": 4,
+              "name": "ポカポカヨウキ",
+              "p1": 0.15495009848206878,
+              "p2": 0.15764798581486705,
+              "p3": 0.15922293616211736
+            },
+            {
+              "number": 1,
+              "name": "シルクウォード",
+              "p1": 0.09094226777447237,
+              "p2": 0.10010317832504625,
+              "p3": 0.1120237358669015
+            },
+            {
+              "number": 3,
+              "name": "メメヤンチャヒメ",
+              "p1": 0.05779624880059408,
+              "p2": 0.06585488602705004,
+              "p3": 0.07695004668437712
+            },
+            {
+              "number": 2,
+              "name": "ウィリーウィリー",
+              "p1": 0.054013116087961846,
+              "p2": 0.061773520247010556,
+              "p3": 0.07250973785363463
+            },
+            {
+              "number": 6,
+              "name": "サントボーム",
+              "p1": 0.04123248546189627,
+              "p2": 0.047737639086230216,
+              "p3": 0.056870104423130785
+            }
+          ],
+          "priority": {
+            "single": {
+              "threshold": 0.4,
+              "count": 2,
+              "cumulative": 0.43914682155685336,
+              "tickets": [
+                {
+                  "numbers": [
+                    8
+                  ],
+                  "p": 0.22194987462864188,
+                  "cumulative": 0.22194987462864188
+                },
+                {
+                  "numbers": [
+                    7
+                  ],
+                  "p": 0.2171969469282115,
+                  "cumulative": 0.43914682155685336
+                }
+              ]
+            },
+            "quinella": {
+              "threshold": 0.25,
+              "count": 3,
+              "cumulative": 0.299500718872096,
+              "tickets": [
+                {
+                  "numbers": [
+                    7,
+                    8
+                  ],
+                  "p": 0.12354085011905755,
+                  "cumulative": 0.12354085011905755
+                },
+                {
+                  "numbers": [
+                    5,
+                    8
+                  ],
+                  "p": 0.08907085633624652,
+                  "cumulative": 0.21261170645530408
+                },
+                {
+                  "numbers": [
+                    5,
+                    7
+                  ],
+                  "p": 0.08688901241679194,
+                  "cumulative": 0.299500718872096
+                }
+              ]
+            },
+            "trio": {
+              "threshold": 0.3,
+              "count": 4,
+              "cumulative": 0.31696297248347777,
+              "tickets": [
+                {
+                  "numbers": [
+                    5,
+                    7,
+                    8
+                  ],
+                  "p": 0.09812596836669937,
+                  "cumulative": 0.09812596836669937
+                },
+                {
+                  "numbers": [
+                    4,
+                    7,
+                    8
+                  ],
+                  "p": 0.09300169962877715,
+                  "cumulative": 0.19112766799547654
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    8
+                  ],
+                  "p": 0.06383487620966768,
+                  "cumulative": 0.2549625442051442
+                },
+                {
+                  "numbers": [
+                    4,
+                    5,
+                    7
+                  ],
+                  "p": 0.06200042827833358,
+                  "cumulative": 0.31696297248347777
+                }
+              ]
+            }
+          },
+          "research_stake_yen": 0,
+          "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET"
+        }
+      }
+    }
+  ]
+}

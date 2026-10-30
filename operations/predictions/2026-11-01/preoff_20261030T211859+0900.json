@@ -1,0 +1,174 @@
+{
+  "schema": "keiba-weekend-four-model-research-freeze-v1",
+  "date": "2026-11-01",
+  "captured_at": "2026-10-30T21:18:59.821640+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "program_source": "https://www.jra.go.jp/keiba/calendar2026/2026/11/1101.html",
+  "official_full_card_independently_replayed": false,
+  "canonical_db": {
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed_outside_action": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc"
+  },
+  "active_model": {
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed": false
+  },
+  "research_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "external_listing_sha256": "4ca1eadc351918342d4db54f0d5dc59e0f7793734809d52598b578d9ccaf8858",
+  "input_snapshot_sha256": "e8cf33c46823fb73d0a736e536273ba38eda439a301897998bf54b646d136338",
+  "weights": {
+    "A": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "external_temperature": 20,
+  "placing_approximation": "Plackett-Luce",
+  "ticket_thresholds": {
+    "single": 0.4,
+    "quinella": 0.25,
+    "trio": 0.3
+  },
+  "per_race_budget_yen_max": 10000,
+  "actual_purchase": false,
+  "covered_flat_races": 0,
+  "failures": [
+    {
+      "track": "東京",
+      "race": 1,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 3,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "東京",
+      "race": 11,
+      "reason": "EXTERNAL_ROSTER_MISMATCH"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "reason": "ROSTER_UNAVAILABLE:JRA:JRA_FIELD_INCOMPLETE_0;YAHOO:FIELD_INCOMPLETE_0;EXTERNAL:EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED"
+    }
+  ],
+  "races": []
+}

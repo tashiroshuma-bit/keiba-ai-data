@@ -32,7 +32,7 @@ class FullRosterTest(unittest.TestCase):
         self.assertTrue(all(x['assigned_weight_kg']==56 for x in h))
     def test_reject_old_odd_only_subset(self):
         with self.assertRaisesRegex(ValueError,'FIELD_NUMBER_GAPS'):
-            namespace['validate_complete_field']([{'number':n,'name':'馬'} for n in range(1,17,2)])
+            namespace['validate_complete_field']([{'number':n,'name':f'馬{n}'} for n in range(1,17,2)])
     def test_missing_last_runner_requires_independent_check(self):
         # Contiguity alone cannot detect trailing loss; production additionally matches Yahoo's full roster.
         h,*_=namespace['parse_official_html'](self.fixture(15),'2026-10-31','東京',1)

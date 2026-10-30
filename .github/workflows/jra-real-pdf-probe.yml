@@ -4,6 +4,7 @@ on:
   push:
     paths:
       - .github/workflows/jra-real-pdf-probe.yml
+      - keiba_v48/jra_v47_program_row_probe.py
   workflow_dispatch:
 
 permissions:

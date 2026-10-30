@@ -1,0 +1,141 @@
+name: JRA real PDF research probe (no version bump)
+
+on:
+  push:
+    paths:
+      - .github/workflows/jra-real-pdf-probe.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install offline PDF parser dependency
+        run: python -m pip install 'PyMuPDF>=1.24,<2'
+      - name: Fetch official 2026-10-25 programs and test existing v47 parser
+        env:
+          JRA_NETWORK_OPT_IN: 'yes'
+        run: |
+          python - <<'PY'
+          import collections
+          import datetime
+          import hashlib
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.robotparser
+          from pathlib import Path
+
+          sys.path.insert(0, str(Path('keiba_v48').resolve()))
+          from jra_v47_program_row_probe import probe_pdf_bytes
+
+          USER_AGENT = 'KeibaResearch/1.0 (noncommercial validation)'
+          MAX_PDF_BYTES = 10 * 1024 * 1024
+          INDEX_URL = 'https://www.jra.go.jp/keiba/rpdf/'
+          ROBOTS_URL = 'https://www.jra.go.jp/robots.txt'
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          opener = urllib.request.build_opener(NoRedirect)
+
+          def fetch_exact(url, max_bytes, content_type):
+              parts = urllib.parse.urlsplit(url)
+              if parts.scheme != 'https' or parts.netloc != 'www.jra.go.jp' or parts.username or parts.password or parts.query or parts.fragment:
+                  raise ValueError('unapproved_origin_or_url')
+              req = urllib.request.Request(url, headers={'User-Agent': USER_AGENT, 'Accept': content_type})
+              with opener.open(req, timeout=20) as response:
+                  if response.status != 200 or response.geturl() != url:
+                      raise ValueError('unexpected_http_status_or_redirect')
+                  actual_type = response.headers.get_content_type()
+                  if actual_type != content_type:
+                      raise ValueError('unexpected_content_type_' + actual_type)
+                  data = response.read(max_bytes + 1)
+              if not data or len(data) > max_bytes:
+                  raise ValueError('empty_or_oversize_source')
+              return data
+
+          def main():
+              if os.environ.get('JRA_NETWORK_OPT_IN') != 'yes':
+                  raise ValueError('network_not_opted_in')
+              catalog = json.loads(Path('keiba_v48/jra_v46_20261025_program_catalog.json').read_text(encoding='utf-8'))
+              venues = catalog['venues']
+              if catalog.get('race_date') != '2026-10-25' or len(venues) != 3:
+                  raise ValueError('unexpected_catalog')
+              robots = fetch_exact(ROBOTS_URL, 256 * 1024, 'text/plain')
+              rp = urllib.robotparser.RobotFileParser()
+              rp.parse(robots.decode('utf-8').splitlines())
+              output = {'schema': 'jra-real-pdf-probe-20261030',
+                        'research_only': True, 'race_date': '2026-10-25',
+                        'observation_is_after_all_races': True,
+                        'official_index_url': INDEX_URL,
+                        'source_authenticity_proven_for_preoff': False,
+                        'production_freeze_allowed': False,
+                        'result_settlement_allowed': False,
+                        'official_horse_ids_confirmed': 0,
+                        'venues': []}
+              for venue in venues:
+                  url = venue['url']
+                  parsed = urllib.parse.urlsplit(url)
+                  if not parsed.path.startswith('/keiba/rpdf/pdf/20261025-') or not parsed.path.endswith('.pdf'):
+                      raise ValueError('unapproved_program_path')
+                  if not rp.can_fetch(USER_AGENT, url):
+                      raise ValueError('robots_disallows_pdf')
+                  item = {'venue': venue['venue'], 'url': url,
+                          'fetched_at_utc': datetime.datetime.now(datetime.timezone.utc).isoformat()}
+                  try:
+                      raw = fetch_exact(url, MAX_PDF_BYTES, 'application/pdf')
+                      if not raw.startswith(b'%PDF-'):
+                          raise ValueError('not_pdf_magic')
+                      item['original_bytes_observed'] = True
+                      item['pdf_bytes'] = len(raw)
+                      item['pdf_sha256'] = hashlib.sha256(raw).hexdigest()
+                      # Never persist the JRA PDF bytes to GitHub, artifacts or logs.
+                      probe = probe_pdf_bytes(raw, url, item['fetched_at_utc'])
+                      item['race_count'] = probe['race_count']
+                      item['runner_candidates'] = sum(len(r['runner_candidates']) for r in probe['races'])
+                      item['name_candidates_unique'] = sum(r['horse_name_candidate'] is not None for x in probe['races'] for r in x['runner_candidates'])
+                      item['weight_candidates_unique'] = sum(r['weight_candidate'] is not None for x in probe['races'] for r in x['runner_candidates'])
+                      item['issue_counts'] = dict(sorted(collections.Counter(code for r in probe['races'] for code in r['issues']).items()))
+                      item['races'] = [{'race': r['race_number_expected'],
+                                        'header_numbers': r['race_number_header_candidates'],
+                                        'declared_heads': r['declared_head_count_candidate'],
+                                        'runner_candidates': len(r['runner_candidates']),
+                                        'names': sum(h['horse_name_candidate'] is not None for h in r['runner_candidates']),
+                                        'weights': sum(h['weight_candidate'] is not None for h in r['runner_candidates']),
+                                        'post_time_method': r['post_time_method'],
+                                        'issues': r['issues']} for r in probe['races']]
+                      item['status'] = 'candidate_diagnostics_only'
+                  except Exception as exc:
+                      item['status'] = 'error'
+                      item['error_class'] = type(exc).__name__
+                      item['error'] = str(exc)[:300]
+                  output['venues'].append(item)
+              output['all_three_originals_observed'] = all(x.get('original_bytes_observed') for x in output['venues'])
+              output['all_three_parsed_without_issues'] = all(x.get('status') == 'candidate_diagnostics_only' and not x['issue_counts'] for x in output['venues'])
+              Path('research_probe_summary.json').write_text(json.dumps(output, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+              print(json.dumps(output, ensure_ascii=False, indent=2))
+              if not output['all_three_originals_observed']:
+                  sys.exit('some_originals_unavailable')
+
+          main()
+          PY
+      - name: Upload derived diagnostics only (never original JRA PDFs)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-20261025-research-diagnostics
+          path: research_probe_summary.json
+          if-no-files-found: warn
+          retention-days: 7

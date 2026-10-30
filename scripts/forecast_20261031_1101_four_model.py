@@ -25,7 +25,13 @@ from bs4 import BeautifulSoup
 BASE = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(BASE / "keiba_v48"))
 from ranking_model import RankModel, NAMES  # noqa: E402
-from completion_validation import sha  # noqa: E402
+
+def sha(path):
+    digest = hashlib.sha256()
+    with open(path, "rb") as handle:
+        for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+            digest.update(chunk)
+    return digest.hexdigest()
 
 JST = dt.timezone(dt.timedelta(hours=9))
 NOW = dt.datetime.now(JST)

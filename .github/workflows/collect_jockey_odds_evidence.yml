@@ -15,7 +15,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_EVIDENCE.json
+          git add reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_*.json
           git commit -m "Save observed rider links and public odds source evidence"
           git pull --rebase
           git push

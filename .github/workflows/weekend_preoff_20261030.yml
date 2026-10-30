@@ -3,6 +3,7 @@ on:
   push:
     paths:
       - 'scripts/forecast_20261031_1101_four_model.py'
+      - 'scripts/test_weekend_full_roster.py'
       - '.github/workflows/weekend_preoff_20261030.yml'
   workflow_dispatch:
 concurrency:
@@ -32,4 +33,4 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "4189826+github-actions[bot]@users.noreply.github.com"
           git add operations/predictions/2026-10-31 operations/predictions/2026-11-01
-          git diff --cached --quiet || (git commit -m "Freeze Oct 31 and Nov 1 preoff research predictions" && git push)
+          git diff --cached --quiet || (git commit -m "Freeze Oct 31 and Nov 1 preoff research predictions" && git pull --rebase origin main && git push)

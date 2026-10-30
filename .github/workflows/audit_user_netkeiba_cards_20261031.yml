@@ -1,0 +1,26 @@
+name: Audit user supplied Oct31 race cards
+on:
+  push:
+    paths:
+      - 'scripts/audit_user_netkeiba_cards_20261031.py'
+      - '.github/workflows/audit_user_netkeiba_cards_20261031.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install beautifulsoup4
+      - run: python scripts/audit_user_netkeiba_cards_20261031.py
+      - name: Save audit observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "4189826+github-actions[bot]@users.noreply.github.com"
+          git add reports/weekend_20261031_1101/NETKEIBA_CARD_AUDIT_RAW_20261031.json
+          git diff --cached --quiet || (git commit -m "Save source observations for five user supplied race cards" && git pull --rebase origin main && git push)

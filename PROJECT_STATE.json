@@ -1705,5 +1705,30 @@
     "source_authenticity_proven": false,
     "active_model_unchanged": true,
     "canonical_db_unchanged": true
+  },
+  "latest_weekend_rider_overlay": {
+    "date": "2026-10-31",
+    "status": "research_shadow_not_promoted",
+    "report": "reports/weekend_20261031_1101/JOCKEY_ODDS_REPORT_20261031.md",
+    "prediction": "reports/weekend_20261031_1101/JOCKEY_OVERLAY_VERIFIED_20261031.json",
+    "quotes": "reports/weekend_20261031_1101/NETKEIBA_CURRENT_QUOTES_20261031.json",
+    "source_evidence": "reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_20261030T182304Z.json",
+    "flat_races": 5,
+    "runners": 47,
+    "rider_history_joined_runners": 44,
+    "unmatched_rider_rows": 3,
+    "changed_inputs": [
+      "jockey_form",
+      "jockey_identity_missing"
+    ],
+    "learned_weights_changed": false,
+    "remaining_career_proxy": true,
+    "calibrated": false,
+    "netkeiba_odds_status": "middle",
+    "odds_observed_at_jst": "2026-10-31T03:23:04+09:00",
+    "all_46_races_recalculated": false,
+    "database_version": 10,
+    "canonical_database_sha256_verified": true,
+    "model_promoted": false
   }
 }

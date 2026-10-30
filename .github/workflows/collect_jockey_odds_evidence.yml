@@ -1,0 +1,21 @@
+name: Collect rider and odds evidence
+on:
+  push:
+    paths: ['.github/workflows/collect_jockey_odds_evidence.yml','scripts/collect_jockey_odds_evidence.py']
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install beautifulsoup4
+      - run: python scripts/collect_jockey_odds_evidence.py
+      - name: Save observed public evidence
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_EVIDENCE.json
+          git commit -m "Save observed rider links and public odds source evidence"
+          git pull --rebase
+          git push

@@ -387,14 +387,17 @@ def main():
                     else:
                         by_no = {x["number"]: x for x in ext_rows}
                         if set(by_no) != {h["number"] for h in horses}:
-                            raise ValueError("EXTERNAL_ROSTER_MISMATCH")
-                        p_external = softmax([by_no[h["number"]]["index"] for h in horses])
-                        for label, (wi, we) in WEIGHTS.items():
-                            if label == "A":
-                                continue
-                            mixed = [wi * a + we * b for a, b in zip(p_internal, p_external)]
-                            models[label] = calculate_model(horses, mixed)
-                        external_indices = ext_rows
+                            ext_error = "EXTERNAL_ROSTER_MISMATCH"
+                            models.update({label: None for label in ("B", "C", "D")})
+                            external_indices = None
+                        else:
+                            p_external = softmax([by_no[h["number"]]["index"] for h in horses])
+                            for label, (wi, we) in WEIGHTS.items():
+                                if label == "A":
+                                    continue
+                                mixed = [wi * a + we * b for a, b in zip(p_internal, p_external)]
+                                models[label] = calculate_model(horses, mixed)
+                            external_indices = ext_rows
                     races.append({
                         "race": f"{track}{race}R", "track": track, "race_number": race, "surface": surface,
                         "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,

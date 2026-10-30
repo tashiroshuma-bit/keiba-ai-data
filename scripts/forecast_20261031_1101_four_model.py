@@ -19,6 +19,7 @@ import time
 from pathlib import Path
 from urllib.parse import urljoin
 from urllib.request import Request, urlopen
+from urllib.error import HTTPError
 
 from bs4 import BeautifulSoup
 
@@ -53,6 +54,13 @@ MEETINGS = {
     },
 }
 
+JRA_MOBILE_SEEDS = {
+    ("2026-10-31", "東京"): "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202604100120261031%2F01",
+    ("2026-10-31", "京都"): "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202604100120261031%2FDF",
+    ("2026-11-01", "東京"): "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202604110120261101%2FE1",
+    ("2026-11-01", "京都"): "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202604110120261101%2FBF",
+}
+
 PROGRAM = {
     "2026-10-31": "https://www.jra.go.jp/keiba/calendar2026/2026/10/1031.html",
     "2026-11-01": "https://www.jra.go.jp/keiba/calendar2026/2026/11/1101.html",
@@ -65,10 +73,87 @@ def get(url: str) -> bytes:
             req = Request(url, headers={"User-Agent": "Mozilla/5.0 (compatible; KeibaResearchFreeze/1.0)"})
             with urlopen(req, timeout=30) as response:
                 return response.read()
+        except HTTPError as exc:
+            if exc.code == 403:
+                raise
+            last = exc
+            time.sleep(attempt + 1)
         except Exception as exc:
             last = exc
             time.sleep(attempt + 1)
     raise last
+
+def official_race_urls(date: str, track: str):
+    """Resolve the 12 race URLs from JRA's official mobile meeting page."""
+    seed = JRA_MOBILE_SEEDS[(date, track)]
+    raw = get(seed)
+    soup = BeautifulSoup(raw, "html.parser")
+    text = soup.get_text(" ", strip=True)
+    jpdate = f"{date[:4]}年{int(date[5:7])}月{int(date[8:])}日"
+    if jpdate not in text or track not in text:
+        raise ValueError("JRA_SEED_IDENTITY_MISMATCH")
+    found = {1: seed}
+    for anchor in soup.find_all("a", href=True):
+        match = re.fullmatch(r"(\d{1,2})R", anchor.get_text(" ", strip=True))
+        if match:
+            found[int(match.group(1))] = urljoin(seed, anchor["href"])
+    if set(found) != set(range(1, 13)):
+        raise ValueError(f"JRA_RACE_LINKS_INCOMPLETE_{sorted(found)}")
+    return found, hashlib.sha256(raw).hexdigest()
+
+def parse_official_roster(url: str, date: str, track: str, race: int):
+    """Parse pre-race identity/features from an official JRA mobile card."""
+    raw = get(url)
+    soup = BeautifulSoup(raw, "html.parser")
+    text = soup.get_text(" ", strip=True)
+    jpdate = f"{date[:4]}年{int(date[5:7])}月{int(date[8:])}日"
+    if jpdate not in text or track not in text or f"{race}R" not in text:
+        raise ValueError("JRA_CARD_IDENTITY_MISMATCH")
+    weather = going = None
+    wm = re.search(r"天候\s*[:：]\s*([^\s]+)", text)
+    gm = re.search(r"(?:芝|ダート)\s*[:：]\s*([^\s]+)", text)
+    if wm:
+        weather = wm.group(1)
+    if gm:
+        going = gm.group(1)
+    horses = []
+    for table in soup.select("table"):
+        header = " ".join(x.get_text(" ", strip=True) for x in table.select("th"))
+        if not ("馬番" in header and "馬名" in header):
+            continue
+        for tr in table.select("tr"):
+            horse_link = tr.select_one("a[href*='accessU.html']")
+            if horse_link is None:
+                continue
+            cells = tr.find_all("td", recursive=False)
+            number = None
+            frame = None
+            for index, cell in enumerate(cells[:3]):
+                value = cell.get_text(" ", strip=True)
+                if re.fullmatch(r"\d{1,2}", value) and 1 <= int(value) <= 18:
+                    if number is None and index > 0:
+                        number = int(value)
+                    elif frame is None:
+                        frame = int(value)
+            row_text = tr.get_text(" ", strip=True)
+            record = re.search(r"\((\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\)", row_text)
+            if number is None or record is None:
+                continue
+            w, s, third, other = map(int, record.groups())
+            anchors = [a.get_text(" ", strip=True) for a in tr.find_all("a") if a.get_text(" ", strip=True)]
+            weights = [float(x) for x in re.findall(r"(?<!\d)(5[0-9](?:\.\d)?)(?!\d)", row_text)]
+            horses.append({
+                "number": number, "frame": frame, "name": horse_link.get_text(" ", strip=True),
+                "jockey": anchors[1] if len(anchors) > 1 else None,
+                "trainer": anchors[2] if len(anchors) > 2 else None,
+                "assigned_weight_kg": weights[0] if weights else None,
+                "starts": w + s + third + other, "wins": w, "seconds": s, "thirds": third,
+            })
+        if horses:
+            break
+    if not 3 <= len(horses) <= 18 or len({x["number"] for x in horses}) != len(horses):
+        raise ValueError(f"JRA_FIELD_INCOMPLETE_{len(horses)}")
+    return horses, hashlib.sha256(raw).hexdigest(), weather, going
 
 def parse_internal_roster(date: str, track: str, code: str, race: int):
     url = "https://sports.yahoo.co.jp/keiba/race/achievement/all/" + code + f"{race:02d}"
@@ -204,6 +289,8 @@ def parse_external(url, date, track, race):
             break
     if not rows:
         raise ValueError("EXTERNAL_TABLE_MISSING")
+    if any(x["number"] <= 0 for x in rows) or len({x["number"] for x in rows}) != len(rows):
+        raise ValueError("EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED")
     return rows, updated, hashlib.sha256(raw).hexdigest()
 
 def softmax(values, temperature=20.0):
@@ -261,6 +348,11 @@ def main():
     for date, tracks in MEETINGS.items():
         races, failures = [], []
         for track, meta in tracks.items():
+            try:
+                official_urls, official_seed_sha = official_race_urls(date, track)
+            except Exception as exc:
+                official_urls, official_seed_sha = {}, None
+                failures.append({"track": track, "race": None, "reason": f"JRA_MEETING_UNAVAILABLE:{exc}"})
             for race in range(1, 13):
                 surface = meta["surface"][race - 1]
                 if surface == "obstacle":
@@ -276,15 +368,17 @@ def main():
                         ext_rows, page_updated, ext_sha = parse_external(ext_pages[key], date, track, race)
                     except Exception as exc:
                         ext_error = str(exc)
-                    roster_method = "CAREER_TOTALS_PROXY"
+                    roster_method = "JRA_OFFICIAL_CARD_CAREER_TOTALS_PROXY"
+                    weather = going = None
                     try:
-                        horses, roster_url, roster_sha = parse_internal_roster(date, track, meta["code"], race)
+                        roster_url = official_urls[race]
+                        horses, roster_sha, weather, going = parse_official_roster(roster_url, date, track, race)
                     except Exception as roster_exc:
-                        if not ext_rows:
-                            raise ValueError(f"ROSTER_UNAVAILABLE:{roster_exc};EXTERNAL:{ext_error}")
-                        horses = [{"number": x["number"], "name": x["name"], "starts": 0, "wins": 0, "seconds": 0, "thirds": 0} for x in ext_rows]
-                        roster_url, roster_sha = ext_pages[key], ext_sha
-                        roster_method = "EXTERNAL_ROSTER_NO_HISTORY_TIE"
+                        try:
+                            horses, roster_url, roster_sha = parse_internal_roster(date, track, meta["code"], race)
+                            roster_method = "YAHOO_CAREER_TOTALS_PROXY_FALLBACK"
+                        except Exception as secondary_exc:
+                            raise ValueError(f"ROSTER_UNAVAILABLE:JRA:{roster_exc};YAHOO:{secondary_exc};EXTERNAL:{ext_error}")
                     p_internal = internal_probabilities(model, horses, track, surface)
                     models = {"A": calculate_model(horses, p_internal)}
                     if not ext_rows:
@@ -304,6 +398,8 @@ def main():
                     races.append({
                         "race": f"{track}{race}R", "track": track, "race_number": race, "surface": surface,
                         "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,
+                        "jra_meeting_seed_sha256": official_seed_sha, "weather_observed": weather, "going_observed": going,
+                        "runners": horses,
                         "external_source": ext_pages.get(key), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
                         "external_error": ext_error, "external_indices": external_indices, "models": models,
                     })
@@ -311,13 +407,24 @@ def main():
                 except Exception as exc:
                     failures.append({"track": track, "race": race, "reason": str(exc)})
                     print("FAIL", date, track, race, exc, flush=True)
+        input_snapshot = {
+            "captured_at": NOW.isoformat(), "program_source": PROGRAM[date],
+            "races": [{
+                "race": r["race"], "roster_sha256": r["roster_sha256"], "runners": r["runners"],
+                "weather": r["weather_observed"], "going": r["going_observed"],
+                "external_sha256": r["external_sha256"], "external_indices": r["external_indices"],
+            } for r in races],
+        }
+        input_sha = hashlib.sha256(json.dumps(input_snapshot, ensure_ascii=False, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+        official_covered = sum(1 for r in races if r["roster_method"].startswith("JRA_OFFICIAL"))
         payload = {
             "schema": "keiba-weekend-four-model-research-freeze-v1", "date": date,
             "captured_at": NOW.isoformat(), "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
-            "program_source": PROGRAM[date], "official_full_card_independently_replayed": False,
+            "program_source": PROGRAM[date], "official_full_card_independently_replayed": official_covered == 23,
             "canonical_db": {"version": 10, "size_bytes": 322121728, "sha256_expected": DB_SHA, "sha256_observed_outside_action": DB_SHA},
             "active_model": {"sha256": ACTIVE_SHA, "strict_production_validated": False, "live_bet_generation": False, "changed": False},
             "research_model_sha256": model_sha, "external_listing_sha256": listing_sha,
+            "input_snapshot_sha256": input_sha,
             "weights": WEIGHTS, "external_temperature": 20, "placing_approximation": "Plackett-Luce",
             "ticket_thresholds": THRESHOLDS, "per_race_budget_yen_max": 10000, "actual_purchase": False,
             "covered_flat_races": len(races), "failures": failures, "races": races,
@@ -331,7 +438,8 @@ def main():
         json_path.write_text(raw, encoding="utf-8")
         top = sorted(races, key=lambda r: -r["models"]["A"]["horses"][0]["p1"])[:5]
         graded = [r for r in races if (date == "2026-10-31" and r["race"] == "京都11R") or (date == "2026-11-01" and r["race"] == "東京11R")]
-        lines = [f"# {date} JRA平地4モデル前日研究予測", "", f"固定時刻: {NOW.isoformat()}", "", "正式モデルではなく、通算成績代理特徴量による研究シャドー。公式全出馬表の独立再現ゲートは未通過。", "", f"対象 {len(races)}R／未算出・除外 {len(failures)}R。入力JSON SHA256 `{payload_sha}`。", "", "## 上位5レース＋重賞", ""]
+        gate_text = "公式全出馬表を再読込確認済み" if official_covered == 23 else f"公式出馬表確認 {official_covered}/23R（未通過）"
+        lines = [f"# {date} JRA平地4モデル前日研究予測", "", f"固定時刻: {NOW.isoformat()}", "", f"正式モデルではなく、通算成績代理特徴量による研究シャドー。{gate_text}。", "", f"対象 {len(races)}R／未算出・除外 {len(failures)}R。入力SHA256 `{input_sha}`、予測JSON SHA256 `{payload_sha}`、モデルSHA256 `{model_sha}`。", "", "## 上位5レース＋重賞", ""]
         for r in top + [x for x in graded if x not in top]:
             lines += [f"### {r['race']}", "", "|方式|◎|p1|○|▲|☆|△|順序|単/馬連/3連複|", "|---|---|---:|---|---|---|---|---|---:|"]
             for label in WEIGHTS:

@@ -75,7 +75,7 @@ class ProgramRowProbeTest(unittest.TestCase):
     def test_real_pdf_letter_spaced_name_fragments(self):
         # Actual 2026-10-25 PDF renders some horse names as single-character
         # spans at one baseline, not as a single text span.
-        row = [{"text": ch, "x": 65 + i * 24, "y": 200.0, "size": 11.0}
+        row = [{"text": ch, "x": 65 + i * 22, "y": 200.0, "size": 11.0}
                for i, ch in enumerate("ロブチェン")]
         name, count = _name_from_same_baseline(row, 300, 750)
         self.assertEqual(name, "ロブチェン")

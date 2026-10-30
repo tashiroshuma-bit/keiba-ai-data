@@ -1,0 +1,22 @@
+name: Collect all flat weekend cards
+on:
+  push:
+    paths: ['.github/workflows/collect_all_flat_weekend_cards.yml','scripts/collect_all_flat_weekend_cards.py']
+permissions:
+  contents: write
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install beautifulsoup4
+      - run: python scripts/collect_all_flat_weekend_cards.py
+      - name: Save immutable public observations
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/weekend_20261031_1101/ALL_FLAT_CARD_ODDS_*.json
+          git commit -m "Save public all-flat weekend card and odds observations"
+          git pull --rebase
+          git push

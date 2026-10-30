@@ -79,7 +79,7 @@ class ProgramRowProbeTest(unittest.TestCase):
                for i, ch in enumerate("ロブチェン")]
         name, count = _name_from_same_baseline(row, 300, 750)
         self.assertEqual(name, "ロブチェン")
-        self.assertEqual(count, 4)
+        self.assertEqual(count, 5)
 
     def test_overlapping_two_names_are_not_concatenated(self):
         row = [{"text": "ロブチェン", "x": 115, "y": 200, "size": 12},

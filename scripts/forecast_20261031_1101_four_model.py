@@ -583,6 +583,19 @@ def main():
         all_summary.append(manifest)
     print(json.dumps(all_summary, ensure_ascii=False))
 
+def probe_real_cards():
+    for date,track,race in (("2026-10-31","東京",1),("2026-10-31","東京",6),("2026-11-01","東京",1),("2026-11-01","東京",11)):
+        urls,_=official_race_urls(date,track)
+        horses,_,_,_,surface,off=parse_official_roster(urls[race],date,track,race)
+        secondary,_,_=parse_internal_roster(date,track,MEETINGS[date][track]["code"],race)
+        norm=lambda x:re.sub(r"[\s　]","",x)
+        if {norm(h["name"]) for h in horses}!={norm(h["name"]) for h in secondary}:
+            raise ValueError("PROBE_FULL_ROSTER_MISMATCH")
+        print("PROBE_OK",date,track,race,len(horses),surface,off,flush=True)
+
 if __name__ == "__main__":
-    main()
+    if "--probe" in sys.argv:
+        probe_real_cards()
+    else:
+        main()
 

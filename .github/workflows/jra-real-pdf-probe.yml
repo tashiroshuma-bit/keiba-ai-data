@@ -139,6 +139,34 @@ jobs:
                                       'weights': sample(lambda s: WEIGHT.fullmatch(s['text']), 18)})
                           finally:
                               doc.close()
+                      import fitz
+                      from jra_v47_program_row_probe import _spans
+                      doc2 = fitz.open(stream=raw, filetype='pdf')
+                      item['name_fail_samples'] = []
+                      try:
+                          for page_no, page in enumerate(doc2):
+                              width = page.rect.width / 4
+                              height = page.rect.height
+                              for col in range(4):
+                                  race = probe['races'][page_no * 4 + col]
+                                  missing = [h for h in race['runner_candidates'] if h['horse_name_candidate'] is None]
+                                  if not missing:
+                                      continue
+                                  ss = _spans(page, page.rect.x0 + col * width, page.rect.x0 + (col + 1) * width)
+                                  for h in missing:
+                                      if len(item['name_fail_samples']) >= 24:
+                                          break
+                                      y = h['anchor_y_fraction']
+                                      near = [{'text': s['text'][:28], 'x': round(s['x'] / width, 3),
+                                               'y': round(s['y'] / height, 3), 'size': round(s['size'], 1)}
+                                              for s in ss if .13 < s['x'] / width < .55 and s['size'] >= 7
+                                              and abs(s['y'] / height - y) <= .021]
+                                      item['name_fail_samples'].append({'race': page_no * 4 + col + 1,
+                                                                       'horse_no': h['horse_number_candidate'],
+                                                                       'candidate_count': h['name_candidate_count'],
+                                                                       'near_spans': near[:9]})
+                      finally:
+                          doc2.close()
                       item['status'] = 'candidate_diagnostics_only'
                   except Exception as exc:
                       item['status'] = 'error'

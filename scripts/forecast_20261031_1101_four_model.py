@@ -41,7 +41,7 @@ SELECTION = BASE / "keiba_v48/reports/exact_rank/selection_lag7.json"
 DB_SHA = "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc"
 ACTIVE_SHA = "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395"
 WEIGHTS = {"A": (1.0, 0.0), "B": (.75, .25), "C": (.5, .5), "D": (.25, .75)}
-THRESHOLDS = {"single": .40, "quinella": .25, "trio": .30}
+THRESHOLDS = {"single": .80, "quinella": .50, "trio": .60, "wide": .50}
 
 MEETINGS = {
     "2026-10-31": {
@@ -342,10 +342,19 @@ def calculate_model(horses, p1):
     pair_no = {tuple(sorted((numbers[i], numbers[j]))): p for (i, j), p in pairs.items()}
     trio_no = {tuple(sorted((numbers[i], numbers[j], numbers[k]))): p for (i, j, k), p in trios.items()}
     ranked = [{"number": numbers[i], "name": horses[i]["name"], "p1": p1[i], "p2": p2[i], "p3": p3[i]} for i in order]
+    wide_no = {pair: sum(q for ix,q in triples.items() if set(pair).issubset({numbers[i] for i in ix})) for pair in pair_no}
+    wide_tickets, chosen_pairs, union = [], [], 0.0
+    for pair, probability in sorted(wide_no.items(), key=lambda x: (-x[1], x[0])):
+        chosen_pairs.append(set(pair))
+        union = sum(q for ix,q in triples.items() if any(pair.issubset({numbers[i] for i in ix}) for pair in chosen_pairs))
+        wide_tickets.append({"numbers":list(pair),"p":probability,"cumulative":union})
+        if union >= THRESHOLDS["wide"]:
+            break
     return {
+        "ordered_top3_probability": triples[exact],
         "marks": dict(zip(["◎","○","▲","☆","△"], [r["number"] for r in ranked[:5]])),
         "ordered_top3": [numbers[i] for i in exact], "horses": ranked,
-        "priority": {"single": threshold(single, .40), "quinella": threshold(pair_no, .25), "trio": threshold(trio_no, .30)},
+        "priority": {"single": threshold(single, THRESHOLDS["single"]), "quinella": threshold(pair_no, THRESHOLDS["quinella"]), "trio": threshold(trio_no, THRESHOLDS["trio"]), "wide": {"threshold": THRESHOLDS["wide"], "count":len(wide_tickets), "cumulative":union, "tickets":wide_tickets}},
         "research_stake_yen": 0, "stake_reason": "PREOFF_ODDS_MISSING_OR_UNCALIBRATED_DO_NOT_FORCE_BUDGET",
     }
 
@@ -453,6 +462,12 @@ def main():
         graded = [r for r in races if (date == "2026-10-31" and r["race"] == "京都11R") or (date == "2026-11-01" and r["race"] == "東京11R")]
         gate_text = "公式全出馬表を再読込確認済み" if official_covered == 23 else f"公式出馬表確認 {official_covered}/23R（未通過）"
         lines = [f"# {date} JRA平地4モデル前日研究予測", "", f"固定時刻: {NOW.isoformat()}", "", f"正式モデルではなく、通算成績代理特徴量による研究シャドー。{gate_text}。", "", f"対象 {len(races)}R／未算出・除外 {len(failures)}R。入力SHA256 `{input_sha}`、予測JSON SHA256 `{payload_sha}`、モデルSHA256 `{model_sha}`。", "", "## 上位5レース＋重賞", ""]
+        lines += ["## 全レース一覧（モデル内確率・実測的中率ではありません）", "", "|レース|頭数|A本命|単勝1点|馬連1点|ワイド1点|3連複1点|B/C/D|", "|---|---:|---|---:|---:|---:|---:|---|"]
+        for r in races:
+            m=r["models"]["A"]; h=m["horses"][0]; pr=m["priority"]
+            availability="/".join("計算済" if r["models"].get(label) else "欠損" for label in ("B","C","D"))
+            lines.append(f"|{r['race']}|{r['runner_count']}|{h['number']} {h['name']}|{h['p1']:.2%}|{pr['quinella']['tickets'][0]['p']:.2%}|{pr['wide']['tickets'][0]['p']:.2%}|{pr['trio']['tickets'][0]['p']:.2%}|{availability}|")
+        lines += ["", "## ベスト5・重賞の全優先組合せ", "", "単勝累積80%、馬連50%、ワイドの少なくとも1点50%、3連複60%まで。ワイドの重複的中は和集合で計算。未校正の研究参考値。", ""]
         for r in top + [x for x in graded if x not in top]:
             lines += [f"### {r['race']}", "", "|方式|◎|p1|○|▲|☆|△|順序|単/馬連/3連複|", "|---|---|---:|---|---|---|---|---|---:|"]
             for label in WEIGHTS:
@@ -462,6 +477,14 @@ def main():
                     continue
                 h = m["horses"][0]; marks = m["marks"]
                 lines.append(f"|{label}|{marks.get('◎')} {h['name']}|{h['p1']:.2%}|{marks.get('○')}|{marks.get('▲')}|{marks.get('☆')}|{marks.get('△')}|{'→'.join(map(str,m['ordered_top3']))}|{m['priority']['single']['count']}/{m['priority']['quinella']['count']}/{m['priority']['trio']['count']}|")
+            for label in WEIGHTS:
+                m=r["models"].get(label)
+                if m is None:
+                    continue
+                lines += ["", f"#### {label}：全優先組合せ", "", "|券種|組合せ|個別確率|累積確率|", "|---|---|---:|---:|"]
+                for key,title in (("single","単勝"),("quinella","馬連"),("wide","ワイド"),("trio","3連複")):
+                    for t in m["priority"][key]["tickets"]:
+                        lines.append(f"|{title}|{'-'.join(map(str,t['numbers']))}|{t['p']:.2%}|{t['cumulative']:.2%}|")
             lines += ["", "研究用買い目金額: 0円（発走前オッズ欠損・未校正。1レース最大1万円を無理に使用しない）", ""]
         if failures:
             lines += ["## 未算出・除外", "", "```json", json.dumps(failures, ensure_ascii=False, indent=2), "```", ""]

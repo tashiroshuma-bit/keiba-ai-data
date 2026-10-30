@@ -110,7 +110,7 @@ def row_number_and_frame(cells, horse_cell):
         if re.fullmatch(r"\d{1,2}", value):
             values.append(int(value))
     if not values or not 1 <= values[-1] <= 18:
-        raise ValueError("HORSE_NUMBER_MISSING")
+        raise ValueError("HORSE_NUMBER_MISSING:" + repr([(c.get("class"), c.get_text(" ", strip=True)[:100]) for c in cells]))
     return values[-1], values[-2] if len(values) > 1 else None
 
 
@@ -152,7 +152,7 @@ def parse_official_html(raw, date, track, race):
             identity = cells[hi + 1:]
             weight_cell = next((c for c in identity if re.search(r"(?:牡|牝|せん|セン|セ)\s*\d+", c.get_text(" ", strip=True)) and re.search(r"\b\d{2}(?:\.\d)?\s*kg", c.get_text(" ", strip=True))), None)
             if weight_cell is None:
-                raise ValueError(f"ASSIGNED_WEIGHT_CELL_MISSING_{number}")
+                raise ValueError(f"ASSIGNED_WEIGHT_CELL_MISSING_{number}:" + repr([(c.get("class"), c.get_text(" ", strip=True)[:180]) for c in cells]))
             wm = re.search(r"(?<!\d)(\d{2}(?:\.\d)?)\s*kg", weight_cell.get_text(" ", strip=True))
             jockey_links = weight_cell.find_all("a")
             jockey = jockey_links[-1].get_text(" ", strip=True) if jockey_links else None

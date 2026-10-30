@@ -1,0 +1,175 @@
+{
+  "schema": "keiba-weekend-four-model-research-freeze-v1",
+  "date": "2026-11-01",
+  "captured_at": "2026-10-31T00:52:55.961780+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "program_source": "https://www.jra.go.jp/keiba/calendar2026/2026/11/1101.html",
+  "official_full_card_independently_replayed": false,
+  "canonical_db": {
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed_this_run": null
+  },
+  "active_model": {
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed": false
+  },
+  "research_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "external_listing_sha256": "4ca1eadc351918342d4db54f0d5dc59e0f7793734809d52598b578d9ccaf8858",
+  "input_snapshot_sha256": "2af889f8fa805d314c69cb0a8e865343f065dfd4532f94fcaba4263bf2c7a4cc",
+  "weights": {
+    "A": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "external_temperature": 20,
+  "placing_approximation": "Plackett-Luce",
+  "ticket_thresholds": {
+    "single": 0.8,
+    "quinella": 0.5,
+    "trio": 0.6,
+    "wide": 0.5
+  },
+  "per_race_budget_yen_max": 10000,
+  "actual_purchase": false,
+  "covered_flat_races": 0,
+  "failures": [
+    {
+      "track": "東京",
+      "race": 1,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アニーリング 牝2\\xa0/\\xa0黒鹿 前4走 岩田望来 (55.0) 尾関知人 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アイデアルカット 牡2\\xa0/\\xa0鹿 前4走 嶋田純次 (56.0) 手塚貴徳 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 3,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アラヤシキ 牡2\\xa0/\\xa0黒鹿 前4走 嶋田純次 (56.0) 松山将樹 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アドマイヤキングス 牡2\\xa0/\\xa0栗 前4走 C.デムーロ(56.0) 友道康夫 (栗東)')]"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アイアムスグレモノ 牡2\\xa0/\\xa0鹿 前4走 丹内祐次 (56.0) 奥平雅士 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アンプイットアップ 牡3\\xa0/\\xa0栗 前4走 荻野極 (56.0) 岩戸孝樹 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アルプスオジョー 牝5\\xa0/\\xa0黒鹿 前4走 横山琉人 (56.0) 手塚貴徳 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'イブキ 牡3\\xa0/\\xa0栗 前4走 原優介 (55.0) 矢野英一 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アルデトップガン 牡3\\xa0/\\xa0鹿 前4走 丹内祐次 (56.0) 田中剛 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アイアムユウシュン 牡5\\xa0/\\xa0栗 前4走 岩田康誠 (58.0) 奥平雅士 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 11,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'クロワデュノール 2.5 (1番人気) 牡4\\xa0/\\xa0青鹿 前4走 (7,2,0,2) C.デムーロ (58.0) 斉藤崇史 (栗東) 122 I,L')]"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アイファーバトル 牡5\\xa0/\\xa0黒鹿 前4走 松岡正海 (53.0) 蛯名利弘 (美浦)')]"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アヴレディール 牝2\\xa0/\\xa0黒鹿 前4走 西村淳也 (55.0) 松永幹夫 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アンベリール 牡2\\xa0/\\xa0栗 前4走 ▲ 和田陽希 (53.0) 牧光二 (美浦)')]"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アルバドラータ 牡2\\xa0/\\xa0栗 前4走 国分恭介 (56.0) 小栗実 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'ウインヴァンガード 牡2\\xa0/\\xa0栗 前4走 西村淳也 (56.0) 杉山晴紀 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アブソリュートガイ 牡2\\xa0/\\xa0栗 前4走 ☆ 田山旺佑 (55.0) 藤岡健一 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'インピッシュ 牝4\\xa0/\\xa0鹿 前4走 高杉吏麒 (56.0) 中尾秀正 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'オープンザパンドラ 牡3\\xa0/\\xa0芦 前4走 斎藤新 (55.0) 小椋研介 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アトモス 牡3\\xa0/\\xa0黒鹿 前4走 角田大和 (56.0) 角田晃一 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'アスクデッドヒート 牡4\\xa0/\\xa0鹿 前4走 古川奈穂 (54.0) 矢作芳人 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'ガロンヌ 牡5\\xa0/\\xa0芦 前4走 池添謙一 (56.0) 上村洋行 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:HORSE_NUMBER_MISSING:[(['wban', 'waku0'], ''), (['uban'], ''), (['uma'], 'インフローレ 牝4\\xa0/\\xa0鹿 前4走 ◇ 今村聖奈 (54.0) 寺島良 (栗東)')]"
+    }
+  ],
+  "races": []
+}

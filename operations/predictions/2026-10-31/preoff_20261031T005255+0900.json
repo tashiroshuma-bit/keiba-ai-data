@@ -1,0 +1,175 @@
+{
+  "schema": "keiba-weekend-four-model-research-freeze-v1",
+  "date": "2026-10-31",
+  "captured_at": "2026-10-31T00:52:55.961780+09:00",
+  "status": "RESEARCH_SHADOW_NOT_FORMAL_PREDICTION",
+  "program_source": "https://www.jra.go.jp/keiba/calendar2026/2026/10/1031.html",
+  "official_full_card_independently_replayed": false,
+  "canonical_db": {
+    "version": 10,
+    "size_bytes": 322121728,
+    "sha256_expected": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "sha256_observed_this_run": null
+  },
+  "active_model": {
+    "sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "strict_production_validated": false,
+    "live_bet_generation": false,
+    "changed": false
+  },
+  "research_model_sha256": "e1bc47782e09c39f19896e79bb6570e43884a66ba63a635293c3c32aba6e3367",
+  "external_listing_sha256": "4ca1eadc351918342d4db54f0d5dc59e0f7793734809d52598b578d9ccaf8858",
+  "input_snapshot_sha256": "d3fe09e3c189ca913bee700f58b9b954e008aa8018023b1c49a0aead8daaa8e0",
+  "weights": {
+    "A": [
+      1.0,
+      0.0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "external_temperature": 20,
+  "placing_approximation": "Plackett-Luce",
+  "ticket_thresholds": {
+    "single": 0.8,
+    "quinella": 0.5,
+    "trio": 0.6,
+    "wide": 0.5
+  },
+  "per_race_budget_yen_max": 10000,
+  "actual_purchase": false,
+  "covered_flat_races": 0,
+  "failures": [
+    {
+      "track": "東京",
+      "race": 1,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'トルタネーラ 328.5\\xa0(16番人気) 牡2\\xa0/\\xa0青鹿 前4走 (0,0,0,1) 木幡育也 (56.0) 松永康利 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 2,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ヒミツヘイキ 55.9\\xa0(9番人気) 牡2\\xa0/\\xa0鹿 前4走 (0,0,0,2) 小林脩斗 (56.0) 鈴木慎太郎 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 3,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'フィニート 37.7\\xa0(7番人気) 牝2\\xa0/\\xa0鹿 前4走 (0,0,0,1) 石橋脩 (55.0) 小手川準 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 4,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'アワフェリシティ 51.2\\xa0(13番人気) 牡2\\xa0/\\xa0黒鹿 前4走 (0,0,0,0) △ 石神深道 (54.0) 千葉直人 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 5,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'サスケサートゥル 49.2\\xa0(9番人気) 牝2\\xa0/\\xa0黒鹿 前4走 (0,0,0,0) 佐々木大輔 (55.0) 秋本大介 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 6,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ソニックキャット 20.5\\xa0(9番人気) 牡3\\xa0/\\xa0栗 前4走 (1,0,0,5) 菅原明良 (56.0) 三樹祐輔 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 7,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'デイズインザサン 113.9\\xa0(11番人気) 牝3\\xa0/\\xa0青鹿 前4走 (0,1,0,8) 佐々木大輔 (54.0) 小野次郎 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 8,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'スーパーバイザー 35.9\\xa0(7番人気) 牡5\\xa0/\\xa0鹿 前4走 (2,0,0,17) 原優介 (58.0) 菊沢隆徳 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 9,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'マイスターシューズ 10.5\\xa0(5番人気) 牡2\\xa0/\\xa0鹿 前4走 (1,0,0,0) 田口貫太 (56.0) 小椋研介 (栗東)')]"
+    },
+    {
+      "track": "東京",
+      "race": 10,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ケイケイ 14.1\\xa0(6番人気) せん5\\xa0/\\xa0栗 前4走 (2,2,3,21) 木幡巧也 (58.0) 杉浦宏昭 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 11,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ハセドン 53.1\\xa0(14番人気) 牡7\\xa0/\\xa0栗 前4走 (4,1,0,10) 中井裕二 (55.0) 大和田成 (美浦)')]"
+    },
+    {
+      "track": "東京",
+      "race": 12,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'フィクセルリリア 65.4\\xa0(12番人気) 牝3\\xa0/\\xa0鹿 前4走 (0,2,0,4) 吉田豊 (54.0) 平岩大典 (美浦)')]"
+    },
+    {
+      "track": "京都",
+      "race": 1,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'スリーオブスペイズ 8.8 (3番人気) 牡2\\xa0/\\xa0芦 前4走 (0,0,0,1) ☆ 田山旺佑 (55.0) 吉田直弘 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 2,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'フクノブルースカイ 11.9\\xa0(5番人気) 牡2\\xa0/\\xa0鹿 前4走 (0,0,1,0) 浜中俊 (56.0) 中尾秀正 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 3,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'シルクウォード 10.7\\xa0(5番人気) 牡2\\xa0/\\xa0芦 前4走 (0,0,0,1) 西村淳也 (56.0) 庄野靖志 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 4,
+      "reason": "OBSTACLE_OUT_OF_MODEL_DOMAIN"
+    },
+    {
+      "track": "京都",
+      "race": 5,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ソトッキー 6.6 (4番人気) 牡2\\xa0/\\xa0栗 前4走 (0,0,0,0) C.デムーロ (56.0) 新谷功一 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 6,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'レッドガレオン 9.4 (5番人気) 牡2\\xa0/\\xa0鹿 前4走 (0,0,0,0) 西村淳也 (56.0) 庄野靖志 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 7,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'マリノエステーラ 128.6\\xa0(12番人気) 牝3\\xa0/\\xa0青鹿 前4走 (1,1,0,6) △ 柴田裕一郎 (52.0) 中竹和也 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 8,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ミサビスケッツ 15.2\\xa0(7番人気) 牝4\\xa0/\\xa0黒鹿 前4走 (2,3,3,6) ★ 河原田菜々 (52.0) 村田一誠 (美浦)')]"
+    },
+    {
+      "track": "京都",
+      "race": 9,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'ダノンカゼルタ 19.1\\xa0(7番人気) せん4\\xa0/\\xa0栗 前4走 (2,2,0,11) 高杉吏麒 (58.0) 寺島良 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 10,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'セブンマジシャン 23.6\\xa0(11番人気) 牡6\\xa0/\\xa0鹿 前4走 (3,6,4,15) 田山旺佑 (58.0) 高野友和 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 11,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'レニュアージュ 11.8\\xa0(6番人気) 牝2\\xa0/\\xa0鹿 前4走 (1,0,0,0) 西村淳也 (55.0) 藤原英昭 (栗東)')]"
+    },
+    {
+      "track": "京都",
+      "race": 12,
+      "reason": "OFFICIAL_ROSTER_UNAVAILABLE:ASSIGNED_WEIGHT_CELL_MISSING_1:[(['wban', 'waku1'], '1'), (['uban'], '1'), (['uma'], 'スマートティアナ 8.4 (4番人気) 牝3\\xa0/\\xa0青鹿 前4走 (1,1,0,2) 岩田望来 (54.0) 石橋守 (栗東)')]"
+    }
+  ],
+  "races": []
+}

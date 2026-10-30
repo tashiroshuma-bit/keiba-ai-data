@@ -103,6 +103,12 @@ def official_race_urls(date: str, track: str):
 
 def row_number_and_frame(cells, horse_cell):
     # rowspan means the second horse in a frame has no frame cell.
+    explicit = next((c for c in cells if "uban" in c.get("class", [])), None)
+    if explicit is not None:
+        value = explicit.get_text(" ", strip=True)
+        frame_cell = next((c for c in cells if "wban" in c.get("class", [])), None)
+        f = frame_cell.get_text(" ", strip=True) if frame_cell else ""
+        return int(value) if value.isdigit() else None, int(f) if f.isdigit() else None
     left = cells[:horse_cell]
     values = []
     for cell in left:
@@ -110,12 +116,20 @@ def row_number_and_frame(cells, horse_cell):
         if re.fullmatch(r"\d{1,2}", value):
             values.append(int(value))
     if not values or not 1 <= values[-1] <= 18:
-        raise ValueError("HORSE_NUMBER_MISSING:" + repr([(c.get("class"), c.get_text(" ", strip=True)[:100]) for c in cells]))
+        return None, None
     return values[-1], values[-2] if len(values) > 1 else None
 
 
-def validate_complete_field(horses):
+def validate_complete_field(horses, allow_unnumbered=False):
     numbers = [h["number"] for h in horses]
+    if len({h["name"] for h in horses}) != len(horses):
+        raise ValueError("DUPLICATE_RUNNER_NAME")
+    if allow_unnumbered and numbers and all(n is None for n in numbers):
+        if not 3 <= len(numbers) <= 18:
+            raise ValueError("UNNUMBERED_HEADCOUNT_INVALID")
+        return
+    if any(n is None for n in numbers):
+        raise ValueError("HORSE_NUMBERS_NOT_YET_PUBLISHED")
     if not 3 <= len(numbers) <= 18 or len(set(numbers)) != len(numbers):
         raise ValueError(f"FIELD_DUPLICATE_OR_INCOMPLETE_{numbers}")
     if set(numbers) != set(range(1, max(numbers) + 1)):
@@ -145,37 +159,45 @@ def parse_official_html(raw, date, track, race):
             link = cells[hi].select_one("a[href*='accessU.html']")
             number, frame = row_number_and_frame(cells, hi)
             record = re.search(r"[（(](\d+)\s*[,．.]\s*(\d+)\s*[,．.]\s*(\d+)\s*[,．.]\s*(\d+)[）)]", cells[hi].get_text(" ", strip=True))
-            if record is None:
+            future_unassigned = date > NOW.date().isoformat() and number is None
+            if record is None and not future_unassigned:
                 raise ValueError(f"CAREER_RECORD_MISSING_{number}")
-            w, second, third, other = map(int, record.groups())
-            # Read assigned weight only from the current identity cells, never past-run odds/weights.
-            identity = cells[hi + 1:]
-            weight_cell = next((c for c in identity if re.search(r"(?:牡|牝|せん|セン|セ)\s*\d+", c.get_text(" ", strip=True)) and re.search(r"\b\d{2}(?:\.\d)?\s*kg", c.get_text(" ", strip=True))), None)
-            if weight_cell is None:
-                raise ValueError(f"ASSIGNED_WEIGHT_CELL_MISSING_{number}:" + repr([(c.get("class"), c.get_text(" ", strip=True)[:180]) for c in cells]))
-            wm = re.search(r"(?<!\d)(\d{2}(?:\.\d)?)\s*kg", weight_cell.get_text(" ", strip=True))
-            jockey_links = weight_cell.find_all("a")
-            jockey = jockey_links[-1].get_text(" ", strip=True) if jockey_links else None
-            trainer_links = cells[hi].find_all("a")
-            trainer = trainer_links[-1].get_text(" ", strip=True) if len(trainer_links) > 1 else None
+            w, second, third, other = map(int, record.groups()) if record else (None, None, None, None)
+            horse_text = cells[hi].get_text(" ", strip=True)
+            anchors = [a for a in cells[hi].find_all("a") if a.get_text(" ", strip=True)]
+            # Mobile compact cards keep current jockey and weight inside td.uma.
+            wm = re.search(r"[（(]((?:4[5-9]|[56]\d|70)(?:\.\d)?)[）)]", horse_text)
+            if wm:
+                assigned_weight = float(wm[1])
+                jockey = anchors[1].get_text(" ", strip=True) if len(anchors)>1 else None
+                trainer = anchors[2].get_text(" ", strip=True) if len(anchors)>2 else None
+            else:
+                weight_cell = next((c for c in cells[hi+1:] if re.search(r"(?:牡|牝|せん|セン|セ)\s*\d+", c.get_text(" ", strip=True)) and re.search(r"\d{2}(?:\.\d)?\s*kg", c.get_text(" ", strip=True))), None)
+                if weight_cell is None:
+                    raise ValueError(f"ASSIGNED_WEIGHT_CELL_MISSING_{number}")
+                wm = re.search(r"(?<!\d)(\d{2}(?:\.\d)?)\s*kg", weight_cell.get_text(" ", strip=True))
+                assigned_weight = float(wm[1]); ja=weight_cell.find_all("a")
+                jockey = ja[-1].get_text(" ", strip=True) if ja else None
+                trainer = anchors[-1].get_text(" ", strip=True) if len(anchors)>1 else None
             candidate.append({"number": number, "frame": frame, "name": link.get_text(" ", strip=True),
-                              "jockey": jockey, "trainer": trainer, "assigned_weight_kg": float(wm.group(1)),
-                              "starts": w + second + third + other, "wins": w, "seconds": second, "thirds": third})
+                              "jockey": jockey, "trainer": trainer, "assigned_weight_kg": assigned_weight,
+                              "career_missing": record is None,
+                              "starts": w + second + third + other if record else None, "wins": w, "seconds": second, "thirds": third})
         if candidate:
             horses = candidate
             break
-    validate_complete_field(horses)
+    validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     # Headers precede horse histories. Do not mistake a past race's going for today's.
     prefix = text.split("馬名", 1)[0]
     weather_match = re.search(r"天候\s*[:：]?\s*(晴|曇|雨|小雨|雪|小雪)", prefix)
     going_match = re.search(r"(?:芝|ダート)\s*[:：]?\s*(不良|稍重|良|重)", prefix)
     course = re.search(r"コース[：:]?\s*[\d,，]+\s*メートル\s*[（(]([^）)]+)", prefix)
     if not course:
-        raise ValueError("CURRENT_COURSE_MISSING")
+        raise ValueError("CURRENT_COURSE_MISSING:"+prefix[-500:])
     surface = "dirt" if "ダート" in course[1] else "turf" if "芝" in course[1] else None
     off = re.search(r"発走時刻[：:]?\s*(\d{1,2})時(\d{1,2})分", prefix)
     if surface is None or off is None:
-        raise ValueError("CURRENT_SURFACE_OR_OFF_TIME_MISSING")
+        raise ValueError("CURRENT_SURFACE_OR_OFF_TIME_MISSING:"+prefix[-500:])
     off_at = dt.datetime.fromisoformat(date).replace(hour=int(off[1]), minute=int(off[2]), tzinfo=JST)
     return horses, weather_match[1] if weather_match else None, going_match[1] if going_match else None, surface, off_at.isoformat()
 
@@ -187,8 +209,7 @@ def parse_official_roster(url, date, track, race):
 
 
 def parse_internal_roster(date, track, code, race):
-    # Independent roster only; never fabricate all-zero career records as a fallback.
-    url = "https://sports.yahoo.co.jp/keiba/race/denma/" + code + f"{race:02d}"
+    url = "https://sports.yahoo.co.jp/keiba/race/achievement/all/" + code + f"{race:02d}"
     raw = get(url)
     soup = BeautifulSoup(raw, "html.parser")
     text = soup.get_text(" ", strip=True)
@@ -198,19 +219,23 @@ def parse_internal_roster(date, track, code, race):
     horses = []
     for table in soup.select("table"):
         header = " ".join(x.get_text(" ", strip=True) for x in table.select("th"))
-        if "馬番" not in header or "馬名" not in header:
+        if "馬番" not in header or "馬名" not in header or "全レース" not in header:
             continue
         for tr in table.select("tr"):
             cells = tr.find_all(["td", "th"], recursive=False)
-            ix = next((i for i,c in enumerate(cells) if c.select_one("a[href*='/keiba/directory/horse/']")), None)
+            ix = next((i for i,c in enumerate(cells) if c.select_one("a[href*='/horse/']")), None)
             if ix is None:
                 continue
             number, _ = row_number_and_frame(cells, ix)
-            link = cells[ix].select_one("a[href*='/keiba/directory/horse/']")
-            horses.append({"number": number, "name": link.get_text(" ", strip=True)})
+            link = cells[ix].select_one("a[href*='/horse/']")
+            rec = re.search(r"(?<!\d)(\d+)\.(\d+)\.(\d+)\.(\d+)(?!\d)", " ".join(c.get_text(" ", strip=True) for c in cells[ix+1:]))
+            if rec is None:
+                raise ValueError("SECONDARY_CAREER_MISSING")
+            w,se,t,o=map(int,rec.groups())
+            horses.append({"number":number,"name":link.get_text(" ",strip=True),"starts":w+se+t+o,"wins":w,"seconds":se,"thirds":t})
         if horses:
             break
-    validate_complete_field(horses)
+    validate_complete_field(horses, allow_unnumbered=date > NOW.date().isoformat())
     return horses, url, hashlib.sha256(raw).hexdigest()
 
 
@@ -298,8 +323,10 @@ def parse_external(url, date, track, race):
             break
     if not rows:
         raise ValueError("EXTERNAL_TABLE_MISSING")
-    if any(x["number"] <= 0 for x in rows) or len({x["number"] for x in rows}) != len(rows):
-        raise ValueError("EXTERNAL_HORSE_NUMBERS_NOT_PUBLISHED")
+    if len({x["name"] for x in rows}) != len(rows):
+        raise ValueError("EXTERNAL_DUPLICATE_NAMES")
+    if any(x["number"] <= 0 for x in rows) and not all(x["number"] == 0 for x in rows):
+        raise ValueError("EXTERNAL_PARTIAL_HORSE_NUMBERS")
     return rows, updated, hashlib.sha256(raw).hexdigest()
 
 def softmax(values, temperature=20.0):
@@ -334,7 +361,7 @@ def threshold(items, threshold):
     return {"threshold": threshold, "count": len(chosen), "cumulative": cumulative, "tickets": chosen}
 
 def calculate_model(horses, p1):
-    numbers = [h["number"] for h in horses]
+    numbers = [h["number"] if h["number"] is not None else "馬番未定:"+h["name"] for h in horses]
     p2, p3, triples, pairs, trios = plackett_luce(p1)
     order = sorted(range(len(horses)), key=lambda i: (-p1[i], numbers[i]))
     exact = max(triples, key=triples.get)
@@ -395,21 +422,31 @@ def main():
                         raise ValueError(f"OFFICIAL_ROSTER_UNAVAILABLE:{roster_exc}")
                     secondary, secondary_url, secondary_sha = parse_internal_roster(date, track, meta["code"], race)
                     norm = lambda name: re.sub(r"[\s　]", "", name)
-                    if {h["number"]: norm(h["name"]) for h in horses} != {h["number"]: norm(h["name"]) for h in secondary}:
-                        raise ValueError("INDEPENDENT_FULL_ROSTER_MISMATCH")
+                    official_names={norm(h["name"]) for h in horses}
+                    if official_names != {norm(h["name"]) for h in secondary}:
+                        raise ValueError("INDEPENDENT_FULL_ROSTER_NAME_MISMATCH")
+                    numbered=all(h["number"] is not None for h in horses)
+                    if numbered and {h["number"]:norm(h["name"]) for h in horses} != {h["number"]:norm(h["name"]) for h in secondary}:
+                        raise ValueError("INDEPENDENT_FULL_ROSTER_NUMBER_MISMATCH")
+                    secondary_by_name={norm(h["name"]):h for h in secondary}
+                    for horse in horses:
+                        if horse.get("career_missing"):
+                            for stat in ("starts","wins","seconds","thirds"):
+                                horse[stat]=secondary_by_name[norm(horse["name"])][stat]
+                            horse["career_source"]=secondary_url
                     p_internal = internal_probabilities(model, horses, track, surface)
                     models = {"A": calculate_model(horses, p_internal)}
                     if not ext_rows:
                         models.update({label: None for label in ("B", "C", "D")})
                         external_indices = None
                     else:
-                        by_no = {x["number"]: x for x in ext_rows}
-                        if {n: norm(h["name"]) for n,h in by_no.items()} != {h["number"]: norm(h["name"]) for h in horses}:
+                        by_name = {norm(x["name"]): x for x in ext_rows}
+                        if set(by_name) != official_names or (numbered and any(by_name[norm(h["name"])]["number"] != h["number"] for h in horses)):
                             ext_error = "EXTERNAL_ROSTER_MISMATCH"
                             models.update({label: None for label in ("B", "C", "D")})
                             external_indices = None
                         else:
-                            p_external = softmax([by_no[h["number"]]["index"] for h in horses])
+                            p_external = softmax([by_name[norm(h["name"])]["index"] for h in horses])
                             for label, (wi, we) in WEIGHTS.items():
                                 if label == "A":
                                     continue
@@ -420,7 +457,7 @@ def main():
                         "race": f"{track}{race}R", "track": track, "race_number": race, "surface": surface,
                         "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,
                         "jra_meeting_seed_sha256": official_seed_sha, "weather_observed": weather, "going_observed": going,
-                        "runners": horses, "off_at": off_at, "captured_before_off": NOW < dt.datetime.fromisoformat(off_at),
+                        "runners": horses, "horse_numbers_published": numbered, "off_at": off_at, "captured_before_off": NOW < dt.datetime.fromisoformat(off_at),
                         "independent_roster_source": secondary_url, "independent_roster_sha256": secondary_sha,
                         "external_source": ext_pages.get(key), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
                         "external_error": ext_error, "external_indices": external_indices, "models": models,
@@ -469,6 +506,7 @@ def main():
             lines.append(f"|{r['race']}|{r['runner_count']}|{h['number']} {h['name']}|{h['p1']:.2%}|{pr['quinella']['tickets'][0]['p']:.2%}|{pr['wide']['tickets'][0]['p']:.2%}|{pr['trio']['tickets'][0]['p']:.2%}|{availability}|")
         lines += ["", "## ベスト5・重賞の全優先組合せ", "", "単勝累積80%、馬連50%、ワイドの少なくとも1点50%、3連複60%まで。ワイドの重複的中は和集合で計算。未校正の研究参考値。", ""]
         for r in top + [x for x in graded if x not in top]:
+            lines += (["", "馬番未発表：馬名での暫定比較。番号による買い目は未確定。", ""] if not r.get("horse_numbers_published", True) else [])
             lines += [f"### {r['race']}", "", "|方式|◎|p1|○|▲|☆|△|順序|単/馬連/3連複|", "|---|---|---:|---|---|---|---|---|---:|"]
             for label in WEIGHTS:
                 m = r["models"][label]

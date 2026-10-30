@@ -24,8 +24,16 @@ for name,code in targets:
 first=out["races"][0].get("netkeiba",{})
 for tag in first.get("scripts",[]):
  url=tag.get("src")
- if not url or not any(k in url.lower() for k in ("odds","shutuba","race")):continue
+ if not url or not any(k in url.lower() for k in ("jquery.odds_update",)):continue
  try:
   raw,at=fetch(url);out["scripts"].append({"url":url,"at":at,"text":raw.decode("utf-8",errors="replace")})
  except Exception as e:out["scripts"].append({"url":url,"error":str(e)})
+out["odds"]=[]
+from urllib.parse import urlencode
+for name,code in targets:
+ params={"pid":"api_get_jra_odds","input":"UTF-8","output":"jsonp","race_id":code,"type":1,"action":"init","sort":"odds","compress":1,"callback":"odds_callback"}
+ url="https://race.sp.netkeiba.com/?"+urlencode(params)
+ try:
+  raw,at=fetch(url);out["odds"].append({"race":name,"url":url,"at":at,"sha256":hashlib.sha256(raw).hexdigest(),"text":raw.decode("utf-8",errors="replace")})
+ except Exception as e:out["odds"].append({"race":name,"url":url,"error":str(e)})
 p=root/"reports/weekend_20261031_1101/JOCKEY_ODDS_SOURCE_EVIDENCE.json";p.write_text(json.dumps(out,ensure_ascii=False,indent=2)+"\n")

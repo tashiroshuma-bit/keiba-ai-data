@@ -1,7 +1,7 @@
 """Only synthetic geometry tests. Never cite as real JRA PDF extraction proof."""
 import unittest
 import fitz
-from jra_v47_program_row_probe import probe_pdf_bytes
+from jra_v47_program_row_probe import probe_pdf_bytes, _name_from_same_baseline
 
 
 def fixture(*, weight_x=.55, missing_weight=False, duplicate=False, reversed_time=False,
@@ -71,6 +71,29 @@ class ProgramRowProbeTest(unittest.TestCase):
         out = probe_pdf_bytes(fixture(reversed_time=True))
         self.assertTrue(all(x["post_time_method"] == "reversed_glyph_order_unverified" for x in out["races"]))
         self.assertTrue(all("post_time_not_directly_readable" in x["issues"] for x in out["races"]))
+
+    def test_real_pdf_letter_spaced_name_fragments(self):
+        # Actual 2026-10-25 PDF renders some horse names as single-character
+        # spans at one baseline, not as a single text span.
+        row = [{"text": ch, "x": 65 + i * 24, "y": 200.0, "size": 11.0}
+               for i, ch in enumerate("ロブチェン")]
+        name, count = _name_from_same_baseline(row, 300, 750)
+        self.assertEqual(name, "ロブチェン")
+        self.assertEqual(count, 4)
+
+    def test_overlapping_two_names_are_not_concatenated(self):
+        row = [{"text": "ロブチェン", "x": 115, "y": 200, "size": 12},
+               {"text": "別名", "x": 133, "y": 200, "size": 11}]
+        name, count = _name_from_same_baseline(row, 300, 750)
+        self.assertIsNone(name)
+        self.assertEqual(count, 2)
+
+    def test_different_baselines_are_not_concatenated(self):
+        row = [{"text": "ロブ", "x": 65, "y": 200, "size": 11},
+               {"text": "チェン", "x": 120, "y": 207, "size": 11}]
+        name, count = _name_from_same_baseline(row, 300, 750)
+        self.assertIsNone(name)
+        self.assertEqual(count, 2)
 
     def test_invalid_pdf_and_wrong_geometry(self):
         with self.assertRaisesRegex(ValueError, "not_a_pdf"):

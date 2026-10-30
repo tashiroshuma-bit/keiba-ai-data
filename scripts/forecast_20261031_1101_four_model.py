@@ -184,7 +184,7 @@ def parse_official_html(raw, date, track, race):
                 assigned_weight = float(wm[1]); ja=weight_cell.find_all("a")
                 jockey = ja[-1].get_text(" ", strip=True) if ja else None
                 trainer = anchors[-1].get_text(" ", strip=True) if len(anchors)>1 else None
-            candidate.append({"number": number, "frame": frame, "name": link.get_text(" ", strip=True),
+            candidate.append({"number": number, "frame": frame, "name": link.get_text(" ", strip=True), "horse_profile_href":link.get("href"),
                               "jockey": jockey, "trainer": trainer, "assigned_weight_kg": assigned_weight,
                               "career_missing": record is None, "withdrawn": bool(re.search(r"出走取消|競走除外|取消|除外", tr.get_text(" ", strip=True))),
                               "starts": w + second + third + other if record else None, "wins": w, "seconds": second, "thirds": third})
@@ -199,7 +199,7 @@ def parse_official_html(raw, date, track, race):
     if course:
         course_text=course[1]
     else:
-        mobile_course=re.search(r"コース\s*([\d,]+)m\s*(ダート|芝)[・\s]*(?:右|左)",prefix)
+        mobile_course=re.search(r"コース\s*([\d,]+)m\s*(ダート|芝)[・\s]*(?:右|左)?",prefix)
         if not mobile_course:
             raise ValueError("CURRENT_COURSE_MISSING:"+prefix[-500:])
         course_text=mobile_course[2]
@@ -261,7 +261,7 @@ def parse_internal_roster(date, track, code, race):
             if rec is None:
                 raise ValueError("SECONDARY_CAREER_MISSING")
             w,se,t,o=map(int,rec.groups())
-            horses.append({"number":number,"name":link.get_text(" ",strip=True),"starts":w+se+t+o,"wins":w,"seconds":se,"thirds":t})
+            horses.append({"number":number,"name":link.get_text(" ",strip=True),"horse_profile_href":link.get("href"),"starts":w+se+t+o,"wins":w,"seconds":se,"thirds":t})
         if horses:
             break
     if not horses:
@@ -278,7 +278,7 @@ def parse_internal_roster(date, track, code, race):
                 if ix is None: continue
                 number,_=row_number_and_frame(cells,ix)
                 link=cells[ix].select_one("a[href*='/horse/']")
-                horses.append({"number":number,"name":link.get_text(" ",strip=True),"starts":None,"wins":None,"seconds":None,"thirds":None})
+                horses.append({"number":number,"name":link.get_text(" ",strip=True),"horse_profile_href":link.get("href"),"starts":None,"wins":None,"seconds":None,"thirds":None})
             if horses: break
     if not horses:
         raise ValueError("SECONDARY_EMPTY:"+repr([(t.get_text(" ",strip=True)[:250], [a.get("href") for a in t.select("a")[:3]]) for t in soup.select("table")[:2]]))
@@ -508,7 +508,7 @@ def main():
                         raise ValueError("INDEPENDENT_FULL_ROSTER_NUMBER_MISMATCH")
                     secondary_by_name={norm(h["name"]):h for h in secondary}
                     for horse in horses:
-                        if horse.get("career_missing"):
+                        if horse.get("career_missing") and not is_obstacle:
                             if secondary_by_name[norm(horse["name"])].get("starts") is None:
                                 raise ValueError("CAREER_FEATURES_NOT_PUBLISHED:"+horse["name"])
                             for stat in ("starts","wins","seconds","thirds"):
@@ -641,6 +641,15 @@ def probe_real_cards():
         if {norm(h["name"]) for h in horses}!={norm(h["name"]) for h in secondary}:
             raise ValueError("PROBE_FULL_ROSTER_MISMATCH")
         print("PROBE_OK",date,track,race,len(horses),surface,off,flush=True)
+        if date=="2026-11-01" and race==1:
+            for base,h in ((urls[race],horses[0]),("https://sports.yahoo.co.jp",secondary[0])):
+                profile=urljoin(base,h.get("horse_profile_href") or "")
+                try:
+                    raw=get(profile); soup=BeautifulSoup(raw,"html.parser")
+                    print("PROFILE_DIAGNOSTIC",profile,soup.get_text(" ",strip=True)[-14000:],flush=True)
+                except Exception as exc:
+                    print("PROFILE_FAILURE",profile,str(exc),flush=True)
+            raise ValueError("PROFILE_DIAGNOSTIC_ONLY")
 
 if __name__ == "__main__":
     if "--probe" in sys.argv:

@@ -82,7 +82,10 @@ def _race_column(page, page_no: int, col: int) -> dict:
     issues = []
     # 2026-10-25 Tokyo official visual layout: weight near x=50-65%,
     # unlike v45's unvalidated 66-87% weight search band.
-    header = " ".join(s["text"] for s in spans if s["y"] < .17 * H)
+    # Feature races (11R) print the post time below the longer prize
+    # description; the observed 2026-10-25 layout extends to ~.20H.
+    # This is still a candidate, not an independently verified off-time.
+    header = " ".join(s["text"] for s in spans if s["y"] < .225 * H)
     race_numbers = [int(m.group(1) or m.group(2)) for m in RACE.finditer(header)]
     if race_numbers != [expected]:
         issues.append("race_header_missing_ambiguous_or_conflicting")

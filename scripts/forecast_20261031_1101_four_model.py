@@ -129,6 +129,10 @@ def validate_complete_field(horses, allow_unnumbered=False):
         if not 3 <= len(numbers) <= 18:
             raise ValueError("UNNUMBERED_HEADCOUNT_INVALID")
         return
+    if any(n is None for n in numbers) and all(h["number"] is not None or h.get("withdrawn") for h in horses):
+        known=[n for n in numbers if n is not None]
+        if 3 <= len(numbers) <= 18 and len(set(known)) == len(known):
+            return
     if any(n is None for n in numbers):
         raise ValueError("HORSE_NUMBERS_NOT_YET_PUBLISHED:"+repr([(h["name"],h["number"]) for h in horses]))
     if not 3 <= len(numbers) <= 18 or len(set(numbers)) != len(numbers):
@@ -182,7 +186,7 @@ def parse_official_html(raw, date, track, race):
                 trainer = anchors[-1].get_text(" ", strip=True) if len(anchors)>1 else None
             candidate.append({"number": number, "frame": frame, "name": link.get_text(" ", strip=True),
                               "jockey": jockey, "trainer": trainer, "assigned_weight_kg": assigned_weight,
-                              "career_missing": record is None,
+                              "career_missing": record is None, "withdrawn": bool(re.search(r"出走取消|競走除外|取消|除外", tr.get_text(" ", strip=True))),
                               "starts": w + second + third + other if record else None, "wins": w, "seconds": second, "thirds": third})
         if candidate:
             horses = candidate
@@ -193,10 +197,17 @@ def parse_official_html(raw, date, track, race):
     weather_match = re.search(r"天候\s*[:：]?\s*(晴|曇|雨|小雨|雪|小雪)", prefix)
     going_match = re.search(r"(?:芝|ダート)\s*[:：]?\s*(不良|稍重|良|重)", prefix)
     course = re.search(r"コース[：:]?\s*[\d,，]+\s*メートル\s*[（(]([^）)]+)", prefix)
-    if not course:
-        raise ValueError("CURRENT_COURSE_MISSING:"+prefix[-500:])
-    surface = "dirt" if "ダート" in course[1] else "turf" if "芝" in course[1] else None
+    if course:
+        course_text=course[1]
+    else:
+        mobile_course=re.search(r"コース\s*([\d,]+)m\s*(ダート|芝)[・\s]*(?:右|左)",prefix)
+        if not mobile_course:
+            raise ValueError("CURRENT_COURSE_MISSING:"+prefix[-500:])
+        course_text=mobile_course[2]
+    surface = "dirt" if "ダート" in course_text else "turf" if "芝" in course_text else None
     off = re.search(r"発走時刻[：:]?\s*(\d{1,2})時(\d{1,2})分", prefix)
+    if off is None:
+        off=re.search(r"発走\s*(\d{1,2}):(\d{2})",prefix)
     if surface is None or off is None:
         raise ValueError("CURRENT_SURFACE_OR_OFF_TIME_MISSING:"+prefix[-500:])
     off_at = dt.datetime.fromisoformat(date).replace(hour=int(off[1]), minute=int(off[2]), tzinfo=JST)
@@ -454,6 +465,11 @@ def main():
                     official_names={norm(h["name"]) for h in horses}
                     if official_names != {norm(h["name"]) for h in secondary}:
                         raise ValueError("INDEPENDENT_FULL_ROSTER_NAME_MISMATCH")
+                    secondary_by_name={norm(h["name"]):h for h in secondary}
+                    for horse in horses:
+                        if horse["number"] is None and horse.get("withdrawn") and date == NOW.date().isoformat():
+                            horse["number"]=secondary_by_name[norm(horse["name"])]["number"]
+                            horse["number_source"]=secondary_url
                     numbered=all(h["number"] is not None for h in horses)
                     if numbered and {h["number"]:norm(h["name"]) for h in horses} != {h["number"]:norm(h["name"]) for h in secondary}:
                         raise ValueError("INDEPENDENT_FULL_ROSTER_NUMBER_MISMATCH")
@@ -463,32 +479,33 @@ def main():
                             for stat in ("starts","wins","seconds","thirds"):
                                 horse[stat]=secondary_by_name[norm(horse["name"])][stat]
                             horse["career_source"]=secondary_url
-                    p_internal = internal_probabilities(model, horses, track, surface)
-                    models = {"A": calculate_model(horses, p_internal)}
+                    active_horses=[h for h in horses if not h.get("withdrawn")]
+                    p_internal = internal_probabilities(model, active_horses, track, surface)
+                    models = {"A": calculate_model(active_horses, p_internal)}
                     if not ext_rows:
                         models.update({label: None for label in ("B", "C", "D")})
                         external_indices = None
                     else:
                         by_name = {norm(x["name"]): x for x in ext_rows}
-                        if set(by_name) != official_names or (numbered and any(by_name[norm(h["name"])]["number"] != h["number"] for h in horses)):
+                        if set(by_name) not in (official_names, {norm(h["name"]) for h in active_horses}) or (numbered and any(by_name[norm(h["name"])]["number"] != h["number"] for h in active_horses)):
                             ext_error = "EXTERNAL_ROSTER_MISMATCH"
                             models.update({label: None for label in ("B", "C", "D")})
                             external_indices = None
                         else:
-                            p_external = softmax([by_name[norm(h["name"])]["index"] for h in horses])
+                            p_external = softmax([by_name[norm(h["name"])]["index"] for h in active_horses])
                             for label, (wi, we) in WEIGHTS.items():
                                 if label == "A":
                                     continue
                                 mixed = [wi * a + we * b for a, b in zip(p_internal, p_external)]
-                                models[label] = calculate_model(horses, mixed)
+                                models[label] = calculate_model(active_horses, mixed)
                             external_indices = ext_rows
                     races.append({
                         "race": f"{track}{race}R", "track": track, "race_number": race, "surface": surface,
-                        "runner_count": len(horses), "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,
+                        "runner_count": len(active_horses), "declared_runner_count": len(horses), "withdrawn_runners": [h for h in horses if h.get("withdrawn")], "roster_source": roster_url, "roster_sha256": roster_sha, "roster_method": roster_method,
                         "jra_meeting_seed_sha256": official_seed_sha, "weather_observed": weather, "going_observed": going,
                         "runners": horses, "horse_numbers_published": numbered, "off_at": off_at, "captured_before_off": NOW < dt.datetime.fromisoformat(off_at),
                         "independent_roster_source": secondary_url, "independent_roster_sha256": secondary_sha,
-                        "external_source": ext_pages.get(key), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
+                        "external_source": ext_pages.get(key) or external_cache.get(key,{}).get("external_source"), "external_sha256": ext_sha, "external_page_updated_at": page_updated,
                         "external_error": ext_error, "external_indices": external_indices, "models": models,
                         "external_cache_used": external_cache_used, "external_observed_at": external_observed_at,
                     })

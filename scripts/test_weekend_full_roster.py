@@ -8,7 +8,7 @@ import unittest
 from bs4 import BeautifulSoup
 source = Path(__file__).with_name('forecast_20261031_1101_four_model.py').read_text()
 tree = ast.parse(source)
-names = {'row_number_and_frame','validate_complete_field','parse_official_html','calculate_model','plackett_luce','threshold'}
+names = {'row_number_and_frame','validate_complete_field','parse_official_html','parse_profile_html','calculate_model','plackett_luce','threshold'}
 namespace = {'re':re,'dt':dt,'JST':dt.timezone(dt.timedelta(hours=9)), 'BeautifulSoup':BeautifulSoup, 'itertools':itertools, 'math':math, 'THRESHOLDS':{'single':.8,'quinella':.5,'trio':.6,'wide':.5}, 'NOW':dt.datetime(2026,10,31,tzinfo=dt.timezone(dt.timedelta(hours=9)))}
 exec(compile(ast.Module(body=[n for n in tree.body if isinstance(n, ast.FunctionDef) and n.name in names],type_ignores=[]), '<parser>', 'exec'),namespace)
 class FullRosterTest(unittest.TestCase):
@@ -44,6 +44,14 @@ class FullRosterTest(unittest.TestCase):
             self.assertAlmostEqual(ticket['cumulative'],exact)
         for key in ('p1','p2','p3'):
             self.assertAlmostEqual(sum(h[key] for h in out['horses']),1)
+    def test_profile_total_and_name(self):
+        stats=namespace['parse_profile_html']('<h1>競走馬情報 アニーリング</h1>レース成績 平地 (0, 0, 1, 0, 1)','アニーリング')
+        self.assertEqual(stats,{'starts':1,'wins':0,'seconds':0,'thirds':1})
+        with self.assertRaisesRegex(ValueError,'NAME_MISMATCH'):
+            namespace['parse_profile_html']('競走馬情報 別の馬 平地 (0,0,1,0,1)','アニーリング')
+    def test_profile_does_not_invent_zero_or_ignore_inconsistent_total(self):
+        for text in ('競走馬情報 馬','競走馬情報 馬 平地 (0,0,1,0,5)'):
+            with self.assertRaises(ValueError): namespace['parse_profile_html'](text,'馬')
     def test_reject_old_odd_only_subset(self):
         with self.assertRaisesRegex(ValueError,'FIELD_NUMBER_GAPS'):
             namespace['validate_complete_field']([{'number':n,'name':f'馬{n}'} for n in range(1,17,2)])

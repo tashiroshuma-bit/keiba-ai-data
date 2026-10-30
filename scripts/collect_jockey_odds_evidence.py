@@ -17,7 +17,7 @@ for name,code in targets:
  for kind,url in [("jra",old["roster_source"]),("netkeiba","https://race.sp.netkeiba.com/race/shutuba.html?race_id="+code)]:
   try:
    raw,at=fetch(url);s=BeautifulSoup(raw,"html.parser")
-   item[kind]={"url":url,"at":at,"sha256":hashlib.sha256(raw).hexdigest(),"text":s.get_text(" ",strip=True),"rows":[{"text":r.get_text(" ",strip=True),"cells":[{"class":c.get("class",[]),"text":c.get_text(" ",strip=True)} for c in r.find_all(["td","th"],recursive=False)],"links":[{"text":a.get_text(" ",strip=True),"href":urljoin(url,a["href"])} for a in r.find_all("a",href=True)]} for r in s.select("tr")],"scripts":[{"src":urljoin(url,x["src"])} if x.get("src") else {"inline":x.get_text()} for x in s.find_all("script")]}
+   item[kind]={"url":url,"at":at,"sha256":hashlib.sha256(raw).hexdigest(),"text":s.get_text(" ",strip=True),"rows":[{"text":r.get_text(" ",strip=True),"cells":[{"class":c.get("class",[]),"text":c.get_text(" ",strip=True)} for c in r.find_all(["td","th"],recursive=False)],"links":[{"text":a.get_text(" ",strip=True),"href":urljoin(url,a["href"]),"onclick":a.get("onclick")} for a in r.find_all("a",href=True)]} for r in s.select("tr")],"scripts":[{"src":urljoin(url,x["src"])} if x.get("src") else {"inline":x.get_text()} for x in s.find_all("script")]}
   except Exception as e:item[kind]={"error":str(e)}
  out["races"].append(item);print(name,flush=True)
 # Inspect actual linked JavaScript. This does not invent odds endpoints.

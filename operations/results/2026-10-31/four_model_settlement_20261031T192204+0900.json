@@ -1,0 +1,4748 @@
+{
+  "schema": "jra-official-four-model-settlement-v1",
+  "date": "2026-10-31",
+  "observed_at": "2026-10-31T19:21:44.341646+09:00",
+  "jra_official_all_24_verified": true,
+  "official_sources": [
+    {
+      "race": "東京1R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 460
+        },
+        "quinella": {
+          "11-12": 280
+        },
+        "trio": {
+          "6-11-12": 2980
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100120261031/30",
+      "source_sha256": "937b711030374fde6142d3f718f19d7c4fdc516b26c1e8483e0d27ae62d90052"
+    },
+    {
+      "race": "東京2R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 110
+        },
+        "quinella": {
+          "6-9": 960
+        },
+        "trio": {
+          "6-7-9": 3140
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100220261031/E5",
+      "source_sha256": "fbb53dae88f953c97e5fc5735423941137c02d852301f6971d4a342068e2c38b"
+    },
+    {
+      "race": "東京3R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 130
+        },
+        "quinella": {
+          "4-8": 1030
+        },
+        "trio": {
+          "4-6-8": 2480
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100320261031/9A",
+      "source_sha256": "0d268ef016e07472c32f27aa0bc73e554be0692b1221b2d0092b32aa3a2168e2"
+    },
+    {
+      "race": "東京4R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 930
+        },
+        "quinella": {
+          "3-4": 3790
+        },
+        "trio": {
+          "3-4-9": 4810
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100420261031/4F",
+      "source_sha256": "ebb0480aaaf9d2f6e85f02ba09736dcb3cf20c12829aabe2aa0612d8c801ca82"
+    },
+    {
+      "race": "東京5R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 140
+        },
+        "quinella": {
+          "2-8": 300
+        },
+        "trio": {
+          "2-4-8": 2100
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100520261031/04",
+      "source_sha256": "8ebb3db2f6c4f9231c0bfcef54cfb3e3738231319989fa364d2c3e9e258e6dc3"
+    },
+    {
+      "race": "東京6R",
+      "top3": [
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "16": 1000
+        },
+        "quinella": {
+          "11-16": 2600
+        },
+        "trio": {
+          "5-11-16": 7530
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100620261031/B9",
+      "source_sha256": "56264b315d221680a0aff09312e138f4d2d05f984176225e4e5a0b0d72124fa2"
+    },
+    {
+      "race": "東京7R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 260
+        },
+        "quinella": {
+          "5-10": 1330
+        },
+        "trio": {
+          "5-10-11": 7670
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100720261031/6E",
+      "source_sha256": "dacdbda9436c443684dca5807c60dacefa6ddb0ce4b229ed422cd425a54c9a6c"
+    },
+    {
+      "race": "東京8R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 160
+        },
+        "quinella": {
+          "5-7": 4420
+        },
+        "trio": {
+          "5-7-10": 20780
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100820261031/23",
+      "source_sha256": "35a55aabe595779909560219ea9a733dd1665ff8cd68571b4a78122c4874c493"
+    },
+    {
+      "race": "東京9R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 180
+        },
+        "quinella": {
+          "4-9": 1420
+        },
+        "trio": {
+          "3-4-9": 3920
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100920261031/D8",
+      "source_sha256": "06a8dbd7ac8bdead3af5aca7428a9673ae89a2a0fb6861e8bf2dfff77b99ffbb"
+    },
+    {
+      "race": "東京10R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 210
+        },
+        "quinella": {
+          "3-7": 190
+        },
+        "trio": {
+          "1-3-7": 1600
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604101020261031/CD",
+      "source_sha256": "a86a75c89d5496af8cc5469f5ae86ec360d69eef2ef69a1782e43adf73b9a5c2"
+    },
+    {
+      "race": "東京11R",
+      "top3": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "6": 690
+        },
+        "quinella": {
+          "6-9": 3840
+        },
+        "trio": {
+          "6-9-12": 6900
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604101120261031/82",
+      "source_sha256": "d23e7c09e3c04447453cb7360b833e687355c39ad09d862ba944cf25190bdf2e"
+    },
+    {
+      "race": "東京12R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 160
+        },
+        "quinella": {
+          "7-10": 250
+        },
+        "trio": {
+          "7-8-10": 750
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604101220261031/37",
+      "source_sha256": "c4a42816e1b76f953c90f41ea12c0d88850e57066013435c706544bac6f47b49"
+    },
+    {
+      "race": "京都1R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 180
+        },
+        "quinella": {
+          "5-13": 1510
+        },
+        "trio": {
+          "4-5-13": 26800
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100120261031/0E",
+      "source_sha256": "a99352483d2df22e8d03d964c91ef181385e557b7319936fcbbcc60fad796992"
+    },
+    {
+      "race": "京都2R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 2000
+        },
+        "quinella": {
+          "5-6": 1190
+        },
+        "trio": {
+          "5-6-9": 600
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100220261031/C3",
+      "source_sha256": "8c8e00612f7b716e01b0f7ef9c14aae9be2f78140c836b50904518dba0caea3d"
+    },
+    {
+      "race": "京都3R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 180
+        },
+        "quinella": {
+          "7-8": 350
+        },
+        "trio": {
+          "4-7-8": 380
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100320261031/78",
+      "source_sha256": "c2ad367f5d327cd66f7c3df79feb8b3ba3397a777da12198980663db24a7771f"
+    },
+    {
+      "race": "京都4R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 160
+        },
+        "quinella": {
+          "1-5": 330
+        },
+        "trio": {
+          "1-4-5": 520
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100420261031/2D",
+      "source_sha256": "1156fb56bc3502baa7750d3c2d869b774b11cec185a313028c4772b928c06ecd"
+    },
+    {
+      "race": "京都5R",
+      "top3": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "10": 300
+        },
+        "quinella": {
+          "1-10": 1340
+        },
+        "trio": {
+          "1-4-10": 5970
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100520261031/E2",
+      "source_sha256": "c1b61babbf516b8353ea11737376b50319c796d14949f5474f723f473f4ac132"
+    },
+    {
+      "race": "京都6R",
+      "top3": [
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "14": 3030
+        },
+        "quinella": {
+          "14-15": 13120
+        },
+        "trio": {
+          "10-14-15": 19800
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100620261031/97",
+      "source_sha256": "ba8653dc38a98e4422cdc94b174791d2690b940a05483ea48a6e411b30e4a3be"
+    },
+    {
+      "race": "京都7R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 300
+        },
+        "quinella": {
+          "2-10": 510
+        },
+        "trio": {
+          "2-7-10": 1330
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100720261031/4C",
+      "source_sha256": "48e5aefcb6a129d07f68204949e2e1d6304fa762fc3c63b817efda711b8c49d1"
+    },
+    {
+      "race": "京都8R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 450
+        },
+        "quinella": {
+          "8-13": 940
+        },
+        "trio": {
+          "8-12-13": 3110
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100820261031/01",
+      "source_sha256": "32f69fcb0ffaf9bf68f609f62ace5b71a05cd54076bffef4a9db3070c27b1543"
+    },
+    {
+      "race": "京都9R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 280
+        },
+        "quinella": {
+          "1-7": 3780
+        },
+        "trio": {
+          "1-2-7": 14910
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604100920261031/B6",
+      "source_sha256": "c1abef29f66eb1182f24c2ba8c45fd9481871fa33f6f12a3a785652d11f06660"
+    },
+    {
+      "race": "京都10R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 580
+        },
+        "quinella": {
+          "3-11": 1860
+        },
+        "trio": {
+          "3-9-11": 1320
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604101020261031/AB",
+      "source_sha256": "a8f2cff9d4a237e215dafd0de413e756389881b693c6a2facc2704c96dce69a0"
+    },
+    {
+      "race": "京都11R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 630
+        },
+        "quinella": {
+          "4-10": 3740
+        },
+        "trio": {
+          "4-5-10": 88020
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604101120261031/60",
+      "source_sha256": "b05a71eef33455a4d702d7710f31deb17a6a640d7ec812532575d7ad75825ec4"
+    },
+    {
+      "race": "京都12R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 540
+        },
+        "quinella": {
+          "2-11": 3870
+        },
+        "trio": {
+          "2-9-11": 36300
+        }
+      },
+      "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604101220261031/15",
+      "source_sha256": "8819af57d5e221f8c1f167f4571d716f96cb1c90e94627ca2ea96bd049c2f3bf"
+    }
+  ],
+  "official_secondary_mismatches": [],
+  "forecast_path": "reports/weekend_20261031_1101/ALL_FLAT_RIDER_RECALC_20261031T033252.json",
+  "forecast_sha256": "e04d364f9b7aef6fe05121c466a2f6476ed90bfab85f817bf31870bbfa46e0e6",
+  "secondary_result_path": "operations/results/2026-10-31/DAY_RESULTS_REVIEW_20261031.json",
+  "secondary_result_sha256": "7b0268a53ef7a5f6c724f9d9592daaa0c91cf2072c651b56e0473cfc98ff9248",
+  "production_model_status": "RESEARCH_SHADOW_NOT_PROMOTED",
+  "production_formal_forward_races": 0,
+  "research_preoff_forward_races_daily": 23,
+  "research_preoff_forward_races_cumulative": 23,
+  "retrospective_proxy_races_excluded_from_cumulative": 9,
+  "weights_unchanged": {
+    "A": [
+      1,
+      0
+    ],
+    "B": [
+      0.75,
+      0.25
+    ],
+    "C": [
+      0.5,
+      0.5
+    ],
+    "D": [
+      0.25,
+      0.75
+    ]
+  },
+  "actual_bets": false,
+  "unit_stake_yen": 100,
+  "daily": {
+    "A": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 10,
+      "winner_top3_captures": 13,
+      "mean_log_loss": 2.0811748774947647,
+      "mean_brier": 0.8133313238367973,
+      "tickets": {
+        "single": {
+          "race_hits": 13,
+          "races": 23,
+          "points": 65,
+          "stake_yen": 6500,
+          "return_yen": 4120,
+          "profit_yen": -2380,
+          "roi": 0.6338461538461538
+        },
+        "quinella": {
+          "race_hits": 8,
+          "races": 23,
+          "points": 142,
+          "stake_yen": 14200,
+          "return_yen": 5790,
+          "profit_yen": -8410,
+          "roi": 0.40774647887323945
+        },
+        "trio": {
+          "race_hits": 6,
+          "races": 23,
+          "points": 572,
+          "stake_yen": 57200,
+          "return_yen": 15110,
+          "profit_yen": -42090,
+          "roi": 0.26416083916083916
+        }
+      }
+    },
+    "B": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 8,
+      "winner_top3_captures": 14,
+      "mean_log_loss": 2.0345358750044205,
+      "mean_brier": 0.806855358158156,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 68,
+          "stake_yen": 6800,
+          "return_yen": 3860,
+          "profit_yen": -2940,
+          "roi": 0.5676470588235294
+        },
+        "quinella": {
+          "race_hits": 8,
+          "races": 23,
+          "points": 149,
+          "stake_yen": 14900,
+          "return_yen": 5790,
+          "profit_yen": -9110,
+          "roi": 0.38859060402684564
+        },
+        "trio": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 599,
+          "stake_yen": 59900,
+          "return_yen": 46000,
+          "profit_yen": -13900,
+          "roi": 0.7679465776293823
+        }
+      }
+    },
+    "C": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 8,
+      "winner_top3_captures": 14,
+      "mean_log_loss": 2.006520722956849,
+      "mean_brier": 0.8040774636803605,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 73,
+          "stake_yen": 7300,
+          "return_yen": 3860,
+          "profit_yen": -3440,
+          "roi": 0.5287671232876713
+        },
+        "quinella": {
+          "race_hits": 9,
+          "races": 23,
+          "points": 157,
+          "stake_yen": 15700,
+          "return_yen": 6730,
+          "profit_yen": -8970,
+          "roi": 0.4286624203821656
+        },
+        "trio": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 606,
+          "stake_yen": 60600,
+          "return_yen": 26100,
+          "profit_yen": -34500,
+          "roi": 0.4306930693069307
+        }
+      }
+    },
+    "D": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 7,
+      "winner_top3_captures": 13,
+      "mean_log_loss": 1.9947054451286632,
+      "mean_brier": 0.8049976404034105,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 72,
+          "stake_yen": 7200,
+          "return_yen": 4200,
+          "profit_yen": -3000,
+          "roi": 0.5833333333333334
+        },
+        "quinella": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 159,
+          "stake_yen": 15900,
+          "return_yen": 7080,
+          "profit_yen": -8820,
+          "roi": 0.44528301886792454
+        },
+        "trio": {
+          "race_hits": 11,
+          "races": 23,
+          "points": 581,
+          "stake_yen": 58100,
+          "return_yen": 29360,
+          "profit_yen": -28740,
+          "roi": 0.5053356282271945
+        }
+      }
+    }
+  },
+  "cumulative_research_forward": {
+    "A": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 10,
+      "winner_top3_captures": 13,
+      "mean_log_loss": 2.0811748774947647,
+      "mean_brier": 0.8133313238367973,
+      "tickets": {
+        "single": {
+          "race_hits": 13,
+          "races": 23,
+          "points": 65,
+          "stake_yen": 6500,
+          "return_yen": 4120,
+          "profit_yen": -2380,
+          "roi": 0.6338461538461538
+        },
+        "quinella": {
+          "race_hits": 8,
+          "races": 23,
+          "points": 142,
+          "stake_yen": 14200,
+          "return_yen": 5790,
+          "profit_yen": -8410,
+          "roi": 0.40774647887323945
+        },
+        "trio": {
+          "race_hits": 6,
+          "races": 23,
+          "points": 572,
+          "stake_yen": 57200,
+          "return_yen": 15110,
+          "profit_yen": -42090,
+          "roi": 0.26416083916083916
+        }
+      }
+    },
+    "B": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 8,
+      "winner_top3_captures": 14,
+      "mean_log_loss": 2.0345358750044205,
+      "mean_brier": 0.806855358158156,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 68,
+          "stake_yen": 6800,
+          "return_yen": 3860,
+          "profit_yen": -2940,
+          "roi": 0.5676470588235294
+        },
+        "quinella": {
+          "race_hits": 8,
+          "races": 23,
+          "points": 149,
+          "stake_yen": 14900,
+          "return_yen": 5790,
+          "profit_yen": -9110,
+          "roi": 0.38859060402684564
+        },
+        "trio": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 599,
+          "stake_yen": 59900,
+          "return_yen": 46000,
+          "profit_yen": -13900,
+          "roi": 0.7679465776293823
+        }
+      }
+    },
+    "C": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 8,
+      "winner_top3_captures": 14,
+      "mean_log_loss": 2.006520722956849,
+      "mean_brier": 0.8040774636803605,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 73,
+          "stake_yen": 7300,
+          "return_yen": 3860,
+          "profit_yen": -3440,
+          "roi": 0.5287671232876713
+        },
+        "quinella": {
+          "race_hits": 9,
+          "races": 23,
+          "points": 157,
+          "stake_yen": 15700,
+          "return_yen": 6730,
+          "profit_yen": -8970,
+          "roi": 0.4286624203821656
+        },
+        "trio": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 606,
+          "stake_yen": 60600,
+          "return_yen": 26100,
+          "profit_yen": -34500,
+          "roi": 0.4306930693069307
+        }
+      }
+    },
+    "D": {
+      "eligible_races": 23,
+      "evaluated_races": 23,
+      "missing_races": 0,
+      "top1_hits": 7,
+      "winner_top3_captures": 13,
+      "mean_log_loss": 1.9947054451286632,
+      "mean_brier": 0.8049976404034105,
+      "tickets": {
+        "single": {
+          "race_hits": 15,
+          "races": 23,
+          "points": 72,
+          "stake_yen": 7200,
+          "return_yen": 4200,
+          "profit_yen": -3000,
+          "roi": 0.5833333333333334
+        },
+        "quinella": {
+          "race_hits": 10,
+          "races": 23,
+          "points": 159,
+          "stake_yen": 15900,
+          "return_yen": 7080,
+          "profit_yen": -8820,
+          "roi": 0.44528301886792454
+        },
+        "trio": {
+          "race_hits": 11,
+          "races": 23,
+          "points": 581,
+          "stake_yen": 58100,
+          "return_yen": 29360,
+          "profit_yen": -28740,
+          "roi": 0.5053356282271945
+        }
+      }
+    }
+  },
+  "rows": [
+    {
+      "race": "東京1R",
+      "model": "A",
+      "available": true,
+      "top1": 12,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18703120384533306,
+      "log_loss": 1.676479810564982,
+      "brier": 0.7151276941280184,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.40688178611845277,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 460
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2553672638865286,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 280
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 36,
+          "saved_cumulative_probability": 0.3025954911995872,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3600,
+          "return_yen": 2980
+        }
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "B",
+      "available": true,
+      "top1": 12,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.17175402665526443,
+      "log_loss": 1.7616919032912477,
+      "brier": 0.7444642510624921,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.40865214284655343,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 460
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2568485789256938,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 280
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 36,
+          "saved_cumulative_probability": 0.304320149485234,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3600,
+          "return_yen": 2980
+        }
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "C",
+      "available": true,
+      "top1": 12,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.15647684946519577,
+      "log_loss": 1.8548472066841315,
+      "brier": 0.7765221473405913,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4104224995746541,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 460
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2680479492672851,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 280
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 32,
+          "saved_cumulative_probability": 0.3030524032411258,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3200,
+          "return_yen": 2980
+        }
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "D",
+      "available": true,
+      "top1": 11,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.14119967227512714,
+      "log_loss": 1.957580274923372,
+      "brier": 0.8113013829623158,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.41219285630275476,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 460
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.261989968159438,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 700,
+          "return_yen": 280
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 26,
+          "saved_cumulative_probability": 0.30342458114277965,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2600,
+          "return_yen": 2980
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "A",
+      "available": true,
+      "top1": 9,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.468821291048608,
+      "log_loss": 0.7575336256912948,
+      "brier": 0.31773737903555344,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 1,
+          "saved_cumulative_probability": 0.468821291048608,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 100,
+          "return_yen": 110
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.25704432642240493,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.3253960324283546,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "B",
+      "available": true,
+      "top1": 9,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.42763024349630574,
+      "log_loss": 0.8494963738564622,
+      "brier": 0.37184875168266296,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 1,
+          "saved_cumulative_probability": 0.42763024349630574,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 100,
+          "return_yen": 110
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.26640682714521724,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.3239732522741815,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "C",
+      "available": true,
+      "top1": 9,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.38643919594400356,
+      "log_loss": 0.950780743009862,
+      "brier": 0.43151226545064564,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5247122073953329,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 110
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.26850854794787427,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.3174790665024821,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "D",
+      "available": true,
+      "top1": 9,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.34524814839170137,
+      "log_loss": 1.0634918498013926,
+      "brier": 0.4967279203395016,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5025371599112963,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 110
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.2640295394260909,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.34760063089590476,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "A",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.3746609924148528,
+      "log_loss": 0.981733682111509,
+      "brier": 0.4524397452712017,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5229109753357569,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 130
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.2614042118293727,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.32049997163397087,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "B",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.35712138964540197,
+      "log_loss": 1.0296795279806505,
+      "brier": 0.4779959090988923,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.503380249472561,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 130
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.34553889832452916,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.31420291012069057,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "C",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.3395817868759512,
+      "log_loss": 1.0800404570904727,
+      "brier": 0.5072703387330092,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4838495236093652,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 130
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.260547826881381,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.3411605305646145,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "D",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.3220421841065004,
+      "log_loss": 1.1330727354764096,
+      "brier": 0.5402630341735529,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4976316176956148,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 130
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.2730025780223451,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.32640461292053735,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "A",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.07010550458871237,
+      "log_loss": 2.6577539632211886,
+      "brier": 0.9311744607494964,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4569803708809054,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 930
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 14,
+          "saved_cumulative_probability": 0.2520751797490725,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 70,
+          "saved_cumulative_probability": 0.30086542241660635,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 7000,
+          "return_yen": 4810
+        }
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "B",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06638366971891635,
+      "log_loss": 2.7123041907155776,
+      "brier": 0.9361545421906041,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.43601848034040885,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 16,
+          "saved_cumulative_probability": 0.2538976756460434,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 81,
+          "saved_cumulative_probability": 0.30192781043974287,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 8100,
+          "return_yen": 4810
+        }
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "C",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06266183484912032,
+      "log_loss": 2.7700027112644072,
+      "brier": 0.9419736539077715,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4175526975938066,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.25966024203270255,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1800,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 90,
+          "saved_cumulative_probability": 0.30062357612501783,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 9000,
+          "return_yen": 4810
+        }
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "D",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.05893999997932429,
+      "log_loss": 2.831235302023381,
+      "brier": 0.9486317959009988,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4125742325287847,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 19,
+          "saved_cumulative_probability": 0.2610286361149449,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1900,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 95,
+          "saved_cumulative_probability": 0.30109233256443635,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 9500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "A",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.28913360112713016,
+      "log_loss": 1.2408664100545856,
+      "brier": 0.5773171678717482,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.43395085878856937,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 140
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.28690549216307487,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.30588527528616033,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "B",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.2723637388877316,
+      "log_loss": 1.3006168307198878,
+      "brier": 0.602748920458467,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4093834357333784,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 140
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.2618641939052271,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.30639740321923636,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "C",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.25559387664833294,
+      "log_loss": 1.3641655135406356,
+      "brier": 0.6292561417951987,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5218160576602008,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 140
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.29154947469449843,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 300
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 9,
+          "saved_cumulative_probability": 0.30990689862161946,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "D",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.23882401440893436,
+      "log_loss": 1.4320283396683107,
+      "brier": 0.6568388318819436,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5013347597895369,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 140
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2682406496172668,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 300
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.3108449885159468,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1000,
+          "return_yen": 2100
+        }
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "A",
+      "available": true,
+      "top1": 8,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.050437040907880606,
+      "log_loss": 2.9870294351915487,
+      "brier": 0.9914393356002014,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.45112371875120993,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.25050450652963974,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 33,
+          "saved_cumulative_probability": 0.30563457921403575,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 3300,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "B",
+      "available": true,
+      "top1": 8,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06227536763204283,
+      "log_loss": 2.776189314486519,
+      "brier": 0.9582482029775339,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.41278404650261025,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.2695127562909516,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1000,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 42,
+          "saved_cumulative_probability": 0.30336691832816837,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 4200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "C",
+      "available": true,
+      "top1": 8,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.07411369435620505,
+      "log_loss": 2.6021549546296243,
+      "brier": 0.9297957832574831,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4751945883564564,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 12,
+          "saved_cumulative_probability": 0.256136548053401,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 52,
+          "saved_cumulative_probability": 0.3029553864395362,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 5200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "D",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.08595202108036726,
+      "log_loss": 2.453966032823957,
+      "brier": 0.9060820764400493,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4771857671645667,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 1000
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 13,
+          "saved_cumulative_probability": 0.2636118691028395,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 50,
+          "saved_cumulative_probability": 0.30444487808213133,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 5000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "A",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.34659821430882404,
+      "log_loss": 1.059589053736915,
+      "brier": 0.48052390247651305,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4762958360064512,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 260
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.3121261257166379,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 1330
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.3075144386554812,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "B",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.29129738527353405,
+      "log_loss": 1.2334105911176785,
+      "brier": 0.5659170184915515,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4442813769100127,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 260
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.26787132415789794,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 1330
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 9,
+          "saved_cumulative_probability": 0.3138697900136009,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "C",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.23599655623824406,
+      "log_loss": 1.4439380662738246,
+      "brier": 0.6602816171325706,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.41226691781357416,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 260
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2760937565226115,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 1330
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.3108834336565295,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "D",
+      "available": true,
+      "top1": 2,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18069572720295407,
+      "log_loss": 1.710940727468977,
+      "brier": 0.7636176983995697,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4978337310253137,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 260
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.2970203188268998,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 1330
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 11,
+          "saved_cumulative_probability": 0.310024358392883,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1100,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "A",
+      "available": true,
+      "top1": 7,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.1514212098781588,
+      "log_loss": 1.8876898561251958,
+      "brier": 0.789917052282138,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.4862051542720387,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2616639512467017,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 29,
+          "saved_cumulative_probability": 0.3005778084640798,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "B",
+      "available": true,
+      "top1": 7,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.16699957297826917,
+      "log_loss": 1.7897640235850034,
+      "brier": 0.7625945034471323,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.41959971766453596,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.2527561838772633,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 26,
+          "saved_cumulative_probability": 0.3035161410369447,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "C",
+      "available": true,
+      "top1": 7,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18257793607837952,
+      "log_loss": 1.7005781501133919,
+      "brier": 0.7367597920734898,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4503406509315314,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.2749656252070235,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 22,
+          "saved_cumulative_probability": 0.304281984436823,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "D",
+      "available": true,
+      "top1": 7,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.19815629917848987,
+      "log_loss": 1.6186991699015008,
+      "brier": 0.7124129181612096,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.481081584198527,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2784093458229705,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.3028550845167891,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1800,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "A",
+      "available": true,
+      "top1": 4,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.293361783430921,
+      "log_loss": 1.2263486759120716,
+      "brier": 0.5491299138881173,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.42971835964594307,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2625806479608979,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 1420
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 15,
+          "saved_cumulative_probability": 0.30708484461725033,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1500,
+          "return_yen": 3920
+        }
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "B",
+      "available": true,
+      "top1": 4,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.25470094373213453,
+      "log_loss": 1.3676651917341183,
+      "brier": 0.6085790944031853,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4655233940892687,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.2668357874048753,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 1420
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.3003567314825865,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1800,
+          "return_yen": 3920
+        }
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "C",
+      "available": true,
+      "top1": 4,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.21604010403334806,
+      "log_loss": 1.5322912217108673,
+      "brier": 0.672646816648236,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4329259321023107,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.26445415043704384,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 600,
+          "return_yen": 1420
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 22,
+          "saved_cumulative_probability": 0.30420502249111764,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2200,
+          "return_yen": 3920
+        }
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "D",
+      "available": true,
+      "top1": 4,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.17737926433456158,
+      "log_loss": 1.7294651024403251,
+      "brier": 0.7413330806232691,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.40749545265889964,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.25734509784169135,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 700,
+          "return_yen": 1420
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 26,
+          "saved_cumulative_probability": 0.30491152459639786,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2600,
+          "return_yen": 3920
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "A",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.15586793532371349,
+      "log_loss": 1.8587461987117615,
+      "brier": 0.92258913547103,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 1,
+          "saved_cumulative_probability": 0.4301648639961884,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 100,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.30452650669514303,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 190
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.3422184862520668,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "B",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18243883788357565,
+      "log_loss": 1.7013402970143534,
+      "brier": 0.8524980178706048,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5785876997771523,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 210
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.31101328523234345,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 190
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.319353182094589,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "C",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.20900974044343779,
+      "log_loss": 1.5653744231107798,
+      "brier": 0.7868280165988675,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5711426002344027,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 210
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.3120410276172708,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 190
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.30057683719232214,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "D",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.23558064300329995,
+      "log_loss": 1.4457019910074778,
+      "brier": 0.7255791316558182,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5636975006916529,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 210
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.30963003509456194,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 190
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.32666448895032035,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "A",
+      "available": true,
+      "top1": 12,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.039928238687868094,
+      "log_loss": 3.220671468875672,
+      "brier": 1.0499954266987541,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4006439214452557,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.255047549135244,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 20,
+          "saved_cumulative_probability": 0.30241050848461837,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "B",
+      "available": true,
+      "top1": 12,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.0511064961457883,
+      "log_loss": 2.97384366371165,
+      "brier": 1.0075018257224164,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4386171285331376,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2687841006141541,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 27,
+          "saved_cumulative_probability": 0.30719023949157503,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2700,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "C",
+      "available": true,
+      "top1": 12,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06228475360370851,
+      "log_loss": 2.7760386086010347,
+      "brier": 0.9711166896258334,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.41120453633803794,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.256378120594163,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 32,
+          "saved_cumulative_probability": 0.30158121350558614,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3200,
+          "return_yen": 6900
+        }
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "D",
+      "available": true,
+      "top1": 12,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.07346301106162872,
+      "log_loss": 2.610973250298756,
+      "brier": 0.940840018409006,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.47451803896502165,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 9,
+          "saved_cumulative_probability": 0.2699994630270219,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 900,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 36,
+          "saved_cumulative_probability": 0.30068578517770184,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3600,
+          "return_yen": 6900
+        }
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "A",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.12035913630992479,
+      "log_loss": 2.117275203135664,
+      "brier": 0.8969576961619058,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4204976045059753,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2833589948699024,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 250
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 12,
+          "saved_cumulative_probability": 0.31221947449483006,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1200,
+          "return_yen": 750
+        }
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "B",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.1479776119955587,
+      "log_loss": 1.9106942869608068,
+      "brier": 0.8384697460579822,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4124769615043311,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.28998540116812943,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 250
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 12,
+          "saved_cumulative_probability": 0.313728850511976,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1200,
+          "return_yen": 750
+        }
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "C",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.17559608768119261,
+      "log_loss": 1.7395688777491773,
+      "brier": 0.7827710337606058,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4251207136515818,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.29473479462779617,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 250
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.3013267680533439,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1000,
+          "return_yen": 750
+        }
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "D",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.20321456336682653,
+      "log_loss": 1.5934928957336547,
+      "brier": 0.7298615592697775,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.43776446579883255,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 160
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.25170420714643327,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 250
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 9,
+          "saved_cumulative_probability": 0.30198383288367425,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 900,
+          "return_yen": 750
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "A",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.1376240561374414,
+      "log_loss": 1.9832295421830368,
+      "brier": 0.7976100564505233,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.40018475740571136,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 14,
+          "saved_cumulative_probability": 0.2638942348832053,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1400,
+          "return_yen": 1510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 67,
+          "saved_cumulative_probability": 0.30242474807060676,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 6700,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "B",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.16130067383154761,
+      "log_loss": 1.8244851163547546,
+      "brier": 0.7546756407254428,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.42064046600137406,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 11,
+          "saved_cumulative_probability": 0.2500917294412773,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1100,
+          "return_yen": 1510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 55,
+          "saved_cumulative_probability": 0.301619508614916,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 5500,
+          "return_yen": 26800
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "C",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18497729152565384,
+      "log_loss": 1.6875222099480063,
+      "brier": 0.7145281231112676,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.4506420421657834,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 9,
+          "saved_cumulative_probability": 0.25066209849080384,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 900,
+          "return_yen": 1510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 44,
+          "saved_cumulative_probability": 0.3042549312925049,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 4400,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "D",
+      "available": true,
+      "top1": 5,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.20865390921976007,
+      "log_loss": 1.5670783363436198,
+      "brier": 0.6771675036079964,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4128494623220167,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2716887405420376,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 1510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 32,
+          "saved_cumulative_probability": 0.3028045081335477,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 3200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "A",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.05304658729051393,
+      "log_loss": 2.9365847460476995,
+      "brier": 1.0251706318254643,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5113474767420157,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2777897888808384,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.30708296324398027,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "B",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.057305906710771154,
+      "log_loss": 2.8593515766166173,
+      "brier": 1.0268670974504834,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4075832598633145,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.2659808293070932,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.3040358028813105,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 600
+        }
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "C",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06156522613102838,
+      "log_loss": 2.787658078698837,
+      "brier": 1.0322999340587136,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4587300943791453,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.3049483882694817,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.3122898766627881,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 600,
+          "return_yen": 600
+        }
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "D",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.0658245455512856,
+      "log_loss": 2.720762477515953,
+      "brier": 1.0414691416501551,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.5098769288949762,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.2625385379095104,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.30062321219658483,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 600
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "A",
+      "available": true,
+      "top1": 4,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09678928847258193,
+      "log_loss": 2.335218947097443,
+      "brier": 0.9621341288608639,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4422565739845399,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.2801291714886736,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.32780431579526753,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "B",
+      "available": true,
+      "top1": 4,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.13270107441740386,
+      "log_loss": 2.019656241087424,
+      "brier": 0.8878302575234459,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4157430787983589,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.2612468993913853,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.30054698183960965,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 380
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "C",
+      "available": true,
+      "top1": 4,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.1686128603622258,
+      "log_loss": 1.7801499589673266,
+      "brier": 0.8201526323856814,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5706411207520234,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.26794024108274117,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.3412176771621953,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 380
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "D",
+      "available": true,
+      "top1": 8,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.20452464630704775,
+      "log_loss": 1.5870667909223486,
+      "brier": 0.7591012534475704,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.41849196963336516,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 180
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.3042314487408282,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 350
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.363666850091574,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 380
+        }
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "A",
+      "available": true,
+      "top1": 5,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09581612388230074,
+      "log_loss": 2.3453243004190405,
+      "brier": 0.9247212697496741,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4495819161624732,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.27358572302545503,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 19,
+          "saved_cumulative_probability": 0.3072796952825925,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "B",
+      "available": true,
+      "top1": 5,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.10100802704830304,
+      "log_loss": 2.292555289573133,
+      "brier": 0.9044148801499404,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.42104012558321435,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2707805112360364,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 22,
+          "saved_cumulative_probability": 0.301056276472832,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "C",
+      "available": true,
+      "top1": 5,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.10619993021430536,
+      "log_loss": 2.2424318272902832,
+      "brier": 0.8864526288678418,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4029992271176761,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.26671343450365015,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 26,
+          "saved_cumulative_probability": 0.3052567430574663,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "D",
+      "available": true,
+      "top1": 5,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.11139183338030767,
+      "log_loss": 2.1947012631500864,
+      "brier": 0.8708345159033792,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.48335828397360947,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.263575790979939,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 29,
+          "saved_cumulative_probability": 0.3050862416691661,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2900,
+          "return_yen": 5970
+        }
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "A",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.061078651204699866,
+      "log_loss": 2.795592881313315,
+      "brier": 0.9525620797864193,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.42053659406066324,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 13,
+          "saved_cumulative_probability": 0.25864943457954837,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 60,
+          "saved_cumulative_probability": 0.3017260617632965,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 6000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "B",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.05931212506278628,
+      "log_loss": 2.8249415240180817,
+      "brier": 0.954073902468609,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.40721843824283976,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 14,
+          "saved_cumulative_probability": 0.2579192352442514,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 66,
+          "saved_cumulative_probability": 0.30123650257504575,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 6600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "C",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.0575455989208727,
+      "log_loss": 2.8551776207459563,
+      "brier": 0.9559449924496173,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4594423265308471,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 15,
+          "saved_cumulative_probability": 0.25791192094324245,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 72,
+          "saved_cumulative_probability": 0.3022543727823816,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 7200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "D",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.05577907277895912,
+      "log_loss": 2.8863565197434875,
+      "brier": 0.9581753497294436,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.45364177418793106,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 16,
+          "saved_cumulative_probability": 0.2599001118756966,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 76,
+          "saved_cumulative_probability": 0.30020514002589055,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 7600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "A",
+      "available": true,
+      "top1": 2,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.1510181779599544,
+      "log_loss": 1.8903550655720083,
+      "brier": 0.8048348989356848,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4386330200411894,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2905781459142403,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 600,
+          "return_yen": 510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.3008821923786863,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1800,
+          "return_yen": 1330
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "B",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.13687009177315623,
+      "log_loss": 1.9887230382458807,
+      "brier": 0.8292164484145088,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4127417411914134,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2543868455873908,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 600,
+          "return_yen": 510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 20,
+          "saved_cumulative_probability": 0.3081877820601883,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2000,
+          "return_yen": 1330
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "C",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.12272200558635805,
+      "log_loss": 2.0978335987135024,
+      "brier": 0.8572117576040107,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.516535722384807,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 300
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.2682743141103892,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 700,
+          "return_yen": 510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 20,
+          "saved_cumulative_probability": 0.3101488658565736,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2000,
+          "return_yen": 1330
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "D",
+      "available": true,
+      "top1": 10,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.10857391939955988,
+      "log_loss": 2.220324053182182,
+      "brier": 0.8888208265041903,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.41548439197709,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.27940455100914896,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 700,
+          "return_yen": 510
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.3034640112119158,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 1800,
+          "return_yen": 1330
+        }
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "A",
+      "available": true,
+      "top1": 8,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.15529605290738352,
+      "log_loss": 1.8624219650720342,
+      "brier": 0.7818910382427574,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4096340573970424,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 450
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.27358124804631306,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 29,
+          "saved_cumulative_probability": 0.301698785824071,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 2900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "B",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.1391713708597869,
+      "log_loss": 1.972049221345336,
+      "brier": 0.8115033248668768,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.48429564864898794,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 450
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2579665152691422,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 32,
+          "saved_cumulative_probability": 0.304419763184646,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3200,
+          "return_yen": 3110
+        }
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "C",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.12304668881219025,
+      "log_loss": 2.0951914117944943,
+      "brier": 0.8434452439625466,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.47597722829754485,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 450
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2536383401456309,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 940
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 31,
+          "saved_cumulative_probability": 0.3023210101438683,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 3100,
+          "return_yen": 3110
+        }
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "D",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.10692200676459362,
+      "log_loss": 2.235655619045486,
+      "brier": 0.8777167955297664,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.49405105039406594,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 450
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.2648805852739449,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 800,
+          "return_yen": 940
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 28,
+          "saved_cumulative_probability": 0.30073159579445186,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2800,
+          "return_yen": 3110
+        }
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "A",
+      "available": true,
+      "top1": 8,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.12225069075964907,
+      "log_loss": 2.1016815002574414,
+      "brier": 0.8796688956913227,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5029292875295962,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 280
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.27997929839867003,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 12,
+          "saved_cumulative_probability": 0.31102498182550803,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "B",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.15355071494327352,
+      "log_loss": 1.873724376011886,
+      "brier": 0.816890192302375,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5132541952391467,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 280
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.28524436186489505,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 12,
+          "saved_cumulative_probability": 0.3162721011788725,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "C",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": true,
+      "winner_probability": 0.18485073912689795,
+      "log_loss": 1.6882065950849154,
+      "brier": 0.7589133766563297,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.5235791029486973,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 300,
+          "return_yen": 280
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.26991512595876443,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 10,
+          "saved_cumulative_probability": 0.3083996709220482,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "D",
+      "available": true,
+      "top1": 7,
+      "top1_hit": true,
+      "winner_top3_capture": true,
+      "winner_probability": 0.2161507633105224,
+      "log_loss": 1.5317791364820765,
+      "brier": 0.7057384487531868,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.40723072861687515,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 200,
+          "return_yen": 280
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.30184244320922615,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 8,
+          "saved_cumulative_probability": 0.3131025539060853,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 800,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "A",
+      "available": true,
+      "top1": 9,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.049266232283280316,
+      "log_loss": 3.0105163761585,
+      "brier": 1.0349725295031846,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.47335109539025166,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.2819338389596928,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 21,
+          "saved_cumulative_probability": 0.3033652389896479,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2100,
+          "return_yen": 1320
+        }
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "B",
+      "available": true,
+      "top1": 9,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.055294678753112,
+      "log_loss": 2.895078600163127,
+      "brier": 1.0101132087839548,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.45318941744207314,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.261369878928253,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 23,
+          "saved_cumulative_probability": 0.3058176018627309,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2300,
+          "return_yen": 1320
+        }
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "C",
+      "available": true,
+      "top1": 9,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.0613231252229437,
+      "log_loss": 2.791598260475806,
+      "brier": 0.9880232743759731,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4429011399112462,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.2795554643099294,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 24,
+          "saved_cumulative_probability": 0.3081921090928734,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2400,
+          "return_yen": 1320
+        }
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "D",
+      "available": true,
+      "top1": 9,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.06735157169277538,
+      "log_loss": 2.697829040202423,
+      "brier": 0.9687027262792405,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.43261286238041924,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.26829133768767804,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 24,
+          "saved_cumulative_probability": 0.3028493333565202,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 2400,
+          "return_yen": 1320
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "A",
+      "available": true,
+      "top1": 11,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.08726988010803094,
+      "log_loss": 2.4387498916129378,
+      "brier": 0.9646677584247166,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 2,
+          "saved_cumulative_probability": 0.4043572466282251,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 200,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.2902854090333604,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 11,
+          "saved_cumulative_probability": 0.31495956284381915,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1100,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "B",
+      "available": true,
+      "top1": 11,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09074197990242104,
+      "log_loss": 2.3997351854734394,
+      "brier": 0.9402163977839652,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4768800257250938,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.2854036300303111,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 500,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 13,
+          "saved_cumulative_probability": 0.3055359996824718,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1300,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "C",
+      "available": true,
+      "top1": 11,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09421407969681114,
+      "log_loss": 2.362185642572877,
+      "brier": 0.9225490307183911,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.4325788822626928,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 6,
+          "saved_cumulative_probability": 0.27062453991726154,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 600,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 16,
+          "saved_cumulative_probability": 0.3044331101127443,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1600,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "D",
+      "available": true,
+      "top1": 3,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09768617949120124,
+      "log_loss": 2.3259951885762464,
+      "brier": 0.9116656572279941,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 3,
+          "saved_cumulative_probability": 0.41544119108424726,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 300,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 7,
+          "saved_cumulative_probability": 0.28060737500008714,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 700,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 18,
+          "saved_cumulative_probability": 0.30127061523080473,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1800,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "A",
+      "available": true,
+      "top1": 1,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.08244452934884675,
+      "log_loss": 2.4956295833137423,
+      "brier": 0.9040382511410462,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.47273605959560505,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 540
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 14,
+          "saved_cumulative_probability": 0.25544867634927987,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 72,
+          "saved_cumulative_probability": 0.30033237989235984,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 7200,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "B",
+      "available": true,
+      "top1": 1,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.08739399017033495,
+      "log_loss": 2.4373287610380334,
+      "brier": 0.8948511037044651,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 5,
+          "saved_cumulative_probability": 0.4676665332924201,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 500,
+          "return_yen": 540
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 14,
+          "saved_cumulative_probability": 0.2555897781228091,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1400,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 69,
+          "saved_cumulative_probability": 0.3012571828890086,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 6900,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "C",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09234345099182314,
+      "log_loss": 2.3822404899373164,
+      "brier": 0.8875263741336173,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.4050928538053964,
+          "hit": true,
+          "winning_tickets": 1,
+          "stake_yen": 400,
+          "return_yen": 540
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 13,
+          "saved_cumulative_probability": 0.2609161135519385,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1300,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 60,
+          "saved_cumulative_probability": 0.30288633458764785,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 6000,
+          "return_yen": 0
+        }
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "D",
+      "available": true,
+      "top1": 6,
+      "top1_hit": false,
+      "winner_top3_capture": false,
+      "winner_probability": 0.09729291181331134,
+      "log_loss": 2.3300291412278353,
+      "brier": 0.8820640624285032,
+      "tickets": {
+        "single": {
+          "threshold": 0.4,
+          "saved_points": 4,
+          "saved_cumulative_probability": 0.4160363373036122,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 400,
+          "return_yen": 0
+        },
+        "quinella": {
+          "threshold": 0.25,
+          "saved_points": 11,
+          "saved_cumulative_probability": 0.2562023177195094,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 1100,
+          "return_yen": 0
+        },
+        "trio": {
+          "threshold": 0.3,
+          "saved_points": 47,
+          "saved_cumulative_probability": 0.30245843411274553,
+          "hit": false,
+          "winning_tickets": 0,
+          "stake_yen": 4700,
+          "return_yen": 0
+        }
+      }
+    }
+  ]
+}

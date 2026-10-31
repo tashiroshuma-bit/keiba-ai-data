@@ -1,0 +1,121 @@
+name: JRA G1 cross-document research (v49 unchanged)
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - .github/workflows/jra-kikka-independent-check.yml
+      - keiba_v48/jra_g1_kikka_independent_probe.py
+      - keiba_v48/test_jra_g1_kikka_independent_probe.py
+
+permissions:
+  contents: read
+
+jobs:
+  independent-kyoto11:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'PyMuPDF>=1.24,<2' 'beautifulsoup4>=4.12,<5'
+      - run: python -m unittest discover -s keiba_v48 -p 'test_jra_g1_kikka_independent_probe.py' -v
+      - name: Compare real official Kyoto 11R PDF and separate JRA G1 racecard
+        env:
+          JRA_NETWORK_OPT_IN: 'yes'
+        run: |
+          python - <<'PY'
+          import datetime as dt
+          import hashlib
+          import json
+          import os
+          import sys
+          import urllib.parse
+          import urllib.request
+          import urllib.robotparser
+          from pathlib import Path
+
+          sys.path.insert(0, str(Path('keiba_v48').resolve()))
+          from jra_g1_kikka_independent_probe import (
+              PROGRAM_URL, G1_URL, compare_kyoto11
+          )
+
+          AGENT = 'KeibaResearch/1.0 (noncommercial validation)'
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+          opener = urllib.request.build_opener(NoRedirect)
+
+          def fetch(url, max_bytes, expected_type):
+              p = urllib.parse.urlsplit(url)
+              if p.scheme != 'https' or p.netloc != 'www.jra.go.jp' or p.query or p.fragment:
+                  raise ValueError('not_allowlisted_jra_https_url')
+              req = urllib.request.Request(url, headers={
+                  'User-Agent': AGENT, 'Accept': expected_type})
+              with opener.open(req, timeout=20) as r:
+                  if r.status != 200 or r.geturl() != url:
+                      raise ValueError('http_redirect_or_status')
+                  if r.headers.get_content_type() != expected_type:
+                      raise ValueError('content_type_mismatch_' + r.headers.get_content_type())
+                  data = r.read(max_bytes + 1)
+              if not data or len(data) > max_bytes:
+                  raise ValueError('empty_or_oversize')
+              return data, dt.datetime.now(dt.timezone.utc).isoformat()
+
+          def main():
+              if os.environ.get('JRA_NETWORK_OPT_IN') != 'yes':
+                  raise ValueError('network_not_opted_in')
+              robots, _ = fetch('https://www.jra.go.jp/robots.txt', 256 * 1024, 'text/plain')
+              rp = urllib.robotparser.RobotFileParser()
+              rp.parse(robots.decode('utf-8').splitlines())
+              for url in (PROGRAM_URL, G1_URL):
+                  if not rp.can_fetch(AGENT, url):
+                      raise ValueError('robots_disallows_' + url)
+              pdf, pdf_at = fetch(PROGRAM_URL, 10 * 1024 * 1024, 'application/pdf')
+              if not pdf.startswith(b'%PDF-'):
+                  raise ValueError('not_pdf')
+              html, html_at = fetch(G1_URL, 10 * 1024 * 1024, 'text/html')
+              output = {'research_only': True, 'pdf_sha256': hashlib.sha256(pdf).hexdigest(),
+                        'html_sha256': hashlib.sha256(html).hexdigest(),
+                        'pdf_bytes': len(pdf), 'html_bytes': len(html),
+                        'pdf_observed_at_utc': pdf_at, 'html_observed_at_utc': html_at,
+                        'production_freeze_allowed': False, 'result_settlement_allowed': False}
+              try:
+                  result = compare_kyoto11(pdf, html, pdf_observed_at=pdf_at,
+                                          html_observed_at=html_at)
+                  output.update(result)
+              except Exception as e:
+                  output['status'] = 'parse_error'
+                  output['error_class'] = type(e).__name__
+                  output['error_message'] = str(e)[:160]
+                  from bs4 import BeautifulSoup
+                  soup = BeautifulSoup(html, 'html.parser')
+                  output['html_table_diagnostics'] = []
+                  for t in soup.find_all('table')[:20]:
+                      rows = t.find_all('tr')
+                      sample = []
+                      for tr in rows[:3]:
+                          cells = tr.find_all(['td','th'], recursive=False)
+                          sample.append([c.get_text(' ',strip=True)[:45] for c in cells[:6]])
+                      output['html_table_diagnostics'].append({
+                          'rows': len(rows), 'sample': sample})
+              # Only derived summaries. Never upload original JRA bytes.
+              Path('jra_kyoto11_crossdocument_diagnostic.json').write_text(
+                  json.dumps(output, ensure_ascii=False, indent=2, allow_nan=False) + '\n',
+                  encoding='utf-8')
+              print(json.dumps(output, ensure_ascii=False, indent=2))
+              if output.get('status') == 'parse_error':
+                  sys.exit('independent_source_parser_not_yet_validated')
+
+          main()
+          PY
+      - name: Upload derived diagnostics only (no JRA original files)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-kyoto11-crossdocument-research
+          path: jra_kyoto11_crossdocument_diagnostic.json
+          if-no-files-found: warn
+          retention-days: 7

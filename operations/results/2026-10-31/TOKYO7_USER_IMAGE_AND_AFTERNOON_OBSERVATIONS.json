@@ -1,0 +1,290 @@
+{
+  "schema": "observed-afternoon-display-update",
+  "date": "2026-10-31",
+  "observed_during": "13:35 JST以降の本応答",
+  "source": "netkeiba browser visible racecard",
+  "quotes": {
+    "東京9R": {
+      "time": "13:15",
+      "odds": [
+        11.9,
+        50.8,
+        10.1,
+        2.1,
+        32.3,
+        36.8,
+        7.4,
+        17.9,
+        21.6,
+        61.3,
+        54.1,
+        48.9,
+        4.7,
+        52.5
+      ],
+      "weights": [
+        [
+          504,
+          -6
+        ],
+        [
+          520,
+          2
+        ],
+        [
+          460,
+          6
+        ],
+        [
+          474,
+          0
+        ],
+        [
+          466,
+          6
+        ],
+        [
+          438,
+          -6
+        ],
+        [
+          448,
+          4
+        ],
+        [
+          468,
+          10
+        ],
+        [
+          454,
+          -12
+        ],
+        [
+          438,
+          6
+        ],
+        [
+          426,
+          4
+        ],
+        [
+          466,
+          0
+        ],
+        [
+          448,
+          2
+        ],
+        [
+          484,
+          0
+        ]
+      ]
+    },
+    "東京10R": {
+      "time": "12:50",
+      "odds": [
+        20,
+        48.3,
+        2.5,
+        7.8,
+        15.6,
+        27.3,
+        2.7,
+        14.7,
+        85,
+        8.6
+      ]
+    },
+    "京都10R": {
+      "time": "13:05",
+      "odds": [
+        23.3,
+        21.8,
+        7.3,
+        10.6,
+        76.9,
+        25.6,
+        40.5,
+        21,
+        4.2,
+        16.1,
+        6.7,
+        21.5,
+        24.1,
+        5.8,
+        120.9,
+        10.9
+      ]
+    },
+    "東京11R": {
+      "time": "13:25",
+      "odds": [
+        39.2,
+        39.6,
+        27.4,
+        46.6,
+        11.8,
+        7.2,
+        13.1,
+        22.4,
+        12.1,
+        19.4,
+        50.8,
+        5.1,
+        10.7,
+        9.5,
+        49.4,
+        4.2
+      ]
+    },
+    "京都11R": {
+      "time": "12:41",
+      "odds": [
+        14.7,
+        24.6,
+        7.9,
+        7.5,
+        72.9,
+        4.9,
+        17.6,
+        2.4,
+        21.2,
+        9.8,
+        18.4
+      ]
+    },
+    "東京12R": {
+      "time": "13:10",
+      "odds": [
+        65.2,
+        20.3,
+        24.3,
+        34.8,
+        17.1,
+        15.6,
+        1.7,
+        9,
+        52.2,
+        5.3,
+        50.1,
+        10.3
+      ]
+    }
+  },
+  "probabilities_changed": false,
+  "model_version_changed": false,
+  "result_image": "IMG_2852.png",
+  "result_evidence": "user screenshot; official settlement pending",
+  "result": [
+    5,
+    10,
+    11
+  ],
+  "model_audit": [
+    {
+      "model": "A",
+      "marks": {
+        "◎": 5,
+        "○": 2,
+        "▲": 10,
+        "☆": 3,
+        "△": 7
+      },
+      "ordered": [
+        5,
+        2,
+        10
+      ],
+      "win": true,
+      "place": true,
+      "quinella_saved": true,
+      "trio_saved": false,
+      "singleWinP": 0.34659821430882404,
+      "placeP": 0.7619943250208109,
+      "actualThreeRanks": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "model": "B",
+      "marks": {
+        "◎": 5,
+        "○": 2,
+        "▲": 10,
+        "☆": 3,
+        "△": 6
+      },
+      "ordered": [
+        5,
+        2,
+        10
+      ],
+      "win": true,
+      "place": true,
+      "quinella_saved": true,
+      "trio_saved": false,
+      "singleWinP": 0.29129738527353405,
+      "placeP": 0.6893974227144091,
+      "actualThreeRanks": [
+        1,
+        3,
+        7
+      ]
+    },
+    {
+      "model": "C",
+      "marks": {
+        "◎": 5,
+        "○": 2,
+        "▲": 10,
+        "☆": 6,
+        "△": 3
+      },
+      "ordered": [
+        5,
+        2,
+        10
+      ],
+      "win": true,
+      "place": true,
+      "quinella_saved": true,
+      "trio_saved": false,
+      "singleWinP": 0.23599655623824406,
+      "placeP": 0.6030660255390752,
+      "actualThreeRanks": [
+        1,
+        3,
+        8
+      ]
+    },
+    {
+      "model": "D",
+      "marks": {
+        "◎": 2,
+        "○": 5,
+        "▲": 6,
+        "☆": 10,
+        "△": 8
+      },
+      "ordered": [
+        2,
+        5,
+        6
+      ],
+      "win": false,
+      "place": false,
+      "quinella_saved": true,
+      "trio_saved": false,
+      "singleWinP": 0.18069572720295407,
+      "placeP": 0.5002799117855812,
+      "actualThreeRanks": [
+        2,
+        4,
+        8
+      ]
+    }
+  ]
+}

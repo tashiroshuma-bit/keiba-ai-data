@@ -22,8 +22,8 @@ OUT_RESULTS = ROOT / "operations/results/2026-10-31"
 OUT_REPORT = ROOT / "reports/review_20261031"
 JST = dt.timezone(dt.timedelta(hours=9))
 SEEDS = {
-    "東京": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202604100120261031%2F30",
-    "京都": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202604100420261031%2FBA",
+    "東京": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202604100120261031%2F30",
+    "京都": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604101020261031%2FAB",
 }
 KINDS = ("single", "quinella", "trio")
 JP_KIND = {"single": "単勝", "quinella": "馬連", "trio": "3連複"}
@@ -54,13 +54,18 @@ def race_urls(track: str) -> dict[int, str]:
     seed = SEEDS[track]
     soup = BeautifulSoup(get(seed), "html.parser")
     urls = {}
-    current = re.search(r"(\d{1,2})R", soup.get_text(" ", strip=True))
+    current = re.search(r"(\d{1,2})(?:R|レース)", soup.get_text(" ", strip=True))
     if current:
         urls[int(current.group(1))] = seed
     for anchor in soup.find_all("a", href=True):
-        match = re.fullmatch(r"(\d{1,2})R", anchor.get_text(" ", strip=True))
+        match = re.fullmatch(r"(\d{1,2})(?:R|レース)", anchor.get_text(" ", strip=True))
         if match:
             urls[int(match.group(1))] = urljoin(seed, anchor["href"])
+            continue
+        href = anchor["href"]
+        encoded = re.search(r"pw01sde010[58]20260410(\d{2})20261031", href)
+        if encoded:
+            urls[int(encoded.group(1))] = urljoin(seed, href)
     if set(urls) != set(range(1, 13)):
         raise ValueError(f"{track}: official race links incomplete: {sorted(urls)}")
     return urls
@@ -70,7 +75,7 @@ def parse_official(track: str, race_no: int, url: str) -> dict:
     raw = get(url)
     soup = BeautifulSoup(raw, "html.parser")
     text = " ".join(soup.get_text(" ", strip=True).split())
-    if "2026年10月31日" not in text or track not in text or f"{race_no}R" not in text:
+    if "2026年10月31日" not in text or track not in text or not re.search(rf"{race_no}(?:R|レース)", text):
         raise ValueError(f"official identity mismatch: {track}{race_no}R")
     top3 = []
     for table in soup.find_all("table"):

@@ -90,5 +90,14 @@ class BodyWeightTest(unittest.TestCase):
         self.assertEqual(out['races'][0]['models'],self.race['models'])
         with self.assertRaises(ValueError):apply({'races':[self.race]},observation,NOW,date='2026-11-02')
 
+    def test_mobile_card_number_cell_is_frame_colored_but_prints_horse_number(self):
+        snap={'at':NOW.isoformat(),'url':self.record['source_url'],'sha256':'c'*64,'rows':[
+            {'cells':[{'class':['Waku6'],'text':'11'},{'class':['Weight'],'text':'486(+18)'}],
+             'links':[{'href':'https://db.netkeiba.com/horse/123','text':'試験馬のデータベース'}]}]}
+        horse=dict(self.horse,number=11)
+        record=records_from_card(snap,[horse],OFF)[0]
+        self.assertEqual(record['number'],11)
+        self.assertEqual(record['body_weight_kg'],486)
+
 
 if __name__=='__main__':unittest.main()

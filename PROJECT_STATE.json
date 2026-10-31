@@ -1820,5 +1820,19 @@
     "model_probability_coefficient_available": false,
     "prediction_weights_changed": false,
     "version_unchanged": "v49"
+  },
+  "latest_sunday_observation_refresh": {
+    "date": "2026-11-01",
+    "report": "reports/update_20261101/README.md",
+    "predictions": "reports/update_20261101/PREDICTIONS.json",
+    "observations": "reports/update_20261101/ENTRY_ODDS_OBSERVATIONS.json",
+    "flat_races": 23,
+    "runners": 305,
+    "current_win_odds_races": 23,
+    "body_weight_observed": 0,
+    "probabilities_changed_by_name": false,
+    "model_weights_changed": false,
+    "v49_unchanged": true,
+    "official_previous_day_result_reference": "reports/review_20261031/FOUR_MODEL_SETTLEMENT_20261031T192204+0900.md"
   }
 }

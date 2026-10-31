@@ -139,7 +139,8 @@ def records_from_card(snapshot, horses, off_at):
             if not token or token in ('--','---','計不'):continue
             raise ValueError('unrecognized current body weight')
         # Require the number printed on that same entry row; never join name alone.
-        numbers=[c['text'].strip() for c in cells if 'Umaban' in c.get('class',[])]
+        numbers=[c['text'].strip() for c in cells if 'Umaban' in c.get('class',[]) or
+                 any(re.fullmatch(r'Waku[1-8]',cls) for cls in c.get('class',[]))]
         if len(numbers)!=1 or not numbers[0].isdigit() or int(numbers[0])!=matches[0]['number']:
             raise ValueError('body-weight row number mismatch')
         debut=match[2]=='初出走' or matches[0].get('starts')==0

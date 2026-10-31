@@ -6,6 +6,7 @@ sys.path[:0]=[str(ROOT/'keiba_v48'),str(ROOT/'scripts')]
 from ranking_model import RankModel,NAMES
 from jockey_feature_overlay import overlay
 from jockey_overlay_ticket_math import calculate_model
+from preoff_body_weight import attach, records_from_card
 
 def digest(path):
     with open(path,'rb') as handle:return hashlib.file_digest(handle,'sha256').hexdigest()
@@ -148,6 +149,10 @@ def recalculate(baselines,evidence,rider_snapshot,model):
         except Exception as exc:
             output['race_failures'].append({'date':date,'race':label,'error':str(exc)})
     if len(output['races'])+len(output['race_failures'])!=46:raise ValueError('expected 46 flat races')
+    evidence_by_key={(r['date'],r['race']):r for r in evidence['races']}
+    output['races']=[attach(r, records_from_card(
+        evidence_by_key[r['date'],r['race']]['netkeiba'],r['runners'],r['off_at']))
+        for r in output['races']]
     return output
 
 if __name__=='__main__':

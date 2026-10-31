@@ -1,6 +1,7 @@
 """Render all races, combined best five, day best five, and complete race sheets."""
 import argparse,itertools,json
 from pathlib import Path
+from preoff_body_weight import markdown as body_weight_markdown
 
 def pct(value):return f'{100*value:.2f}%'
 def label(key):return str(key).removeprefix('馬番未定:')
@@ -55,7 +56,7 @@ def race_report(r,relative_root='../'):
         for size,pair in enumerate(selected,1):
             union=sum(v for triple,v in joint.items() if any(set(p)<=set(triple) for p in selected[:size]))
             lines.append('|'+ '－'.join(label(n) for n in pair)+'|'+pct(wide[pair])+'|'+pct(union)+'|')
-    return '\n'.join(lines)+'\n'
+    return '\n'.join(lines[:2])+'\n'+body_weight_markdown(r)+'\n'+'\n'.join(lines[2:])+'\n'
 
 def render(data):
     if data['race_failures'] or len(data['races'])!=46:raise ValueError('complete 46 flat races required')

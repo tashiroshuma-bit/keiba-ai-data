@@ -1,0 +1,1186 @@
+{
+  "schema": "weekend-results-v1",
+  "observed_at": "2026-10-31T09:20:21.702Z",
+  "official_verified": false,
+  "original_http_sha256": null,
+  "source_basis": "Public text retrieved via web search; 24 top-three and six-market payouts cross-checked; nonstarters not independently checked",
+  "races": [
+    {
+      "date": "2026-10-31",
+      "race": "東京1R",
+      "top3": [
+        [
+          1,
+          12
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "12": 460
+        },
+        "quinella": {
+          "11-12": 280
+        },
+        "wide": {
+          "11-12": 190,
+          "6-12": 2320,
+          "6-11": 850
+        },
+        "trio": {
+          "6-11-12": 2980
+        },
+        "trifecta": {
+          "12-11-6": 15640
+        },
+        "place": {
+          "6": 510,
+          "11": 100,
+          "12": 150
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京2R",
+      "top3": [
+        [
+          1,
+          9
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "9": 110
+        },
+        "quinella": {
+          "6-9": 960
+        },
+        "wide": {
+          "6-9": 380,
+          "7-9": 480,
+          "6-7": 2340
+        },
+        "trio": {
+          "6-7-9": 3140
+        },
+        "trifecta": {
+          "9-6-7": 6850
+        },
+        "place": {
+          "6": 250,
+          "7": 280,
+          "9": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京3R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          6
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 130
+        },
+        "quinella": {
+          "4-8": 1030
+        },
+        "wide": {
+          "4-8": 340,
+          "6-8": 270,
+          "4-6": 1760
+        },
+        "trio": {
+          "4-6-8": 2480
+        },
+        "trifecta": {
+          "8-4-6": 6070
+        },
+        "place": {
+          "4": 260,
+          "6": 220,
+          "8": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京4R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          4
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 930
+        },
+        "quinella": {
+          "3-4": 3790
+        },
+        "wide": {
+          "3-4": 1360,
+          "3-9": 740,
+          "4-9": 660
+        },
+        "trio": {
+          "3-4-9": 4810
+        },
+        "trifecta": {
+          "3-4-9": 38200
+        },
+        "place": {
+          "3": 260,
+          "4": 250,
+          "9": 160
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京5R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          2
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 140
+        },
+        "quinella": {
+          "2-8": 300
+        },
+        "wide": {
+          "2-8": 170,
+          "4-8": 750,
+          "2-4": 1310
+        },
+        "trio": {
+          "2-4-8": 2100
+        },
+        "trifecta": {
+          "8-2-4": 4730
+        },
+        "place": {
+          "2": 140,
+          "4": 420,
+          "8": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京6R",
+      "top3": [
+        [
+          1,
+          16
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "16": 1000
+        },
+        "quinella": {
+          "11-16": 2600
+        },
+        "wide": {
+          "11-16": 750,
+          "5-16": 1750,
+          "5-11": 540
+        },
+        "trio": {
+          "5-11-16": 7530
+        },
+        "trifecta": {
+          "16-11-5": 40750
+        },
+        "place": {
+          "5": 240,
+          "11": 160,
+          "16": 350
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京7R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          11
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 260
+        },
+        "quinella": {
+          "5-10": 1330
+        },
+        "wide": {
+          "5-10": 630,
+          "5-11": 1360,
+          "10-11": 2040
+        },
+        "trio": {
+          "5-10-11": 7670
+        },
+        "trifecta": {
+          "5-10-11": 25880
+        },
+        "place": {
+          "5": 130,
+          "10": 290,
+          "11": 560
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京8R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 160
+        },
+        "quinella": {
+          "5-7": 4420
+        },
+        "wide": {
+          "5-7": 1490,
+          "7-10": 750,
+          "5-10": 9500
+        },
+        "trio": {
+          "5-7-10": 20780
+        },
+        "trifecta": {
+          "7-5-10": 80080
+        },
+        "place": {
+          "5": 1020,
+          "7": 110,
+          "10": 390
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京9R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          3
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 180
+        },
+        "quinella": {
+          "4-9": 1420
+        },
+        "wide": {
+          "4-9": 680,
+          "3-4": 370,
+          "3-9": 1460
+        },
+        "trio": {
+          "3-4-9": 3920
+        },
+        "trifecta": {
+          "4-9-3": 10860
+        },
+        "place": {
+          "3": 230,
+          "4": 120,
+          "9": 400
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京10R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          3
+        ],
+        [
+          3,
+          1
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 210
+        },
+        "quinella": {
+          "3-7": 190
+        },
+        "wide": {
+          "3-7": 130,
+          "1-7": 620,
+          "1-3": 730
+        },
+        "trio": {
+          "1-3-7": 1600
+        },
+        "trifecta": {
+          "7-3-1": 3720
+        },
+        "place": {
+          "1": 330,
+          "3": 110,
+          "7": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京11R",
+      "top3": [
+        [
+          1,
+          6
+        ],
+        [
+          2,
+          9
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "6": 690
+        },
+        "quinella": {
+          "6-9": 3840
+        },
+        "wide": {
+          "6-9": 1490,
+          "6-12": 960,
+          "9-12": 1350
+        },
+        "trio": {
+          "6-9-12": 6900
+        },
+        "trifecta": {
+          "6-9-12": 39580
+        },
+        "place": {
+          "6": 270,
+          "9": 350,
+          "12": 220
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "東京12R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          8
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 160
+        },
+        "quinella": {
+          "7-10": 250
+        },
+        "wide": {
+          "7-10": 150,
+          "7-8": 360,
+          "8-10": 430
+        },
+        "trio": {
+          "7-8-10": 750
+        },
+        "trifecta": {
+          "7-10-8": 1800
+        },
+        "place": {
+          "7": 110,
+          "8": 170,
+          "10": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026050410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26050410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都1R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 180
+        },
+        "quinella": {
+          "5-13": 1510
+        },
+        "wide": {
+          "5-13": 590,
+          "4-5": 2320,
+          "4-13": 9430
+        },
+        "trio": {
+          "4-5-13": 26800
+        },
+        "trifecta": {
+          "5-13-4": 90500
+        },
+        "place": {
+          "4": 1220,
+          "5": 110,
+          "13": 330
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都2R",
+      "top3": [
+        [
+          1,
+          5
+        ],
+        [
+          2,
+          6
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "5": 2000
+        },
+        "quinella": {
+          "5-6": 1190
+        },
+        "wide": {
+          "5-6": 290,
+          "5-9": 320,
+          "6-9": 120
+        },
+        "trio": {
+          "5-6-9": 600
+        },
+        "trifecta": {
+          "5-6-9": 9350
+        },
+        "place": {
+          "5": 180,
+          "6": 110,
+          "9": 110
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都3R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          8
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 180
+        },
+        "quinella": {
+          "7-8": 350
+        },
+        "wide": {
+          "7-8": 160,
+          "4-7": 180,
+          "4-8": 250
+        },
+        "trio": {
+          "4-7-8": 380
+        },
+        "trifecta": {
+          "7-8-4": 1230
+        },
+        "place": {
+          "4": 130,
+          "7": 110,
+          "8": 120
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都4R",
+      "top3": [
+        [
+          1,
+          1
+        ],
+        [
+          2,
+          5
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "1": 160
+        },
+        "quinella": {
+          "1-5": 330
+        },
+        "wide": {
+          "1-5": 180,
+          "1-4": 200,
+          "4-5": 350
+        },
+        "trio": {
+          "1-4-5": 520
+        },
+        "trifecta": {
+          "1-5-4": 1270
+        },
+        "place": {
+          "1": 110,
+          "4": 140,
+          "5": 120
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都5R",
+      "top3": [
+        [
+          1,
+          10
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          4
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "10": 300
+        },
+        "quinella": {
+          "1-10": 1340
+        },
+        "wide": {
+          "1-10": 510,
+          "4-10": 1130,
+          "1-4": 1730
+        },
+        "trio": {
+          "1-4-10": 5970
+        },
+        "trifecta": {
+          "10-1-4": 21020
+        },
+        "place": {
+          "1": 220,
+          "4": 390,
+          "10": 140
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都6R",
+      "top3": [
+        [
+          1,
+          14
+        ],
+        [
+          2,
+          15
+        ],
+        [
+          3,
+          10
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "14": 3030
+        },
+        "quinella": {
+          "14-15": 13120
+        },
+        "wide": {
+          "14-15": 3510,
+          "10-14": 2070,
+          "10-15": 1140
+        },
+        "trio": {
+          "10-14-15": 19800
+        },
+        "trifecta": {
+          "14-15-10": 167980
+        },
+        "place": {
+          "10": 170,
+          "14": 650,
+          "15": 300
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都7R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          7
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 300
+        },
+        "quinella": {
+          "2-10": 510
+        },
+        "wide": {
+          "2-10": 260,
+          "2-7": 430,
+          "7-10": 610
+        },
+        "trio": {
+          "2-7-10": 1330
+        },
+        "trifecta": {
+          "2-10-7": 5720
+        },
+        "place": {
+          "2": 160,
+          "7": 260,
+          "10": 130
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都8R",
+      "top3": [
+        [
+          1,
+          8
+        ],
+        [
+          2,
+          13
+        ],
+        [
+          3,
+          12
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "8": 450
+        },
+        "quinella": {
+          "8-13": 940
+        },
+        "wide": {
+          "8-13": 440,
+          "8-12": 880,
+          "12-13": 830
+        },
+        "trio": {
+          "8-12-13": 3110
+        },
+        "trifecta": {
+          "8-13-12": 13210
+        },
+        "place": {
+          "8": 190,
+          "12": 240,
+          "13": 170
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都9R",
+      "top3": [
+        [
+          1,
+          7
+        ],
+        [
+          2,
+          1
+        ],
+        [
+          3,
+          2
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "7": 280
+        },
+        "quinella": {
+          "1-7": 3780
+        },
+        "wide": {
+          "1-7": 1220,
+          "2-7": 970,
+          "1-2": 4470
+        },
+        "trio": {
+          "1-2-7": 14910
+        },
+        "trifecta": {
+          "7-1-2": 53840
+        },
+        "place": {
+          "1": 730,
+          "2": 440,
+          "7": 140
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都10R",
+      "top3": [
+        [
+          1,
+          3
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "3": 580
+        },
+        "quinella": {
+          "3-11": 1860
+        },
+        "wide": {
+          "3-11": 640,
+          "3-9": 340,
+          "9-11": 300
+        },
+        "trio": {
+          "3-9-11": 1320
+        },
+        "trifecta": {
+          "3-11-9": 8770
+        },
+        "place": {
+          "3": 200,
+          "9": 120,
+          "11": 160
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都11R",
+      "top3": [
+        [
+          1,
+          4
+        ],
+        [
+          2,
+          10
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "4": 630
+        },
+        "quinella": {
+          "4-10": 3740
+        },
+        "wide": {
+          "4-10": 1090,
+          "4-5": 6250,
+          "5-10": 8270
+        },
+        "trio": {
+          "4-5-10": 88020
+        },
+        "trifecta": {
+          "4-10-5": 383850
+        },
+        "place": {
+          "4": 250,
+          "5": 2060,
+          "10": 280
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    },
+    {
+      "date": "2026-10-31",
+      "race": "京都12R",
+      "top3": [
+        [
+          1,
+          2
+        ],
+        [
+          2,
+          11
+        ],
+        [
+          3,
+          9
+        ]
+      ],
+      "payouts": {
+        "single": {
+          "2": 540
+        },
+        "quinella": {
+          "2-11": 3870
+        },
+        "wide": {
+          "2-11": 1400,
+          "2-9": 4010,
+          "9-11": 6320
+        },
+        "trio": {
+          "2-9-11": 36300
+        },
+        "trifecta": {
+          "2-11-9": 147000
+        },
+        "place": {
+          "2": 230,
+          "9": 1220,
+          "11": 410
+        }
+      },
+      "nonstarters": [],
+      "status": "TWO_SECONDARY_TOP3_AND_SIX_MARKET_PAYOUTS_AGREE_OFFICIAL_PENDING",
+      "sources": [
+        "https://race.netkeiba.com/top/payback_list.html?kaisai_date=20261031&kaisai_id=2026080410",
+        "https://sports.yahoo.co.jp/keiba/race/list/26080410"
+      ],
+      "nonstarters_status": "not independently reconciled; do not settle full portfolios"
+    }
+  ]
+}
+

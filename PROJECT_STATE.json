@@ -1796,5 +1796,29 @@
     "database_version": 10,
     "canonical_database_sha256_verified": true,
     "model_promoted": false
+  },
+  "latest_day_result_review": {
+    "date": "2026-10-31",
+    "report": "reports/review_20261031/REVIEW.md",
+    "scores": "reports/review_20261031/scores.json",
+    "results": "operations/results/2026-10-31/DAY_RESULTS_REVIEW_20261031.json",
+    "total_races": 24,
+    "scored_flat_races": 23,
+    "two_secondary_top3_and_payouts_agree": 24,
+    "official_full_verification": false,
+    "production_forward_added": 0,
+    "model_retrained": false
+  },
+  "preoff_body_weight_reference": {
+    "required_from": "2026-11-01",
+    "policy": "operations/PREOFF_BODY_WEIGHT_POLICY.md",
+    "module": "scripts/preoff_body_weight.py",
+    "revision_cli": "scripts/apply_preoff_body_weights.py",
+    "collector_connection": "scripts/recalculate_weekend_riders.py",
+    "report_connection": "scripts/report_full_weekend_riders.py",
+    "status": "reference_and_provenance_gate_implemented",
+    "model_probability_coefficient_available": false,
+    "prediction_weights_changed": false,
+    "version_unchanged": "v49"
   }
 }

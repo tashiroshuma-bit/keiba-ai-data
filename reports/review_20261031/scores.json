@@ -1,0 +1,3173 @@
+{
+  "schema": "immutable-day-review-v1",
+  "forecast_sha256": "e04d364f9b7aef6fe05121c466a2f6476ed90bfab85f817bf31870bbfa46e0e6",
+  "results_sha256": "7b0268a53ef7a5f6c724f9d9592daaa0c91cf2072c651b56e0473cfc98ff9248",
+  "scope": "23 flat races, not selected winners; Kyoto4R obstacle outside prediction domain",
+  "official_verified": false,
+  "production_forward_added": 0,
+  "model_retrained": false,
+  "actual_bets": false,
+  "actual_roi": null,
+  "summaries": {
+    "A": {
+      "races": 23,
+      "top1_hit": 10,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "place_hit": 16,
+      "capture_count": 30,
+      "top1_hit_rate": 0.43478260869565216,
+      "place_hit_rate": 0.6956521739130435,
+      "capture_rate": 0.43478260869565216,
+      "log_loss": 2.0811748774947647,
+      "brier_sum": 0.8133313238367971,
+      "mean_top1_probability": 0.24501071358109805,
+      "mean_place_probability": 0.5850177079248435
+    },
+    "B": {
+      "races": 23,
+      "top1_hit": 8,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "place_hit": 15,
+      "capture_count": 32,
+      "top1_hit_rate": 0.34782608695652173,
+      "place_hit_rate": 0.6521739130434783,
+      "capture_rate": 0.463768115942029,
+      "log_loss": 2.0345358750044205,
+      "brier_sum": 0.8068553581581561,
+      "mean_top1_probability": 0.22618089360999644,
+      "mean_place_probability": 0.5571110649435475
+    },
+    "C": {
+      "races": 23,
+      "top1_hit": 8,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "place_hit": 15,
+      "capture_count": 32,
+      "top1_hit_rate": 0.34782608695652173,
+      "place_hit_rate": 0.6521739130434783,
+      "capture_rate": 0.463768115942029,
+      "log_loss": 2.006520722956849,
+      "brier_sum": 0.8040774636803605,
+      "mean_top1_probability": 0.20970101705652264,
+      "mean_place_probability": 0.5318468431748495
+    },
+    "D": {
+      "races": 23,
+      "top1_hit": 7,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "place_hit": 16,
+      "capture_count": 30,
+      "top1_hit_rate": 0.30434782608695654,
+      "place_hit_rate": 0.6956521739130435,
+      "capture_rate": 0.43478260869565216,
+      "log_loss": 1.9947054451286632,
+      "brier_sum": 0.8049976404034104,
+      "mean_top1_probability": 0.19923488939642175,
+      "mean_place_probability": 0.5164106468113994
+    }
+  },
+  "afternoon_six": {
+    "A": {
+      "races": 6,
+      "top1_hit": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 1,
+      "place_hit": 5,
+      "capture_count": 11,
+      "top1_hit_rate": 0.3333333333333333,
+      "place_hit_rate": 0.8333333333333334,
+      "capture_rate": 0.6111111111111112,
+      "log_loss": 2.1357702775013094,
+      "brier_sum": 0.8336464444103858,
+      "mean_top1_probability": 0.32529343408646244,
+      "mean_place_probability": 0.7233627343139339
+    },
+    "B": {
+      "races": 6,
+      "top1_hit": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "place_hit": 5,
+      "capture_count": 10,
+      "top1_hit_rate": 0.3333333333333333,
+      "place_hit_rate": 0.8333333333333334,
+      "capture_rate": 0.5555555555555556,
+      "log_loss": 2.095178921535728,
+      "brier_sum": 0.8308042605092796,
+      "mean_top1_probability": 0.28458497515472975,
+      "mean_place_probability": 0.6656150574832531
+    },
+    "C": {
+      "races": 6,
+      "top1_hit": 2,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "place_hit": 5,
+      "capture_count": 10,
+      "top1_hit_rate": 0.3333333333333333,
+      "place_hit_rate": 0.8333333333333334,
+      "capture_rate": 0.5555555555555556,
+      "log_loss": 2.078571037124198,
+      "brier_sum": 0.8335742408499787,
+      "mean_top1_probability": 0.24387651622299703,
+      "mean_place_probability": 0.6004585792385173
+    },
+    "D": {
+      "races": 6,
+      "top1_hit": 1,
+      "ordered_hit": 0,
+      "unordered_hit": 0,
+      "place_hit": 4,
+      "capture_count": 8,
+      "top1_hit_rate": 0.16666666666666666,
+      "place_hit_rate": 0.6666666666666666,
+      "capture_rate": 0.4444444444444444,
+      "log_loss": 2.0868175499990342,
+      "brier_sum": 0.841956385432483,
+      "mean_top1_probability": 0.208985093026558,
+      "mean_place_probability": 0.5388456838746615
+    }
+  },
+  "scores": [
+    {
+      "race": "東京1R",
+      "model": "A",
+      "actual": [
+        12,
+        11,
+        6
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        5,
+        11
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.18703120384533306,
+      "top1_probability": 0.18703120384533306,
+      "winner_model_rank": 1,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.4904228056863853,
+      "place_payout_100_reference": 150,
+      "log_loss": 1.676479810564982,
+      "brier_sum": 0.7151276941280184,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "B",
+      "actual": [
+        12,
+        11,
+        6
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        11,
+        5
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.17175402665526443,
+      "top1_probability": 0.17175402665526443,
+      "winner_model_rank": 1,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.4600806819103584,
+      "place_payout_100_reference": 150,
+      "log_loss": 1.7616919032912477,
+      "brier_sum": 0.7444642510624923,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "C",
+      "actual": [
+        12,
+        11,
+        6
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        11,
+        5
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.15647684946519577,
+      "top1_probability": 0.15647684946519577,
+      "winner_model_rank": 1,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.429378045500367,
+      "place_payout_100_reference": 150,
+      "log_loss": 1.8548472066841315,
+      "brier_sum": 0.7765221473405913,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京1R",
+      "model": "D",
+      "actual": [
+        12,
+        11,
+        6
+      ],
+      "top1": 11,
+      "top3": [
+        11,
+        12,
+        5
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.14119967227512714,
+      "top1_probability": 0.15803110736035403,
+      "winner_model_rank": 2,
+      "place_pick": 11,
+      "place_hit": 1,
+      "place_probability": 0.4349104484765465,
+      "place_payout_100_reference": 100,
+      "log_loss": 1.957580274923372,
+      "brier_sum": 0.8113013829623158,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "A",
+      "actual": [
+        9,
+        6,
+        7
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.468821291048608,
+      "top1_probability": 0.468821291048608,
+      "winner_model_rank": 1,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.8787450303982745,
+      "place_payout_100_reference": 110,
+      "log_loss": 0.7575336256912948,
+      "brier_sum": 0.3177373790355535,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "B",
+      "actual": [
+        9,
+        6,
+        7
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.42763024349630574,
+      "top1_probability": 0.42763024349630574,
+      "winner_model_rank": 1,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.8481864957025127,
+      "place_payout_100_reference": 110,
+      "log_loss": 0.8494963738564622,
+      "brier_sum": 0.3718487516826629,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "C",
+      "actual": [
+        9,
+        6,
+        7
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.38643919594400356,
+      "top1_probability": 0.38643919594400356,
+      "winner_model_rank": 1,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.8131920782341486,
+      "place_payout_100_reference": 110,
+      "log_loss": 0.950780743009862,
+      "brier_sum": 0.43151226545064564,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京2R",
+      "model": "D",
+      "actual": [
+        9,
+        6,
+        7
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.34524814839170137,
+      "top1_probability": 0.34524814839170137,
+      "winner_model_rank": 1,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.7730061580248163,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.0634918498013926,
+      "brier_sum": 0.49672792033950164,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "A",
+      "actual": [
+        8,
+        4,
+        6
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        7,
+        6
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.3746609924148528,
+      "top1_probability": 0.3746609924148528,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.8048083652204732,
+      "place_payout_100_reference": 110,
+      "log_loss": 0.981733682111509,
+      "brier_sum": 0.45243974527120173,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "B",
+      "actual": [
+        8,
+        4,
+        6
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        7,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.35712138964540197,
+      "top1_probability": 0.35712138964540197,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.785692276011796,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.0296795279806505,
+      "brier_sum": 0.4779959090988922,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "C",
+      "actual": [
+        8,
+        4,
+        6
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        7,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.3395817868759512,
+      "top1_probability": 0.3395817868759512,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.7680138630582959,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.0800404570904727,
+      "brier_sum": 0.5072703387330093,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京3R",
+      "model": "D",
+      "actual": [
+        8,
+        4,
+        6
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        2,
+        7
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.3220421841065004,
+      "top1_probability": 0.3220421841065004,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.7516947002679643,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.1330727354764096,
+      "brier_sum": 0.5402630341735529,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "A",
+      "actual": [
+        3,
+        4,
+        9
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.07010550458871237,
+      "top1_probability": 0.1307075088505952,
+      "winner_model_rank": 5,
+      "place_pick": 10,
+      "place_hit": 0,
+      "place_probability": 0.3636999431878457,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.6577539632211886,
+      "brier_sum": 0.9311744607494963,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "B",
+      "actual": [
+        3,
+        4,
+        9
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        6,
+        9
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.06638366971891635,
+      "top1_probability": 0.11666481326576707,
+      "winner_model_rank": 6,
+      "place_pick": 10,
+      "place_hit": 0,
+      "place_probability": 0.3297929322005597,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.7123041907155776,
+      "brier_sum": 0.9361545421906041,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "C",
+      "actual": [
+        3,
+        4,
+        9
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        6,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.06266183484912032,
+      "top1_probability": 0.10262211768093894,
+      "winner_model_rank": 8,
+      "place_pick": 10,
+      "place_hit": 0,
+      "place_probability": 0.2948501850917391,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.7700027112644072,
+      "brier_sum": 0.9419736539077718,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京4R",
+      "model": "D",
+      "actual": [
+        3,
+        4,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        10,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.05893999997932429,
+      "top1_probability": 0.09573448647702847,
+      "winner_model_rank": 8,
+      "place_pick": 6,
+      "place_hit": 0,
+      "place_probability": 0.2772095109932456,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.831235302023381,
+      "brier_sum": 0.9486317959009989,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "A",
+      "actual": [
+        8,
+        2,
+        4
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.28913360112713016,
+      "top1_probability": 0.28913360112713016,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.6927871627849351,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.2408664100545856,
+      "brier_sum": 0.5773171678717484,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "B",
+      "actual": [
+        8,
+        2,
+        4
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        3,
+        6
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.2723637388877316,
+      "top1_probability": 0.2723637388877316,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.665892065377084,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.3006168307198878,
+      "brier_sum": 0.602748920458467,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "C",
+      "actual": [
+        8,
+        2,
+        4
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        6,
+        3
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.25559387664833294,
+      "top1_probability": 0.25559387664833294,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.637944429406873,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.3641655135406356,
+      "brier_sum": 0.6292561417951987,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京5R",
+      "model": "D",
+      "actual": [
+        8,
+        2,
+        4
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        6,
+        3
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.23882401440893436,
+      "top1_probability": 0.23882401440893436,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.6088667252525224,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.4320283396683107,
+      "brier_sum": 0.6568388318819436,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "A",
+      "actual": [
+        16,
+        11,
+        5
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        12,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.050437040907880606,
+      "top1_probability": 0.20069930782484238,
+      "winner_model_rank": 9,
+      "place_pick": 8,
+      "place_hit": 0,
+      "place_probability": 0.5172102036361919,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.9870294351915487,
+      "brier_sum": 0.9914393356002014,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "B",
+      "actual": [
+        16,
+        11,
+        5
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        12,
+        9
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.06227536763204283,
+      "top1_probability": 0.16766647958929826,
+      "winner_model_rank": 10,
+      "place_pick": 8,
+      "place_hit": 0,
+      "place_probability": 0.4489288469590683,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.776189314486519,
+      "brier_sum": 0.9582482029775338,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "C",
+      "actual": [
+        16,
+        11,
+        5
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        12,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.07411369435620505,
+      "top1_probability": 0.1346336513537541,
+      "winner_model_rank": 7,
+      "place_pick": 8,
+      "place_hit": 0,
+      "place_probability": 0.3755438730758512,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.6021549546296243,
+      "brier_sum": 0.9297957832574831,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京6R",
+      "model": "D",
+      "actual": [
+        16,
+        11,
+        5
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        8,
+        12
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.08595202108036726,
+      "top1_probability": 0.11003551350362803,
+      "winner_model_rank": 5,
+      "place_pick": 10,
+      "place_hit": 0,
+      "place_probability": 0.3171756272267846,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.453966032823957,
+      "brier_sum": 0.9060820764400493,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "A",
+      "actual": [
+        5,
+        10,
+        11
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.34659821430882404,
+      "top1_probability": 0.34659821430882404,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.761994325020811,
+      "place_payout_100_reference": 130,
+      "log_loss": 1.059589053736915,
+      "brier_sum": 0.480523902476513,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "B",
+      "actual": [
+        5,
+        10,
+        11
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.29129738527353405,
+      "top1_probability": 0.29129738527353405,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.6893974227144091,
+      "place_payout_100_reference": 130,
+      "log_loss": 1.2334105911176785,
+      "brier_sum": 0.5659170184915516,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "C",
+      "actual": [
+        5,
+        10,
+        11
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        2,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.23599655623824406,
+      "top1_probability": 0.23599655623824406,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.6030660255390752,
+      "place_payout_100_reference": 130,
+      "log_loss": 1.4439380662738246,
+      "brier_sum": 0.6602816171325706,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京7R",
+      "model": "D",
+      "actual": [
+        5,
+        10,
+        11
+      ],
+      "top1": 2,
+      "top3": [
+        2,
+        5,
+        6
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.18069572720295407,
+      "top1_probability": 0.19955673151418155,
+      "winner_model_rank": 2,
+      "place_pick": 2,
+      "place_hit": 0,
+      "place_probability": 0.5363372233481701,
+      "place_payout_100_reference": 0,
+      "log_loss": 1.710940727468977,
+      "brier_sum": 0.7636176983995696,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "A",
+      "actual": [
+        7,
+        5,
+        10
+      ],
+      "top1": 7,
+      "top3": [
+        7,
+        3,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.1514212098781588,
+      "top1_probability": 0.1514212098781588,
+      "winner_model_rank": 1,
+      "place_pick": 7,
+      "place_hit": 1,
+      "place_probability": 0.42005663088226375,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.8876898561251958,
+      "brier_sum": 0.7899170522821378,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "B",
+      "actual": [
+        7,
+        5,
+        10
+      ],
+      "top1": 7,
+      "top3": [
+        7,
+        3,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.16699957297826917,
+      "top1_probability": 0.16699957297826917,
+      "winner_model_rank": 1,
+      "place_pick": 7,
+      "place_hit": 1,
+      "place_probability": 0.4551133645870248,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.7897640235850034,
+      "brier_sum": 0.7625945034471323,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "C",
+      "actual": [
+        7,
+        5,
+        10
+      ],
+      "top1": 7,
+      "top3": [
+        7,
+        3,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.18257793607837952,
+      "top1_probability": 0.18257793607837952,
+      "winner_model_rank": 1,
+      "place_pick": 7,
+      "place_hit": 1,
+      "place_probability": 0.48936648442770014,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.7005781501133919,
+      "brier_sum": 0.7367597920734896,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京8R",
+      "model": "D",
+      "actual": [
+        7,
+        5,
+        10
+      ],
+      "top1": 7,
+      "top3": [
+        7,
+        3,
+        2
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.19815629917848987,
+      "top1_probability": 0.19815629917848987,
+      "winner_model_rank": 1,
+      "place_pick": 7,
+      "place_hit": 1,
+      "place_probability": 0.5229590945933299,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.6186991699015008,
+      "brier_sum": 0.7124129181612096,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "A",
+      "actual": [
+        4,
+        9,
+        3
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        3,
+        9
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 1,
+      "ordered_hit": 0,
+      "capture_count": 3,
+      "winner_probability": 0.293361783430921,
+      "top1_probability": 0.293361783430921,
+      "winner_model_rank": 1,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.6816573713419557,
+      "place_payout_100_reference": 120,
+      "log_loss": 1.2263486759120716,
+      "brier_sum": 0.5491299138881172,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "B",
+      "actual": [
+        4,
+        9,
+        3
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        3,
+        7
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.25470094373213453,
+      "top1_probability": 0.25470094373213453,
+      "winner_model_rank": 1,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.619912771838945,
+      "place_payout_100_reference": 120,
+      "log_loss": 1.3676651917341183,
+      "brier_sum": 0.6085790944031854,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "C",
+      "actual": [
+        4,
+        9,
+        3
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        3,
+        13
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.21604010403334806,
+      "top1_probability": 0.21604010403334806,
+      "winner_model_rank": 1,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.5515439508957589,
+      "place_payout_100_reference": 120,
+      "log_loss": 1.5322912217108673,
+      "brier_sum": 0.6726468166482361,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京9R",
+      "model": "D",
+      "actual": [
+        4,
+        9,
+        3
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        13,
+        3
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.17737926433456158,
+      "top1_probability": 0.17737926433456158,
+      "winner_model_rank": 1,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.47572676976280326,
+      "place_payout_100_reference": 120,
+      "log_loss": 1.7294651024403251,
+      "brier_sum": 0.7413330806232692,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "A",
+      "actual": [
+        7,
+        3,
+        1
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        7,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.15586793532371349,
+      "top1_probability": 0.4301648639961884,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 1,
+      "place_probability": 0.8549816804841511,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.8587461987117615,
+      "brier_sum": 0.9225891354710302,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "B",
+      "actual": [
+        7,
+        3,
+        1
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        7,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.18243883788357565,
+      "top1_probability": 0.3961488618935766,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 1,
+      "place_probability": 0.8288681696771258,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.7013402970143534,
+      "brier_sum": 0.8524980178706049,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "C",
+      "actual": [
+        7,
+        3,
+        1
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        7,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.20900974044343779,
+      "top1_probability": 0.3621328597909648,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 1,
+      "place_probability": 0.7999729108963748,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.5653744231107798,
+      "brier_sum": 0.7868280165988675,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京10R",
+      "model": "D",
+      "actual": [
+        7,
+        3,
+        1
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        7,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.23558064300329995,
+      "top1_probability": 0.328116857688353,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 1,
+      "place_probability": 0.7678070224403425,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.4457019910074778,
+      "brier_sum": 0.7255791316558182,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "A",
+      "actual": [
+        6,
+        9,
+        12
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        5,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.039928238687868094,
+      "top1_probability": 0.2946435336058699,
+      "winner_model_rank": 8,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.6785359230414104,
+      "place_payout_100_reference": 220,
+      "log_loss": 3.220671468875672,
+      "brier_sum": 1.0499954266987541,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "B",
+      "actual": [
+        6,
+        9,
+        12
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        5,
+        16
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.0511064961457883,
+      "top1_probability": 0.25535070846598373,
+      "winner_model_rank": 8,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.6149993228740754,
+      "place_payout_100_reference": 220,
+      "log_loss": 2.97384366371165,
+      "brier_sum": 1.0075018257224162,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "C",
+      "actual": [
+        6,
+        9,
+        12
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        16,
+        5
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.06228475360370851,
+      "top1_probability": 0.21605788332609754,
+      "winner_model_rank": 5,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.5458095549322681,
+      "place_payout_100_reference": 220,
+      "log_loss": 2.7760386086010347,
+      "brier_sum": 0.9711166896258335,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京11R",
+      "model": "D",
+      "actual": [
+        6,
+        9,
+        12
+      ],
+      "top1": 12,
+      "top3": [
+        12,
+        16,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.07346301106162872,
+      "top1_probability": 0.17676505818621138,
+      "winner_model_rank": 5,
+      "place_pick": 12,
+      "place_hit": 1,
+      "place_probability": 0.4698564501107517,
+      "place_payout_100_reference": 220,
+      "log_loss": 2.610973250298756,
+      "brier_sum": 0.9408400184090059,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "A",
+      "actual": [
+        7,
+        10,
+        8
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        4,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.12035913630992479,
+      "top1_probability": 0.27947407304715566,
+      "winner_model_rank": 3,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.6669451109980521,
+      "place_payout_100_reference": 110,
+      "log_loss": 2.117275203135664,
+      "brier_sum": 0.8969576961619058,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "B",
+      "actual": [
+        7,
+        10,
+        8
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        7,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.1479776119955587,
+      "top1_probability": 0.2644993495087724,
+      "winner_model_rank": 2,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.6455018001407034,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.9106942869608068,
+      "brier_sum": 0.8384697460579821,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "C",
+      "actual": [
+        7,
+        10,
+        8
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        7,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.17559608768119261,
+      "top1_probability": 0.2495246259703892,
+      "winner_model_rank": 2,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.6245536402251,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.7395688777491773,
+      "brier_sum": 0.7827710337606059,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "東京12R",
+      "model": "D",
+      "actual": [
+        7,
+        10,
+        8
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        7,
+        12
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.20321456336682653,
+      "top1_probability": 0.234549902432006,
+      "winner_model_rank": 2,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.6039935013311476,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.5934928957336547,
+      "brier_sum": 0.7298615592697775,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "A",
+      "actual": [
+        5,
+        13,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        16,
+        9
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.1376240561374414,
+      "top1_probability": 0.1376240561374414,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.3800257974189044,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.9832295421830368,
+      "brier_sum": 0.7976100564505234,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "B",
+      "actual": [
+        5,
+        13,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        7,
+        9
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.16130067383154761,
+      "top1_probability": 0.16130067383154761,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.4331022015505051,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.8244851163547546,
+      "brier_sum": 0.7546756407254429,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "C",
+      "actual": [
+        5,
+        13,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        7,
+        9
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.18497729152565384,
+      "top1_probability": 0.18497729152565384,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.48381526218884835,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.6875222099480063,
+      "brier_sum": 0.7145281231112675,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都1R",
+      "model": "D",
+      "actual": [
+        5,
+        13,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        7,
+        9
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.20865390921976007,
+      "top1_probability": 0.20865390921976007,
+      "winner_model_rank": 1,
+      "place_pick": 5,
+      "place_hit": 1,
+      "place_probability": 0.5325318222271425,
+      "place_payout_100_reference": 110,
+      "log_loss": 1.5670783363436198,
+      "brier_sum": 0.6771675036079966,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "A",
+      "actual": [
+        5,
+        6,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        8,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.05304658729051393,
+      "top1_probability": 0.22605181493841947,
+      "winner_model_rank": 8,
+      "place_pick": 6,
+      "place_hit": 1,
+      "place_probability": 0.5865525679946825,
+      "place_payout_100_reference": 110,
+      "log_loss": 2.9365847460476995,
+      "brier_sum": 1.0251706318254643,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "B",
+      "actual": [
+        5,
+        6,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        9,
+        8
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.057305906710771154,
+      "top1_probability": 0.2492491151919482,
+      "winner_model_rank": 7,
+      "place_pick": 6,
+      "place_hit": 1,
+      "place_probability": 0.6299947310802454,
+      "place_payout_100_reference": 110,
+      "log_loss": 2.8593515766166173,
+      "brier_sum": 1.0268670974504834,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "C",
+      "actual": [
+        5,
+        6,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        9,
+        8
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.06156522613102838,
+      "top1_probability": 0.27244641544547693,
+      "winner_model_rank": 5,
+      "place_pick": 6,
+      "place_hit": 1,
+      "place_probability": 0.6728085526517652,
+      "place_payout_100_reference": 110,
+      "log_loss": 2.787658078698837,
+      "brier_sum": 1.0322999340587136,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都2R",
+      "model": "D",
+      "actual": [
+        5,
+        6,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        9,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.0658245455512856,
+      "top1_probability": 0.29564371569900566,
+      "winner_model_rank": 5,
+      "place_pick": 6,
+      "place_hit": 1,
+      "place_probability": 0.7152898099962217,
+      "place_payout_100_reference": 110,
+      "log_loss": 2.720762477515953,
+      "brier_sum": 1.0414691416501551,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "A",
+      "actual": [
+        7,
+        8,
+        4
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        5,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.09678928847258193,
+      "top1_probability": 0.24265536277965943,
+      "winner_model_rank": 5,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.6318519272314027,
+      "place_payout_100_reference": 130,
+      "log_loss": 2.335218947097443,
+      "brier_sum": 0.9621341288608638,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "B",
+      "actual": [
+        7,
+        8,
+        4
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        5,
+        8
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.13270107441740386,
+      "top1_probability": 0.22128904074741756,
+      "winner_model_rank": 4,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.5958855310555419,
+      "place_payout_100_reference": 130,
+      "log_loss": 2.019656241087424,
+      "brier_sum": 0.8878302575234458,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "C",
+      "actual": [
+        7,
+        8,
+        4
+      ],
+      "top1": 4,
+      "top3": [
+        4,
+        5,
+        8
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.1686128603622258,
+      "top1_probability": 0.19992271871517572,
+      "winner_model_rank": 4,
+      "place_pick": 4,
+      "place_hit": 1,
+      "place_probability": 0.5614748953715736,
+      "place_payout_100_reference": 130,
+      "log_loss": 1.7801499589673266,
+      "brier_sum": 0.8201526323856815,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都3R",
+      "model": "D",
+      "actual": [
+        7,
+        8,
+        4
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        7,
+        5
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.20452464630704775,
+      "top1_probability": 0.2139673233263174,
+      "winner_model_rank": 2,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.5964155625559551,
+      "place_payout_100_reference": 120,
+      "log_loss": 1.5870667909223486,
+      "brier_sum": 0.7591012534475705,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "A",
+      "actual": [
+        10,
+        1,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        1,
+        9
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.09581612388230074,
+      "top1_probability": 0.2460818991559316,
+      "winner_model_rank": 5,
+      "place_pick": 5,
+      "place_hit": 0,
+      "place_probability": 0.6064669197079817,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.3453243004190405,
+      "brier_sum": 0.9247212697496742,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "B",
+      "actual": [
+        10,
+        1,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        10,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.10100802704830304,
+      "top1_probability": 0.2192814081367796,
+      "winner_model_rank": 2,
+      "place_pick": 5,
+      "place_hit": 0,
+      "place_probability": 0.5580207214997444,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.292555289573133,
+      "brier_sum": 0.9044148801499403,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "C",
+      "actual": [
+        10,
+        1,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        10,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.10619993021430536,
+      "top1_probability": 0.19248091711762763,
+      "winner_model_rank": 2,
+      "place_pick": 5,
+      "place_hit": 0,
+      "place_probability": 0.5062024235817142,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.2424318272902832,
+      "brier_sum": 0.8864526288678418,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都5R",
+      "model": "D",
+      "actual": [
+        10,
+        1,
+        4
+      ],
+      "top1": 5,
+      "top3": [
+        5,
+        10,
+        4
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.11139183338030767,
+      "top1_probability": 0.16568042609847566,
+      "winner_model_rank": 2,
+      "place_pick": 5,
+      "place_hit": 0,
+      "place_probability": 0.45069243091746225,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.1947012631500864,
+      "brier_sum": 0.8708345159033792,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "A",
+      "actual": [
+        14,
+        15,
+        10
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        10,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.061078651204699866,
+      "top1_probability": 0.12947217083301943,
+      "winner_model_rank": 5,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.36234046089287764,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.795592881313315,
+      "brier_sum": 0.9525620797864192,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "B",
+      "actual": [
+        14,
+        15,
+        10
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        10,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.05931212506278628,
+      "top1_probability": 0.12208029396130538,
+      "winner_model_rank": 5,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.34421697000810403,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.8249415240180817,
+      "brier_sum": 0.954073902468609,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "C",
+      "actual": [
+        14,
+        15,
+        10
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        10,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.0575455989208727,
+      "top1_probability": 0.11468841708959132,
+      "winner_model_rank": 7,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.32589182945209405,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.8551776207459563,
+      "brier_sum": 0.9559449924496171,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都6R",
+      "model": "D",
+      "actual": [
+        14,
+        15,
+        10
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        3,
+        1
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.05577907277895912,
+      "top1_probability": 0.10754510223805457,
+      "winner_model_rank": 7,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.3079597092713445,
+      "place_payout_100_reference": 170,
+      "log_loss": 2.8863565197434875,
+      "brier_sum": 0.9581753497294436,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "A",
+      "actual": [
+        2,
+        10,
+        7
+      ],
+      "top1": 2,
+      "top3": [
+        2,
+        6,
+        7
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.1510181779599544,
+      "top1_probability": 0.1510181779599544,
+      "winner_model_rank": 1,
+      "place_pick": 2,
+      "place_hit": 1,
+      "place_probability": 0.4268198923697196,
+      "place_payout_100_reference": 160,
+      "log_loss": 1.8903550655720083,
+      "brier_sum": 0.8048348989356847,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "B",
+      "actual": [
+        2,
+        10,
+        7
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        2,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 1,
+      "ordered_hit": 0,
+      "capture_count": 3,
+      "winner_probability": 0.13687009177315623,
+      "top1_probability": 0.14329842873585588,
+      "winner_model_rank": 2,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.4073561039688497,
+      "place_payout_100_reference": 130,
+      "log_loss": 1.9887230382458807,
+      "brier_sum": 0.8292164484145089,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "C",
+      "actual": [
+        2,
+        10,
+        7
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        2,
+        12
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.12272200558635805,
+      "top1_probability": 0.14927469347141037,
+      "winner_model_rank": 2,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.42052704862227575,
+      "place_payout_100_reference": 130,
+      "log_loss": 2.0978335987135024,
+      "brier_sum": 0.8572117576040106,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都7R",
+      "model": "D",
+      "actual": [
+        2,
+        10,
+        7
+      ],
+      "top1": 10,
+      "top3": [
+        10,
+        12,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.10857391939955988,
+      "top1_probability": 0.15525095820696483,
+      "winner_model_rank": 4,
+      "place_pick": 10,
+      "place_hit": 1,
+      "place_probability": 0.4354468115661969,
+      "place_payout_100_reference": 130,
+      "log_loss": 2.220324053182182,
+      "brier_sum": 0.8888208265041901,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "A",
+      "actual": [
+        8,
+        13,
+        12
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        3,
+        10
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.15529605290738352,
+      "top1_probability": 0.15529605290738352,
+      "winner_model_rank": 1,
+      "place_pick": 8,
+      "place_hit": 1,
+      "place_probability": 0.4283589340605466,
+      "place_payout_100_reference": 190,
+      "log_loss": 1.8624219650720342,
+      "brier_sum": 0.7818910382427573,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "B",
+      "actual": [
+        8,
+        13,
+        12
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        8,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.1391713708597869,
+      "top1_probability": 0.13994296158447,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.39319831755340945,
+      "place_payout_100_reference": 0,
+      "log_loss": 1.972049221345336,
+      "brier_sum": 0.8115033248668768,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "C",
+      "actual": [
+        8,
+        13,
+        12
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        8,
+        12
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.12304668881219025,
+      "top1_probability": 0.1436966361815992,
+      "winner_model_rank": 2,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.40144900480047285,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.0951914117944943,
+      "brier_sum": 0.8434452439625466,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都8R",
+      "model": "D",
+      "actual": [
+        8,
+        13,
+        12
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        12,
+        13
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.10692200676459362,
+      "top1_probability": 0.1474503107787284,
+      "winner_model_rank": 4,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.41079364358869946,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.235655619045486,
+      "brier_sum": 0.8777167955297664,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": true,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "A",
+      "actual": [
+        7,
+        1,
+        2
+      ],
+      "top1": 8,
+      "top3": [
+        8,
+        6,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.12225069075964907,
+      "top1_probability": 0.20031378660180105,
+      "winner_model_rank": 3,
+      "place_pick": 8,
+      "place_hit": 0,
+      "place_probability": 0.5370465607108812,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.1016815002574414,
+      "brier_sum": 0.8796688956913226,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "B",
+      "actual": [
+        7,
+        1,
+        2
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        8,
+        7
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.15355071494327352,
+      "top1_probability": 0.18393652854754827,
+      "winner_model_rank": 3,
+      "place_pick": 6,
+      "place_hit": 0,
+      "place_probability": 0.5059473985250831,
+      "place_payout_100_reference": 0,
+      "log_loss": 1.873724376011886,
+      "brier_sum": 0.816890192302375,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "C",
+      "actual": [
+        7,
+        1,
+        2
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        7,
+        8
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.18485073912689795,
+      "top1_probability": 0.1875082469269505,
+      "winner_model_rank": 2,
+      "place_pick": 6,
+      "place_hit": 0,
+      "place_probability": 0.5161002289710261,
+      "place_payout_100_reference": 0,
+      "log_loss": 1.6882065950849154,
+      "brier_sum": 0.7589133766563297,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都9R",
+      "model": "D",
+      "actual": [
+        7,
+        1,
+        2
+      ],
+      "top1": 7,
+      "top3": [
+        7,
+        6,
+        4
+      ],
+      "top1_hit": 1,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.2161507633105224,
+      "top1_probability": 0.2161507633105224,
+      "winner_model_rank": 1,
+      "place_pick": 7,
+      "place_hit": 1,
+      "place_probability": 0.5752484444917684,
+      "place_payout_100_reference": 140,
+      "log_loss": 1.5317791364820765,
+      "brier_sum": 0.7057384487531869,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "A",
+      "actual": [
+        3,
+        11,
+        9
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        11,
+        16
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.049266232283280316,
+      "top1_probability": 0.30777421267803373,
+      "winner_model_rank": 8,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.6952399759549841,
+      "place_payout_100_reference": 120,
+      "log_loss": 3.0105163761585,
+      "brier_sum": 1.0349725295031844,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "B",
+      "actual": [
+        3,
+        11,
+        9
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        11,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.055294678753112,
+      "top1_probability": 0.2802013681237311,
+      "winner_model_rank": 7,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.6550010908835017,
+      "place_payout_100_reference": 120,
+      "log_loss": 2.895078600163127,
+      "brier_sum": 1.0101132087839546,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "C",
+      "actual": [
+        3,
+        11,
+        9
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        11,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.0613231252229437,
+      "top1_probability": 0.25262852356942844,
+      "winner_model_rank": 6,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.6118686377833917,
+      "place_payout_100_reference": 120,
+      "log_loss": 2.791598260475806,
+      "brier_sum": 0.9880232743759731,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都10R",
+      "model": "D",
+      "actual": [
+        3,
+        11,
+        9
+      ],
+      "top1": 9,
+      "top3": [
+        9,
+        11,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 2,
+      "winner_probability": 0.06735157169277538,
+      "top1_probability": 0.22505567901512577,
+      "winner_model_rank": 7,
+      "place_pick": 9,
+      "place_hit": 1,
+      "place_probability": 0.5655060545280838,
+      "place_payout_100_reference": 120,
+      "log_loss": 2.697829040202423,
+      "brier_sum": 0.9687027262792404,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": true
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "A",
+      "actual": [
+        4,
+        10,
+        5
+      ],
+      "top1": 11,
+      "top3": [
+        11,
+        10,
+        6
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.08726988010803094,
+      "top1_probability": 0.27921799649893764,
+      "winner_model_rank": 4,
+      "place_pick": 11,
+      "place_hit": 0,
+      "place_probability": 0.6677671300402916,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.4387498916129378,
+      "brier_sum": 0.9646677584247166,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "B",
+      "actual": [
+        4,
+        10,
+        5
+      ],
+      "top1": 11,
+      "top3": [
+        11,
+        6,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.09074197990242104,
+      "top1_probability": 0.22981058343941851,
+      "winner_model_rank": 5,
+      "place_pick": 11,
+      "place_hit": 0,
+      "place_probability": 0.5855115669114614,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.3997351854734394,
+      "brier_sum": 0.9402163977839652,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "C",
+      "actual": [
+        4,
+        10,
+        5
+      ],
+      "top1": 11,
+      "top3": [
+        11,
+        6,
+        10
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 1,
+      "winner_probability": 0.09421407969681114,
+      "top1_probability": 0.18040317037989936,
+      "winner_model_rank": 5,
+      "place_pick": 11,
+      "place_hit": 0,
+      "place_probability": 0.49049039538423533,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.362185642572877,
+      "brier_sum": 0.922549030718391,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都11R",
+      "model": "D",
+      "actual": [
+        4,
+        10,
+        5
+      ],
+      "top1": 3,
+      "top3": [
+        3,
+        6,
+        11
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.09768617949120124,
+      "top1_probability": 0.14703696742091457,
+      "winner_model_rank": 5,
+      "place_pick": 3,
+      "place_hit": 0,
+      "place_probability": 0.4178405830578173,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.3259951885762464,
+      "brier_sum": 0.9116656572279942,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "A",
+      "actual": [
+        2,
+        11,
+        9
+      ],
+      "top1": 1,
+      "top3": [
+        1,
+        17,
+        6
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.08244452934884675,
+      "top1_probability": 0.11302329849619402,
+      "winner_model_rank": 5,
+      "place_pick": 1,
+      "place_hit": 0,
+      "place_probability": 0.3210925632063791,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.4956295833137423,
+      "brier_sum": 0.9040382511410463,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "B",
+      "actual": [
+        2,
+        11,
+        9
+      ],
+      "top1": 1,
+      "top3": [
+        1,
+        6,
+        17
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.08739399017033495,
+      "top1_probability": 0.10957263733785638,
+      "winner_model_rank": 4,
+      "place_pick": 1,
+      "place_hit": 0,
+      "place_probability": 0.3129537106714825,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.4373287610380334,
+      "brier_sum": 0.8948511037044652,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "C",
+      "actual": [
+        2,
+        11,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        1,
+        17
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.09234345099182314,
+      "top1_probability": 0.10741891847160813,
+      "winner_model_rank": 4,
+      "place_pick": 6,
+      "place_hit": 0,
+      "place_probability": 0.3086140729305913,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.3822404899373164,
+      "brier_sum": 0.8875263741336173,
+      "selected_ticket_hits": {
+        "single": true,
+        "quinella": false,
+        "trio": false
+      }
+    },
+    {
+      "race": "京都12R",
+      "model": "D",
+      "actual": [
+        2,
+        11,
+        9
+      ],
+      "top1": 6,
+      "top3": [
+        6,
+        1,
+        17
+      ],
+      "top1_hit": 0,
+      "unordered_hit": 0,
+      "ordered_hit": 0,
+      "capture_count": 0,
+      "winner_probability": 0.09729291181331134,
+      "top1_probability": 0.11552773322188113,
+      "winner_model_rank": 5,
+      "place_pick": 6,
+      "place_hit": 0,
+      "place_probability": 0.33017677263306944,
+      "place_payout_100_reference": 0,
+      "log_loss": 2.3300291412278353,
+      "brier_sum": 0.8820640624285033,
+      "selected_ticket_hits": {
+        "single": false,
+        "quinella": false,
+        "trio": false
+      }
+    }
+  ]
+}

@@ -49,11 +49,21 @@ class WeekendRiderTests(unittest.TestCase):
         self.assertEqual(len(actual['races']),46)
         self.assertEqual(sum(len(r['runners']) for r in actual['races']),599)
         self.assertEqual(sum(h['jockey_id'] is not None for r in actual['races'] for h in r['runners']),568)
+        # New reference metadata is additive; every historical model/input remains fixed.
+        import copy
+        replay=copy.deepcopy(actual['races'])
+        for race in replay:
+            review=race.pop('preoff_body_weight_review')
+            self.assertEqual(review['observed'],0)  # early-morning source has no announcement
+            self.assertFalse(review['all_active_observed'])
+            for horse in race['runners']:
+                ref=horse.pop('body_weight_reference')
+                self.assertEqual(ref['status'],'not_observed')
         def rounded(value):
             if isinstance(value,float):return round(value,10)
             if isinstance(value,dict):return {k:rounded(v) for k,v in value.items()}
             if isinstance(value,list):return [rounded(v) for v in value]
             return value
-        self.assertEqual(rounded(actual['races']),rounded(expected['races']))
+        self.assertEqual(rounded(replay),rounded(expected['races']))
 
 if __name__=='__main__':unittest.main()

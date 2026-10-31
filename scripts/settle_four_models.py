@@ -78,17 +78,14 @@ def parse_official(track: str, race_no: int, url: str) -> dict:
     if "2026年10月31日" not in text or track not in text or not re.search(rf"{race_no}(?:R|レース)", text):
         raise ValueError(f"official identity mismatch: {track}{race_no}R")
     top3 = []
-    for table in soup.find_all("table"):
-        header = " ".join(th.get_text(" ", strip=True) for th in table.find_all("th"))
-        if "着順" not in header or "馬番" not in header:
+    for tr in soup.find_all("tr"):
+        cells = [x.get_text(" ", strip=True) for x in tr.find_all(["th", "td"], recursive=False)]
+        if len(cells) < 4 or not re.fullmatch(r"[123]", cells[0]):
             continue
-        for tr in table.find_all("tr"):
-            cells = [x.get_text(" ", strip=True) for x in tr.find_all(["th", "td"], recursive=False)]
-            if len(cells) < 3 or not re.fullmatch(r"[123]", cells[0]):
-                continue
-            number = next((int(x) for x in cells[1:4] if re.fullmatch(r"\d{1,2}", x)), None)
-            if number is not None:
-                top3.append([int(cells[0]), number])
+        # Result rows are rank, frame, horse number, horse name, ... .
+        candidates = [int(x) for x in cells[1:4] if re.fullmatch(r"\d{1,2}", x)]
+        if candidates:
+            top3.append([int(cells[0]), candidates[-1]])
         if len(top3) >= 3:
             break
     if len(top3) != 3:

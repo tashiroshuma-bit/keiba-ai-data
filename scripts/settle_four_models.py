@@ -99,7 +99,7 @@ def parse_official(track: str, race_no: int, url: str) -> dict:
         top3 = [[int(rank), int(number)] for rank, number in found[:3]]
     payouts = {}
     for kind, label in JP_KIND.items():
-        pattern = rf"{label}\s+([0-9]+(?:-[0-9]+){{0,2}})\s+([0-9,]+)円"
+        pattern = rf"{label}\s+([0-9]+(?:-[0-9]+){{0,2}})\s+([0-9,]+)\s*円"
         match = re.search(pattern, text)
         if not match:
             raise ValueError(f"{track}{race_no}R: {label} payout missing")

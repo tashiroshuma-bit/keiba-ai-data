@@ -14,12 +14,12 @@ from jra_v47_program_row_probe import probe_pdf_bytes
 G1_URL = "https://www.jra.go.jp/keiba/g1/kikka/syutsuba.html"
 PROGRAM_URL = "https://www.jra.go.jp/keiba/rpdf/pdf/20261025-04kyoto09.pdf"
 NAME = re.compile(r"^[ァ-ヿぁ-ゖ一-龯ー・･]{2,20}$")
-WEIGHT = re.compile(r"(?<!\\d)([45-6]\\d(?:\\.\\d)?)\\s*kg")
-HORSE = re.compile(r"^[ァ-ヿぁ-ゖ一-龯ー・･]{2,20}(?=\\s*(?:\\d+(?:\\.\\d+)?|取消|除外|$))")
+WEIGHT = re.compile(r"(?<!\d)([45-6]\d(?:\.\d)?)\s*kg")
+HORSE = re.compile(r"^[ァ-ヿぁ-ゖ一-龯ー・･]{2,20}(?=\s*(?:\d+(?:\.\d+)?|取消|除外|$))")
 
 
 def _compact(text: str) -> str:
-    return re.sub(r"[\\s\\u3000]+", "", text).replace("･", "・")
+    return re.sub(r"[\s\u3000]+", "", text).replace("･", "・")
 
 
 def _extract_row(tr):

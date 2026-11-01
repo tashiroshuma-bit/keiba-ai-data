@@ -44,7 +44,12 @@ def run(forecast_path, rider_path):
         horses=race["horses"]
         if len(horses)<3:
             raise ValueError("minimum 3 runners")
-        output.append({"race":race["race"],**forecast_v50(horses,residuals)})
+        surface=race.get("surface")
+        if surface not in ("turf","dirt"):
+            raise ValueError("race surface required for rider residual matching")
+        scoped={h["jockey_id"]:residuals[surface+":"+h["jockey_id"]]
+                for h in horses if h.get("jockey_id") and surface+":"+h["jockey_id"] in residuals}
+        output.append({"race":race["race"],"surface":surface,**forecast_v50(horses,scoped)})
     return {"version":"v50","updated":"2026-11-01",
             "forecast_asof":forecast["asof"],"rider_asof":riders["asof"],
             "forecast_sha256":hashlib.sha256(forecast_bytes).hexdigest(),

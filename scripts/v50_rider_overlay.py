@@ -80,7 +80,10 @@ def forecast_v50(horses: Sequence[dict], rider_residuals: Mapping[str, float],
                  *, weight: float = DEFAULT_WEIGHT,
                  temperature: float = DEFAULT_TEMPERATURE) -> dict:
     """Produce a complete rank/ticket view from adjusted p1, preserving v49 input."""
-    from scripts.jockey_overlay_ticket_math import calculate_model
+    try:
+        from scripts.jockey_overlay_ticket_math import calculate_model
+    except ModuleNotFoundError:
+        from jockey_overlay_ticket_math import calculate_model
     adjusted = apply_v50(horses, rider_residuals, weight=weight,
                          temperature=temperature)
     view = calculate_model(adjusted, [h["v50_p1"] for h in adjusted])

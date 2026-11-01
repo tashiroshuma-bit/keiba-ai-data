@@ -1,5 +1,5 @@
 import unittest
-from scripts.v50_promotion_gate import assess
+from scripts.v50_forward_evidence_gate import assess
 from scripts.v50_forward_calibration import audit
 
 class TestV50ForwardGate(unittest.TestCase):

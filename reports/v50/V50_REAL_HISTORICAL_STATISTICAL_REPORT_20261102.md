@@ -49,3 +49,10 @@
 - GitHub Actions run #41323462646: real 10/31→11/1 calibration + all tests success.
 - GitHub Actions run #41323589897: paired uncertainty + tests success.
 - 本レポートとソース、snapshotはGitHub mainに保存。
+
+## 標準予測の統合検査（追記）
+- 最新main統合CI: https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/41323956587 （test・legacy-diagnostics両ジョブ成功）。
+- testジョブでは v50 の新規テスト21件と既存keiba_v48テスト311件、他の単体テスト群が完了した。標準ランナーの成功例、正本DBハッシュ不一致・発走後入力・内部A以外・出力上書きの拒否を確認した。成功例のSQLite/出馬表はテスト用に構築した小規模データであり、実開催入力の端から端までの自動処理成功ではない。
+- 稼働中の「競馬AI順位モデル改善」「土日JRA結果と収益検証」タスクのプロンプトを v50 標準参照へ更新。各タスクの有効状態とスケジュールは維持。旧停止中の金曜予測タスクは勝手に再開していない。
+- 今後の運用では各レースの正規発走前A予測JSONと正本DBを用意したとき、`scripts/standard_v50_forecast.py` がv50を生成する。自動化タスク更新は、全開催日の本番入力取得・予測生成の実証と同義ではない。
+- 判断: **ユーザーによる将来v50標準指定は反映済み、統計的優越の確認は未了。** 10/31-11/1の評価は大幅な予測改善の根拠ではなく、追加の時系列独立レース検証が必要。

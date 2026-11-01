@@ -10,9 +10,14 @@ from pathlib import Path
 
 def assess(records, *, min_races=100):
     valid=[]
+    seen=set()
     rejected=[]
     for i,r in enumerate(records):
         reasons=[]
+        if r.get("preoff_frozen_sha256") in seen:
+            reasons.append("duplicate_preoff_hash")
+        if r.get("preoff_frozen_sha256"):
+            seen.add(r["preoff_frozen_sha256"])
         if not r.get("preoff_frozen_sha256"):
             reasons.append("missing_preoff_hash")
         if not r.get("preoff_observed_before_off"):

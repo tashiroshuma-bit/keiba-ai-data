@@ -74,3 +74,20 @@ def evaluate_p1(races: Sequence[dict], rider_residuals: Mapping[str, float],
         for key in ("v49_logloss", "v50_logloss", "v49_brier", "v50_brier"):
             result[key] /= result["races"]
     return result
+
+
+def forecast_v50(horses: Sequence[dict], rider_residuals: Mapping[str, float],
+                 *, weight: float = DEFAULT_WEIGHT,
+                 temperature: float = DEFAULT_TEMPERATURE) -> dict:
+    """Produce a complete rank/ticket view from adjusted p1, preserving v49 input."""
+    from scripts.jockey_overlay_ticket_math import calculate_model
+    adjusted = apply_v50(horses, rider_residuals, weight=weight,
+                         temperature=temperature)
+    view = calculate_model(adjusted, [h["v50_p1"] for h in adjusted])
+    return {"version": VERSION, "updated": UPDATED,
+            "probability_status": "research_uncalibrated",
+            "rider_coverage": sum(h.get("jockey_id") in rider_residuals
+                                  for h in horses),
+            "runner_count": len(horses),
+            "v49_p1": [{"number": h["number"], "p1": h["p1"]} for h in horses],
+            "v50": view}

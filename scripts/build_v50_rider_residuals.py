@@ -16,7 +16,7 @@ def build(db_path, forecast_asof, *, history_lag_days=2):
     forecast_time=dt.datetime.fromisoformat(forecast_asof.replace("Z","+00:00"))
     if forecast_time.tzinfo is None:
         raise ValueError("timezone-aware forecast_asof required")
-    cutoff=(forecast_time.date()-dt.timedelta(days=history_lag_days)).isoformat()
+    cutoff=(forecast_time.astimezone(dt.timezone(dt.timedelta(hours=9))).date()-dt.timedelta(days=history_lag_days)).isoformat()
     con=sqlite3.connect(str(db_path))
     rows=con.execute("""
         SELECT r.race_id,r.race_date,r.surface,x.horse_id,x.jockey_id,

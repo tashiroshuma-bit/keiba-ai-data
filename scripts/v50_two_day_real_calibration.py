@@ -22,7 +22,7 @@ def pformat(raw):
     return {k:v/sum(p.values()) for k,v in p.items()}
 
 def corrected(prob, ids, surface, residuals, weight=1.0, temperature=1.0):
-    logits={k:(math.log(v)+weight*residuals.get(surface+":"+ids.get(k,""),0))/temperature for k,v in prob.items()}
+    logits={k:(math.log(v)+weight*residuals.get(surface+":"+(ids.get(k) or ""),0))/temperature for k,v in prob.items()}
     peak=max(logits.values()); exp={k:math.exp(v-peak) for k,v in logits.items()}
     den=sum(exp.values())
     return {k:v/den for k,v in exp.items()}

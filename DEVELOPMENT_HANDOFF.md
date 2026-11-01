@@ -28,6 +28,14 @@
 
 ---
 
+# 最新追記：2026-11-02 v50の実レース校正と標準予測経路
+
+GitHub feature/v50-rider-overlay-20261101 の主要コードをmainへ統合し、Library正本DB version10の実体SHA256（5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc）とSQLite quick_check=okを再確認。9,313履歴レースに基づく馬能力調整後騎手残差を保存。2026/10/31の23Rに基づき温度0.70を選択し、11/1の別日23Rで固定評価した。1着はA5/23、v50も5/23。Log Loss A2.264247→v50校正後2.274337、Brier A0.865185→0.880707と悪化方向。ペアレースブートストラップ95%区間は差が0を含み、統計的優劣未確定。詳細は `reports/v50/V50_REAL_HISTORICAL_STATISTICAL_REPORT_20261102.md`。
+
+ユーザーの将来正式予測はv50に指定。`PROJECT_STATE.json.standard_forecast` と `operations/prediction_policy/standard_v50.json` と `scripts/standard_v50_forecast.py` を新標準とする。ただし基礎A重みはそのまま、発走前入力と正本実体が揃う際だけ実行し、実購入は無効。CIはプロジェクト状態・回帰・実レース23+23校正・新標準ランナーをテスト。2025/2026合計6,036Rの完全v49-v50同一母集団比較は未実施、同じ過去順位ベンチマークの流用禁止。
+
+---
+
 # 最新追記：2026-10-31 JRA公式PDF×別公式GⅠ出馬表の実バイト照合18/18一致（v49据置）
 
 [実データ照合報告](keiba_v48/JRA_KYOTO11_CROSSDOCUMENT_REAL_20261031.md)を追加。2026-10-25京都11R菊花賞の公式PDFと、別のJRA公式GⅠ出馬表HTMLを2026-10-31 09:48 JSTに許可されたGitHub Actions HTTPS経由で取得。両原本のSHA256を計算し、馬番・馬名・斤量18頭すべてが一致、発走時刻候補も15:40で一致。**これまで0だった別公式文書との実照合が18行へ進展**。原本バイトはGitHubに保存せず、派生診断だけを7日保存。実行 https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/41152129137 は成功、合成単体6テスト合格。最初のエスケープ不具合は修正済み。

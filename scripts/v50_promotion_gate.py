@@ -16,6 +16,7 @@ def evaluate(state, evidence):
     require(evidence.get("candidate_version") == "v50", "candidate identity")
     require(evidence.get("canonical_db_sha256") == state.get("database", {}).get("sha256"), "DB hash")
     require(bool(evidence.get("candidate_model_sha256")), "candidate weights hash")
+    require(evidence.get("validation_scope") == "forward_unseen", "unseen forward protocol")
     require(bool(evidence.get("independent_calibration", {}).get("verified")), "independent calibration")
     require(bool(evidence.get("independent_calibration", {}).get("source_hash")), "calibration source hash")
     races = evidence.get("races", [])
@@ -38,6 +39,8 @@ def evaluate(state, evidence):
         value = metrics.get(key)
         require(isinstance(value, (int, float)) and not isinstance(value, bool), "metric: " + key)
     require(evidence.get("replay_verified") is True, "deterministic replay")
+    require(evidence.get("no_target_leakage_audit") is True, "target leakage audit")
+    require(evidence.get("promotion_review_approved") is True, "explicit promotion decision")
     require(evidence.get("all_ci_passed") is True, "full CI suite")
     return {"approved": not failures, "failures": failures, "forward_races": len(races) if isinstance(races,list) else 0}
 

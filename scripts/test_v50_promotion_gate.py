@@ -13,12 +13,13 @@ def race(i):
             "no_postoff_features":True}
 def complete():
     return {"candidate_version":"v50","canonical_db_sha256":"db-hash",
-            "candidate_model_sha256":"weights",
+            "candidate_model_sha256":"weights","validation_scope":"forward_unseen",
             "independent_calibration":{"verified":True,"source_hash":"calib"},
             "races":[race(i) for i in range(100)],
             "independent_metrics":{k:0.1 for k in
                 ("winner_hit","top3_all_hit","ordered_all_hit","mean_rank_log_loss","brier")},
-            "replay_verified":True,"all_ci_passed":True}
+            "replay_verified":True,"all_ci_passed":True,
+            "no_target_leakage_audit":True,"promotion_review_approved":True}
 class PromotionGateTest(unittest.TestCase):
     def test_requires_evidence(self):
         outcome=evaluate(STATE,{})

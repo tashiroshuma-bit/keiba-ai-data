@@ -94,6 +94,34 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         feature_generation='observed_history_before_race_cutoff',
         selection_mixture=selected_mix,
         final_calibration=calibration_info if calibration_path else None,
+        first_place_probability_definition=(
+            'P(horse i finishes first) = sum over all distinct second j and third k of '
+            'q[i,j,k]. This is a per-race probability across ALL runners, not the '
+            'horse historical win rate or a model ability score.'
+        ),
+        base_rank_model_first_place_formula=(
+            'For keiba-rank-model-v1 only: score_i = coefficients dot '
+            'standardized observed-history features (including applicable course '
+            'offsets); base P1_i = exp(score_i / temperature) / '
+            'sum_h exp(score_h / temperature).'
+        ),
+        conditional_finish_formula=(
+            'q[i,j,k] = P(first=i) * P(second=j | first=i) * '
+            'P(third=k | first=i, second=j), for pairwise distinct i,j,k; '
+            'stagewise conditional probabilities normalize over remaining runners.'
+        ),
+        model_family_caveat=(
+            'Softmax score formula above is specific to the base RankModel. '
+            'ExactRankTree, history/relative/evidence blends may derive q differently; '
+            'their actual artifact and selection determine the method.'
+        ),
+        joint_marginal_first_formula='P1_i = sum_{j != i} sum_{k != i,j} q[i,j,k]',
+        probability_normalization='sum_i P1_i = 1; each horse P1_i is between 0 and 1',
+        uniform_mixture_first_formula=(
+            'When uniform-joint mixture alpha applies: '
+            'P1_final_i = (1-alpha)*P1_before_i + alpha/N; '
+            'for sequential mixtures apply this formula sequentially.'
+        ),
         finish_probability_formula='p_first/p_second/p_third are marginal sums of the final ordered finish distribution q',
         top3_formula='p_top3 = p_first + p_second + p_third',
         ordered_top3_formula='P(i,j,k) = q[i,j,k] for distinct runners',

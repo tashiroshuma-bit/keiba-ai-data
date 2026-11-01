@@ -1,5 +1,5 @@
 import unittest
-from scripts.v50_rider_overlay import apply_v50, evaluate_p1
+from scripts.v50_rider_overlay import apply_v50, evaluate_p1, forecast_v50
 
 class TestV50(unittest.TestCase):
     def test_normalization_and_immutable(self):
@@ -19,6 +19,15 @@ class TestV50(unittest.TestCase):
         self.assertEqual(result["v49_wins"],0)
         self.assertEqual(result["v50_wins"],1)
         self.assertLess(result["v50_logloss"],result["v49_logloss"])
+    def test_full_rank_view(self):
+        horses=[{"number":1,"name":"A","jockey_id":"a","p1":.5},
+                {"number":2,"name":"B","jockey_id":"b","p1":.3},
+                {"number":3,"name":"C","jockey_id":"c","p1":.2}]
+        view=forecast_v50(horses,{"a":-.1,"b":.1})
+        self.assertEqual(view["version"],"v50")
+        self.assertEqual(view["rider_coverage"],2)
+        self.assertAlmostEqual(sum(h["p2"] for h in view["v50"]["horses"]),1)
+        self.assertAlmostEqual(sum(h["p3"] for h in view["v50"]["horses"]),1)
     def test_bad_probabilities_fail_closed(self):
         with self.assertRaises(ValueError):
             apply_v50([{"number":1,"p1":.3},{"number":2,"p1":.4}],{})

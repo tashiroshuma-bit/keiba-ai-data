@@ -64,12 +64,10 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         calibration_info=dict(method='selected_research_mixture',alpha=selected['alpha'],
                               selection_sha256=sha(selection_path),status='research_only')
     numbers = [r['horse_number'] for r in prepared]
-    winner, trio, ordered = picks(p, q, numbers)
     set_policy = selected.get('prediction_set_policy', 'marginal_recall')
-    if set_policy == 'exact_set':
-        trio, _ = exact_set(q, numbers)
-    elif set_policy != 'marginal_recall':
+    if set_policy not in ('exact_set', 'marginal_recall'):
         raise ValueError('unknown rank set decision policy')
+    selected_mix = calibration_info
     if calibration_path:
         adjustment=json.loads(Path(calibration_path).read_text())
         alpha=(alpha_for(adjustment,p,sha(model_path),sha(selection_path))
@@ -87,6 +85,26 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
     winner, trio, ordered = picks(p, q, numbers)
     if set_policy == 'exact_set':
         trio, _ = exact_set(q, numbers)
+    probability_method = dict(
+        schema='keiba-probability-method-audit-v1',
+        model_family=artifact.get('schema', 'legacy-rank-model'),
+        model_sha256=sha(model_path),
+        selection_sha256=sha(selection_path),
+        feature_names=artifact.get('feature_names', []),
+        feature_generation='observed_history_before_race_cutoff',
+        selection_mixture=selected_mix,
+        final_calibration=calibration_info if calibration_path else None,
+        finish_probability_formula='p_first/p_second/p_third are marginal sums of the final ordered finish distribution q',
+        top3_formula='p_top3 = p_first + p_second + p_third',
+        ordered_top3_formula='P(i,j,k) = q[i,j,k] for distinct runners',
+        unordered_top3_formula='P({i,j,k}) = sum(q[permutation(i,j,k)]) over six orders',
+        selection_rule='winner=max(p_first); top3=exact_set(q) or marginal_recall; ordered=max(q)',
+        estimated_not_empirical_hit_rate=True,
+        current_odds_used_as_model_feature=False,
+        current_body_weight_used_as_model_feature=False,
+        live_track_bias_used_as_model_feature=False,
+        training_time_assumptions='see model artifact and deployment manifest',
+    )
     actor=ActorIndices(history,min(cutoff,now),exclude_race_id=rows[0]['race_id'])
     actor_rows=actor.runners(prepared)
     return dict(version='4.8-rank-shadow', deployment_status='experimental_rank_shadow',
@@ -100,6 +118,7 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         winner_pick=numbers[winner], top3_pick=[numbers[i] for i in trio],
         ordered_pick=[numbers[i] for i in ordered], unordered_decision_policy=set_policy,
         input_quality=input_quality,probability_calibration=calibration_info,
+        probability_method=probability_method,
         entity_indices=dict(status='research_descriptive_not_calibrated_probabilities',
                             audit=actor.audit,runners=actor_rows,
                             used_as_new_probability_features=False),

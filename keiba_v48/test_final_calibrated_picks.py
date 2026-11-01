@@ -31,7 +31,10 @@ class FinalCalibrationPickOrder(unittest.TestCase):
         keys = {k.arg for k in method.value.keywords} if isinstance(method.value, ast.Call) else set()
         required = {"model_sha256", "selection_sha256", "top3_formula",
                     "ordered_top3_formula", "unordered_top3_formula",
-                    "current_odds_used_as_model_feature", "final_calibration"}
+                    "current_odds_used_as_model_feature", "final_calibration",
+                    "first_place_probability_definition", "base_rank_model_first_place_formula",
+                    "conditional_finish_formula", "joint_marginal_first_formula",
+                    "uniform_mixture_first_formula", "model_family_caveat"}
         self.assertTrue(required.issubset(keys))
         self.assertIn("probability_method=probability_method", source)
 

@@ -81,6 +81,12 @@ def forecast(db, rows, model_path, selection_path, calibration_path=None):
         calibration_info=dict(sha256=sha(calibration_path),alpha=alpha,
                               method='uniform_distinct_ordered_triple_mixture',
                               status='retrospective_evaluated_research_only')
+    # Decisions must be computed from the FINAL calibrated distribution.
+    # Previously the displayed probabilities could be calibrated while the
+    # winner/top-three picks still came from the pre-calibration distribution.
+    winner, trio, ordered = picks(p, q, numbers)
+    if set_policy == 'exact_set':
+        trio, _ = exact_set(q, numbers)
     actor=ActorIndices(history,min(cutoff,now),exclude_race_id=rows[0]['race_id'])
     actor_rows=actor.runners(prepared)
     return dict(version='4.8-rank-shadow', deployment_status='experimental_rank_shadow',

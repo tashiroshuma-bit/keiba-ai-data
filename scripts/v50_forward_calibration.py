@@ -8,6 +8,8 @@ from scripts.v50_promotion_gate import assess
 
 def audit(records, *, min_races=100):
     gate=assess(records,min_races=min_races)
+    if len({r.get("preoff_frozen_sha256") for r in records}) != len(records):
+        return {**gate,"promotion_eligible":False,"calibration":"not_evaluated","status":"duplicate_frozen_forecast_hash"}
     if not gate["promotion_eligible"]:
         return {**gate,"calibration":"not_evaluated"}
     out={"v49":{"logloss":0.0,"brier":0.0,"top1_hits":0},

@@ -17,9 +17,15 @@ def plackett_luce(weights):
         trios[tuple(sorted((i, j, k)))] = trios.get(tuple(sorted((i, j, k))), 0.0) + q
     return p2, p3, triples, pairs, trios
 
+# Ordering only: collapse numerical noise below 1e-12, never alter stored probabilities.
+# This makes marks and ticket tie-breaks stable across NumPy/BLAS environments.
+def _rank_probability(p):
+    return round(p, 12)
+
+
 def threshold(items, threshold):
     chosen, cumulative = [], 0.0
-    for numbers, probability in sorted(items.items(), key=lambda x: (-x[1], x[0])):
+    for numbers, probability in sorted(items.items(), key=lambda x: (-_rank_probability(x[1]), x[0])):
         cumulative += probability
         chosen.append({"numbers": list(numbers), "p": probability, "cumulative": cumulative})
         if cumulative + 1e-12 >= threshold:
@@ -29,8 +35,8 @@ def threshold(items, threshold):
 def calculate_model(horses, p1):
     numbers = [h.get("display_key", h["number"]) for h in horses]
     p2, p3, triples, pairs, trios = plackett_luce(p1)
-    order = sorted(range(len(horses)), key=lambda i: (-p1[i], numbers[i]))
-    exact = max(triples, key=triples.get)
+    order = sorted(range(len(horses)), key=lambda i: (-_rank_probability(p1[i]), numbers[i]))
+    exact = min(triples, key=lambda ix: (-_rank_probability(triples[ix]), tuple(numbers[i] for i in ix)))
     single = {(numbers[i],): p1[i] for i in range(len(horses))}
     pair_no = {tuple(sorted((numbers[i], numbers[j]))): p for (i, j), p in pairs.items()}
     trio_no = {tuple(sorted((numbers[i], numbers[j], numbers[k]))): p for (i, j, k), p in trios.items()}

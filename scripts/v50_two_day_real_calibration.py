@@ -5,7 +5,7 @@ Real data and actual historical as-of rider residuals, not 6036 race V50 proof.
 October 31 and November 1 A horse probabilities are saved full-precision; both are normalized for floating point safety.
 Do not alter the original forecasts or training data.
 """
-import glob, json, math, re
+import glob, json, math, re, random
 from pathlib import Path
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -41,6 +41,26 @@ def metrics(races, residuals, weight, temperature, baseline=False):
         coverage+=sum(bool(jid) and (r["surface"]+":"+jid) in residuals for jid in r["jockey_ids"].values())
         n+=1
     return {"races":n,"winner_hits":hits,"winner_hit_rate":hits/n,"mean_log_loss":ll/n,"mean_brier":brier/n,"covered_runner_rows":coverage}
+
+def paired_bootstrap(races,residuals,temperature,iterations=5000):
+    """Paired race bootstrap; one-day cohort, so this cannot estimate between-day drift."""
+    diffs={"log_loss":[],"brier":[],"winner_hit":[]}
+    for r in races:
+        p=r["p1"]
+        q=corrected(p,r["jockey_ids"],r["surface"],residuals,1,temperature)
+        truth=r["winner"]
+        diffs["log_loss"].append(-math.log(q[truth])+math.log(p[truth]))
+        diffs["brier"].append(sum((v-(k==truth))**2 for k,v in q.items())
+                              -sum((v-(k==truth))**2 for k,v in p.items()))
+        pick0=max(sorted(p),key=p.get);pick1=max(sorted(q),key=q.get)
+        diffs["winner_hit"].append(int(pick1==truth)-int(pick0==truth))
+    rng=random.Random(20261102);out={}
+    for name,values in diffs.items():
+        n=len(values); samples=sorted(sum(values[rng.randrange(n)] for _ in range(n))/n
+                                     for _ in range(iterations))
+        out[name]={"delta_mean":sum(values)/n,
+                   "paired_race_bootstrap95":[samples[int(.025*iterations)],samples[int(.975*iterations)-1]]}
+    return out
 
 def get_oct(catalog):
     """Full-precision October 31 saved preoff A probabilities and matched rider IDs."""
@@ -91,11 +111,13 @@ def run():
        "nov01_A":metrics(test,residuals,0,1,baseline=True),
        "nov01_v50_uncalibrated":metrics(test,residuals,1,1),
        "nov01_v50_calibrated":metrics(test,residuals,1,temp),
+       "nov01_calibrated_vs_A_paired_uncertainty":paired_bootstrap(test,residuals,temp),
        "model_switch":"NOT_AUTOMATIC; requires verified outcome and fully paired historical benchmark",
        "limits":["N=23 per day, no claim of full 2025-26 coverage",
                  "2016? No: source is 2026, not unseen to researcher",
                  "Rider coefficient fixed to 1; only temperature selected on calibration set",
-                 "Rider IDs come from the exact saved full-card archive; official source reconciliation remains incomplete"]}
+                 "Rider IDs come from the exact saved full-card archive; official source reconciliation remains incomplete",
+                 "Bootstrap resamples 23 races from only one test day and misses day-to-day uncertainty"]}
     return o
 
 if __name__=="__main__":print(json.dumps(run(),ensure_ascii=False,indent=2))

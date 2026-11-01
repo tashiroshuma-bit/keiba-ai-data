@@ -11,7 +11,10 @@ import datetime as dt
 import hashlib
 import json
 from pathlib import Path
-from scripts.v50_rider_overlay import forecast_v50
+try:
+    from scripts.v50_rider_overlay import forecast_v50
+except ModuleNotFoundError:
+    from v50_rider_overlay import forecast_v50
 
 def parse_time(value):
     timestamp=dt.datetime.fromisoformat(value.replace("Z","+00:00"))

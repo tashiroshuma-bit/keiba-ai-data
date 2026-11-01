@@ -3,7 +3,7 @@
 Does not tune temperature or weight on evaluation data.
 """
 import math
-from scripts.v50_promotion_gate import assess
+from scripts.v50_forward_evidence_gate import assess
 
 
 def audit(records, *, min_races=100):

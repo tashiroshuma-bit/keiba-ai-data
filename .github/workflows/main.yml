@@ -24,6 +24,8 @@ jobs:
       - run: python scripts/project_status.py
       - run: python -m unittest discover -s scripts -p 'test_v50_promotion_gate.py' -v
       - run: python -m unittest discover -s tests -p 'test_v50*.py' -v
+      - name: Historical v50 actual paired calibration (Oct31 selection, Nov01 evaluation)
+        run: python scripts/v50_two_day_real_calibration.py > v50_two_day_results.json && cat v50_two_day_results.json
       - run: python -m unittest discover -s scripts -p 'test_*jockey*.py' -v
       - run: python -m unittest discover -s scripts -p 'test_preoff_body_weight.py' -v
       - run: python -m unittest discover -s scripts -p 'test_refresh_sunday.py' -v

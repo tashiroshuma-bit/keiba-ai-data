@@ -22,7 +22,7 @@ def parse_time(value):
         raise ValueError("timestamps must be timezone-aware")
     return timestamp
 
-def run(forecast_path, rider_path):
+def run(forecast_path, rider_path, *, weight=1.0, temperature=1.0):
     forecast_bytes=Path(forecast_path).read_bytes()
     rider_bytes=Path(rider_path).read_bytes()
     forecast=json.loads(forecast_bytes)
@@ -49,7 +49,7 @@ def run(forecast_path, rider_path):
             raise ValueError("race surface required for rider residual matching")
         scoped={h["jockey_id"]:residuals[surface+":"+h["jockey_id"]]
                 for h in horses if h.get("jockey_id") and surface+":"+h["jockey_id"] in residuals}
-        output.append({"race":race["race"],"surface":surface,**forecast_v50(horses,scoped)})
+        output.append({"race":race["race"],"surface":surface,**forecast_v50(horses,scoped,weight=weight,temperature=temperature)})
     return {"version":"v50","updated":"2026-11-01",
             "forecast_asof":forecast["asof"],"rider_asof":riders["asof"],
             "forecast_sha256":hashlib.sha256(forecast_bytes).hexdigest(),
@@ -61,8 +61,10 @@ def main():
     p.add_argument("--forecast",required=True)
     p.add_argument("--riders",required=True)
     p.add_argument("--output",required=True)
+    p.add_argument("--temperature",type=float,default=1.0)
+    p.add_argument("--weight",type=float,default=1.0)
     a=p.parse_args()
-    result=run(a.forecast,a.riders)
+    result=run(a.forecast,a.riders,weight=a.weight,temperature=a.temperature)
     path=Path(a.output)
     if path.exists():
         raise FileExistsError("frozen prediction cannot be overwritten")

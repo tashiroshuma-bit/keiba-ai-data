@@ -114,7 +114,7 @@ def run():
        "nov01_calibrated_vs_A_paired_uncertainty":paired_bootstrap(test,residuals,temp),
        "model_switch":"NOT_AUTOMATIC; requires verified outcome and fully paired historical benchmark",
        "limits":["N=23 per day, no claim of full 2025-26 coverage",
-                 "2016? No: source is 2026, not unseen to researcher",
+                 "2026 data are retrospectively inspected, not newly unseen to the researcher",
                  "Rider coefficient fixed to 1; only temperature selected on calibration set",
                  "Rider IDs come from the exact saved full-card archive; official source reconciliation remains incomplete",
                  "Bootstrap resamples 23 races from only one test day and misses day-to-day uncertainty"]}

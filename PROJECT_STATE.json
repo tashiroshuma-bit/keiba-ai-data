@@ -1,6 +1,6 @@
 {
   "schema": "keiba-project-state-v1",
-  "updated_date": "2026-10-31",
+  "updated_date": "2026-11-02",
   "baseline_commit": "b3828d6e4d61d1d5e83dd2657b95d7022e97b6fb",
   "repository": "tashiroshuma-bit/keiba-ai-data",
   "branch": "main",
@@ -114,6 +114,27 @@
       "documents": 234,
       "contents": "234 official result PDFs, annual index and manifest; catalog/votes samples from the lost staging area are not included"
     }
+  },
+  "standard_forecast": {
+    "version": "v50",
+    "status": "standard_future_prediction",
+    "adopted_by_user": true,
+    "adopted_date": "2026-11-02",
+    "policy": "operations/prediction_policy/standard_v50.json",
+    "entrypoint": "scripts/standard_v50_forecast.py",
+    "statistical_report": "reports/v50/V50_REAL_HISTORICAL_STATISTICAL_REPORT_20261102.md",
+    "actual_training_races_for_rider_residuals": 9313,
+    "real_historical_calibration_races": 23,
+    "real_historical_evaluation_races": 23,
+    "calibration_temperature": 0.7,
+    "evaluation_compared_to": "saved internal A baseline, not a complete v49-v50 6036-race direct replay",
+    "independent_day_evaluation_improved": false,
+    "statistically_superior_to_v49_proven": false,
+    "v49_base_weights_replaced": false,
+    "full_2025_2026_v50_backtest_completed": false,
+    "requires_actual_preoff_input_and_canonical_database": true,
+    "live_bet_generation": false,
+    "scheduled_forecast_route_verified": false
   },
   "active_model": {
     "manifest": "keiba_v48/deployment/active_manifest.json",

@@ -55,7 +55,6 @@ def actor_signal(rows, cutoff, identity, kind, context):
 
 def evaluate(db, cache, lag, output):
     from actor_hit_research import hit_record
-    from actor_index_replay import index_picks
     root = Path(__file__).resolve().parent
     state = json.loads((root.parent / "PROJECT_STATE.json").read_text())
     dbhash = sha(db)
@@ -64,6 +63,9 @@ def evaluate(db, cache, lag, output):
     stored = pickle.loads((Path(cache) / f"features_lag{lag}.pkl").read_bytes())
     if stored["identity"]["db"] != dbhash or stored["identity"]["lag"] != lag:
         raise ValueError("feature cache mismatch")
+    for name, digest in stored["identity"]["sources"].items():
+        if sha(root / name) != digest:
+            raise ValueError("feature cache source mismatch")
     reference = {}
     source = root / "reports/evidence_rank"
     for name, proof in json.loads((source / f"prediction_inventory_lag{lag}.json").read_text()).items():
@@ -107,6 +109,8 @@ def evaluate(db, cache, lag, output):
         rows.append(dict(race_id=race["race_id"], year=race["rows"][0]["race_date"][:4],
                          hits=forecasts, horse_support=support["horse"],
                          jockey_support=support["jockey"]))
+    if len(rows) != 6036 or len(reference) != 6036:
+        raise ValueError("full 6036-race comparison cohort required")
     years = {}
     for year in ("2024", "2025", "2026"):
         subset = [r for r in rows if r["year"] == year]
@@ -120,6 +124,8 @@ def evaluate(db, cache, lag, output):
                                for r in subset)/len(subset),
             jockey_coverage=sum(sum(x > 0 for x in r["jockey_support"])/len(r["jockey_support"])
                                 for r in subset)/len(subset))
+    if set(years) != {"2025", "2026"} or years["2025"]["races"] != 3329 or years["2026"]["races"] != 2707:
+        raise ValueError("expected 2025/2026 full-year evaluation coverage")
     report = dict(schema="keiba-actor-segmentation-retrospective-v1",
                   db_sha256=dbhash, lag_days=lag, years=years,
                   rules_predeclared=True, training_new_weights=False,

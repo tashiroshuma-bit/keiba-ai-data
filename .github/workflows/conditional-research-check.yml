@@ -1,0 +1,27 @@
+name: Conditional horse and rider research checks
+on:
+  push:
+    paths:
+      - 'keiba_v48/conditional_horse_features.py'
+      - 'keiba_v48/rider_ability_adjusted.py'
+      - 'keiba_v48/horse_confidence_pipeline.py'
+      - 'keiba_v48/test_conditional_horse_features.py'
+      - 'keiba_v48/test_rider_ability_adjusted.py'
+      - 'keiba_v48/test_horse_confidence_pipeline.py'
+      - 'scripts/compare_oct31_full_card_candidate.py'
+      - '.github/workflows/conditional-research-check.yml'
+  workflow_dispatch:
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Unit tests
+        run: python -m unittest discover -s keiba_v48 -p 'test_conditional_horse_features.py' -v && python -m unittest discover -s keiba_v48 -p 'test_rider_ability_adjusted.py' -v && python -m unittest discover -s keiba_v48 -p 'test_horse_confidence_pipeline.py' -v
+      - name: Historical 23 race replay
+        run: python scripts/compare_oct31_full_card_candidate.py

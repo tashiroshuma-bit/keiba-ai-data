@@ -17,7 +17,7 @@ from pathlib import Path
 def winners_from_settlement(text):
     found = {}
     for track, race, first in re.findall(
-        r"^- \\[(東京|京都)(\\d+)R\\]\\([^)]+\\)：(\\d+)-\\d+-\\d+",
+        r"^- \[(東京|京都)(\d+)R\]\([^)]+\)：(\d+)-\d+-\d+",
         text, re.MULTILINE
     ):
         key = f"{track}{race}R"

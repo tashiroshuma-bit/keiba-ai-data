@@ -1,0 +1,143 @@
+{
+  "schema": "v50-research-historical-overlay-summary-v1",
+  "date": "2026-11-02",
+  "status": "RESEARCH_ONLY_NOT_STANDARD_V50_OR_V49_DIRECT_REPLAY",
+  "baseline": "history_blend_predictions_20261022_lag2.json.gz candidate p1 (NOT internal A)",
+  "archive_sha256": "4da90bea028ac9d8e9792a5e00b2897930a67c6b1252b86c0f38aac38ca32850",
+  "canonical_db_version": 10,
+  "canonical_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "original_cohort": {
+    "2025": 3329,
+    "2026": 2707
+  },
+  "eligible": {
+    "2025": 2890,
+    "2026": 2384
+  },
+  "excluded": {
+    "2025": {
+      "requires_review": 404,
+      "validated_jump": 35
+    },
+    "2026": {
+      "requires_review": 296,
+      "validated_jump": 27
+    }
+  },
+  "policy_temperature_unchanged": 0.7,
+  "lag_days_assumed": 2,
+  "publication_times_verified": false,
+  "results": {
+    "2025": {
+      "races": 2890,
+      "runners": 40077,
+      "jockey_residual_covered": 38449,
+      "original": {
+        "winner_hits": 634,
+        "ordered_top3": 21,
+        "unordered_top3": 121,
+        "logloss": 2.3594796208403612,
+        "brier": 0.8895287222266789
+      },
+      "overlay": {
+        "winner_hits": 624,
+        "ordered_top3": 22,
+        "unordered_top3": 123,
+        "logloss": 2.5016603118543013,
+        "brier": 0.94352958142774
+      },
+      "paired_date_bootstrap_95pct_delta": {
+        "winner_hit": [
+          -0.007125890736342043,
+          0.0003402517863218782
+        ],
+        "logloss": [
+          0.12656179320466074,
+          0.15972705408776688
+        ],
+        "brier": [
+          0.0485952599955833,
+          0.05979788351365338
+        ]
+      }
+    },
+    "2026": {
+      "races": 2384,
+      "runners": 32859,
+      "jockey_residual_covered": 31798,
+      "original": {
+        "winner_hits": 472,
+        "ordered_top3": 16,
+        "unordered_top3": 92,
+        "logloss": 2.4106073260328715,
+        "brier": 0.8990060221478915
+      },
+      "overlay": {
+        "winner_hits": 479,
+        "ordered_top3": 15,
+        "unordered_top3": 91,
+        "logloss": 2.5298074417286247,
+        "brier": 0.9458890389624168
+      },
+      "paired_date_bootstrap_95pct_delta": {
+        "winner_hit": [
+          -0.00213857998289136,
+          0.008078231292517007
+        ],
+        "logloss": [
+          0.10360161592185417,
+          0.1342174663461808
+        ],
+        "brier": [
+          0.041600046946576145,
+          0.05218902389355892
+        ]
+      }
+    }
+  },
+  "independent_period_research": {
+    "selection_year": 2025,
+    "selected_temperature": 1.25,
+    "evaluation_year": 2026,
+    "selected_from_grid": [
+      0.7,
+      0.8,
+      0.9,
+      1,
+      1.1,
+      1.25,
+      1.5,
+      1.75,
+      2
+    ],
+    "baseline_2026_logloss": 2.4106073260328715,
+    "overlay_2026_logloss": 2.3924568292660475,
+    "delta_logloss_ci95": [
+      -0.023061707224766297,
+      -0.013165372950636226
+    ],
+    "baseline_2026_brier": 0.8990060221478915,
+    "overlay_2026_brier": 0.890683431834183,
+    "delta_brier_ci95": [
+      -0.009992430886806852,
+      -0.006642364475329615
+    ],
+    "winner_hits_2026_original": 472,
+    "winner_hits_2026_overlay": 479,
+    "delta_winner_hit_ci95": [
+      -0.00213857998289136,
+      0.008078231292517007
+    ],
+    "ordered_top3_original": 16,
+    "ordered_top3_overlay": 15,
+    "unordered_top3_original": 92,
+    "unordered_top3_overlay": 91,
+    "already_inspected_retrospective": true,
+    "policy_changed": false
+  },
+  "new_forward_freezes": 0,
+  "new_official_settlements": 0,
+  "new_ids_confirmed": 0,
+  "model_retrained": false,
+  "live_bet_generation": false
+}

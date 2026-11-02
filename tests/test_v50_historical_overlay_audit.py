@@ -62,7 +62,7 @@ class HistoricalOverlayAuditTests(unittest.TestCase):
 
     def test_ineligible_status_is_counted_not_scored(self):
         race={'race_id':'r1','date':'2025-01-05','horse_numbers':['1','2','3'],
-              'candidate':{'marginal_probabilities':[[.5],[.3],[.2]],
+              'baseline':{'marginal_probabilities':[[.5],[.3],[.2]],
                            'target':['1','2','3']}}
         rows,excluded=audit.evaluate([race],{'r1':('2025-01-05','turf','requires_review')},
                                      {},{},temperature=.7)
@@ -71,7 +71,7 @@ class HistoricalOverlayAuditTests(unittest.TestCase):
 
     def test_two_day_lag_excludes_border_day(self):
         race={'race_id':'r1','date':'2025-01-05','horse_numbers':['1','2','3'],
-              'candidate':{'marginal_probabilities':[[.5],[.3],[.2]],
+              'baseline':{'marginal_probabilities':[[.5],[.3],[.2]],
                            'target':['1','2','3']}}
         roster={'r1':('2025-01-05','turf','validated_result')}
         per={'r1':{'1':('rider1',1),'2':('rider2',2),'3':('rider3',3)}}

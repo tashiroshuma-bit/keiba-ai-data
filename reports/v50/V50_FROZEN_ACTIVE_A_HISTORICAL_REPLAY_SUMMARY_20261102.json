@@ -1,0 +1,137 @@
+{
+  "schema": "v50-frozen-active-A-historical-replay-v1",
+  "date": "2026-11-02",
+  "status": "RESEARCH_FROZEN_ACTIVE_A_NOT_CONTEMPORANEOUS_PREOFF_CAPTURE",
+  "base_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+  "base_archive": "ranking_predictions_20261022_lag2.json.gz",
+  "base_archive_sha256": "28c181deeeee46be0e93c02716158328657fb5607d1351448e68c7b161c6e8dd",
+  "base_archive_training_db_version": 9,
+  "overlay_db_version": 10,
+  "overlay_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "historical_lag_days_assumed": 2,
+  "contemporaneous_preoff_observations_verified": false,
+  "full_6036_eligible": false,
+  "source_cohort": {
+    "2025": 3329,
+    "2026": 2707
+  },
+  "eligible": {
+    "2025": 2890,
+    "2026": 2384
+  },
+  "exclusions": {
+    "2025": {
+      "requires_review": 404,
+      "validated_jump": 35
+    },
+    "2026": {
+      "requires_review": 296,
+      "validated_jump": 27
+    }
+  },
+  "official_v50_temperature_unchanged": 0.7,
+  "by_year": {
+    "2025": {
+      "races": 2890,
+      "base_winner_hits": 576,
+      "overlay_winner_hits": 580,
+      "base_ordered3": 22,
+      "overlay_ordered3": 25,
+      "base_unordered3": 97,
+      "overlay_unordered3": 96,
+      "base_winner_top3": 1331,
+      "overlay_winner_top3": 1328,
+      "base_logloss": 2.4082584286522684,
+      "overlay_logloss": 2.5080490922085987,
+      "delta_logloss": 0.09979066355633037,
+      "delta_logloss_ci95": [
+        0.086463839291291,
+        0.11458510844157835
+      ],
+      "base_brier": 0.8971983134334423,
+      "overlay_brier": 0.936611708040174,
+      "delta_brier_ci95": [
+        0.034788202873054105,
+        0.044576559203069646
+      ],
+      "delta_winner_hit_ci95": [
+        -0.002774887270204648,
+        0.005608131791097091
+      ]
+    },
+    "2026": {
+      "races": 2384,
+      "base_winner_hits": 443,
+      "overlay_winner_hits": 449,
+      "base_ordered3": 10,
+      "overlay_ordered3": 9,
+      "base_unordered3": 79,
+      "overlay_unordered3": 84,
+      "base_winner_top3": 1053,
+      "overlay_winner_top3": 1053,
+      "base_logloss": 2.453601343445727,
+      "overlay_logloss": 2.5430527509727563,
+      "delta_logloss": 0.0894514075270294,
+      "delta_logloss_ci95": [
+        0.0757775763514529,
+        0.10334885579532964
+      ],
+      "base_brier": 0.9034740846877729,
+      "overlay_brier": 0.9377955174899877,
+      "delta_brier_ci95": [
+        0.029664260626603423,
+        0.03902414687442132
+      ],
+      "delta_winner_hit_ci95": [
+        -0.0016460905349794238,
+        0.006779661016949152
+      ]
+    }
+  },
+  "period_calibration_research": {
+    "temperature_candidates": [
+      0.7,
+      0.8,
+      0.9,
+      1,
+      1.1,
+      1.25,
+      1.5,
+      1.75,
+      2
+    ],
+    "select_year": 2025,
+    "selected_temperature": 1.25,
+    "test_year": 2026,
+    "test_races": 2384,
+    "base_logloss": 2.453601343445727,
+    "overlay_logloss": 2.4368311861506187,
+    "delta_logloss_ci95": [
+      -0.020693106343565155,
+      -0.012603476708704188
+    ],
+    "base_brier": 0.9034740846877729,
+    "overlay_brier": 0.8974474278312701,
+    "delta_brier_ci95": [
+      -0.007330557447685742,
+      -0.004677662516739827
+    ],
+    "base_winner_hits": 443,
+    "overlay_winner_hits": 449,
+    "delta_winner_hit_ci95": [
+      -0.0016460905349794238,
+      0.006779661016949152
+    ],
+    "ordered3_base": 10,
+    "ordered3_overlay": 9,
+    "unordered3_base": 79,
+    "unordered3_overlay": 84,
+    "already_inspected_retrospective": true,
+    "official_policy_changed": false
+  },
+  "official_v50_standard_unchanged": true,
+  "forward_freezes_added": 0,
+  "official_settlements_added": 0,
+  "model_retrained": false,
+  "live_bet_generation": false
+}

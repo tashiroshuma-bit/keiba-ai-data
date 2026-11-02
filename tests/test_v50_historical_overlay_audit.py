@@ -60,6 +60,30 @@ class HistoricalOverlayAuditTests(unittest.TestCase):
         ci=audit.date_bootstrap(rows,draws=100,seed=7)
         self.assertEqual(ci['winner_hit'],[1.0,1.0])
 
+    def test_ineligible_status_is_counted_not_scored(self):
+        race={'race_id':'r1','date':'2025-01-05','horse_numbers':['1','2','3'],
+              'candidate':{'marginal_probabilities':[[.5],[.3],[.2]],
+                           'target':['1','2','3']}}
+        rows,excluded=audit.evaluate([race],{'r1':('2025-01-05','turf','requires_review')},
+                                     {},{},temperature=.7)
+        self.assertEqual(rows,[])
+        self.assertEqual(excluded[0]['reason'],'requires_review')
+
+    def test_two_day_lag_excludes_border_day(self):
+        race={'race_id':'r1','date':'2025-01-05','horse_numbers':['1','2','3'],
+              'candidate':{'marginal_probabilities':[[.5],[.3],[.2]],
+                           'target':['1','2','3']}}
+        roster={'r1':('2025-01-05','turf','validated_result')}
+        per={'r1':{'1':('rider1',1),'2':('rider2',2),'3':('rider3',3)}}
+        # Jan 3 is the cutoff (Jan 5 minus 2 days), and is excluded.
+        day={'past': [('turf','horse1','rider1',1,3),
+                      ('turf','horse2','rider2',2,3),
+                      ('turf','horse3','rider3',3,3)]}
+        included,_=audit.evaluate([race],roster,per,{'2025-01-02':day},.7)
+        excluded,_=audit.evaluate([race],roster,per,{'2025-01-03':day},.7)
+        self.assertEqual(included[0]['jockey_residual_covered'],3)
+        self.assertEqual(excluded[0]['jockey_residual_covered'],0)
+
     def test_softmax_and_PL_rank_top3_agree(self):
         # The v50 ticket engine's Plackett-Luce argmax is the top 3 p1 in order.
         from itertools import permutations

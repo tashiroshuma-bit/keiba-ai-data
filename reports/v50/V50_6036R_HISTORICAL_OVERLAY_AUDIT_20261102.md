@@ -64,7 +64,7 @@
 ## 実装と検証
 
 - [研究用再計算スクリプト](../../scripts/v50_historical_overlay_audit.py)
-- [6件の単体テスト](../../tests/test_v50_historical_overlay_audit.py)
+- [8件の単体テスト](../../tests/test_v50_historical_overlay_audit.py)
 - [実DBと保存アーカイブで算出した数値JSON](V50_6036R_HISTORICAL_OVERLAY_SUMMARY_20261102.json)
 
 再実行（正本SQLite・保存アーカイブはGitHubに複製しない）:
@@ -74,4 +74,4 @@ python scripts/v50_historical_overlay_audit.py --archive /path/to/history_blend_
 python -m unittest discover -s tests -p 'test_v50_historical_overlay_audit.py' -v
 \`\`\`
 
-ローカル実DB監査完走、同条件2回のJSON一致、合成単体6/6合格。コードはDBを読み取り専用で開き、実体SHAを確認し、既存出力上書きを拒否する。GitHub Actionsの本番連携は別途CIで確認。**本番採用は保留、研究用のみ採用。**
+ローカル実DB監査完走、同条件2回のJSON一致、合成単体8/8合格。コードはDBを読み取り専用で開き、実体SHAを確認し、既存出力上書きを拒否する。GitHub Actionsの本番連携は別途CIで確認。**本番採用は保留、研究用のみ採用。**

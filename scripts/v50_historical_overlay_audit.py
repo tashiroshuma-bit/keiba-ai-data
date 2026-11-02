@@ -1,7 +1,7 @@
-"""Research-only paired 6,036-race overlay stress test; NOT an A/v49-v50 replay.
+"""Research-only paired active-A and candidate historical overlay replay.
 
-Uses an archived historical *rank candidate* as the input distribution, not the
-v50 standard runner's required contemporaneous internal-A probabilities.
+Default input is the archived frozen-active-model A baseline, not a
+contemporaneous pre-off A capture. Candidate branch is optional.
 Historical availability is assumed by a 2-day date lag, not proved by capture
 metadata. Does not write to the canonical SQLite or change production policy.
 """
@@ -17,7 +17,8 @@ from collections import defaultdict
 from pathlib import Path
 
 EXPECTED_DB = '5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc'
-EXPECTED_ARCHIVE = '4da90bea028ac9d8e9792a5e00b2897930a67c6b1252b86c0f38aac38ca32850'
+ARCHIVES = {'baseline':'28c181deeeee46be0e93c02716158328657fb5607d1351448e68c7b161c6e8dd',
+            'candidate':'4da90bea028ac9d8e9792a5e00b2897930a67c6b1252b86c0f38aac38ca32850'}
 EXPECTED_COUNTS = {'2025': 3329, '2026': 2707}
 
 
@@ -29,10 +30,10 @@ def digest(path):
     return h.hexdigest()
 
 
-def load_evidence(archive, database):
+def load_evidence(archive, database, source_kind='baseline'):
     if digest(database) != EXPECTED_DB:
         raise ValueError('canonical version10 DB SHA mismatch')
-    if digest(archive) != EXPECTED_ARCHIVE:
+    if source_kind not in ARCHIVES or digest(archive) != ARCHIVES[source_kind]:
         raise ValueError('historical archive SHA mismatch')
     with gzip.open(archive, 'rt', encoding='utf-8') as stream:
         races = json.load(stream)
@@ -131,7 +132,7 @@ def race_scores(numbers, truth, original, changed):
     return result
 
 
-def evaluate(races,roster,per_race,history,temperature=.7,lag_days=2):
+def evaluate(races,roster,per_race,history,temperature=.7,lag_days=2,source_kind='baseline'):
     horse_hist = defaultdict(lambda:[0,0.0])
     rider_hist = defaultdict(lambda:[0,0.0])
     dates = sorted(history)
@@ -157,13 +158,13 @@ def evaluate(races,roster,per_race,history,temperature=.7,lag_days=2):
         if surface not in ('turf','dirt'):
             raise ValueError('unknown surface')
         numbers = r['horse_numbers']
-        source = r['candidate']['marginal_probabilities']
+        source = r[source_kind]['marginal_probabilities']
         original = [float(p[0]) for p in source]
         actual = per_race[rid]
         if set(numbers) != set(actual):
             excluded.append({'race_id':rid,'year':date[:4],'reason':'runner_set_mismatch'})
             continue
-        truth = [str(x) for x in r['candidate']['target']]
+        truth = [str(x) for x in r[source_kind]['target']]
         db_truth = [str(number) for number in sorted((int(k) for k,v in actual.items() if v[1] in (1,2,3)),
                                                     key=lambda k:actual[str(k)][1])]
         if db_truth != truth:
@@ -225,12 +226,13 @@ def main():
     p.add_argument('--database',required=True)
     p.add_argument('--output',required=True)
     p.add_argument('--temperature',type=float,default=.7)
+    p.add_argument('--source-kind',choices=('baseline','candidate'),default='baseline')
     args = p.parse_args()
     path = Path(args.output)
     if path.exists():
         raise FileExistsError('audit output cannot be overwritten')
-    races,roster,per_race,history = load_evidence(args.archive,args.database)
-    rows,excluded = evaluate(races,roster,per_race,history,args.temperature)
+    races,roster,per_race,history = load_evidence(args.archive,args.database,args.source_kind)
+    rows,excluded = evaluate(races,roster,per_race,history,args.temperature,source_kind=args.source_kind)
     by_year = {y:[r for r in rows if r['year']==y] for y in EXPECTED_COUNTS}
     excluded_by_year = {y:[r for r in excluded if r['year']==y] for y in EXPECTED_COUNTS}
     if any(len(by_year[y])+len(excluded_by_year[y]) != EXPECTED_COUNTS[y] for y in EXPECTED_COUNTS):
@@ -239,12 +241,13 @@ def main():
                   for y in EXPECTED_COUNTS}
     result = {
         'schema':'v50-research-historical-overlay-audit-v1',
-        'status':'RESEARCH_ONLY_NOT_STANDARD_V50_OR_V49_DIRECT_REPLAY',
-        'source':'historical_history_blend_candidate_not_internal_A',
-        'base_artifact_sha256':EXPECTED_ARCHIVE,'canonical_db_sha256':EXPECTED_DB,
+        'status':'RESEARCH_HISTORICAL_REPLAY_NOT_CONTEMPORANEOUS_CAPTURE',
+        'source':'ranking_frozen_active_A_v9' if args.source_kind=='baseline' else 'history_blend_rank_candidate',
+        'source_kind':args.source_kind,
+        'base_artifact_sha256':ARCHIVES[args.source_kind],'canonical_db_sha256':EXPECTED_DB,
         'history_lag_days':2,'temperature':args.temperature,
         'temporal_limit':'2-day calendar lag assumption; original publication timestamps not verified',
-        'calibration_limit':'T=0.70 chosen on 2026-10-31; 2025/2026 are already inspected retrospective cohorts',
+        'calibration_limit':'T=0.70 chosen on 2026-10-31; 2025/2026 already inspected, baseline A from v9 archive',
         'source_cohort_races':EXPECTED_COUNTS,
         'eligible_paired_races':{y:len(by_year[y]) for y in EXPECTED_COUNTS},
         'excluded_by_year_reason':exclusions,

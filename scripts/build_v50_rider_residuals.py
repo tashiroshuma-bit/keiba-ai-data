@@ -12,21 +12,46 @@ from collections import defaultdict
 from pathlib import Path
 
 
+def open_canonical_readonly(db_path):
+    """Open an existing canonical SQLite without write or create privileges."""
+    uri=Path(db_path).resolve().as_uri()+"?mode=ro"
+    con=sqlite3.connect(uri,uri=True)
+    try:
+        con.execute("PRAGMA query_only=ON")
+    except BaseException:
+        con.close()
+        raise
+    return con
+
+
+def file_sha256(db_path):
+    """Hash large canonical DBs without loading their full bytes into RAM."""
+    digest=hashlib.sha256()
+    with Path(db_path).open("rb") as stream:
+        for chunk in iter(lambda:stream.read(1024*1024),b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
 def build(db_path, forecast_asof, *, history_lag_days=2):
     forecast_time=dt.datetime.fromisoformat(forecast_asof.replace("Z","+00:00"))
     if forecast_time.tzinfo is None:
         raise ValueError("timezone-aware forecast_asof required")
     cutoff=(forecast_time.astimezone(dt.timezone(dt.timedelta(hours=9))).date()-dt.timedelta(days=history_lag_days)).isoformat()
-    con=sqlite3.connect(str(db_path))
-    rows=con.execute("""
-        SELECT r.race_id,r.race_date,r.surface,x.horse_id,x.jockey_id,
-               x.finish_order,r.expected_runners
-        FROM annual_report_races r JOIN annual_report_runners x ON r.race_id=x.race_id
-        WHERE r.status='validated_result' AND r.race_date < ?
-          AND r.surface IN ('turf','dirt') AND x.finish_order > 0
-        ORDER BY r.race_date,r.race_id,x.horse_number
-    """,(cutoff,)).fetchall()
-    con.close()
+    # The canonical v10 database is immutable input.  A normal sqlite3.connect
+    # silently creates a missing DB and opens existing DBs read-write.
+    con=open_canonical_readonly(db_path)
+    try:
+        rows=con.execute("""
+            SELECT r.race_id,r.race_date,r.surface,x.horse_id,x.jockey_id,
+                   x.finish_order,r.expected_runners
+            FROM annual_report_races r JOIN annual_report_runners x ON r.race_id=x.race_id
+            WHERE r.status='validated_result' AND r.race_date < ?
+              AND r.surface IN ('turf','dirt') AND x.finish_order > 0
+            ORDER BY r.race_date,r.race_id,x.horse_number
+        """,(cutoff,)).fetchall()
+    finally:
+        con.close()
     by_date=defaultdict(lambda:defaultdict(list))
     for race_id,date,surface,horse,jockey,finish,n in rows:
         if horse and jockey and n and n>=3 and finish<=n:
@@ -59,7 +84,7 @@ def build(db_path, forecast_asof, *, history_lag_days=2):
             "source":"preoff_horse_ability_adjusted",
             "asof":(dt.datetime.fromisoformat(cutoff).replace(tzinfo=dt.timezone.utc)).isoformat(),
             "forecast_asof":forecast_asof,"cutoff_date_exclusive":cutoff,
-            "database_sha256":hashlib.sha256(Path(db_path).read_bytes()).hexdigest(),
+            "database_sha256":file_sha256(db_path),
             "races_used":races_used,"residuals":residuals}
 
 

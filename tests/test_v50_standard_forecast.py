@@ -3,6 +3,7 @@ import json
 import sqlite3
 import tempfile
 import unittest
+from unittest import mock
 from pathlib import Path
 from scripts.standard_v50_forecast import standard_forecast
 
@@ -46,6 +47,18 @@ class StandardV50Test(unittest.TestCase):
         self.assertEqual(r["races"][0]["rider_coverage"],3)
         self.assertTrue(self.out.exists())
         with self.assertRaises(FileExistsError):self.run_forecast()
+    def test_standard_forecast_streams_large_canonical_db(self):
+        original=Path.read_bytes
+        canonical=self.db
+        def guarded(path):
+            if Path(path)==canonical:
+                raise AssertionError("canonical DB must not be loaded fully into RAM")
+            return original(path)
+        with mock.patch.object(Path,"read_bytes",guarded):
+            result=self.run_forecast()
+        self.assertTrue(result["standard_forecast"])
+        self.assertTrue(self.out.exists())
+
     def test_reject_postoff_source(self):
         self.data["races"][0]["original_off_at"]="2026-11-01T08:00:00+09:00"
         self.forecast.write_text(json.dumps(self.data))

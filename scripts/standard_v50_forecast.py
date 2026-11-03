@@ -13,10 +13,10 @@ import tempfile
 from pathlib import Path
 
 try:
-    from scripts.build_v50_rider_residuals import build
+    from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
-    from build_v50_rider_residuals import build
+    from build_v50_rider_residuals import build, file_sha256
     from run_v50_preoff import run, parse_time
 
 ROOT=Path(__file__).resolve().parents[1]
@@ -38,7 +38,7 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         raise ValueError("live betting must remain disabled")
     if state["database"]["version"] != 10:
         raise ValueError("unexpected canonical database version")
-    dbdigest=hashlib.sha256(database_path.read_bytes()).hexdigest()
+    dbdigest=file_sha256(database_path)
     if dbdigest != state["database"]["sha256"]:
         raise ValueError("canonical database SHA256 mismatch; repository stub is not canonical")
     inp=json.loads(forecast_path.read_bytes())

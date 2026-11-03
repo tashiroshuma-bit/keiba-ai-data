@@ -1,3 +1,9 @@
+# 2026-11-03 追補：v50正本DBを厳格読取専用化、322MB一括読込を廃止（標準v50不変）
+
+[実装・テスト・採否報告](reports/v50/V50_CANONICAL_READONLY_STREAMING_GATE_20261103.md)。`scripts/build_v50_rider_residuals.py` の通常SQLite接続を `mode=ro`＋`PRAGMA query_only=ON` に修正し、欠損DBを作らず拒否。標準ランナーと残差生成器の正本SHA256計算を1MiBチャンクへ変更し、約322MB一括RAM読込を解消。回帰テスト4件を追加、GitHub Actions [41551290119](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/41551290119) はtest・legacy-diagnosticsとも成功。Library正本v10のmaterializeは成功したが、コンテナ接続障害のため**この実行では実体再SHA・実DBでの標準ランナー実行は未完了**。v50標準（騎手重み1、温度0.70、履歴2日遅延）・基礎A・正本DB・実購入無効・freeze/settleは変更しない。新規公式ID0、正式freeze0、settle0、未見固定0、再学習0。新バージョンへ昇格しない。
+
+---
+
 # 2026-11-02 追補：凍結稼働Aアーカイブを発見、v50形式で過去5,274Rを直接ペア再生（標準v50不変）
 
 [優先して参照する研究報告](reports/v50/V50_FROZEN_ACTIVE_A_HISTORICAL_REPLAY_20261102.md)／[実測JSON](reports/v50/V50_FROZEN_ACTIVE_A_HISTORICAL_REPLAY_SUMMARY_20261102.json)。旧順位研究のranking_predictions_20261022_lag2.json.gzの**baseline**は凍結稼働active_model SHA256 21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395から再計算した基礎Aと判明。Library実体5,679,648 bytes SHA256 28c181deeeee46be0e93c02716158328657fb5607d1351448e68c7b161c6e8ddを検査し、正本v10 DBの時点順騎手残差を適用。6,036R中、結果要確認700R＋検証済み障害62Rを隔離、芝ダート5,274Rでペア評価。T=.70で2025年1着576→580/2,890R、2026年443→449/2,384Rだが、Log Lossは2025年2.408258→2.508049、2026年2.453601→2.543053と悪化。2025年校正T=1.25では2026年のLog Loss2.436831へ改善する研究結果も得たが、1着差の95%区間はゼロを含み、正式T=.70は変更しない。**基礎Aアーカイブはv9研究再生で発走前当時の実際の固定原票ではない。v50残差はv10 DBであり、全6,036Rの同一DB・時点での完全本番再生と呼ばない。** 前段のhistory_blend candidate基礎監査は別候補感度分析として残す。ローカル実DB再生・再実行一致、8/8単体テスト成功。標準v50・基礎A重み・正本・freeze/settle・実購入無効は変更なし。GitHub CI完走は未確認。

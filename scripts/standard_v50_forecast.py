@@ -36,6 +36,17 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         raise ValueError("standard v50 policy not activated")
     if policy.get("live_bet_generation") is not False:
         raise ValueError("live betting must remain disabled")
+    standard=state.get("standard_forecast",{})
+    if (standard.get("version")!="v50" or
+        standard.get("policy")!="operations/prediction_policy/standard_v50.json" or
+        standard.get("entrypoint")!="scripts/standard_v50_forecast.py" or
+        standard.get("adopted_by_user") is not True):
+        raise ValueError("PROJECT_STATE standard forecast routing mismatch")
+    if (policy.get("forecast_entrypoint")!=standard["entrypoint"] or
+        policy.get("history_lag_days")!=2 or
+        policy.get("overlay_weight")!=1 or
+        policy.get("probability_temperature")!=0.7):
+        raise ValueError("standard v50 policy differs from approved parameters")
     if state["database"]["version"] != 10:
         raise ValueError("unexpected canonical database version")
     dbdigest=file_sha256(database_path)

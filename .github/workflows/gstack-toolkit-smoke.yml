@@ -1,0 +1,57 @@
+name: gstack shared toolkit smoke check
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'tooling/gstack/**'
+      - '.github/workflows/gstack-toolkit-smoke.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check installer syntax
+        run: bash -n tooling/gstack/install.sh
+      - name: Check required documentation
+        run: |
+          test -s tooling/gstack/README.md
+          test -s tooling/gstack/PROJECT_CHECKLIST.md
+          grep -q 'garrytan/gstack' tooling/gstack/README.md
+      - name: Confirm installer help rejects invalid host without installation
+        run: |
+          if bash tooling/gstack/install.sh invalid-host; then
+            echo 'Expected invalid-host to fail' >&2
+            exit 1
+          fi
+
+  install-codex-gstack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Bun (gstack prerequisite)
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+      - name: Set up Node.js (Codex CLI prerequisite)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install OpenAI Codex CLI
+        run: npm install --global @openai/codex
+      - name: Install gstack for Codex via upstream setup
+        run: bash tooling/gstack/install.sh codex
+      - name: Verify installed skills and host registration
+        run: |
+          test -d "${CODEX_HOME:-$HOME/.codex}/skills"
+          test -f "${CODEX_HOME:-$HOME/.codex}/skills/gstack/SKILL.md"
+          test -e "${CODEX_HOME:-$HOME/.codex}/skills/gstack-review/SKILL.md"
+          (cd "${GSTACK_HOME:-$HOME/gstack}" && ./setup --status)
+          codex --version
+      - name: Scope warning
+        run: echo "Installed on an ephemeral GitHub Actions runner only; does not persist in ChatGPT or your personal computer."

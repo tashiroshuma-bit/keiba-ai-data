@@ -28,3 +28,29 @@ jobs:
             echo 'Expected invalid-host to fail' >&2
             exit 1
           fi
+
+  install-codex-gstack:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Bun (gstack prerequisite)
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+      - name: Set up Node.js (Codex CLI prerequisite)
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Install OpenAI Codex CLI
+        run: npm install --global @openai/codex
+      - name: Install gstack for Codex via upstream setup
+        run: bash tooling/gstack/install.sh codex
+      - name: Verify installed skills and host registration
+        run: |
+          test -d "${CODEX_HOME:-$HOME/.codex}/skills"
+          find "${CODEX_HOME:-$HOME/.codex}/skills" -maxdepth 2 -name SKILL.md -path '*/gstack-*/*' | grep -q .
+          (cd "${GSTACK_HOME:-$HOME/gstack}" && ./setup --status)
+          codex --version
+      - name: Scope warning
+        run: echo "Installed on an ephemeral GitHub Actions runner only; does not persist in ChatGPT or your personal computer."

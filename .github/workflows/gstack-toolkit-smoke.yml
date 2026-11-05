@@ -49,7 +49,8 @@ jobs:
       - name: Verify installed skills and host registration
         run: |
           test -d "${CODEX_HOME:-$HOME/.codex}/skills"
-          find "${CODEX_HOME:-$HOME/.codex}/skills" -maxdepth 2 -name SKILL.md -path '*/gstack-*/*' | grep -q .
+          test -f "${CODEX_HOME:-$HOME/.codex}/skills/gstack/SKILL.md"
+          test -e "${CODEX_HOME:-$HOME/.codex}/skills/gstack-review/SKILL.md"
           (cd "${GSTACK_HOME:-$HOME/gstack}" && ./setup --status)
           codex --version
       - name: Scope warning

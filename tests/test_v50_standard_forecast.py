@@ -22,11 +22,11 @@ class StandardV50Test(unittest.TestCase):
                 con.execute("INSERT INTO annual_report_runners VALUES (?,?,?,?,?)",(date,n,"horse"+str(n),"jra:"+str(n),n))
         con.commit();con.close()
         self.state=d/"state.json"
-        self.state.write_text(json.dumps({"database":{"version":10,"sha256":hashlib.sha256(self.db.read_bytes()).hexdigest()}}))
+        self.state.write_text(json.dumps({"database":{"version":10,"sha256":hashlib.sha256(self.db.read_bytes()).hexdigest()}, "standard_forecast":{"version":"v50","policy":"operations/prediction_policy/standard_v50.json","entrypoint":"scripts/standard_v50_forecast.py","adopted_by_user":True}}))
         self.policy=d/"policy.json"
         self.policy.write_text(json.dumps({"standard_version":"v50","standard_for_future_races":True,
         "history_lag_days":2,"overlay_weight":1.0,"probability_temperature":.7,
-        "live_bet_generation":False}))
+        "live_bet_generation":False,"forecast_entrypoint":"scripts/standard_v50_forecast.py"}))
         self.forecast=d/"forecast.json"
         self.data={"source_model":"A","asof":"2026-11-01T09:00:00+09:00",
             "races":[{"race":"synthetic","surface":"turf","original_off_at":"2026-11-01T11:00:00+09:00",

@@ -1,0 +1,17 @@
+{
+  "source_sha256": "0135bb90a59d56fb69d0302739af98d738cc161bdace698e19284c9552cf2595",
+  "generated": 69,
+  "requested": 72,
+  "statuses": {
+    "research_probability_generated": 69,
+    "unsupported_obstacle_model": 3
+  },
+  "passes_probability_mass": 69,
+  "source_methods": {
+    "YAHOO_ONLY_UNVERIFIED_OFFICIAL": 11,
+    "JRA_YAHOO_CROSSCHECK": 58
+  },
+  "preoff_confirmed": 57,
+  "rider_matches": 714,
+  "total_horses": 969
+}

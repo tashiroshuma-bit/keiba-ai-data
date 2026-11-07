@@ -1,0 +1,28 @@
+name: Analyze historical nonfavorite winners
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_nonfavorite_winners_history.yml'
+      - 'scripts/analyze_nonfavorite_winners_history.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Join historical race outcomes and final market probability
+        run: python -m scripts.analyze_nonfavorite_winners_history
+      - name: Persist statistical report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/nonfavorite_winner_analysis_20261107.json reports/nonfavorite_winner_analysis_20261107.md
+          git commit -m "Publish historical nonfavorite winner stratification"
+          git pull --rebase origin main
+          git push

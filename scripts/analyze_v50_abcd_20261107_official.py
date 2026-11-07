@@ -143,7 +143,7 @@ def main():
                      +f"|{summary['favorite_winners_by_track'][track]}/12|")
     mc=summary["a_vs_c_mcnemar_paired"]
     lines+=["","## 原因・検証仮説","",
-        f"最終1番人気勝利 {sum(r['winner_final_popularity']==1 for r in rows)}/36R。"
+        f"最終1番人気勝利 {sum(r['winner_popularity_final']==1 for r in rows)}/36R。"
         "東京では1番人気が多数勝ち、福島では人気薄勝利が多い。",
         f"Aのみ的中{mc['a_only']}、Cのみ的中{mc['b_only']}、"
         f"対応ありMcNemar両側正確p={mc['two_sided_p_exact']:.3f}。",

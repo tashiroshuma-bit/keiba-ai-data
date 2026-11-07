@@ -73,8 +73,38 @@ def combine(model, snapshot, *, alpha, off_at):
         "interpretation":"HISTORICAL_ASSOCIATIONS_NOT_CALIBRATED",
         "evidence":"reports/nonfavorite_winner_analysis_20261107.json"
     }
+    # Rank 4th-market-choice-or-worse by the pre-existing v50 *third*
+    # placement probability, not by its win probability or post-race popularity.
+    market_rank={number:position for position,number in enumerate(ordered_market,1)}
+    outsider_third_candidates=[]
+    if all(isinstance(h.get("p2"),(int,float)) and
+           isinstance(h.get("p3"),(int,float)) and
+           math.isfinite(h["p2"]) and math.isfinite(h["p3"]) and
+           0<=h["p2"]<=1 and 0<=h["p3"]<=1
+           for h in model["horses"]):
+        if any(h["p1"]+h["p2"]+h["p3"]>1+1e-7 for h in model["horses"]):
+            raise ValueError("invalid model top-three marginal probabilities")
+        for h in model["horses"]:
+            number=h["number"]
+            rank=market_rank[number]
+            if rank>=4:
+                outsider_third_candidates.append({
+                    "number":number,"name":h.get("name"),
+                    "market_rank_preoff":rank,
+                    "win_odds_preoff":next(x["odds"] for x in horses if x["number"]==number),
+                    "v50_p1":h["p1"],"v50_p2":h["p2"],"v50_p3":h["p3"],
+                    "v50_top3_probability":h["p1"]+h["p2"]+h["p3"],
+                    "model_minus_market_win_probability":h["p1"]-mm[number],
+                    "selection_basis":"v50_p3_descending_only",
+                    "evaluation_status":"RESEARCH_RANKING_NOT_CALIBRATED"})
+        outsider_third_candidates.sort(key=lambda x:(-x["v50_p3"],
+                                                      -x["v50_top3_probability"],
+                                                      x["market_rank_preoff"],x["number"]))
     return {"schema":"v50-preoff-market-odds-v1",
             "market_structure":signals,
+            "outsider_third_candidates":outsider_third_candidates,
+            "outsider_third_scope":"4TH_OR_LOWER_MARKET_RANK_PREOFF",
+            "outsider_third_evidence":"reports/outsider_top3_20261031_1101_results.json",
             "alpha":alpha,"odds_observed_at":observed.isoformat(),
             "off_at":off.isoformat(),
             "odds_input":"strictly_observed_preoff",

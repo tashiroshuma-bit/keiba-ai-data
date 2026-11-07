@@ -51,7 +51,30 @@ def combine(model, snapshot, *, alpha, off_at):
     z=sum(e.values())
     blended={k:v/z for k,v in e.items()}
     rankings=sorted(blended,key=lambda k:(-blended[k],k))
+    ordered_market=sorted(mm,key=lambda k:(-mm[k],k))
+    favorite,runnerup=ordered_market[:2]
+    favorite_share=mm[favorite]
+    gap=mm[favorite]-mm[runnerup]
+    # Descriptive risk markers only: historical 2025 bin association is not
+    # an optimized classifier, causality, or a calibrated event probability.
+    signals={
+        "favorite_number":favorite,
+        "favorite_market_probability":favorite_share,
+        "runnerup_number":runnerup,
+        "runnerup_market_probability":mm[runnerup],
+        "favorite_vs_second_gap":gap,
+        "field_size":len(mm),
+        "risk_markers":[flag for flag,condition in [
+            ("WEAK_MARKET_FAVORITE_UNDER_20PCT",favorite_share<0.20),
+            ("MARKET_FAVORITE_BELOW_30PCT",favorite_share<0.30),
+            ("CLOSE_TOP_TWO_GAP_UNDER_3PP",gap<0.03),
+            ("LARGE_FIELD_14_PLUS",len(mm)>=14)]
+            if condition],
+        "interpretation":"HISTORICAL_ASSOCIATIONS_NOT_CALIBRATED",
+        "evidence":"reports/nonfavorite_winner_analysis_20261107.json"
+    }
     return {"schema":"v50-preoff-market-odds-v1",
+            "market_structure":signals,
             "alpha":alpha,"odds_observed_at":observed.isoformat(),
             "off_at":off.isoformat(),
             "odds_input":"strictly_observed_preoff",

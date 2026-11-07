@@ -1,0 +1,27 @@
+name: Publish Nov 7-8 v50 full probability audit
+on:
+  push:
+    paths:
+      - '.github/workflows/v50_report_20261107_08.yml'
+      - 'scripts/report_20261107_08_v50.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate 72 race rows and publish top-five plus graded
+        run: python -m scripts.report_20261107_08_v50
+      - name: Commit audited reports
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/predictions/2026-11-07/v50_weekend_final_report.md operations/predictions/2026-11-07/v50_weekend_audit.json
+          git commit -m "Publish audited Nov 7-8 v50 72-race research report"
+          git pull --rebase origin main
+          git push

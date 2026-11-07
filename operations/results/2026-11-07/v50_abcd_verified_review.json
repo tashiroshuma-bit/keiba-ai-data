@@ -1,0 +1,1135 @@
+{
+  "schema": "jra-20261107-v50-abcd-official-winner-review-v1",
+  "official_winner_source_sha256": "6199502445558c6d4c9a0a3baceb6918af5ba469e03f8b4d5e9800bdf8985e00",
+  "prediction_source_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "interpretation": "Research model results, not independently calibrated or genuine 33 preoff forecasts",
+  "postrace_popularity_policy": "final popularity used as retrospective diagnostic only",
+  "all_jra_races": 36,
+  "flat_races": 35,
+  "paired_abcd_races": 33,
+  "paired_preoff_proven_races": 23,
+  "paired": {
+    "A": {
+      "n": 33,
+      "wins": 12,
+      "hit_rate": 0.36363636363636365,
+      "winner_top3": 25,
+      "winner_top3_rate": 0.7575757575757576,
+      "mean_log_loss": 2.3764934084716516,
+      "mean_brier": 0.881948069292472
+    },
+    "B": {
+      "n": 33,
+      "wins": 16,
+      "hit_rate": 0.48484848484848486,
+      "winner_top3": 24,
+      "winner_top3_rate": 0.7272727272727273,
+      "mean_log_loss": 2.221997864912853,
+      "mean_brier": 0.8472535142301055
+    },
+    "C": {
+      "n": 33,
+      "wins": 17,
+      "hit_rate": 0.5151515151515151,
+      "winner_top3": 24,
+      "winner_top3_rate": 0.7272727272727273,
+      "mean_log_loss": 2.124242022057132,
+      "mean_brier": 0.8197235809415515
+    },
+    "D": {
+      "n": 33,
+      "wins": 14,
+      "hit_rate": 0.42424242424242425,
+      "winner_top3": 24,
+      "winner_top3_rate": 0.7272727272727273,
+      "mean_log_loss": 2.071456783047169,
+      "mean_brier": 0.7997880717854772
+    }
+  },
+  "preoff_confirmed_subset": {
+    "A": {
+      "n": 23,
+      "wins": 8,
+      "hit_rate": 0.34782608695652173,
+      "winner_top3": 17,
+      "winner_top3_rate": 0.7391304347826086,
+      "mean_log_loss": 2.375018639871114,
+      "mean_brier": 0.8802818536379249
+    },
+    "B": {
+      "n": 23,
+      "wins": 10,
+      "hit_rate": 0.43478260869565216,
+      "winner_top3": 16,
+      "winner_top3_rate": 0.6956521739130435,
+      "mean_log_loss": 2.266851309306014,
+      "mean_brier": 0.8561103625669765
+    },
+    "C": {
+      "n": 23,
+      "wins": 11,
+      "hit_rate": 0.4782608695652174,
+      "winner_top3": 16,
+      "winner_top3_rate": 0.6956521739130435,
+      "mean_log_loss": 2.2002731125942994,
+      "mean_brier": 0.8382169285729824
+    },
+    "D": {
+      "n": 23,
+      "wins": 7,
+      "hit_rate": 0.30434782608695654,
+      "winner_top3": 16,
+      "winner_top3_rate": 0.6956521739130435,
+      "mean_log_loss": 2.169552390561657,
+      "mean_brier": 0.8264855025244648
+    }
+  },
+  "a_all_flat": {
+    "n": 35,
+    "wins": 12,
+    "hit_rate": 0.34285714285714286,
+    "winner_top3": 25,
+    "winner_top3_rate": 0.7142857142857143,
+    "mean_log_loss": 2.3949845331266584,
+    "mean_brier": 0.8853096539144398
+  },
+  "paired_by_track": {
+    "東京": {
+      "A": {
+        "n": 12,
+        "wins": 5,
+        "hit_rate": 0.4166666666666667,
+        "winner_top3": 10,
+        "winner_top3_rate": 0.8333333333333334,
+        "mean_log_loss": 2.2573581906382945,
+        "mean_brier": 0.8613868094055589
+      },
+      "B": {
+        "n": 12,
+        "wins": 7,
+        "hit_rate": 0.5833333333333334,
+        "winner_top3": 12,
+        "winner_top3_rate": 1.0,
+        "mean_log_loss": 2.017395923270199,
+        "mean_brier": 0.809985234893564
+      },
+      "C": {
+        "n": 12,
+        "wins": 8,
+        "hit_rate": 0.6666666666666666,
+        "winner_top3": 12,
+        "winner_top3_rate": 1.0,
+        "mean_log_loss": 1.834024105208492,
+        "mean_brier": 0.7670261029345898
+      },
+      "D": {
+        "n": 12,
+        "wins": 7,
+        "hit_rate": 0.5833333333333334,
+        "winner_top3": 12,
+        "winner_top3_rate": 1.0,
+        "mean_log_loss": 1.692539190024746,
+        "mean_brier": 0.7329029449372108
+      }
+    },
+    "京都": {
+      "A": {
+        "n": 9,
+        "wins": 6,
+        "hit_rate": 0.6666666666666666,
+        "winner_top3": 9,
+        "winner_top3_rate": 1.0,
+        "mean_log_loss": 2.1079578880337695,
+        "mean_brier": 0.8463283613454081
+      },
+      "B": {
+        "n": 9,
+        "wins": 7,
+        "hit_rate": 0.7777777777777778,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.8888888888888888,
+        "mean_log_loss": 1.916925580921614,
+        "mean_brier": 0.7974635995279654
+      },
+      "C": {
+        "n": 9,
+        "wins": 7,
+        "hit_rate": 0.7777777777777778,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.8888888888888888,
+        "mean_log_loss": 1.7781142043566618,
+        "mean_brier": 0.7555691100301728
+      },
+      "D": {
+        "n": 9,
+        "wins": 4,
+        "hit_rate": 0.4444444444444444,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.8888888888888888,
+        "mean_log_loss": 1.6754378530574183,
+        "mean_brier": 0.7222368202299139
+      }
+    },
+    "福島": {
+      "A": {
+        "n": 12,
+        "wins": 1,
+        "hit_rate": 0.08333333333333333,
+        "winner_top3": 6,
+        "winner_top3_rate": 0.5,
+        "mean_log_loss": 2.6970302666334196,
+        "mean_brier": 0.9292241101396828
+      },
+      "B": {
+        "n": 12,
+        "wins": 2,
+        "hit_rate": 0.16666666666666666,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_log_loss": 2.6554040195489375,
+        "mean_brier": 0.9218642295932522
+      },
+      "C": {
+        "n": 12,
+        "wins": 2,
+        "hit_rate": 0.16666666666666666,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_log_loss": 2.674055802181123,
+        "mean_brier": 0.9205369121320469
+      },
+      "D": {
+        "n": 12,
+        "wins": 3,
+        "hit_rate": 0.25,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_log_loss": 2.7473885735619032,
+        "mean_brier": 0.924836637300416
+      }
+    }
+  },
+  "favorite_winner_rate_all": 0.4444444444444444,
+  "favorite_winner_rate_paired": 0.48484848484848486,
+  "favorite_winners_by_track": {
+    "東京": 10,
+    "京都": 3,
+    "福島": 3
+  },
+  "a_vs_c_mcnemar_paired": {
+    "a_only": 2,
+    "b_only": 7,
+    "discordant": 9,
+    "two_sided_p_exact": 0.1796875
+  },
+  "winner_popularity_counts": {
+    "1": 16,
+    "2": 7,
+    "3": 1,
+    "4": 2,
+    "5": 1,
+    "6": 1,
+    "7": 2,
+    "8": 1,
+    "9": 2,
+    "11": 2,
+    "13": 1
+  },
+  "races": [
+    {
+      "race": "東京1R",
+      "winner": 5,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010120261107/2C",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 7,
+          "hit": false
+        },
+        "B": {
+          "number": 5,
+          "hit": true
+        },
+        "C": {
+          "number": 5,
+          "hit": true
+        },
+        "D": {
+          "number": 5,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京2R",
+      "winner": 1,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010220261107/E1",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 1,
+          "hit": true
+        },
+        "B": {
+          "number": 1,
+          "hit": true
+        },
+        "C": {
+          "number": 1,
+          "hit": true
+        },
+        "D": {
+          "number": 1,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京3R",
+      "winner": 12,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010320261107/96",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 5,
+          "hit": false
+        },
+        "B": {
+          "number": 12,
+          "hit": true
+        },
+        "C": {
+          "number": 12,
+          "hit": true
+        },
+        "D": {
+          "number": 12,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京4R",
+      "winner": 8,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010420261107/4B",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 8,
+          "hit": true
+        },
+        "B": {
+          "number": 6,
+          "hit": false
+        },
+        "C": {
+          "number": 6,
+          "hit": false
+        },
+        "D": {
+          "number": 6,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "東京5R",
+      "winner": 9,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010520261107/00",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 13,
+          "hit": false
+        },
+        "B": {
+          "number": 8,
+          "hit": false
+        },
+        "C": {
+          "number": 8,
+          "hit": false
+        },
+        "D": {
+          "number": 8,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "東京6R",
+      "winner": 4,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010620261107/B5",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 8,
+          "hit": false
+        },
+        "B": {
+          "number": 5,
+          "hit": false
+        },
+        "C": {
+          "number": 5,
+          "hit": false
+        },
+        "D": {
+          "number": 5,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "東京7R",
+      "winner": 16,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010720261107/6A",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 11,
+          "hit": false
+        },
+        "B": {
+          "number": 16,
+          "hit": true
+        },
+        "C": {
+          "number": 16,
+          "hit": true
+        },
+        "D": {
+          "number": 16,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京8R",
+      "winner": 3,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010820261107/1F",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 3,
+          "hit": true
+        },
+        "B": {
+          "number": 3,
+          "hit": true
+        },
+        "C": {
+          "number": 3,
+          "hit": true
+        },
+        "D": {
+          "number": 7,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "東京9R",
+      "winner": 6,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010920261107/D4",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 15,
+          "hit": false
+        },
+        "B": {
+          "number": 15,
+          "hit": false
+        },
+        "C": {
+          "number": 6,
+          "hit": true
+        },
+        "D": {
+          "number": 6,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京10R",
+      "winner": 10,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011020261107/C9",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 10,
+          "hit": true
+        },
+        "B": {
+          "number": 10,
+          "hit": true
+        },
+        "C": {
+          "number": 10,
+          "hit": true
+        },
+        "D": {
+          "number": 10,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京11R",
+      "winner": 9,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011120261107/7E",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 9,
+          "hit": true
+        },
+        "B": {
+          "number": 9,
+          "hit": true
+        },
+        "C": {
+          "number": 9,
+          "hit": true
+        },
+        "D": {
+          "number": 9,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "東京12R",
+      "winner": 15,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011220261107/33",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 12,
+          "hit": false
+        },
+        "B": {
+          "number": 12,
+          "hit": false
+        },
+        "C": {
+          "number": 12,
+          "hit": false
+        },
+        "D": {
+          "number": 12,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都1R",
+      "winner": 1,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010120261107/0A",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 1,
+          "hit": true
+        },
+        "B": {
+          "number": 1,
+          "hit": true
+        },
+        "C": {
+          "number": 1,
+          "hit": true
+        },
+        "D": {
+          "number": 1,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "京都2R",
+      "winner": 11,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010220261107/BF",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 11,
+          "hit": true
+        },
+        "B": {
+          "number": 11,
+          "hit": true
+        },
+        "C": {
+          "number": 11,
+          "hit": true
+        },
+        "D": {
+          "number": 11,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "京都3R",
+      "winner": 4,
+      "winner_popularity_final": 7,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010320261107/74",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 13,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都4R",
+      "winner": 11,
+      "winner_popularity_final": 6,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010420261107/29",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 2,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都5R",
+      "winner": 2,
+      "winner_popularity_final": 3,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010520261107/DE",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 2,
+          "hit": true
+        },
+        "B": {
+          "number": 1,
+          "hit": false
+        },
+        "C": {
+          "number": 1,
+          "hit": false
+        },
+        "D": {
+          "number": 1,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都6R",
+      "winner": 11,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010620261107/93",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 11,
+          "hit": true
+        },
+        "B": {
+          "number": 11,
+          "hit": true
+        },
+        "C": {
+          "number": 11,
+          "hit": true
+        },
+        "D": {
+          "number": 8,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都7R",
+      "winner": 7,
+      "winner_popularity_final": 4,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010720261107/48",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 8,
+          "hit": false
+        },
+        "B": {
+          "number": 7,
+          "hit": true
+        },
+        "C": {
+          "number": 7,
+          "hit": true
+        },
+        "D": {
+          "number": 7,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "京都8R",
+      "winner": 8,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010820261107/FD",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {}
+    },
+    {
+      "race": "京都9R",
+      "winner": 9,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010920261107/B2",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 9,
+          "hit": true
+        },
+        "B": {
+          "number": 9,
+          "hit": true
+        },
+        "C": {
+          "number": 9,
+          "hit": true
+        },
+        "D": {
+          "number": 8,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都10R",
+      "winner": 5,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011020261107/A7",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 1,
+          "hit": false
+        },
+        "B": {
+          "number": 5,
+          "hit": true
+        },
+        "C": {
+          "number": 5,
+          "hit": true
+        },
+        "D": {
+          "number": 5,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "京都11R",
+      "winner": 3,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011120261107/5C",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 9,
+          "hit": false
+        },
+        "B": {
+          "number": 9,
+          "hit": false
+        },
+        "C": {
+          "number": 9,
+          "hit": false
+        },
+        "D": {
+          "number": 14,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "京都12R",
+      "winner": 16,
+      "winner_popularity_final": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011220261107/11",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 16,
+          "hit": true
+        },
+        "B": {
+          "number": 16,
+          "hit": true
+        },
+        "C": {
+          "number": 16,
+          "hit": true
+        },
+        "D": {
+          "number": 9,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島1R",
+      "winner": 4,
+      "winner_popularity_final": 8,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010120261107/36",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 7,
+          "hit": false
+        },
+        "B": {
+          "number": 7,
+          "hit": false
+        },
+        "C": {
+          "number": 7,
+          "hit": false
+        },
+        "D": {
+          "number": 7,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島2R",
+      "winner": 9,
+      "winner_popularity_final": 4,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010220261107/EB",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 10,
+          "hit": false
+        },
+        "B": {
+          "number": 10,
+          "hit": false
+        },
+        "C": {
+          "number": 2,
+          "hit": false
+        },
+        "D": {
+          "number": 9,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "福島3R",
+      "winner": 4,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010320261107/A0",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 12,
+          "hit": false
+        },
+        "B": {
+          "number": 4,
+          "hit": true
+        },
+        "C": {
+          "number": 4,
+          "hit": true
+        },
+        "D": {
+          "number": 4,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "福島4R",
+      "winner": 16,
+      "winner_popularity_final": 9,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010420261107/55",
+      "a_preoff": false,
+      "abcd_preoff": false,
+      "top1": {
+        "A": {
+          "number": 10,
+          "hit": false
+        },
+        "B": {
+          "number": 10,
+          "hit": false
+        },
+        "C": {
+          "number": 10,
+          "hit": false
+        },
+        "D": {
+          "number": 10,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島5R",
+      "winner": 12,
+      "winner_popularity_final": 9,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010520261107/0A",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 1,
+          "hit": false
+        },
+        "B": {
+          "number": 1,
+          "hit": false
+        },
+        "C": {
+          "number": 1,
+          "hit": false
+        },
+        "D": {
+          "number": 1,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島6R",
+      "winner": 11,
+      "winner_popularity_final": 7,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010620261107/BF",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 13,
+          "hit": false
+        },
+        "B": {
+          "number": 13,
+          "hit": false
+        },
+        "C": {
+          "number": 13,
+          "hit": false
+        },
+        "D": {
+          "number": 13,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島7R",
+      "winner": 9,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010720261107/74",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 9,
+          "hit": true
+        },
+        "B": {
+          "number": 9,
+          "hit": true
+        },
+        "C": {
+          "number": 9,
+          "hit": true
+        },
+        "D": {
+          "number": 9,
+          "hit": true
+        }
+      }
+    },
+    {
+      "race": "福島8R",
+      "winner": 9,
+      "winner_popularity_final": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010820261107/29",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 14,
+          "hit": false
+        },
+        "B": {
+          "number": 14,
+          "hit": false
+        },
+        "C": {
+          "number": 11,
+          "hit": false
+        },
+        "D": {
+          "number": 11,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島9R",
+      "winner": 9,
+      "winner_popularity_final": 11,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010920261107/DE",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 12,
+          "hit": false
+        },
+        "B": {
+          "number": 12,
+          "hit": false
+        },
+        "C": {
+          "number": 12,
+          "hit": false
+        },
+        "D": {
+          "number": 12,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島10R",
+      "winner": 8,
+      "winner_popularity_final": 11,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011020261107/D3",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 9,
+          "hit": false
+        },
+        "B": {
+          "number": 6,
+          "hit": false
+        },
+        "C": {
+          "number": 5,
+          "hit": false
+        },
+        "D": {
+          "number": 5,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島11R",
+      "winner": 12,
+      "winner_popularity_final": 5,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011120261107/88",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 16,
+          "hit": false
+        },
+        "B": {
+          "number": 6,
+          "hit": false
+        },
+        "C": {
+          "number": 6,
+          "hit": false
+        },
+        "D": {
+          "number": 6,
+          "hit": false
+        }
+      }
+    },
+    {
+      "race": "福島12R",
+      "winner": 15,
+      "winner_popularity_final": 13,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011220261107/3D",
+      "a_preoff": true,
+      "abcd_preoff": true,
+      "top1": {
+        "A": {
+          "number": 7,
+          "hit": false
+        },
+        "B": {
+          "number": 7,
+          "hit": false
+        },
+        "C": {
+          "number": 7,
+          "hit": false
+        },
+        "D": {
+          "number": 6,
+          "hit": false
+        }
+      }
+    }
+  ]
+}

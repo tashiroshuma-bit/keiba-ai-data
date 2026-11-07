@@ -1,0 +1,31 @@
+name: Historical 2025 outsider podium conditions
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_historical_outsider_top3_2025.yml'
+      - 'scripts/analyze_historical_outsider_top3_2025.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4
+      - name: Read archived 2025 full finish and popularity and compare to preserved winner
+        run: python -m scripts.analyze_historical_outsider_top3_2025
+      - name: Persist source-matched results and group statistics
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/outsider_top3_history_2025.json reports/outsider_top3_history_2025.md
+          git commit -m "Publish retrospective 2025 outsider podium risk and p3 feature analysis"
+          git pull --rebase origin main
+          git push

@@ -1,0 +1,30 @@
+name: Analyze Nov 7 JRA official winners and v50 ABCD
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_v50_abcd_20261107_official.yml'
+      - 'scripts/analyze_v50_abcd_20261107_official.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare 36 official winners across model ranks and preoff cohorts
+        run: python -m scripts.analyze_v50_abcd_20261107_official
+      - name: Commit immutable evaluated outcome
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/results/2026-11-07/v50_abcd_verified_review.json operations/results/2026-11-07/v50_abcd_verified_review.md
+          git commit -m "Save auditable official Nov 7 JRA A-D paired and preoff metrics"
+          git pull --rebase origin main
+          git push

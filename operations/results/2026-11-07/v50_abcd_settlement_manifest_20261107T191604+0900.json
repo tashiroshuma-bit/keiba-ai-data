@@ -1,0 +1,19 @@
+{
+  "schema": "immutable-settlement-manifest-v1",
+  "created_at": "2026-11-07T19:16:04+09:00",
+  "date": "2026-11-07",
+  "result_path": "operations/results/2026-11-07/v50_abcd_settlement_20261107T191604+0900.json",
+  "result_sha256": "7eaa3c375ae50c7e34c0c02a9ee7c99a20f7b170f672b60d184dfa52aba3c20f",
+  "report_path": "reports/review_20261107/V50_ABCD_SETTLEMENT_20261107T191604+0900.md",
+  "report_sha256": "f116aaa56ca33eaa7ab50f2465cd596818b14856b464e413af31e5bb70e50790",
+  "prediction_path": "operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json",
+  "prediction_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "prediction_git_blob_sha": "8bbce7ffc913d47cdc59489e56c42cf50f574d16",
+  "official_input_sha256": "4c1a39341214244b741054472a1f67bfb4e14b840d8a72487e6bd6d91f3d41d0",
+  "canonical_database_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "standard_v50_formal_evaluated_races": 0,
+  "research_abcd_evaluated_races": 23,
+  "weights_unchanged": true,
+  "live_bet_generation": false,
+  "actual_bets": false
+}

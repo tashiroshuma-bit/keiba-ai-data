@@ -1,0 +1,4215 @@
+{
+  "schema": "jra-v50-abcd-official-settlement-v1",
+  "date": "2026-11-07",
+  "created_at": "2026-11-07T19:16:04+09:00",
+  "official_observed_at": "2026-11-07T19:09:43.483+09:00",
+  "canonical_main_at_read": "d778d7105a9db59ea96ceefc4a55030fb018a023",
+  "canonical_database": {
+    "version": 10,
+    "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc"
+  },
+  "standard_forecast_policy": {
+    "version": "v50",
+    "policy_path": "operations/prediction_policy/standard_v50.json",
+    "policy_git_blob_sha": "34fcc7e9ca45595a0927ececf0412be2e4712907",
+    "active_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "live_bet_generation": false
+  },
+  "prediction": {
+    "path": "operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json",
+    "sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+    "git_blob_sha": "8bbce7ffc913d47cdc59489e56c42cf50f574d16",
+    "origin_sha256": "0135bb90a59d56fb69d0302739af98d738cc161bdace698e19284c9552cf2595",
+    "standard_forecast": false,
+    "status": "RESEARCH_BCD_EXTERNAL_BLEND_NOT_INDEPENDENTLY_CALIBRATED"
+  },
+  "official_input_sha256": "4c1a39341214244b741054472a1f67bfb4e14b840d8a72487e6bd6d91f3d41d0",
+  "official_sources": [
+    {
+      "race": "東京1R",
+      "surface": "flat",
+      "top3": [
+        5,
+        10,
+        7
+      ],
+      "payouts": {
+        "single": 130,
+        "quinella": 430,
+        "trio": 530
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010120261107/2C"
+    },
+    {
+      "race": "東京2R",
+      "surface": "flat",
+      "top3": [
+        1,
+        12,
+        5
+      ],
+      "payouts": {
+        "single": 120,
+        "quinella": 1680,
+        "trio": 2620
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010220261107/E1"
+    },
+    {
+      "race": "東京3R",
+      "surface": "flat",
+      "top3": [
+        12,
+        11,
+        8
+      ],
+      "payouts": {
+        "single": 160,
+        "quinella": 2130,
+        "trio": 32020
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010320261107/96"
+    },
+    {
+      "race": "東京4R",
+      "surface": "flat",
+      "top3": [
+        8,
+        6,
+        7
+      ],
+      "payouts": {
+        "single": 210,
+        "quinella": 320,
+        "trio": 910
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010420261107/4B"
+    },
+    {
+      "race": "東京5R",
+      "surface": "flat",
+      "top3": [
+        9,
+        8,
+        1
+      ],
+      "payouts": {
+        "single": 320,
+        "quinella": 630,
+        "trio": 2080
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010520261107/00"
+    },
+    {
+      "race": "東京6R",
+      "surface": "flat",
+      "top3": [
+        4,
+        1,
+        5
+      ],
+      "payouts": {
+        "single": 160,
+        "quinella": 580,
+        "trio": 4880
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010620261107/B5"
+    },
+    {
+      "race": "東京7R",
+      "surface": "flat",
+      "top3": [
+        16,
+        12,
+        3
+      ],
+      "payouts": {
+        "single": 320,
+        "quinella": 1040,
+        "trio": 1830
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010720261107/6A"
+    },
+    {
+      "race": "東京8R",
+      "surface": "flat",
+      "top3": [
+        3,
+        7,
+        5
+      ],
+      "payouts": {
+        "single": 290,
+        "quinella": 230,
+        "trio": 370
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010820261107/1F"
+    },
+    {
+      "race": "東京9R",
+      "surface": "flat",
+      "top3": [
+        6,
+        13,
+        14
+      ],
+      "payouts": {
+        "single": 250,
+        "quinella": 710,
+        "trio": 4760
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010920261107/D4"
+    },
+    {
+      "race": "東京10R",
+      "surface": "flat",
+      "top3": [
+        10,
+        2,
+        8
+      ],
+      "payouts": {
+        "single": 220,
+        "quinella": 2620,
+        "trio": 4500
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011020261107/C9"
+    },
+    {
+      "race": "東京11R",
+      "surface": "flat",
+      "top3": [
+        9,
+        2,
+        5
+      ],
+      "payouts": {
+        "single": 280,
+        "quinella": 580,
+        "trio": 2590
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011120261107/7E"
+    },
+    {
+      "race": "東京12R",
+      "surface": "flat",
+      "top3": [
+        15,
+        14,
+        5
+      ],
+      "payouts": {
+        "single": 290,
+        "quinella": 1990,
+        "trio": 18960
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011220261107/33"
+    },
+    {
+      "race": "京都1R",
+      "surface": "flat",
+      "top3": [
+        1,
+        9,
+        8
+      ],
+      "payouts": {
+        "single": 190,
+        "quinella": 690,
+        "trio": 1290
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010120261107/0A"
+    },
+    {
+      "race": "京都2R",
+      "surface": "flat",
+      "top3": [
+        11,
+        13,
+        14
+      ],
+      "payouts": {
+        "single": 430,
+        "quinella": 1950,
+        "trio": 3030
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010220261107/BF"
+    },
+    {
+      "race": "京都3R",
+      "surface": "flat",
+      "top3": [
+        4,
+        7,
+        13
+      ],
+      "payouts": {
+        "single": 9190,
+        "quinella": 5090,
+        "trio": 3650
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010320261107/74"
+    },
+    {
+      "race": "京都4R",
+      "surface": "flat",
+      "top3": [
+        11,
+        8,
+        14
+      ],
+      "payouts": {
+        "single": 1290,
+        "quinella": 4560,
+        "trio": 23820
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010420261107/29"
+    },
+    {
+      "race": "京都5R",
+      "surface": "flat",
+      "top3": [
+        2,
+        8,
+        1
+      ],
+      "payouts": {
+        "single": 880,
+        "quinella": 1230,
+        "trio": 340
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010520261107/DE"
+    },
+    {
+      "race": "京都6R",
+      "surface": "flat",
+      "top3": [
+        11,
+        8,
+        1
+      ],
+      "payouts": {
+        "single": 150,
+        "quinella": 410,
+        "trio": 950
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010620261107/93"
+    },
+    {
+      "race": "京都7R",
+      "surface": "flat",
+      "top3": [
+        7,
+        9,
+        3
+      ],
+      "payouts": {
+        "single": 540,
+        "quinella": 890,
+        "trio": 3790
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010720261107/48"
+    },
+    {
+      "race": "京都8R",
+      "surface": "obstacle",
+      "top3": [
+        8,
+        6,
+        9
+      ],
+      "payouts": {
+        "single": 340,
+        "quinella": 980,
+        "trio": 480
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010820261107/FD"
+    },
+    {
+      "race": "京都9R",
+      "surface": "flat",
+      "top3": [
+        9,
+        5,
+        4
+      ],
+      "payouts": {
+        "single": 310,
+        "quinella": 480,
+        "trio": 940
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010920261107/B2"
+    },
+    {
+      "race": "京都10R",
+      "surface": "flat",
+      "top3": [
+        5,
+        6,
+        13
+      ],
+      "payouts": {
+        "single": 370,
+        "quinella": 800,
+        "trio": 2960
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011020261107/A7"
+    },
+    {
+      "race": "京都11R",
+      "surface": "flat",
+      "top3": [
+        3,
+        13,
+        10
+      ],
+      "payouts": {
+        "single": 500,
+        "quinella": 4810,
+        "trio": 40020
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011120261107/5C"
+    },
+    {
+      "race": "京都12R",
+      "surface": "flat",
+      "top3": [
+        16,
+        15,
+        8
+      ],
+      "payouts": {
+        "single": 490,
+        "quinella": 2330,
+        "trio": 56480
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011220261107/11"
+    },
+    {
+      "race": "福島1R",
+      "surface": "flat",
+      "top3": [
+        4,
+        2,
+        8
+      ],
+      "payouts": {
+        "single": 3110,
+        "quinella": 16720,
+        "trio": 27800
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010120261107/36"
+    },
+    {
+      "race": "福島2R",
+      "surface": "flat",
+      "top3": [
+        9,
+        8,
+        13
+      ],
+      "payouts": {
+        "single": 780,
+        "quinella": 10130,
+        "trio": 164550
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010220261107/EB"
+    },
+    {
+      "race": "福島3R",
+      "surface": "flat",
+      "top3": [
+        4,
+        2,
+        9
+      ],
+      "payouts": {
+        "single": 310,
+        "quinella": 970,
+        "trio": 5740
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010320261107/A0"
+    },
+    {
+      "race": "福島4R",
+      "surface": "flat",
+      "top3": [
+        16,
+        9,
+        5
+      ],
+      "payouts": {
+        "single": 2140,
+        "quinella": 14060,
+        "trio": 59000
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010420261107/55"
+    },
+    {
+      "race": "福島5R",
+      "surface": "flat",
+      "top3": [
+        12,
+        4,
+        1
+      ],
+      "payouts": {
+        "single": 3980,
+        "quinella": 10870,
+        "trio": 11360
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010520261107/0A"
+    },
+    {
+      "race": "福島6R",
+      "surface": "flat",
+      "top3": [
+        11,
+        14,
+        4
+      ],
+      "payouts": {
+        "single": 1360,
+        "quinella": 4500,
+        "trio": 13480
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010620261107/BF"
+    },
+    {
+      "race": "福島7R",
+      "surface": "flat",
+      "top3": [
+        9,
+        4,
+        10
+      ],
+      "payouts": {
+        "single": 270,
+        "quinella": 1010,
+        "trio": 3080
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010720261107/74"
+    },
+    {
+      "race": "福島8R",
+      "surface": "flat",
+      "top3": [
+        9,
+        12,
+        1
+      ],
+      "payouts": {
+        "single": 260,
+        "quinella": 1020,
+        "trio": 4980
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010820261107/29"
+    },
+    {
+      "race": "福島9R",
+      "surface": "flat",
+      "top3": [
+        9,
+        5,
+        4
+      ],
+      "payouts": {
+        "single": 6330,
+        "quinella": 131720,
+        "trio": 466430
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010920261107/DE"
+    },
+    {
+      "race": "福島10R",
+      "surface": "flat",
+      "top3": [
+        8,
+        13,
+        16
+      ],
+      "payouts": {
+        "single": 1680,
+        "quinella": 68160,
+        "trio": 242540
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011020261107/D3"
+    },
+    {
+      "race": "福島11R",
+      "surface": "flat",
+      "top3": [
+        12,
+        6,
+        11
+      ],
+      "payouts": {
+        "single": 1070,
+        "quinella": 1710,
+        "trio": 12970
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011120261107/88"
+    },
+    {
+      "race": "福島12R",
+      "surface": "flat",
+      "top3": [
+        15,
+        12,
+        6
+      ],
+      "payouts": {
+        "single": 14390,
+        "quinella": 68880,
+        "trio": 89200
+      },
+      "scratched": [],
+      "source_url": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011220261107/3D"
+    }
+  ],
+  "coverage": {
+    "official_races": 36,
+    "flat_races": 35,
+    "obstacle_excluded": [
+      "京都8R"
+    ],
+    "standard_v50_formal": {
+      "expected_flat_races": 35,
+      "evaluated_races": 0,
+      "missing_races": 35,
+      "reason": "No actually saved pre-off file marked standard_forecast=true; available v50-labelled A-D file explicitly has standard_forecast=false and research status."
+    },
+    "research_abcd": {
+      "expected_flat_races": 35,
+      "evaluated_same_races": 23,
+      "missing_preoff_races": 12,
+      "external_missing_within_evaluated": 0,
+      "eligible_races": [
+        "東京5R",
+        "東京6R",
+        "東京7R",
+        "東京8R",
+        "東京9R",
+        "東京10R",
+        "東京11R",
+        "東京12R",
+        "京都5R",
+        "京都6R",
+        "京都7R",
+        "京都9R",
+        "京都10R",
+        "京都11R",
+        "京都12R",
+        "福島5R",
+        "福島6R",
+        "福島7R",
+        "福島8R",
+        "福島9R",
+        "福島10R",
+        "福島11R",
+        "福島12R"
+      ]
+    }
+  },
+  "standard_v50_formal_daily": {
+    "evaluated_races": 0,
+    "missing_races": 35,
+    "top1_hits": null,
+    "winner_top3_captures": null,
+    "mean_log_loss": null,
+    "mean_brier": null,
+    "ordered_top3_hits": null,
+    "unordered_top3_hits": null,
+    "tickets": null,
+    "retrospective_creation": false
+  },
+  "research_abcd_daily": {
+    "A": {
+      "n": 23,
+      "top1_hits": 8,
+      "winner_top3_hits": 17,
+      "ordered_top3_hits": 0,
+      "unordered_top3_hits": 0,
+      "tickets": {
+        "single": {
+          "points": 107,
+          "hit_races": 19,
+          "return_yen": 18480,
+          "stake_yen": 10700,
+          "profit_yen": 7780,
+          "roi": 1.7271028037383178
+        },
+        "quinella": {
+          "points": 348,
+          "hit_races": 15,
+          "return_yen": 96130,
+          "stake_yen": 34800,
+          "profit_yen": 61330,
+          "roi": 2.7623563218390803
+        },
+        "trio": {
+          "points": 1691,
+          "hit_races": 12,
+          "return_yen": 316500,
+          "stake_yen": 169100,
+          "profit_yen": 147400,
+          "roi": 1.8716735659373152
+        }
+      },
+      "races": [
+        {
+          "race": "東京5R",
+          "actual_top3": [
+            9,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            13,
+            8,
+            9
+          ],
+          "pwin": 0.08212691727010743,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 18,
+              "hit": true,
+              "return_yen": 630
+            },
+            "trio": {
+              "points": 89,
+              "hit": true,
+              "return_yen": 2080
+            }
+          }
+        },
+        {
+          "race": "東京6R",
+          "actual_top3": [
+            4,
+            1,
+            5
+          ],
+          "predicted_top3": [
+            8,
+            5,
+            1
+          ],
+          "pwin": 0.059918484440264076,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 25,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 133,
+              "hit": true,
+              "return_yen": 4880
+            }
+          }
+        },
+        {
+          "race": "東京7R",
+          "actual_top3": [
+            16,
+            12,
+            3
+          ],
+          "predicted_top3": [
+            11,
+            12,
+            2
+          ],
+          "pwin": 0.05568395979860335,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 33,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 205,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京8R",
+          "actual_top3": [
+            3,
+            7,
+            5
+          ],
+          "predicted_top3": [
+            3,
+            9,
+            7
+          ],
+          "pwin": 0.15918603806918835,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 230
+            },
+            "trio": {
+              "points": 18,
+              "hit": true,
+              "return_yen": 370
+            }
+          }
+        },
+        {
+          "race": "東京9R",
+          "actual_top3": [
+            6,
+            13,
+            14
+          ],
+          "predicted_top3": [
+            15,
+            2,
+            6
+          ],
+          "pwin": 0.09575105613170581,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 250
+            },
+            "quinella": {
+              "points": 11,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 49,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京10R",
+          "actual_top3": [
+            10,
+            2,
+            8
+          ],
+          "predicted_top3": [
+            10,
+            1,
+            8
+          ],
+          "pwin": 0.15474711395779175,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 220
+            },
+            "quinella": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 22,
+              "hit": true,
+              "return_yen": 4500
+            }
+          }
+        },
+        {
+          "race": "東京11R",
+          "actual_top3": [
+            9,
+            2,
+            5
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            4
+          ],
+          "pwin": 0.16063863970301512,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 280
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 22,
+              "hit": true,
+              "return_yen": 2590
+            }
+          }
+        },
+        {
+          "race": "東京12R",
+          "actual_top3": [
+            15,
+            14,
+            5
+          ],
+          "predicted_top3": [
+            12,
+            15,
+            16
+          ],
+          "pwin": 0.08637122025470598,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 21,
+              "hit": true,
+              "return_yen": 1990
+            },
+            "trio": {
+              "points": 118,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都5R",
+          "actual_top3": [
+            2,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            2,
+            6,
+            1
+          ],
+          "pwin": 0.13548892047291283,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 880
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 1230
+            },
+            "trio": {
+              "points": 15,
+              "hit": true,
+              "return_yen": 340
+            }
+          }
+        },
+        {
+          "race": "京都6R",
+          "actual_top3": [
+            11,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            11,
+            1,
+            9
+          ],
+          "pwin": 0.11166527927466412,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 150
+            },
+            "quinella": {
+              "points": 12,
+              "hit": true,
+              "return_yen": 410
+            },
+            "trio": {
+              "points": 41,
+              "hit": true,
+              "return_yen": 950
+            }
+          }
+        },
+        {
+          "race": "京都7R",
+          "actual_top3": [
+            7,
+            9,
+            3
+          ],
+          "predicted_top3": [
+            8,
+            7,
+            9
+          ],
+          "pwin": 0.1302268593080214,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 540
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 890
+            },
+            "trio": {
+              "points": 23,
+              "hit": true,
+              "return_yen": 3790
+            }
+          }
+        },
+        {
+          "race": "京都9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            1
+          ],
+          "pwin": 0.15739042600824146,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 310
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 480
+            },
+            "trio": {
+              "points": 19,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都10R",
+          "actual_top3": [
+            5,
+            6,
+            13
+          ],
+          "predicted_top3": [
+            1,
+            5,
+            10
+          ],
+          "pwin": 0.11951202412535823,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 370
+            },
+            "quinella": {
+              "points": 9,
+              "hit": true,
+              "return_yen": 800
+            },
+            "trio": {
+              "points": 39,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都11R",
+          "actual_top3": [
+            3,
+            13,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            3,
+            13
+          ],
+          "pwin": 0.09140638067047889,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 500
+            },
+            "quinella": {
+              "points": 17,
+              "hit": true,
+              "return_yen": 4810
+            },
+            "trio": {
+              "points": 88,
+              "hit": true,
+              "return_yen": 40020
+            }
+          }
+        },
+        {
+          "race": "京都12R",
+          "actual_top3": [
+            16,
+            15,
+            8
+          ],
+          "predicted_top3": [
+            16,
+            2,
+            9
+          ],
+          "pwin": 0.13584579181461232,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 490
+            },
+            "quinella": {
+              "points": 15,
+              "hit": true,
+              "return_yen": 2330
+            },
+            "trio": {
+              "points": 77,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島5R",
+          "actual_top3": [
+            12,
+            4,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            13,
+            12
+          ],
+          "pwin": 0.06616855492600802,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 3980
+            },
+            "quinella": {
+              "points": 27,
+              "hit": true,
+              "return_yen": 10870
+            },
+            "trio": {
+              "points": 143,
+              "hit": true,
+              "return_yen": 11360
+            }
+          }
+        },
+        {
+          "race": "福島6R",
+          "actual_top3": [
+            11,
+            14,
+            4
+          ],
+          "predicted_top3": [
+            13,
+            2,
+            16
+          ],
+          "pwin": 0.05081447232575024,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 17,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 81,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島7R",
+          "actual_top3": [
+            9,
+            4,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            4,
+            3
+          ],
+          "pwin": 0.09962947170786593,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 270
+            },
+            "quinella": {
+              "points": 17,
+              "hit": true,
+              "return_yen": 1010
+            },
+            "trio": {
+              "points": 86,
+              "hit": true,
+              "return_yen": 3080
+            }
+          }
+        },
+        {
+          "race": "福島8R",
+          "actual_top3": [
+            9,
+            12,
+            1
+          ],
+          "predicted_top3": [
+            14,
+            9,
+            12
+          ],
+          "pwin": 0.08579831828562536,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 260
+            },
+            "quinella": {
+              "points": 12,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 63,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            12,
+            16,
+            3
+          ],
+          "pwin": 0.07623806484575442,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 6330
+            },
+            "quinella": {
+              "points": 16,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 79,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島10R",
+          "actual_top3": [
+            8,
+            13,
+            16
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            11
+          ],
+          "pwin": 0.07596527403316072,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 1680
+            },
+            "quinella": {
+              "points": 23,
+              "hit": true,
+              "return_yen": 68160
+            },
+            "trio": {
+              "points": 120,
+              "hit": true,
+              "return_yen": 242540
+            }
+          }
+        },
+        {
+          "race": "福島11R",
+          "actual_top3": [
+            12,
+            6,
+            11
+          ],
+          "predicted_top3": [
+            16,
+            6,
+            10
+          ],
+          "pwin": 0.06445524693266418,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 1070
+            },
+            "quinella": {
+              "points": 17,
+              "hit": true,
+              "return_yen": 1710
+            },
+            "trio": {
+              "points": 85,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島12R",
+          "actual_top3": [
+            15,
+            12,
+            6
+          ],
+          "predicted_top3": [
+            7,
+            5,
+            11
+          ],
+          "pwin": 0.042689892625687974,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 16,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 76,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        }
+      ],
+      "log_loss": 2.375018639871114,
+      "brier": 0.8802818536379248
+    },
+    "B": {
+      "n": 23,
+      "top1_hits": 10,
+      "winner_top3_hits": 16,
+      "ordered_top3_hits": 1,
+      "unordered_top3_hits": 2,
+      "tickets": {
+        "single": {
+          "points": 96,
+          "hit_races": 20,
+          "return_yen": 12630,
+          "stake_yen": 9600,
+          "profit_yen": 3030,
+          "roi": 1.315625
+        },
+        "quinella": {
+          "points": 276,
+          "hit_races": 15,
+          "return_yen": 17750,
+          "stake_yen": 27600,
+          "profit_yen": -9850,
+          "roi": 0.6431159420289855
+        },
+        "trio": {
+          "points": 1282,
+          "hit_races": 13,
+          "return_yen": 48140,
+          "stake_yen": 128200,
+          "profit_yen": -80060,
+          "roi": 0.37550702028081123
+        }
+      },
+      "races": [
+        {
+          "race": "東京5R",
+          "actual_top3": [
+            9,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            8,
+            9,
+            13
+          ],
+          "pwin": 0.10400438654013967,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 11,
+              "hit": true,
+              "return_yen": 630
+            },
+            "trio": {
+              "points": 51,
+              "hit": true,
+              "return_yen": 2080
+            }
+          }
+        },
+        {
+          "race": "東京6R",
+          "actual_top3": [
+            4,
+            1,
+            5
+          ],
+          "predicted_top3": [
+            5,
+            8,
+            4
+          ],
+          "pwin": 0.07452963177362944,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 160
+            },
+            "quinella": {
+              "points": 22,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 115,
+              "hit": true,
+              "return_yen": 4880
+            }
+          }
+        },
+        {
+          "race": "東京7R",
+          "actual_top3": [
+            16,
+            12,
+            3
+          ],
+          "predicted_top3": [
+            16,
+            12,
+            10
+          ],
+          "pwin": 0.07618957033319641,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 27,
+              "hit": true,
+              "return_yen": 1040
+            },
+            "trio": {
+              "points": 164,
+              "hit": true,
+              "return_yen": 1830
+            }
+          }
+        },
+        {
+          "race": "東京8R",
+          "actual_top3": [
+            3,
+            7,
+            5
+          ],
+          "predicted_top3": [
+            3,
+            7,
+            5
+          ],
+          "pwin": 0.19136562607051424,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": true,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 230
+            },
+            "trio": {
+              "points": 13,
+              "hit": true,
+              "return_yen": 370
+            }
+          }
+        },
+        {
+          "race": "東京9R",
+          "actual_top3": [
+            6,
+            13,
+            14
+          ],
+          "predicted_top3": [
+            15,
+            6,
+            2
+          ],
+          "pwin": 0.13399527361781818,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 250
+            },
+            "quinella": {
+              "points": 8,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 36,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京10R",
+          "actual_top3": [
+            10,
+            2,
+            8
+          ],
+          "predicted_top3": [
+            10,
+            1,
+            4
+          ],
+          "pwin": 0.18714051263630957,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 220
+            },
+            "quinella": {
+              "points": 6,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 16,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京11R",
+          "actual_top3": [
+            9,
+            2,
+            5
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            2
+          ],
+          "pwin": 0.19732983616449268,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 280
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 16,
+              "hit": true,
+              "return_yen": 2590
+            }
+          }
+        },
+        {
+          "race": "東京12R",
+          "actual_top3": [
+            15,
+            14,
+            5
+          ],
+          "predicted_top3": [
+            12,
+            16,
+            15
+          ],
+          "pwin": 0.0838511519557119,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 15,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 82,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都5R",
+          "actual_top3": [
+            2,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            8,
+            2
+          ],
+          "pwin": 0.13923629563600526,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 880
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 1230
+            },
+            "trio": {
+              "points": 12,
+              "hit": true,
+              "return_yen": 340
+            }
+          }
+        },
+        {
+          "race": "京都6R",
+          "actual_top3": [
+            11,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            11,
+            8,
+            4
+          ],
+          "pwin": 0.12971779617114762,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 150
+            },
+            "quinella": {
+              "points": 10,
+              "hit": true,
+              "return_yen": 410
+            },
+            "trio": {
+              "points": 32,
+              "hit": true,
+              "return_yen": 950
+            }
+          }
+        },
+        {
+          "race": "京都7R",
+          "actual_top3": [
+            7,
+            9,
+            3
+          ],
+          "predicted_top3": [
+            7,
+            8,
+            9
+          ],
+          "pwin": 0.18188328273697568,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 540
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 890
+            },
+            "trio": {
+              "points": 16,
+              "hit": true,
+              "return_yen": 3790
+            }
+          }
+        },
+        {
+          "race": "京都9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            5
+          ],
+          "pwin": 0.17794801493627777,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 310
+            },
+            "quinella": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 480
+            },
+            "trio": {
+              "points": 14,
+              "hit": true,
+              "return_yen": 940
+            }
+          }
+        },
+        {
+          "race": "京都10R",
+          "actual_top3": [
+            5,
+            6,
+            13
+          ],
+          "predicted_top3": [
+            5,
+            1,
+            10
+          ],
+          "pwin": 0.14981216373131934,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 370
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 800
+            },
+            "trio": {
+              "points": 27,
+              "hit": true,
+              "return_yen": 2960
+            }
+          }
+        },
+        {
+          "race": "京都11R",
+          "actual_top3": [
+            3,
+            13,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            14,
+            13
+          ],
+          "pwin": 0.08452715616734596,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 500
+            },
+            "quinella": {
+              "points": 14,
+              "hit": true,
+              "return_yen": 4810
+            },
+            "trio": {
+              "points": 69,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都12R",
+          "actual_top3": [
+            16,
+            15,
+            8
+          ],
+          "predicted_top3": [
+            16,
+            2,
+            9
+          ],
+          "pwin": 0.1406899371379554,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 490
+            },
+            "quinella": {
+              "points": 12,
+              "hit": true,
+              "return_yen": 2330
+            },
+            "trio": {
+              "points": 56,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島5R",
+          "actual_top3": [
+            12,
+            4,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            13,
+            7
+          ],
+          "pwin": 0.06419848826019586,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 3980
+            },
+            "quinella": {
+              "points": 22,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 115,
+              "hit": true,
+              "return_yen": 11360
+            }
+          }
+        },
+        {
+          "race": "福島6R",
+          "actual_top3": [
+            11,
+            14,
+            4
+          ],
+          "predicted_top3": [
+            13,
+            16,
+            6
+          ],
+          "pwin": 0.056491211121236354,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 12,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 57,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島7R",
+          "actual_top3": [
+            9,
+            4,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            3,
+            10
+          ],
+          "pwin": 0.15658082745045948,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 270
+            },
+            "quinella": {
+              "points": 11,
+              "hit": true,
+              "return_yen": 1010
+            },
+            "trio": {
+              "points": 48,
+              "hit": true,
+              "return_yen": 3080
+            }
+          }
+        },
+        {
+          "race": "福島8R",
+          "actual_top3": [
+            9,
+            12,
+            1
+          ],
+          "predicted_top3": [
+            14,
+            12,
+            11
+          ],
+          "pwin": 0.07669157236928856,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 260
+            },
+            "quinella": {
+              "points": 16,
+              "hit": true,
+              "return_yen": 1020
+            },
+            "trio": {
+              "points": 81,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            12,
+            3,
+            16
+          ],
+          "pwin": 0.055850171793917956,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 11,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 51,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島10R",
+          "actual_top3": [
+            8,
+            13,
+            16
+          ],
+          "predicted_top3": [
+            6,
+            5,
+            11
+          ],
+          "pwin": 0.06895906343185618,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 1680
+            },
+            "quinella": {
+              "points": 20,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 102,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島11R",
+          "actual_top3": [
+            12,
+            6,
+            11
+          ],
+          "predicted_top3": [
+            6,
+            16,
+            12
+          ],
+          "pwin": 0.08202022430543522,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 1070
+            },
+            "quinella": {
+              "points": 11,
+              "hit": true,
+              "return_yen": 1710
+            },
+            "trio": {
+              "points": 52,
+              "hit": true,
+              "return_yen": 12970
+            }
+          }
+        },
+        {
+          "race": "福島12R",
+          "actual_top3": [
+            15,
+            12,
+            6
+          ],
+          "predicted_top3": [
+            7,
+            6,
+            5
+          ],
+          "pwin": 0.03385824388991743,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 13,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 57,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        }
+      ],
+      "log_loss": 2.266851309306014,
+      "brier": 0.8561103625669765
+    },
+    "C": {
+      "n": 23,
+      "top1_hits": 11,
+      "winner_top3_hits": 16,
+      "ordered_top3_hits": 1,
+      "unordered_top3_hits": 2,
+      "tickets": {
+        "single": {
+          "points": 85,
+          "hit_races": 17,
+          "return_yen": 6710,
+          "stake_yen": 8500,
+          "profit_yen": -1790,
+          "roi": 0.7894117647058824
+        },
+        "quinella": {
+          "points": 204,
+          "hit_races": 14,
+          "return_yen": 12940,
+          "stake_yen": 20400,
+          "profit_yen": -7460,
+          "roi": 0.634313725490196
+        },
+        "trio": {
+          "points": 881,
+          "hit_races": 13,
+          "return_yen": 48140,
+          "stake_yen": 88100,
+          "profit_yen": -39960,
+          "roi": 0.5464245175936436
+        }
+      },
+      "races": [
+        {
+          "race": "東京5R",
+          "actual_top3": [
+            9,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            8,
+            9,
+            13
+          ],
+          "pwin": 0.1238920379576045,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 630
+            },
+            "trio": {
+              "points": 26,
+              "hit": true,
+              "return_yen": 2080
+            }
+          }
+        },
+        {
+          "race": "東京6R",
+          "actual_top3": [
+            4,
+            1,
+            5
+          ],
+          "predicted_top3": [
+            5,
+            4,
+            8
+          ],
+          "pwin": 0.08967127373167431,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 160
+            },
+            "quinella": {
+              "points": 19,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 93,
+              "hit": true,
+              "return_yen": 4880
+            }
+          }
+        },
+        {
+          "race": "東京7R",
+          "actual_top3": [
+            16,
+            12,
+            3
+          ],
+          "predicted_top3": [
+            16,
+            12,
+            10
+          ],
+          "pwin": 0.09784518416786113,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 21,
+              "hit": true,
+              "return_yen": 1040
+            },
+            "trio": {
+              "points": 121,
+              "hit": true,
+              "return_yen": 1830
+            }
+          }
+        },
+        {
+          "race": "東京8R",
+          "actual_top3": [
+            3,
+            7,
+            5
+          ],
+          "predicted_top3": [
+            3,
+            7,
+            5
+          ],
+          "pwin": 0.22068073461064983,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": true,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 230
+            },
+            "trio": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 370
+            }
+          }
+        },
+        {
+          "race": "東京9R",
+          "actual_top3": [
+            6,
+            13,
+            14
+          ],
+          "predicted_top3": [
+            6,
+            15,
+            2
+          ],
+          "pwin": 0.17270275815661004,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 250
+            },
+            "quinella": {
+              "points": 6,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 23,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京10R",
+          "actual_top3": [
+            10,
+            2,
+            8
+          ],
+          "predicted_top3": [
+            10,
+            1,
+            4
+          ],
+          "pwin": 0.2183905515279403,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 220
+            },
+            "quinella": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 11,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京11R",
+          "actual_top3": [
+            9,
+            2,
+            5
+          ],
+          "predicted_top3": [
+            9,
+            2,
+            8
+          ],
+          "pwin": 0.23350644131785925,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 280
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 11,
+              "hit": true,
+              "return_yen": 2590
+            }
+          }
+        },
+        {
+          "race": "東京12R",
+          "actual_top3": [
+            15,
+            14,
+            5
+          ],
+          "predicted_top3": [
+            12,
+            16,
+            15
+          ],
+          "pwin": 0.08072671853651667,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 11,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 53,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都5R",
+          "actual_top3": [
+            2,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            8,
+            2
+          ],
+          "pwin": 0.14245773356101527,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 880
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 1230
+            },
+            "trio": {
+              "points": 10,
+              "hit": true,
+              "return_yen": 340
+            }
+          }
+        },
+        {
+          "race": "京都6R",
+          "actual_top3": [
+            11,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            11,
+            8,
+            4
+          ],
+          "pwin": 0.14750232821405337,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 150
+            },
+            "quinella": {
+              "points": 8,
+              "hit": true,
+              "return_yen": 410
+            },
+            "trio": {
+              "points": 23,
+              "hit": true,
+              "return_yen": 950
+            }
+          }
+        },
+        {
+          "race": "京都7R",
+          "actual_top3": [
+            7,
+            9,
+            3
+          ],
+          "predicted_top3": [
+            7,
+            8,
+            1
+          ],
+          "pwin": 0.23428197277071097,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 540
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 890
+            },
+            "trio": {
+              "points": 10,
+              "hit": true,
+              "return_yen": 3790
+            }
+          }
+        },
+        {
+          "race": "京都9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            9,
+            8,
+            5
+          ],
+          "pwin": 0.19666333685880602,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 310
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 480
+            },
+            "trio": {
+              "points": 9,
+              "hit": true,
+              "return_yen": 940
+            }
+          }
+        },
+        {
+          "race": "京都10R",
+          "actual_top3": [
+            5,
+            6,
+            13
+          ],
+          "predicted_top3": [
+            5,
+            1,
+            10
+          ],
+          "pwin": 0.17940307205745784,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 370
+            },
+            "quinella": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 800
+            },
+            "trio": {
+              "points": 17,
+              "hit": true,
+              "return_yen": 2960
+            }
+          }
+        },
+        {
+          "race": "京都11R",
+          "actual_top3": [
+            3,
+            13,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            14,
+            13
+          ],
+          "pwin": 0.07744987005256429,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 500
+            },
+            "quinella": {
+              "points": 11,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 51,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都12R",
+          "actual_top3": [
+            16,
+            15,
+            8
+          ],
+          "predicted_top3": [
+            16,
+            2,
+            9
+          ],
+          "pwin": 0.14434520315150046,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 490
+            },
+            "quinella": {
+              "points": 9,
+              "hit": true,
+              "return_yen": 2330
+            },
+            "trio": {
+              "points": 39,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島5R",
+          "actual_top3": [
+            12,
+            4,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            10,
+            13
+          ],
+          "pwin": 0.06207771863697081,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 6,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 17,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 88,
+              "hit": true,
+              "return_yen": 11360
+            }
+          }
+        },
+        {
+          "race": "福島6R",
+          "actual_top3": [
+            11,
+            14,
+            4
+          ],
+          "predicted_top3": [
+            13,
+            6,
+            16
+          ],
+          "pwin": 0.061528937682359106,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 9,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 36,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島7R",
+          "actual_top3": [
+            9,
+            4,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            3,
+            10
+          ],
+          "pwin": 0.21413451432999953,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 270
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 1010
+            },
+            "trio": {
+              "points": 24,
+              "hit": true,
+              "return_yen": 3080
+            }
+          }
+        },
+        {
+          "race": "福島8R",
+          "actual_top3": [
+            9,
+            12,
+            1
+          ],
+          "predicted_top3": [
+            11,
+            12,
+            8
+          ],
+          "pwin": 0.06669363859162455,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 15,
+              "hit": true,
+              "return_yen": 1020
+            },
+            "trio": {
+              "points": 66,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            12,
+            3,
+            7
+          ],
+          "pwin": 0.03755730370447954,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 30,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島10R",
+          "actual_top3": [
+            8,
+            13,
+            16
+          ],
+          "predicted_top3": [
+            5,
+            6,
+            11
+          ],
+          "pwin": 0.061679641840650085,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 15,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 70,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島11R",
+          "actual_top3": [
+            12,
+            6,
+            11
+          ],
+          "predicted_top3": [
+            6,
+            16,
+            12
+          ],
+          "pwin": 0.0988761137184818,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 1070
+            },
+            "quinella": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 1710
+            },
+            "trio": {
+              "points": 29,
+              "hit": true,
+              "return_yen": 12970
+            }
+          }
+        },
+        {
+          "race": "福島12R",
+          "actual_top3": [
+            15,
+            12,
+            6
+          ],
+          "predicted_top3": [
+            7,
+            6,
+            4
+          ],
+          "pwin": 0.025421856739295288,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 9,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 34,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        }
+      ],
+      "log_loss": 2.2002731125942994,
+      "brier": 0.8382169285729824
+    },
+    "D": {
+      "n": 23,
+      "top1_hits": 7,
+      "winner_top3_hits": 16,
+      "ordered_top3_hits": 1,
+      "unordered_top3_hits": 3,
+      "tickets": {
+        "single": {
+          "points": 70,
+          "hit_races": 15,
+          "return_yen": 5140,
+          "stake_yen": 7000,
+          "profit_yen": -1860,
+          "roi": 0.7342857142857143
+        },
+        "quinella": {
+          "points": 151,
+          "hit_races": 11,
+          "return_yen": 9010,
+          "stake_yen": 15100,
+          "profit_yen": -6090,
+          "roi": 0.5966887417218543
+        },
+        "trio": {
+          "points": 592,
+          "hit_races": 11,
+          "return_yen": 31380,
+          "stake_yen": 59200,
+          "profit_yen": -27820,
+          "roi": 0.5300675675675676
+        }
+      },
+      "races": [
+        {
+          "race": "東京5R",
+          "actual_top3": [
+            9,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            8,
+            9,
+            7
+          ],
+          "pwin": 0.14098327660429044,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 630
+            },
+            "trio": {
+              "points": 13,
+              "hit": true,
+              "return_yen": 2080
+            }
+          }
+        },
+        {
+          "race": "東京6R",
+          "actual_top3": [
+            4,
+            1,
+            5
+          ],
+          "predicted_top3": [
+            5,
+            4,
+            8
+          ],
+          "pwin": 0.10513893287454476,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 160
+            },
+            "quinella": {
+              "points": 15,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 74,
+              "hit": true,
+              "return_yen": 4880
+            }
+          }
+        },
+        {
+          "race": "東京7R",
+          "actual_top3": [
+            16,
+            12,
+            3
+          ],
+          "predicted_top3": [
+            16,
+            12,
+            10
+          ],
+          "pwin": 0.12016636231611007,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": true,
+              "return_yen": 320
+            },
+            "quinella": {
+              "points": 16,
+              "hit": true,
+              "return_yen": 1040
+            },
+            "trio": {
+              "points": 88,
+              "hit": true,
+              "return_yen": 1830
+            }
+          }
+        },
+        {
+          "race": "東京8R",
+          "actual_top3": [
+            3,
+            7,
+            5
+          ],
+          "predicted_top3": [
+            7,
+            3,
+            5
+          ],
+          "pwin": 0.2459368799192178,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 230
+            },
+            "trio": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 370
+            }
+          }
+        },
+        {
+          "race": "東京9R",
+          "actual_top3": [
+            6,
+            13,
+            14
+          ],
+          "predicted_top3": [
+            6,
+            15,
+            2
+          ],
+          "pwin": 0.21026362224248918,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 250
+            },
+            "quinella": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 13,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京10R",
+          "actual_top3": [
+            10,
+            2,
+            8
+          ],
+          "predicted_top3": [
+            10,
+            1,
+            4
+          ],
+          "pwin": 0.24769815876700105,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 220
+            },
+            "quinella": {
+              "points": 3,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "東京11R",
+          "actual_top3": [
+            9,
+            2,
+            5
+          ],
+          "predicted_top3": [
+            9,
+            2,
+            5
+          ],
+          "pwin": 0.26821914218037934,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": true,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 280
+            },
+            "quinella": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 580
+            },
+            "trio": {
+              "points": 8,
+              "hit": true,
+              "return_yen": 2590
+            }
+          }
+        },
+        {
+          "race": "東京12R",
+          "actual_top3": [
+            15,
+            14,
+            5
+          ],
+          "predicted_top3": [
+            12,
+            16,
+            15
+          ],
+          "pwin": 0.07712897458203075,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 290
+            },
+            "quinella": {
+              "points": 8,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 34,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都5R",
+          "actual_top3": [
+            2,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            8,
+            2
+          ],
+          "pwin": 0.14514476161338083,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": true,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 880
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 1230
+            },
+            "trio": {
+              "points": 7,
+              "hit": true,
+              "return_yen": 340
+            }
+          }
+        },
+        {
+          "race": "京都6R",
+          "actual_top3": [
+            11,
+            8,
+            1
+          ],
+          "predicted_top3": [
+            8,
+            11,
+            4
+          ],
+          "pwin": 0.16472246682639308,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 150
+            },
+            "quinella": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 410
+            },
+            "trio": {
+              "points": 16,
+              "hit": true,
+              "return_yen": 950
+            }
+          }
+        },
+        {
+          "race": "京都7R",
+          "actual_top3": [
+            7,
+            9,
+            3
+          ],
+          "predicted_top3": [
+            7,
+            8,
+            1
+          ],
+          "pwin": 0.2854569557518109,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 540
+            },
+            "quinella": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 890
+            },
+            "trio": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            8,
+            9,
+            5
+          ],
+          "pwin": 0.21303860857089876,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 310
+            },
+            "quinella": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 480
+            },
+            "trio": {
+              "points": 6,
+              "hit": true,
+              "return_yen": 940
+            }
+          }
+        },
+        {
+          "race": "京都10R",
+          "actual_top3": [
+            5,
+            6,
+            13
+          ],
+          "predicted_top3": [
+            5,
+            1,
+            10
+          ],
+          "pwin": 0.20743501695989866,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 370
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 800
+            },
+            "trio": {
+              "points": 11,
+              "hit": true,
+              "return_yen": 2960
+            }
+          }
+        },
+        {
+          "race": "京都11R",
+          "actual_top3": [
+            3,
+            13,
+            10
+          ],
+          "predicted_top3": [
+            14,
+            9,
+            13
+          ],
+          "pwin": 0.07030317564962298,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 9,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 36,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "京都12R",
+          "actual_top3": [
+            16,
+            15,
+            8
+          ],
+          "predicted_top3": [
+            9,
+            16,
+            2
+          ],
+          "pwin": 0.1468155394928661,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": true,
+              "return_yen": 490
+            },
+            "quinella": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 25,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島5R",
+          "actual_top3": [
+            12,
+            4,
+            1
+          ],
+          "predicted_top3": [
+            1,
+            10,
+            7
+          ],
+          "pwin": 0.05983873224173337,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 13,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 69,
+              "hit": true,
+              "return_yen": 11360
+            }
+          }
+        },
+        {
+          "race": "福島6R",
+          "actual_top3": [
+            11,
+            14,
+            4
+          ],
+          "predicted_top3": [
+            13,
+            6,
+            16
+          ],
+          "pwin": 0.06576911903381405,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 7,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 23,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島7R",
+          "actual_top3": [
+            9,
+            4,
+            10
+          ],
+          "predicted_top3": [
+            9,
+            3,
+            10
+          ],
+          "pwin": 0.2685354235940194,
+          "top1_hit": true,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": true,
+              "return_yen": 270
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 1010
+            },
+            "trio": {
+              "points": 12,
+              "hit": true,
+              "return_yen": 3080
+            }
+          }
+        },
+        {
+          "race": "福島8R",
+          "actual_top3": [
+            9,
+            12,
+            1
+          ],
+          "predicted_top3": [
+            11,
+            12,
+            8
+          ],
+          "pwin": 0.05625362079563628,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 10,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 40,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島9R",
+          "actual_top3": [
+            9,
+            5,
+            4
+          ],
+          "predicted_top3": [
+            12,
+            7,
+            6
+          ],
+          "pwin": 0.022087264411900582,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 5,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 19,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島10R",
+          "actual_top3": [
+            8,
+            13,
+            16
+          ],
+          "predicted_top3": [
+            5,
+            6,
+            16
+          ],
+          "pwin": 0.054330815264901584,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 4,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 10,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 46,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島11R",
+          "actual_top3": [
+            12,
+            6,
+            11
+          ],
+          "predicted_top3": [
+            6,
+            16,
+            12
+          ],
+          "pwin": 0.11442427707404776,
+          "top1_hit": false,
+          "winner_top3": true,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 2,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 4,
+              "hit": true,
+              "return_yen": 1710
+            },
+            "trio": {
+              "points": 16,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        },
+        {
+          "race": "福島12R",
+          "actual_top3": [
+            15,
+            12,
+            6
+          ],
+          "predicted_top3": [
+            6,
+            7,
+            4
+          ],
+          "pwin": 0.01777691925020896,
+          "top1_hit": false,
+          "winner_top3": false,
+          "ordered_top3": false,
+          "unordered_top3": false,
+          "tickets": {
+            "single": {
+              "points": 3,
+              "hit": false,
+              "return_yen": 0
+            },
+            "quinella": {
+              "points": 6,
+              "hit": false,
+              "return_yen": 0
+            },
+            "trio": {
+              "points": 18,
+              "hit": false,
+              "return_yen": 0
+            }
+          }
+        }
+      ],
+      "log_loss": 2.169552390561657,
+      "brier": 0.8264855025244647
+    }
+  },
+  "cumulative_research_shadow_20261031_to_20261107": {
+    "races": 69,
+    "regime_break_on_20261102": true,
+    "note": "Named A-D shadow totals only; pre-2026-11-02 and current research-proxy internals are not treated as one formally unchanged production model.",
+    "models": {
+      "A": {
+        "eligible_races": 69,
+        "evaluated_races": 69,
+        "missing_races": 0,
+        "top1_hits": 23,
+        "winner_top3_captures": 40,
+        "mean_log_loss": 2.2401467013535497,
+        "mean_brier": 0.8529326238577604,
+        "tickets": {
+          "single": {
+            "race_hits": 41,
+            "races": 69,
+            "points": 245,
+            "stake_yen": 24500,
+            "return_yen": 24880,
+            "refund_yen": 100,
+            "profit_yen": 380,
+            "roi": 1.0155102040816326
+          },
+          "quinella": {
+            "race_hits": 31,
+            "races": 69,
+            "points": 658,
+            "stake_yen": 65800,
+            "return_yen": 119480,
+            "refund_yen": 300,
+            "profit_yen": 53680,
+            "roi": 1.81580547112462
+          },
+          "trio": {
+            "race_hits": 25,
+            "races": 69,
+            "points": 2947,
+            "stake_yen": 294700,
+            "return_yen": 344020,
+            "refund_yen": 1900,
+            "profit_yen": 49320,
+            "roi": 1.1673566338649475
+          }
+        }
+      },
+      "B": {
+        "eligible_races": 69,
+        "evaluated_races": 69,
+        "missing_races": 0,
+        "top1_hits": 23,
+        "winner_top3_captures": 41,
+        "mean_log_loss": 2.1553399197670897,
+        "mean_brier": 0.835125006957811,
+        "tickets": {
+          "single": {
+            "race_hits": 49,
+            "races": 69,
+            "points": 241,
+            "stake_yen": 24100,
+            "return_yen": 20820,
+            "refund_yen": 100,
+            "profit_yen": -3280,
+            "roi": 0.8639004149377594
+          },
+          "quinella": {
+            "race_hits": 31,
+            "races": 69,
+            "points": 604,
+            "stake_yen": 60400,
+            "return_yen": 40360,
+            "refund_yen": 300,
+            "profit_yen": -20040,
+            "roi": 0.6682119205298013
+          },
+          "trio": {
+            "race_hits": 35,
+            "races": 69,
+            "points": 2604,
+            "stake_yen": 260400,
+            "return_yen": 132030,
+            "refund_yen": 1900,
+            "profit_yen": -128370,
+            "roi": 0.5070276497695853
+          }
+        }
+      },
+      "C": {
+        "eligible_races": 69,
+        "evaluated_races": 69,
+        "missing_races": 0,
+        "top1_hits": 26,
+        "winner_top3_captures": 42,
+        "mean_log_loss": 2.0972958128836345,
+        "mean_brier": 0.8220316551615656,
+        "tickets": {
+          "single": {
+            "race_hits": 47,
+            "races": 69,
+            "points": 233,
+            "stake_yen": 23300,
+            "return_yen": 15640,
+            "refund_yen": 100,
+            "profit_yen": -7660,
+            "roi": 0.671244635193133
+          },
+          "quinella": {
+            "race_hits": 36,
+            "races": 69,
+            "points": 540,
+            "stake_yen": 54000,
+            "return_yen": 43580,
+            "refund_yen": 300,
+            "profit_yen": -10420,
+            "roi": 0.807037037037037
+          },
+          "trio": {
+            "race_hits": 36,
+            "races": 69,
+            "points": 2194,
+            "stake_yen": 219400,
+            "return_yen": 115910,
+            "refund_yen": 2100,
+            "profit_yen": -103490,
+            "roi": 0.5283044667274385
+          }
+        }
+      },
+      "D": {
+        "eligible_races": 69,
+        "evaluated_races": 69,
+        "missing_races": 0,
+        "top1_hits": 23,
+        "winner_top3_captures": 42,
+        "mean_log_loss": 2.061289111513556,
+        "mean_brier": 0.8136138854251984,
+        "tickets": {
+          "single": {
+            "race_hits": 47,
+            "races": 69,
+            "points": 219,
+            "stake_yen": 21900,
+            "return_yen": 15260,
+            "refund_yen": 100,
+            "profit_yen": -6640,
+            "roi": 0.6968036529680365
+          },
+          "quinella": {
+            "race_hits": 34,
+            "races": 69,
+            "points": 481,
+            "stake_yen": 48100,
+            "return_yen": 26620,
+            "refund_yen": 200,
+            "profit_yen": -21480,
+            "roi": 0.5534303534303534
+          },
+          "trio": {
+            "race_hits": 35,
+            "races": 69,
+            "points": 1823,
+            "stake_yen": 182300,
+            "return_yen": 106170,
+            "refund_yen": 1700,
+            "profit_yen": -76130,
+            "roi": 0.582391662095447
+          }
+        }
+      }
+    }
+  },
+  "retrospective_proxy": {
+    "excluded_races": 9,
+    "mixed_into_formal": false
+  },
+  "invariants": {
+    "prediction_overwritten": false,
+    "weights_changed": false,
+    "results_used_as_features": false,
+    "closing_odds_used_as_features": false,
+    "actual_bets": false,
+    "live_bet_generation": false,
+    "formal_adoption_changed": false
+  }
+}

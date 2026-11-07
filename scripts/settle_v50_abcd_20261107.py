@@ -16,47 +16,55 @@ PROXY=ROOT/"operations/predictions/2026-11-07/v50_weekend_research.json"
 CODES={"東京":"2026050501","京都":"2026080501","福島":"2026030301"}
 JST=dt.timezone(dt.timedelta(hours=9))
 
-def fetch_result(track,race):
-    url=f"https://race.netkeiba.com/race/result.html?race_id={CODES[track]}{race:02d}"
+JRA_FIRST={
+    "東京":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010120261107%2F2C",
+    "京都":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010120261107%2F0A",
+    "福島":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010120261107%2F36",
+}
+from urllib.parse import urljoin
+
+def official_urls(track):
+    src=JRA_FIRST[track]
+    with urlopen(Request(src,headers={"User-Agent":"Mozilla/5.0"}),timeout=15) as conn:raw=conn.read()
+    soup=BeautifulSoup(raw,"html.parser")
+    found={1:src}
+    for anchor in soup.select("a[href]"):
+        label=anchor.get_text(" ",strip=True)
+        if re.fullmatch(r"\\d{1,2}R",label):
+            found[int(label[:-1])]=urljoin(src,anchor["href"])
+    if set(found)!=set(range(1,13)):
+        raise ValueError("OFFICIAL_ALL_RESULT_LINKS_NOT_FOUND "+str(sorted(found)))
+    return found
+
+def fetch_result(track,race,url):
     last=None
-    for _ in range(2):
+    for attempt in range(2):
         try:
             with urlopen(Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=17) as conn:
                 raw=conn.read()
             soup=BeautifulSoup(raw,"html.parser")
-            title=soup.title.get_text(" ",strip=True) if soup.title else ""
-            if "2026年11月7日" not in title or f"{track}{race}R" not in title:
-                raise ValueError("DATE_TRACK_RACE_TITLE_NOT_VERIFIED "+title[:130])
-            table=soup.select_one("table.race_table_01")
-            if not table:
-                # 2026 desktop site uses alternate dynamic templates.
-                # Mobile result page is server rendered and contains result rows.
-                mobile=url.replace("https://race.netkeiba.com/","https://race.sp.netkeiba.com/")
-                with urlopen(Request(mobile,headers={"User-Agent":"Mozilla/5.0"}),timeout=17) as conn:
-                    raw=conn.read()
-                soup=BeautifulSoup(raw,"html.parser")
-                table=soup.select_one("table.race_table_01") or soup.select_one("table.RaceTable01")
-                if table is None:
-                    desc=[{"class":t.get("class"),"head":t.get_text(" ",strip=True)[:110]}
-                          for t in soup.select("table")[:3]]
-                    raise ValueError("RESULT_TABLE_MISSING "+str(desc)+" "+soup.get_text(" ",strip=True)[:150])
+            txt=soup.get_text(" ",strip=True)
+            if "11月7日" not in txt or track not in txt or f"{race}R" not in txt:
+                raise ValueError("OFFICIAL_DATE_TRACK_RACE_MISMATCH")
             rows=[]
-            for tr in table.select("tr"):
-                tds=tr.find_all("td",recursive=False)
-                if len(tds)<11:continue
-                cells=[td.get_text(" ",strip=True) for td in tds]
-                if not re.fullmatch(r"\d{1,2}",cells[0]):continue
-                pos=int(cells[0])
-                # Standard table: pos,frame,number,name,sex/age,weight,jockey,time,
-                # margin,popularity,odds,3F,corner,trainer,bodyweight
-                number=int(cells[2])
-                name=cells[3].split(" ")[0]
-                popularity=int(cells[9]) if cells[9].isdigit() else None
-                odds=float(cells[10]) if re.fullmatch(r"\d+(?:\.\d+)?",cells[10]) else None
-                rows.append({"finish":pos,"number":number,"name":name,
-                             "popularity_final":popularity,"win_odds_final":odds})
+            for tr in soup.find_all("tr"):
+                cells=[c.get_text(" ",strip=True) for c in tr.find_all(["th","td"],recursive=False)]
+                if len(cells)<4:continue
+                if not (re.fullmatch(r"\\d{1,2}",cells[0]) and
+                        re.fullmatch(r"\\d",cells[1]) and
+                        re.fullmatch(r"\\d{1,2}",cells[2])):continue
+                pos,number=int(cells[0]),int(cells[2])
+                # Official JRA horse cell contains name immediately followed by 'N番人気'.
+                horsecell=cells[3]
+                m=re.search(r"(.+?)(\\d{1,2})番人気",horsecell)
+                if not m:continue
+                rows.append({"finish":pos,"number":number,"name":m[1].strip(),
+                             "popularity_final":int(m[2]),"win_odds_final":None})
+            rows.sort(key=lambda h:h["finish"])
             if len(rows)<3 or [h["finish"] for h in rows[:3]]!=[1,2,3]:
-                raise ValueError("FINISH_ROWS_INVALID "+str(rows[:3]))
+                preview=[{"cells":[c.get_text(" ",strip=True)[:85] for c in tr.find_all(["th","td"],recursive=False)][:6]}
+                         for tr in soup.select("tr")[:9]]
+                raise ValueError("OFFICIAL_RESULTS_ROW_PARSER_FAILED "+str(preview)[:450])
             return {"track":track,"race_number":race,"race":f"{track}{race}R",
                     "url":url,"sha256":hashlib.sha256(raw).hexdigest(),
                     "status":"verified_results","runners":rows}
@@ -102,9 +110,18 @@ def pct(x):return f"{x:.1%}"
 def main():
     data=json.loads(SOURCE.read_text())
     original=json.loads(PROXY.read_text())
+    links={}
+    link_failures={}
+    for track in CODES:
+        try:links[track]=official_urls(track)
+        except Exception as exc:link_failures[track]=str(exc)
+    tasks=[(track,r,links[track][r]) for track in CODES if track in links
+           for r in range(1,13)]
     with concurrent.futures.ThreadPoolExecutor(max_workers=6) as pool:
-        outcomes=list(pool.map(lambda t:fetch_result(*t),
-                               [(track,r) for track in CODES for r in range(1,13)]))
+        outcomes=list(pool.map(lambda t:fetch_result(*t),tasks))
+    for track in link_failures:
+        outcomes += [{"race":f"{track}{i}R","track":track,"race_number":i,
+                      "status":"result_unavailable","reason":link_failures[track]} for i in range(1,13)]
     byresult={o["race"]:o for o in outcomes}
     full=[r for r in data["races"] if r["date"]=="2026-11-07"]
     prior={r["race"]:r for r in original["races"] if r["date"]=="2026-11-07"}
@@ -175,7 +192,10 @@ def main():
             "raw_results":outcomes}
     BASE.mkdir(parents=True,exist_ok=True)
     out=BASE/"v50_abcd_actual_results.json"
-    if out.exists():raise FileExistsError("immutable settlement exists")
+    if out.exists():
+        old=json.loads(out.read_text())
+        if old.get("race_results_verified",0)>0:
+            raise FileExistsError("nonempty settlement immutable")
     out.write_text(json.dumps(result,ensure_ascii=False,indent=2)+"\n")
     lines=["# 2026-11-07 v50 A〜D 全結果突合","",
            "**注意：前のv50はキャリア成績代理特徴量による研究予測。発走後の最終オッズは診断用であり事前予測には使用しない。**","",

@@ -54,6 +54,8 @@ def bridge(saved, riders, *, temperature=0.7, weight=1.0,
         if surface not in ("turf", "dirt"):
             raise ValueError(label + ": unsupported surface")
         off = timestamp(race.get("original_off_at") or race.get("off_at"))
+        if rider_asof >= off:
+            raise ValueError(label + ": rider snapshot at or after race start")
         if not allow_historical and observed >= off:
             raise ValueError(label + ": source observed after race start")
         original = race.get("models", {}).get("A", {}).get("horses")

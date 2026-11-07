@@ -1,0 +1,502 @@
+{
+  "date": "2026-11-07",
+  "schema": "jra-v50-abcd-settlement-with-final-odds-reference-v1",
+  "prediction_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "result_source": "netkeiba race result webpages; compare representative JRA official data",
+  "odds_timing": "POST_RACE_FINAL_FOR_DIAGNOSTICS_ONLY_NOT_PREOFF",
+  "race_results_verified": 0,
+  "race_results_failed": [
+    {
+      "race": "東京1R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京2R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京3R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京4R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京5R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京6R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京7R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京8R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京9R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京10R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京11R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "東京12R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都1R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都2R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都3R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都4R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都5R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都6R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都7R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都8R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都9R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都10R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都11R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "京都12R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島1R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島2R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島3R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島4R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島5R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島6R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島7R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島8R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島9R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島10R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島11R",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "race": "福島12R",
+      "reason": "RESULT_TABLE_MISSING"
+    }
+  ],
+  "paired_abcd_races": 0,
+  "paired_abcd_models": {
+    "A": {
+      "denominator": 0,
+      "top1_hit": 0,
+      "top1_pct": null,
+      "winner_in_rank_top3": 0,
+      "winner_in_rank_top3_pct": null,
+      "exact_order_top3": 0,
+      "unordered_top3": 0,
+      "mean_logloss": null,
+      "mean_multiclass_brier": null,
+      "same_top1_as_final_odds_favorite": 0,
+      "missed_races": []
+    },
+    "B": {
+      "denominator": 0,
+      "top1_hit": 0,
+      "top1_pct": null,
+      "winner_in_rank_top3": 0,
+      "winner_in_rank_top3_pct": null,
+      "exact_order_top3": 0,
+      "unordered_top3": 0,
+      "mean_logloss": null,
+      "mean_multiclass_brier": null,
+      "same_top1_as_final_odds_favorite": 0,
+      "missed_races": []
+    },
+    "C": {
+      "denominator": 0,
+      "top1_hit": 0,
+      "top1_pct": null,
+      "winner_in_rank_top3": 0,
+      "winner_in_rank_top3_pct": null,
+      "exact_order_top3": 0,
+      "unordered_top3": 0,
+      "mean_logloss": null,
+      "mean_multiclass_brier": null,
+      "same_top1_as_final_odds_favorite": 0,
+      "missed_races": []
+    },
+    "D": {
+      "denominator": 0,
+      "top1_hit": 0,
+      "top1_pct": null,
+      "winner_in_rank_top3": 0,
+      "winner_in_rank_top3_pct": null,
+      "exact_order_top3": 0,
+      "unordered_top3": 0,
+      "mean_logloss": null,
+      "mean_multiclass_brier": null,
+      "same_top1_as_final_odds_favorite": 0,
+      "missed_races": []
+    }
+  },
+  "final_odds_favorite_wins_all_result_races": 0,
+  "all_result_races": 0,
+  "evaluated": [],
+  "raw_results": [
+    {
+      "track": "東京",
+      "race_number": 1,
+      "race": "東京1R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050101",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 2,
+      "race": "東京2R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050102",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 3,
+      "race": "東京3R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050103",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 4,
+      "race": "東京4R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050104",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 5,
+      "race": "東京5R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050105",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 6,
+      "race": "東京6R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050106",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 7,
+      "race": "東京7R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050107",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 8,
+      "race": "東京8R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050108",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 9,
+      "race": "東京9R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050109",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 10,
+      "race": "東京10R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050110",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 11,
+      "race": "東京11R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050111",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "東京",
+      "race_number": 12,
+      "race": "東京12R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202605050112",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 1,
+      "race": "京都1R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050101",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 2,
+      "race": "京都2R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050102",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 3,
+      "race": "京都3R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050103",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 4,
+      "race": "京都4R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050104",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 5,
+      "race": "京都5R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050105",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 6,
+      "race": "京都6R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050106",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 7,
+      "race": "京都7R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050107",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 8,
+      "race": "京都8R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050108",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 9,
+      "race": "京都9R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050109",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 10,
+      "race": "京都10R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050110",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 11,
+      "race": "京都11R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050111",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "京都",
+      "race_number": 12,
+      "race": "京都12R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202608050112",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 1,
+      "race": "福島1R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030101",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 2,
+      "race": "福島2R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030102",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 3,
+      "race": "福島3R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030103",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 4,
+      "race": "福島4R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030104",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 5,
+      "race": "福島5R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030105",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 6,
+      "race": "福島6R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030106",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 7,
+      "race": "福島7R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030107",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 8,
+      "race": "福島8R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030108",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 9,
+      "race": "福島9R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030109",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 10,
+      "race": "福島10R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030110",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 11,
+      "race": "福島11R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030111",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    },
+    {
+      "track": "福島",
+      "race_number": 12,
+      "race": "福島12R",
+      "url": "https://race.netkeiba.com/race/result.html?race_id=202603030112",
+      "status": "result_unavailable",
+      "reason": "RESULT_TABLE_MISSING"
+    }
+  ]
+}

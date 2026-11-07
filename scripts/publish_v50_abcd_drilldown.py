@@ -97,8 +97,8 @@ def main():
     data=json.loads(source_bytes)
     if data.get("requested")!=72 or len(data["races"])!=72:
         raise ValueError("expected 72 race rows")
-    if BASE.exists():
-        raise FileExistsError("drilldown output already exists")
+    # Re-run safely to refresh existing daily indexes and detail files.
+    BASE.mkdir(parents=True,exist_ok=True)
     success=defaultdict(dict);problems=defaultdict(dict);n=0
     for r in data["races"]:
         day,place,num=r["date"],r["track"],r["race_number"]
@@ -122,20 +122,26 @@ def main():
            f"[2日間総合一覧](INDEX.md)","",
            f"詳細表示可能：{len(success[day])}/36R。","",
            "レース名を選ぶと、4モデルそれぞれの全頭1〜3着確率・単勝／馬連／3連複の全候補・A〜D横並び比較が見られます。","",
+           "**A〜Dの各列は、それぞれのモデルが選んだ本命馬の1着予測確率です。過去の実測的中率ではありません。**",
            "**モデル内研究確率であり独立校正未済。**",""]
         for place in TRACKS:
             lines += [f"## {place}","",
-                     "|R|A〜D詳細|状態|","|---:|---|---|"]
+                     "|R|詳細|A 1着|B 1着|C 1着|D 1着|",
+                     "|---:|---|---:|---:|---:|---:|"]
             for num in range(1,13):
                 key=(place,num)
                 if key in success[day]:
                     detail=success[day][key]
                     relative=f"{day}/{place}/{num:02d}R.md"
-                    lines.append(f"|{num}|[{place}{num}R：全頭確率・馬券別詳細]({relative})|4モデル計算済|")
+                    record=next(r for r in data["races"] if
+                                r["date"]==day and r["track"]==place and r["race_number"]==num)
+                    values=[pct(record["models"][label]["horses"][0]["p1"]) for label in MODELS]
+                    lines.append(f"|{num}|[{place}{num}R：全頭・買い目]({relative})|"
+                                 +"|".join(values)+"|")
                 else:
                     r=problems[day][key]
                     reason=r.get("reason") or r["status"]
-                    lines.append(f"|{num}|—|{reason}|")
+                    lines.append(f"|{num}|{reason}|—|—|—|—|")
             lines+=[""]
         (BASE/f"{day}_INDEX.md").write_text("\n".join(lines)+"\n")
     overview=["# 2026-11-07/08｜v50 A〜D予測 詳細ビュー","",

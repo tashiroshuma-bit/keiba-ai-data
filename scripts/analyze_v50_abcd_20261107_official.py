@@ -92,13 +92,13 @@ def main():
         "paired_by_track":{track:{a:evaluate([r for r in paired if r["track"]==track],a)
                                   for a in "ABCD"}
                            for track in ("東京","京都","福島")},
-        "favorite_winner_rate_all":sum(r["winner_final_popularity"]==1 for r in rows)/36,
-        "favorite_winner_rate_paired":sum(r["winner_final_popularity"]==1 for r in paired)/len(paired),
-        "favorite_winners_by_track":{track:sum(r["winner_final_popularity"]==1 for r in rows if r["track"]==track)
+        "favorite_winner_rate_all":sum(r["winner_popularity_final"]==1 for r in rows)/36,
+        "favorite_winner_rate_paired":sum(r["winner_popularity_final"]==1 for r in paired)/len(paired),
+        "favorite_winners_by_track":{track:sum(r["winner_popularity_final"]==1 for r in rows if r["track"]==track)
                                       for track in ("東京","京都","福島")},
         "a_vs_c_mcnemar_paired":exact_mcnemar(paired,"A","C"),
-        "winner_popularity_counts":{str(k):sum(r["winner_final_popularity"]==k for r in rows)
-                                    for k in sorted({r["winner_final_popularity"] for r in rows})},
+        "winner_popularity_counts":{str(k):sum(r["winner_popularity_final"]==k for r in rows)
+                                    for k in sorted({r["winner_popularity_final"] for r in rows})},
         "races":[{"race":r["race"],"winner":r["winner_number"],
                   "winner_popularity_final":r["winner_popularity_final"],
                   "official_result_url":r["official_result_url"],

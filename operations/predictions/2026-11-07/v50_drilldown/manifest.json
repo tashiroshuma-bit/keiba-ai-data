@@ -1,0 +1,13 @@
+{
+  "created": 67,
+  "missing": 5,
+  "days": {
+    "2026-11-07": 33,
+    "2026-11-08": 34
+  },
+  "source_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "date_index_paths": [
+    "/home/runner/work/keiba-ai-data/keiba-ai-data/operations/predictions/2026-11-07/v50_drilldown/2026-11-07_INDEX.md",
+    "/home/runner/work/keiba-ai-data/keiba-ai-data/operations/predictions/2026-11-07/v50_drilldown/2026-11-08_INDEX.md"
+  ]
+}

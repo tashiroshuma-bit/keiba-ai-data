@@ -29,7 +29,17 @@ def fetch_result(track,race):
                 raise ValueError("DATE_TRACK_RACE_TITLE_NOT_VERIFIED "+title[:130])
             table=soup.select_one("table.race_table_01")
             if not table:
-                raise ValueError("RESULT_TABLE_MISSING")
+                # 2026 desktop site uses alternate dynamic templates.
+                # Mobile result page is server rendered and contains result rows.
+                mobile=url.replace("https://race.netkeiba.com/","https://race.sp.netkeiba.com/")
+                with urlopen(Request(mobile,headers={"User-Agent":"Mozilla/5.0"}),timeout=17) as conn:
+                    raw=conn.read()
+                soup=BeautifulSoup(raw,"html.parser")
+                table=soup.select_one("table.race_table_01") or soup.select_one("table.RaceTable01")
+                if table is None:
+                    desc=[{"class":t.get("class"),"head":t.get_text(" ",strip=True)[:110]}
+                          for t in soup.select("table")[:3]]
+                    raise ValueError("RESULT_TABLE_MISSING "+str(desc)+" "+soup.get_text(" ",strip=True)[:150])
             rows=[]
             for tr in table.select("tr"):
                 tds=tr.find_all("td",recursive=False)
@@ -145,6 +155,8 @@ def main():
             and byresult[row["race"]]["status"]=="verified_results"
             and set(h["number"] for h in row["models"]["A"]["horses"]).issubset(
                 set(h["number"] for h in byresult[row["race"]]["runners"]))]
+    if len(cohort)<1:
+        raise RuntimeError("ZERO_VERIFIED_RACES; do not publish empty settlement. "+str(failure[:4]))
     bymodel={label:metrics([(row["models"][label],byresult[row["race"]]) for row in cohort],outcomes)
              for label in "ABCD"}
     # Final-odds favorite is retrospective reference, NEVER input to evaluation predictions.

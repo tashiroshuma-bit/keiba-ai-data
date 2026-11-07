@@ -24,6 +24,14 @@ def market_probabilities(horses):
     total=sum(prices)
     return {h["number"]:p/total for h,p in zip(horses,prices)}
 
+# References are descriptive retrospective cohort frequencies, NOT horse forecasts.
+# Source: reports/outsider_top3_history_2025.json (351 verified 2025 races).
+OUTSIDER_2025_COHORTS={
+    "4-6": {"n":1052,"top3":300,"third":120},
+    "7-9": {"n":989,"top3":134,"third":69},
+    "10+": {"n":1568,"top3":82,"third":33}
+}
+
 def combine(model, snapshot, *, alpha, off_at):
     """Geometric pool with market de-vig and strict observation-time cutoff."""
     if not 0<=alpha<=1 or not math.isfinite(alpha):
@@ -88,8 +96,16 @@ def combine(model, snapshot, *, alpha, off_at):
             number=h["number"]
             rank=market_rank[number]
             if rank>=4:
+                band="4-6" if rank<=6 else ("7-9" if rank<=9 else "10+")
+                cohort=OUTSIDER_2025_COHORTS[band]
                 outsider_third_candidates.append({
                     "number":number,"name":h.get("name"),
+                    "popularity_band":band,
+                    "historical_2025_group_reference_not_horse_probability":{
+                        "sample":cohort["n"],
+                        "top3_rate":cohort["top3"]/cohort["n"],
+                        "third_place_rate":cohort["third"]/cohort["n"],
+                        "source":"reports/outsider_top3_history_2025.json"},
                     "market_rank_preoff":rank,
                     "win_odds_preoff":next(x["odds"] for x in horses if x["number"]==number),
                     "v50_p1":h["p1"],"v50_p2":h["p2"],"v50_p3":h["p3"],
@@ -104,7 +120,8 @@ def combine(model, snapshot, *, alpha, off_at):
             "market_structure":signals,
             "outsider_third_candidates":outsider_third_candidates,
             "outsider_third_scope":"4TH_OR_LOWER_MARKET_RANK_PREOFF",
-            "outsider_third_evidence":"reports/outsider_top3_20261031_1101_results.json",
+            "outsider_third_evidence":"reports/outsider_top3_history_2025.json",
+            "outsider_third_candidate_policy":"p3 ranking only; rank-band cohort rates descriptive, no bonus",
             "alpha":alpha,"odds_observed_at":observed.isoformat(),
             "off_at":off.isoformat(),
             "odds_input":"strictly_observed_preoff",

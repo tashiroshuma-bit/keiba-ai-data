@@ -16,6 +16,23 @@ class MarketOddsBlendTests(unittest.TestCase):
         self.assertAlmostEqual(sum(h["blend_p1"] for h in r["ranking"]),1,places=10)
         self.assertEqual(r["ranking"][0]["number"],1)
         self.assertEqual(r["probability_calibration"],"UNVERIFIED_REQUIRES_CHRONOLOGICAL_HOLDOUT")
+    def test_market_favorite_risk_markers(self):
+        r=combine(self.model,self.snap,alpha=0.20,off_at=self.off)
+        m=r["market_structure"]
+        self.assertEqual(m["favorite_number"],1)
+        self.assertEqual(m["field_size"],3)
+        self.assertAlmostEqual(m["favorite_vs_second_gap"],
+                               m["favorite_market_probability"]-m["runnerup_market_probability"])
+        self.assertEqual(m["interpretation"],"HISTORICAL_ASSOCIATIONS_NOT_CALIBRATED")
+        self.assertNotIn("LARGE_FIELD_14_PLUS",m["risk_markers"])
+    def test_full_field_tied_odds_flag(self):
+        self.snap["horses"]=[{"number":1,"odds":5.0},
+                            {"number":2,"odds":5.0},
+                            {"number":3,"odds":8.0}]
+        r=combine(self.model,self.snap,alpha=0.20,off_at=self.off)
+        self.assertIn("CLOSE_TOP_TWO_GAP_UNDER_3PP",
+                      r["market_structure"]["risk_markers"])
+
     def test_zero_alpha_preserves_model(self):
         r=combine(self.model,self.snap,alpha=0,off_at=self.off)
         ps={h["number"]:h["blend_p1"] for h in r["ranking"]}

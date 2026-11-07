@@ -87,6 +87,8 @@ def metrics(rows,results):
             "same_top1_as_final_odds_favorite":crowd_match,
             "missed_races":misses}
 
+def pct(x):return f"{x:.1%}"
+
 def main():
     data=json.loads(SOURCE.read_text())
     original=json.loads(PROXY.read_text())
@@ -134,6 +136,10 @@ def main():
                 "top3_numbers":[h["number"] for h in model["horses"][:3]],
                 "hit_top1":model["horses"][0]["number"]==winner["number"]}
                 for label,model in bymodel.items()}})
+    print(json.dumps({"source_results":Counter(x["status"] for x in outcomes),
+                      "first_errors":[{"race":x["race"],"reason":x.get("reason")}
+                                      for x in outcomes if x["status"]!="verified_results"][:5]},
+                     ensure_ascii=False),flush=True)
     # Paired A-D cohort for fair 4-model comparison.
     cohort=[row for row in full if row["status"]=="abcd_reconnected"
             and byresult[row["race"]]["status"]=="verified_results"
@@ -167,9 +173,13 @@ def main():
            "|モデル|件数|1着指名的中|勝ち馬を上位3頭に捕捉|3頭完全一致（順不同）|Log Loss|Brier|",
            "|---|---:|---:|---:|---:|---:|---:|"]
     for label,stats in bymodel.items():
-        lines.append(f"|{label}|{stats['denominator']}|{stats['top1_hit']} ({stats['top1_pct']:.1%})|"
-                     f"{stats['winner_in_rank_top3']} ({stats['winner_in_rank_top3_pct']:.1%})|"
-                     f"{stats['unordered_top3']}|{stats['mean_logloss']:.4f}|{stats['mean_multiclass_brier']:.4f}|")
+        hit=pct(stats['top1_pct']) if stats['top1_pct'] is not None else "—"
+        captured=pct(stats['winner_in_rank_top3_pct']) if stats['winner_in_rank_top3_pct'] is not None else "—"
+        ll=f"{stats['mean_logloss']:.4f}" if stats['mean_logloss'] is not None else "—"
+        bs=f"{stats['mean_multiclass_brier']:.4f}" if stats['mean_multiclass_brier'] is not None else "—"
+        lines.append(f"|{label}|{stats['denominator']}|{stats['top1_hit']} ({hit})|"
+                     f"{stats['winner_in_rank_top3']} ({captured})|"
+                     f"{stats['unordered_top3']}|{ll}|{bs}|")
     lines+=["","## 全レース結果とモデル別1着指名","",
             "|レース|勝ち馬（最終人気）|A|B|C|D|",
             "|---|---|---|---|---|---|"]

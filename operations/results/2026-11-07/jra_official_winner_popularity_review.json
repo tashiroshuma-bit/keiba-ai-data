@@ -1,0 +1,332 @@
+{
+  "date": "2026-11-07",
+  "source": "JRA official published result pages inspected individually",
+  "source_basis": "published postrace result winner and final popularity; no preoff probability input",
+  "verification": "manual official source cross-check and exact official URLs",
+  "races": [
+    {
+      "race": "東京1R",
+      "track": "東京",
+      "race_number": 1,
+      "winner_number": 5,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010120261107/2C",
+      "winner_name": null
+    },
+    {
+      "race": "東京2R",
+      "track": "東京",
+      "race_number": 2,
+      "winner_number": 1,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010220261107/E1",
+      "winner_name": null
+    },
+    {
+      "race": "東京3R",
+      "track": "東京",
+      "race_number": 3,
+      "winner_number": 12,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010320261107/96",
+      "winner_name": null
+    },
+    {
+      "race": "東京4R",
+      "track": "東京",
+      "race_number": 4,
+      "winner_number": 8,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010420261107/4B",
+      "winner_name": null
+    },
+    {
+      "race": "東京5R",
+      "track": "東京",
+      "race_number": 5,
+      "winner_number": 9,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010520261107/00",
+      "winner_name": null
+    },
+    {
+      "race": "東京6R",
+      "track": "東京",
+      "race_number": 6,
+      "winner_number": 4,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010620261107/B5",
+      "winner_name": null
+    },
+    {
+      "race": "東京7R",
+      "track": "東京",
+      "race_number": 7,
+      "winner_number": 16,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010720261107/6A",
+      "winner_name": null
+    },
+    {
+      "race": "東京8R",
+      "track": "東京",
+      "race_number": 8,
+      "winner_number": 3,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010820261107/1F",
+      "winner_name": null
+    },
+    {
+      "race": "東京9R",
+      "track": "東京",
+      "race_number": 9,
+      "winner_number": 6,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605010920261107/D4",
+      "winner_name": null
+    },
+    {
+      "race": "東京10R",
+      "track": "東京",
+      "race_number": 10,
+      "winner_number": 10,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011020261107/C9",
+      "winner_name": null
+    },
+    {
+      "race": "東京11R",
+      "track": "東京",
+      "race_number": 11,
+      "winner_number": 9,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011120261107/7E",
+      "winner_name": null
+    },
+    {
+      "race": "東京12R",
+      "track": "東京",
+      "race_number": 12,
+      "winner_number": 15,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605011220261107/33",
+      "winner_name": null
+    },
+    {
+      "race": "京都1R",
+      "track": "京都",
+      "race_number": 1,
+      "winner_number": 1,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010120261107/0A",
+      "winner_name": null
+    },
+    {
+      "race": "京都2R",
+      "track": "京都",
+      "race_number": 2,
+      "winner_number": 11,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010220261107/BF",
+      "winner_name": null
+    },
+    {
+      "race": "京都3R",
+      "track": "京都",
+      "race_number": 3,
+      "winner_number": 4,
+      "winner_final_popularity": 7,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010320261107/74",
+      "winner_name": null
+    },
+    {
+      "race": "京都4R",
+      "track": "京都",
+      "race_number": 4,
+      "winner_number": 11,
+      "winner_final_popularity": 6,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010420261107/29",
+      "winner_name": null
+    },
+    {
+      "race": "京都5R",
+      "track": "京都",
+      "race_number": 5,
+      "winner_number": 2,
+      "winner_final_popularity": 3,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010520261107/DE",
+      "winner_name": null
+    },
+    {
+      "race": "京都6R",
+      "track": "京都",
+      "race_number": 6,
+      "winner_number": 11,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010620261107/93",
+      "winner_name": null
+    },
+    {
+      "race": "京都7R",
+      "track": "京都",
+      "race_number": 7,
+      "winner_number": 7,
+      "winner_final_popularity": 4,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010720261107/48",
+      "winner_name": null
+    },
+    {
+      "race": "京都8R",
+      "track": "京都",
+      "race_number": 8,
+      "winner_number": 8,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010820261107/FD",
+      "winner_name": null
+    },
+    {
+      "race": "京都9R",
+      "track": "京都",
+      "race_number": 9,
+      "winner_number": 9,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605010920261107/B2",
+      "winner_name": null
+    },
+    {
+      "race": "京都10R",
+      "track": "京都",
+      "race_number": 10,
+      "winner_number": 5,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011020261107/A7",
+      "winner_name": null
+    },
+    {
+      "race": "京都11R",
+      "track": "京都",
+      "race_number": 11,
+      "winner_number": 3,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011120261107/5C",
+      "winner_name": null
+    },
+    {
+      "race": "京都12R",
+      "track": "京都",
+      "race_number": 12,
+      "winner_number": 16,
+      "winner_final_popularity": 2,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605011220261107/11",
+      "winner_name": null
+    },
+    {
+      "race": "福島1R",
+      "track": "福島",
+      "race_number": 1,
+      "winner_number": 4,
+      "winner_final_popularity": 8,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010120261107/36",
+      "winner_name": null
+    },
+    {
+      "race": "福島2R",
+      "track": "福島",
+      "race_number": 2,
+      "winner_number": 9,
+      "winner_final_popularity": 4,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010220261107/EB",
+      "winner_name": null
+    },
+    {
+      "race": "福島3R",
+      "track": "福島",
+      "race_number": 3,
+      "winner_number": 4,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010320261107/A0",
+      "winner_name": null
+    },
+    {
+      "race": "福島4R",
+      "track": "福島",
+      "race_number": 4,
+      "winner_number": 16,
+      "winner_final_popularity": 9,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010420261107/55",
+      "winner_name": null
+    },
+    {
+      "race": "福島5R",
+      "track": "福島",
+      "race_number": 5,
+      "winner_number": 12,
+      "winner_final_popularity": 9,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010520261107/0A",
+      "winner_name": null
+    },
+    {
+      "race": "福島6R",
+      "track": "福島",
+      "race_number": 6,
+      "winner_number": 11,
+      "winner_final_popularity": 7,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010620261107/BF",
+      "winner_name": null
+    },
+    {
+      "race": "福島7R",
+      "track": "福島",
+      "race_number": 7,
+      "winner_number": 9,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010720261107/74",
+      "winner_name": null
+    },
+    {
+      "race": "福島8R",
+      "track": "福島",
+      "race_number": 8,
+      "winner_number": 9,
+      "winner_final_popularity": 1,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010820261107/29",
+      "winner_name": null
+    },
+    {
+      "race": "福島9R",
+      "track": "福島",
+      "race_number": 9,
+      "winner_number": 9,
+      "winner_final_popularity": 11,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603010920261107/DE",
+      "winner_name": null
+    },
+    {
+      "race": "福島10R",
+      "track": "福島",
+      "race_number": 10,
+      "winner_number": 8,
+      "winner_final_popularity": 11,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011020261107/D3",
+      "winner_name": null
+    },
+    {
+      "race": "福島11R",
+      "track": "福島",
+      "race_number": 11,
+      "winner_number": 12,
+      "winner_final_popularity": 5,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011120261107/88",
+      "winner_name": null
+    },
+    {
+      "race": "福島12R",
+      "track": "福島",
+      "race_number": 12,
+      "winner_number": 15,
+      "winner_final_popularity": 13,
+      "official_result_url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603011220261107/3D",
+      "winner_name": null
+    }
+  ]
+}

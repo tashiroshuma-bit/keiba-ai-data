@@ -49,6 +49,12 @@ class MarketOddsBlendTests(unittest.TestCase):
         candidate=r["outsider_third_candidates"][0]
         self.assertEqual(candidate["number"],4)
         self.assertEqual(candidate["market_rank_preoff"],4)
+        self.assertEqual(candidate["popularity_band"],"4-6")
+        ref=candidate["historical_2025_group_reference_not_horse_probability"]
+        self.assertEqual(ref["sample"],1052)
+        self.assertAlmostEqual(ref["third_place_rate"],120/1052)
+        self.assertEqual(r["outsider_third_candidate_policy"],
+                         "p3 ranking only; rank-band cohort rates descriptive, no bonus")
         self.assertAlmostEqual(candidate["v50_p3"],.23)
         self.assertAlmostEqual(candidate["v50_top3_probability"],.46)
     def test_missing_p3_produces_no_pretend_third_candidate(self):

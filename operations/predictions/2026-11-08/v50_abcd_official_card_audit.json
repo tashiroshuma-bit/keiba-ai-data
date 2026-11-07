@@ -1,0 +1,295 @@
+{
+  "day": "2026-11-08",
+  "model": "v50 A-D research C emphasis",
+  "canonical_production": false,
+  "odds_checked_preoff": false,
+  "source_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "official_verified": 34,
+  "flat": 34,
+  "status_counts": {
+    "official_field_matched": 34,
+    "unsupported_obstacle_model": 2
+  },
+  "top5": [
+    {
+      "race": "京都3R",
+      "horse": "メールデトワール",
+      "number": 4,
+      "c_p1": 0.327788268444991
+    },
+    {
+      "race": "東京10R",
+      "horse": "セボンサデッセ",
+      "number": 10,
+      "c_p1": 0.319113886072221
+    },
+    {
+      "race": "京都8R",
+      "horse": "メディテラニアン",
+      "number": 1,
+      "c_p1": 0.31745035983902353
+    },
+    {
+      "race": "京都10R",
+      "horse": "ブルーマエストロ",
+      "number": 8,
+      "c_p1": 0.31383379771245745
+    },
+    {
+      "race": "東京12R",
+      "horse": "スペルーチェ",
+      "number": 3,
+      "c_p1": 0.25697429741064326
+    }
+  ],
+  "races": [
+    {
+      "race": "東京1R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020120261108%2FA0",
+      "official_sha256": "6897649ad8d2c08852335fb6ec4793e53945ab7fd6082f875b02be9fd055ff04",
+      "horses": 11
+    },
+    {
+      "race": "東京2R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020220261108/55",
+      "official_sha256": "8f868d82e65ced21391438f1740e604c540ccebd99684ddecd9758ca4767ed90",
+      "horses": 11
+    },
+    {
+      "race": "東京3R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020320261108/0A",
+      "official_sha256": "9ca0b50b773d381edf3b3ce29698d1da890306c20d1d9586d312f67163ae7349",
+      "horses": 15
+    },
+    {
+      "race": "東京4R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020420261108/BF",
+      "official_sha256": "eb325c12e5077e292e743b8298b711c3dbcab5fef05e83b5ec74bc28728f486e",
+      "horses": 16
+    },
+    {
+      "race": "東京5R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020520261108/74",
+      "official_sha256": "426841dae5725699cb27667a3474c7c2e1c9a7f2d0b688e3d3447b74d4c8256c",
+      "horses": 15
+    },
+    {
+      "race": "東京6R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020620261108/29",
+      "official_sha256": "531271da48ce69fe703f79f643f7761e82859815b35baa047192b3f78088ea66",
+      "horses": 15
+    },
+    {
+      "race": "東京7R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020720261108/DE",
+      "official_sha256": "8616be9104a255089c139a53e979093dc56c35b0fd3b37fead2c1dbb97be1b0d",
+      "horses": 16
+    },
+    {
+      "race": "東京8R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020820261108/93",
+      "official_sha256": "8119ac2a7cf5397aa95aee2c61cc3dcaf4c557eb6cec726b7a4c84c3a4a35a60",
+      "horses": 14
+    },
+    {
+      "race": "東京9R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605020920261108/48",
+      "official_sha256": "1e7c999c99762b39b5ca6d0b5cb06d4e78cd53278d81d656b1074a4a5d0ccfeb",
+      "horses": 9
+    },
+    {
+      "race": "東京10R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605021020261108/3D",
+      "official_sha256": "22fd1a6488eeb8e434a924827955d0f508222757c9e30596968e9aedcf9f2b2c",
+      "horses": 11
+    },
+    {
+      "race": "東京11R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605021120261108/F2",
+      "official_sha256": "f9594890d99b01e3b0a94683b741f0c254e2c968d1e3695bf338191c5a297f43",
+      "horses": 18
+    },
+    {
+      "race": "東京12R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0105202605021220261108/A7",
+      "official_sha256": "12af2a552efed8862f79c91e802ace7d9b36d133c393b2f289202439b3316541",
+      "horses": 12
+    },
+    {
+      "race": "京都1R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020120261108%2F7E",
+      "official_sha256": "bbf083b726e38da24c544bf38e7a12c7c86e41ec45c6dcbd2f19bda68a749af2",
+      "horses": 14
+    },
+    {
+      "race": "京都2R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020220261108/33",
+      "official_sha256": "ca85cc632e9a9dd8b920ddcbea0dfcb328338dc44d6eb9222221f0e6a443d78f",
+      "horses": 13
+    },
+    {
+      "race": "京都3R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020320261108/E8",
+      "official_sha256": "e010691140fcd607eb341d6ec812150ae2120baf70e2161138b513c30ef090c2",
+      "horses": 6
+    },
+    {
+      "race": "京都4R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020420261108/9D",
+      "official_sha256": "2c1810b7b1c6e6680f33b739f14c191293b9d5d651b5489fda93d4a3505cc96b",
+      "horses": 14
+    },
+    {
+      "race": "京都5R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020520261108/52",
+      "official_sha256": "8705640fde7137339402a055357ecde1c78d7c1caf7e838ddae783db284e9655",
+      "horses": 11
+    },
+    {
+      "race": "京都6R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020620261108/07",
+      "official_sha256": "56866e892bec959cf2e42ed6249cf6c227d5f2a2fcc1790e0d6d16a99d2d36bd",
+      "horses": 18
+    },
+    {
+      "race": "京都7R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020720261108/BC",
+      "official_sha256": "a648608f28184caf54e0fd190a592b9cfec26cfa2334706c9391e0d6d0e19a9a",
+      "horses": 13
+    },
+    {
+      "race": "京都8R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020820261108/71",
+      "official_sha256": "7a78de96779e98260449e4f829c40d489ab30dd37c4a8d868522ab82c83d0463",
+      "horses": 9
+    },
+    {
+      "race": "京都9R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605020920261108/26",
+      "official_sha256": "e38bfad1371f1ce7e238f5579fa6c8041d939cff6b1fda412c153877f703afeb",
+      "horses": 15
+    },
+    {
+      "race": "京都10R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605021020261108/1B",
+      "official_sha256": "5e03861d8d75072033a7144074d91db70b1be22b5f44c9e81b9c7c8c8cea6e77",
+      "horses": 10
+    },
+    {
+      "race": "京都11R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605021120261108/D0",
+      "official_sha256": "c04bcd2d5233c5c59f570599dae79f23301191db4517dee2b43f031374972118",
+      "horses": 16
+    },
+    {
+      "race": "京都12R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0108202605021220261108/85",
+      "official_sha256": "81d435a9a652903113b5fc4ec4ccb36de2f2ef34629b5446d69367e2144b8446",
+      "horses": 18
+    },
+    {
+      "race": "福島1R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020120261108%2FAA",
+      "official_sha256": "2dd38bb1fe947073650cdc8b13a7cda9735b1093e7f6e7e999e39ff7d1003f06",
+      "horses": 16
+    },
+    {
+      "race": "福島2R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020220261108/5F",
+      "official_sha256": "160b73ec289fbeb4564197dbd91c933ba595c8d7c24ac5b1addf6d1ed2764042",
+      "horses": 16
+    },
+    {
+      "race": "福島3R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020320261108/14",
+      "official_sha256": "b922573eedbfd94c63f2d26578bd27dbf2f454b122feb34bdfe64eebddf3bb85",
+      "horses": 15
+    },
+    {
+      "race": "福島4R",
+      "status": "unsupported_obstacle_model",
+      "reason": "no A-D flat source"
+    },
+    {
+      "race": "福島5R",
+      "status": "unsupported_obstacle_model",
+      "reason": "no A-D flat source"
+    },
+    {
+      "race": "福島6R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020620261108/33",
+      "official_sha256": "2ea6a9263595e3145f899de4b6692b96cac8deeee1a071d8f510437e5fa2e63b",
+      "horses": 15
+    },
+    {
+      "race": "福島7R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020720261108/E8",
+      "official_sha256": "3607758589074646feaa61066ec66158e33bfa7b98931ec17d8a6ee4092d29b5",
+      "horses": 16
+    },
+    {
+      "race": "福島8R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020820261108/9D",
+      "official_sha256": "79154d5586d2ddb5e2f69104aac5c0e28a17ec214688ca23e8a31c03486a6c83",
+      "horses": 16
+    },
+    {
+      "race": "福島9R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603020920261108/52",
+      "official_sha256": "91e2049e7e1d042472af33c41af1766dccb0e89ef82ac520680d54c0cebf4d22",
+      "horses": 16
+    },
+    {
+      "race": "福島10R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603021020261108/47",
+      "official_sha256": "817b4b3234ee823f9aaed1f3554d5f5ee4f246b8a03060c8bf99cefa2c50c650",
+      "horses": 15
+    },
+    {
+      "race": "福島11R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603021120261108/FC",
+      "official_sha256": "37e5fe05162925102ab77917e3e3e3d96ed5ac57b31ec7970e64cb59c3136ba1",
+      "horses": 16
+    },
+    {
+      "race": "福島12R",
+      "status": "official_field_matched",
+      "official_url": "https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01dde0103202603021220261108/B1",
+      "official_sha256": "e200309cc2f32f0e66389ecda0cd7a89aa7080fc13020675623a534984f1c221",
+      "horses": 16
+    }
+  ]
+}

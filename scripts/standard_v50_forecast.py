@@ -13,6 +13,11 @@ import tempfile
 from pathlib import Path
 
 try:
+    from scripts.v50_preoff_odds_blend import combine as combine_market
+except ModuleNotFoundError:
+    from v50_preoff_odds_blend import combine as combine_market
+
+try:
     from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
@@ -23,7 +28,8 @@ ROOT=Path(__file__).resolve().parents[1]
 DEFAULT_POLICY=ROOT/"operations/prediction_policy/standard_v50.json"
 
 def standard_forecast(forecast_path, database_path, output_path, *,
-                      state_path=ROOT/"PROJECT_STATE.json",policy_path=DEFAULT_POLICY):
+                      state_path=ROOT/"PROJECT_STATE.json",policy_path=DEFAULT_POLICY,
+                      odds_path=None,odds_alpha=0.20):
     forecast_path=Path(forecast_path)
     database_path=Path(database_path)
     output_path=Path(output_path)
@@ -71,6 +77,39 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         prediction=run(forecast_path,rider_path,
                        weight=policy["overlay_weight"],
                        temperature=policy["probability_temperature"])
+    # Optional odds research overlay: freeze strictly pre-off snapshots.
+    # Existing canonical v50 race ranks remain unchanged unless separately
+    # re-validated and approved for promotion. Never accept final odds.
+    if odds_path is not None:
+        odds_file=Path(odds_path)
+        odds_bytes=odds_file.read_bytes()
+        odds=json.loads(odds_bytes)
+        snapshots=odds.get("races")
+        if not isinstance(snapshots,list) or len(snapshots)!=len(prediction["races"]):
+            raise ValueError("complete preoff odds snapshots required for all forecast races")
+        by_key={x["race"]:x for x in snapshots}
+        if len(by_key)!=len(snapshots):
+            raise ValueError("duplicate race odds snapshot")
+        source_races={x["race"]:x for x in inp["races"]}
+        if set(by_key)!=set(source_races):
+            raise ValueError("odds and base model race set mismatch")
+        overlays=[]
+        for r in prediction["races"]:
+            key=r["race"]
+            snapshot=by_key[key]
+            if parse_time(snapshot["observed_at"])>asof:
+                raise ValueError("odds capture newer than model asof; regenerate forecast asof")
+            output=combine_market(r["v50"],snapshot,alpha=odds_alpha,
+                                  off_at=source_races[key]["original_off_at"])
+            overlays.append({"race":key,**output})
+        prediction["odds_research_overlay"]={
+            "status":"RESEARCH_NOT_CALIBRATED_NO_PRODUCTION_PROMOTION",
+            "alpha":odds_alpha,
+            "odds_source_sha256":hashlib.sha256(odds_bytes).hexdigest(),
+            "races":overlays,
+            "warnings":["Pre-off-only odds; research shadow ranking, no live betting",
+                        "Canonical v50 rank and ticket allocations remain unchanged",
+                        "Alpha=0.20 is a provisional experimental setting, not a trained optimum"]}
     prediction["standard_forecast"]=True
     prediction["policy_sha256"]=hashlib.sha256(policy_bytes).hexdigest()
     prediction["canonical_database_sha256"]=dbdigest
@@ -91,12 +130,16 @@ def main():
     p.add_argument("--forecast",required=True)
     p.add_argument("--database",required=True)
     p.add_argument("--output",required=True)
+    p.add_argument("--odds-snapshot")
+    p.add_argument("--odds-alpha",type=float,default=0.20)
     args=p.parse_args()
-    result=standard_forecast(args.forecast,args.database,args.output)
+    result=standard_forecast(args.forecast,args.database,args.output,
+                             odds_path=args.odds_snapshot,odds_alpha=args.odds_alpha)
     print(json.dumps({"version":result["version"],"races":len(result["races"]),
                       "standard_forecast":True,
                       "policy_sha256":result["policy_sha256"],
-                      "live_bet_generation":False},ensure_ascii=False))
+                      "live_bet_generation":False,
+                      "odds_overlay_races":len(result.get("odds_research_overlay",{}).get("races",[]))},ensure_ascii=False))
 
 if __name__=="__main__":
     main()

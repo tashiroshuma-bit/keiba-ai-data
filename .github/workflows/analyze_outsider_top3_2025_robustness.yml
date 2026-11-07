@@ -1,0 +1,27 @@
+name: Historical outsider 2025 robustness checks
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_outsider_top3_2025_robustness.yml'
+      - 'scripts/analyze_outsider_top3_2025_robustness.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compare 2025 4th favorite versus archived preoff proxy and control popularity groups
+        run: python -m scripts.analyze_outsider_top3_2025_robustness
+      - name: Commit research outcome
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/outsider_top3_history_2025_robustness.md reports/outsider_top3_history_2025_robustness.json
+          git commit -m "Report within-popularity outsider top3 robustness checks"
+          git pull --rebase origin main
+          git push

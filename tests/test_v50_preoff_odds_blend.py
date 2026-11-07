@@ -33,6 +33,28 @@ class MarketOddsBlendTests(unittest.TestCase):
         self.assertIn("CLOSE_TOP_TWO_GAP_UNDER_3PP",
                       r["market_structure"]["risk_markers"])
 
+    def test_outsider_third_ranked_by_p3_not_win_probability(self):
+        model={"horses":[
+            {"number":1,"name":"A","p1":.5,"p2":.26,"p3":.15},
+            {"number":2,"name":"B","p1":.27,"p2":.33,"p3":.30},
+            {"number":3,"name":"C","p1":.15,"p2":.26,"p3":.32},
+            {"number":4,"name":"D","p1":.08,"p2":.15,"p3":.23},
+        ]}
+        snapshot={"phase":"preoff","source_kind":"observed_public_win_odds",
+            "observed_at":"2026-11-08T08:00:00+09:00",
+            "horses":[{"number":1,"odds":2.1},{"number":2,"odds":4.0},
+                     {"number":3,"odds":7.0},{"number":4,"odds":12.0}]}
+        r=combine(model,snapshot,alpha=.2,off_at=self.off)
+        self.assertEqual(len(r["outsider_third_candidates"]),1)
+        candidate=r["outsider_third_candidates"][0]
+        self.assertEqual(candidate["number"],4)
+        self.assertEqual(candidate["market_rank_preoff"],4)
+        self.assertAlmostEqual(candidate["v50_p3"],.23)
+        self.assertAlmostEqual(candidate["v50_top3_probability"],.46)
+    def test_missing_p3_produces_no_pretend_third_candidate(self):
+        r=combine(self.model,self.snap,alpha=.2,off_at=self.off)
+        self.assertEqual(r["outsider_third_candidates"],[])
+
     def test_zero_alpha_preserves_model(self):
         r=combine(self.model,self.snap,alpha=0,off_at=self.off)
         ps={h["number"]:h["blend_p1"] for h in r["ranking"]}

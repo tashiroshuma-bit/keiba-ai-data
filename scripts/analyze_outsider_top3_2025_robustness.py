@@ -82,7 +82,7 @@ def main():
     lines+=["## 保存済み研究用p1が示す穴候補と人気4位の比較","",
       f"同一{len(candidates)}R：保存済み研究用p1最上位の4番人気以下は3着以内 {s['frozen_proxy_top3']}/{s['n']}、"
       f"市場4番人気は {s['market_4th_top3']}/{s['n']}。",
-      f"ちょうど3着：研究用p1候補 {s['frozen_proxy_third']}/{s['n']}、市場4番人気 {s['market_fourth_third']}/{s['n']}。",
+      f"ちょうど3着：研究用p1候補 {s['frozen_proxy_third']}/{s['n']}、市場4番人気 {s['market_4th_third']}/{s['n']}。",
       f"同じ馬の選択 {s['same_pick']}/{s['n']}、研究用のみ3着内 {s['proxy_only_top3']}、4番人気のみ3着内 {s['pop4_only_top3']}。",
       "**これはv50のp3モデル比較ではない。旧モデルのp1で3着穴を拾えるという証明にはならない。**","",
       "## 結論","",

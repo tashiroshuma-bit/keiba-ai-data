@@ -21,3 +21,17 @@ for p in paths:
   x=json.loads((ROOT/p).read_text())
   print(json.dumps({"path":p,"structure":preview(x)},ensure_ascii=False)[:3100],flush=True)
  except Exception as e:print(json.dumps({"path":p,"error":repr(e)}),flush=True)
+
+from bs4 import BeautifulSoup
+from urllib.request import urlopen,Request
+for p in paths[:2]:
+ x=json.loads((ROOT/p).read_text())
+ first=x["official_sources"][0]
+ try:
+  with urlopen(Request(first["source_url"],headers={"User-Agent":"Mozilla/5.0"}),timeout=15) as fh:html=fh.read()
+  soup=BeautifulSoup(html,"html.parser")
+  for tr in soup.find_all("tr")[:35]:
+   cells=[z.get_text(" ",strip=True) for z in tr.find_all(["td","th"],recursive=False)]
+   if len(cells)>3 and cells[0].strip() in ("1","2","3","4"):
+    print(json.dumps({"source":p,"url":first["source_url"],"cells":cells[:15]},ensure_ascii=False)[:1900],flush=True)
+ except Exception as e:print(json.dumps({"source":p,"http_error":str(e)}),flush=True)

@@ -1,0 +1,31 @@
+name: Historical fourth-or-worse popularity in top three
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_outsider_top3_official.yml'
+      - 'scripts/analyze_outsider_top3_official.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4
+      - name: Fetch 48 archived official race results and measure outsider top-three
+        run: python -m scripts.analyze_outsider_top3_official
+      - name: Save audited result
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/outsider_top3_20261031_1101_results.json reports/outsider_top3_20261031_1101_report.md
+          git commit -m "Analyze JRA official fourth-choice-or-worse top-three performances"
+          git pull --rebase origin main
+          git push

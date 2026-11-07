@@ -1,0 +1,1182 @@
+{
+  "source_history": "keiba_v48/reports/completion/paired_predictions_lag7.json",
+  "source_market": "keiba_v48/reports/completion/final_market_decisions_lag7.json",
+  "history_sha256": "2a1fae11828c114fd24d1495fdba2bd21c3f48758cfd4a05f7cec44d4ca7c364",
+  "market_sha256": "d424670582d50d1ecc0f3b8904b8427e4fb1ce270230b4c6da65901597dbf57f",
+  "odds_basis": "POSTRACE_FINAL_DIAGNOSTIC_ONLY",
+  "limitations": [
+    "Final market-implied probability reconstructed from final odds; race-day preoff signal unavailable.",
+    "Market-implied rank may differ from official popularity when odds tie.",
+    "Race histories are already preselected by the original data pipeline; not necessarily all JRA races.",
+    "Causal attribution is impossible from observational strata.",
+    "Historical performance must not be evaluated using postrace final odds as forecast features."
+  ],
+  "joined": 345,
+  "unjoined": {
+    "market_missing": 51
+  },
+  "by_year_count": {
+    "2025": 345
+  },
+  "all": {
+    "overall": {
+      "n": 345,
+      "favorite_won": 110,
+      "other_won": 235,
+      "nonfavorite_rate": 0.6811594202898551
+    },
+    "favorite_market_share": {
+      "20–30%": {
+        "n": 117,
+        "favorite_won": 31,
+        "other_won": 86,
+        "nonfavorite_rate": 0.7350427350427351,
+        "wilson95": [
+          0.6485316330077374,
+          0.8066096428442872
+        ]
+      },
+      "30–40%": {
+        "n": 118,
+        "favorite_won": 45,
+        "other_won": 73,
+        "nonfavorite_rate": 0.6186440677966102,
+        "wilson95": [
+          0.5285752066363015,
+          0.7012313618920173
+        ]
+      },
+      "40–50%": {
+        "n": 54,
+        "favorite_won": 21,
+        "other_won": 33,
+        "nonfavorite_rate": 0.6111111111111112,
+        "wilson95": [
+          0.47788056581508337,
+          0.7295825749002496
+        ]
+      },
+      "50%+": {
+        "n": 24,
+        "favorite_won": 12,
+        "other_won": 12,
+        "nonfavorite_rate": 0.5,
+        "wilson95": [
+          0.31427131627763083,
+          0.6857286837223692
+        ]
+      },
+      "<20%": {
+        "n": 32,
+        "favorite_won": 1,
+        "other_won": 31,
+        "nonfavorite_rate": 0.96875,
+        "wilson95": [
+          0.8425539219962727,
+          0.9944622826374491
+        ]
+      }
+    },
+    "favorite_vs_second_market_share_gap": {
+      "15pp+": {
+        "n": 131,
+        "favorite_won": 54,
+        "other_won": 77,
+        "nonfavorite_rate": 0.5877862595419847,
+        "wilson95": [
+          0.5021640639675548,
+          0.668406442463695
+        ]
+      },
+      "3–8pp": {
+        "n": 66,
+        "favorite_won": 16,
+        "other_won": 50,
+        "nonfavorite_rate": 0.7575757575757576,
+        "wilson95": [
+          0.6419064250894373,
+          0.8449094554173093
+        ]
+      },
+      "8–15pp": {
+        "n": 77,
+        "favorite_won": 28,
+        "other_won": 49,
+        "nonfavorite_rate": 0.6363636363636364,
+        "wilson95": [
+          0.5248199544762014,
+          0.7349472940691019
+        ]
+      },
+      "<3pp": {
+        "n": 71,
+        "favorite_won": 12,
+        "other_won": 59,
+        "nonfavorite_rate": 0.8309859154929577,
+        "wilson95": [
+          0.7274065601494254,
+          0.9005864277075953
+        ]
+      }
+    },
+    "field_size": {
+      "10–13": {
+        "n": 90,
+        "favorite_won": 29,
+        "other_won": 61,
+        "nonfavorite_rate": 0.6777777777777778,
+        "wilson95": [
+          0.5756664407220551,
+          0.765333712728014
+        ]
+      },
+      "14–18": {
+        "n": 200,
+        "favorite_won": 59,
+        "other_won": 141,
+        "nonfavorite_rate": 0.705,
+        "wilson95": [
+          0.6384115802925058,
+          0.7638615572809827
+        ]
+      },
+      "3–9": {
+        "n": 55,
+        "favorite_won": 22,
+        "other_won": 33,
+        "nonfavorite_rate": 0.6,
+        "wilson95": [
+          0.4681256091064502,
+          0.7188169621356643
+        ]
+      }
+    },
+    "venue": {
+      "中京": {
+        "n": 60,
+        "favorite_won": 17,
+        "other_won": 43,
+        "nonfavorite_rate": 0.7166666666666667,
+        "wilson95": [
+          0.5923247495026482,
+          0.8149332139569141
+        ]
+      },
+      "中山": {
+        "n": 34,
+        "favorite_won": 8,
+        "other_won": 26,
+        "nonfavorite_rate": 0.7647058823529411,
+        "wilson95": [
+          0.6000353719173557,
+          0.8756316189075566
+        ]
+      },
+      "京都": {
+        "n": 58,
+        "favorite_won": 18,
+        "other_won": 40,
+        "nonfavorite_rate": 0.6896551724137931,
+        "wilson95": [
+          0.5619669315326005,
+          0.7937806558519432
+        ]
+      },
+      "函館": {
+        "n": 4,
+        "favorite_won": 1,
+        "other_won": 3,
+        "nonfavorite_rate": 0.75,
+        "wilson95": [
+          0.3006360524426366,
+          0.9544139373553637
+        ]
+      },
+      "小倉": {
+        "n": 15,
+        "favorite_won": 2,
+        "other_won": 13,
+        "nonfavorite_rate": 0.8666666666666667,
+        "wilson95": [
+          0.6211750079348376,
+          0.9626395301086407
+        ]
+      },
+      "新潟": {
+        "n": 58,
+        "favorite_won": 22,
+        "other_won": 36,
+        "nonfavorite_rate": 0.6206896551724138,
+        "wilson95": [
+          0.4920257173616557,
+          0.734359110973963
+        ]
+      },
+      "札幌": {
+        "n": 27,
+        "favorite_won": 11,
+        "other_won": 16,
+        "nonfavorite_rate": 0.5925925925925926,
+        "wilson95": [
+          0.4072638305536409,
+          0.7548548662714265
+        ]
+      },
+      "東京": {
+        "n": 56,
+        "favorite_won": 19,
+        "other_won": 37,
+        "nonfavorite_rate": 0.6607142857142857,
+        "wilson95": [
+          0.5299920896078809,
+          0.7708020068066535
+        ]
+      },
+      "福島": {
+        "n": 13,
+        "favorite_won": 4,
+        "other_won": 9,
+        "nonfavorite_rate": 0.6923076923076923,
+        "wilson95": [
+          0.4236888781333764,
+          0.8731950283838191
+        ]
+      },
+      "阪神": {
+        "n": 20,
+        "favorite_won": 8,
+        "other_won": 12,
+        "nonfavorite_rate": 0.6,
+        "wilson95": [
+          0.3865779423152061,
+          0.7811960325858074
+        ]
+      }
+    },
+    "winner_market_rank": {
+      "1": 110,
+      "2": 70,
+      "3": 51,
+      "4": 26,
+      "5": 29,
+      "6": 13,
+      "7": 9,
+      "8": 6,
+      "9": 9,
+      "10": 7,
+      "11": 5,
+      "12": 5,
+      "13": 1,
+      "14": 2,
+      "15": 2
+    },
+    "winner_previous_starts": {
+      "0": {
+        "n": 24,
+        "favorite_won": 7,
+        "other_won": 17,
+        "nonfavorite_rate": 0.7083333333333334,
+        "wilson95": [
+          0.508319363412903,
+          0.8508553966583573
+        ]
+      },
+      "1–2": {
+        "n": 42,
+        "favorite_won": 22,
+        "other_won": 20,
+        "nonfavorite_rate": 0.47619047619047616,
+        "wilson95": [
+          0.3335936447596496,
+          0.6227778605979295
+        ]
+      },
+      "3–5": {
+        "n": 69,
+        "favorite_won": 22,
+        "other_won": 47,
+        "nonfavorite_rate": 0.6811594202898551,
+        "wilson95": [
+          0.5641565251834876,
+          0.7790539479527424
+        ]
+      },
+      "6+": {
+        "n": 210,
+        "favorite_won": 59,
+        "other_won": 151,
+        "nonfavorite_rate": 0.719047619047619,
+        "wilson95": [
+          0.6547413066961123,
+          0.7754836822676814
+        ]
+      }
+    }
+  },
+  "by_year": {
+    "2025": {
+      "overall": {
+        "n": 345,
+        "favorite_won": 110,
+        "other_won": 235,
+        "nonfavorite_rate": 0.6811594202898551
+      },
+      "favorite_market_share": {
+        "20–30%": {
+          "n": 117,
+          "favorite_won": 31,
+          "other_won": 86,
+          "nonfavorite_rate": 0.7350427350427351,
+          "wilson95": [
+            0.6485316330077374,
+            0.8066096428442872
+          ]
+        },
+        "30–40%": {
+          "n": 118,
+          "favorite_won": 45,
+          "other_won": 73,
+          "nonfavorite_rate": 0.6186440677966102,
+          "wilson95": [
+            0.5285752066363015,
+            0.7012313618920173
+          ]
+        },
+        "40–50%": {
+          "n": 54,
+          "favorite_won": 21,
+          "other_won": 33,
+          "nonfavorite_rate": 0.6111111111111112,
+          "wilson95": [
+            0.47788056581508337,
+            0.7295825749002496
+          ]
+        },
+        "50%+": {
+          "n": 24,
+          "favorite_won": 12,
+          "other_won": 12,
+          "nonfavorite_rate": 0.5,
+          "wilson95": [
+            0.31427131627763083,
+            0.6857286837223692
+          ]
+        },
+        "<20%": {
+          "n": 32,
+          "favorite_won": 1,
+          "other_won": 31,
+          "nonfavorite_rate": 0.96875,
+          "wilson95": [
+            0.8425539219962727,
+            0.9944622826374491
+          ]
+        }
+      },
+      "favorite_vs_second_market_share_gap": {
+        "15pp+": {
+          "n": 131,
+          "favorite_won": 54,
+          "other_won": 77,
+          "nonfavorite_rate": 0.5877862595419847,
+          "wilson95": [
+            0.5021640639675548,
+            0.668406442463695
+          ]
+        },
+        "3–8pp": {
+          "n": 66,
+          "favorite_won": 16,
+          "other_won": 50,
+          "nonfavorite_rate": 0.7575757575757576,
+          "wilson95": [
+            0.6419064250894373,
+            0.8449094554173093
+          ]
+        },
+        "8–15pp": {
+          "n": 77,
+          "favorite_won": 28,
+          "other_won": 49,
+          "nonfavorite_rate": 0.6363636363636364,
+          "wilson95": [
+            0.5248199544762014,
+            0.7349472940691019
+          ]
+        },
+        "<3pp": {
+          "n": 71,
+          "favorite_won": 12,
+          "other_won": 59,
+          "nonfavorite_rate": 0.8309859154929577,
+          "wilson95": [
+            0.7274065601494254,
+            0.9005864277075953
+          ]
+        }
+      },
+      "field_size": {
+        "10–13": {
+          "n": 90,
+          "favorite_won": 29,
+          "other_won": 61,
+          "nonfavorite_rate": 0.6777777777777778,
+          "wilson95": [
+            0.5756664407220551,
+            0.765333712728014
+          ]
+        },
+        "14–18": {
+          "n": 200,
+          "favorite_won": 59,
+          "other_won": 141,
+          "nonfavorite_rate": 0.705,
+          "wilson95": [
+            0.6384115802925058,
+            0.7638615572809827
+          ]
+        },
+        "3–9": {
+          "n": 55,
+          "favorite_won": 22,
+          "other_won": 33,
+          "nonfavorite_rate": 0.6,
+          "wilson95": [
+            0.4681256091064502,
+            0.7188169621356643
+          ]
+        }
+      },
+      "venue": {
+        "中京": {
+          "n": 60,
+          "favorite_won": 17,
+          "other_won": 43,
+          "nonfavorite_rate": 0.7166666666666667,
+          "wilson95": [
+            0.5923247495026482,
+            0.8149332139569141
+          ]
+        },
+        "中山": {
+          "n": 34,
+          "favorite_won": 8,
+          "other_won": 26,
+          "nonfavorite_rate": 0.7647058823529411,
+          "wilson95": [
+            0.6000353719173557,
+            0.8756316189075566
+          ]
+        },
+        "京都": {
+          "n": 58,
+          "favorite_won": 18,
+          "other_won": 40,
+          "nonfavorite_rate": 0.6896551724137931,
+          "wilson95": [
+            0.5619669315326005,
+            0.7937806558519432
+          ]
+        },
+        "函館": {
+          "n": 4,
+          "favorite_won": 1,
+          "other_won": 3,
+          "nonfavorite_rate": 0.75,
+          "wilson95": [
+            0.3006360524426366,
+            0.9544139373553637
+          ]
+        },
+        "小倉": {
+          "n": 15,
+          "favorite_won": 2,
+          "other_won": 13,
+          "nonfavorite_rate": 0.8666666666666667,
+          "wilson95": [
+            0.6211750079348376,
+            0.9626395301086407
+          ]
+        },
+        "新潟": {
+          "n": 58,
+          "favorite_won": 22,
+          "other_won": 36,
+          "nonfavorite_rate": 0.6206896551724138,
+          "wilson95": [
+            0.4920257173616557,
+            0.734359110973963
+          ]
+        },
+        "札幌": {
+          "n": 27,
+          "favorite_won": 11,
+          "other_won": 16,
+          "nonfavorite_rate": 0.5925925925925926,
+          "wilson95": [
+            0.4072638305536409,
+            0.7548548662714265
+          ]
+        },
+        "東京": {
+          "n": 56,
+          "favorite_won": 19,
+          "other_won": 37,
+          "nonfavorite_rate": 0.6607142857142857,
+          "wilson95": [
+            0.5299920896078809,
+            0.7708020068066535
+          ]
+        },
+        "福島": {
+          "n": 13,
+          "favorite_won": 4,
+          "other_won": 9,
+          "nonfavorite_rate": 0.6923076923076923,
+          "wilson95": [
+            0.4236888781333764,
+            0.8731950283838191
+          ]
+        },
+        "阪神": {
+          "n": 20,
+          "favorite_won": 8,
+          "other_won": 12,
+          "nonfavorite_rate": 0.6,
+          "wilson95": [
+            0.3865779423152061,
+            0.7811960325858074
+          ]
+        }
+      },
+      "winner_market_rank": {
+        "1": 110,
+        "2": 70,
+        "3": 51,
+        "4": 26,
+        "5": 29,
+        "6": 13,
+        "7": 9,
+        "8": 6,
+        "9": 9,
+        "10": 7,
+        "11": 5,
+        "12": 5,
+        "13": 1,
+        "14": 2,
+        "15": 2
+      },
+      "winner_previous_starts": {
+        "0": {
+          "n": 24,
+          "favorite_won": 7,
+          "other_won": 17,
+          "nonfavorite_rate": 0.7083333333333334,
+          "wilson95": [
+            0.508319363412903,
+            0.8508553966583573
+          ]
+        },
+        "1–2": {
+          "n": 42,
+          "favorite_won": 22,
+          "other_won": 20,
+          "nonfavorite_rate": 0.47619047619047616,
+          "wilson95": [
+            0.3335936447596496,
+            0.6227778605979295
+          ]
+        },
+        "3–5": {
+          "n": 69,
+          "favorite_won": 22,
+          "other_won": 47,
+          "nonfavorite_rate": 0.6811594202898551,
+          "wilson95": [
+            0.5641565251834876,
+            0.7790539479527424
+          ]
+        },
+        "6+": {
+          "n": 210,
+          "favorite_won": 59,
+          "other_won": 151,
+          "nonfavorite_rate": 0.719047619047619,
+          "wilson95": [
+            0.6547413066961123,
+            0.7754836822676814
+          ]
+        }
+      }
+    }
+  },
+  "favorite_share_x_field": {
+    "20–30% / 10–13": {
+      "n": 31,
+      "favorite_won": 8,
+      "other_won": 23,
+      "nonfavorite_rate": 0.7419354838709677,
+      "wilson95": [
+        0.5675352757228489,
+        0.8629845626313024
+      ]
+    },
+    "20–30% / 14–18": {
+      "n": 77,
+      "favorite_won": 19,
+      "other_won": 58,
+      "nonfavorite_rate": 0.7532467532467533,
+      "wilson95": [
+        0.6464643724401389,
+        0.8359605177154248
+      ]
+    },
+    "20–30% / 3–9": {
+      "n": 9,
+      "favorite_won": 4,
+      "other_won": 5,
+      "nonfavorite_rate": 0.5555555555555556,
+      "wilson95": [
+        0.2666473457440297,
+        0.811224570528086
+      ]
+    },
+    "30–40% / 10–13": {
+      "n": 36,
+      "favorite_won": 12,
+      "other_won": 24,
+      "nonfavorite_rate": 0.6666666666666666,
+      "wilson95": [
+        0.5033369709296683,
+        0.7978557522541395
+      ]
+    },
+    "30–40% / 14–18": {
+      "n": 58,
+      "favorite_won": 24,
+      "other_won": 34,
+      "nonfavorite_rate": 0.5862068965517241,
+      "wilson95": [
+        0.4579817755925391,
+        0.7037216732186171
+      ]
+    },
+    "30–40% / 3–9": {
+      "n": 24,
+      "favorite_won": 9,
+      "other_won": 15,
+      "nonfavorite_rate": 0.625,
+      "wilson95": [
+        0.42709619037907065,
+        0.7884086656636855
+      ]
+    },
+    "40–50% / 10–13": {
+      "n": 15,
+      "favorite_won": 5,
+      "other_won": 10,
+      "nonfavorite_rate": 0.6666666666666666,
+      "wilson95": [
+        0.41713125151212976,
+        0.8482389930530876
+      ]
+    },
+    "40–50% / 14–18": {
+      "n": 24,
+      "favorite_won": 10,
+      "other_won": 14,
+      "nonfavorite_rate": 0.5833333333333334,
+      "wilson95": [
+        0.3883433764938864,
+        0.7553265275346177
+      ]
+    },
+    "40–50% / 3–9": {
+      "n": 15,
+      "favorite_won": 6,
+      "other_won": 9,
+      "nonfavorite_rate": 0.6,
+      "wilson95": [
+        0.357464427565077,
+        0.8017577191740534
+      ]
+    },
+    "50%+ / 10–13": {
+      "n": 7,
+      "favorite_won": 4,
+      "other_won": 3,
+      "nonfavorite_rate": 0.42857142857142855,
+      "wilson95": [
+        0.15821692226262685,
+        0.7495457695909742
+      ]
+    },
+    "50%+ / 14–18": {
+      "n": 10,
+      "favorite_won": 5,
+      "other_won": 5,
+      "nonfavorite_rate": 0.5,
+      "wilson95": [
+        0.23658959361548731,
+        0.7634104063845126
+      ]
+    },
+    "50%+ / 3–9": {
+      "n": 7,
+      "favorite_won": 3,
+      "other_won": 4,
+      "nonfavorite_rate": 0.5714285714285714,
+      "wilson95": [
+        0.2504542304090258,
+        0.8417830777373732
+      ]
+    },
+    "<20% / 10–13": {
+      "n": 1,
+      "favorite_won": 0,
+      "other_won": 1,
+      "nonfavorite_rate": 1.0,
+      "wilson95": [
+        0.20654329147389294,
+        1.0
+      ]
+    },
+    "<20% / 14–18": {
+      "n": 31,
+      "favorite_won": 1,
+      "other_won": 30,
+      "nonfavorite_rate": 0.967741935483871,
+      "wilson95": [
+        0.8380554282383037,
+        0.9942829259130554
+      ]
+    }
+  },
+  "example_nonfavorite_winners": [
+    {
+      "race_id": "202506010204",
+      "year": "2025",
+      "venue": "中山",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 15,
+      "favorite_market_share": 0.1848333157510931,
+      "second_market_share": 0.16910282079355327,
+      "favorite_share_gap": 0.015730494957539837,
+      "favorite_share_ratio": 1.0930232558139534,
+      "market_entropy": 0.8555473434391219,
+      "winner_history_starts": 11,
+      "favorite_history_starts": 6,
+      "favorite_horse_number": "1",
+      "winner_horse_number": "14"
+    },
+    {
+      "race_id": "202508021111",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 15,
+      "favorite_market_share": 0.14199015995702194,
+      "second_market_share": 0.13709394754471085,
+      "favorite_share_gap": 0.004896212412311085,
+      "favorite_share_ratio": 1.0357142857142856,
+      "market_entropy": 0.9247295253125294,
+      "winner_history_starts": 3,
+      "favorite_history_starts": 2,
+      "favorite_horse_number": "2",
+      "winner_horse_number": "8"
+    },
+    {
+      "race_id": "202508030710",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 14,
+      "favorite_market_share": 0.5206370552716933,
+      "second_market_share": 0.0988551370769038,
+      "favorite_share_gap": 0.42178191819478955,
+      "favorite_share_ratio": 5.266666666666667,
+      "market_entropy": 0.6489633011976124,
+      "winner_history_starts": 16,
+      "favorite_history_starts": 5,
+      "favorite_horse_number": "13",
+      "winner_horse_number": "12"
+    },
+    {
+      "race_id": "202502010411",
+      "year": "2025",
+      "venue": "函館",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 14,
+      "favorite_market_share": 0.24147070241672006,
+      "second_market_share": 0.18972698047028003,
+      "favorite_share_gap": 0.05174372194644003,
+      "favorite_share_ratio": 1.272727272727273,
+      "market_entropy": 0.8420394677969109,
+      "winner_history_starts": 14,
+      "favorite_history_starts": 6,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "14"
+    },
+    {
+      "race_id": "202506040111",
+      "year": "2025",
+      "venue": "中山",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 13,
+      "favorite_market_share": 0.2823897831183224,
+      "second_market_share": 0.11801364070616459,
+      "favorite_share_gap": 0.1643761424121578,
+      "favorite_share_ratio": 2.392857142857143,
+      "market_entropy": 0.8359280162618028,
+      "winner_history_starts": 13,
+      "favorite_history_starts": 4,
+      "favorite_horse_number": "11",
+      "winner_horse_number": "1"
+    },
+    {
+      "race_id": "202508020210",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 12,
+      "favorite_market_share": 0.36069820400611763,
+      "second_market_share": 0.15260308631028052,
+      "favorite_share_gap": 0.2080951176958371,
+      "favorite_share_ratio": 2.3636363636363638,
+      "market_entropy": 0.7463436345960491,
+      "winner_history_starts": 11,
+      "favorite_history_starts": 6,
+      "favorite_horse_number": "7",
+      "winner_horse_number": "14"
+    },
+    {
+      "race_id": "202504040203",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 18,
+      "winner_is_favorite": false,
+      "winner_market_rank": 12,
+      "favorite_market_share": 0.19358225301508217,
+      "second_market_share": 0.165351507783716,
+      "favorite_share_gap": 0.028230745231366178,
+      "favorite_share_ratio": 1.1707317073170733,
+      "market_entropy": 0.8363545907790269,
+      "winner_history_starts": 5,
+      "favorite_history_starts": 3,
+      "favorite_horse_number": "5",
+      "winner_horse_number": "13"
+    },
+    {
+      "race_id": "202506030208",
+      "year": "2025",
+      "venue": "中山",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 12,
+      "favorite_market_share": 0.18923434474181172,
+      "second_market_share": 0.1727791843294803,
+      "favorite_share_gap": 0.016455160412331415,
+      "favorite_share_ratio": 1.095238095238095,
+      "market_entropy": 0.819447509307488,
+      "winner_history_starts": 14,
+      "favorite_history_starts": 16,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "15"
+    },
+    {
+      "race_id": "202504010310",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 12,
+      "favorite_market_share": 0.1804757925745485,
+      "second_market_share": 0.15271028602461795,
+      "favorite_share_gap": 0.02776550654993054,
+      "favorite_share_ratio": 1.1818181818181819,
+      "market_entropy": 0.8650592248009171,
+      "winner_history_starts": 18,
+      "favorite_history_starts": 11,
+      "favorite_horse_number": "8",
+      "winner_horse_number": "10"
+    },
+    {
+      "race_id": "202507010108",
+      "year": "2025",
+      "venue": "中京",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 12,
+      "favorite_market_share": 0.1420482148044986,
+      "second_market_share": 0.1420482148044986,
+      "favorite_share_gap": 0.0,
+      "favorite_share_ratio": 1.0,
+      "market_entropy": 0.8639676729929414,
+      "winner_history_starts": 11,
+      "favorite_history_starts": 9,
+      "favorite_horse_number": "11",
+      "winner_horse_number": "9"
+    },
+    {
+      "race_id": "202505021112",
+      "year": "2025",
+      "venue": "東京",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 11,
+      "favorite_market_share": 0.43521312802474454,
+      "second_market_share": 0.11692292991709553,
+      "favorite_share_gap": 0.318290198107649,
+      "favorite_share_ratio": 3.7222222222222228,
+      "market_entropy": 0.7332720190367376,
+      "winner_history_starts": 13,
+      "favorite_history_starts": 15,
+      "favorite_horse_number": "13",
+      "winner_horse_number": "4"
+    },
+    {
+      "race_id": "202504020109",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 14,
+      "winner_is_favorite": false,
+      "winner_market_rank": 11,
+      "favorite_market_share": 0.3922799513076367,
+      "second_market_share": 0.19613997565381835,
+      "favorite_share_gap": 0.19613997565381835,
+      "favorite_share_ratio": 2.0,
+      "market_entropy": 0.7499508164772222,
+      "winner_history_starts": 8,
+      "favorite_history_starts": 5,
+      "favorite_horse_number": "6",
+      "winner_horse_number": "2"
+    },
+    {
+      "race_id": "202508030706",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 12,
+      "winner_is_favorite": false,
+      "winner_market_rank": 11,
+      "favorite_market_share": 0.35889565809992113,
+      "second_market_share": 0.3289876865915944,
+      "favorite_share_gap": 0.029907971508326747,
+      "favorite_share_ratio": 1.0909090909090908,
+      "market_entropy": 0.6718388445071305,
+      "winner_history_starts": 7,
+      "favorite_history_starts": 8,
+      "favorite_horse_number": "5",
+      "winner_horse_number": "9"
+    },
+    {
+      "race_id": "202509030408",
+      "year": "2025",
+      "venue": "阪神",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 11,
+      "favorite_market_share": 0.21995247028343243,
+      "second_market_share": 0.18853068881437063,
+      "favorite_share_gap": 0.0314217814690618,
+      "favorite_share_ratio": 1.1666666666666667,
+      "market_entropy": 0.8117201314828384,
+      "winner_history_starts": 10,
+      "favorite_history_starts": 11,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "9"
+    },
+    {
+      "race_id": "202504040209",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 11,
+      "favorite_market_share": 0.1807599268154433,
+      "second_market_share": 0.1767430395528779,
+      "favorite_share_gap": 0.004016887262565411,
+      "favorite_share_ratio": 1.0227272727272727,
+      "market_entropy": 0.8552544304602112,
+      "winner_history_starts": 9,
+      "favorite_history_starts": 6,
+      "favorite_horse_number": "5",
+      "winner_horse_number": "1"
+    },
+    {
+      "race_id": "202505021108",
+      "year": "2025",
+      "venue": "東京",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.5166823667196571,
+      "second_market_share": 0.12500379839991702,
+      "favorite_share_gap": 0.39167856831974,
+      "favorite_share_ratio": 4.133333333333334,
+      "market_entropy": 0.6324803012606831,
+      "winner_history_starts": 1,
+      "favorite_history_starts": 7,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "14"
+    },
+    {
+      "race_id": "202505040710",
+      "year": "2025",
+      "venue": "東京",
+      "field_size": 13,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.46511232078643233,
+      "second_market_share": 0.11295584933384785,
+      "favorite_share_gap": 0.3521564714525845,
+      "favorite_share_ratio": 4.11764705882353,
+      "market_entropy": 0.7358963758658609,
+      "winner_history_starts": 19,
+      "favorite_history_starts": 8,
+      "favorite_horse_number": "8",
+      "winner_horse_number": "3"
+    },
+    {
+      "race_id": "202505010310",
+      "year": "2025",
+      "venue": "東京",
+      "field_size": 13,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.44238741076359683,
+      "second_market_share": 0.12639640307531338,
+      "favorite_share_gap": 0.3159910076882835,
+      "favorite_share_ratio": 3.5,
+      "market_entropy": 0.7278208655648443,
+      "winner_history_starts": 8,
+      "favorite_history_starts": 6,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "4"
+    },
+    {
+      "race_id": "202504020110",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 14,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.43705143602314883,
+      "second_market_share": 0.21261961752477507,
+      "favorite_share_gap": 0.22443181849837376,
+      "favorite_share_ratio": 2.055555555555556,
+      "market_entropy": 0.6918741976420858,
+      "winner_history_starts": 6,
+      "favorite_history_starts": 4,
+      "favorite_horse_number": "14",
+      "winner_horse_number": "6"
+    },
+    {
+      "race_id": "202504020211",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 16,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.2815148144775251,
+      "second_market_share": 0.1791457910311523,
+      "favorite_share_gap": 0.10236902344637278,
+      "favorite_share_ratio": 1.5714285714285716,
+      "market_entropy": 0.7944915121966365,
+      "winner_history_starts": 4,
+      "favorite_history_starts": 9,
+      "favorite_horse_number": "10",
+      "winner_horse_number": "3"
+    },
+    {
+      "race_id": "202504010410",
+      "year": "2025",
+      "venue": "新潟",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.1885828118640332,
+      "second_market_share": 0.15231688650556527,
+      "favorite_share_gap": 0.036265925358467926,
+      "favorite_share_ratio": 1.2380952380952381,
+      "market_entropy": 0.8661807816239183,
+      "winner_history_starts": 16,
+      "favorite_history_starts": 13,
+      "favorite_horse_number": "9",
+      "winner_horse_number": "15"
+    },
+    {
+      "race_id": "202508031111",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 15,
+      "winner_is_favorite": false,
+      "winner_market_rank": 10,
+      "favorite_market_share": 0.15596414503111294,
+      "second_market_share": 0.15596414503111294,
+      "favorite_share_gap": 0.0,
+      "favorite_share_ratio": 1.0,
+      "market_entropy": 0.881436702840389,
+      "winner_history_starts": 10,
+      "favorite_history_starts": 12,
+      "favorite_horse_number": "6",
+      "winner_horse_number": "10"
+    },
+    {
+      "race_id": "202508010610",
+      "year": "2025",
+      "venue": "京都",
+      "field_size": 13,
+      "winner_is_favorite": false,
+      "winner_market_rank": 9,
+      "favorite_market_share": 0.41395047692871517,
+      "second_market_share": 0.17477909025879085,
+      "favorite_share_gap": 0.23917138666992432,
+      "favorite_share_ratio": 2.3684210526315788,
+      "market_entropy": 0.7193244511945577,
+      "winner_history_starts": 7,
+      "favorite_history_starts": 5,
+      "favorite_horse_number": "12",
+      "winner_horse_number": "6"
+    },
+    {
+      "race_id": "202506010206",
+      "year": "2025",
+      "venue": "中山",
+      "field_size": 18,
+      "winner_is_favorite": false,
+      "winner_market_rank": 9,
+      "favorite_market_share": 0.3923775286649666,
+      "second_market_share": 0.16349063694373608,
+      "favorite_share_gap": 0.22888689172123053,
+      "favorite_share_ratio": 2.4,
+      "market_entropy": 0.6870229334089816,
+      "winner_history_starts": 5,
+      "favorite_history_starts": 3,
+      "favorite_horse_number": "6",
+      "winner_horse_number": "16"
+    },
+    {
+      "race_id": "202509020209",
+      "year": "2025",
+      "venue": "阪神",
+      "field_size": 11,
+      "winner_is_favorite": false,
+      "winner_market_rank": 9,
+      "favorite_market_share": 0.36013734139919634,
+      "second_market_share": 0.23303004443477413,
+      "favorite_share_gap": 0.12710729696442222,
+      "favorite_share_ratio": 1.5454545454545454,
+      "market_entropy": 0.7639374933719625,
+      "winner_history_starts": 14,
+      "favorite_history_starts": 8,
+      "favorite_horse_number": "6",
+      "winner_horse_number": "5"
+    }
+  ]
+}

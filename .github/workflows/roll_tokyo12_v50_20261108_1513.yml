@@ -1,0 +1,31 @@
+name: Tokyo 12R 2026-11-08 15-13 v50 rolling latest odds
+on:
+  push:
+    paths:
+      - '.github/workflows/roll_tokyo12_v50_20261108_1513.yml'
+      - 'scripts/roll_tokyo12_v50_20261108_1513.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  roll:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4 numpy
+      - name: Fetch Tokyo 12R official live odds and recompute A to D
+        run: python -m scripts.roll_tokyo12_v50_20261108_1513
+      - name: Save immutable rolling report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/predictions/2026-11-08/tokyo12_live_rolling_1513.json operations/predictions/2026-11-08/tokyo12_live_rolling_1513.md
+          git commit -m "Store Tokyo 12R latest odds refreshed v50 A-D and all wagers"
+          git pull --rebase origin main
+          git push

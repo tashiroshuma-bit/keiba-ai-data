@@ -58,6 +58,9 @@ def overlay(v50_model, source, model_file, *, research_alpha=0.0):
              "horse_name":h["name"]},item["official_identity_proof"])
         if horse_id!=item.get("horse_id"):
             raise ValueError("source horse ID does not match official proof")
+        proof_observed=strict_time(item["official_identity_proof"]["observed_at"])
+        if proof_observed>asof:
+            raise ValueError("official identity was only discovered after forecast asof")
         identity_coverage+=1
         x=item.get("feature_values")
         if not isinstance(x,list) or len(x)!=dim or any(

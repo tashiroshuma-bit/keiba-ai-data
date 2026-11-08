@@ -1,0 +1,87 @@
+{
+  "schema": "v50-historical-preoff-proxy-rank-repair-v1",
+  "data": "2025 actual 1-3 results and frozen historical two-probability and starts sources",
+  "prediction_data_source": "keiba_v48/reports/completion/paired_predictions_lag7.json",
+  "result_data_source": "reports/outsider_top3_history_2025.json",
+  "train": {
+    "last_date": "2025-07-26",
+    "count": 226
+  },
+  "holdout": {
+    "first_date": "2025-07-27",
+    "count": 125
+  },
+  "selection_objective": "maximize win hit, then winner top3, then win logloss on train only",
+  "selected": {
+    "prior_weight": 0.25,
+    "starts_beta": 0.2,
+    "temperature": 0.85
+  },
+  "comparison": {
+    "train_base": {
+      "n": 226,
+      "winner_top1": 51,
+      "winner_top3": 111,
+      "three_set": 10,
+      "winner_ll": 2.314234,
+      "winner_brier": 0.877684,
+      "place2_ll": 2.395579,
+      "place3_ll": 2.473922,
+      "place3_brier": 0.909085,
+      "winner_top1_rate": 0.22566371681415928,
+      "winner_top3_rate": 0.4911504424778761,
+      "three_set_rate": 0.04424778761061947
+    },
+    "train_selected": {
+      "n": 226,
+      "winner_top1": 53,
+      "winner_top3": 114,
+      "three_set": 10,
+      "winner_ll": 2.326931,
+      "winner_brier": 0.885606,
+      "place2_ll": 2.391353,
+      "place3_ll": 2.491027,
+      "place3_brier": 0.912423,
+      "winner_top1_rate": 0.2345132743362832,
+      "winner_top3_rate": 0.504424778761062,
+      "three_set_rate": 0.04424778761061947
+    },
+    "holdout_base": {
+      "n": 125,
+      "winner_top1": 39,
+      "winner_top3": 78,
+      "three_set": 7,
+      "winner_ll": 2.109127,
+      "winner_brier": 0.832499,
+      "place2_ll": 2.309954,
+      "place3_ll": 2.356477,
+      "place3_brier": 0.893974,
+      "winner_top1_rate": 0.312,
+      "winner_top3_rate": 0.624,
+      "three_set_rate": 0.056
+    },
+    "holdout_selected": {
+      "n": 125,
+      "winner_top1": 38,
+      "winner_top3": 78,
+      "three_set": 7,
+      "winner_ll": 2.095267,
+      "winner_brier": 0.831971,
+      "place2_ll": 2.308319,
+      "place3_ll": 2.359123,
+      "place3_brier": 0.895031,
+      "winner_top1_rate": 0.304,
+      "winner_top3_rate": 0.624,
+      "three_set_rate": 0.056
+    }
+  },
+  "improvement_passes_holdout": false,
+  "promotion": "NEVER_AUTOMATIC; canonical v50 version unchanged",
+  "limitations": [
+    "Historical candidate/previous distribution not identical to future canonical v50.",
+    "2025 race cohort selected; timestamp proof for historic candidate source limited.",
+    "Features available are archived probabilities and prior starts, not race quality or jockey residual.",
+    "3rd place PL probability only approximation; no independent direct trained p3 classifier.",
+    "No training on final popularity or later odds; rank3 learned only indirectly."
+  ]
+}

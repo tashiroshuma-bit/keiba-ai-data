@@ -170,6 +170,7 @@ def create_rows(events):
             X.append(horse_feature(h,ev,hm,jm,at))
             hs=hm.get(h['horse_id']) if h['horse_id'] else None
             h['prehorse_place']=(hs['place']+3)/(hs['n']+15) if hs else .2
+            h['known_prior_starts']=hs['n'] if hs else 0
             audit['horse_linked']+=bool(h['horse_id'])
             audit['jockey_linked']+=bool(h['jockey_id'])
             audit['horse_history_observed']+=bool(hs and hs['n']>0)
@@ -187,7 +188,7 @@ def create_rows(events):
              'surface':ev['surface'],'field':field,'winner':ev['winner'],'X':X,
              'postrace_winner_popularity':ranks.index(ev['winner'])+1 if ranks else None,
              'horse_unknown_frac':sum(h['horse_id'] is None for h in ev['horses'])/field,
-             'juvenile_or_new_frac':sum(h['prehorse_place']==.2 for h in ev['horses'])/field})
+             'juvenile_or_new_frac':sum(h['known_prior_starts']<=1 for h in ev['horses'])/field})
     print('rows with leak guard',len(rows),dict(audit),flush=True)
     return rows,dict(audit)
 
@@ -357,4 +358,3 @@ def main():
        'metrics':metrics,'coverage':payload['validated_source_races_by_year']},ensure_ascii=False),flush=True)
 
 if __name__=='__main__':main()
-

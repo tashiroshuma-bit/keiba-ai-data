@@ -23,6 +23,11 @@ except ModuleNotFoundError:
     from v50_conditional_rare_upset import from_files as rare_upset_shadow
 
 try:
+    from scripts.v50_difficulty_flags import assess as difficulty_shadow
+except ModuleNotFoundError:
+    from v50_difficulty_flags import assess as difficulty_shadow
+
+try:
     from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
@@ -131,6 +136,12 @@ def standard_forecast(forecast_path, database_path, output_path, *,
             "assessments":assessments,
             "updated_probabilities":False,
             "rule_proven_for_canonical_v50":False}
+    # Model-specific uncertainty hints are descriptive, NOT probability
+    # adjustments. Do not automatically activate a longshot/big-upset policy.
+    prediction["race_difficulty_research"]={
+        "status":"SHADOW_ONLY_NO_RANK_MODIFICATION",
+        "races":[{"race":r["race"],**difficulty_shadow(r["v50"])}
+                 for r in prediction["races"]]}
     prediction["standard_forecast"]=True
     prediction["policy_sha256"]=hashlib.sha256(policy_bytes).hexdigest()
     prediction["canonical_database_sha256"]=dbdigest

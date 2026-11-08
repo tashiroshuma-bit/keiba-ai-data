@@ -1,0 +1,1015 @@
+{
+  "schema": "jra-canonical-db-v10-temporal-horse-jockey-retrain-v1",
+  "source_db_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+  "validated_source_races_by_year": {
+    "2023": 2910,
+    "2024": 2858,
+    "2025": 2890,
+    "2026": 2384
+  },
+  "roster_skips": {},
+  "training_coverage": {
+    "horse_linked": 86402,
+    "jockey_linked": 146961,
+    "horse_history_observed": 76970
+  },
+  "training_period": [
+    "2023",
+    "2024"
+  ],
+  "hyperparameter_selection": "2023 train, 2024 selection only",
+  "model_selection_grid": [
+    {
+      "ridge": 0.01,
+      "subset": "horse_jockey",
+      "metrics": {
+        "n": 2858,
+        "top1": 662,
+        "top1_rate": 0.23163051084674596,
+        "winner_top3": 1446,
+        "winner_top3_rate": 0.5059482155353394,
+        "logloss": 2.302898,
+        "brier": 0.870257,
+        "predicted_favorite_mean": 0.259463
+      }
+    },
+    {
+      "ridge": 0.01,
+      "subset": "full",
+      "metrics": {
+        "n": 2858,
+        "top1": 653,
+        "top1_rate": 0.228481455563331,
+        "winner_top3": 1460,
+        "winner_top3_rate": 0.5108467459762072,
+        "logloss": 2.288015,
+        "brier": 0.867988,
+        "predicted_favorite_mean": 0.262306
+      }
+    },
+    {
+      "ridge": 0.05,
+      "subset": "horse_jockey",
+      "metrics": {
+        "n": 2858,
+        "top1": 663,
+        "top1_rate": 0.23198040587823654,
+        "winner_top3": 1450,
+        "winner_top3_rate": 0.5073477956613016,
+        "logloss": 2.300763,
+        "brier": 0.869634,
+        "predicted_favorite_mean": 0.257419
+      }
+    },
+    {
+      "ridge": 0.05,
+      "subset": "full",
+      "metrics": {
+        "n": 2858,
+        "top1": 655,
+        "top1_rate": 0.22918124562631212,
+        "winner_top3": 1472,
+        "winner_top3_rate": 0.5150454863540938,
+        "logloss": 2.28658,
+        "brier": 0.867529,
+        "predicted_favorite_mean": 0.259854
+      }
+    },
+    {
+      "ridge": 0.2,
+      "subset": "horse_jockey",
+      "metrics": {
+        "n": 2858,
+        "top1": 665,
+        "top1_rate": 0.23268019594121764,
+        "winner_top3": 1463,
+        "winner_top3_rate": 0.5118964310706788,
+        "logloss": 2.300891,
+        "brier": 0.868733,
+        "predicted_favorite_mean": 0.247453
+      }
+    },
+    {
+      "ridge": 0.2,
+      "subset": "full",
+      "metrics": {
+        "n": 2858,
+        "top1": 657,
+        "top1_rate": 0.22988103568929322,
+        "winner_top3": 1486,
+        "winner_top3_rate": 0.5199440167949615,
+        "logloss": 2.288675,
+        "brier": 0.867052,
+        "predicted_favorite_mean": 0.249295
+      }
+    },
+    {
+      "ridge": 1.0,
+      "subset": "horse_jockey",
+      "metrics": {
+        "n": 2858,
+        "top1": 664,
+        "top1_rate": 0.2323303009097271,
+        "winner_top3": 1450,
+        "winner_top3_rate": 0.5073477956613016,
+        "logloss": 2.320562,
+        "brier": 0.870811,
+        "predicted_favorite_mean": 0.213081
+      }
+    },
+    {
+      "ridge": 1.0,
+      "subset": "full",
+      "metrics": {
+        "n": 2858,
+        "top1": 652,
+        "top1_rate": 0.22813156053184044,
+        "winner_top3": 1490,
+        "winner_top3_rate": 0.5213435969209237,
+        "logloss": 2.309832,
+        "brier": 0.869156,
+        "predicted_favorite_mean": 0.213792
+      }
+    }
+  ],
+  "selected": {
+    "ridge": 0.2,
+    "subset": "horse_jockey",
+    "metrics": {
+      "n": 2858,
+      "top1": 665,
+      "top1_rate": 0.23268019594121764,
+      "winner_top3": 1463,
+      "winner_top3_rate": 0.5118964310706788,
+      "logloss": 2.300891,
+      "brier": 0.868733,
+      "predicted_favorite_mean": 0.247453
+    }
+  },
+  "research_model": {
+    "feature_names": [
+      "horse_win",
+      "horse_place",
+      "horse_recent",
+      "horse_n_log",
+      "horse_surface_place",
+      "horse_surface_n_log",
+      "horse_distance_place",
+      "horse_distance_n_log",
+      "horse_track_place",
+      "horse_track_n_log",
+      "horse_rest_log",
+      "horse_speed_prior",
+      "horse_speed_observed",
+      "horse_prior_corner_front",
+      "jockey_place",
+      "jockey_n_log",
+      "jockey_residual",
+      "horse_identity_present",
+      "jockey_identity_present",
+      "horse_novice",
+      "horse_prior_top3_recent",
+      "horse_prev_grade_relative",
+      "age",
+      "sex_female",
+      "gate_fraction"
+    ],
+    "selected_features": [
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12,
+      13,
+      14,
+      15,
+      16,
+      17
+    ],
+    "coefficients": [
+      -0.05296846090520375,
+      0.04370575160859446,
+      0.022518787818460204,
+      -0.0693810853398484,
+      0.10052241436413091,
+      -0.04263032957409682,
+      0.04384749743849965,
+      -0.017558176763917844,
+      0.045615592485138086,
+      -0.01642829477528901,
+      -0.027165599780003446,
+      0.261194453840921,
+      -0.020131862050539302,
+      0.06436495747443026,
+      0.2079137807325227,
+      -0.08545796033088487,
+      0.19308829841859504,
+      0.12908466341305813
+    ],
+    "mean": [
+      1.544867689522767e-18,
+      -8.193072890150474e-18,
+      -9.131589616749542e-18,
+      4.510468775813069e-17,
+      -8.224508135924169e-18,
+      3.517394433771213e-17,
+      -9.110982066742342e-18,
+      2.436860252376767e-17,
+      -1.1347774443794976e-17,
+      2.8780713908359937e-18,
+      -3.1724170610405215e-16,
+      2.975869933243042e-19,
+      8.550386850444797e-19,
+      5.448775934106978e-19,
+      -1.3737202403104325e-18,
+      -7.488574104311129e-18,
+      -1.4058540471013198e-20,
+      4.0237114590328457e-19,
+      -3.828114374218749e-19,
+      7.935653155314779e-19,
+      1.163104093626682e-19,
+      4.009740238688982e-19,
+      2.581881519546076e-18,
+      1.2853522716354923e-18,
+      1.363591105561131e-18
+    ],
+    "scale": [
+      0.05,
+      0.05,
+      0.050863926697853244,
+      0.6326614645212943,
+      0.05377340308377944,
+      0.6235905077771011,
+      0.05,
+      0.5750726699592575,
+      0.05,
+      0.40410826322040555,
+      0.646933911507625,
+      0.4829739085560606,
+      0.3912894020638684,
+      0.24943385657267786,
+      0.08802463858340587,
+      1.1868068500282103,
+      0.07634660694140785,
+      0.40395015060754486,
+      0.17509567717150482,
+      0.38021345968627124,
+      0.16221401262095017,
+      0.14783880338650426,
+      1.0293667454390616,
+      0.38608634965467115,
+      0.2878693433614182
+    ],
+    "ridge": 0.2,
+    "iterations": 21
+  },
+  "validation_holdout_metrics": {
+    "2025": {
+      "uniform": {
+        "n": 2890,
+        "top1": 220,
+        "top1_rate": 0.07612456747404844,
+        "winner_top3": 642,
+        "winner_top3_rate": 0.22214532871972317,
+        "logloss": 2.601987,
+        "brier": 0.923284,
+        "predicted_favorite_mean": 0.076716
+      },
+      "historical_horse_jockey": {
+        "n": 2890,
+        "top1": 598,
+        "top1_rate": 0.2069204152249135,
+        "winner_top3": 1378,
+        "winner_top3_rate": 0.47681660899653977,
+        "logloss": 2.379226,
+        "brier": 0.889893,
+        "predicted_favorite_mean": 0.233232
+      },
+      "retrained_candidate": {
+        "n": 2890,
+        "top1": 598,
+        "top1_rate": 0.2069204152249135,
+        "winner_top3": 1378,
+        "winner_top3_rate": 0.47681660899653977,
+        "logloss": 2.379226,
+        "brier": 0.889893,
+        "predicted_favorite_mean": 0.233232
+      }
+    },
+    "2026": {
+      "uniform": {
+        "n": 2384,
+        "top1": 174,
+        "top1_rate": 0.07298657718120806,
+        "winner_top3": 539,
+        "winner_top3_rate": 0.22609060402684564,
+        "logloss": 2.596749,
+        "brier": 0.923055,
+        "predicted_favorite_mean": 0.076945
+      },
+      "historical_horse_jockey": {
+        "n": 2384,
+        "top1": 472,
+        "top1_rate": 0.19798657718120805,
+        "winner_top3": 1086,
+        "winner_top3_rate": 0.45553691275167785,
+        "logloss": 2.413078,
+        "brier": 0.894059,
+        "predicted_favorite_mean": 0.21568
+      },
+      "retrained_candidate": {
+        "n": 2384,
+        "top1": 472,
+        "top1_rate": 0.19798657718120805,
+        "winner_top3": 1086,
+        "winner_top3_rate": 0.45553691275167785,
+        "logloss": 2.413078,
+        "brier": 0.894059,
+        "predicted_favorite_mean": 0.21568
+      }
+    }
+  },
+  "weak_race_categories": {
+    "2025": {
+      "field": {
+        "14+": {
+          "n": 1824,
+          "top1": 357,
+          "top1_rate": 0.19572368421052633,
+          "winner_top3": 790,
+          "winner_top3_rate": 0.4331140350877193,
+          "logloss": 2.51588,
+          "brier": 0.901603,
+          "predicted_favorite_mean": 0.206745
+        },
+        "10-13": {
+          "n": 744,
+          "top1": 160,
+          "top1_rate": 0.21505376344086022,
+          "winner_top3": 373,
+          "winner_top3_rate": 0.5013440860215054,
+          "logloss": 2.273557,
+          "brier": 0.886964,
+          "predicted_favorite_mean": 0.256179
+        },
+        "<=9": {
+          "n": 322,
+          "top1": 81,
+          "top1_rate": 0.2515527950310559,
+          "winner_top3": 215,
+          "winner_top3_rate": 0.6677018633540373,
+          "logloss": 1.849294,
+          "brier": 0.830323,
+          "predicted_favorite_mean": 0.330246
+        }
+      },
+      "model_top1_probability": {
+        "15-30%": {
+          "n": 1598,
+          "top1": 340,
+          "top1_rate": 0.2127659574468085,
+          "winner_top3": 778,
+          "winner_top3_rate": 0.48685857321652065,
+          "logloss": 2.352365,
+          "brier": 0.882624,
+          "predicted_favorite_mean": 0.214232
+        },
+        "<15%": {
+          "n": 676,
+          "top1": 93,
+          "top1_rate": 0.13757396449704143,
+          "winner_top3": 242,
+          "winner_top3_rate": 0.35798816568047337,
+          "logloss": 2.602255,
+          "brier": 0.917357,
+          "predicted_favorite_mean": 0.125096
+        },
+        ">=30%": {
+          "n": 616,
+          "top1": 165,
+          "top1_rate": 0.26785714285714285,
+          "winner_top3": 358,
+          "winner_top3_rate": 0.5811688311688312,
+          "logloss": 2.204157,
+          "brier": 0.87861,
+          "predicted_favorite_mean": 0.401187
+        }
+      },
+      "model_gap": {
+        "2-6pp": {
+          "n": 760,
+          "top1": 139,
+          "top1_rate": 0.18289473684210528,
+          "winner_top3": 347,
+          "winner_top3_rate": 0.45657894736842103,
+          "logloss": 2.410496,
+          "brier": 0.89082,
+          "predicted_favorite_mean": 0.176444
+        },
+        "<2pp": {
+          "n": 697,
+          "top1": 107,
+          "top1_rate": 0.15351506456241032,
+          "winner_top3": 280,
+          "winner_top3_rate": 0.4017216642754663,
+          "logloss": 2.491479,
+          "brier": 0.90345,
+          "predicted_favorite_mean": 0.14606
+        },
+        ">=6pp": {
+          "n": 1433,
+          "top1": 352,
+          "top1_rate": 0.24563852058618282,
+          "winner_top3": 751,
+          "winner_top3_rate": 0.5240753663642708,
+          "logloss": 2.308044,
+          "brier": 0.882807,
+          "predicted_favorite_mean": 0.305749
+        }
+      },
+      "model_entropy": {
+        ".85-.95": {
+          "n": 1493,
+          "top1": 343,
+          "top1_rate": 0.22973878097789685,
+          "winner_top3": 736,
+          "winner_top3_rate": 0.49296718017414604,
+          "logloss": 2.338399,
+          "brier": 0.878075,
+          "predicted_favorite_mean": 0.230068
+        },
+        ">=.95": {
+          "n": 908,
+          "top1": 136,
+          "top1_rate": 0.14977973568281938,
+          "winner_top3": 363,
+          "winner_top3_rate": 0.3997797356828194,
+          "logloss": 2.498674,
+          "brier": 0.905638,
+          "predicted_favorite_mean": 0.14322
+        },
+        "<.85": {
+          "n": 489,
+          "top1": 119,
+          "top1_rate": 0.24335378323108384,
+          "winner_top3": 279,
+          "winner_top3_rate": 0.5705521472392638,
+          "logloss": 2.282084,
+          "brier": 0.896736,
+          "predicted_favorite_mean": 0.410029
+        }
+      },
+      "track": {
+        "中山": {
+          "n": 413,
+          "top1": 92,
+          "top1_rate": 0.22276029055690072,
+          "winner_top3": 197,
+          "winner_top3_rate": 0.47699757869249393,
+          "logloss": 2.405904,
+          "brier": 0.889069,
+          "predicted_favorite_mean": 0.231528
+        },
+        "中京": {
+          "n": 338,
+          "top1": 79,
+          "top1_rate": 0.23372781065088757,
+          "winner_top3": 178,
+          "winner_top3_rate": 0.5266272189349113,
+          "logloss": 2.318359,
+          "brier": 0.877102,
+          "predicted_favorite_mean": 0.241291
+        },
+        "小倉": {
+          "n": 191,
+          "top1": 33,
+          "top1_rate": 0.17277486910994763,
+          "winner_top3": 86,
+          "winner_top3_rate": 0.450261780104712,
+          "logloss": 2.462804,
+          "brier": 0.907365,
+          "predicted_favorite_mean": 0.224845
+        },
+        "東京": {
+          "n": 449,
+          "top1": 109,
+          "top1_rate": 0.24276169265033407,
+          "winner_top3": 224,
+          "winner_top3_rate": 0.49888641425389757,
+          "logloss": 2.339377,
+          "brier": 0.878085,
+          "predicted_favorite_mean": 0.250103
+        },
+        "京都": {
+          "n": 395,
+          "top1": 66,
+          "top1_rate": 0.1670886075949367,
+          "winner_top3": 186,
+          "winner_top3_rate": 0.4708860759493671,
+          "logloss": 2.386277,
+          "brier": 0.900363,
+          "predicted_favorite_mean": 0.236686
+        },
+        "阪神": {
+          "n": 404,
+          "top1": 78,
+          "top1_rate": 0.19306930693069307,
+          "winner_top3": 189,
+          "winner_top3_rate": 0.46782178217821785,
+          "logloss": 2.396276,
+          "brier": 0.902809,
+          "predicted_favorite_mean": 0.250812
+        },
+        "福島": {
+          "n": 198,
+          "top1": 37,
+          "top1_rate": 0.18686868686868688,
+          "winner_top3": 78,
+          "winner_top3_rate": 0.3939393939393939,
+          "logloss": 2.503082,
+          "brier": 0.903824,
+          "predicted_favorite_mean": 0.193777
+        },
+        "新潟": {
+          "n": 232,
+          "top1": 51,
+          "top1_rate": 0.21982758620689655,
+          "winner_top3": 105,
+          "winner_top3_rate": 0.4525862068965517,
+          "logloss": 2.393412,
+          "brier": 0.879887,
+          "predicted_favorite_mean": 0.219014
+        },
+        "函館": {
+          "n": 125,
+          "top1": 20,
+          "top1_rate": 0.16,
+          "winner_top3": 60,
+          "winner_top3_rate": 0.48,
+          "logloss": 2.344482,
+          "brier": 0.891024,
+          "predicted_favorite_mean": 0.196245
+        },
+        "札幌": {
+          "n": 145,
+          "top1": 33,
+          "top1_rate": 0.22758620689655173,
+          "winner_top3": 75,
+          "winner_top3_rate": 0.5172413793103449,
+          "logloss": 2.229849,
+          "brier": 0.867104,
+          "predicted_favorite_mean": 0.228216
+        }
+      },
+      "surface": {
+        "dirt": {
+          "n": 1437,
+          "top1": 288,
+          "top1_rate": 0.20041753653444677,
+          "winner_top3": 658,
+          "winner_top3_rate": 0.45789839944328464,
+          "logloss": 2.431619,
+          "brier": 0.895138,
+          "predicted_favorite_mean": 0.223216
+        },
+        "turf": {
+          "n": 1453,
+          "top1": 310,
+          "top1_rate": 0.21335168616655195,
+          "winner_top3": 720,
+          "winner_top3_rate": 0.4955264969029594,
+          "logloss": 2.327411,
+          "brier": 0.884705,
+          "predicted_favorite_mean": 0.243137
+        }
+      },
+      "no_verified_horse_ids": {
+        "<50%": {
+          "n": 1499,
+          "top1": 303,
+          "top1_rate": 0.2021347565043362,
+          "winner_top3": 710,
+          "winner_top3_rate": 0.47364909939959976,
+          "logloss": 2.380482,
+          "brier": 0.893995,
+          "predicted_favorite_mean": 0.251558
+        },
+        ">=50%": {
+          "n": 1391,
+          "top1": 295,
+          "top1_rate": 0.21207764198418405,
+          "winner_top3": 668,
+          "winner_top3_rate": 0.4802300503235083,
+          "logloss": 2.377874,
+          "brier": 0.885472,
+          "predicted_favorite_mean": 0.213482
+        }
+      },
+      "prior_history_missing": {
+        "<50%": {
+          "n": 1408,
+          "top1": 282,
+          "top1_rate": 0.2002840909090909,
+          "winner_top3": 667,
+          "winner_top3_rate": 0.4737215909090909,
+          "logloss": 2.38342,
+          "brier": 0.894657,
+          "predicted_favorite_mean": 0.252121
+        },
+        ">=50%": {
+          "n": 1482,
+          "top1": 316,
+          "top1_rate": 0.21322537112010798,
+          "winner_top3": 711,
+          "winner_top3_rate": 0.4797570850202429,
+          "logloss": 2.375242,
+          "brier": 0.885366,
+          "predicted_favorite_mean": 0.215286
+        }
+      },
+      "winner_final_popularity": {
+        "1st": {
+          "n": 963,
+          "top1": 363,
+          "top1_rate": 0.37694704049844235,
+          "winner_top3": 656,
+          "winner_top3_rate": 0.6812045690550363,
+          "logloss": 2.021876,
+          "brier": 0.802981,
+          "predicted_favorite_mean": 0.240819
+        },
+        "2nd-3rd": {
+          "n": 976,
+          "top1": 193,
+          "top1_rate": 0.19774590163934427,
+          "winner_top3": 510,
+          "winner_top3_rate": 0.5225409836065574,
+          "logloss": 2.31944,
+          "brier": 0.891477,
+          "predicted_favorite_mean": 0.237853
+        },
+        "4th+": {
+          "n": 951,
+          "top1": 42,
+          "top1_rate": 0.04416403785488959,
+          "winner_top3": 212,
+          "winner_top3_rate": 0.22292323869610936,
+          "logloss": 2.802444,
+          "brier": 0.976275,
+          "predicted_favorite_mean": 0.220805
+        }
+      }
+    },
+    "2026": {
+      "field": {
+        "14+": {
+          "n": 1457,
+          "top1": 258,
+          "top1_rate": 0.17707618393960192,
+          "winner_top3": 593,
+          "winner_top3_rate": 0.4070006863417982,
+          "logloss": 2.568964,
+          "brier": 0.911247,
+          "predicted_favorite_mean": 0.193115
+        },
+        "10-13": {
+          "n": 667,
+          "top1": 152,
+          "top1_rate": 0.22788605697151423,
+          "winner_top3": 331,
+          "winner_top3_rate": 0.4962518740629685,
+          "logloss": 2.267718,
+          "brier": 0.88162,
+          "predicted_favorite_mean": 0.231443
+        },
+        "<=9": {
+          "n": 260,
+          "top1": 62,
+          "top1_rate": 0.23846153846153847,
+          "winner_top3": 162,
+          "winner_top3_rate": 0.6230769230769231,
+          "logloss": 1.912423,
+          "brier": 0.829651,
+          "predicted_favorite_mean": 0.301693
+        }
+      },
+      "model_top1_probability": {
+        "<15%": {
+          "n": 760,
+          "top1": 106,
+          "top1_rate": 0.1394736842105263,
+          "winner_top3": 302,
+          "winner_top3_rate": 0.3973684210526316,
+          "logloss": 2.567856,
+          "brier": 0.913127,
+          "predicted_favorite_mean": 0.124199
+        },
+        "15-30%": {
+          "n": 1231,
+          "top1": 264,
+          "top1_rate": 0.21445978878960195,
+          "winner_top3": 576,
+          "winner_top3_rate": 0.46791226645004064,
+          "logloss": 2.369084,
+          "brier": 0.887398,
+          "predicted_favorite_mean": 0.214757
+        },
+        ">=30%": {
+          "n": 393,
+          "top1": 102,
+          "top1_rate": 0.2595419847328244,
+          "winner_top3": 208,
+          "winner_top3_rate": 0.5292620865139949,
+          "logloss": 2.251566,
+          "brier": 0.878048,
+          "predicted_favorite_mean": 0.395479
+        }
+      },
+      "model_gap": {
+        "<2pp": {
+          "n": 667,
+          "top1": 93,
+          "top1_rate": 0.13943028485757122,
+          "winner_top3": 284,
+          "winner_top3_rate": 0.4257871064467766,
+          "logloss": 2.484163,
+          "brier": 0.904371,
+          "predicted_favorite_mean": 0.136836
+        },
+        ">=6pp": {
+          "n": 1055,
+          "top1": 253,
+          "top1_rate": 0.23981042654028437,
+          "winner_top3": 507,
+          "winner_top3_rate": 0.48056872037914694,
+          "logloss": 2.350866,
+          "brier": 0.88495,
+          "predicted_favorite_mean": 0.295048
+        },
+        "2-6pp": {
+          "n": 662,
+          "top1": 126,
+          "top1_rate": 0.1903323262839879,
+          "winner_top3": 295,
+          "winner_top3_rate": 0.44561933534743203,
+          "logloss": 2.440601,
+          "brier": 0.898185,
+          "predicted_favorite_mean": 0.168633
+        }
+      },
+      "model_entropy": {
+        ">=.95": {
+          "n": 1126,
+          "top1": 189,
+          "top1_rate": 0.16785079928952043,
+          "winner_top3": 491,
+          "winner_top3_rate": 0.436056838365897,
+          "logloss": 2.455981,
+          "brier": 0.899663,
+          "predicted_favorite_mean": 0.143842
+        },
+        ".85-.95": {
+          "n": 1012,
+          "top1": 225,
+          "top1_rate": 0.22233201581027667,
+          "winner_top3": 475,
+          "winner_top3_rate": 0.46936758893280633,
+          "logloss": 2.375319,
+          "brier": 0.88596,
+          "predicted_favorite_mean": 0.245175
+        },
+        "<.85": {
+          "n": 246,
+          "top1": 58,
+          "top1_rate": 0.23577235772357724,
+          "winner_top3": 120,
+          "winner_top3_rate": 0.4878048780487805,
+          "logloss": 2.372035,
+          "brier": 0.901725,
+          "predicted_favorite_mean": 0.423158
+        }
+      },
+      "track": {
+        "中山": {
+          "n": 333,
+          "top1": 63,
+          "top1_rate": 0.1891891891891892,
+          "winner_top3": 148,
+          "winner_top3_rate": 0.4444444444444444,
+          "logloss": 2.43403,
+          "brier": 0.898649,
+          "predicted_favorite_mean": 0.240381
+        },
+        "京都": {
+          "n": 349,
+          "top1": 67,
+          "top1_rate": 0.19197707736389685,
+          "winner_top3": 165,
+          "winner_top3_rate": 0.47277936962750716,
+          "logloss": 2.385475,
+          "brier": 0.89684,
+          "predicted_favorite_mean": 0.22355
+        },
+        "小倉": {
+          "n": 192,
+          "top1": 39,
+          "top1_rate": 0.203125,
+          "winner_top3": 79,
+          "winner_top3_rate": 0.4114583333333333,
+          "logloss": 2.51832,
+          "brier": 0.909559,
+          "predicted_favorite_mean": 0.190508
+        },
+        "東京": {
+          "n": 347,
+          "top1": 84,
+          "top1_rate": 0.2420749279538905,
+          "winner_top3": 169,
+          "winner_top3_rate": 0.48703170028818443,
+          "logloss": 2.406841,
+          "brier": 0.885039,
+          "predicted_favorite_mean": 0.249978
+        },
+        "阪神": {
+          "n": 348,
+          "top1": 65,
+          "top1_rate": 0.1867816091954023,
+          "winner_top3": 164,
+          "winner_top3_rate": 0.47126436781609193,
+          "logloss": 2.359037,
+          "brier": 0.885764,
+          "predicted_favorite_mean": 0.224445
+        },
+        "中京": {
+          "n": 186,
+          "top1": 36,
+          "top1_rate": 0.1935483870967742,
+          "winner_top3": 91,
+          "winner_top3_rate": 0.489247311827957,
+          "logloss": 2.376685,
+          "brier": 0.886836,
+          "predicted_favorite_mean": 0.220586
+        },
+        "福島": {
+          "n": 148,
+          "top1": 31,
+          "top1_rate": 0.20945945945945946,
+          "winner_top3": 68,
+          "winner_top3_rate": 0.4594594594594595,
+          "logloss": 2.428935,
+          "brier": 0.888845,
+          "predicted_favorite_mean": 0.163301
+        },
+        "新潟": {
+          "n": 212,
+          "top1": 41,
+          "top1_rate": 0.19339622641509435,
+          "winner_top3": 91,
+          "winner_top3_rate": 0.42924528301886794,
+          "logloss": 2.462485,
+          "brier": 0.892774,
+          "predicted_favorite_mean": 0.193801
+        },
+        "函館": {
+          "n": 127,
+          "top1": 21,
+          "top1_rate": 0.16535433070866143,
+          "winner_top3": 57,
+          "winner_top3_rate": 0.44881889763779526,
+          "logloss": 2.366089,
+          "brier": 0.8963,
+          "predicted_favorite_mean": 0.175261
+        },
+        "札幌": {
+          "n": 142,
+          "top1": 25,
+          "top1_rate": 0.176056338028169,
+          "winner_top3": 54,
+          "winner_top3_rate": 0.38028169014084506,
+          "logloss": 2.436576,
+          "brier": 0.912682,
+          "predicted_favorite_mean": 0.184131
+        }
+      },
+      "surface": {
+        "dirt": {
+          "n": 1173,
+          "top1": 209,
+          "top1_rate": 0.17817561807331628,
+          "winner_top3": 508,
+          "winner_top3_rate": 0.43307757885763,
+          "logloss": 2.466975,
+          "brier": 0.903412,
+          "predicted_favorite_mean": 0.21051
+        },
+        "turf": {
+          "n": 1211,
+          "top1": 263,
+          "top1_rate": 0.2171758876961189,
+          "winner_top3": 578,
+          "winner_top3_rate": 0.4772914946325351,
+          "logloss": 2.360872,
+          "brier": 0.884999,
+          "predicted_favorite_mean": 0.220687
+        }
+      },
+      "no_verified_horse_ids": {
+        ">=50%": {
+          "n": 1698,
+          "top1": 344,
+          "top1_rate": 0.20259128386336867,
+          "winner_top3": 800,
+          "winner_top3_rate": 0.4711425206124853,
+          "logloss": 2.391675,
+          "brier": 0.888195,
+          "predicted_favorite_mean": 0.20333
+        },
+        "<50%": {
+          "n": 686,
+          "top1": 128,
+          "top1_rate": 0.18658892128279883,
+          "winner_top3": 286,
+          "winner_top3_rate": 0.41690962099125367,
+          "logloss": 2.466055,
+          "brier": 0.908572,
+          "predicted_favorite_mean": 0.246248
+        }
+      },
+      "prior_history_missing": {
+        ">=50%": {
+          "n": 1738,
+          "top1": 351,
+          "top1_rate": 0.20195627157652474,
+          "winner_top3": 821,
+          "winner_top3_rate": 0.4723820483314154,
+          "logloss": 2.388778,
+          "brier": 0.887745,
+          "predicted_favorite_mean": 0.203922
+        },
+        "<50%": {
+          "n": 646,
+          "top1": 121,
+          "top1_rate": 0.1873065015479876,
+          "winner_top3": 265,
+          "winner_top3_rate": 0.4102167182662539,
+          "logloss": 2.478456,
+          "brier": 0.911046,
+          "predicted_favorite_mean": 0.247314
+        }
+      },
+      "winner_final_popularity": {
+        "1st": {
+          "n": 809,
+          "top1": 285,
+          "top1_rate": 0.3522867737948084,
+          "winner_top3": 516,
+          "winner_top3_rate": 0.6378244746600742,
+          "logloss": 2.119253,
+          "brier": 0.822006,
+          "predicted_favorite_mean": 0.220574
+        },
+        "2nd-3rd": {
+          "n": 751,
+          "top1": 146,
+          "top1_rate": 0.19440745672436752,
+          "winner_top3": 378,
+          "winner_top3_rate": 0.5033288948069241,
+          "logloss": 2.345827,
+          "brier": 0.889164,
+          "predicted_favorite_mean": 0.219659
+        },
+        "4th+": {
+          "n": 824,
+          "top1": 41,
+          "top1_rate": 0.04975728155339806,
+          "winner_top3": 192,
+          "winner_top3_rate": 0.23300970873786409,
+          "logloss": 2.762848,
+          "brier": 0.969261,
+          "predicted_favorite_mean": 0.207248
+        }
+      }
+    }
+  },
+  "probability_status": "research_only_not_independently_calibrated",
+  "canonical_v50_production_modified": false,
+  "limitations": [
+    "Same canonical v10 DB as PROJECT_STATE, hashed exact.",
+    "Publication of source races assumed two calendar days later, not original PDF publication proven.",
+    "Some horse IDs are missing; no names-only inferred horse linkage.",
+    "Rider official IDs may have been attached in later 2026 evidence, research only.",
+    "Current race live odds, final odds, result speed, finish, current going excluded from inputs.",
+    "Current race distance/gate/field taken from postrace archive, independently preoff capture not proven.",
+    "This is newly trained experimental horse-jockey model, not actual v50 base feature replay.",
+    "2025 and 2026 datasets used as independent held-out evaluations only."
+  ]
+}
+

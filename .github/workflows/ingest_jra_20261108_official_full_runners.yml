@@ -24,8 +24,8 @@ jobs:
           python - <<'PY'
           import sqlite3,hashlib,json
           from pathlib import Path
-          p=Path('operations/data_updates/jra_official_20261108_all_runner_history.sqlite')
-          a=json.loads(Path('operations/data_updates/jra_official_20261108_all_runner_history_audit.json').read_text())
+          p=Path('operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite')
+          a=json.loads(Path('operations/data_updates/jra_official_20261108_all_runner_history_v2_audit.json').read_text())
           assert hashlib.sha256(p.read_bytes()).hexdigest()==a['sqlite_sha256']
           c=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
           assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add operations/data_updates/jra_official_20261108_all_runner_history.sqlite operations/data_updates/jra_official_20261108_all_runner_history_audit.json
+          git add operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite operations/data_updates/jra_official_20261108_all_runner_history_v2_audit.json
           git commit -m "Save official Nov8 postrace JRA runners, horse IDs, times, weights and provenance"
           git pull --rebase origin main
           git push

@@ -1,0 +1,29 @@
+{
+  "schema": "v51-jra-observed-future-horse-form-bank-v1",
+  "source_races": [
+    "京都12R",
+    "東京11R",
+    "東京12R"
+  ],
+  "verified_horse_ids": 48,
+  "prior_race_rows": 714,
+  "by_linked_race": {
+    "京都12R": 18,
+    "東京11R": 18,
+    "東京12R": 12
+  },
+  "recent_speed_computed_horses": 47,
+  "data_target_date": "2026-11-08",
+  "original_published_at_verified": false,
+  "availability_proven_at_or_before_capture": true,
+  "same_2026_11_08_forecast_eligible": false,
+  "eligible_for_forecasts_after_capture_with_matching_official_id": true,
+  "production_v50_v51_accuracy_uplift_not_evaluated": true,
+  "no_name_only_id_join": true,
+  "sqlite_size": 28672,
+  "sqlite_sha256": "1e18aeae2953da1081a483201ab3c2804a398c89fc080ae0fca29905ca8771a7",
+  "source_sha256": {
+    "jra_official_20261108_kyoto12_horse_profiles_v1.sqlite": "1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f",
+    "jra_official_20261108_tokyo11_12_profiles_v1.sqlite": "e17d37e5ee0bb0d26d054eb3395278937cf3f3fb58481eb3fea8761f64b86025"
+  }
+}

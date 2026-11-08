@@ -1,0 +1,20 @@
+{
+  "schema": "multisource-manually-observed-race-metadata-v1",
+  "observations": [
+    {
+      "source_id": "netkeiba",
+      "race": "東京1R",
+      "race_date": "2026-11-08",
+      "advertised_field_size": 10,
+      "source_url": "https://race.netkeiba.com/race/shutuba.html?race_id=202605050201",
+      "snapshot_phase": "unverified_postrace_site_observation",
+      "observed_date": "2026-11-08",
+      "published_at": null,
+      "official_horse_ids_confirmed": false,
+      "official_results_comparability": true,
+      "source_document_sha256": null,
+      "ingest_eligible": false,
+      "notes": "Publicly surfaced netkeiba card header shows 10; archived official JRA settlement records 11 finish rows. Could differ by page update or withdrawals; investigate, not automatic merge."
+    }
+  ]
+}

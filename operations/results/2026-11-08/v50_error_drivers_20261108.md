@@ -7,7 +7,7 @@
 |勝ち馬の人気帯|本命的中|
 |---|---:|
 |1番人気|8/10 (80.0%)|
-|2-3番人気|1/11 (9.1%)|
+|2-3番人気|2/11 (18.2%)|
 |4-6番人気|0/7 (0.0%)|
 |7番人気以下|0/6 (0.0%)|
 
@@ -17,16 +17,16 @@
 |---|---:|
 |京都|4/12 (33.3%)|
 |東京|3/12 (25.0%)|
-|福島|2/10 (20.0%)|
+|福島|3/10 (30.0%)|
 
 ## 勝ち馬のC予想順位別（34R）
 
 |予想順位|レース数|
 |---|---:|
-|1|9|
-|2-3|9|
-|4-5|4|
-|6+|12|
+|1|10|
+|2-3|6|
+|4-5|5|
+|6+|13|
 
 ## 的中10R｜モデルC本命と実際の着順
 
@@ -41,35 +41,35 @@
 |京都5R|3|3(1人)/5(3人)/6(2人)|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020520261108/0E)|
 |福島1R|5|5(3人)/3(1人)/4(2人)|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020120261108/66)|
 |福島6R|8|8(1人)/15(3人)/1(9人)|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020620261108/EF)|
+|福島8R|6|6(2人)/9(6人)/15(3人)|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020820261108/59)|
 
 ## 不的中24R｜実際の勝ち馬をどこまで捕捉したか
 
 |レース|本命|勝ち馬|勝ち馬C順位|人気（勝ち馬）|JRA|
 |---|---:|---:|---:|---:|---|
-|東京4R|14|11|4|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020420261108/7B)|
+|東京4R|14|11|9|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020420261108/7B)|
 |東京5R|1|15|9|7|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020520261108/30)|
 |東京6R|15|7|5|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020620261108/E5)|
-|東京7R|14|7|2|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020720261108/9A)|
+|東京7R|14|7|4|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020720261108/9A)|
 |東京8R|5|7|3|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020820261108/4F)|
-|東京9R|6|7|4|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020920261108/04)|
+|東京9R|2|7|5|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020920261108/04)|
 |東京10R|10|8|9|9|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021020261108/F9)|
-|東京11R|5|6|11|16|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021120261108/AE)|
+|東京11R|5|6|9|16|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021120261108/AE)|
 |東京12R|3|4|2|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021220261108/63)|
-|京都3R|4|6|2|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020320261108/A4)|
+|京都3R|4|6|3|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020320261108/A4)|
 |京都6R|18|14|4|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020620261108/C3)|
 |京都7R|13|4|2|1|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020720261108/78)|
 |京都8R|1|7|6|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020820261108%2F2D)|
 |京都9R|1|4|12|13|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020920261108/E2)|
 |京都10R|8|6|2|1|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021020261108/D7)|
 |京都11R|4|11|3|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021120261108/8C)|
-|京都12R|5|12|13|13|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021220261108/41)|
+|京都12R|5|12|12|13|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021220261108/41)|
 |福島2R|7|6|7|4|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020220261108/1B)|
 |福島3R|5|13|9|4|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020320261108%2FD0)|
-|福島7R|9|15|9|8|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020720261108/A4)|
-|福島8R|14|6|2|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020820261108/59)|
-|福島9R|9|13|14|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020920261108/0E)|
-|福島10R|1|6|7|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021020261108/03)|
-|福島11R|2|8|3|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021120261108/B8)|
+|福島7R|9|15|10|8|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020720261108/A4)|
+|福島9R|9|13|16|6|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020920261108/0E)|
+|福島10R|1|6|9|3|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021020261108/03)|
+|福島11R|2|8|4|2|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021120261108/B8)|
 |福島12R|6|16|9|4|[公式](https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021220261108/6D)|
 
 ## 10:51市場オッズ混合でC本命に何が起きたか（同一23R）
@@ -89,7 +89,7 @@
 
 ## 上位5頭まで候補を広げたときの3頭捕捉
 
-実際の1〜3着3頭ともC上位5頭：12/34R、2頭だけ：10R、1頭だけ：10R、ゼロ：2R。
+実際の1〜3着3頭ともC上位5頭：10/34R、2頭だけ：9R、1頭だけ：13R、ゼロ：2R。
 3連複の全組合せを考える前に、候補のカバレッジを最大化する必要あり。
 
 ## 設計上の改修優先順位（検証条件付き）

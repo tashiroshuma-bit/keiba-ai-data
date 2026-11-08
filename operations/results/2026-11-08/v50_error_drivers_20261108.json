@@ -13,8 +13,8 @@
       },
       "2-3番人気": {
         "n": 11,
-        "win": 1,
-        "hit_rate": 0.09090909090909091
+        "win": 2,
+        "hit_rate": 0.18181818181818182
       },
       "4-6番人気": {
         "n": 7,
@@ -40,21 +40,21 @@
       },
       "福島": {
         "n": 10,
-        "win": 2,
-        "hit_rate": 0.2
+        "win": 3,
+        "hit_rate": 0.3
       }
     },
     "c_missed_winner_rank_distribution": {
-      "1": 9,
-      "2-3": 9,
-      "4-5": 4,
-      "6+": 12
+      "1": 10,
+      "2-3": 6,
+      "4-5": 5,
+      "6+": 13
     },
     "C_podium_recall_top5": {
       "zero": 2,
-      "one": 10,
-      "two": 10,
-      "three": 12
+      "one": 13,
+      "two": 9,
+      "three": 10
     },
     "C_hit_races": [
       {
@@ -191,15 +191,30 @@
           9
         ],
         "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020620261108/EF"
+      },
+      {
+        "race": "福島8R",
+        "top1": 6,
+        "actual": [
+          6,
+          9,
+          15
+        ],
+        "popularity": [
+          2,
+          6,
+          3
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020820261108/59"
       }
     ],
     "C_miss_races": [
       {
         "race": "東京4R",
         "top1": 14,
-        "p1": 0.12894110899941008,
+        "p1": 0.10590969999933877,
         "winner": 11,
-        "winner_rank": 4,
+        "winner_rank": 9,
         "actual": [
           11,
           8,
@@ -215,7 +230,7 @@
       {
         "race": "東京5R",
         "top1": 1,
-        "p1": 0.1953161692203108,
+        "p1": 0.14487776618040493,
         "winner": 15,
         "winner_rank": 9,
         "actual": [
@@ -251,9 +266,9 @@
       {
         "race": "東京7R",
         "top1": 14,
-        "p1": 0.23276144726520037,
+        "p1": 0.18222030859512503,
         "winner": 7,
-        "winner_rank": 2,
+        "winner_rank": 4,
         "actual": [
           7,
           14,
@@ -286,10 +301,10 @@
       },
       {
         "race": "東京9R",
-        "top1": 6,
-        "p1": 0.22578419983686648,
+        "top1": 2,
+        "p1": 0.21181713342309003,
         "winner": 7,
-        "winner_rank": 4,
+        "winner_rank": 5,
         "actual": [
           7,
           6,
@@ -305,7 +320,7 @@
       {
         "race": "東京10R",
         "top1": 10,
-        "p1": 0.33267909940692897,
+        "p1": 0.319113886072221,
         "winner": 8,
         "winner_rank": 9,
         "actual": [
@@ -323,9 +338,9 @@
       {
         "race": "東京11R",
         "top1": 5,
-        "p1": 0.13833605559396608,
+        "p1": 0.1443843935417739,
         "winner": 6,
-        "winner_rank": 11,
+        "winner_rank": 9,
         "actual": [
           6,
           15,
@@ -341,7 +356,7 @@
       {
         "race": "東京12R",
         "top1": 3,
-        "p1": 0.28246831378871146,
+        "p1": 0.25697429741064326,
         "winner": 4,
         "winner_rank": 2,
         "actual": [
@@ -359,9 +374,9 @@
       {
         "race": "京都3R",
         "top1": 4,
-        "p1": 0.35082856531616635,
+        "p1": 0.327788268444991,
         "winner": 6,
-        "winner_rank": 2,
+        "winner_rank": 3,
         "actual": [
           6,
           1,
@@ -395,7 +410,7 @@
       {
         "race": "京都7R",
         "top1": 13,
-        "p1": 0.1500342461973677,
+        "p1": 0.15788898747463812,
         "winner": 4,
         "winner_rank": 2,
         "actual": [
@@ -413,7 +428,7 @@
       {
         "race": "京都8R",
         "top1": 1,
-        "p1": 0.31306694445300404,
+        "p1": 0.31745035983902353,
         "winner": 7,
         "winner_rank": 6,
         "actual": [
@@ -449,7 +464,7 @@
       {
         "race": "京都10R",
         "top1": 8,
-        "p1": 0.2896550101247089,
+        "p1": 0.31383379771245745,
         "winner": 6,
         "winner_rank": 2,
         "actual": [
@@ -467,7 +482,7 @@
       {
         "race": "京都11R",
         "top1": 4,
-        "p1": 0.1472700361701312,
+        "p1": 0.14052154805447525,
         "winner": 11,
         "winner_rank": 3,
         "actual": [
@@ -485,9 +500,9 @@
       {
         "race": "京都12R",
         "top1": 5,
-        "p1": 0.15057825705734681,
+        "p1": 0.15995674810013139,
         "winner": 12,
-        "winner_rank": 13,
+        "winner_rank": 12,
         "actual": [
           12,
           18,
@@ -539,9 +554,9 @@
       {
         "race": "福島7R",
         "top1": 9,
-        "p1": 0.1649300933509932,
+        "p1": 0.14997812499496527,
         "winner": 15,
-        "winner_rank": 9,
+        "winner_rank": 10,
         "actual": [
           15,
           16,
@@ -555,29 +570,11 @@
         "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020720261108/A4"
       },
       {
-        "race": "福島8R",
-        "top1": 14,
-        "p1": 0.13423090450348976,
-        "winner": 6,
-        "winner_rank": 2,
-        "actual": [
-          6,
-          9,
-          15
-        ],
-        "popularity": [
-          2,
-          6,
-          3
-        ],
-        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020820261108/59"
-      },
-      {
         "race": "福島9R",
         "top1": 9,
-        "p1": 0.14781956749195937,
+        "p1": 0.15872880904385347,
         "winner": 13,
-        "winner_rank": 14,
+        "winner_rank": 16,
         "actual": [
           13,
           6,
@@ -593,9 +590,9 @@
       {
         "race": "福島10R",
         "top1": 1,
-        "p1": 0.14977724798350608,
+        "p1": 0.1555921804718189,
         "winner": 6,
-        "winner_rank": 7,
+        "winner_rank": 9,
         "actual": [
           6,
           1,
@@ -611,9 +608,9 @@
       {
         "race": "福島11R",
         "top1": 2,
-        "p1": 0.1304244933367996,
+        "p1": 0.128290062618998,
         "winner": 8,
-        "winner_rank": 3,
+        "winner_rank": 4,
         "actual": [
           8,
           6,
@@ -629,7 +626,7 @@
       {
         "race": "福島12R",
         "top1": 6,
-        "p1": 0.2119917663638539,
+        "p1": 0.21325735427240686,
         "winner": 16,
         "winner_rank": 9,
         "actual": [
@@ -693,8 +690,8 @@
     "c_market_chosen_as_public_favorite": {
       "true_final_favorite_lost": {
         "n": 17,
-        "win": 0,
-        "hit_rate": 0.0
+        "win": 1,
+        "hit_rate": 0.058823529411764705
       },
       "true_final_favorite_won": {
         "n": 6,

@@ -1916,7 +1916,7 @@
   ],
   "multisource_ingestion": {
     "schema_version": "v1",
-    "status": "IMPLEMENTED_TESTED_NOT_APPLIED_TO_CANONICAL_SQLITE",
+    "status": "VERIFIED_COMPANION_SQLITE_CREATED_CANONICAL_V11_UNMODIFIED",
     "canonical_db_version_current": 11,
     "pending_new_db_version": 12,
     "script": "scripts/enrich_v11_multisource.py",
@@ -1928,6 +1928,18 @@
     "production_promotion": false,
     "v50_unchanged": true,
     "materialization_exception": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json",
-    "requires_complete_source_readback": true
+    "requires_complete_source_readback": true,
+    "companion_sqlite": "operations/data_updates/multisource_overlay_20261108.sqlite",
+    "companion_sha256": "54785edcd0927fa0038e3686cf9ee1da423a70114ef8a91f35ca36822537197d",
+    "companion_bytes": 69632,
+    "companion_audit": "operations/data_updates/multisource_overlay_20261108_audit.json",
+    "verified_source_count": 5,
+    "official_result_checkpoints": 36,
+    "quarantined_external_card_discrepancies": 1,
+    "licensed_third_party_horse_feature_records": 0,
+    "license_or_publication_evidence_missing": true,
+    "canonical_main_sqlite_version": 11,
+    "v12_promotion_ready": false,
+    "formal_v50_model_unchanged": true
   }
 }

@@ -31,6 +31,8 @@ def official_urls(track):
     links={int(m[1]):urljoin(url,a["href"])
       for a in soup.select("a[href]")
       if (m:=re.fullmatch(r"(\d{1,2})R",a.get_text(" ",strip=True)))}
+    # Current JRA result race does not appear in its own navigation list.
+    links[{"東京":2,"京都":8,"福島":3}[track]]=url
     if len(links)!=12 or set(links)!=set(range(1,13)):
         raise ValueError("result links incomplete "+track+repr(links))
     return links

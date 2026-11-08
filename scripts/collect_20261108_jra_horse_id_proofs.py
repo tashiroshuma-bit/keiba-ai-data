@@ -71,7 +71,7 @@ def fetch_one(race):
                 snippets.append({"cells":[c.get_text(" ",strip=True)[:70] for c in cells[:5]],
                                  "links":links})
                 if len(snippets)>=2:break
-            raise ValueError("insufficient official horse profile IDs; examples "+json.dumps(snippets,ensure_ascii=False)[:900])
+            raise ValueError("insufficient official horse profile IDs; tr_count="+str(len(soup.select("tr")))+" anchors="+json.dumps([(a.get_text(" ",strip=True)[:28],a.get("href")) for a in soup.select("a[href]")[:8]],ensure_ascii=False)[:750]+" examples "+json.dumps(snippets,ensure_ascii=False)[:700])
         return {"race":race["race"],"race_date":"2026-11-08","track":race["track"],
                 "race_number":race["race_number"],"verified_previous_runners":len(bynumber),
                 "status":"official_id_links_verified","verified_id_count":len(found),

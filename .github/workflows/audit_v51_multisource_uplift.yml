@@ -1,0 +1,31 @@
+name: Verify V51 actual five-source prediction uplift eligibility
+on:
+  push:
+    paths:
+      - '.github/workflows/audit_v51_multisource_uplift.yml'
+      - 'scripts/audit_v51_multisource_uplift.py'
+      - 'tests/test_v51_multisource_uplift_audit.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Reopen persisted SQLite and test SHA source and no fake uplift
+        run: python -m unittest discover -s tests -p 'test_v51_multisource_uplift_audit.py' -v
+      - name: Run V51 actual additional-feature coverage and comparison gate
+        run: python -m scripts.audit_v51_multisource_uplift
+      - name: Commit observed outcome, keeping v50 active
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v51/V51_MULTISOURCE_UPLIFT_AUDIT.json reports/v51/V51_MULTISOURCE_UPLIFT_AUDIT.md
+          git commit -m "Archive verified zero-feature V51 multi-source eligibility and no-uplift conclusion"
+          git pull --rebase origin main
+          git push

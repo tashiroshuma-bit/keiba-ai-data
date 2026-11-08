@@ -100,8 +100,8 @@ def main():
         hs=pred["models"]["C"]["horses"]
         nums=[str(h["number"]) for h in hs]
         winner=str(r["winner"])
-        if set(nums)!={str(h["number"]) for h in official["official"][0]["runners"]} and not nums:
-            raise ValueError("bad field")
+        if len(nums)<3 or len(nums)!=len(set(nums)) or winner not in nums:
+            raise ValueError("bad model field")
         p=[h["p1"] for h in hs]
         # All-C already sorted.
         sunday.append({"date":"2026-11-08","race":r["race"],"venue":r["track"],

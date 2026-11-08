@@ -89,9 +89,16 @@ def scrape(r):
     observed={(x["horse_number"],x["finish"]) for x in all_rows}
     expected={(x["number"],x["finish"]) for x in r["runners"]}
     if observed!=expected:
+        samples=[]
+        for tr in soup.find_all("tr"):
+            cells=tr.find_all(["td","th"],recursive=False)
+            parts=[c.get_text(" ",strip=True) for c in cells]
+            if len(parts)>=4 and re.fullmatch(r"\d{1,2}",parts[0]) and re.fullmatch(r"\d{1,2}",parts[2]):
+                samples.append({"len":len(parts),"head":parts[:14]})
+            if len(samples)>=2:break
         raise ValueError(r["race"]+": full runner roster differs archived "+
             repr({"observed_n":len(observed),"expected_n":len(expected),
-                  "missing":sorted(expected-observed)[:12],"extra":sorted(observed-expected)[:12]}))
+                  "missing":sorted(expected-observed)[:4],"sample":samples})[:800])
     if [x["horse_number"] for x in all_rows[:3]]!=r["top3_numbers"]:
         raise ValueError(r["race"]+": podium differs")
     return {"race":r["race"],"race_date":"2026-11-08","venue":r["track"],

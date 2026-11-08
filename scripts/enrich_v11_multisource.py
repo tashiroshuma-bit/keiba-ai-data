@@ -189,8 +189,9 @@ def upgrade(database,records,output):
              (source_id,site_host,cost,ingest_mode,rights_status,created_at)
              VALUES(?,?,?,?,?,?)""",
                 (key,info["host"],info["cost"],"explicit_authorized_export_only",info["status"],now))
+        # Source registry inserts already opened SQLite's implicit transaction.
+        # Keep registry and observations atomic instead of starting a second BEGIN.
         inserted=duplicates=0
-        conn_out.execute("BEGIN")
         for row in rows:
             cur=conn_out.execute("""INSERT OR IGNORE INTO multi_source_observation
              (observation_id,source_id,official_race_id,horse_number,source_horse_id,

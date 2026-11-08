@@ -1960,5 +1960,26 @@
     "canonical_v11_unchanged": true,
     "official_id_name_guessing": false,
     "third_party_features_imported": 0
+  },
+  "official_jra_horse_profile_past_form_supplement": {
+    "version": "2026-11-08-kyoto12-profile-v1",
+    "status": "saved_and_readback_verified",
+    "profiles": 18,
+    "past_run_rows": 193,
+    "source": "JRA official racehorse profiles (18 URLs exact from JRA official results)",
+    "sqlite_path": "operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite",
+    "sha256": "1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f",
+    "bytes": 94208,
+    "verified_sqlite_integrity": true,
+    "audit": "operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1_audit.json",
+    "future_asof_reader": "scripts/query_jra_official_profile_form_asof.py",
+    "capture_is_postrace": true,
+    "preoff_2026_11_08_eligible": false,
+    "usable_only_after_actual_source_observed_at": true,
+    "official_identity_cross_race_name_guessing": false,
+    "original_historical_publication_time_verified": false,
+    "canonical_database_v11_unchanged": true,
+    "model_v50_unchanged": true,
+    "v51_accuracy_gain_not_proven": true
   }
 }

@@ -1,0 +1,89 @@
+{
+  "schema": "jra-v50-abcd-settlement-summary-v2",
+  "date": "2026-11-08",
+  "created_at": "2026-11-08T19:31:59+09:00",
+  "canonical_main_at_read": "5ca563867cf02671b2bcb61d28e6acb1c1a17c6b",
+  "canonical_database": {
+    "version": 11,
+    "sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
+    "note": "post-race podium-only update; historical training table unchanged"
+  },
+  "standard_forecast": {
+    "version": "v50",
+    "policy_path": "operations/prediction_policy/standard_v50.json",
+    "policy_git_blob_sha": "34fcc7e9ca45595a0927ececf0412be2e4712907",
+    "active_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+    "live_bet_generation": false
+  },
+  "prediction_input": {
+    "path": "operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json",
+    "sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+    "git_blob_sha": "8bbce7ffc913d47cdc59489e56c42cf50f574d16",
+    "standard_forecast": false,
+    "status": "RESEARCH_BCD_EXTERNAL_BLEND_NOT_INDEPENDENTLY_CALIBRATED"
+  },
+  "official_result_input": {
+    "path": "operations/results/2026-11-08/v50_abcd_settlement.json",
+    "git_blob_sha": "c76629a1271504b48bbf53d4b7ff850114ac8cdb",
+    "jra_race_pages": 36,
+    "result_observed_at": "2026-11-08T19:31:59+09:00",
+    "payout_observed_at": "2026-11-08T19:31:59+09:00",
+    "payout_types": ["single", "quinella", "trio"]
+  },
+  "coverage": {
+    "jra_all_races": 36,
+    "flat_races": 34,
+    "obstacle_excluded": ["福島4R", "福島5R"],
+    "standard_v50_formal": {
+      "eligible_flat_races": 34,
+      "evaluated_races": 0,
+      "missing_races": 34,
+      "reason": "No actually saved pre-off prediction marked standard_forecast=true. Files with v50 in the name are explicitly standard_forecast=false or production=false; no retrospective v50 metrics or tickets were created."
+    },
+    "research_abcd": {
+      "eligible_same_races": 34,
+      "evaluated_same_races": 34,
+      "missing_races": 0,
+      "external_missing": 0
+    }
+  },
+  "daily_research_abcd": {
+    "A": {"n":34,"top1_hits":4,"winner_top3_hits":15,"log_loss":2.5419249214,"brier":0.9094957111,"ordered_top3_hits":0,"unordered_top3_hits":1,"tickets":{"single":{"points":159,"hit_races":16,"stake_yen":15900,"return_yen":5380,"profit_yen":-10520,"roi_pct":33.8365},"quinella":{"points":510,"hit_races":15,"stake_yen":51000,"return_yen":24440,"profit_yen":-26560,"roi_pct":47.9216},"trio":{"points":2446,"hit_races":14,"stake_yen":244600,"return_yen":117480,"profit_yen":-127120,"roi_pct":48.0294}}},
+    "B": {"n":34,"top1_hits":7,"winner_top3_hits":17,"log_loss":2.4356925437,"brier":0.8903483032,"ordered_top3_hits":0,"unordered_top3_hits":3,"tickets":{"single":{"points":140,"hit_races":18,"stake_yen":14000,"return_yen":6860,"profit_yen":-7140,"roi_pct":49.0},"quinella":{"points":396,"hit_races":15,"stake_yen":39600,"return_yen":35540,"profit_yen":-4060,"roi_pct":89.7475},"trio":{"points":1820,"hit_races":18,"stake_yen":182000,"return_yen":136370,"profit_yen":-45630,"roi_pct":74.9286}}},
+    "C": {"n":34,"top1_hits":10,"winner_top3_hits":16,"log_loss":2.3720158411,"brier":0.8793442956,"ordered_top3_hits":1,"unordered_top3_hits":2,"tickets":{"single":{"points":118,"hit_races":18,"stake_yen":11800,"return_yen":6860,"profit_yen":-4940,"roi_pct":58.1356},"quinella":{"points":283,"hit_races":12,"stake_yen":28300,"return_yen":26210,"profit_yen":-2090,"roi_pct":92.6148},"trio":{"points":1205,"hit_races":15,"stake_yen":120500,"return_yen":118800,"profit_yen":-1700,"roi_pct":98.5892}}},
+    "D": {"n":34,"top1_hits":10,"winner_top3_hits":16,"log_loss":2.3411208334,"brier":0.8758051998,"ordered_top3_hits":1,"unordered_top3_hits":3,"tickets":{"single":{"points":102,"hit_races":18,"stake_yen":10200,"return_yen":7790,"profit_yen":-2410,"roi_pct":76.3725},"quinella":{"points":207,"hit_races":11,"stake_yen":20700,"return_yen":25760,"profit_yen":5060,"roi_pct":124.4444},"trio":{"points":788,"hit_races":14,"stake_yen":78800,"return_yen":121670,"profit_yen":42870,"roi_pct":154.4036}}}
+  },
+  "cumulative_research_shadow_through_20261108": {
+    "races": 103,
+    "regime_break_on_20261102": true,
+    "note": "Named A-D shadow totals only. Pre-2026-11-02 and current research-proxy internals are not treated as one formally unchanged production model.",
+    "A": {"top1_hits":27,"winner_top3_hits":55,"log_loss":2.3397628128,"brier":0.8716039342,"tickets":{"single":{"points":404,"hit_races":57,"stake_yen":40400,"return_yen":30260,"roi_pct":74.9010},"quinella":{"points":1168,"hit_races":46,"stake_yen":116800,"return_yen":143920,"roi_pct":123.2192},"trio":{"points":5393,"hit_races":39,"stake_yen":539300,"return_yen":461500,"roi_pct":85.5739}}},
+    "B": {"top1_hits":30,"winner_top3_hits":58,"log_loss":2.2478835044,"brier":0.8533540562,"tickets":{"single":{"points":381,"hit_races":67,"stake_yen":38100,"return_yen":27680,"roi_pct":72.6509},"quinella":{"points":1000,"hit_races":46,"stake_yen":100000,"return_yen":75900,"roi_pct":75.9},"trio":{"points":4424,"hit_races":53,"stake_yen":442400,"return_yen":268400,"roi_pct":60.6691}}},
+    "C": {"top1_hits":36,"winner_top3_hits":58,"log_loss":2.1879800940,"brier":0.8409503908,"tickets":{"single":{"points":351,"hit_races":65,"stake_yen":35100,"return_yen":22500,"roi_pct":64.1026},"quinella":{"points":823,"hit_races":48,"stake_yen":82300,"return_yen":69790,"roi_pct":84.7995},"trio":{"points":3399,"hit_races":51,"stake_yen":339900,"return_yen":234710,"roi_pct":69.0527}}},
+    "D": {"top1_hits":33,"winner_top3_hits":58,"log_loss":2.1536607479,"brier":0.8341430572,"tickets":{"single":{"points":321,"hit_races":65,"stake_yen":32100,"return_yen":23050,"roi_pct":71.8069},"quinella":{"points":688,"hit_races":45,"stake_yen":68800,"return_yen":52380,"roi_pct":76.1337},"trio":{"points":2611,"hit_races":49,"stake_yen":261100,"return_yen":227840,"roi_pct":87.2616}}}
+  },
+  "exact_top3_cumulative_since_20261107": {
+    "races": 57,
+    "reason_for_shorter_window": "Older 46-race proxy cumulative did not preserve these fields in its aggregate.",
+    "A": {"ordered":0,"unordered":1},
+    "B": {"ordered":1,"unordered":5},
+    "C": {"ordered":2,"unordered":4},
+    "D": {"ordered":2,"unordered":6}
+  },
+  "method": {
+    "single_threshold": 0.40,
+    "quinella_threshold": 0.25,
+    "trio_threshold": 0.30,
+    "unit_yen": 100,
+    "brier": "sum of one-vs-all squared errors per race, then mean across races",
+    "kyoto8_dead_heat": "Third-place tie handled as two valid trio/top3 alternatives: 2-7-8 and 5-7-8. Both official winning trio payouts are counted only when the corresponding preserved ticket exists."
+  },
+  "invariants": {
+    "predictions_overwritten": false,
+    "mixing_weights_changed": false,
+    "standard_forecast_changed": false,
+    "live_bet_generation_changed": false,
+    "actual_bet": false,
+    "past_nine_proxy_did_not_select_optimal_blend": true
+  }
+}

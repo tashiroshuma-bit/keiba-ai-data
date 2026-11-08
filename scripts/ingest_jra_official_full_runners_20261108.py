@@ -86,9 +86,12 @@ def scrape(r):
     # Some JRA races include non-finishers. The archived result parser may
     # contain only numeric finishers: require exact equivalence to the archived
     # number+finish+name set before certifying completed result coverage.
-    if set((x["horse_number"],x["finish"]) for x in all_rows)!=set(
-          (x["number"],x["finish"]) for x in r["runners"]):
-        raise ValueError(r["race"]+": full runner roster differs from archived official proof")
+    observed={(x["horse_number"],x["finish"]) for x in all_rows}
+    expected={(x["number"],x["finish"]) for x in r["runners"]}
+    if observed!=expected:
+        raise ValueError(r["race"]+": full runner roster differs archived "+
+            repr({"observed_n":len(observed),"expected_n":len(expected),
+                  "missing":sorted(expected-observed)[:12],"extra":sorted(observed-expected)[:12]}))
     if [x["horse_number"] for x in all_rows[:3]]!=r["top3_numbers"]:
         raise ValueError(r["race"]+": podium differs")
     return {"race":r["race"],"race_date":"2026-11-08","venue":r["track"],

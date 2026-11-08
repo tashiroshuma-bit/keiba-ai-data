@@ -103,9 +103,11 @@
     "append_only_podium_rows": 108,
     "append_only_is_full_horse_history": false,
     "append_only_for_training": false,
-    "library_readback_sha256_verified": true,
+    "library_readback_sha256_verified": false,
     "source_result_commit_sha": "f97ecc99235cc694387ba86b8381b6173ae0fc34",
-    "update_reason": "verified official 2026-11-08 podium audit supplement, not a full runner-history refresh"
+    "update_reason": "verified official 2026-11-08 podium audit supplement, not a full runner-history refresh",
+    "materialization_recheck": "FIRST_REDOWNLOADED_COPY_TRUNCATED_SECOND_RETRY_NOT_VERIFIED",
+    "materialization_exception_manifest": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json"
   },
   "sources": {
     "cache": {
@@ -1911,5 +1913,21 @@
       "historical_training_table_unchanged": true,
       "official_id_additions": 0
     }
-  ]
+  ],
+  "multisource_ingestion": {
+    "schema_version": "v1",
+    "status": "IMPLEMENTED_TESTED_NOT_APPLIED_TO_CANONICAL_SQLITE",
+    "canonical_db_version_current": 11,
+    "pending_new_db_version": 12,
+    "script": "scripts/enrich_v11_multisource.py",
+    "preoff_query": "scripts/query_multisource_preoff_features.py",
+    "source_registry": "operations/data_updates/five_source_access_and_rights_registry_20261108.json",
+    "headcount_conflict_audit": "reports/v51/multisource_race_conflict_audit_20261108.json",
+    "test_workflow": ".github/workflows/test_jra_multisource_ingestion.yml",
+    "rights_authorized_records_received": 0,
+    "production_promotion": false,
+    "v50_unchanged": true,
+    "materialization_exception": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json",
+    "requires_complete_source_readback": true
+  }
 }

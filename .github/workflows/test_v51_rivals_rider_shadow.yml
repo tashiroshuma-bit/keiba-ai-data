@@ -7,6 +7,9 @@ on:
       - 'tests/test_v51_rivals_rider_shadow.py'
       - 'scripts/v51_preoff_provenance_guard.py'
       - 'tests/test_v51_preoff_provenance_guard.py'
+      - 'scripts/v51_candidate_race_overlay.py'
+      - 'tests/test_v51_candidate_race_overlay.py'
+      - 'operations/prediction_policy/v51_candidate_fitted_research.json'
   workflow_dispatch:
 permissions:
   contents: read

@@ -106,8 +106,10 @@
     "library_readback_sha256_verified": false,
     "source_result_commit_sha": "f97ecc99235cc694387ba86b8381b6173ae0fc34",
     "update_reason": "verified official 2026-11-08 podium audit supplement, not a full runner-history refresh",
-    "materialization_recheck": "FIRST_REDOWNLOADED_COPY_TRUNCATED_SECOND_RETRY_NOT_VERIFIED",
-    "materialization_exception_manifest": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json"
+    "materialization_recheck": "LATEST_REDOWNLOAD_SIZE_MATCHES_322170880_SHA256_NOT_YET_REVERIFIED",
+    "materialization_exception_manifest": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json",
+    "materialization_retry_size_verified": true,
+    "materialization_retry_directory": "/mnt/data/keiba/repair_attempt_20261108"
   },
   "sources": {
     "cache": {
@@ -1981,5 +1983,22 @@
     "canonical_database_v11_unchanged": true,
     "model_v50_unchanged": true,
     "v51_accuracy_gain_not_proven": true
+  },
+  "multisource_history_v2": {
+    "status": "validated_official_postrace_companion",
+    "schema": "official_20261108_runner_history_only",
+    "path": "operations/data_updates/multisource_overlay_20261108_v2.sqlite",
+    "sha256": "e66998eae3c01182ec553fbf468b5509e9e4cb18338d7f13179f5793c9edd2af",
+    "bytes": 282624,
+    "official_races": 36,
+    "official_runner_rows": 495,
+    "runner_times": 495,
+    "runner_final3": 495,
+    "jockey_entries": 494,
+    "official_ids_newly_linked": 0,
+    "preoff_features_newly_linked": 0,
+    "canonical_v11_unchanged": true,
+    "training_same_day_forbidden": true,
+    "proof": "operations/data_updates/multisource_overlay_20261108_v2_audit.json"
   }
 }

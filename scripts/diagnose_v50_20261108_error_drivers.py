@@ -20,8 +20,21 @@ def pct(x,n):return f"{x}/{n} ({x/n:.1%})" if n else "—"
 
 def main():
     d=json.loads(SRC.read_text())
-    rows=[r for r in d["races"] if r["status"]=="evaluated"]
+    rows=[dict(r) for r in d["races"] if r["status"]=="evaluated"]
     if len(rows)!=34:raise ValueError("expected 34 evaluated flat races")
+    # All 34-race diagnostics MUST use the same frozen raw C model. The
+    # 10:51 odds snapshot is analyzed independently on its own 23-race cohort.
+    path=ROOT/"operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json"
+    raw=json.loads(path.read_text())
+    base={r["race"]:r for r in raw["races"] if r["date"]=="2026-11-08"}
+    for r in rows:
+        hs=base[r["race"]]["models"]["C"]["horses"]
+        rank=[h["number"] for h in hs]
+        r["C_hit"]=r["model_ABCD"]["C"]["hit"]
+        r["C_predicted_top1"]=rank[0]
+        r["C_top1_p1"]=hs[0]["p1"]
+        r["C_winner_rank"]=rank.index(r["winner"])+1
+        r["C_podium_top5_capture"]=sum(n in rank[:5] for n in r["podium"])
     report={}
     report["c_by_win_popularity"]=grade_count(rows,lambda r: "1番人気" if r["final_popularity"][0]==1 else ("2-3番人気" if r["final_popularity"][0]<=3 else ("4-6番人気" if r["final_popularity"][0]<=6 else "7番人気以下")))
     report["c_by_track"]=grade_count(rows,lambda r:r["track"])
@@ -58,9 +71,11 @@ def main():
         "n":23}
     # Distinguish hit of actual winner from "best predicted public favorite".
     report["c_market_chosen_as_public_favorite"]=grade_count(markets,lambda r:"true_final_favorite_won" if r["favorite_won"] else "true_final_favorite_lost")
+    morning_raw=json.loads((ROOT/"operations/predictions/2026-11-08/v50_live_odds_full_tickets_1051.json").read_text())
+    morning_by_race={x["race"]:x for x in morning_raw["races"] if x["status"]=="odds_adjusted_all_marginals"}
     report["c_confidence_1051"]= {
-        "top1_mean_p1":sum(r["C_top1_p1"] for r in markets)/len(markets),
-        "top1_hit_rate":sum(r["C_hit"] for r in markets)/len(markets),
+        "top1_mean_p1":sum(morning_by_race[r["race"]]["models"]["C"]["horses"][0]["p1"] for r in markets)/len(markets),
+        "top1_hit_rate":sum(r["morning_1051_ABCD"]["C"]["hit"] for r in markets)/len(markets),
         "note":"Individual race C_top1_p1 comes from 10:51 model when present, not a calibrated confidence band"}
     # For champion showdown on 34 races, any model hits, consensus:
     report["model_disagreement"]={

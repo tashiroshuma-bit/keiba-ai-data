@@ -1,23 +1,11 @@
 {
   "schema": "jra-2026-11-08-v50-abcd-official-results-audit-v1",
   "date": "2026-11-08",
-  "official_verified_count": 35,
-  "official_missing": [
-    {
-      "race": "福島4R",
-      "status": "official_unverified",
-      "url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020420261108/85",
-      "error": "final popularity ranks not complete"
-    }
-  ],
+  "official_verified_count": 36,
+  "official_missing": [],
   "paired_research_count": 34,
   "preoff_observed_market_count": 23,
-  "results_missing_or_model_mismatch": [
-    {
-      "race": "福島4R",
-      "reason": "no verified JRA result"
-    }
-  ],
+  "results_missing_or_model_mismatch": [],
   "base": {
     "metrics": {
       "A": {
@@ -4016,7 +4004,7 @@
     "福島": {
       "3": 2,
       "4": 3,
-      "1": 2,
+      "1": 3,
       "8": 1,
       "2": 2,
       "6": 1
@@ -6534,6 +6522,21 @@
       "favorite_won": false
     },
     {
+      "race": "福島4R",
+      "status": "unsupported_obstacle_model",
+      "actual": [
+        6,
+        3,
+        1
+      ],
+      "final_popularity": [
+        1,
+        8,
+        2
+      ],
+      "jra": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020420261108/85"
+    },
+    {
       "race": "福島5R",
       "status": "unsupported_obstacle_model",
       "actual": [
@@ -7264,6 +7267,7 @@
       "headcount": 11,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         2,
         7,
@@ -7397,6 +7401,7 @@
       "headcount": 11,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         3,
@@ -7530,6 +7535,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         14,
         10,
@@ -7703,6 +7709,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         11,
         8,
@@ -7838,6 +7845,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         15,
         1,
@@ -7966,6 +7974,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         7,
         8,
@@ -8139,6 +8148,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         7,
         14,
@@ -8322,6 +8332,7 @@
       "headcount": 14,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         7,
         5,
@@ -8485,6 +8496,7 @@
       "headcount": 9,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         7,
         6,
@@ -8598,6 +8610,7 @@
       "headcount": 11,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         8,
         3,
@@ -8731,6 +8744,7 @@
       "headcount": 18,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         15,
@@ -8934,6 +8948,7 @@
       "headcount": 12,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         4,
         7,
@@ -9077,6 +9092,7 @@
       "headcount": 14,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         2,
         5,
@@ -9240,6 +9256,7 @@
       "headcount": 13,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         1,
         7,
@@ -9393,6 +9410,7 @@
       "headcount": 6,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         1,
@@ -9476,6 +9494,7 @@
       "headcount": 14,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         8,
@@ -9639,6 +9658,7 @@
       "headcount": 11,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         3,
         5,
@@ -9739,6 +9759,7 @@
       "headcount": 18,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         14,
         9,
@@ -9888,6 +9909,7 @@
       "headcount": 13,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         4,
         9,
@@ -10041,6 +10063,7 @@
       "headcount": 9,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         7,
         8,
@@ -10154,6 +10177,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         4,
         10,
@@ -10327,6 +10351,7 @@
       "headcount": 10,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         8,
@@ -10450,6 +10475,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         11,
         8,
@@ -10633,6 +10659,7 @@
       "headcount": 18,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         12,
         18,
@@ -10836,6 +10863,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         5,
         3,
@@ -11010,6 +11038,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         3,
@@ -11193,6 +11222,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         13,
         2,
@@ -11358,9 +11388,117 @@
     },
     {
       "race": "福島4R",
-      "status": "official_unverified",
+      "track": "福島",
+      "race_number": 4,
+      "status": "official_verified",
       "url": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020420261108/85",
-      "error": "final popularity ranks not complete"
+      "sha256": "39c8315958d07d2439325af5f74e0adcab209496b00278823ae755c5288c0cec",
+      "headcount": 9,
+      "surface": "unknown",
+      "going": null,
+      "all_final_popularity_verified": false,
+      "top3_numbers": [
+        6,
+        3,
+        1
+      ],
+      "top3_popularity": [
+        1,
+        8,
+        2
+      ],
+      "runners": [
+        {
+          "finish": 1,
+          "number": 6,
+          "popularity_final": 1,
+          "name": "サマーアゲイン",
+          "bodyweight": {
+            "kg": 502,
+            "delta_kg": 0
+          }
+        },
+        {
+          "finish": 2,
+          "number": 3,
+          "popularity_final": 8,
+          "name": "ミスティックレイン",
+          "bodyweight": {
+            "kg": 484,
+            "delta_kg": -6
+          }
+        },
+        {
+          "finish": 3,
+          "number": 1,
+          "popularity_final": 2,
+          "name": "ナヴァラトゥナ",
+          "bodyweight": {
+            "kg": 442,
+            "delta_kg": 2
+          }
+        },
+        {
+          "finish": 4,
+          "number": 2,
+          "popularity_final": 7,
+          "name": "シュハリ",
+          "bodyweight": {
+            "kg": 460,
+            "delta_kg": -4
+          }
+        },
+        {
+          "finish": 5,
+          "number": 4,
+          "popularity_final": 6,
+          "name": "アスクエピソード",
+          "bodyweight": {
+            "kg": 472,
+            "delta_kg": 2
+          }
+        },
+        {
+          "finish": 6,
+          "number": 7,
+          "popularity_final": 11,
+          "name": "スノーリン",
+          "bodyweight": {
+            "kg": 474,
+            "delta_kg": 8
+          }
+        },
+        {
+          "finish": 7,
+          "number": 11,
+          "popularity_final": 5,
+          "name": "ディアスポラ",
+          "bodyweight": {
+            "kg": 514,
+            "delta_kg": -2
+          }
+        },
+        {
+          "finish": 8,
+          "number": 5,
+          "popularity_final": 4,
+          "name": "アレナリア",
+          "bodyweight": {
+            "kg": 444,
+            "delta_kg": 2
+          }
+        },
+        {
+          "finish": 9,
+          "number": 9,
+          "popularity_final": 9,
+          "name": "ノブピースオブラブ",
+          "bodyweight": {
+            "kg": 468,
+            "delta_kg": 6
+          }
+        }
+      ]
     },
     {
       "race": "福島5R",
@@ -11372,6 +11510,7 @@
       "headcount": 9,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         8,
@@ -11485,6 +11624,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         8,
         15,
@@ -11613,6 +11753,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         15,
         16,
@@ -11796,6 +11937,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         9,
@@ -11979,6 +12121,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         13,
         6,
@@ -12162,6 +12305,7 @@
       "headcount": 15,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         6,
         1,
@@ -12335,6 +12479,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         8,
         6,
@@ -12518,6 +12663,7 @@
       "headcount": 16,
       "surface": "unknown",
       "going": null,
+      "all_final_popularity_verified": true,
       "top3_numbers": [
         16,
         12,

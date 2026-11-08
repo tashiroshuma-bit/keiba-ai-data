@@ -1,0 +1,20 @@
+{
+  "schema": "canonical-library-readback-exception-20261108-v1",
+  "date": "2026-11-08",
+  "canonical_library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+  "version": 11,
+  "reported_library_size": 322170880,
+  "original_container_source_size": 322170880,
+  "original_container_source_sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
+  "original_quick_check": "ok",
+  "first_materialized_copy_size": 299909120,
+  "first_materialized_copy_sha256": "d878001b4b2fa80f2479c10584ba27cbd562d2235a0aee1479a1f50440163af6",
+  "first_materialized_copy_sqlite_check": "database disk image is malformed",
+  "second_materialize_reported_size": 322170880,
+  "second_materialized_copy_checksum_verified": false,
+  "diagnosis": "materialization or transfer of first Library copy incomplete; does NOT conclusively prove stored Library file is corrupted",
+  "safe_to_train_from_first_materialization": false,
+  "safe_to_claim_full_roundtrip_verified": false,
+  "next_action": "obtain complete local materialization; validate size SHA256 PRAGMA quick_check before any enrichment upload; preserve current v11 canonical in Library until verified",
+  "status": "READBACK_EXPLICIT_REVALIDATION_REQUIRED"
+}

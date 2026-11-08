@@ -1,0 +1,28 @@
+name: Verify official JRA horse recent form future V51 features
+on:
+  push:
+    paths:
+      - '.github/workflows/verify_jra_official_profile_form_asof.yml'
+      - 'scripts/query_jra_official_profile_form_asof.py'
+      - 'tests/test_query_jra_official_profile_form_asof.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate 18 actual JRA horse profiles and 193 historical runs
+        run: python -m unittest discover -s tests -p 'test_query_jra_official_profile_form_asof.py' -v
+      - name: Render actual historical feature sample as-of next race week
+        run: |
+          python -m scripts.query_jra_official_profile_form_asof \
+            --horse-id jra:2021103488 \
+            --asof 2026-11-14T08:00:00+09:00 \
+            --off-at 2026-11-14T16:20:00+09:00 \
+            --surface 芝

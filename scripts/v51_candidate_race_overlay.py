@@ -69,9 +69,11 @@ def overlay(v50_model, source, model_file, *, research_alpha=0.0):
         scores.append(sum(weights[k]*(x[j]-mean[j])/scale[j]
                       for k,j in enumerate(idx)))
     new=softmax(scores)
-    mix=softmax([(1-research_alpha)*math.log(original[int(h["number"])])
+    mix=([original[int(h["number"])] for h in v50]
+         if research_alpha==0 else
+         softmax([(1-research_alpha)*math.log(original[int(h["number"])])
                  +research_alpha*math.log(p)
-                 for h,p in zip(v50,new)])
+                 for h,p in zip(v50,new)]))
     ranked=sorted([{"number":h["number"],"name":h["name"],
         "v50_p1":original[int(h["number"])],
         "v51_candidate_p1":q,"shadow_ensemble_p1":r}

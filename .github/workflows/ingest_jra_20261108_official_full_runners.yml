@@ -1,0 +1,45 @@
+name: Ingest JRA Nov 8 official full field horse IDs and past-run features
+on:
+  push:
+    paths:
+      - '.github/workflows/ingest_jra_20261108_official_full_runners.yml'
+      - 'scripts/ingest_jra_20261108_official_full_runners.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4
+      - name: Fetch official JRA full-runner tables and evidence-backed horse IDs
+        run: python -m scripts.ingest_jra_20261108_official_full_runners
+      - name: Independent SQLite reopen and provenance assertions
+        run: |
+          python - <<'PY'
+          import sqlite3,hashlib,json
+          from pathlib import Path
+          p=Path('operations/data_updates/jra_official_20261108_all_runner_history.sqlite')
+          a=json.loads(Path('operations/data_updates/jra_official_20261108_all_runner_history_audit.json').read_text())
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==a['sqlite_sha256']
+          c=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not c.execute('PRAGMA foreign_key_check').fetchall()
+          assert c.execute('SELECT count(*) FROM runner_postrace').fetchone()[0]==a['official_runner_ids']
+          assert c.execute('SELECT count(*) FROM runner_postrace WHERE result_only_not_prediction_feature=0').fetchone()[0]==0
+          assert c.execute('SELECT count(*) FROM runner_postrace WHERE horse_id NOT LIKE "jra:%"').fetchone()[0]==0
+          c.close()
+          PY
+      - name: Preserve official runner data and audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/data_updates/jra_official_20261108_all_runner_history.sqlite operations/data_updates/jra_official_20261108_all_runner_history_audit.json
+          git commit -m "Save official Nov8 postrace JRA runners, horse IDs, times, weights and provenance"
+          git pull --rebase origin main
+          git push

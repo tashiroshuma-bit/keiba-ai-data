@@ -18,6 +18,11 @@ except ModuleNotFoundError:
     from v50_preoff_odds_blend import combine as combine_market
 
 try:
+    from scripts.v50_conditional_rare_upset import from_files as rare_upset_shadow
+except ModuleNotFoundError:
+    from v50_conditional_rare_upset import from_files as rare_upset_shadow
+
+try:
     from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
@@ -110,6 +115,22 @@ def standard_forecast(forecast_path, database_path, output_path, *,
             "warnings":["Pre-off-only odds; research shadow ranking, no live betting",
                         "Canonical v50 rank and ticket allocations remain unchanged",
                         "Alpha=0.20 is a provisional experimental setting, not a trained optimum"]}
+    # Rare-upset branch only evaluates pre-off uncertainty as a research
+    # shadow. The rule did NOT pass the 2025 independent holdout; no automatic
+    # extreme-upset probability multiplier or horse ranking change is allowed.
+    rare_policy=ROOT/"operations/prediction_policy/v50_rare_upset_gate_research.json"
+    extended=ROOT/"reports/v50_extended_upset_gate_2025.json"
+    if rare_policy.exists():
+        assessments=[]
+        for row in prediction["races"]:
+            assessments.append({"race":row["race"],
+                **rare_upset_shadow(row["v50"],rare_policy,
+                                    extended if extended.exists() else None)})
+        prediction["conditional_rare_upset_research"]={
+            "status":"SHADOW_NO_PRODUCTION_REWEIGHTING",
+            "assessments":assessments,
+            "updated_probabilities":False,
+            "rule_proven_for_canonical_v50":False}
     prediction["standard_forecast"]=True
     prediction["policy_sha256"]=hashlib.sha256(policy_bytes).hexdigest()
     prediction["canonical_database_sha256"]=dbdigest

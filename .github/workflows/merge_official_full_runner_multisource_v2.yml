@@ -1,0 +1,45 @@
+name: Merge 495 JRA official runners into multi-source companion v2
+on:
+  push:
+    paths:
+      - '.github/workflows/merge_official_full_runner_multisource_v2.yml'
+      - 'scripts/merge_official_full_runner_multisource_v2.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  merge:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify both persisted SQLite sources and merge 495 official postrace forms
+        run: python -m scripts.merge_official_full_runner_multisource_v2
+      - name: Independently reopen merged SQLite with provenance and integrity
+        run: |
+          python - <<'PY'
+          import hashlib,json,sqlite3
+          from pathlib import Path
+          p=Path("operations/data_updates/multisource_overlay_20261108_v2.sqlite")
+          m=json.loads(Path("operations/data_updates/multisource_overlay_20261108_v2_audit.json").read_text())
+          assert p.stat().st_size==m["size_bytes"]
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==m["sha256"]
+          c=sqlite3.connect(f"file:{p.resolve()}?mode=ro",uri=True)
+          assert c.execute("PRAGMA integrity_check").fetchone()[0]=="ok"
+          assert not c.execute("PRAGMA foreign_key_check").fetchall()
+          assert c.execute("SELECT count(*) FROM jra_result_history_full").fetchone()[0]==495
+          assert c.execute("SELECT count(*) FROM jra_result_history_full WHERE result_only_not_preoff!=1").fetchone()[0]==0
+          assert c.execute("SELECT count(*) FROM multi_source_observation").fetchone()[0]==0
+          print("fully verified 495 official records")
+          PY
+      - name: Persist v2 real data source and matched audit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/data_updates/multisource_overlay_20261108_v2.sqlite operations/data_updates/multisource_overlay_20261108_v2_audit.json reports/v51/MULTISOURCE_OFFICIAL_HISTORY_V2_REALDATA.md
+          git commit -m "Store 495 JRA postrace full runner records in verified multi-source companion v2"
+          git pull --rebase origin main
+          git push

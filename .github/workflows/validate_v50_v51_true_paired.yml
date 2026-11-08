@@ -1,0 +1,36 @@
+name: Verify v50 v51 real same-race preoff eligibility and paired scoring
+on:
+  push:
+    paths:
+      - '.github/workflows/validate_v50_v51_true_paired.yml'
+      - 'scripts/evaluate_v50_v51_true_paired.py'
+      - 'tests/test_evaluate_v50_v51_true_paired.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Run paired score safety tests
+        run: python -m unittest discover -s tests -p 'test_evaluate_v50_v51_true_paired.py' -v
+      - name: Check actual frozen artifacts for same-race V50 and V51 preoff samples
+        run: |
+          python -m scripts.evaluate_v50_v51_true_paired \
+            --baseline operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json \
+            --candidate operations/prediction_policy/v51_candidate_fitted_research.json \
+            --results operations/results/2026-11-08/v50_abcd_settlement.json \
+            --output reports/v51/v50_v51_paired_verification_status.json
+      - name: Commit coverage result, never invent missing pairs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v51/v50_v51_paired_verification_status.json
+          git commit -m "Record exact preoff v50 versus v51 paired evidence availability and no-fake-metric gate"
+          git pull --rebase origin main
+          git push

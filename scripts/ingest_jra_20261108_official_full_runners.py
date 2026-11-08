@@ -20,8 +20,8 @@ from bs4 import BeautifulSoup
 ROOT=Path(__file__).resolve().parents[1]
 SEED="https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108%2FB4"
 SETTLEMENT=ROOT/"operations/results/2026-11-08/v50_abcd_settlement.json"
-OUT=ROOT/"operations/data_updates/jra_official_20261108_all_runner_history.sqlite"
-AUDIT=ROOT/"operations/data_updates/jra_official_20261108_all_runner_history_audit.json"
+OUT=ROOT/"operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite"
+AUDIT=ROOT/"operations/data_updates/jra_official_20261108_all_runner_history_v2_audit.json"
 TRACK={"東京":"東京","京都":"京都","福島":"福島"}
 RE_ID=re.compile(r"pw01dud00(\d{10})/",re.I)
 RE_RACE=re.compile(r"pw01sde01\d{2}\d{8}\d{2}20261108/",re.I)

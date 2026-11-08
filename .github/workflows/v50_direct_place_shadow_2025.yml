@@ -1,0 +1,30 @@
+name: Validate v50 position-specific p2 p3 research model
+on:
+  push:
+    paths:
+      - '.github/workflows/v50_direct_place_shadow_2025.yml'
+      - 'scripts/v50_direct_place_shadow_2025.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Train 2025 specific p2 p3 ordering and evaluate untouched race days
+        run: python -m scripts.v50_direct_place_shadow_2025
+      - name: Save calibrated historical research outputs
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v50_direct_place_p2_p3_2025.json reports/v50_direct_place_p2_p3_2025.md
+          git commit -m "Save independently evaluated position-specific 2025 p2 p3 shadow"
+          git pull --rebase origin main
+          git push

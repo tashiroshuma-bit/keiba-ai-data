@@ -38,10 +38,9 @@ def define_event(ranks):
 def define_extended(ranks):
     return ranks[0]>=10 and sum(n>=7 for n in ranks)>=2
 def condition(row,rule):
-    return all(
-      row["features"]["field_size"]>=rule["min_field"],
-      row["features"]["candidate_max_p1"]<=rule["max_top1"],
-      row["features"]["candidate_gap_1_2"]<=rule["max_gap"],
+    return (row["features"]["field_size"]>=rule["min_field"] and
+      row["features"]["candidate_max_p1"]<=rule["max_top1"] and
+      row["features"]["candidate_gap_1_2"]<=rule["max_gap"] and
       row["features"]["candidate_entropy"]>=rule["min_entropy"])
 def results(rows, rule):
     chosen=[r for r in rows if condition(r,rule)]

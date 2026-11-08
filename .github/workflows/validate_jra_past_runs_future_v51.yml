@@ -1,0 +1,28 @@
+name: Validate postrace JRA full-runner past features for future V51
+on:
+  push:
+    paths:
+      - '.github/workflows/validate_jra_past_runs_future_v51.yml'
+      - 'scripts/query_jra_official_past_runs_asof.py'
+      - 'tests/test_query_jra_official_past_runs_asof.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Verify actual 497 official horse IDs and race date leakage guards
+        run: python -m unittest discover -s tests -p 'test_query_jra_official_past_runs_asof.py' -v
+      - name: Export JRA official horse's last race evidence as of next meeting
+        run: |
+          python -m scripts.query_jra_official_past_runs_asof \
+            --horse-id jra:2021103488 \
+            --asof 2026-11-14T08:00:00+09:00 \
+            --off-at 2026-11-14T16:20:00+09:00 \
+            --race next-meeting

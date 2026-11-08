@@ -1,0 +1,23 @@
+name: Canonical v50 asof research retrainer smoke tests
+on:
+  push:
+    paths:
+      - '.github/workflows/v50_canonical_retrainer_smoke.yml'
+      - 'scripts/retrain_v50_canonical_db_shadow.py'
+      - 'scripts/calibrate_v50_canonical_db_race_risk.py'
+      - 'tests/test_v50_canonical_db_retrainer_smoke.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy scipy
+      - name: Verify asof cutoff probability mass and risk classifier
+        run: python -m unittest discover -s tests -p 'test_v50_canonical_db_retrainer_smoke.py' -v

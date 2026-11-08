@@ -1,0 +1,833 @@
+{
+  "schema": "v50-race-shape-diagnostics-v1",
+  "2025_train": {
+    "overall": {
+      "n": 226,
+      "hit": 51,
+      "hit_rate": 0.22566371681415928,
+      "winner_top3": 111,
+      "winner_top3_rate": 0.4911504424778761,
+      "mean_selected_p1": 0.22587023827527322,
+      "bias_selected_p1_minus_actual": 0.00020652146111393987,
+      "winner_4plus": 115
+    },
+    "field_size": {
+      "中頭数10-13": {
+        "n": 63,
+        "hit": 17,
+        "hit_rate": 0.2698412698412698,
+        "winner_top3": 34,
+        "winner_top3_rate": 0.5396825396825397,
+        "mean_selected_p1": 0.23417868926288601,
+        "bias_selected_p1_minus_actual": -0.03566258057838381,
+        "winner_4plus": 29
+      },
+      "多頭数≥14": {
+        "n": 136,
+        "hit": 25,
+        "hit_rate": 0.18382352941176472,
+        "winner_top3": 59,
+        "winner_top3_rate": 0.4338235294117647,
+        "mean_selected_p1": 0.2030518881980552,
+        "bias_selected_p1_minus_actual": 0.019228358786290478,
+        "winner_4plus": 77
+      },
+      "少頭数≤9": {
+        "n": 27,
+        "hit": 9,
+        "hit_rate": 0.3333333333333333,
+        "winner_top3": 18,
+        "winner_top3_rate": 0.6666666666666666,
+        "mean_selected_p1": 0.321420727100534,
+        "bias_selected_p1_minus_actual": -0.011912606232799328,
+        "winner_4plus": 9
+      }
+    },
+    "max_p1": {
+      "中15-30%": {
+        "n": 151,
+        "hit": 36,
+        "hit_rate": 0.23841059602649006,
+        "winner_top3": 77,
+        "winner_top3_rate": 0.5099337748344371,
+        "mean_selected_p1": 0.2142015451417381,
+        "bias_selected_p1_minus_actual": -0.024209050884751976,
+        "winner_4plus": 74
+      },
+      "低い<15%": {
+        "n": 37,
+        "hit": 2,
+        "hit_rate": 0.05405405405405406,
+        "winner_top3": 10,
+        "winner_top3_rate": 0.2702702702702703,
+        "mean_selected_p1": 0.12840547189861684,
+        "bias_selected_p1_minus_actual": 0.07435141784456278,
+        "winner_4plus": 27
+      },
+      "高い≥30%": {
+        "n": 38,
+        "hit": 13,
+        "hit_rate": 0.34210526315789475,
+        "winner_top3": 24,
+        "winner_top3_rate": 0.631578947368421,
+        "mean_selected_p1": 0.367137844041065,
+        "bias_selected_p1_minus_actual": 0.02503258088317023,
+        "winner_4plus": 14
+      }
+    },
+    "top1_top2_gap": {
+      "差2-6pp": {
+        "n": 63,
+        "hit": 8,
+        "hit_rate": 0.12698412698412698,
+        "winner_top3": 23,
+        "winner_top3_rate": 0.36507936507936506,
+        "mean_selected_p1": 0.1830697934740339,
+        "bias_selected_p1_minus_actual": 0.05608566648990693,
+        "winner_4plus": 40
+      },
+      "差≥6pp": {
+        "n": 109,
+        "hit": 33,
+        "hit_rate": 0.30275229357798167,
+        "winner_top3": 60,
+        "winner_top3_rate": 0.5504587155963303,
+        "mean_selected_p1": 0.280951327882366,
+        "bias_selected_p1_minus_actual": -0.02180096569561568,
+        "winner_4plus": 49
+      },
+      "接戦<2pp": {
+        "n": 54,
+        "hit": 10,
+        "hit_rate": 0.18518518518518517,
+        "winner_top3": 28,
+        "winner_top3_rate": 0.5185185185185185,
+        "mean_selected_p1": 0.164621891151291,
+        "bias_selected_p1_minus_actual": -0.020563294033894175,
+        "winner_4plus": 26
+      }
+    },
+    "entropy": {
+      "中0.85-0.95": {
+        "n": 157,
+        "hit": 38,
+        "hit_rate": 0.24203821656050956,
+        "winner_top3": 81,
+        "winner_top3_rate": 0.5159235668789809,
+        "mean_selected_p1": 0.21217090957161455,
+        "bias_selected_p1_minus_actual": -0.029867306988895004,
+        "winner_4plus": 76
+      },
+      "集中<0.85": {
+        "n": 37,
+        "hit": 11,
+        "hit_rate": 0.2972972972972973,
+        "winner_top3": 23,
+        "winner_top3_rate": 0.6216216216216216,
+        "mean_selected_p1": 0.3593876454098402,
+        "bias_selected_p1_minus_actual": 0.06209034811254288,
+        "winner_4plus": 14
+      },
+      "高分散≥0.95": {
+        "n": 32,
+        "hit": 2,
+        "hit_rate": 0.0625,
+        "winner_top3": 7,
+        "winner_top3_rate": 0.21875,
+        "mean_selected_p1": 0.13870306772825536,
+        "bias_selected_p1_minus_actual": 0.07620306772825536,
+        "winner_4plus": 25
+      }
+    },
+    "venue": {
+      "中京": {
+        "n": 39,
+        "hit": 11,
+        "hit_rate": 0.28205128205128205,
+        "winner_top3": 24,
+        "winner_top3_rate": 0.6153846153846154,
+        "mean_selected_p1": 0.2208845828850364,
+        "bias_selected_p1_minus_actual": -0.06116669916624565,
+        "winner_4plus": 15
+      },
+      "中山": {
+        "n": 35,
+        "hit": 6,
+        "hit_rate": 0.17142857142857143,
+        "winner_top3": 13,
+        "winner_top3_rate": 0.37142857142857144,
+        "mean_selected_p1": 0.18648710540861002,
+        "bias_selected_p1_minus_actual": 0.015058533980038591,
+        "winner_4plus": 22
+      },
+      "京都": {
+        "n": 37,
+        "hit": 10,
+        "hit_rate": 0.2702702702702703,
+        "winner_top3": 22,
+        "winner_top3_rate": 0.5945945945945946,
+        "mean_selected_p1": 0.22691110486327437,
+        "bias_selected_p1_minus_actual": -0.043359165406995914,
+        "winner_4plus": 15
+      },
+      "函館": {
+        "n": 5,
+        "hit": 1,
+        "hit_rate": 0.2,
+        "winner_top3": 2,
+        "winner_top3_rate": 0.4,
+        "mean_selected_p1": 0.2139649867149162,
+        "bias_selected_p1_minus_actual": 0.013964986714916194,
+        "winner_4plus": 3
+      },
+      "小倉": {
+        "n": 15,
+        "hit": 2,
+        "hit_rate": 0.13333333333333333,
+        "winner_top3": 5,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_selected_p1": 0.2291068858016019,
+        "bias_selected_p1_minus_actual": 0.09577355246826857,
+        "winner_4plus": 10
+      },
+      "新潟": {
+        "n": 22,
+        "hit": 5,
+        "hit_rate": 0.22727272727272727,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.36363636363636365,
+        "mean_selected_p1": 0.23846000238865905,
+        "bias_selected_p1_minus_actual": 0.011187275115931788,
+        "winner_4plus": 14
+      },
+      "札幌": {
+        "n": 12,
+        "hit": 1,
+        "hit_rate": 0.08333333333333333,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.6666666666666666,
+        "mean_selected_p1": 0.20685824398524733,
+        "bias_selected_p1_minus_actual": 0.123524910651914,
+        "winner_4plus": 4
+      },
+      "東京": {
+        "n": 35,
+        "hit": 7,
+        "hit_rate": 0.2,
+        "winner_top3": 15,
+        "winner_top3_rate": 0.42857142857142855,
+        "mean_selected_p1": 0.2577704525110336,
+        "bias_selected_p1_minus_actual": 0.057770452511033576,
+        "winner_4plus": 20
+      },
+      "福島": {
+        "n": 11,
+        "hit": 3,
+        "hit_rate": 0.2727272727272727,
+        "winner_top3": 6,
+        "winner_top3_rate": 0.5454545454545454,
+        "mean_selected_p1": 0.2477440373445741,
+        "bias_selected_p1_minus_actual": -0.024983235382698615,
+        "winner_4plus": 5
+      },
+      "阪神": {
+        "n": 15,
+        "hit": 5,
+        "hit_rate": 0.3333333333333333,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.5333333333333333,
+        "mean_selected_p1": 0.2351612065869502,
+        "bias_selected_p1_minus_actual": -0.09817212674638312,
+        "winner_4plus": 7
+      }
+    },
+    "top1_hit_vs_actual_winner_popularity": {
+      "事後1人気勝利": {
+        "n": 69,
+        "hit": 32,
+        "hit_rate": 0.463768115942029,
+        "winner_top3": 54,
+        "winner_top3_rate": 0.782608695652174,
+        "mean_selected_p1": 0.2302162038526758,
+        "bias_selected_p1_minus_actual": -0.2335519120893532,
+        "winner_4plus": 15
+      },
+      "事後2-3人気勝利": {
+        "n": 77,
+        "hit": 14,
+        "hit_rate": 0.18181818181818182,
+        "winner_top3": 38,
+        "winner_top3_rate": 0.4935064935064935,
+        "mean_selected_p1": 0.23119536054287576,
+        "bias_selected_p1_minus_actual": 0.04937717872469394,
+        "winner_4plus": 39
+      },
+      "事後4人気以下勝利": {
+        "n": 80,
+        "hit": 5,
+        "hit_rate": 0.0625,
+        "winner_top3": 19,
+        "winner_top3_rate": 0.2375,
+        "mean_selected_p1": 0.216996412782196,
+        "bias_selected_p1_minus_actual": 0.154496412782196,
+        "winner_4plus": 61
+      }
+    },
+    "prior_disagreement": {
+      "旧・新予測本命が一致": {
+        "n": 178,
+        "hit": 44,
+        "hit_rate": 0.24719101123595505,
+        "winner_top3": 89,
+        "winner_top3_rate": 0.5,
+        "mean_selected_p1": 0.23764484777276934,
+        "bias_selected_p1_minus_actual": -0.009546163463185708,
+        "winner_4plus": 89
+      },
+      "旧・新予測本命が不一致": {
+        "n": 48,
+        "hit": 7,
+        "hit_rate": 0.14583333333333334,
+        "winner_top3": 22,
+        "winner_top3_rate": 0.4583333333333333,
+        "mean_selected_p1": 0.182206061388725,
+        "bias_selected_p1_minus_actual": 0.03637272805539166,
+        "winner_4plus": 26
+      }
+    },
+    "novice_share": {
+      "新馬多≥50%": {
+        "n": 18,
+        "hit": 3,
+        "hit_rate": 0.16666666666666666,
+        "winner_top3": 7,
+        "winner_top3_rate": 0.3888888888888889,
+        "mean_selected_p1": 0.20053159253364866,
+        "bias_selected_p1_minus_actual": 0.033864925866982004,
+        "winner_4plus": 11
+      },
+      "新馬少<50%": {
+        "n": 208,
+        "hit": 48,
+        "hit_rate": 0.23076923076923078,
+        "winner_top3": 104,
+        "winner_top3_rate": 0.5,
+        "mean_selected_p1": 0.22806300569522148,
+        "bias_selected_p1_minus_actual": -0.0027062250740093052,
+        "winner_4plus": 104
+      }
+    }
+  },
+  "2025_holdout": {
+    "overall": {
+      "n": 125,
+      "hit": 39,
+      "hit_rate": 0.312,
+      "winner_top3": 78,
+      "winner_top3_rate": 0.624,
+      "mean_selected_p1": 0.2464424560352674,
+      "bias_selected_p1_minus_actual": -0.0655575439647326,
+      "winner_4plus": 47
+    },
+    "field_size": {
+      "中頭数10-13": {
+        "n": 34,
+        "hit": 9,
+        "hit_rate": 0.2647058823529412,
+        "winner_top3": 20,
+        "winner_top3_rate": 0.5882352941176471,
+        "mean_selected_p1": 0.2478926351644594,
+        "bias_selected_p1_minus_actual": -0.01681324718848179,
+        "winner_4plus": 14
+      },
+      "多頭数≥14": {
+        "n": 59,
+        "hit": 20,
+        "hit_rate": 0.3389830508474576,
+        "winner_top3": 36,
+        "winner_top3_rate": 0.6101694915254238,
+        "mean_selected_p1": 0.19901155277276772,
+        "bias_selected_p1_minus_actual": -0.1399714980746899,
+        "winner_4plus": 23
+      },
+      "少頭数≤9": {
+        "n": 32,
+        "hit": 10,
+        "hit_rate": 0.3125,
+        "winner_top3": 22,
+        "winner_top3_rate": 0.6875,
+        "mean_selected_p1": 0.33235236860073475,
+        "bias_selected_p1_minus_actual": 0.01985236860073475,
+        "winner_4plus": 10
+      }
+    },
+    "max_p1": {
+      "中15-30%": {
+        "n": 68,
+        "hit": 22,
+        "hit_rate": 0.3235294117647059,
+        "winner_top3": 40,
+        "winner_top3_rate": 0.5882352941176471,
+        "mean_selected_p1": 0.21431069281661277,
+        "bias_selected_p1_minus_actual": -0.10921871894809312,
+        "winner_4plus": 28
+      },
+      "低い<15%": {
+        "n": 23,
+        "hit": 4,
+        "hit_rate": 0.17391304347826086,
+        "winner_top3": 12,
+        "winner_top3_rate": 0.5217391304347826,
+        "mean_selected_p1": 0.125083502051488,
+        "bias_selected_p1_minus_actual": -0.04882954142677287,
+        "winner_4plus": 11
+      },
+      "高い≥30%": {
+        "n": 34,
+        "hit": 13,
+        "hit_rate": 0.38235294117647056,
+        "winner_top3": 26,
+        "winner_top3_rate": 0.7647058823529411,
+        "mean_selected_p1": 0.392801745461604,
+        "bias_selected_p1_minus_actual": 0.01044880428513345,
+        "winner_4plus": 8
+      }
+    },
+    "top1_top2_gap": {
+      "差2-6pp": {
+        "n": 39,
+        "hit": 10,
+        "hit_rate": 0.2564102564102564,
+        "winner_top3": 20,
+        "winner_top3_rate": 0.5128205128205128,
+        "mean_selected_p1": 0.18877992880453792,
+        "bias_selected_p1_minus_actual": -0.06763032760571847,
+        "winner_4plus": 19
+      },
+      "差≥6pp": {
+        "n": 58,
+        "hit": 22,
+        "hit_rate": 0.3793103448275862,
+        "winner_top3": 42,
+        "winner_top3_rate": 0.7241379310344828,
+        "mean_selected_p1": 0.3264862124039591,
+        "bias_selected_p1_minus_actual": -0.0528241324236271,
+        "winner_4plus": 16
+      },
+      "接戦<2pp": {
+        "n": 28,
+        "hit": 7,
+        "hit_rate": 0.25,
+        "winner_top3": 16,
+        "winner_top3_rate": 0.5714285714285714,
+        "mean_selected_p1": 0.16095319505720793,
+        "bias_selected_p1_minus_actual": -0.08904680494279207,
+        "winner_4plus": 12
+      }
+    },
+    "entropy": {
+      "中0.85-0.95": {
+        "n": 78,
+        "hit": 22,
+        "hit_rate": 0.28205128205128205,
+        "winner_top3": 45,
+        "winner_top3_rate": 0.5769230769230769,
+        "mean_selected_p1": 0.22422636128247866,
+        "bias_selected_p1_minus_actual": -0.057824920768803384,
+        "winner_4plus": 33
+      },
+      "集中<0.85": {
+        "n": 25,
+        "hit": 11,
+        "hit_rate": 0.44,
+        "winner_top3": 20,
+        "winner_top3_rate": 0.8,
+        "mean_selected_p1": 0.40308474082659657,
+        "bias_selected_p1_minus_actual": -0.036915259173403436,
+        "winner_4plus": 5
+      },
+      "高分散≥0.95": {
+        "n": 22,
+        "hit": 6,
+        "hit_rate": 0.2727272727272727,
+        "winner_top3": 13,
+        "winner_top3_rate": 0.5909090909090909,
+        "mean_selected_p1": 0.14720601380500803,
+        "bias_selected_p1_minus_actual": -0.12552125892226468,
+        "winner_4plus": 9
+      }
+    },
+    "venue": {
+      "中京": {
+        "n": 20,
+        "hit": 3,
+        "hit_rate": 0.15,
+        "winner_top3": 14,
+        "winner_top3_rate": 0.7,
+        "mean_selected_p1": 0.2765992696745883,
+        "bias_selected_p1_minus_actual": 0.12659926967458832,
+        "winner_4plus": 6
+      },
+      "中山": {
+        "n": 2,
+        "hit": 1,
+        "hit_rate": 0.5,
+        "winner_top3": 1,
+        "winner_top3_rate": 0.5,
+        "mean_selected_p1": 0.21106865800534386,
+        "bias_selected_p1_minus_actual": -0.28893134199465614,
+        "winner_4plus": 1
+      },
+      "京都": {
+        "n": 21,
+        "hit": 6,
+        "hit_rate": 0.2857142857142857,
+        "winner_top3": 11,
+        "winner_top3_rate": 0.5238095238095238,
+        "mean_selected_p1": 0.24923442545972443,
+        "bias_selected_p1_minus_actual": -0.036479860254561264,
+        "winner_4plus": 10
+      },
+      "新潟": {
+        "n": 37,
+        "hit": 14,
+        "hit_rate": 0.3783783783783784,
+        "winner_top3": 21,
+        "winner_top3_rate": 0.5675675675675675,
+        "mean_selected_p1": 0.20978494889236918,
+        "bias_selected_p1_minus_actual": -0.16859342948600922,
+        "winner_4plus": 16
+      },
+      "札幌": {
+        "n": 17,
+        "hit": 6,
+        "hit_rate": 0.35294117647058826,
+        "winner_top3": 11,
+        "winner_top3_rate": 0.6470588235294118,
+        "mean_selected_p1": 0.23982448648035667,
+        "bias_selected_p1_minus_actual": -0.11311668999023158,
+        "winner_4plus": 6
+      },
+      "東京": {
+        "n": 23,
+        "hit": 6,
+        "hit_rate": 0.2608695652173913,
+        "winner_top3": 16,
+        "winner_top3_rate": 0.6956521739130435,
+        "mean_selected_p1": 0.2701552065752836,
+        "bias_selected_p1_minus_actual": 0.009285641357892283,
+        "winner_4plus": 7
+      },
+      "阪神": {
+        "n": 5,
+        "hit": 3,
+        "hit_rate": 0.6,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.8,
+        "mean_selected_p1": 0.3129264459673028,
+        "bias_selected_p1_minus_actual": -0.2870735540326972,
+        "winner_4plus": 1
+      }
+    },
+    "top1_hit_vs_actual_winner_popularity": {
+      "事後1人気勝利": {
+        "n": 42,
+        "hit": 24,
+        "hit_rate": 0.5714285714285714,
+        "winner_top3": 38,
+        "winner_top3_rate": 0.9047619047619048,
+        "mean_selected_p1": 0.2722849966112537,
+        "bias_selected_p1_minus_actual": -0.2991435748173177,
+        "winner_4plus": 4
+      },
+      "事後2-3人気勝利": {
+        "n": 44,
+        "hit": 14,
+        "hit_rate": 0.3181818181818182,
+        "winner_top3": 28,
+        "winner_top3_rate": 0.6363636363636364,
+        "mean_selected_p1": 0.25860178540274886,
+        "bias_selected_p1_minus_actual": -0.059580032779069314,
+        "winner_4plus": 16
+      },
+      "事後4人気以下勝利": {
+        "n": 39,
+        "hit": 1,
+        "hit_rate": 0.02564102564102564,
+        "winner_top3": 12,
+        "winner_top3_rate": 0.3076923076923077,
+        "mean_selected_p1": 0.204893809974739,
+        "bias_selected_p1_minus_actual": 0.17925278433371336,
+        "winner_4plus": 27
+      }
+    },
+    "prior_disagreement": {
+      "旧・新予測本命が一致": {
+        "n": 91,
+        "hit": 32,
+        "hit_rate": 0.3516483516483517,
+        "winner_top3": 62,
+        "winner_top3_rate": 0.6813186813186813,
+        "mean_selected_p1": 0.2643990894289498,
+        "bias_selected_p1_minus_actual": -0.08724926221940188,
+        "winner_4plus": 29
+      },
+      "旧・新予測本命が不一致": {
+        "n": 34,
+        "hit": 7,
+        "hit_rate": 0.20588235294117646,
+        "winner_top3": 16,
+        "winner_top3_rate": 0.47058823529411764,
+        "mean_selected_p1": 0.1983820548933528,
+        "bias_selected_p1_minus_actual": -0.00750029804782365,
+        "winner_4plus": 18
+      }
+    },
+    "novice_share": {
+      "新馬多≥50%": {
+        "n": 27,
+        "hit": 8,
+        "hit_rate": 0.2962962962962963,
+        "winner_top3": 15,
+        "winner_top3_rate": 0.5555555555555556,
+        "mean_selected_p1": 0.25828214947387024,
+        "bias_selected_p1_minus_actual": -0.03801414682242604,
+        "winner_4plus": 12
+      },
+      "新馬少<50%": {
+        "n": 98,
+        "hit": 31,
+        "hit_rate": 0.3163265306122449,
+        "winner_top3": 63,
+        "winner_top3_rate": 0.6428571428571429,
+        "mean_selected_p1": 0.24318049967973399,
+        "bias_selected_p1_minus_actual": -0.07314603093251093,
+        "winner_4plus": 35
+      }
+    }
+  },
+  "2026_11_08_research_C": {
+    "overall": {
+      "n": 34,
+      "hit": 10,
+      "hit_rate": 0.29411764705882354,
+      "winner_top3": 16,
+      "winner_top3_rate": 0.47058823529411764,
+      "mean_selected_p1": 0.1819300163084557,
+      "bias_selected_p1_minus_actual": -0.11218763075036783,
+      "winner_4plus": 18
+    },
+    "field_size": {
+      "中頭数10-13": {
+        "n": 8,
+        "hit": 4,
+        "hit_rate": 0.5,
+        "winner_top3": 7,
+        "winner_top3_rate": 0.875,
+        "mean_selected_p1": 0.23422166989604448,
+        "bias_selected_p1_minus_actual": -0.2657783301039555,
+        "winner_4plus": 1
+      },
+      "多頭数≥14": {
+        "n": 23,
+        "hit": 6,
+        "hit_rate": 0.2608695652173913,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.34782608695652173,
+        "mean_selected_p1": 0.1502083232005232,
+        "bias_selected_p1_minus_actual": -0.11066124201686808,
+        "winner_4plus": 15
+      },
+      "少頭数≤9": {
+        "n": 3,
+        "hit": 0,
+        "hit_rate": 0.0,
+        "winner_top3": 1,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_selected_p1": 0.28568525390236815,
+        "bias_selected_p1_minus_actual": 0.28568525390236815,
+        "winner_4plus": 2
+      }
+    },
+    "max_p1": {
+      "中15-30%": {
+        "n": 18,
+        "hit": 7,
+        "hit_rate": 0.3888888888888889,
+        "winner_top3": 10,
+        "winner_top3_rate": 0.5555555555555556,
+        "mean_selected_p1": 0.19035685522519094,
+        "bias_selected_p1_minus_actual": -0.19853203366369795,
+        "winner_4plus": 8
+      },
+      "低い<15%": {
+        "n": 12,
+        "hit": 3,
+        "hit_rate": 0.25,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.3333333333333333,
+        "mean_selected_p1": 0.12341757069711372,
+        "bias_selected_p1_minus_actual": -0.12658242930288627,
+        "winner_4plus": 8
+      },
+      "高い≥30%": {
+        "n": 4,
+        "hit": 0,
+        "hit_rate": 0.0,
+        "winner_top3": 2,
+        "winner_top3_rate": 0.5,
+        "mean_selected_p1": 0.31954657801717323,
+        "bias_selected_p1_minus_actual": 0.31954657801717323,
+        "winner_4plus": 2
+      }
+    },
+    "top1_top2_gap": {
+      "差2-6pp": {
+        "n": 11,
+        "hit": 1,
+        "hit_rate": 0.09090909090909091,
+        "winner_top3": 3,
+        "winner_top3_rate": 0.2727272727272727,
+        "mean_selected_p1": 0.16428060025366006,
+        "bias_selected_p1_minus_actual": 0.07337150934456915,
+        "winner_4plus": 8
+      },
+      "差≥6pp": {
+        "n": 10,
+        "hit": 3,
+        "hit_rate": 0.3,
+        "winner_top3": 6,
+        "winner_top3_rate": 0.6,
+        "mean_selected_p1": 0.24471830690535068,
+        "bias_selected_p1_minus_actual": -0.05528169309464931,
+        "winner_4plus": 4
+      },
+      "接戦<2pp": {
+        "n": 13,
+        "hit": 6,
+        "hit_rate": 0.46153846153846156,
+        "winner_top3": 7,
+        "winner_top3_rate": 0.5384615384615384,
+        "mean_selected_p1": 0.14856545251105593,
+        "bias_selected_p1_minus_actual": -0.31297300902740566,
+        "winner_4plus": 6
+      }
+    },
+    "entropy": {
+      "中0.85-0.95": {
+        "n": 21,
+        "hit": 7,
+        "hit_rate": 0.3333333333333333,
+        "winner_top3": 10,
+        "winner_top3_rate": 0.47619047619047616,
+        "mean_selected_p1": 0.19100130733083678,
+        "bias_selected_p1_minus_actual": -0.14233202600249653,
+        "winner_4plus": 11
+      },
+      "集中<0.85": {
+        "n": 3,
+        "hit": 0,
+        "hit_rate": 0.0,
+        "winner_top3": 2,
+        "winner_top3_rate": 0.6666666666666666,
+        "mean_selected_p1": 0.31969080866549066,
+        "bias_selected_p1_minus_actual": 0.31969080866549066,
+        "winner_4plus": 1
+      },
+      "高分散≥0.95": {
+        "n": 10,
+        "hit": 3,
+        "hit_rate": 0.3,
+        "winner_top3": 4,
+        "winner_top3_rate": 0.4,
+        "mean_selected_p1": 0.12155206745434503,
+        "bias_selected_p1_minus_actual": -0.17844793254565494,
+        "winner_4plus": 6
+      }
+    },
+    "venue": {
+      "京都": {
+        "n": 12,
+        "hit": 4,
+        "hit_rate": 0.3333333333333333,
+        "winner_top3": 8,
+        "winner_top3_rate": 0.6666666666666666,
+        "mean_selected_p1": 0.2006205805501986,
+        "bias_selected_p1_minus_actual": -0.1327127527831347,
+        "winner_4plus": 4
+      },
+      "東京": {
+        "n": 12,
+        "hit": 3,
+        "hit_rate": 0.25,
+        "winner_top3": 5,
+        "winner_top3_rate": 0.4166666666666667,
+        "mean_selected_p1": 0.1899605700499841,
+        "bias_selected_p1_minus_actual": -0.060039429950015905,
+        "winner_4plus": 7
+      },
+      "福島": {
+        "n": 10,
+        "hit": 3,
+        "hit_rate": 0.3,
+        "winner_top3": 3,
+        "winner_top3_rate": 0.3,
+        "mean_selected_p1": 0.1498646747285302,
+        "bias_selected_p1_minus_actual": -0.15013532527146978,
+        "winner_4plus": 7
+      }
+    },
+    "top1_hit_vs_actual_winner_popularity": {
+      "事後1人気勝利": {
+        "n": 10,
+        "hit": 8,
+        "hit_rate": 0.8,
+        "winner_top3": 10,
+        "winner_top3_rate": 1.0,
+        "mean_selected_p1": 0.19920824443917143,
+        "bias_selected_p1_minus_actual": -0.6007917555608286,
+        "winner_4plus": 0
+      },
+      "事後2-3人気勝利": {
+        "n": 11,
+        "hit": 2,
+        "hit_rate": 0.18181818181818182,
+        "winner_top3": 6,
+        "winner_top3_rate": 0.5454545454545454,
+        "mean_selected_p1": 0.17724062929678153,
+        "bias_selected_p1_minus_actual": -0.0045775525214002966,
+        "winner_4plus": 5
+      },
+      "事後4人気以下勝利": {
+        "n": 13,
+        "hit": 0,
+        "hit_rate": 0.0,
+        "winner_top3": 0,
+        "winner_top3_rate": 0.0,
+        "mean_selected_p1": 0.17260701444855256,
+        "bias_selected_p1_minus_actual": 0.17260701444855256,
+        "winner_4plus": 13
+      }
+    },
+    "prior_disagreement": null,
+    "novice_share": null
+  },
+  "2025_split": {
+    "train_n": 226,
+    "train_last_date": "2025-07-26",
+    "holdout_n": 125
+  },
+  "caveats": [
+    "2025 archived candidate is not the same as canonical v50 or Nov8 research C.",
+    "2026 Nov8 is 1 day and cannot prove venue/class risk.",
+    "Winner popularity is a postrace label only; cannot trigger prereace difficulty regime.",
+    "Scores from two families must not be pooled or used to infer impact of causal factors.",
+    "Race shape risk is observational, not a fully trained discriminative classifier."
+  ],
+  "sources": [
+    "reports/outsider_top3_history_2025.json",
+    "keiba_v48/reports/completion/paired_predictions_lag7.json",
+    "operations/results/2026-11-08/v50_abcd_settlement.json",
+    "operations/predictions/2026-11-07/v50_weekend_abcd_reconnected.json"
+  ]
+}

@@ -17,7 +17,9 @@ from scipy.optimize import minimize
 
 DB=Path(os.environ.get('KEIBA_CANONICAL_DB','/mnt/data/keiba/jra_2023_2025.sqlite'))
 OUT=Path(os.environ.get('KEIBA_RETRAIN_OUTPUT_DIR','/mnt/data/keiba'))
-EXPECTED_DB_SHA256='5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc'
+# v11 appends postrace Nov8 podium audit only, without touching historical training tables.
+EXPECTED_DB_SHA256='7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627'
+PREVIOUS_DB_SHA256='5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc'
 def verify_canonical_database():
     digest=hashlib.sha256()
     with DB.open('rb') as stream:

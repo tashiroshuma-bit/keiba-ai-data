@@ -43,8 +43,18 @@ def export_asof(database,race_id,forecast_asof,original_off_at,official_horses):
         # With equally grounded updates the newest PREOFF observation wins.
         if k not in candidates or parse(observed)>parse(candidates[k]["observed_at"]):
             candidates[k]=row
+    # Odds are a full-field market snapshot, never a single-runner feature.
+    # Keep them quarantined unless every horse has the SAME source/timestamp.
+    odds=[x for (n,key),x in candidates.items() if key=="preoff_win_odds"]
+    group={(x["source"],x["observed_at"],x["source_sha256"]) for x in odds}
+    complete_odds=(len(odds)==len(roster) and len(group)==1 and
+                   {x["horse_number"] for x in odds}==set(roster))
+    if odds and not complete_odds:
+        candidates={k:v for k,v in candidates.items() if k[1]!="preoff_win_odds"}
+        rejected+=len(odds)
     return {"race_id":race_id,"asof":forecast_asof,
       "off_at":original_off_at,"field_size":len(roster),
       "usable_external_fields":list(candidates.values()),"rejected_records":rejected,
+      "complete_preoff_odds_snapshot":complete_odds,
       "ranking_or_v50_probabilities_modified":False,
       "no_final_odds_or_late_publication":True}

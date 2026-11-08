@@ -1,0 +1,30 @@
+name: Build future V51 form features from verified JRA horse profiles
+on:
+  push:
+    paths:
+      - '.github/workflows/build_v51_jra_future_horse_form_bank.yml'
+      - 'scripts/build_v51_jra_future_horse_form_bank.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  feature_bank:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Combine two source-backed JRA profile batches with strict exact-horse-id provenance
+        run: python -m scripts.build_v51_jra_future_horse_form_bank
+      - name: Persist and read back official future profile feature bank
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/data_updates/jra_v51_future_horse_form_bank_20261108.sqlite operations/data_updates/jra_v51_future_horse_form_bank_20261108_audit.json reports/v51/JRA_VERIFIED_FUTURE_HORSE_FORM_BANK_20261108.md
+          git commit -m "Save JRA future horse-form bank with official IDs, observed timestamps and recent-speed summaries"
+          git pull --rebase origin main
+          git push

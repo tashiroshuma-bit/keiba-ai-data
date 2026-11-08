@@ -1,0 +1,30 @@
+name: Diagnose Nov 8 JRA v50 hit miss drivers
+on:
+  push:
+    paths:
+      - '.github/workflows/diagnose_v50_20261108_error_drivers.yml'
+      - 'scripts/diagnose_v50_20261108_error_drivers.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compute frozen model hit and miss drivers
+        run: python -m scripts.diagnose_v50_20261108_error_drivers
+      - name: Persist diagnosis
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/results/2026-11-08/v50_error_drivers_20261108.json operations/results/2026-11-08/v50_error_drivers_20261108.md
+          git commit -m "Publish Nov 8 model wins and losses root-cause evidence review"
+          git pull --rebase origin main
+          git push

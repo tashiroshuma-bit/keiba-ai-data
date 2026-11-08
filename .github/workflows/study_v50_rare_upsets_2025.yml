@@ -1,0 +1,30 @@
+name: Historical v50 rare upset conditional gate research
+on:
+  push:
+    paths:
+      - '.github/workflows/study_v50_rare_upsets_2025.yml'
+      - 'scripts/study_v50_rare_upsets_2025.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Build historical conditional preoff warning with strict holdout
+        run: python -m scripts.study_v50_rare_upsets_2025
+      - name: Save complete rare upset study and disabled unless validated rule
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v50_rare_upset_gate_2025.json reports/v50_rare_upset_gate_2025.md operations/prediction_policy/v50_rare_upset_gate_research.json
+          git commit -m "Archive conditional rare upset train and holdout results"
+          git pull --rebase origin main
+          git push

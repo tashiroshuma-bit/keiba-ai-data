@@ -138,7 +138,6 @@ def main():
           "Features available are archived probabilities and prior starts, not race quality or jockey residual.",
           "3rd place PL probability only approximation; no independent direct trained p3 classifier.",
           "No training on final popularity or later odds; rank3 learned only indirectly."]}
-    }
     OUT.write_text(json.dumps(outcome,ensure_ascii=False,indent=2)+"\n")
     p=lambda q:f"{q['winner_top1']}/{q['n']} ({q['winner_top1_rate']:.1%})"
     lines=["# v50順位・2/3着確率の2025年時系列改善実験","",

@@ -13,9 +13,9 @@ from bs4 import BeautifulSoup
 
 ROOT=Path(__file__).resolve().parents[1]
 SOURCE=ROOT/"operations/results/2026-11-08/v50_abcd_settlement.json"
-DB=ROOT/"operations/data_updates/jra_official_full_runner_history_20261108.sqlite"
-AUDIT=ROOT/"operations/data_updates/jra_official_full_runner_history_20261108_audit.json"
-REPORT=ROOT/"reports/v51/JRA_20261108_FULL_RUNNER_HISTORY_ENRICHMENT.md"
+DB=ROOT/"operations/data_updates/jra_official_full_runner_history_20261108_v2.sqlite"
+AUDIT=ROOT/"operations/data_updates/jra_official_full_runner_history_20261108_v2_audit.json"
+REPORT=ROOT/"reports/v51/JRA_20261108_FULL_RUNNER_HISTORY_ENRICHMENT_V2.md"
 def norm(s):return re.sub(r"[\s　・.．]","",s or "")
 def raw_get(url):
     req=Request(url,headers={"User-Agent":"Mozilla/5.0 (compatible; legitimate-jra-data-audit/1.0)"})
@@ -79,9 +79,10 @@ def scrape(r):
         jockey=person_match.group(1).strip() if person_match else None
         carried_weight=float(person_match.group(2)) if person_match else None
         trainer=person_match.group(3).strip() if person_match else None
-        race_time_match=re.search(r"(?<!\d)(\d{1,2}:\d{2}\.\d)\s*/\s*(\d{2}\.\d)",named)
+        race_time_match=re.search(r"(?<!\d)(\d{1,2}:\d{2}\.\d)",named)
+        last3_match=re.search(r"/\s*(\d{2}\.\d)\s*$",named)
         race_sec=get_time(race_time_match.group(1)) if race_time_match else None
-        last3=float(race_time_match.group(2)) if race_time_match else None
+        last3=float(last3_match.group(1)) if last3_match else None
         all_rows.append({"horse_number":num,"horse_name":original,"finish":place,
               "popularity_final":pop,"sex_age":sex_match.group() if sex_match else None,
               "carried_weight":carried_weight,"jockey":jockey,"time_sec":race_sec,

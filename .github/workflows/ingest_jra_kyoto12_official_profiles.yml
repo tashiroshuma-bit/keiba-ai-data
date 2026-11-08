@@ -1,0 +1,45 @@
+name: Ingest 18 JRA official horse prior form profiles Kyoto12
+on:
+  push:
+    paths:
+      - '.github/workflows/ingest_jra_kyoto12_official_profiles.yml'
+      - 'scripts/ingest_jra_official_kyoto12_profiles.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4
+      - name: Collect precisely 18 official JRA horse profile pages at low rate
+        run: python -m scripts.ingest_jra_official_kyoto12_profiles
+      - name: Reopen profile SQLite and verify against saved audit
+        run: |
+          python - <<'PY'
+          import hashlib,json,sqlite3
+          from pathlib import Path
+          p=Path('operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite')
+          a=json.loads(Path('operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1_audit.json').read_text())
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==a['sqlite_sha256']
+          c=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not c.execute('PRAGMA foreign_key_check').fetchall()
+          assert c.execute('SELECT count(*) FROM official_profile').fetchone()[0]==a['verified_profiles']
+          assert c.execute('SELECT count(*) FROM official_past_run').fetchone()[0]==a['past_race_history_rows']
+          assert c.execute('SELECT count(*) FROM official_past_run WHERE prior_race_date>="2026-11-08"').fetchone()[0]==0
+          c.close()
+          PY
+      - name: Persist exact official JRA profiles and previous starts
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1_audit.json
+          git commit -m "Archive JRA verified horse ID-linked official previous starts for 18 Kyoto runners"
+          git pull --rebase origin main
+          git push

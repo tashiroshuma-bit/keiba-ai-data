@@ -1,0 +1,20 @@
+{
+  "schema": "keiba-jra-multisource-race-card-conflict-v1",
+  "official_races_verified": 36,
+  "external_observations": 1,
+  "conflicts": 1,
+  "results": [
+    {
+      "race": "東京1R",
+      "source": "netkeiba",
+      "external_field_size": 10,
+      "official_jra_field_size": 11,
+      "state": "QUARANTINE_FIELD_CONFLICT",
+      "official_source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020120261108/5C",
+      "external_source": "https://race.netkeiba.com/race/shutuba.html?race_id=202605050201",
+      "preoff_feature_eligible": false,
+      "caution": "count match alone does not prove runner identity or a pre-off snapshot"
+    }
+  ],
+  "no_direct_import_without_license_or_preoff_proof": true
+}

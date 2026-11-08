@@ -1,0 +1,29 @@
+name: Update 2026-11-08 live v50 odds and outsider
+on:
+  push:
+    paths:
+      - '.github/workflows/update_v50_20261108_live_market.yml'
+      - 'scripts/update_v50_20261108_live_market.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  calculate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install beautifulsoup4 numpy
+      - name: Validate live JRA win odds and compare ABCD with market
+        run: python -m scripts.update_v50_20261108_live_market
+      - name: Persist observed odds and predicted ranks
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/predictions/2026-11-08/v50_live_odds_morning_20261108.json operations/predictions/2026-11-08/v50_live_odds_morning_20261108.md
+          git commit -m "Record JRA live preoff odds and v50 ABCD adjusted rankings for Nov 8"
+          git pull --rebase origin main
+          git push

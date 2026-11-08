@@ -1,0 +1,21 @@
+{
+  "schema": "immutable-settlement-manifest-v1",
+  "date": "2026-11-08",
+  "created_at": "2026-11-08T19:31:59+09:00",
+  "write_policy": "append-only; do not overwrite preoff predictions or prior settlement artifacts",
+  "files": [
+    {
+      "path": "operations/results/2026-11-08/v50_abcd_settlement_20261108T193159+0900.json",
+      "sha256": "59e8d64aab0b04409071cb571a820311d2813160bb0b6c4a7e1248c996ebb8d7"
+    },
+    {
+      "path": "reports/review_20261108/V50_ABCD_SETTLEMENT_20261108T193159+0900.md",
+      "sha256": "69567f01b1354a14adedf1a16d9f42839f2cb296bf91869bc9bded9b5218cd22"
+    }
+  ],
+  "prediction_sha256": "506a9d1b7612d0b98781cb112efaf0dcbab22aeeb0e731261b763869dfd8ec63",
+  "prediction_git_blob_sha": "8bbce7ffc913d47cdc59489e56c42cf50f574d16",
+  "result_input_git_blob_sha": "c76629a1271504b48bbf53d4b7ff850114ac8cdb",
+  "active_model_sha256": "21a7a19490fe1cb7415b9c866e6e4f0ba8184962b0c3a62a2ee838ebd5933395",
+  "live_bet_generation": false
+}

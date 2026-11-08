@@ -66,8 +66,15 @@ def extract(task):
         if len(runners)<3 or [x["finish"] for x in runners[:3]]!=[1,2,3]:
             raise ValueError("official podium not parseable, rows:"+repr(runners[:5]))
         if len(set(x["number"] for x in runners))!=len(runners):raise ValueError("duplicated runners")
-        if sorted(x["popularity_final"] for x in runners)!=list(range(1,len(runners)+1)):
+        popularity_complete=(sorted(x["popularity_final"] for x in runners)==list(range(1,len(runners)+1)))
+        if not popularity_complete and label!="福島4R":
             raise ValueError("final popularity ranks not complete")
+        # Fukushima 4R: two fallers are unranked in the finish rows, but JRA
+        # unambiguously provides all of the podium finishers/popularities.
+        # Never claim a complete rank-to-field mapping in this case.
+        if not popularity_complete:
+            if [h["number"] for h in runners[:3]]!=[6,3,1] or [h["popularity_final"] for h in runners[:3]]!=[1,8,2]:
+                raise ValueError("obstacle Fukushima4 podium differs from JRA evidence")
         prefix=plain[:1700]
         surface="obstacle" if "障害" in prefix[:450] else ("turf" if "芝" in prefix[:450] else ("dirt" if "ダート" in prefix[:450] else "unknown"))
         goingmatch=re.search(r"(?:芝|ダート)[：:\s]*(良|稍重|重|不良)",prefix[:450])
@@ -75,6 +82,7 @@ def extract(task):
         return {"race":label,"track":track,"race_number":rno,"status":"official_verified",
                 "url":url,"sha256":hashlib.sha256(raw).hexdigest(),
                 "headcount":len(runners),"surface":surface,"going":going,
+                "all_final_popularity_verified":popularity_complete,
                 "top3_numbers":[x["number"] for x in runners[:3]],
                 "top3_popularity":[x["popularity_final"] for x in runners[:3]],
                 "runners":runners}

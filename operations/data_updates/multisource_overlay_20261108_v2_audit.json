@@ -1,0 +1,18 @@
+{
+  "schema": "jra-multisource-companion-v2-actual-history",
+  "sha256": "e66998eae3c01182ec553fbf468b5509e9e4cb18338d7f13179f5793c9edd2af",
+  "size_bytes": 282624,
+  "sqlite_integrity": "ok",
+  "parent_overlay_sha256": "54785edcd0927fa0038e3686cf9ee1da423a70114ef8a91f35ca36822537197d",
+  "official_fullrunner_sha256": "9a0fe3000e384538bdf431372601107715b6c773c811cced1d2714eea0bbbf12",
+  "jra_official_races": 36,
+  "jra_official_full_runner_rows": 495,
+  "final_time_rows": 495,
+  "final3_rows": 495,
+  "jockey_rows": 494,
+  "official_horse_ids_verified": 0,
+  "new_external_preoff_features": 0,
+  "train_for_same_race": false,
+  "production_v50_unchanged": true,
+  "canonical_library_v11_not_overwritten": true
+}

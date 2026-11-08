@@ -1,0 +1,26 @@
+{
+  "version": "v50",
+  "status": "research_only",
+  "activation": "CONDITIONAL_ONLY_IF_CHRONOLOGICALLY_VALIDATED",
+  "definition": {
+    "extreme": "all 1st 2nd 3rd final popularity 7th-or-lower",
+    "extended": "winner 10th-or-lower and at least two podium 7th-or-lower"
+  },
+  "preoff_features": [
+    "field_size",
+    "candidate_max_p1",
+    "candidate_gap_1_2",
+    "candidate_entropy"
+  ],
+  "candidate_rule": null,
+  "enabled": false,
+  "candidate_train": null,
+  "candidate_holdout": null,
+  "no_conditional_reweighting_without_proven_oos_gain": true,
+  "fallback": "canonical_v50_unchanged",
+  "never_use_postrace_popularity_in_preoff_features": true,
+  "sources": [
+    "reports/outsider_top3_history_2025.json",
+    "keiba_v48/reports/completion/paired_predictions_lag7.json"
+  ]
+}

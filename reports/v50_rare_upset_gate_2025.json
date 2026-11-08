@@ -1,0 +1,120 @@
+{
+  "schema": "v50-rare-upset-2025-historical-v1",
+  "definition": {
+    "extreme": "all 1st 2nd 3rd final popularity 7th-or-lower",
+    "extended": "winner 10th-or-lower and at least two podium 7th-or-lower"
+  },
+  "matched_2025": 351,
+  "skipped": [],
+  "full": {
+    "races": 351,
+    "extreme_upsets": 1,
+    "flagged": 351,
+    "flag_rate": 1.0,
+    "extreme_hits": 1,
+    "precision": 0.002849002849002849,
+    "recall": 1.0,
+    "base_rate": 0.002849002849002849,
+    "lift_vs_base": 1.0,
+    "false_positive": 350
+  },
+  "extended_2025": 13,
+  "extreme_by_venue": {
+    "京都": 1
+  },
+  "extreme_by_field": {
+    "16": 1
+  },
+  "extreme_race_ids": [
+    "202508021111"
+  ],
+  "field_size": {
+    "5": {
+      "n": 1,
+      "events": 0
+    },
+    "6": {
+      "n": 7,
+      "events": 0
+    },
+    "7": {
+      "n": 11,
+      "events": 0
+    },
+    "8": {
+      "n": 18,
+      "events": 0
+    },
+    "9": {
+      "n": 22,
+      "events": 0
+    },
+    "10": {
+      "n": 17,
+      "events": 0
+    },
+    "11": {
+      "n": 27,
+      "events": 0
+    },
+    "12": {
+      "n": 23,
+      "events": 0
+    },
+    "13": {
+      "n": 30,
+      "events": 0
+    },
+    "14": {
+      "n": 42,
+      "events": 0
+    },
+    "15": {
+      "n": 33,
+      "events": 0
+    },
+    "16": {
+      "n": 87,
+      "events": 1
+    },
+    "17": {
+      "n": 6,
+      "events": 0
+    },
+    "18": {
+      "n": 27,
+      "events": 0
+    }
+  },
+  "train": {
+    "n": 226,
+    "extreme": 1,
+    "last_date": "2025-07-26"
+  },
+  "holdout": {
+    "n": 125,
+    "extreme": 0,
+    "first_date": "2025-07-27"
+  },
+  "selected_train_rule": null,
+  "train_metrics": null,
+  "holdout_metrics": null,
+  "rule_deployable": false,
+  "2026_11_08": {
+    "n": 34,
+    "extreme_count": 1,
+    "extreme_races": [
+      "東京11R"
+    ],
+    "extended_count": 1,
+    "extended_races": [
+      "東京11R"
+    ]
+  },
+  "cautions": [
+    "Final popularity determines historical labels only; never model input.",
+    "2025 frozen candidate score is a different model from canonical v50; transferable rule not proven.",
+    "Sample is a selected 351-race cohort, NOT all JRA 2025 races.",
+    "Extremely rare events have unstable confidence intervals; no model activation absent sufficient holdout support."
+  ]
+}

@@ -60,7 +60,18 @@ def fetch_one(race):
                     "source_race_url":url,"source_sha256":hashlib.sha256(raw).hexdigest(),
                     "observed_at":obs,"evidence_kind":"postrace_official_result_horse_profile_link",
                     "retrospective_preoff_eligible":False}
-        if len(found)<3:raise ValueError("insufficient official horse profile IDs")
+        if len(found)<3:
+            snippets=[]
+            for tr in soup.find_all("tr"):
+                cells=tr.find_all(["td","th"],recursive=False)
+                if len(cells)<4:continue
+                if not re.fullmatch(r"\\d{1,2}",cells[0].get_text(" ",strip=True)):continue
+                links=[(a.get_text(" ",strip=True),a.get("href"))
+                       for a in tr.select("a[href]")][:5]
+                snippets.append({"cells":[c.get_text(" ",strip=True)[:70] for c in cells[:5]],
+                                 "links":links})
+                if len(snippets)>=2:break
+            raise ValueError("insufficient official horse profile IDs; examples "+json.dumps(snippets,ensure_ascii=False)[:900])
         return {"race":race["race"],"race_date":"2026-11-08","track":race["track"],
                 "race_number":race["race_number"],"verified_previous_runners":len(bynumber),
                 "status":"official_id_links_verified","verified_id_count":len(found),

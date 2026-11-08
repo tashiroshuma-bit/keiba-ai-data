@@ -1,0 +1,16 @@
+{
+  "schema": "jra-official-profile-recent-history-v1",
+  "source": "JRA official profile pages only",
+  "requested_profiles": 18,
+  "verified_profiles": 18,
+  "unavailable_profiles": 0,
+  "past_race_history_rows": 193,
+  "sqlite_bytes": 94208,
+  "sqlite_sha256": "1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f",
+  "sqlite_integrity": "ok",
+  "first_observed_at_after_2026_11_08_event": true,
+  "same_2026_11_08_race_backtest_eligible": false,
+  "only_future_forecasts_after_observation_eligible": true,
+  "source_published_at_unverified": true,
+  "unavailable": []
+}

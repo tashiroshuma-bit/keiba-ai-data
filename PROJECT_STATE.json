@@ -1212,8 +1212,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.327450215491415e-05,
-              9.065855579675072e-06
+              -0.00001327450215491415,
+              0.000009065855579675072
             ],
             "ordered_all_hit": [
               0,
@@ -1306,8 +1306,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.5252796802291577e-05,
-              -2.2943359493281933e-07
+              -0.000015252796802291577,
+              -2.2943359493281933e-7
             ],
             "ordered_all_hit": [
               0,
@@ -1402,8 +1402,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.3281612810237844e-05,
-              9.067991106595328e-06
+              -0.000013281612810237844,
+              0.000009067991106595328
             ],
             "ordered_all_hit": [
               0,
@@ -1496,8 +1496,8 @@
           "full_coverage": true,
           "paired_data_repair_delta": {
             "mean_rank_log_loss": [
-              -1.5289074311999807e-05,
-              -2.7411191709857974e-07
+              -0.000015289074311999807,
+              -2.7411191709857974e-7
             ],
             "ordered_all_hit": [
               0,
@@ -1871,5 +1871,21 @@
     "probabilities_changed": false,
     "model_weights_changed": false,
     "morning_body_weights_reobserved": false
+  },
+  "v51_candidate_research": {
+    "version": "v51",
+    "status": "not_promoted_failed_time_split_holdout",
+    "source_model": "scripts/retrain_v51_rivals_rider_shadow.py",
+    "fitted_coefficients": "operations/prediction_policy/v51_candidate_fitted_research.json",
+    "forecast_research_overlay": "scripts/v51_candidate_race_overlay.py",
+    "provenance_guard": "scripts/v51_preoff_provenance_guard.py",
+    "training_years": "2023-2024",
+    "holdout_years": "2025-2026",
+    "holdout_gate_passed": false,
+    "new_verified_horse_ids": 0,
+    "historical_exact_publication_times": 0,
+    "enabled_for_standard_forecast": false,
+    "canonical_version_remains": "v50",
+    "reason": "2025 top1/top3/LogLoss worsened; 2026 top3 and LogLoss worsened; no strict preoff publication proof"
   }
 }

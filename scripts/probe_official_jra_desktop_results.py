@@ -31,6 +31,11 @@ def main():
             if len(rows)>=5:break
         if header or rows:
             tables.append({"header":header,"first_rows":rows})
+    nav=[]
+    for a in soup.select("a[href]"):
+        href=a.get("href","")
+        if "sde" in href or "dud00" in href:
+            nav.append({"text":a.get_text(" ",strip=True)[:45],"href":href[:210]})
     output={"source_url":URL,"sha256":hashlib.sha256(raw).hexdigest(),
         "observed_at":datetime.datetime.now(datetime.timezone.utc).isoformat(),
         "bytes":len(raw),"title":soup.title.get_text(" ",strip=True) if soup.title else None,
@@ -38,6 +43,7 @@ def main():
         "kyoto_present":"京都" in text,
         "has_jra_horse_profile_links":bool(re.search(r"pw01dud10\d{10}",raw.decode("utf-8","ignore"))),
         "table_count":len(tables),"table_samples":tables[:12],
+        "navigation":nav[:100],"navigation_count":len(nav),
         "html_start":str(soup.get_text(" ",strip=True)[:500])}
     OUT.parent.mkdir(parents=True,exist_ok=True)
     OUT.write_text(json.dumps(output,ensure_ascii=False,indent=2)+"\n")

@@ -1,0 +1,30 @@
+name: Historical broad upset v50 separate holdout
+on:
+  push:
+    paths:
+      - '.github/workflows/study_v50_extended_upsets_2025.yml'
+      - 'scripts/study_v50_extended_upsets_2025.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Test 10th favorite win and two outsiders against preoff historical patterns
+        run: python -m scripts.study_v50_extended_upsets_2025
+      - name: Save study
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v50_extended_upset_gate_2025.json reports/v50_extended_upset_gate_2025.md
+          git commit -m "Persist conditional broader upset chronological holdout"
+          git pull --rebase origin main
+          git push

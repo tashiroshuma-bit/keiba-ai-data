@@ -18,9 +18,9 @@ OUTPUT=ROOT/"operations/results/2026-11-08/v50_abcd_settlement.json"
 REPORT=ROOT/"operations/results/2026-11-08/v50_abcd_settlement.md"
 DATE="2026-11-08"
 SOURCES={
- "東京":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021220261108%2FD6",
+ "東京":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020220261108%2F11",
  "京都":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020820261108%2F2D",
- "福島":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021220261108%2FE0",
+ "福島":"https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020320261108%2FD0",
 }
 def fetch(url):
     with urlopen(Request(url,headers={"User-Agent":"Mozilla/5.0"}),timeout=18) as fh:return fh.read()

@@ -167,12 +167,27 @@ def normalize(rec):
             rec["source_url"],digest,rec["rights_basis"],rec.get("rights_reference"),
             phase,int(preoff),dt.datetime.now(dt.timezone.utc).isoformat())
 
-def upgrade(database,records,output):
+def sha256_file(path):
+    digest=hashlib.sha256()
+    with Path(path).open("rb") as stream:
+        for chunk in iter(lambda:stream.read(8*1024*1024),b""):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+def core_counts(conn):
+    tables={r[0] for r in conn.execute("SELECT name FROM sqlite_master WHERE type='table'")}
+    names=("annual_report_races","annual_report_runners","jra_20261108_official_podium_supplement")
+    return {n:conn.execute('SELECT count(*) FROM "'+n+'"').fetchone()[0]
+            for n in names if n in tables}
+
+def upgrade(database,records,output,expected_source_sha256=None):
     database=Path(database);records=Path(records);output=Path(output)
     if output.exists():raise FileExistsError("never overwrite canonical database without independent verification")
     if database.resolve()==output.resolve():raise ValueError("source and output same")
     if not database.is_file() or not records.is_file():
         raise FileNotFoundError("database and permitted records JSONL required")
+    if expected_source_sha256 and sha256_file(database)!=expected_source_sha256:
+        raise ValueError("canonical source SHA256 mismatch: stop before migration")
     raw=records.read_bytes();lines=[x for x in raw.splitlines() if x.strip()]
     if not lines:raise ValueError("no real authorized records: no fake DB expansion")
     rows=[normalize(json.loads(x)) for x in lines]
@@ -180,6 +195,7 @@ def upgrade(database,records,output):
     conn_in=sqlite3.connect(f"file:{database}?mode=ro",uri=True)
     conn_out=sqlite3.connect(output)
     try:
+        original_counts=core_counts(conn_in)
         conn_in.backup(conn_out)
         conn_out.execute("PRAGMA foreign_keys=ON")
         conn_out.executescript(SCHEMA)
@@ -208,8 +224,10 @@ def upgrade(database,records,output):
         conn_out.commit()
         assert conn_out.execute("PRAGMA quick_check").fetchone()[0]=="ok"
         assert not conn_out.execute("PRAGMA foreign_key_check").fetchall()
-        result={"source_sha256":hashlib.sha256(database.read_bytes()).hexdigest(),
-         "output_sha256":hashlib.sha256(output.read_bytes()).hexdigest(),
+        if original_counts!=core_counts(conn_out):
+            raise ValueError("historical tables altered by multi-source migration")
+        result={"source_sha256":sha256_file(database),
+         "output_sha256":sha256_file(output),
          "import_batch_sha256":digest,"records":len(rows),"inserted":inserted,
          "duplicates":duplicates,"preoff_usable":conn_out.execute(
           "SELECT count(*) FROM multi_source_observation WHERE usable_for_v50_v51_preoff=1"
@@ -217,7 +235,8 @@ def upgrade(database,records,output):
          "by_provider":dict(conn_out.execute(
           "SELECT source_id,count(*) FROM multi_source_observation GROUP BY source_id"
           ).fetchall()),
-         "original_history_unchanged":True,"integrity":"ok"}
+         "original_history_unchanged":True,"core_history_counts":original_counts,
+         "integrity":"ok"}
         return result
     except Exception:
         conn_out.rollback();conn_out.close()
@@ -233,6 +252,8 @@ def main():
     p.add_argument("--database",required=True)
     p.add_argument("--records",required=True)
     p.add_argument("--output",required=True)
+    p.add_argument("--expected-source-sha256",required=True)
     args=p.parse_args()
-    print(json.dumps(upgrade(args.database,args.records,args.output),ensure_ascii=False))
+    print(json.dumps(upgrade(args.database,args.records,args.output,
+        expected_source_sha256=args.expected_source_sha256),ensure_ascii=False))
 if __name__=="__main__":main()

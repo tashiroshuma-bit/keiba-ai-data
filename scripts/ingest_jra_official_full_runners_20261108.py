@@ -47,7 +47,9 @@ def scrape(r):
     for tr in soup.find_all("tr"):
         cells=tr.find_all(["th","td"],recursive=False)
         parts=[c.get_text(" ",strip=True) for c in cells]
-        if len(parts)<13 or not re.fullmatch(r"\d{1,2}",parts[0]) or not re.fullmatch(r"\d{1,2}",parts[2]):
+        # JRA mobile result is a compact four-cell layout: finish, frame,
+        # horse number, concatenated horse detail. Never assume desktop columns.
+        if len(parts)<4 or not re.fullmatch(r"\d{1,2}",parts[0]) or not re.fullmatch(r"\d{1,2}",parts[2]):
             continue
         place=int(parts[0]);num=int(parts[2])
         if num not in accepted:continue
@@ -56,31 +58,36 @@ def scrape(r):
         original=accepted[num]["name"]
         if norm(original) not in norm(named):
             raise ValueError(r["race"]+": horse-name mismatch "+str(num)+" "+repr(named))
-        # Classic JRA result layout (finish, frame, number, horse, sex-age,
-        # handicap, rider, time, margin, corner, final3, weight, trainer, pop)
-        if len(parts)<14:raise ValueError(r["race"]+": incomplete JRA result columns")
-        pop_match=re.search(r"(\d{1,2})番人気",parts[3])
-        if not pop_match and re.fullmatch(r"\d{1,2}",parts[-1]):
-            pop_match=re.fullmatch(r"\d{1,2}",parts[-1])
-        pop=int(pop_match.group(1)) if pop_match else int(accepted[num]["popularity_final"])
+        pop_match=re.search(r"(\d{1,2})番人気",named)
+        if not pop_match:
+            raise ValueError(r["race"]+": popularity missing for "+str(num))
+        pop=int(pop_match.group(1))
         if pop!=int(accepted[num]["popularity_final"]):
             raise ValueError(r["race"]+": popularity mismatch")
-        # Horse profile anchors are NOT assumed to provide an ID if not explicit.
         horse_id=None;horse_profile_url=None
         for a in cells[3].select("a[href]"):
             href=urljoin(final_url,a["href"])
             m=re.search(r"pw01dud10(\d{10})",href)
             if m and norm(a.get_text(" ",strip=True))==norm(original):
                 horse_id="jra:"+m.group(1);horse_profile_url=href;break
-        bw,delta=get_weight(parts[11])
-        corner=[int(x) for x in re.findall(r"\b\d{1,2}\b",parts[9])]
+        sex_match=re.search(r"[牡牝セ]\d{1,2}",named)
+        weight_match=re.search(r"(\d{3})kg\s*\(\s*([+-]?\d+|初出走)\s*\)",named)
+        bw=int(weight_match.group(1)) if weight_match else None
+        delta=int(weight_match.group(2)) if weight_match and re.fullmatch(r"[+-]?\d+",weight_match.group(2)) else None
+        after= named[weight_match.end():] if weight_match else named
+        person_match=re.search(r"(.+?)\s*\((\d{2}(?:\.\d)?)\)\s*(.+?)\s*\((美浦|栗東)\)",after)
+        jockey=person_match.group(1).strip() if person_match else None
+        carried_weight=float(person_match.group(2)) if person_match else None
+        trainer=person_match.group(3).strip() if person_match else None
+        race_time_match=re.search(r"(?<!\d)(\d{1,2}:\d{2}\.\d)\s*/\s*(\d{2}\.\d)",named)
+        race_sec=get_time(race_time_match.group(1)) if race_time_match else None
+        last3=float(race_time_match.group(2)) if race_time_match else None
         all_rows.append({"horse_number":num,"horse_name":original,"finish":place,
-              "popularity_final":pop,
-              "sex_age":parts[4],"carried_weight":safe_number(parts[5]),
-              "jockey":parts[6],"time_sec":get_time(parts[7]),
-              "margin":parts[8],"corner_positions":corner,
-              "last3_sec":safe_number(parts[10]),"bodyweight":bw,"bodyweight_delta":delta,
-              "trainer":parts[12],"horse_id":horse_id,
+              "popularity_final":pop,"sex_age":sex_match.group() if sex_match else None,
+              "carried_weight":carried_weight,"jockey":jockey,"time_sec":race_sec,
+              "margin":None,"corner_positions":[],
+              "last3_sec":last3,"bodyweight":bw,"bodyweight_delta":delta,
+              "trainer":trainer,"horse_id":horse_id,
               "horse_profile_url":horse_profile_url})
     all_rows.sort(key=lambda x:(x["finish"],x["horse_number"]))
     # Some JRA races include non-finishers. The archived result parser may

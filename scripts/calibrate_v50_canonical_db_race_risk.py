@@ -94,11 +94,16 @@ def main():
       '2026_adjusted':risk_metrics(yB,new_risk),
       'train_means':list(map(float,clf['mean'])),'train_scales':list(map(float,clf['std'])),
       'coefficients':list(map(float,clf['coefs'])),'intercept':float(clf['intercept'])}
-    ranked=np.argsort(-new_risk)
-    high=ranked[:int(len(ranked)*.2)]
-    low=ranked[-int(len(ranked)*.2):]
-    record['top3_failure_risk_model']['highest_risk_20pct']={'n':len(high),'misses':int(yB[high].sum()),'miss_rate':float(yB[high].mean()),'mean_predicted_risk':float(new_risk[high].mean())}
-    record['top3_failure_risk_model']['lowest_risk_20pct']={'n':len(low),'misses':int(yB[low].sum()),'miss_rate':float(yB[low].mean()),'mean_predicted_risk':float(new_risk[low].mean())}
+    # Determine all operating thresholds from 2025 training/calibration only.
+    in_sample_risk=prob_binary(A,clf)
+    high_cutoff=float(np.quantile(in_sample_risk,.8))
+    low_cutoff=float(np.quantile(in_sample_risk,.2))
+    record['top3_failure_risk_model']['fixed_high_risk_cutoff_from_2025']=high_cutoff
+    record['top3_failure_risk_model']['fixed_low_risk_cutoff_from_2025']=low_cutoff
+    high=np.where(new_risk>=high_cutoff)[0]
+    low=np.where(new_risk<=low_cutoff)[0]
+    record['top3_failure_risk_model']['fixed_2025_threshold_high_risk']={'n':len(high),'misses':int(yB[high].sum()),'miss_rate':float(yB[high].mean()) if len(high) else None,'mean_predicted_risk':float(new_risk[high].mean()) if len(high) else None}
+    record['top3_failure_risk_model']['fixed_2025_threshold_low_risk']={'n':len(low),'misses':int(yB[low].sum()),'miss_rate':float(yB[low].mean()) if len(low) else None,'mean_predicted_risk':float(new_risk[low].mean()) if len(low) else None}
     record['status']='real_DB_2025_temperature_and_failure_calibration_2026_holdout_not_canonical_v50'
     record['source_model']='retrained_canonical_db_v10_horse_jockey_research.json'
     record['no_formal_v50_production_change']=True
@@ -118,7 +123,7 @@ def main():
     for label,v in [('元の上位3頭予測確率に基づく失敗確率',record['top3_failure_risk_model']['2026_uncalibrated_base']),
                     ('2025年で学習した失敗リスク分類器',record['top3_failure_risk_model']['2026_adjusted'])]:
         L.append(f'|{label}|{v["brier"]:.4f}|{v["logloss"]:.4f}|{v["auc"]:.4f}|')
-    for label in ('highest_risk_20pct','lowest_risk_20pct'):
+    for label in ('fixed_2025_threshold_high_risk','fixed_2025_threshold_low_risk'):
         t=record['top3_failure_risk_model'][label]
         L.append(f'- {label}: {t["misses"]}/{t["n"]} ({t["miss_rate"]:.1%})、予測失敗率平均 {t["mean_predicted_risk"]:.1%}')
     L+=['','リスクは通常レースを区別する「予測難易度」の指標であり、珍しい超大波乱を予言するものではない。','正式v50の係数、順位、予測配信は変更しない。']
@@ -126,8 +131,7 @@ def main():
     print(json.dumps({'temperature':temp,'2026_before':baseline,'2026_after':adjusted,
       'risk':record['top3_failure_risk_model']['2026_adjusted'],
       'base_risk':record['top3_failure_risk_model']['2026_uncalibrated_base'],
-      'highest_risk':record['top3_failure_risk_model']['highest_risk_20pct'],
-      'lowest_risk':record['top3_failure_risk_model']['lowest_risk_20pct']},ensure_ascii=False),flush=True)
+      'highest_risk':record['top3_failure_risk_model']['fixed_2025_threshold_high_risk'],
+      'lowest_risk':record['top3_failure_risk_model']['fixed_2025_threshold_low_risk']},ensure_ascii=False),flush=True)
 
 if __name__=='__main__':main()
-

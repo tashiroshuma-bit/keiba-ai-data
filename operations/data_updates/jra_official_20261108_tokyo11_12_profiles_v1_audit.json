@@ -1,0 +1,19 @@
+{
+  "schema": "jra-official-verified-tokyo11-12-profile-batch-v1",
+  "races": [
+    "東京11R",
+    "東京12R"
+  ],
+  "attempted_profiles": 30,
+  "verified_profiles": 30,
+  "unavailable_profiles": 0,
+  "past_run_rows": 521,
+  "sha256": "e17d37e5ee0bb0d26d054eb3395278937cf3f3fb58481eb3fea8761f64b86025",
+  "sqlite_bytes": 196608,
+  "postrace_observed_only": true,
+  "eligible_for_2026_11_08_retrospective_preoff": false,
+  "eligible_for_future_after_observation": true,
+  "public_time_of_original_past_run_unverified": true,
+  "official_horse_id_join_proof": true,
+  "failures": []
+}

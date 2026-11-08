@@ -1,0 +1,19 @@
+{
+  "schema": "jra-multisource-companion-validation-v1",
+  "source_base": "Library canonical v11; not modified here",
+  "overlay_sha256": "54785edcd0927fa0038e3686cf9ee1da423a70114ef8a91f35ca36822537197d",
+  "overlay_size_bytes": 69632,
+  "overlay_integrity": "ok",
+  "counts": {
+    "sources": 5,
+    "official_races": 36,
+    "quarantined_external": 1,
+    "external_feature_rows": 0
+  },
+  "base_library_materialization": "REQUIRES_COMPLETE_VERIFIED_READBACK",
+  "production_v50_changed": false,
+  "third_party_horse_features_imported": 0,
+  "has_actual_source_registry": true,
+  "has_actual_2026_11_08_official_results_index": true,
+  "has_actual_public_headcount_discrepancy": true
+}

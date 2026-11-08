@@ -1,0 +1,59 @@
+{
+  "status": "2025_POSITION_SPECIFIC_SHADOW_NOT_CANONICAL_V50",
+  "train": {
+    "count": 226,
+    "end": "2025-07-26",
+    "base": {
+      "n": 226,
+      "p2_logloss": 2.3955788704774443,
+      "p3_logloss": 2.4739224458787916,
+      "p2_brier": 0.8954346132376356,
+      "p3_brier": 0.9090846357315758,
+      "p2_3catch": 96,
+      "p3_3catch": 73
+    },
+    "selected": {
+      "n": 226,
+      "p2_logloss": 2.3955788704774443,
+      "p3_logloss": 2.4739224458787916,
+      "p2_brier": 0.8954346132376356,
+      "p3_brier": 0.9090846357315758,
+      "p2_3catch": 96,
+      "p3_3catch": 73
+    }
+  },
+  "holdout": {
+    "count": 125,
+    "start": "2025-07-27",
+    "base": {
+      "n": 125,
+      "p2_logloss": 2.3099537100007046,
+      "p3_logloss": 2.3564774460557554,
+      "p2_brier": 0.8822239421154089,
+      "p3_brier": 0.8939737396151887,
+      "p2_3catch": 57,
+      "p3_3catch": 55
+    },
+    "selected": {
+      "n": 125,
+      "p2_logloss": 2.3099537100007046,
+      "p3_logloss": 2.3564774460557554,
+      "p2_brier": 0.8822239421154089,
+      "p3_brier": 0.8939737396151887,
+      "p2_3catch": 57,
+      "p3_3catch": 55
+    }
+  },
+  "selected_parameters": {
+    "gamma2": 1.0,
+    "gamma3": 1.0
+  },
+  "holdout_pass": false,
+  "future_v50_activated": false,
+  "limitations": [
+    "2025 archived preoff candidate is not the canonical v50 model.",
+    "No final odds/finishing position used as current input.",
+    "Ranks are mutually exclusive and p1/2/3 coherent.",
+    "No independent v50 p2/p3 shadow replay established."
+  ]
+}

@@ -1,0 +1,21 @@
+name: Multisource JRA evidence ingestion validation
+on:
+  push:
+    paths:
+      - '.github/workflows/test_jra_multisource_ingestion.yml'
+      - 'scripts/enrich_v11_multisource.py'
+      - 'tests/test_enrich_v11_multisource.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Unit test explicit license official ID and preoff evidence
+        run: python -m unittest discover -s tests -p 'test_enrich_v11_multisource.py' -v

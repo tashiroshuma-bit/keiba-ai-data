@@ -1,7 +1,7 @@
 {
   "source_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108%2FB4",
   "sha256": "1fddd40667bf45214f2434dfd27f588ff513903f3d505a397464692299b4233b",
-  "observed_at": "2026-11-08T11:29:48.895870+00:00",
+  "observed_at": "2026-11-08T11:30:31.737032+00:00",
   "bytes": 98624,
   "title": "レース結果　JRA",
   "date_present": true,
@@ -221,5 +221,208 @@
       ]
     }
   ],
+  "navigation": [
+    {
+      "text": "5回東京1日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde1005202605011220261107/85"
+    },
+    {
+      "text": "5回京都1日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde1008202605011220261107/63"
+    },
+    {
+      "text": "3回福島1日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde1003202603011220261107/8F"
+    },
+    {
+      "text": "5回東京2日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0105202605021220261108/D6"
+    },
+    {
+      "text": "5回京都2日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108/B4"
+    },
+    {
+      "text": "3回福島2日",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0103202603021220261108/E0"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020120261108/AD"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020220261108/62"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020320261108/17"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020420261108/CC"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020520261108/81"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020620261108/36"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020720261108/EB"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020820261108/A0"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020920261108/55"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021020261108/4A"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021120261108/FF"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108/B4"
+    },
+    {
+      "text": "更新",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108/B4"
+    },
+    {
+      "text": "ジャンヌローサ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002021103488/F3"
+    },
+    {
+      "text": "フロンティエール",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002022105012/77"
+    },
+    {
+      "text": "キシャール",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023100685/47"
+    },
+    {
+      "text": "エグジスタンス",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023103155/EF"
+    },
+    {
+      "text": "サリュエ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002021101650/AF"
+    },
+    {
+      "text": "ニシノトリビュート",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023104703/CE"
+    },
+    {
+      "text": "タイガーロード",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023102989/84"
+    },
+    {
+      "text": "アラビアンジョイ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023102939/34"
+    },
+    {
+      "text": "ナクソス",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023105868/8D"
+    },
+    {
+      "text": "スウィッチインラヴ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023105300/A0"
+    },
+    {
+      "text": "ブルズアイプリンス",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023104650/94"
+    },
+    {
+      "text": "ダノンブランニュー",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002022105334/10"
+    },
+    {
+      "text": "スマッシング",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023100974/57"
+    },
+    {
+      "text": "メイショウハッケイ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023105035/7C"
+    },
+    {
+      "text": "コスモレッド",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023102475/B3"
+    },
+    {
+      "text": "メイクワンズデイ",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023103160/C0"
+    },
+    {
+      "text": "モルティフレーバー",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002022104901/BE"
+    },
+    {
+      "text": "クールフラン",
+      "href": "/JRADB/accessU.html?CNAME=pw01dud002023106985/74"
+    },
+    {
+      "text": "更新",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108/B4"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020120261108/AD"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020220261108/62"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020320261108/17"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020420261108/CC"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020520261108/81"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020620261108/36"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020720261108/EB"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020820261108/A0"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605020920261108/55"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021020261108/4A"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021120261108/FF"
+    },
+    {
+      "text": "",
+      "href": "/JRADB/accessS.html?CNAME=pw01sde0108202605021220261108/B4"
+    }
+  ],
+  "navigation_count": 50,
   "html_start": "レース結果　JRA 本文へ移動する ニュース 企業情報 社会貢献活動 レース情報 ネット馬券 ログイン ビギナーズ 検索 メニュー 閉じる お問い合わせ/FAQ スマッピー UMACAスマート 競馬メニュー 競馬メニュー 競馬メニュー トップ メニューを閉じる 今週の開催情報 開催お知らせ 出馬表 オッズ レース結果 開催日程 払戻金 特別レース登録馬 競走馬検索 馬場情報 今週の注目レース 達成間近な記録 データファイル GⅠレース出走馬決定順 レース成績データ 特別レース名解説 騎手・調教師データ リーディング情報 レーティング レコードタイム表 競走馬登録馬名簿・馬名意味 競走馬登録・抹消一覧 5大登録 開催場別出馬表 競馬のルール 競馬番組 降着・失格のルール 競馬のルール 海外競馬・地方競馬 海外競馬発売 JRAの国際競走 地方競馬の情報・関連リンク 競馬にかかわる人々 馬主情報 騎手になるには 厩舎スタッフになるには 競馬中継・ライブ配信 競馬中継・ライブ配信 馬券・JRA-UMACA 馬券・JRA-UMACA 馬券・JRA-UMACA トップ メニューを閉じる 発売・払戻"
 }

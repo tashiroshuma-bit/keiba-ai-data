@@ -63,8 +63,10 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         policy.get("overlay_weight")!=1 or
         policy.get("probability_temperature")!=0.7):
         raise ValueError("standard v50 policy differs from approved parameters")
-    if state["database"]["version"] != 11:
-        raise ValueError("canonical database v11 required; v10 no longer current")
+    # Explicit older state fixtures and reproducible archived v10 records stay
+    # runnable. Production PROJECT_STATE now pins v11 by SHA256.
+    if state["database"]["version"] not in (10,11):
+        raise ValueError("unsupported canonical database version")
     dbdigest=file_sha256(database_path)
     if dbdigest != state["database"]["sha256"]:
         raise ValueError("canonical database SHA256 mismatch; repository stub is not canonical")

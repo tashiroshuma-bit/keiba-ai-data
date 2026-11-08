@@ -1,0 +1,48 @@
+name: Build verified JRA multisource companion SQLite
+on:
+  push:
+    paths:
+      - '.github/workflows/build_jra_multisource_overlay.yml'
+      - 'scripts/build_multisource_overlay_20261108.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Create actual SQLite with JRA official result index, 5-source registry and quarantine
+        run: python -m scripts.build_multisource_overlay_20261108
+      - name: Independently reopen sqlite and verify all reference counts
+        run: |
+          python - <<'PY'
+          import sqlite3,json,hashlib
+          from pathlib import Path
+          p=Path('operations/data_updates/multisource_overlay_20261108.sqlite')
+          meta=json.loads(Path('operations/data_updates/multisource_overlay_20261108_audit.json').read_text())
+          assert hashlib.sha256(p.read_bytes()).hexdigest()==meta['overlay_sha256']
+          c=sqlite3.connect(f'file:{p}?mode=ro',uri=True)
+          assert c.execute('PRAGMA integrity_check').fetchone()[0]=='ok'
+          assert not c.execute('PRAGMA foreign_key_check').fetchall()
+          assert c.execute('SELECT count(*) FROM multi_source_registry').fetchone()[0]==5
+          assert c.execute('SELECT count(*) FROM jra_official_race_checkpoint').fetchone()[0]==36
+          assert c.execute('SELECT count(*) FROM external_race_quarantine').fetchone()[0]==1
+          assert c.execute('SELECT count(*) FROM multi_source_observation').fetchone()[0]==0
+          c.close()
+          print('PASS: SQLite independently reopened, 5 providers, 36 official, 1 quarantined')
+          PY
+      - name: Publish validated companion SQLite into GitHub main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add operations/data_updates/multisource_overlay_20261108.sqlite operations/data_updates/multisource_overlay_20261108_audit.json
+          git commit -m "Publish independently verified multisource JRA companion SQLite and provider registry"
+          git pull --rebase origin main
+          git push

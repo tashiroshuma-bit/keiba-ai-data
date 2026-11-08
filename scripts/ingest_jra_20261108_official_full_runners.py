@@ -138,8 +138,17 @@ def parse_result(html,url,track,race_no,expected):
              "bodyweight_kg":kg,"bodyweight_delta_kg":delta,
              "trainer_name":vals[12],"final_popularity":integer(vals[13])}
         runners.append(row)
+    valid_finishers=sum(r["finish_position"] is not None for r in runners)
     if len(runners)!=expected["headcount"]:
-        raise ValueError(f"JRA full-runner count {len(runners)} vs frozen settlement {expected['headcount']}")
+        # Fukushima4R obstacle race: historic finishers-only settlement had
+        # 9 runners; desktop official result includes two non-finishers.
+        # All 11 actual entrants are preserved with finish_position NULL.
+        if not (track=="福島" and race_no==4 and
+                expected["headcount"]==9 and len(runners)==11 and
+                valid_finishers==9):
+            raise ValueError(f"JRA entrants {len(runners)}, finishers {valid_finishers} vs old settlement {expected['headcount']}")
+    if track=="福島" and race_no==4 and len(runners)!=11:
+        raise ValueError("Fukushima4 expected 11 total starters including nonfinishers")
     if len(set(r["horse_number"] for r in runners))!=len(runners):
         raise ValueError("duplicate horse numbers")
     if len(set(r["horse_id"] for r in runners))!=len(runners):

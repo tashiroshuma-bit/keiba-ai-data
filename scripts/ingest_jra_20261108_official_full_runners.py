@@ -63,7 +63,7 @@ def links_from_seed(html):
     for a in root.select("a[href]"):
         name=normalize(a.get_text(" ",strip=True))
         u=a.get("href","")
-        if "pw01sde100" in u and "20261108" in u:
+        if "pw01sde01" in u and "20261108" in u:
             track=next((x for x in TRACK if x in name),None)
             if track:
                 venues[track]=urljoin(SEED,u)

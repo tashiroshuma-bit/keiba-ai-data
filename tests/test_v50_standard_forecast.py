@@ -59,6 +59,53 @@ class StandardV50Test(unittest.TestCase):
         self.assertTrue(result["standard_forecast"])
         self.assertTrue(self.out.exists())
 
+    def test_v51_research_same_asof_fully_proven_parallel(self):
+        from scripts.standard_v50_forecast import standard_forecast
+        feature_path=Path(self.tmp.name)/"v51.json"
+        source={"race":"synthetic","race_id":"test-race",
+                "forecast_asof":self.data["asof"],
+                "race_off_at":self.data["races"][0]["original_off_at"],
+                "horses":[]}
+        for h in self.data["races"][0]["horses"]:
+            source["horses"].append({
+                "number":h["number"],"horse_id":f"jra:201710000{h['number']}",
+                "feature_values":[0.0]*34,
+                "feature_evidence":{
+                    "source_url":"https://www.jra.go.jp/datafile/seiseki/report/2026/older.pdf",
+                    "source_sha256":"a"*64,
+                    "off_at":"2026-10-18T12:00:00+09:00",
+                    "published_at":"2026-10-20T08:00:00+09:00",
+                    "observed_at":"2026-10-22T08:00:00+09:00"},
+                "official_identity_proof":{
+                    "race_id":"test-race","horse_number":h["number"],
+                    "horse_name":h["name"],
+                    "horse_id":f"jra:201710000{h['number']}",
+                    "source_url":"https://www.jra.go.jp/JRADB/accessS.html",
+                    "source_sha256":"b"*64,
+                    "observed_at":"2026-10-23T08:00:00+09:00"}})
+        feature_path.write_text(json.dumps({"races":[source]}))
+        result=standard_forecast(self.forecast,self.db,self.out,
+            state_path=self.state,policy_path=self.policy,
+            v51_research_features_path=feature_path)
+        self.assertEqual(result["version"],"v50")
+        self.assertTrue(result["v51_research_parallel"]["original_v50_unchanged"])
+        self.assertFalse(result["v51_research_parallel"]["production_promotion"])
+        self.assertEqual(len(result["v51_research_parallel"]["races"]),1)
+        self.assertEqual(result["v51_research_parallel"]["races"][0]["field_size"],3)
+
+    def test_v51_research_rejects_mismatched_asof(self):
+        from scripts.standard_v50_forecast import standard_forecast
+        feature_path=Path(self.tmp.name)/"v51_wrong.json"
+        feature_path.write_text(json.dumps({"races":[{
+            "race":"synthetic",
+            "forecast_asof":"2026-11-01T11:10:00+09:00",
+            "race_off_at":self.data["races"][0]["original_off_at"],
+            "horses":[]}]}))
+        with self.assertRaisesRegex(ValueError,"do not match"):
+            standard_forecast(self.forecast,self.db,self.out,
+                state_path=self.state,policy_path=self.policy,
+                v51_research_features_path=feature_path)
+
     def test_reject_postoff_source(self):
         self.data["races"][0]["original_off_at"]="2026-11-01T08:00:00+09:00"
         self.forecast.write_text(json.dumps(self.data))

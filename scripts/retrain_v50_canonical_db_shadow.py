@@ -17,7 +17,6 @@ from scipy.optimize import minimize
 
 DB=Path(os.environ.get('KEIBA_CANONICAL_DB','/mnt/data/keiba/jra_2023_2025.sqlite'))
 OUT=Path(os.environ.get('KEIBA_RETRAIN_OUTPUT_DIR','/mnt/data/keiba'))
-OUT.mkdir(parents=True,exist_ok=True)
 EXPECTED_DB_SHA256='5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc'
 def verify_canonical_database():
     digest=hashlib.sha256()
@@ -267,6 +266,7 @@ def strata(rows,p):
     return result
 
 def main():
+    OUT.mkdir(parents=True,exist_ok=True)
     verify_canonical_database()
     events,skips=fetch();rows,coverage=create_rows(events)
     peryear=collections.defaultdict(list)

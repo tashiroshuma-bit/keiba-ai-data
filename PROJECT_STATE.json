@@ -1941,5 +1941,24 @@
     "canonical_main_sqlite_version": 11,
     "v12_promotion_ready": false,
     "formal_v50_model_unchanged": true
+  },
+  "official_jra_future_history_supplement": {
+    "version": "jra-20261108-full-runner-v2",
+    "status": "saved_and_readback_verified",
+    "source_provider": "JRA official desktop results",
+    "source_date": "2026-11-08",
+    "races": 36,
+    "official_horse_id_rows": 497,
+    "sqlite_path": "operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite",
+    "sha256": "4912237e688804cdbaed6a4d0b9a2019fd126b309c938fb21d8c1a637397959b",
+    "bytes": 290816,
+    "audit_path": "operations/data_updates/jra_official_20261108_all_runner_history_v2_audit.json",
+    "future_history_reader": "scripts/query_jra_official_past_runs_asof.py",
+    "capture_is_postrace": true,
+    "usable_for_2026_11_08_forecast": false,
+    "usable_for_future_only_after_observed_at": true,
+    "canonical_v11_unchanged": true,
+    "official_id_name_guessing": false,
+    "third_party_features_imported": 0
   }
 }

@@ -28,6 +28,11 @@ except ModuleNotFoundError:
     from v50_difficulty_flags import assess as difficulty_shadow
 
 try:
+    from scripts.v51_candidate_race_overlay import overlay as v51_candidate_overlay
+except ModuleNotFoundError:
+    from v51_candidate_race_overlay import overlay as v51_candidate_overlay
+
+try:
     from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
@@ -39,7 +44,7 @@ DEFAULT_POLICY=ROOT/"operations/prediction_policy/standard_v50.json"
 
 def standard_forecast(forecast_path, database_path, output_path, *,
                       state_path=ROOT/"PROJECT_STATE.json",policy_path=DEFAULT_POLICY,
-                      odds_path=None,odds_alpha=0.20):
+                      odds_path=None,odds_alpha=0.20,v51_research_features_path=None):
     forecast_path=Path(forecast_path)
     database_path=Path(database_path)
     output_path=Path(output_path)
@@ -122,6 +127,41 @@ def standard_forecast(forecast_path, database_path, output_path, *,
             "warnings":["Pre-off-only odds; research shadow ranking, no live betting",
                         "Canonical v50 rank and ticket allocations remain unchanged",
                         "Alpha=0.20 is a provisional experimental setting, not a trained optimum"]}
+    # If a SAME-ASOF, evidence-backed full horse field is explicitly supplied,
+    # compute independent V51 shadow p1 for that very same v50 race.
+    # Production v50 remains canonical and unchanged. No silent ID inference.
+    if v51_research_features_path is not None:
+        feature_path=Path(v51_research_features_path)
+        feature_bytes=feature_path.read_bytes()
+        feature_pack=json.loads(feature_bytes)
+        data=feature_pack.get("races")
+        if not isinstance(data,list) or len(data)!=len(prediction["races"]):
+            raise ValueError("V51 research requires identical complete race count")
+        byrace={x["race"]:x for x in data}
+        if len(byrace)!=len(data):
+            raise ValueError("duplicate V51 feature race")
+        original={x["race"]:x for x in inp["races"]}
+        if set(byrace)!=set(original):
+            raise ValueError("V50/V51 race set differs")
+        projections=[]
+        fitted_path=ROOT/"operations/prediction_policy/v51_candidate_fitted_research.json"
+        for result in prediction["races"]:
+            race=result["race"]
+            snapshot=byrace[race]
+            if (parse_time(snapshot["forecast_asof"])!=asof or
+                parse_time(snapshot["race_off_at"])!=
+                parse_time(original[race]["original_off_at"])):
+                raise ValueError("V51 features do not match V50 off/asof for "+race)
+            shadow=v51_candidate_overlay(result["v50"],snapshot,
+                fitted_path,research_alpha=1.0)
+            projections.append({"race":race,**shadow})
+        prediction["v51_research_parallel"]={
+            "status":"FITTED_V51_SHADOW_HOLDOUT_GATE_FAILED",
+            "research_features_sha256":hashlib.sha256(feature_bytes).hexdigest(),
+            "exact_original_v50_asof":inp["asof"],
+            "original_v50_unchanged":True,
+            "production_promotion":False,
+            "races":projections}
     # Rare-upset branch only evaluates pre-off uncertainty as a research
     # shadow. The rule did NOT pass the 2025 independent holdout; no automatic
     # extreme-upset probability multiplier or horse ranking change is allowed.
@@ -184,9 +224,11 @@ def main():
     p.add_argument("--output",required=True)
     p.add_argument("--odds-snapshot")
     p.add_argument("--odds-alpha",type=float,default=0.20)
+    p.add_argument("--v51-research-features")
     args=p.parse_args()
     result=standard_forecast(args.forecast,args.database,args.output,
-                             odds_path=args.odds_snapshot,odds_alpha=args.odds_alpha)
+                             odds_path=args.odds_snapshot,odds_alpha=args.odds_alpha,
+                             v51_research_features_path=args.v51_research_features)
     print(json.dumps({"version":result["version"],"races":len(result["races"]),
                       "standard_forecast":True,
                       "policy_sha256":result["policy_sha256"],

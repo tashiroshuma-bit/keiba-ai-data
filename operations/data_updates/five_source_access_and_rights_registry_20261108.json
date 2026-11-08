@@ -1,0 +1,94 @@
+{
+  "schema": "keiba-multisource-availability-20261108-v1",
+  "checked_at": "2026-11-08",
+  "canonical_db_version": 11,
+  "canonical_model": "v50",
+  "source_policy": "No crawling, paid source access or redistribution without authorization; snapshots must be point-in-time.",
+  "sources": [
+    {
+      "id": "jra_official",
+      "url": "https://www.jra.go.jp/datafile/seiseki/",
+      "access": "free_public",
+      "priority": "canonical_results",
+      "can_auto_bulk_download": false,
+      "field_targets": [
+        "full_placings",
+        "official_date",
+        "official_id_evidence"
+      ],
+      "ingestion": "verified_factual_observation",
+      "license_reference": "https://www.jra.go.jp/sitemap/index.html"
+    },
+    {
+      "id": "netkeiba",
+      "url": "https://race.sp.netkeiba.com/",
+      "access": "free_and_paid",
+      "priority": "supplemental_unverified",
+      "can_auto_bulk_download": false,
+      "field_targets": [
+        "preoff_entrants",
+        "preoff_odds",
+        "bloodline",
+        "past_runs"
+      ],
+      "ingestion": "user_rights_authorized_export_or_specific_permission",
+      "license_reference": "https://rsp.netkeiba.com/info/kiyaku.html",
+      "restriction_reference": "https://support.keiba.netkeiba.com/hc/ja/articles/39720493823129-データベースの閲覧ができない-通信制限がかかった-スクレイピングについて"
+    },
+    {
+      "id": "jra_van_next",
+      "url": "https://jravan.jp/nx/",
+      "access": "subscription_880_jpy_per_month",
+      "priority": "licensed_only",
+      "can_auto_bulk_download": false,
+      "field_targets": [
+        "horse_ids",
+        "jockey_records",
+        "pedigree",
+        "track_workout",
+        "race_card"
+      ],
+      "ingestion": "only_registered_user_export_with_proven_rights",
+      "license_reference": "https://jravan.jp/buy/",
+      "notes": "PC application, no subscription presumed"
+    },
+    {
+      "id": "umarand",
+      "url": "https://www.umarand.com/",
+      "access": "some_free_membership_required",
+      "priority": "supplemental_research",
+      "can_auto_bulk_download": false,
+      "field_targets": [
+        "historical_pattern",
+        "bloodline",
+        "hill_workout"
+      ],
+      "ingestion": "manual_facts_or_authorized_export",
+      "license_reference": null,
+      "notes": "Site request returned 429 during access; no scraping or rights assumption"
+    },
+    {
+      "id": "smartrc",
+      "url": "https://www.smartrc.jp/v3/",
+      "access": "v3_free_v4_limited_or_members",
+      "priority": "pedigree_research",
+      "can_auto_bulk_download": false,
+      "field_targets": [
+        "sire_line",
+        "damsire_line",
+        "running_style",
+        "prior_course_stat"
+      ],
+      "ingestion": "manual_facts_or_authorized_export",
+      "license_reference": "https://www.keiba-salon.com/20260105_76656/",
+      "notes": "V4 general free window ended 2026-01-04; no paid entitlements assumed"
+    }
+  ],
+  "integrity_rules": [
+    "Official JRA results override incompatible unofficial result data; never overwrite original source.",
+    "All additional fields keep source URL, source SHA256, observed_at, published_at if known, rights_basis.",
+    "Final odds and postrace statistics never enter preoff predictor features.",
+    "Horse IDs cannot be linked from name similarity alone.",
+    "No version bump to production model or canonical database until modified SQLite roundtrip is verified."
+  ]
+}

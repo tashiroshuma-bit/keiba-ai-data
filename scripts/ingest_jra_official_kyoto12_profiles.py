@@ -125,7 +125,7 @@ def main():
                  r["sha256"],r["observed_at"],len(r["history"])))
             for h in r["history"]:
                 c.execute("""INSERT OR IGNORE INTO official_past_run VALUES(
-                   ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NULL)""",
+                   ?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,NULL)""",
                    (r["horse_id"],h["prior_race_date"],h["venue"],
                     h["race_name"],h["distance_surface"],h["going"],
                     h["field_size"],h["popularity_final"],h["finish_position"],

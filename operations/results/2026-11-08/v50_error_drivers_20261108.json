@@ -1,0 +1,768 @@
+{
+  "schema": "jra-20261108-v50-c-error-structural-diagnostics-v1",
+  "source": "operations/results/2026-11-08/v50_abcd_settlement.json",
+  "caution": "descriptive after the fact, not an estimated causal effect",
+  "denominator_base": 34,
+  "denominator_market": 23,
+  "results": {
+    "c_by_win_popularity": {
+      "1番人気": {
+        "n": 10,
+        "win": 8,
+        "hit_rate": 0.8
+      },
+      "2-3番人気": {
+        "n": 11,
+        "win": 1,
+        "hit_rate": 0.09090909090909091
+      },
+      "4-6番人気": {
+        "n": 7,
+        "win": 0,
+        "hit_rate": 0.0
+      },
+      "7番人気以下": {
+        "n": 6,
+        "win": 0,
+        "hit_rate": 0.0
+      }
+    },
+    "c_by_track": {
+      "京都": {
+        "n": 12,
+        "win": 4,
+        "hit_rate": 0.3333333333333333
+      },
+      "東京": {
+        "n": 12,
+        "win": 3,
+        "hit_rate": 0.25
+      },
+      "福島": {
+        "n": 10,
+        "win": 2,
+        "hit_rate": 0.2
+      }
+    },
+    "c_missed_winner_rank_distribution": {
+      "1": 9,
+      "2-3": 9,
+      "4-5": 4,
+      "6+": 12
+    },
+    "C_podium_recall_top5": {
+      "zero": 2,
+      "one": 10,
+      "two": 10,
+      "three": 12
+    },
+    "C_hit_races": [
+      {
+        "race": "東京1R",
+        "top1": 2,
+        "actual": [
+          2,
+          7,
+          4
+        ],
+        "popularity": [
+          1,
+          3,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020120261108/5C"
+      },
+      {
+        "race": "東京2R",
+        "top1": 6,
+        "actual": [
+          6,
+          3,
+          9
+        ],
+        "popularity": [
+          1,
+          7,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020220261108%2F11"
+      },
+      {
+        "race": "東京3R",
+        "top1": 14,
+        "actual": [
+          14,
+          10,
+          7
+        ],
+        "popularity": [
+          1,
+          5,
+          3
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020320261108/C6"
+      },
+      {
+        "race": "京都1R",
+        "top1": 2,
+        "actual": [
+          2,
+          5,
+          12
+        ],
+        "popularity": [
+          1,
+          3,
+          7
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020120261108/3A"
+      },
+      {
+        "race": "京都2R",
+        "top1": 1,
+        "actual": [
+          1,
+          7,
+          2
+        ],
+        "popularity": [
+          1,
+          2,
+          8
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020220261108/EF"
+      },
+      {
+        "race": "京都4R",
+        "top1": 6,
+        "actual": [
+          6,
+          8,
+          7
+        ],
+        "popularity": [
+          1,
+          8,
+          4
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020420261108/59"
+      },
+      {
+        "race": "京都5R",
+        "top1": 3,
+        "actual": [
+          3,
+          5,
+          6
+        ],
+        "popularity": [
+          1,
+          3,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020520261108/0E"
+      },
+      {
+        "race": "福島1R",
+        "top1": 5,
+        "actual": [
+          5,
+          3,
+          4
+        ],
+        "popularity": [
+          3,
+          1,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020120261108/66"
+      },
+      {
+        "race": "福島6R",
+        "top1": 8,
+        "actual": [
+          8,
+          15,
+          1
+        ],
+        "popularity": [
+          1,
+          3,
+          9
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020620261108/EF"
+      }
+    ],
+    "C_miss_races": [
+      {
+        "race": "東京4R",
+        "top1": 14,
+        "p1": 0.12894110899941008,
+        "winner": 11,
+        "winner_rank": 4,
+        "actual": [
+          11,
+          8,
+          6
+        ],
+        "popularity": [
+          6,
+          7,
+          8
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020420261108/7B"
+      },
+      {
+        "race": "東京5R",
+        "top1": 1,
+        "p1": 0.1953161692203108,
+        "winner": 15,
+        "winner_rank": 9,
+        "actual": [
+          15,
+          1,
+          4
+        ],
+        "popularity": [
+          7,
+          1,
+          3
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020520261108/30"
+      },
+      {
+        "race": "東京6R",
+        "top1": 15,
+        "p1": 0.12110578028014028,
+        "winner": 7,
+        "winner_rank": 5,
+        "actual": [
+          7,
+          8,
+          12
+        ],
+        "popularity": [
+          6,
+          9,
+          4
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020620261108/E5"
+      },
+      {
+        "race": "東京7R",
+        "top1": 14,
+        "p1": 0.23276144726520037,
+        "winner": 7,
+        "winner_rank": 2,
+        "actual": [
+          7,
+          14,
+          3
+        ],
+        "popularity": [
+          2,
+          1,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020720261108/9A"
+      },
+      {
+        "race": "東京8R",
+        "top1": 5,
+        "p1": 0.16330784006558544,
+        "winner": 7,
+        "winner_rank": 3,
+        "actual": [
+          7,
+          5,
+          14
+        ],
+        "popularity": [
+          3,
+          1,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020820261108/4F"
+      },
+      {
+        "race": "東京9R",
+        "top1": 6,
+        "p1": 0.22578419983686648,
+        "winner": 7,
+        "winner_rank": 4,
+        "actual": [
+          7,
+          6,
+          3
+        ],
+        "popularity": [
+          2,
+          1,
+          4
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605020920261108/04"
+      },
+      {
+        "race": "東京10R",
+        "top1": 10,
+        "p1": 0.33267909940692897,
+        "winner": 8,
+        "winner_rank": 9,
+        "actual": [
+          8,
+          3,
+          7
+        ],
+        "popularity": [
+          9,
+          2,
+          7
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021020261108/F9"
+      },
+      {
+        "race": "東京11R",
+        "top1": 5,
+        "p1": 0.13833605559396608,
+        "winner": 6,
+        "winner_rank": 11,
+        "actual": [
+          6,
+          15,
+          12
+        ],
+        "popularity": [
+          16,
+          13,
+          12
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021120261108/AE"
+      },
+      {
+        "race": "東京12R",
+        "top1": 3,
+        "p1": 0.28246831378871146,
+        "winner": 4,
+        "winner_rank": 2,
+        "actual": [
+          4,
+          7,
+          8
+        ],
+        "popularity": [
+          3,
+          4,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605021220261108/63"
+      },
+      {
+        "race": "京都3R",
+        "top1": 4,
+        "p1": 0.35082856531616635,
+        "winner": 6,
+        "winner_rank": 2,
+        "actual": [
+          6,
+          1,
+          3
+        ],
+        "popularity": [
+          3,
+          2,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020320261108/A4"
+      },
+      {
+        "race": "京都6R",
+        "top1": 18,
+        "p1": 0.09696429179528816,
+        "winner": 14,
+        "winner_rank": 4,
+        "actual": [
+          14,
+          9,
+          10
+        ],
+        "popularity": [
+          3,
+          7,
+          4
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020620261108/C3"
+      },
+      {
+        "race": "京都7R",
+        "top1": 13,
+        "p1": 0.1500342461973677,
+        "winner": 4,
+        "winner_rank": 2,
+        "actual": [
+          4,
+          9,
+          8
+        ],
+        "popularity": [
+          1,
+          3,
+          7
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020720261108/78"
+      },
+      {
+        "race": "京都8R",
+        "top1": 1,
+        "p1": 0.31306694445300404,
+        "winner": 7,
+        "winner_rank": 6,
+        "actual": [
+          7,
+          8,
+          2
+        ],
+        "popularity": [
+          6,
+          2,
+          3
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020820261108%2F2D"
+      },
+      {
+        "race": "京都9R",
+        "top1": 1,
+        "p1": 0.09390506590608728,
+        "winner": 4,
+        "winner_rank": 12,
+        "actual": [
+          4,
+          10,
+          3
+        ],
+        "popularity": [
+          13,
+          5,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605020920261108/E2"
+      },
+      {
+        "race": "京都10R",
+        "top1": 8,
+        "p1": 0.2896550101247089,
+        "winner": 6,
+        "winner_rank": 2,
+        "actual": [
+          6,
+          8,
+          2
+        ],
+        "popularity": [
+          1,
+          2,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021020261108/D7"
+      },
+      {
+        "race": "京都11R",
+        "top1": 4,
+        "p1": 0.1472700361701312,
+        "winner": 11,
+        "winner_rank": 3,
+        "actual": [
+          11,
+          8,
+          3
+        ],
+        "popularity": [
+          2,
+          5,
+          14
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021120261108/8C"
+      },
+      {
+        "race": "京都12R",
+        "top1": 5,
+        "p1": 0.15057825705734681,
+        "winner": 12,
+        "winner_rank": 13,
+        "actual": [
+          12,
+          18,
+          5
+        ],
+        "popularity": [
+          13,
+          4,
+          1
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0108202605021220261108/41"
+      },
+      {
+        "race": "福島2R",
+        "top1": 7,
+        "p1": 0.16071941939196138,
+        "winner": 6,
+        "winner_rank": 7,
+        "actual": [
+          6,
+          3,
+          5
+        ],
+        "popularity": [
+          4,
+          5,
+          6
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020220261108/1B"
+      },
+      {
+        "race": "福島3R",
+        "top1": 5,
+        "p1": 0.1545037802088752,
+        "winner": 13,
+        "winner_rank": 9,
+        "actual": [
+          13,
+          2,
+          10
+        ],
+        "popularity": [
+          4,
+          1,
+          13
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020320261108%2FD0"
+      },
+      {
+        "race": "福島7R",
+        "top1": 9,
+        "p1": 0.1649300933509932,
+        "winner": 15,
+        "winner_rank": 9,
+        "actual": [
+          15,
+          16,
+          7
+        ],
+        "popularity": [
+          8,
+          14,
+          4
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020720261108/A4"
+      },
+      {
+        "race": "福島8R",
+        "top1": 14,
+        "p1": 0.13423090450348976,
+        "winner": 6,
+        "winner_rank": 2,
+        "actual": [
+          6,
+          9,
+          15
+        ],
+        "popularity": [
+          2,
+          6,
+          3
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020820261108/59"
+      },
+      {
+        "race": "福島9R",
+        "top1": 9,
+        "p1": 0.14781956749195937,
+        "winner": 13,
+        "winner_rank": 14,
+        "actual": [
+          13,
+          6,
+          9
+        ],
+        "popularity": [
+          6,
+          9,
+          1
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603020920261108/0E"
+      },
+      {
+        "race": "福島10R",
+        "top1": 1,
+        "p1": 0.14977724798350608,
+        "winner": 6,
+        "winner_rank": 7,
+        "actual": [
+          6,
+          1,
+          3
+        ],
+        "popularity": [
+          3,
+          1,
+          2
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021020261108/03"
+      },
+      {
+        "race": "福島11R",
+        "top1": 2,
+        "p1": 0.1304244933367996,
+        "winner": 8,
+        "winner_rank": 3,
+        "actual": [
+          8,
+          6,
+          7
+        ],
+        "popularity": [
+          2,
+          10,
+          5
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021120261108/B8"
+      },
+      {
+        "race": "福島12R",
+        "top1": 6,
+        "p1": 0.2119917663638539,
+        "winner": 16,
+        "winner_rank": 9,
+        "actual": [
+          16,
+          12,
+          15
+        ],
+        "popularity": [
+          4,
+          9,
+          11
+        ],
+        "source": "https://sp.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603021220261108/6D"
+      }
+    ],
+    "market_same_race_C_flip": {
+      "both_hit": [
+        "東京3R",
+        "京都4R",
+        "京都5R",
+        "福島6R"
+      ],
+      "base_hit_only": [
+        "福島8R"
+      ],
+      "market_hit_only": [],
+      "neither_hit": [
+        "東京4R",
+        "東京5R",
+        "東京7R",
+        "東京9R",
+        "東京10R",
+        "東京11R",
+        "東京12R",
+        "京都3R",
+        "京都7R",
+        "京都8R",
+        "京都10R",
+        "京都11R",
+        "京都12R",
+        "福島7R",
+        "福島9R",
+        "福島10R",
+        "福島11R",
+        "福島12R"
+      ]
+    },
+    "market_flip_counts": {
+      "both_hit": 4,
+      "base_hit_only": 1,
+      "market_hit_only": 0,
+      "neither_hit": 18
+    },
+    "p3_recall_23": {
+      "with_final_outsider_third": 15,
+      "candidate_top3_third_hit": 7,
+      "with_final_outsider_in_podium": 21,
+      "candidate_top3_any_hit": 12,
+      "n": 23
+    },
+    "c_market_chosen_as_public_favorite": {
+      "true_final_favorite_lost": {
+        "n": 17,
+        "win": 0,
+        "hit_rate": 0.0
+      },
+      "true_final_favorite_won": {
+        "n": 6,
+        "win": 4,
+        "hit_rate": 0.6666666666666666
+      }
+    },
+    "c_confidence_1051": {
+      "top1_mean_p1": 0.20143648778250908,
+      "top1_hit_rate": 0.17391304347826086,
+      "note": "Individual race C_top1_p1 comes from 10:51 model when present, not a calibrated confidence band"
+    },
+    "model_disagreement": {
+      "at_least_one_hit": 10,
+      "all_four_hit": 4,
+      "none_hit": 24,
+      "C_D_same_correct": 10,
+      "C_only_vs_D": 0,
+      "D_only_vs_C": 0
+    },
+    "rolling_tokyo12": {
+      "predicted_at": "2026-11-08T15:14:22.792983+09:00",
+      "actual_top3": [
+        4,
+        7,
+        8
+      ],
+      "final_popularity": [
+        3,
+        4,
+        5
+      ],
+      "models": {
+        "A": {
+          "top1": 3,
+          "top1_hit": 0,
+          "winner_model_rank": 3
+        },
+        "B": {
+          "top1": 3,
+          "top1_hit": 0,
+          "winner_model_rank": 3
+        },
+        "C": {
+          "top1": 3,
+          "top1_hit": 0,
+          "winner_model_rank": 3
+        },
+        "D": {
+          "top1": 3,
+          "top1_hit": 0,
+          "winner_model_rank": 3
+        }
+      },
+      "C_top1": 3,
+      "C_top1_p1": 0.2956455474243092,
+      "C_outsider_top3_picks": [
+        8,
+        7,
+        9
+      ],
+      "C_outsider_predicted_third_hit": true,
+      "C_trio_top8_hit": false,
+      "trio_actual": [
+        4,
+        7,
+        8
+      ]
+    }
+  }
+}

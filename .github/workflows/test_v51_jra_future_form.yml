@@ -1,0 +1,21 @@
+name: Validate asof JRA future horse-form feature lookup
+on:
+  push:
+    paths:
+      - '.github/workflows/test_v51_jra_future_form.yml'
+      - 'scripts/query_v51_jra_future_form.py'
+      - 'tests/test_query_v51_jra_future_form.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Validate research preoff availability, exact horse identity and non-promotion
+        run: python -m unittest discover -s tests -p 'test_query_v51_jra_future_form.py' -v

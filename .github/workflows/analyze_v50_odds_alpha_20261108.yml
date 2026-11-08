@@ -1,0 +1,30 @@
+name: Analyze Nov 8 preoff odds alpha sensitivity
+on:
+  push:
+    paths:
+      - '.github/workflows/analyze_v50_odds_alpha_20261108.yml'
+      - 'scripts/analyze_v50_odds_alpha_20261108.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Evaluate observed 10-51 preoff odds alpha grid and logloss
+        run: python -m scripts.analyze_v50_odds_alpha_20261108
+      - name: Save paired diagnostic results no production parameter change
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v50_odds_alpha_20261108_paired.json reports/v50_odds_alpha_20261108_paired.md
+          git commit -m "Save v50 November 8 observed odds alpha sensitivity, no deployment change"
+          git pull --rebase origin main
+          git push

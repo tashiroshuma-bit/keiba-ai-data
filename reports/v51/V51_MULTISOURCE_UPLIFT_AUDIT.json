@@ -1,0 +1,336 @@
+{
+  "schema": "v51-multisource-real-data-uplift-audit-v1",
+  "sqlite_sha256": "54785edcd0927fa0038e3686cf9ee1da423a70114ef8a91f35ca36822537197d",
+  "integrity_check": "ok",
+  "counts": {
+    "providers": 5,
+    "official_race_checkpoints": 36,
+    "quarantined_conflicts": 1,
+    "observations": 0,
+    "preoff_usable_observations": 0
+  },
+  "by_provider": {},
+  "saved_abcd_research_predictions": 34,
+  "official_results_paired": 34,
+  "complete_feature_races": 0,
+  "same_asof_frozen_v50_v51_pairs": 0,
+  "eligible_for_improvement_measurement": 0,
+  "observed_uplift": null,
+  "cannot_estimate_uplift": true,
+  "v51_old_2025_2026_research_holdouts": {
+    "2025": {
+      "baseline": {
+        "n": 2890,
+        "top1": 608,
+        "top3": 1392,
+        "logloss": 2.375821,
+        "brier": 0.89004
+      },
+      "candidate": {
+        "n": 2890,
+        "top1": 588,
+        "top3": 1373,
+        "logloss": 2.383844,
+        "brier": 0.890371
+      }
+    },
+    "2026": {
+      "baseline": {
+        "n": 2384,
+        "top1": 470,
+        "top3": 1092,
+        "logloss": 2.408272,
+        "brier": 0.893712
+      },
+      "candidate": {
+        "n": 2384,
+        "top1": 486,
+        "top3": 1071,
+        "logloss": 2.417495,
+        "brier": 0.894444
+      }
+    }
+  },
+  "model_upgraded": false,
+  "standard_version": "v50",
+  "reasons": [
+    "0 new horse-level features in the verified overlay",
+    "no timestamp-verified full-field preoff horse data",
+    "no same-asof frozen v51 forecast for the existing races",
+    "official result summaries alone cannot serve as preoff predictors"
+  ],
+  "coverage_by_race": [
+    {
+      "race": "東京1R",
+      "runners": 11,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京2R",
+      "runners": 11,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京3R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京4R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京5R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京6R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京7R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京8R",
+      "runners": 14,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京9R",
+      "runners": 9,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京10R",
+      "runners": 11,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京11R",
+      "runners": 18,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "東京12R",
+      "runners": 12,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都1R",
+      "runners": 14,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都2R",
+      "runners": 13,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都3R",
+      "runners": 6,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都4R",
+      "runners": 14,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都5R",
+      "runners": 11,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都6R",
+      "runners": 18,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都7R",
+      "runners": 13,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都8R",
+      "runners": 9,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都9R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都10R",
+      "runners": 10,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都11R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "京都12R",
+      "runners": 18,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島1R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島2R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島3R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島6R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島7R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島8R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島9R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島10R",
+      "runners": 15,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島11R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    },
+    {
+      "race": "福島12R",
+      "runners": 16,
+      "proven_preoff_horse_count": 0,
+      "result_verified": true,
+      "complete_feature_coverage": false,
+      "has_frozen_same_asof_v51": false
+    }
+  ]
+}

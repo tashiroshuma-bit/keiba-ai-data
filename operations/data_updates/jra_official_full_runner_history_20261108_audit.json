@@ -1,0 +1,20 @@
+{
+  "schema": "official-jra-20261108-full-runner-history-v1",
+  "sqlite_sha256": "6c56cbb3821a5b4f351de67ba2533114fb5daa8d8f0f2bf979970d02f86a3efa",
+  "sqlite_size_bytes": 122880,
+  "sqlite_integrity": "ok",
+  "races_attempted": 36,
+  "counts": {
+    "races": 36,
+    "runners": 495,
+    "horse_ids": 0,
+    "times": 36,
+    "last3": 36,
+    "jockeys": 494
+  },
+  "failed_races": [],
+  "unverified_horse_id_rows_not_inferred": true,
+  "retrospective_use_only_for_2026_11_08": true,
+  "base_canonical_v11_not_modified": true,
+  "all_sources_official": true
+}

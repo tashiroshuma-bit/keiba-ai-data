@@ -135,9 +135,32 @@ def validate_state(state, root=ROOT):
                     saved.get('newly_linked_rows') != repair['newly_linked_rows'] or
                     saved['input_database_sha256'] != repair['input_sha256']):
                 errors.append('identity repair readback or preservation evidence differs')
-            for key in ('sha256','bytes','library_file_id','version'):
-                if saved['database'][key] != state['database'][key]:
-                    errors.append('identity database differs from saved readback: '+key)
+            if state['database']['version'] == saved['database']['version']:
+                for key in ('sha256','bytes','library_file_id','version'):
+                    if saved['database'][key] != state['database'][key]:
+                        errors.append('identity database differs from saved readback: '+key)
+            elif state['database']['version'] == 11 and saved['database']['version'] == 10:
+                # v10 identity repair remains a valid historical snapshot.
+                # v11 is a verified append-only official podium supplement;
+                # compare new-state metadata to its own persisted readback proof.
+                supplement=read('operations/data_updates/canonical_db_v11_update_verified.json')
+                for key in ('sha256','bytes','library_file_id','version'):
+                    if supplement[key] != state['database'][key]:
+                        errors.append('v11 supplement database differs from saved readback: '+key)
+                if (supplement['prior_sha256'] != saved['database']['sha256'] or
+                    supplement['prior_bytes'] != saved['database']['bytes'] or
+                    supplement['prior_version'] != saved['database']['version'] or
+                    supplement['readback_verified'] is not True or
+                    supplement['integrity_check'] != 'ok' or
+                    supplement['foreign_key_check'] != 'ok' or
+                    supplement['canonical_historical_races_unchanged'] != 13176 or
+                    supplement['canonical_historical_runner_rows_unchanged'] != 181345 or
+                    supplement['official_supplement_races'] != 36 or
+                    supplement['official_supplement_placing_rows'] != 108 or
+                    supplement['supplementary_podium_records_train_eligible'] is not False):
+                    errors.append('v11 supplement has unverified preservation or provenance')
+            else:
+                errors.append('canonical DB version lacks verified historical-to-current readback chain')
             if (quality['input_db_sha256'] != saved['database']['sha256'] or
                     repair['output_sha256'] != saved['database']['sha256'] or
                     quality['input_db_bytes'] != saved['database']['bytes'] or

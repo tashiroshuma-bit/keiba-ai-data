@@ -1,0 +1,30 @@
+name: v50 historical race ranks and p3 walkforward study
+on:
+  push:
+    paths:
+      - '.github/workflows/v50_historical_rank_repair.yml'
+      - 'scripts/test_v50_historical_rank_repair.py'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Chronological compare horse strength history and PL place ranking
+        run: python -m scripts.test_v50_historical_rank_repair
+      - name: Save 2025 holdout and selected candidate, without promotion
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add reports/v50_walkforward_rank_repair_2025.json reports/v50_walkforward_rank_repair_2025.md
+          git commit -m "Save v50 historical model and p3 shadow holdout"
+          git pull --rebase origin main
+          git push

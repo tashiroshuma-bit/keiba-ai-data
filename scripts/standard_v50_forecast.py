@@ -142,6 +142,24 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         "status":"SHADOW_ONLY_NO_RANK_MODIFICATION",
         "races":[{"race":r["race"],**difficulty_shadow(r["v50"])}
                  for r in prediction["races"]]}
+    # V51 is a fitted *research candidate*, but its temporal holdout failed.
+    # Register it for audit without modifying the approved v50 forecast.
+    v51_path=ROOT/"operations/prediction_policy/v51_candidate_fitted_research.json"
+    if v51_path.exists():
+        v51_candidate=json.loads(v51_path.read_text())
+        if (v51_candidate.get("version")!="v51" or
+            v51_candidate.get("production_enabled") is not False):
+            raise ValueError("V51 research-only policy mismatch")
+        prediction["v51_candidate_research"]={
+            "version":"v51",
+            "status":v51_candidate["status"],
+            "candidate_weights_path":"operations/prediction_policy/v51_candidate_fitted_research.json",
+            "research_overlay_entrypoint":"scripts/v51_candidate_race_overlay.py",
+            "trained_2023_2024":True,
+            "chronological_2025_2026_holdout_gate_passed":False,
+            "official_identity_and_source_publication_required":True,
+            "applied_to_standard_v50_probabilities":False,
+            "production_promoted":False}
     prediction["standard_forecast"]=True
     prediction["policy_sha256"]=hashlib.sha256(policy_bytes).hexdigest()
     prediction["canonical_database_sha256"]=dbdigest

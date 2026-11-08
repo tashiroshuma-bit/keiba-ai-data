@@ -1,0 +1,608 @@
+{
+  "date": "2026-11-08",
+  "status": "RETROSPECTIVE_SENSITIVITY_NO_ALPHA_PROMOTION",
+  "source_odds": "saved actual 10:51 full-field preoff snapshot for 23 races",
+  "reference": "JRA actual winners after race, evaluation only",
+  "experimental_grid": [
+    0.0,
+    0.05,
+    0.1,
+    0.2,
+    0.3
+  ],
+  "n": 23,
+  "all_models": {
+    "0.0": {
+      "A": {
+        "n": 23,
+        "top1": 1,
+        "top3": 10,
+        "logloss": 2.5385363907293894,
+        "brier": 0.9107527404512695,
+        "changed_count": 0,
+        "changed": []
+      },
+      "B": {
+        "n": 23,
+        "top1": 3,
+        "top3": 11,
+        "logloss": 2.4941169478674303,
+        "brier": 0.9046526576715602,
+        "changed_count": 0,
+        "changed": []
+      },
+      "C": {
+        "n": 23,
+        "top1": 5,
+        "top3": 10,
+        "logloss": 2.47928093327028,
+        "brier": 0.906780372449332,
+        "changed_count": 0,
+        "changed": []
+      },
+      "D": {
+        "n": 23,
+        "top1": 5,
+        "top3": 10,
+        "logloss": 2.4901574038525935,
+        "brier": 0.915539517856093,
+        "changed_count": 0,
+        "changed": []
+      }
+    },
+    "0.05": {
+      "A": {
+        "n": 23,
+        "top1": 1,
+        "top3": 10,
+        "logloss": 2.5099452906338224,
+        "brier": 0.9057510093000125,
+        "changed_count": 1,
+        "changed": [
+          {
+            "race": "福島7R",
+            "old": 6,
+            "new": 10,
+            "new_wins": false,
+            "old_wins": false
+          }
+        ]
+      },
+      "B": {
+        "n": 23,
+        "top1": 5,
+        "top3": 12,
+        "logloss": 2.472305413859619,
+        "brier": 0.9007483202096778,
+        "changed_count": 3,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          }
+        ]
+      },
+      "C": {
+        "n": 23,
+        "top1": 5,
+        "top3": 10,
+        "logloss": 2.4606342730340245,
+        "brier": 0.9030522752801381,
+        "changed_count": 1,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          }
+        ]
+      },
+      "D": {
+        "n": 23,
+        "top1": 4,
+        "top3": 10,
+        "logloss": 2.4714256395807905,
+        "brier": 0.9112271091027967,
+        "changed_count": 1,
+        "changed": [
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      }
+    },
+    "0.1": {
+      "A": {
+        "n": 23,
+        "top1": 3,
+        "top3": 11,
+        "logloss": 2.483099425460011,
+        "brier": 0.9009177617638656,
+        "changed_count": 5,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島7R",
+            "old": 6,
+            "new": 9,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島11R",
+            "old": 15,
+            "new": 8,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島12R",
+            "old": 4,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          }
+        ]
+      },
+      "B": {
+        "n": 23,
+        "top1": 4,
+        "top3": 12,
+        "logloss": 2.4516945141096924,
+        "brier": 0.8969265462457472,
+        "changed_count": 4,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "C": {
+        "n": 23,
+        "top1": 4,
+        "top3": 11,
+        "logloss": 2.442874420808809,
+        "brier": 0.8993782422483398,
+        "changed_count": 2,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "D": {
+        "n": 23,
+        "top1": 4,
+        "top3": 11,
+        "logloss": 2.453498517102436,
+        "brier": 0.9069947220941063,
+        "changed_count": 1,
+        "changed": [
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      }
+    },
+    "0.2": {
+      "A": {
+        "n": 23,
+        "top1": 5,
+        "top3": 12,
+        "logloss": 2.4345860457436204,
+        "brier": 0.8917853523019987,
+        "changed_count": 7,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島6R",
+            "old": 6,
+            "new": 8,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島7R",
+            "old": 6,
+            "new": 9,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島11R",
+            "old": 15,
+            "new": 8,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島12R",
+            "old": 4,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          }
+        ]
+      },
+      "B": {
+        "n": 23,
+        "top1": 5,
+        "top3": 13,
+        "logloss": 2.414042681456721,
+        "brier": 0.8895659140810489,
+        "changed_count": 5,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都7R",
+            "old": 10,
+            "new": 4,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "C": {
+        "n": 23,
+        "top1": 4,
+        "top3": 12,
+        "logloss": 2.4100175048065666,
+        "brier": 0.8922303399633589,
+        "changed_count": 2,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "D": {
+        "n": 23,
+        "top1": 4,
+        "top3": 11,
+        "logloss": 2.4200795833433864,
+        "brier": 0.8988004567343206,
+        "changed_count": 2,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      }
+    },
+    "0.3": {
+      "A": {
+        "n": 23,
+        "top1": 7,
+        "top3": 12,
+        "logloss": 2.3928531103391144,
+        "brier": 0.8834199056063757,
+        "changed_count": 11,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 4,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都7R",
+            "old": 10,
+            "new": 4,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都10R",
+            "old": 8,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島6R",
+            "old": 6,
+            "new": 8,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島7R",
+            "old": 6,
+            "new": 9,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 10,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島9R",
+            "old": 1,
+            "new": 7,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島11R",
+            "old": 15,
+            "new": 8,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島12R",
+            "old": 4,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          }
+        ]
+      },
+      "B": {
+        "n": 23,
+        "top1": 5,
+        "top3": 13,
+        "logloss": 2.381083866612979,
+        "brier": 0.8826451355613514,
+        "changed_count": 5,
+        "changed": [
+          {
+            "race": "東京11R",
+            "old": 8,
+            "new": 5,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都4R",
+            "old": 9,
+            "new": 6,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都5R",
+            "old": 5,
+            "new": 3,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "京都7R",
+            "old": 10,
+            "new": 4,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "C": {
+        "n": 23,
+        "top1": 5,
+        "top3": 13,
+        "logloss": 2.3807052930369372,
+        "brier": 0.8854121693503632,
+        "changed_count": 3,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "京都7R",
+            "old": 13,
+            "new": 4,
+            "new_wins": true,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      },
+      "D": {
+        "n": 23,
+        "top1": 4,
+        "top3": 12,
+        "logloss": 2.3899362304868235,
+        "brier": 0.8910160009966609,
+        "changed_count": 2,
+        "changed": [
+          {
+            "race": "東京9R",
+            "old": 2,
+            "new": 6,
+            "new_wins": false,
+            "old_wins": false
+          },
+          {
+            "race": "福島8R",
+            "old": 6,
+            "new": 14,
+            "new_wins": false,
+            "old_wins": true
+          }
+        ]
+      }
+    }
+  },
+  "no_alpha_selected": true
+}

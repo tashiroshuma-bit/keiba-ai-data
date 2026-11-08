@@ -89,12 +89,23 @@
   "database": {
     "name": "jra_2023_2025.sqlite",
     "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
-    "version": 10,
-    "bytes": 322121728,
-    "sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "version": 11,
+    "bytes": 322170880,
+    "sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
     "repository_root_copy": "historical_ingestion_stub_not_canonical",
     "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
-    "file_id": "file_0000000014b081f5b65d21faae9e9fdd"
+    "file_id": "file_00000000dc1082068fc63d1b40b12901",
+    "previous_version": 10,
+    "previous_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "latest_complete_race_date": "2026-10-18",
+    "append_only_verified_podium_date": "2026-11-08",
+    "append_only_races": 36,
+    "append_only_podium_rows": 108,
+    "append_only_is_full_horse_history": false,
+    "append_only_for_training": false,
+    "library_readback_sha256_verified": true,
+    "source_result_commit_sha": "f97ecc99235cc694387ba86b8381b6173ae0fc34",
+    "update_reason": "verified official 2026-11-08 podium audit supplement, not a full runner-history refresh"
   },
   "sources": {
     "cache": {
@@ -1887,5 +1898,18 @@
     "enabled_for_standard_forecast": false,
     "canonical_version_remains": "v50",
     "reason": "2025 top1/top3/LogLoss worsened; 2026 top3 and LogLoss worsened; no strict preoff publication proof"
-  }
+  },
+  "database_updates": [
+    {
+      "version": 11,
+      "date": "2026-11-08",
+      "path": "/jra_2023_2025.sqlite",
+      "sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
+      "rows": 108,
+      "races": 36,
+      "mode": "audited_postrace_podium_only",
+      "historical_training_table_unchanged": true,
+      "official_id_additions": 0
+    }
+  ]
 }

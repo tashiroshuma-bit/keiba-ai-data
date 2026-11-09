@@ -138,6 +138,7 @@ def main():
     p.add_argument("--v50",required=True);p.add_argument("--weights",required=True)
     p.add_argument("--forecast-source",required=True,help="Exact immutable source input to standard v50")
     p.add_argument("--output-dir",required=True)
+    p.add_argument("--weight-source-archive",required=True,help="directory of original preoff source bytes indexed by SHA256")
     a=p.parse_args()
     v,vhash=raw(a.v50);w,whash=raw(a.weights)
     origin,origin_sha=raw(a.forecast_source)
@@ -154,6 +155,23 @@ def main():
             raise ValueError("off timestamp mismatch from original forecast input")
         if set(indexed(forecast_races[race]["horses"]))!=set(indexed(weight_races[race]["horses"])):
             raise ValueError("forecast source and weight roster mismatch")
+    # Independently verify that each source digest actually corresponds to saved
+    # original bytes rather than an unverified claim inside the JSON manifest.
+    # Existence/hash is necessary but not proof of original capture wall-clock time.
+    source_dir=Path(a.weight_source_archive)
+    if not source_dir.is_dir():raise ValueError("original source archive folder missing")
+    for item in w["races"]:
+        fingerprint=item["source_sha256"]
+        if not isinstance(fingerprint,str) or len(fingerprint)!=64 or any(ch not in "0123456789abcdef" for ch in fingerprint):
+            raise ValueError("source SHA256 malformed")
+        source_file=source_dir/(fingerprint+".bin")
+        if not source_file.is_file() or source_file.is_symlink() or not source_file.stat().st_size:
+            raise ValueError("source bytes not archived for race "+item["race"])
+        h=hashlib.sha256()
+        with source_file.open("rb") as stream:
+            for piece in iter(lambda:stream.read(1048576),b""):h.update(piece)
+        if h.hexdigest()!=fingerprint:
+            raise ValueError("original source bytes and declared SHA256 mismatch")
     output=capture(v,w,v50_hash=vhash,weight_hash=whash)
     # Exact race and as-of are embedded in the file, SHA prevents ambiguous replacements.
     name="v50_weight_pair_"+moment(output["forecast_asof"]).strftime("%Y%m%dT%H%M%SZ")+"_"+vhash[:12]+".json"

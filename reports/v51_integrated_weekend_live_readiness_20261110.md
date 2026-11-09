@@ -57,3 +57,9 @@ Optional `--rank-snapshots /data/frozen_preoff_rank.json` only with fully authen
 4. No historical record can be upgraded to genuine preoff simply because its result PDF or bodyweight exists. Publication and acquisition timestamps are absent for the database cohort.
 
 These risks are explicit instead of hidden. Weekend automations now invoke the integrated runner and preserve v50 as standard.
+
+
+## Preflight schema hardening, same day
+- PR [#12](https://github.com/tashiroshuma-bit/keiba-ai-data/pull/12), merge SHA `f2f53d90e4e20f7a0cb676ed0c85863cc7e98d99`; [GitHub Actions run 42719612990](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/42719612990), both jobs successful.
+- `v51_weekend_preflight.py` now verifies source-model-A schema including full roster, unique numbers, finite normalized p1 sum, race surface and timezone-aware preoff timing. An empty JSON can no longer pass the morning readiness check just because the file exists.
+- The source's *true external observation time* is still not independently proven by the mere presence of these fields. The live acquisition process must supply and independently archive it.

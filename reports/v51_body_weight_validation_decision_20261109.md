@@ -46,3 +46,6 @@ Paired date-block bootstrap, 2026 (89 racing dates, 3,000 seeded resamples):
 7. ⚠ GitHub CI / scheduled forecast production execution not verified by this report.
 
 **Keep PROJECT_STATE.standard_forecast=v50**, keep `operations/prediction_policy/standard_v50.json` and `scripts/standard_v50_forecast.py` unchanged. v51 body-weight branch remains research-only; research result does not pass adoption criteria. Future gate must archive per-race, per-runner complete v50 probabilities and authentic pre-off bodyweight snapshots, compare all required metrics on exact same fields, with a new truly unseen time period.
+## Additional Library archive inspection
+
+Inspected `v50_canonical_retraining_and_weak_races_20261108.zip` (9 entries) and `V51_retraining_validation_20261108.zip` (6 entries). The v50 archive contains 2025/2026 race-level error summaries (2,890/2,384 entries; e.g., winner rank, top1 probability, winning probability) and research retraining scripts but not full contemporaneous **runner-by-runner** genuine standard-v50 pre-off probability snapshots. These summaries cannot be used to calculate the exact paired post-weight renormalization or ordered podium changes. The V51 archive contains fitted research and aggregate validations; it does not cure the timestamp/runner pairing gap. Do not substitute research model labels for genuine production v50.

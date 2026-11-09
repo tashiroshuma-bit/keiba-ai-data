@@ -1,25 +1,37 @@
 import unittest
-from scripts.body_weight_audit import analyze,bucket,number
+from scripts.body_weight_audit import number,bucket,analyze
+
+def row(rid,field,position,weight,delta):
+    return {"race_id":rid,"expected_runners":field,"finish_order":position,
+            "payload":{"body_weight_raw":weight,
+                       "body_weight_change_raw":delta,
+                       "finish_position":position}}
 
 class BodyWeightAuditTests(unittest.TestCase):
-    def test_bins(self):
+    def test_reported_delta_parser(self):
+        self.assertEqual(number("＋10"),10)
+        self.assertEqual(number("−4"),-4)
+        self.assertIsNone(number("計不"))
+        self.assertEqual(bucket(-20),"<=-20")
         self.assertEqual(bucket(-10),"-19..-10")
         self.assertEqual(bucket(0),"-3..+3")
-        self.assertEqual(bucket(10),"+10..+19")
-    def test_only_previous_official_identity(self):
-        rows=[
-          dict(horse_id="A",race_date="2025-01-01",surface="turf",distance_m=1600,finish_order=4,payload={"body_weight":480}),
-          dict(horse_id="A",race_date="2025-03-01",surface="turf",distance_m=1600,finish_order=1,payload={"body_weight":488}),
-          dict(horse_id="B",race_date="2025-03-01",surface="turf",distance_m=1600,finish_order=2,payload={"body_weight":502}),
-          dict(horse_id=None,race_date="2025-03-01",surface="turf",distance_m=1600,finish_order=1,payload={"body_weight":488})]
-        result=analyze(rows)
-        self.assertEqual(result["coverage"]["paired_valid"],1)
-        self.assertEqual(result["cells"][0]["bucket"],"+4..+9")
-        self.assertEqual(result["cells"][0]["win_rate"],1)
-    def test_conflicting_reported_delta_rejected(self):
-        rows=[
-          dict(horse_id="A",race_date="2025-01-01",surface="dirt",distance_m=1200,finish_order=3,payload={"body_weight":490}),
-          dict(horse_id="A",race_date="2025-02-01",surface="dirt",distance_m=1200,finish_order=2,payload={"body_weight":500,"weight_change":-4})]
-        self.assertEqual(analyze(rows)["coverage"]["conflicting_explicit_change"],1)
+        self.assertEqual(bucket(20),">=+20")
 
-if __name__=="__main__":unittest.main()
+    def test_complete_field_and_unknown(self):
+        rows=[row("R1",3,1,"480","+10"),
+              row("R1",3,2,"492","---"),
+              row("R1",3,3,"510","-10")]
+        result=analyze(rows)
+        self.assertEqual(result["complete_races"],1)
+        by_bucket={r["bucket"]:r for r in result["cells"]}
+        self.assertEqual(by_bucket["+10..+19"]["wins"],1)
+        self.assertEqual(by_bucket["unknown"]["n"],1)
+        self.assertEqual(by_bucket["-19..-10"]["top3"],1)
+
+    def test_reject_partial_field(self):
+        result=analyze([row("R1",3,1,"480","+10"),
+                        row("R1",3,2,"490","-2")])
+        self.assertEqual(result["complete_races"],0)
+        self.assertEqual(result["coverage"]["excluded_incomplete_races"],1)
+
+if __name__=="__main__": unittest.main()

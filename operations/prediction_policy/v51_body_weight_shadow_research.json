@@ -1,0 +1,34 @@
+{
+  "schema": "v51-bodyweight-shadow-20261109",
+  "version": "v51",
+  "production_enabled": false,
+  "model_status": "RESEARCH_SHADOW_NOT_VALIDATED_AGAINST_V50",
+  "canonical_database_sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
+  "training_years": [
+    2023,
+    2024
+  ],
+  "exploratory_evaluation_years": [
+    2025,
+    2026
+  ],
+  "comparator": "uniform race probability only, not v50",
+  "evaluated_races": 5336,
+  "logloss_uniform": 2.59746,
+  "logloss_body_weight_only": 2.59558,
+  "bodyweight_factors": {
+    "+4..+9": 1.0160730359883003,
+    "-3..+3": 1.0260531756395874,
+    "+10..+19": 1.0078196321563915,
+    "unknown": 1.0227854761136692,
+    "-9..-4": 0.9393125366002952,
+    ">=+20": 0.8729064085676084,
+    "-19..-10": 0.793254688056658,
+    "<=-20": 0.8503621262038817
+  },
+  "require_preoff_weight_timestamp": true,
+  "require_same_race_and_complete_field": true,
+  "missing_as_unknown": true,
+  "canonical_v50_unchanged": true,
+  "production_promotion_requires_paired_independent_heldout_improvement": true
+}

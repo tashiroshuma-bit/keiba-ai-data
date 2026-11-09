@@ -48,7 +48,7 @@ def recover(database,profiles):
     for rid,num,name,hid,payload,date in values:
         if hid is not None or name not in candidates:continue
         p=candidates[name]
-        age_match=re.search(r"(?<!\\d)(\\d{1,2})(?!\\d)",json.loads(payload or "{}").get("sex_age") or "")
+        age_match=re.search(r"(?<![0-9])([0-9]{1,2})(?![0-9])",json.loads(payload or "{}").get("sex_age") or "")
         if not age_match or int(date[:4])-p["birth_year"]!=int(age_match.group(1)):
             rejections.append({"race_id":rid,"horse_number":num,
                                "horse_name":name,"reason":"birth_year_or_age_mismatch"})

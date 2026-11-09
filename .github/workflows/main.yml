@@ -39,6 +39,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_research_diagnostics.py' -v && python -m unittest discover -s tests -p 'test_v51_weekend_preflight.py' -v
       - name: V51 official ID sidecar evidence and conflict rejection
         run: python -m unittest discover -s tests -p 'test_v51_identity_sidecar.py' -v
+      - name: Point-in-time v51 research feature creation
+        run: python -m unittest discover -s tests -p 'test_v51_preoff_feature_builder.py' -v
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

@@ -39,11 +39,24 @@ class PairedPipelineCLITest(unittest.TestCase):
                "horses":[{"number":i,"body_weight_kg":480+i*2,
                           "weight_change_kg":(i-2)*4,"weight_observed_at":asof}
                          for i in (1,2,3)]}]}
+            source_bytes=b"EXAMPLE_SYNTHETIC_PREOFF_RACE_HTML"
+            source_sha=hashlib.sha256(source_bytes).hexdigest()
+            w["races"][0]["source_sha256"]=source_sha
+            source_dir=root/"weight_source_bytes"
+            source_dir.mkdir()
+            (source_dir/(source_sha+".bin")).write_bytes(source_bytes)
             wp=root/"weights.json";write(wp,w)
             cmd=[sys.executable,"-m","scripts.capture_v50_bodyweight",
                  "--forecast-source",str(src),"--v50",str(vp),
-                 "--weights",str(wp),"--output-dir",str(root/"frozen")]
+                 "--weights",str(wp),"--weight-source-archive",str(source_dir),"--output-dir",str(root/"frozen")]
             p=subprocess.run(cmd,check=True,capture_output=True,text=True)
+            (source_dir/(source_sha+".bin")).write_bytes(b"TAMPERED SOURCE")
+            bad=subprocess.run([sys.executable,"-m","scripts.capture_v50_bodyweight",
+                "--forecast-source",str(src),"--v50",str(vp),"--weights",str(wp),
+                "--weight-source-archive",str(source_dir),
+                "--output-dir",str(root/"tampered")],capture_output=True)
+            self.assertNotEqual(bad.returncode,0)
+            (source_dir/(source_sha+".bin")).write_bytes(source_bytes)
             capture_json=Path(json.loads(p.stdout)["saved"])
             self.assertTrue(capture_json.exists())
             self.assertIn('"production_model": "v50"',capture_json.read_text())

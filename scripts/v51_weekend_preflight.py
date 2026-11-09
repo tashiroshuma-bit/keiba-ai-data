@@ -10,6 +10,32 @@ import json
 import sqlite3
 from pathlib import Path
 
+def validate_source_a(path):
+    """Structural readiness only; source's real-world provenance still needs proof."""
+    try:
+        from scripts.capture_v50_bodyweight import moment, indexed, index_races
+        raw=json.loads(Path(path).read_bytes())
+        if raw.get("source_model")!="A":return False
+        asof=moment(raw["asof"])
+        races=index_races(raw.get("races"),"race")
+        for key,race in races.items():
+            if not key or moment(race["original_off_at"])<=asof:
+                return False
+            if race.get("surface") not in ("turf","dirt"):return False
+            horses=indexed(race["horses"])
+            probs=[]
+            for item in horses.values():
+                if not item.get("name") or "p1" not in item:
+                    return False
+                import math
+                p=float(item["p1"])
+                if not math.isfinite(p) or not 0<p<1:return False
+                probs.append(p)
+            if abs(sum(probs)-1)>1e-5:return False
+        return True
+    except (ValueError,TypeError,KeyError,OverflowError,ImportError,FileNotFoundError):
+        return False
+
 NEEDED=("scripts/standard_v50_forecast.py",
         "scripts/capture_v50_bodyweight.py",
         "scripts/evaluate_v50_v51_weight_pairs.py",
@@ -48,6 +74,7 @@ def preflight(root,*,database=None,source_a=None,weight_manifest=None,weight_arc
         checklist["canonical_db_sha_match"]=False
         checklist["canonical_db_integrity_ok"]=False
     checklist["real_source_A_present"]=bool(source_a and Path(source_a).is_file())
+    checklist["real_source_A_schema_valid"]=validate_source_a(source_a) if checklist["real_source_A_present"] else False
     checklist["weight_manifest_present"]=bool(weight_manifest and Path(weight_manifest).is_file())
     checklist["weight_source_bytes_dir_present"]=bool(weight_archive and Path(weight_archive).is_dir())
     required=[key for key in checklist if phase=="final" or key not in (

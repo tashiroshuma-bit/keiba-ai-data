@@ -8,6 +8,7 @@ All output is append-only. Shadow diagnostics never alter v50.
 import argparse
 import hashlib
 import json
+import datetime as dt
 from pathlib import Path
 from scripts.capture_v50_bodyweight import (raw, moment, indexed, index_races,
                                              immutable_save, capture)
@@ -28,13 +29,20 @@ def verified_sources(weights, archive):
             raise ValueError("original weight source missing or tampered for "+race["race"])
 
 def run(source_a,database,output_dir,*,weights=None,weight_archive=None,
-        research_input=None,rank_snapshots=None):
+        research_input=None,rank_snapshots=None,now=None):
     src,src_sha=raw(source_a)
     if src.get("source_model")!="A":raise ValueError("only actual v50 source A")
     asof=moment(src["asof"])
+    real_now=now if now is not None else dt.datetime.now(dt.timezone.utc)
+    if real_now.tzinfo is None:raise ValueError("runtime clock must have timezone")
+    real_now=real_now.astimezone(dt.timezone.utc)
+    if not asof<=real_now:raise ValueError("source A snapshot timestamp is in the future")
+    if (real_now-asof).total_seconds()>3600:
+        raise ValueError("source A snapshot too stale for prospective runner")
     races=index_races(src["races"],"race")
     for rid,r in races.items():
-        if moment(r["original_off_at"])<=asof:raise ValueError("source A after off: "+rid)
+        if moment(r["original_off_at"])<=real_now:
+            raise ValueError("race already started, cannot freeze prospective forecast: "+rid)
         indexed(r["horses"])
     root=Path(output_dir)
     root.mkdir(parents=True,exist_ok=True)
@@ -82,7 +90,9 @@ def run(source_a,database,output_dir,*,weights=None,weight_archive=None,
                 raise ValueError("only frozen rank research output accepted")
             if moment(p["created_at"])>asof or moment(p["off_timestamp"])!=moment(races[rid]["original_off_at"]):
                 raise ValueError("rank model only available after v50 snapshot")
-            if set(indexed(p["runners"]))!=set(indexed(races[rid]["horses"])):
+            if len(p["runners"])<3 or len({str(q["horse_number"]) for q in p["runners"]})!=len(p["runners"]):
+                raise ValueError("invalid or duplicate rank runner field")
+            if {str(q["horse_number"]) for q in p["runners"]}!=set(indexed(races[rid]["horses"])):
                 raise ValueError("rank shadow horse field mismatch")
         optional["learned_rank"]={"sha256":rank_sha,"status":"SAVED_RESEARCH_OUTPUT_SAME_ASOF",
             "races":len(items)}
@@ -113,7 +123,7 @@ def run(source_a,database,output_dir,*,weights=None,weight_archive=None,
               "canonical_db_sha256":v50["canonical_database_sha256"],
               "v50_path":str(v50path),"forecast_asof":src["asof"],
               "races":len(races),"race_diagnostics":diagnostics,"optional":optional,
-              "synthetic_test_result_is_not_actual_race_evidence":True,
+              "source_observation_authentication":"MANIFEST_ONLY_INDEPENDENT_SOURCE_EVIDENCE_REQUIRED",
               "production_model":"v50","promoted_v51":False}
     manifestfile=root/("research_preoff_"+identifier+".json")
     h=immutable_save(manifestfile,manifest)

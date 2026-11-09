@@ -31,7 +31,7 @@ jobs:
       - run: python -m unittest discover -s scripts -p 'test_*jockey*.py' -v
       - run: python -m unittest discover -s scripts -p 'test_preoff_body_weight.py' -v
       - name: Run pre-off paired v50/weight capture and shadow research tests
-        run: python -m unittest discover -s tests -p 'test_capture_v50_bodyweight.py' -v && python -m unittest discover -s tests -p 'test_v51_body_weight_shadow.py' -v && python -m unittest discover -s tests -p 'test_body_weight_audit.py' -v
+        run: python -m unittest discover -s tests -p 'test_capture_v50_bodyweight.py' -v && python -m unittest discover -s tests -p 'test_evaluate_v50_v51_weight_pairs.py' -v && python -m unittest discover -s tests -p 'test_v51_body_weight_shadow.py' -v && python -m unittest discover -s tests -p 'test_body_weight_audit.py' -v
       - run: python -m unittest discover -s scripts -p 'test_refresh_sunday.py' -v
       - run: python -m unittest discover -s keiba_v48 -v
       - run: python -m compileall -q keiba_v48

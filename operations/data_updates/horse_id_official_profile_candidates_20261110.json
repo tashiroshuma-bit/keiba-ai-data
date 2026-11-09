@@ -1,0 +1,43 @@
+{
+  "schema": "jra-official-profile-identity-candidates-v1",
+  "read_date": "2026-11-10",
+  "status": "PROFILE_NAME_BIRTHYEAR_MATCH_REQUIRES_RACEWISE_VERIFICATION",
+  "profiles": [
+    {
+      "horse_name": "フレンドモナコ",
+      "horse_id": "jra:2023106197",
+      "birth_year": 2023,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9"
+    },
+    {
+      "horse_name": "ブルーストレイル",
+      "horse_id": "jra:2021106078",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3"
+    },
+    {
+      "horse_name": "ナンナンプー",
+      "horse_id": "jra:2022102878",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B"
+    },
+    {
+      "horse_name": "ゴーゴーパンチ",
+      "horse_id": "jra:2023103931",
+      "birth_year": 2023,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002023103931%2F8B"
+    },
+    {
+      "horse_name": "ゴーゴータカシ",
+      "horse_id": "jra:2022102135",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102135%2F3B"
+    },
+    {
+      "horse_name": "ブリックアブラック",
+      "horse_id": "jra:2023102410",
+      "birth_year": 2023,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023102410%2FFB"
+    }
+  ]
+}

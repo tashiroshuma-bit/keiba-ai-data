@@ -47,11 +47,22 @@ class WeekendPreflightTests(unittest.TestCase):
             from scripts.v51_weekend_preflight import NEEDED
             for name in NEEDED:
                 p=base/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text("fixture only")
-            source=base/"real_source_placeholder.json";source.write_text("{}")
+            source=base/"real_source_placeholder.json"
+            valid_source={"source_model":"A","asof":"2026-11-14T08:00:00+09:00",
+              "races":[{"race":"2026-11-14 Tokyo 1R","original_off_at":"2026-11-14T10:00:00+09:00",
+              "surface":"turf","horses":[{"number":i,"name":"horse"+str(i),"p1":p}
+                for i,p in ((1,.5),(2,.3),(3,.2))]}]}
+            source.write_text(json.dumps(valid_source))
             morning=preflight(base,database=db,source_a=source,phase="morning")
             final=preflight(base,database=db,source_a=source,phase="final")
             self.assertEqual(morning["status"],"READY_TO_ATTEMPT_REAL_PREOFF")
             self.assertTrue(morning["checks"]["canonical_db_integrity_ok"])
+            self.assertTrue(morning["checks"]["real_source_A_schema_valid"])
+            valid_source["races"][0]["horses"][0]["p1"]=0.9
+            source.write_text(json.dumps(valid_source))
+            broken=preflight(base,database=db,source_a=source,phase="morning")
+            self.assertEqual(broken["status"],"NOT_READY")
+            self.assertIn("real_source_A_schema_valid",broken["blockers"])
             self.assertEqual(final["status"],"NOT_READY")
             self.assertIn("weight_manifest_present",final["blockers"])
 if __name__=="__main__":unittest.main()

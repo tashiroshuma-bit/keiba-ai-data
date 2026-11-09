@@ -23,7 +23,14 @@ def number(value):
 
 def bucket(delta):
     if delta is None or abs(delta)>80: return "unknown"
-    return next((name for low,high,name in BINS if low<=delta<high),"unknown")
+    # Explicit inclusive boundaries: -20 goes to <=-20, -10 to -19..-10.
+    if delta <= -20: return "<=-20"
+    if delta <= -10: return "-19..-10"
+    if delta <= -4: return "-9..-4"
+    if delta < 4: return "-3..+3"
+    if delta < 10: return "+4..+9"
+    if delta < 20: return "+10..+19"
+    return ">=+20"
 
 def analyze(rows):
     groups=collections.defaultdict(list)

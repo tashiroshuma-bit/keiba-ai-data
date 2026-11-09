@@ -4,6 +4,12 @@ Research only; never overwrites v50, never infers weight information at race sta
 import json
 import math
 from pathlib import Path
+import datetime as dt
+
+def _moment(value):
+    t=dt.datetime.fromisoformat(value.replace('Z','+00:00'))
+    if t.tzinfo is None: raise ValueError('Timezone-aware preoff timestamp required')
+    return t.astimezone(dt.timezone.utc)
 
 POLICY=Path(__file__).resolve().parents[1]/"operations/prediction_policy/v51_body_weight_shadow_research.json"
 
@@ -27,9 +33,9 @@ def apply(v50_horses, weight_rows, *, policy_path=POLICY, asof):
     scores=[]
     for horse,p in zip(v50_horses,base):
         row=by_number[str(horse["number"])]
-        if row.get("weight_observed_at") is None or row["weight_observed_at"]>asof:
+        if row.get("weight_observed_at") is None or _moment(row["weight_observed_at"])>_moment(asof):
             raise ValueError("no proven preoff weight observation")
-        if row.get("asof")!=asof:
+        if row.get("asof") is None or _moment(row["asof"])!=_moment(asof):
             raise ValueError("weight snapshot asof mismatch")
         group=row.get("weight_change_bucket")
         if group is None:

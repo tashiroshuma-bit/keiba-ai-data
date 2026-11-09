@@ -85,7 +85,8 @@ def day_bias(previous_day_races,asof,off,track,surface):
         if race.get("track")!=track or race.get("surface")!=surface:continue
         if when(race["off_at"])>=when(off) or when(race["observed_at"])>when(asof):
             raise ValueError("future same-day result used for track bias")
-        if when(race["off_at"]).date()!=when(off).date():continue
+        jst=dt.timezone(dt.timedelta(hours=9))
+        if when(race["off_at"]).astimezone(jst).date()!=when(off).astimezone(jst).date():continue
         for h in race.get("horses",[]):
             score=normfinish(h)
             n=h["field_size"]

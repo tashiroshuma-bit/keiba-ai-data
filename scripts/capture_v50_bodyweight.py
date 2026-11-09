@@ -136,9 +136,24 @@ def immutable_save(path,obj):
 def main():
     p=argparse.ArgumentParser()
     p.add_argument("--v50",required=True);p.add_argument("--weights",required=True)
+    p.add_argument("--forecast-source",required=True,help="Exact immutable source input to standard v50")
     p.add_argument("--output-dir",required=True)
     a=p.parse_args()
     v,vhash=raw(a.v50);w,whash=raw(a.weights)
+    origin,origin_sha=raw(a.forecast_source)
+    if origin_sha!=v.get("forecast_sha256"):
+        raise ValueError("v50 source bytes do not match forecast SHA256")
+    forecast_races=index_races(origin.get("races"),"race")
+    weight_races=index_races(w.get("races"),"race")
+    if set(forecast_races)!=set(weight_races):
+        raise ValueError("race set mismatch with original v50 forecast input")
+    if moment(origin.get("asof"))!=moment(v["forecast_asof"]):
+        raise ValueError("forecast input asof mismatch")
+    for race in forecast_races:
+        if moment(forecast_races[race]["original_off_at"])!=moment(weight_races[race]["original_off_at"]):
+            raise ValueError("off timestamp mismatch from original forecast input")
+        if set(indexed(forecast_races[race]["horses"]))!=set(indexed(weight_races[race]["horses"])):
+            raise ValueError("forecast source and weight roster mismatch")
     output=capture(v,w,v50_hash=vhash,weight_hash=whash)
     # Exact race and as-of are embedded in the file, SHA prevents ambiguous replacements.
     name="v50_weight_pair_"+moment(output["forecast_asof"]).strftime("%Y%m%dT%H%M%SZ")+"_"+vhash[:12]+".json"

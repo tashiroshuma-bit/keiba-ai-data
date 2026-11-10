@@ -1,0 +1,21 @@
+{
+  "schema": "jra-official-profile-alias-proof-v1",
+  "profiles": [
+    {
+      "horse_name": "ファストネットワーク",
+      "horse_id": "jra:2020190007",
+      "birth_year": 2020,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020190007%2F21",
+      "expected_race_id": "202609040211",
+      "horse_number": 8,
+      "original_official_roster_name": "ファストネットワー",
+      "official_record": {
+        "race_date": "2026-09-06",
+        "venue": "阪神",
+        "race_number": 11,
+        "finish_order": 15,
+        "body_weight_kg": 506
+      }
+    }
+  ]
+}

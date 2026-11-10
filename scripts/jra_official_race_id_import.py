@@ -19,6 +19,7 @@ def sha(path):
 
 def import_results(database,manifest_path,output_dir,prior_sidecar=None):
     root=Path(manifest_path).parent; data=json.loads(Path(manifest_path).read_bytes())
+    from scripts.jra_official_race_bulk_id_crawler import parse_html,race_id_from_url
     if data['schema']!='jra-official-raw-results-horse-id-recovery-v1':raise ValueError('wrong official source schema')
     output=Path(output_dir)
     if output.exists() and any(output.iterdir()):raise FileExistsError('immutable destination already exists')
@@ -39,6 +40,15 @@ def import_results(database,manifest_path,output_dir,prior_sidecar=None):
                 raise ValueError('unapproved primary source URL')
             if len(finger)!=64 or sha(root/'raw'/(finger+'.bin'))!=finger:
                 raise ValueError('source original HTML bytes absent or tampered '+rid)
+            if race_id_from_url(url)!=rid:
+                raise ValueError('official URL race ID does not match manifest')
+            original_rows,_=parse_html((root/'raw'/(finger+'.bin')).read_bytes(),url)
+            original_triplets={(int(h['horse_number']),normalized(h['horse_name']),h['horse_id'])
+                               for h in original_rows}
+            claimed_triplets={(int(h['horse_number']),normalized(h['horse_name']),h['horse_id'])
+                              for h in race['horses']}
+            if original_triplets!=claimed_triplets:
+                raise ValueError('horse rows in manifest do not match raw official HTML')
             source_count+=1
             expected=con.execute('select horse_number,horse_name,horse_id from annual_report_runners where race_id=?',(rid,)).fetchall()
             bynum={int(x['horse_number']):x for x in expected}

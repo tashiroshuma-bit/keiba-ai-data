@@ -14,7 +14,10 @@ from html.parser import HTMLParser
 from urllib.parse import urljoin, unquote, urlsplit
 
 OFFICIAL=("https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F7C",
-          "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103827%2F73")
+          "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103827%2F73",
+          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F00",
+          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105",
+          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F7D")
 class HorseLinks(HTMLParser):
     def __init__(self):
         super().__init__()

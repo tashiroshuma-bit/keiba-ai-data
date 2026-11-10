@@ -20,6 +20,19 @@ class HorseIDRecoveryTests(unittest.TestCase):
             "birth_year":2023,
             "official_profile_url":"https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023100001%2F0A"}]
     def tearDown(self):self.tmp.cleanup()
+    def test_official_profile_candidate_catalog_integrity(self):
+        path=Path(__file__).resolve().parents[1]/"operations/data_updates/horse_id_official_profile_candidates_20261110.json"
+        catalog=json.loads(path.read_text(encoding="utf-8"))
+        items=catalog["profiles"]
+        self.assertEqual(len(items),33)
+        self.assertEqual(len({x["horse_name"] for x in items}),len(items))
+        self.assertEqual(len({x["horse_id"] for x in items}),len(items))
+        for x in items:
+            self.assertTrue(x["horse_id"].startswith("jra:"))
+            self.assertEqual(len(x["horse_id"]),14)
+            self.assertEqual(int(x["horse_id"][4:8]),x["birth_year"])
+            self.assertIn(x["horse_id"][4:],x["official_profile_url"])
+            self.assertTrue(x["official_profile_url"].startswith("https://www.jra.go.jp/JRADB/accessU.html?"))
     def test_one_missing_id_recovered_with_age_proof(self):
         report=recover(self.db,self.profiles)
         self.assertEqual(report["matched_rows"],1)

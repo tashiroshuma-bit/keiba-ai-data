@@ -24,7 +24,7 @@ class HorseIDRecoveryTests(unittest.TestCase):
         path=Path(__file__).resolve().parents[1]/"operations/data_updates/horse_id_official_profile_candidates_20261110.json"
         catalog=json.loads(path.read_text(encoding="utf-8"))
         items=catalog["profiles"]
-        self.assertEqual(len(items),33)
+        self.assertEqual(len(items),60)
         self.assertEqual(len({x["horse_name"] for x in items}),len(items))
         self.assertEqual(len({x["horse_id"] for x in items}),len(items))
         for x in items:

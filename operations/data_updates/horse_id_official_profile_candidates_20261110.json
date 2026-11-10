@@ -281,9 +281,225 @@
       "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021105831%2F20",
       "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
       "web_source_ref": "turn443132search2"
+    },
+    {
+      "horse_name": "トウカイポワール",
+      "horse_id": "jra:2021102389",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021102389%2F46",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn937078search3"
+    },
+    {
+      "horse_name": "ペルフェツィオーネ",
+      "horse_id": "jra:2021106690",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021106690%2F9A",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn937078search4"
+    },
+    {
+      "horse_name": "ミッドセンチュリー",
+      "horse_id": "jra:2022103308",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002022103308%2FCE",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn937078search5"
+    },
+    {
+      "horse_name": "カージオイド",
+      "horse_id": "jra:2022104062",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002022104062%2FD8",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn937078search2"
+    },
+    {
+      "horse_name": "サンウリエル",
+      "horse_id": "jra:2021101304",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101304%2F7F",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn437180search0"
+    },
+    {
+      "horse_name": "ウォーターパラディ",
+      "horse_id": "jra:2022103229",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022103229%2F17",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn437180search2"
+    },
+    {
+      "horse_name": "クリノアルバトロス",
+      "horse_id": "jra:2020101983",
+      "birth_year": 2020,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101983%2F26",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn437180search3"
+    },
+    {
+      "horse_name": "キャントウェイト",
+      "horse_id": "jra:2021102800",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102800%2F97",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn437180search5"
+    },
+    {
+      "horse_name": "ホウオウサンデー",
+      "horse_id": "jra:2018105047",
+      "birth_year": 2018,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102018105047%2FAA",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn220145search0"
+    },
+    {
+      "horse_name": "ビーアストニッシド",
+      "horse_id": "jra:2019101348",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019101348%2F99",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn220145search1"
+    },
+    {
+      "horse_name": "ナムラブーニン",
+      "horse_id": "jra:2021102420",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102420%2FF3",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn220145search4"
+    },
+    {
+      "horse_name": "ペプチドヤマト",
+      "horse_id": "jra:2019103605",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019103605%2F71",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn220145search5"
+    },
+    {
+      "horse_name": "ハピ",
+      "horse_id": "jra:2019100630",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019100630%2F95",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn220145search8"
+    },
+    {
+      "horse_name": "エーティーマクフィ",
+      "horse_id": "jra:2019105859",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019105859%2FCD",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn945550search0"
+    },
+    {
+      "horse_name": "エミサキホコル",
+      "horse_id": "jra:2020102751",
+      "birth_year": 2020,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102751%2F9D",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn945550search2"
+    },
+    {
+      "horse_name": "サトミノキラリ",
+      "horse_id": "jra:2021101429",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101429%2F0F",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search0"
+    },
+    {
+      "horse_name": "キャンドルマス",
+      "horse_id": "jra:2021101624",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021101624%2F32",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search2"
+    },
+    {
+      "horse_name": "クロドラバール",
+      "horse_id": "jra:2021101733",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021101733%2F19",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search3"
+    },
+    {
+      "horse_name": "ニホンピロゴルディ",
+      "horse_id": "jra:2021103845",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021103845%2F1E",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search4"
+    },
+    {
+      "horse_name": "キュールエフウジン",
+      "horse_id": "jra:2019102983",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019102983%2F96",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search5"
+    },
+    {
+      "horse_name": "ナイトインロンドン",
+      "horse_id": "jra:2020101152",
+      "birth_year": 2020,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020101152%2FFB",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search8"
+    },
+    {
+      "horse_name": "スノーホルンロード",
+      "horse_id": "jra:2019106520",
+      "birth_year": 2019,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019106520%2FD5",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search9"
+    },
+    {
+      "horse_name": "ビッグフラワー",
+      "horse_id": "jra:2021100958",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021100958%2FEB",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn217311search10"
+    },
+    {
+      "horse_name": "イノキ",
+      "horse_id": "jra:2022100757",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022100757%2F89",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn528727search0"
+    },
+    {
+      "horse_name": "ヤコブセン",
+      "horse_id": "jra:2022103288",
+      "birth_year": 2022,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002022103288%2F1D",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn528727search2"
+    },
+    {
+      "horse_name": "スマートサニー",
+      "horse_id": "jra:2020104304",
+      "birth_year": 2020,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020104304%2FC0",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn528727search3"
+    },
+    {
+      "horse_name": "ストレングス",
+      "horse_id": "jra:2021106658",
+      "birth_year": 2021,
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021106658%2FF2",
+      "verification_status": "JRA_PROFILE_NAME_YEAR_MATCH_CANDIDATE_RACEWISE_PENDING",
+      "web_source_ref": "turn528727search9"
     }
   ],
-  "source_profile_count": 33,
+  "source_profile_count": 60,
   "newly_added_profile_count": 27,
   "updated_date": "2026-11-10"
 }

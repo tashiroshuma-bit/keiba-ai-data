@@ -1,0 +1,896 @@
+{
+  "schema": "jra-official-valid-result-week-seed-v1",
+  "source": "canonical_v11_official_identity_evidence_and_official_profile_start_evidence_original_result_urls",
+  "known_seed_weeks": 148,
+  "original_missing_rows_in_seed_weeks": 43730,
+  "rows": [
+    {
+      "iso_year": 2023,
+      "iso_week": 2,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301040420230109%2FC9",
+      "missing_row_target_week": 392
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 3,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202301070720230121%2F57",
+      "missing_row_target_week": 341
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 4,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202301010820230128%2FF1",
+      "missing_row_target_week": 266
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 5,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202301070920230204%2FE2",
+      "missing_row_target_week": 306
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 6,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202301051220230211%2FC7",
+      "missing_row_target_week": 363
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 7,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202302031120230218%2F3F",
+      "missing_row_target_week": 351
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 8,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202302050320230225%2F60",
+      "missing_row_target_week": 379
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 9,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202301081120230305%2FA8",
+      "missing_row_target_week": 219
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 10,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202302010820230311%2F27",
+      "missing_row_target_week": 300
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 11,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202302081220230319%2FFE",
+      "missing_row_target_week": 277
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 12,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202302010520230325%2FEA",
+      "missing_row_target_week": 334
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 13,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202302040520230402%2FD3",
+      "missing_row_target_week": 206
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 14,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202303060920230409%2F0B",
+      "missing_row_target_week": 295
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 15,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202301040820230416%2F53",
+      "missing_row_target_week": 316
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 16,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202302011220230422%2F39",
+      "missing_row_target_week": 328
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 17,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202301010920230429%2F8A",
+      "missing_row_target_week": 251
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 18,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202301050220230506%2F1B",
+      "missing_row_target_week": 253
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 19,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202301061220230514%2F98",
+      "missing_row_target_week": 259
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 20,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202301090220230520%2F2D",
+      "missing_row_target_week": 305
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 21,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202302110320230527%2FD8",
+      "missing_row_target_week": 219
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 23,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202303031120230610%2FBD",
+      "missing_row_target_week": 283
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 24,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202303050320230617%2F0E",
+      "missing_row_target_week": 282
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 25,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202303080820230625%2FD0",
+      "missing_row_target_week": 293
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 27,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202303031020230708%2FA5",
+      "missing_row_target_week": 312
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 28,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202302060120230716%2F9E",
+      "missing_row_target_week": 250
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 29,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202302071220230722%2FC8",
+      "missing_row_target_week": 239
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 30,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202302011220230729%2F8B",
+      "missing_row_target_week": 183
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 31,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202302030920230805%2FE5",
+      "missing_row_target_week": 186
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 32,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202303010620230812%2F34",
+      "missing_row_target_week": 292
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 33,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202303031020230819%2F59",
+      "missing_row_target_week": 276
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 34,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202303060120230827%2FF5",
+      "missing_row_target_week": 260
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 35,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202302081120230903%2FF1",
+      "missing_row_target_week": 261
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 36,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202304011220230909%2FC3",
+      "missing_row_target_week": 110
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 37,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202304030420230916%2FC2",
+      "missing_row_target_week": 145
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 38,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202304071220230924%2F56",
+      "missing_row_target_week": 224
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 39,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202304090120231001%2F0F",
+      "missing_row_target_week": 143
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 40,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202304020720231008%2F2B",
+      "missing_row_target_week": 200
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 41,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202304051120231015%2FBB",
+      "missing_row_target_week": 86
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 42,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202302070920231022%2F96",
+      "missing_row_target_week": 291
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 43,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202304060720231029%2F1E",
+      "missing_row_target_week": 214
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 44,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202303021020231105%2F09",
+      "missing_row_target_week": 259
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 45,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202303041120231112%2F39",
+      "missing_row_target_week": 223
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 46,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202303050720231118%2F94",
+      "missing_row_target_week": 266
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 47,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202303070920231125%2F79",
+      "missing_row_target_week": 226
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 48,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202305020320231203%2FF5",
+      "missing_row_target_week": 223
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 49,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202305040620231210%2F1D",
+      "missing_row_target_week": 231
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 50,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202305061020231217%2F42",
+      "missing_row_target_week": 249
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 51,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202305070820231223%2F93",
+      "missing_row_target_week": 211
+    },
+    {
+      "iso_year": 2023,
+      "iso_week": 52,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202305090220231228%2FEC",
+      "missing_row_target_week": 125
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 2,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202401030820240108%2F08",
+      "missing_row_target_week": 300
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 3,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202401061120240120%2F8C",
+      "missing_row_target_week": 244
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 4,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202401051020240127%2F68",
+      "missing_row_target_week": 276
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 5,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202401041020240204%2FCE",
+      "missing_row_target_week": 266
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 6,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202401050820240210%2FFD",
+      "missing_row_target_week": 3
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 7,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202402071220240217%2F31",
+      "missing_row_target_week": 252
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 8,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202402050920240224%2FE8",
+      "missing_row_target_week": 293
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 9,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202401041020240303%2FB4",
+      "missing_row_target_week": 290
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 10,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202401060720240310%2F5E",
+      "missing_row_target_week": 285
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 11,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202401080820240317%2F24",
+      "missing_row_target_week": 281
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 12,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202401050920240323%2F52",
+      "missing_row_target_week": 269
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 13,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202402040320240331%2F46",
+      "missing_row_target_week": 188
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 14,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202401020720240407%2F22",
+      "missing_row_target_week": 247
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 15,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202401040720240414%2F2B",
+      "missing_row_target_week": 274
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 16,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202403010820240420%2FC1",
+      "missing_row_target_week": 234
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 17,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202403040520240428%2FE3",
+      "missing_row_target_week": 285
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 18,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202401040420240505%2F34",
+      "missing_row_target_week": 234
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 19,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202401061220240512%2F25",
+      "missing_row_target_week": 289
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 20,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202403091020240518%2F0C",
+      "missing_row_target_week": 285
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 21,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202403110320240525%2F74",
+      "missing_row_target_week": 200
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 23,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202403041020240609%2FCD",
+      "missing_row_target_week": 383
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 24,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202404050820240615%2F0B",
+      "missing_row_target_week": 308
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 25,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202404070320240622%2F8B",
+      "missing_row_target_week": 221
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 26,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202403020920240630%2F12",
+      "missing_row_target_week": 311
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 27,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202403030320240706%2F22",
+      "missing_row_target_week": 305
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 28,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202403060120240714%2FF1",
+      "missing_row_target_week": 293
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 29,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202401010820240720%2FCA",
+      "missing_row_target_week": 305
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 30,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202402010320240727%2F7B",
+      "missing_row_target_week": 180
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 31,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202402031220240803%2FD1",
+      "missing_row_target_week": 241
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 32,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202403010320240810%2FA2",
+      "missing_row_target_week": 288
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 33,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202403031020240817%2FE6",
+      "missing_row_target_week": 323
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 34,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202402051020240824%2F9C",
+      "missing_row_target_week": 293
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 35,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202403080120240901%2F3B",
+      "missing_row_target_week": 302
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 36,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202404020620240908%2F02",
+      "missing_row_target_week": 156
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 37,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202404030620240914%2FDB",
+      "missing_row_target_week": 159
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 38,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202404070820240922%2FF1",
+      "missing_row_target_week": 233
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 39,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202403090920240929%2FD0",
+      "missing_row_target_week": 211
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 40,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202405010620241005%2FE2",
+      "missing_row_target_week": 308
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 42,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202404040420241014%2F15",
+      "missing_row_target_week": 320
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 43,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202404070120241026%2F23",
+      "missing_row_target_week": 299
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 44,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202403020920241103%2FA1",
+      "missing_row_target_week": 261
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 45,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202403030720241109%2F18",
+      "missing_row_target_week": 320
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 46,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202405061220241117%2F10",
+      "missing_row_target_week": 342
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 47,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202405081020241124%2FAF",
+      "missing_row_target_week": 265
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 48,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202405011220241130%2FA4",
+      "missing_row_target_week": 311
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 49,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202404040720241208%2FA2",
+      "missing_row_target_week": 338
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 50,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202407051020241214%2FB7",
+      "missing_row_target_week": 345
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 51,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202405081220241222%2F64",
+      "missing_row_target_week": 228
+    },
+    {
+      "iso_year": 2024,
+      "iso_week": 52,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202405091220241228%2F45",
+      "missing_row_target_week": 144
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 2,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202501020820250106%2FD8",
+      "missing_row_target_week": 292
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 3,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202501050820250113%2F0A",
+      "missing_row_target_week": 423
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 4,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202501081020250125%2F2B",
+      "missing_row_target_week": 343
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 5,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202501030320250201%2FAF",
+      "missing_row_target_week": 304
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 6,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202501040920250209%2F6F",
+      "missing_row_target_week": 330
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 7,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202501080320250216%2FF9",
+      "missing_row_target_week": 432
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 8,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202501101020250223%2FC7",
+      "missing_row_target_week": 349
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 9,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202502011120250301%2FF0",
+      "missing_row_target_week": 382
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 10,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202502040420250309%2FFE",
+      "missing_row_target_week": 216
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 11,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202501050720250315%2FA3",
+      "missing_row_target_week": 339
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 12,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202502070820250322%2FB4",
+      "missing_row_target_week": 335
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 13,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202503020820250330%2F86",
+      "missing_row_target_week": 323
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 14,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202503041220250406%2F5B",
+      "missing_row_target_week": 236
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 15,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202503061120250413%2FAF",
+      "missing_row_target_week": 351
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 16,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202501031020250419%2FCF",
+      "missing_row_target_week": 365
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 17,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202501050820250426%2F2E",
+      "missing_row_target_week": 352
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 18,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202502041220250504%2FE1",
+      "missing_row_target_week": 368
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 19,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202501031220250510%2F59",
+      "missing_row_target_week": 362
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 20,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202502071020250517%2F61",
+      "missing_row_target_week": 323
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 21,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202502100720250525%2FCD",
+      "missing_row_target_week": 398
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 23,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202503010120250607%2F64",
+      "missing_row_target_week": 262
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 24,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202503040820250615%2FB8",
+      "missing_row_target_week": 410
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 25,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202503051020250621%2F13",
+      "missing_row_target_week": 430
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 26,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202501051020250628%2FFE",
+      "missing_row_target_week": 414
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 27,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202502030120250705%2F86",
+      "missing_row_target_week": 360
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 28,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202502051120250712%2FE1",
+      "missing_row_target_week": 388
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 29,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202502080920250720%2FBB",
+      "missing_row_target_week": 516
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 30,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202501021120250727%2FCE",
+      "missing_row_target_week": 3
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 31,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202501031020250802%2FA2",
+      "missing_row_target_week": 424
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 32,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202503050720250809%2F72",
+      "missing_row_target_week": 371
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 33,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202503081020250817%2F0A",
+      "missing_row_target_week": 388
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 34,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202504021020250824%2FAC",
+      "missing_row_target_week": 357
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 35,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202502031120250830%2F1C",
+      "missing_row_target_week": 426
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 36,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202502060620250907%2F44",
+      "missing_row_target_week": 423
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 37,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202504031020250913%2F17",
+      "missing_row_target_week": 286
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 38,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202504070120250921%2F26",
+      "missing_row_target_week": 450
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 39,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202504090920250928%2FDF",
+      "missing_row_target_week": 296
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 40,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202503020120251005%2F71",
+      "missing_row_target_week": 285
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 41,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202503040920251012%2F22",
+      "missing_row_target_week": 306
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 42,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202504020520251019%2F9C",
+      "missing_row_target_week": 149
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 43,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202503080820251025%2FCA",
+      "missing_row_target_week": 513
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 44,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202503110120251102%2F52",
+      "missing_row_target_week": 281
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 45,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202503010420251108%2F5D",
+      "missing_row_target_week": 378
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 46,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202504041120251116%2F6C",
+      "missing_row_target_week": 496
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 47,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202504050720251122%2F31",
+      "missing_row_target_week": 331
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 48,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202505060320251124%2F9D",
+      "missing_row_target_week": 530
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 49,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202505020320251207%2F63",
+      "missing_row_target_week": 496
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 50,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202505040820251214%2F89",
+      "missing_row_target_week": 490
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 51,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202505050820251220%2F84",
+      "missing_row_target_week": 536
+    },
+    {
+      "iso_year": 2025,
+      "iso_week": 52,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202505071020251227%2F3F",
+      "missing_row_target_week": 421
+    }
+  ]
+}

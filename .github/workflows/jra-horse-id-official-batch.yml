@@ -1,0 +1,47 @@
+name: JRA official horse ID source batches
+on:
+  pull_request:
+    paths:
+      - scripts/jra_official_race_bulk_id_crawler.py
+      - scripts/jra_official_race_id_import.py
+      - tests/test_jra_official_race_bulk_id_crawler.py
+      - tests/test_jra_official_race_id_import.py
+      - .github/workflows/jra-horse-id-official-batch.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - label: 2023-w02
+            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301040420230109%2FC9"
+          - label: 2024-w23
+            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202403041020240609%2FCD"
+          - label: 2025-w51
+            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202505050820251220%2F84"
+          - label: 2026-w42
+            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604070120261018%2F9A"
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test strict parser and official importer without internet
+        run: |
+          python -m unittest discover -s tests -p 'test_jra_official_race_bulk_id_crawler.py' -v
+          python -m unittest discover -s tests -p 'test_jra_official_race_id_import.py' -v
+      - name: Retrieve up to 80 JRA original race HTML sources with 1.5-second gaps
+        run: |
+          python -m scripts.jra_official_race_bulk_id_crawler --seed "${{ matrix.seed }}" --output-dir /tmp/jra_horse_id_${{ matrix.label }} --max-pages 80 --delay 1.5
+      - name: Upload original source bytes and race-name-number-ID evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-official-horse-id-${{ matrix.label }}
+          path: /tmp/jra_horse_id_${{ matrix.label }}/
+          retention-days: 7
+          if-no-files-found: error

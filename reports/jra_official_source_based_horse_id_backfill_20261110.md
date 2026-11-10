@@ -40,3 +40,19 @@ Combined immutable research sidecar:
 - 2026-10-18 Kyoto real official race source: https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604070120261018%2F9A
 
 No JRA-VAN subscription; no paid sources. All result source timestamps are **postrace** and used only to reconstruct historical identity, not as proof of past prediction at off-time. Standard forecasting model v50 unchanged, v51 remains research.
+
+## Updated final-source cohort (2026 October 17/18 official result pages)
+The earlier table above reports the first three strictly verified week cohorts, NOT the final cumulative count. A separately archived **2026-10-17/18 official source batch** adds 72 original source HTML pages, 922 full-field runners and **610** exact ID results matching `validated_result` canonical missing rows; 8 further downloaded race IDs are outside the validated canonical cohort and must be excluded. Original source was downloaded with GitHub Actions [run 42754603332](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/42754603332) and raw SHA256 bytes stored in Library `/競馬/jra_official_raw_2026oct_20261110.zip`.
+
+**Final exact cumulative actuals as of this report**:
+- Direct per-race original-JRA-HTML matched existing-null-ID rows: **1,761** (2023 Jul 239 + 2024 Jun 376 + 2025 Dec 536 + 2026 Oct 610).
+- Overlap with 1,336 earlier profile-only horse identity candidates: **33** candidates were upgraded with direct evidence.
+- Remaining weaker name/birth-year/age-only candidates: **1,303**.
+- New direct IDs outside the original profile-only candidate set: **1,728**.
+- Total unique sidecar covered validated runner rows: **3,064**.
+- Remaining validated original NULL-ID rows if *both* source strata treated as usable: **63,296**. Remaining if only independent direct original-JRA-HTML rows accepted: **64,599**.
+- Original canonical SQLite actual NULL horse IDs: **66,360**; it has never been mutated.
+- Final merged and verified Library sidecar: `/競馬/horse_id_overlay_jra_primary_2026oct_batch_20261110.sqlite` with SHA256 `3c9005f323392e57d6db9d092ede045bbde5682b1fa221ed6ae1c7445c74de34`, `PRAGMA quick_check=ok`.
+- JSON audit `/競馬/horse_id_overlay_jra_primary_2026oct_batch_20261110.audit.json`.
+
+**Important**: all these verified IDs are retrospective historical identity reconstruction, not a completed future-race model backtest. Full-coverage ID recovery remains blocked by ~63k unmatched rows and slow, bounded upstream official source retrieval. Do not label source-graded sidecar as a modified official canonical DB or claim zero remaining.

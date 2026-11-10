@@ -11,6 +11,8 @@ class OfficialImporterTest(unittest.TestCase):
         self.tmp=tempfile.TemporaryDirectory();self.root=Path(self.tmp.name)
         self.db=self.root/"canonical.sqlite"
         c=sqlite3.connect(self.db)
+        c.execute("CREATE TABLE annual_report_races(race_id TEXT,status TEXT)")
+        c.execute("INSERT INTO annual_report_races VALUES ('202301010101','validated_result')")
         c.execute("CREATE TABLE annual_report_runners(race_id TEXT,horse_number INTEGER,horse_name TEXT,horse_id TEXT)")
         c.execute("INSERT INTO annual_report_runners VALUES('202301010101',5,'サトミノキラリ',NULL)")
         c.execute("INSERT INTO annual_report_runners VALUES('202301010101',2,'別の馬',NULL)")

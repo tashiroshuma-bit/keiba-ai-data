@@ -41,6 +41,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_identity_sidecar.py' -v
       - name: Historical JRA official horse ID profile reconstruction guard
         run: python -m unittest discover -s tests -p 'test_horse_id_profile_recovery.py' -v
+      - name: Verify JRA original source ZIP against immutable canonical race and horse IDs
+        run: python -m unittest discover -s tests -p 'test_jra_reconcile_official_source_archives.py' -v
       - name: Point-in-time v51 research feature creation
         run: python -m unittest discover -s tests -p 'test_v51_preoff_feature_builder.py' -v
       - name: Paired conditional second and third rank evaluation

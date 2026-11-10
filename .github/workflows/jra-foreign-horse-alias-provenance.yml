@@ -1,0 +1,29 @@
+name: JRA official foreign-horse alias provenance
+on:
+  pull_request:
+    paths:
+      - operations/data_updates/jra_foreign_horse_name_alias_candidate_20261110.json
+      - .github/workflows/jra-foreign-horse-alias-provenance.yml
+permissions:
+  contents: read
+jobs:
+  original-profile:
+    runs-on: ubuntu-latest
+    timeout-minutes: 4
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch full official JRA profile HTML and same-date race history
+        run: |
+          python -m scripts.jra_profile_history_seed_discovery \
+            --profiles operations/data_updates/jra_foreign_horse_name_alias_candidate_20261110.json \
+            --output-dir /tmp/jra_foreign_profile_alias \
+            --max-profiles 1 --year 2026 --delay 1.5
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jra-foreign-horse-official-profile-original
+          path: /tmp/jra_foreign_profile_alias/
+          retention-days: 14
+          if-no-files-found: error

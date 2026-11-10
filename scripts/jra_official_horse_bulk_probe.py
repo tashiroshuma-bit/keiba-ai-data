@@ -59,6 +59,21 @@ def main():
         if i:time.sleep(1)
         try:results.append({"ok":True,**fetch(url)})
         except Exception as e:results.append({"ok":False,"url":url,"error":type(e).__name__+":"+str(e)[:260]})
+    for url in (
+        "https://prc.jp/jraracingviewer/contents/seiseki/2023/0722/index.html",
+        "https://prc.jp/jraracingviewer/contents/seiseki/2023/0722/data/31.htm",
+    ):
+        try:
+            with urllib.request.urlopen(urllib.request.Request(
+                url,headers={"User-Agent":"Mozilla/5.0"}),timeout=12) as response:
+                data=response.read(350000)
+            page=data.decode("utf-8","replace")
+            links=re.findall(r'href=["\\\']([^"\\\']+)["\\\']',page,re.I)
+            results.append({"url":url,"ok":True,"bytes":len(data),"sha256":hashlib.sha256(data).hexdigest(),
+                            "links_count":len(links),"links_samples":links[:20],
+                            "sample_around_seiseki":page[max(0,page.find("成績")-150):page.find("成績")+100]})
+        except Exception as e:
+            results.append({"url":url,"ok":False,"error":type(e).__name__+":"+str(e)[:260]})
     with open(args.output,"w") as out:json.dump({"probes":results},out,ensure_ascii=False,indent=2)
     print(json.dumps({"probes":results},ensure_ascii=False)[:5000])
 if __name__=="__main__":main()

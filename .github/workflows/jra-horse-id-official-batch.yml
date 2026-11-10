@@ -24,8 +24,8 @@ jobs:
             seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202403041020240609%2FCD"
           - label: 2025-w51
             seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202505050820251220%2F84"
-          - label: 2026-w45
-            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202605020120261108%2FAE"
+          - label: 2026-w42
+            seed: "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604070120261018%2F9A"
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5

@@ -1,0 +1,300 @@
+{
+  "schema": "jra-2026-profile-history-result-week-seeds-v1",
+  "source": "JRA official primary profile race-history links; SHA archived",
+  "known_seed_weeks": 41,
+  "original_profile_archive": "/mnt/data/jra-2026-official-history-week-seeds-8profiles.zip",
+  "rows": [
+    {
+      "iso_year": 2026,
+      "iso_week": 1,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202601011020260104/52",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 2,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202601020520260105/B9",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002023103931%2F8B",
+      "source_sha256": "c0a8170ec28e04e64995bc209ec1b18f4a541885b7c9c0d4ba2721bbd64d350b",
+      "source_name": "ゴーゴーパンチ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 3,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202601050820260112/E8",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 4,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202601010820260124/C9",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 5,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202601011020260131/DF",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 6,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202601051220260207/A7",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 7,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202602040420260210/D3",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 8,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1010202601090920260221/5A",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 9,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202602020720260301/56",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 10,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202601060620260308/45",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 11,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202601010220260314/04",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002023103931%2F8B",
+      "source_sha256": "c0a8170ec28e04e64995bc209ec1b18f4a541885b7c9c0d4ba2721bbd64d350b",
+      "source_name": "ゴーゴーパンチ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 12,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202601040720260322/C6",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 13,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202603020620260329/6E",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 14,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202602030720260404/59",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020103625%2F10",
+      "source_sha256": "49d8468f6b211c3fb99c808ce655c9666d03fc88147ddc72b4b5109c21405c6d",
+      "source_name": "ゴルデールスカー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 15,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202603050720260411/B5",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002023103931%2F8B",
+      "source_sha256": "c0a8170ec28e04e64995bc209ec1b18f4a541885b7c9c0d4ba2721bbd64d350b",
+      "source_name": "ゴーゴーパンチ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 16,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202603080520260419/8C",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 17,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1003202601060820260426/A8",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 18,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202602030520260502/C8",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 19,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202601031020260509/41",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102135%2F3B",
+      "source_sha256": "4ab6ba8e6551c6e71df1eb47e80b1bc63ab00f445f4a8b5d582bfa9d1e162123",
+      "source_name": "ゴーゴータカシ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 20,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202601060820260517/D0",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020103625%2F10",
+      "source_sha256": "49d8468f6b211c3fb99c808ce655c9666d03fc88147ddc72b4b5109c21405c6d",
+      "source_name": "ゴルデールスカー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 21,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202603090520260523/FA",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023102410%2FFB",
+      "source_sha256": "9bfb585d36a83196516409114f2995c9cca8843313fd656a47201cb088ed853b",
+      "source_name": "ブリックアブラック"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 22,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202602120520260531/B6",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002023103931%2F8B",
+      "source_sha256": "c0a8170ec28e04e64995bc209ec1b18f4a541885b7c9c0d4ba2721bbd64d350b",
+      "source_name": "ゴーゴーパンチ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 23,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202603011020260606/73",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020103625%2F10",
+      "source_sha256": "49d8468f6b211c3fb99c808ce655c9666d03fc88147ddc72b4b5109c21405c6d",
+      "source_name": "ゴルデールスカー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 24,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601020820260614/B4",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 25,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601030920260620/42",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 26,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601050920260627/53",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 27,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601081220260705/58",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 28,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601101220260712/F3",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 29,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1002202601121220260719/04",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 30,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202602011020260725/20",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 32,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202602050820260808/40",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 33,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202601080620260816/22",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 34,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202603011020260822/95",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 35,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202602030720260829/5A",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102878%2F2B",
+      "source_sha256": "dc82c7c9757691ba3cc9c12944a09300bb71597d02ad23b428de98cf2af23b84",
+      "source_name": "ナンナンプー"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 36,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202602060720260906/43",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 37,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202604040820260913/E7",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 38,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202604060720260920/3B",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",

@@ -83,11 +83,30 @@ def parse_original(blob,url):
         try:decoded=blob.decode(encoding);break
         except UnicodeDecodeError:pass
     if decoded is None:decoded=blob.decode('cp932',errors='replace')
-    p=RaceRows(url);p.feed(decoded)
-    if len(p.runners)<3:raise ValueError('official original contains fewer than 3 horse rows')
-    if len(set(n for n,_,_ in p.runners))!=len(p.runners):raise ValueError('duplicate horse numbers')
-    if len(set(h for _,_,h in p.runners))!=len(p.runners):raise ValueError('duplicate IDs')
-    return {n:(name,hid) for n,name,hid in p.runners}
+    try:
+        from lxml import html as fast_html
+    except ImportError:
+        p=RaceRows(url);p.feed(decoded)
+        rows=p.runners
+    else:
+        rows=[]
+        doc=fast_html.fromstring(decoded)
+        for tr in doc.xpath('//tr[td]'):
+            cols=tr.xpath('./td')
+            if len(cols)<4:continue
+            num=''.join(cols[2].itertext()).strip()
+            if not num.isdigit() or not 1<=int(num)<=30:continue
+            name=name_normalized(''.join(cols[3].itertext()))
+            ids=[]
+            for href in cols[3].xpath('.//a/@href'):
+                u=urljoin(url,href)
+                m=HORSE_RE.search(unquote(u))
+                if m and urlsplit(u).hostname=='www.jra.go.jp':ids.append('jra:'+m.group(1))
+            if len(ids)==1 and name:rows.append((int(num),name,ids[0]))
+    if len(rows)<3:raise ValueError('official original contains fewer than 3 horse rows')
+    if len(set(n for n,_,_ in rows))!=len(rows):raise ValueError('duplicate horse numbers')
+    if len(set(h for _,_,h in rows))!=len(rows):raise ValueError('duplicate IDs')
+    return {n:(name,hid) for n,name,hid in rows}
 
 
 def load_archive_results(path):

@@ -298,3 +298,44 @@
       "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202604060720260920/3B",
       "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
       "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 39,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202604080620260926/DA",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 40,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202604020820261004/01",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023106197%2FC9",
+      "source_sha256": "c5a2b294e0da2224311c8fead747465eef7146d8d2d05a28139cbdcb7a597c7f",
+      "source_name": "フレンドモナコ"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 41,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202604040620261011/7E",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021106078%2FD3",
+      "source_sha256": "cd1024af9b8df500a4e6a1c23e2e7b860269cdaa7aa37186e6421043a918fd09",
+      "source_name": "ブルーストレイル"
+    },
+    {
+      "iso_year": 2026,
+      "iso_week": 42,
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1004202604010620261017/6B",
+      "seed_source_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022102135%2F3B",
+      "source_sha256": "4ab6ba8e6551c6e71df1eb47e80b1bc63ab00f445f4a8b5d582bfa9d1e162123",
+      "source_name": "ゴーゴータカシ"
+    }
+  ],
+  "missing_calendar_weeks": [
+    31
+  ],
+  "source_profile_sample_count": 8,
+  "scope": "2026-01-01 through 2026-10-18 canonical complete-history"
+}

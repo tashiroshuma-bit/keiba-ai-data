@@ -1,7 +1,7 @@
 {
   "schema": "jra-official-profile-identity-candidates-v1",
   "read_date": "2026-11-10",
-  "status": "PROFILE_NAME_BIRTHYEAR_MATCH_REQUIRES_RACEWISE_VERIFICATION",
+  "status": "JRA_PROFILE_MATCHES_SOURCE_VERIFIED_RACEWISE_PENDING",
   "profiles": [
     {
       "horse_name": "フレンドモナコ",
@@ -38,6 +38,252 @@
       "horse_id": "jra:2023102410",
       "birth_year": 2023,
       "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102023102410%2FFB"
+    },
+    {
+      "horse_name": "オウケンボルト",
+      "horse_id": "jra:2019103827",
+      "birth_year": 2019,
+      "birth_date": "2019-02-26",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103827%2F73",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search1"
+    },
+    {
+      "horse_name": "ゴルデールスカー",
+      "horse_id": "jra:2020103625",
+      "birth_year": 2020,
+      "birth_date": "2020-03-09",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020103625%2F10",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search3"
+    },
+    {
+      "horse_name": "スパークルジョイ",
+      "horse_id": "jra:2021101891",
+      "birth_year": 2021,
+      "birth_date": "2021-05-06",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021101891%2FC4",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search2"
+    },
+    {
+      "horse_name": "ブレットフライ",
+      "horse_id": "jra:2019104005",
+      "birth_year": 2019,
+      "birth_date": "2019-03-20",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019104005%2F3A",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search11"
+    },
+    {
+      "horse_name": "ミエノブラボー",
+      "horse_id": "jra:2021104137",
+      "birth_year": 2021,
+      "birth_date": "2021-03-19",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104137%2F73",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search0"
+    },
+    {
+      "horse_name": "ウインラウダ",
+      "horse_id": "jra:2021106206",
+      "birth_year": 2021,
+      "birth_date": "2021-04-09",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021106206%2FF8",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search7"
+    },
+    {
+      "horse_name": "カツノテンス",
+      "horse_id": "jra:2020105525",
+      "birth_year": 2020,
+      "birth_date": "2020-04-11",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020105525%2FBD",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn183587search8"
+    },
+    {
+      "horse_name": "ショウナンマグマ",
+      "horse_id": "jra:2019104998",
+      "birth_year": 2019,
+      "birth_date": "2019-04-29",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019104998%2FC3",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search9"
+    },
+    {
+      "horse_name": "ソウルアンドジャズ",
+      "horse_id": "jra:2021106694",
+      "birth_year": 2021,
+      "birth_date": "2021-05-01",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021106694%2F66",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search12"
+    },
+    {
+      "horse_name": "ツルマウカタチ",
+      "horse_id": "jra:2021102106",
+      "birth_year": 2021,
+      "birth_date": "2021-03-10",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021102106%2FF2",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search2"
+    },
+    {
+      "horse_name": "リノアラ",
+      "horse_id": "jra:2019101620",
+      "birth_year": 2019,
+      "birth_date": "2019-03-15",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019101620%2F74",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search13"
+    },
+    {
+      "horse_name": "アラナコア",
+      "horse_id": "jra:2021103002",
+      "birth_year": 2021,
+      "birth_date": "2021-03-13",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021103002%2FFD",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search0"
+    },
+    {
+      "horse_name": "ウインマイルート",
+      "horse_id": "jra:2019100212",
+      "birth_year": 2019,
+      "birth_date": "2019-03-19",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019100212%2F7E",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search3"
+    },
+    {
+      "horse_name": "オールマキシマム",
+      "horse_id": "jra:2020100387",
+      "birth_year": 2020,
+      "birth_date": "2020-02-22",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020100387%2FF6",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search6"
+    },
+    {
+      "horse_name": "チョングク",
+      "horse_id": "jra:2022104533",
+      "birth_year": 2022,
+      "birth_date": "2022-04-17",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102022104533%2FF7",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn903528search5"
+    },
+    {
+      "horse_name": "モモンウールー",
+      "horse_id": "jra:2021105984",
+      "birth_year": 2021,
+      "birth_date": "2021-03-26",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021105984%2FFA",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search1"
+    },
+    {
+      "horse_name": "カンピオーネ",
+      "horse_id": "jra:2019100286",
+      "birth_year": 2019,
+      "birth_date": "2019-04-23",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002019100286%2FD3",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search4"
+    },
+    {
+      "horse_name": "ゴッドブルービー",
+      "horse_id": "jra:2020106063",
+      "birth_year": 2020,
+      "birth_date": "2020-05-20",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020106063%2FF8",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search0"
+    },
+    {
+      "horse_name": "スリーピース",
+      "horse_id": "jra:2022104972",
+      "birth_year": 2022,
+      "birth_date": "2022-03-17",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002022104972%2FA1",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search8"
+    },
+    {
+      "horse_name": "ディーエストッキー",
+      "horse_id": "jra:2021105098",
+      "birth_year": 2021,
+      "birth_date": "2021-03-09",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021105098%2F1D",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search6"
+    },
+    {
+      "horse_name": "デファイ",
+      "horse_id": "jra:2021104421",
+      "birth_year": 2021,
+      "birth_date": "2021-04-26",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102021104421%2F44",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn591825search5"
+    },
+    {
+      "horse_name": "マーシヴィガラス",
+      "horse_id": "jra:2020104099",
+      "birth_year": 2020,
+      "birth_date": "2020-05-19",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020104099%2F15",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn988528search2"
+    },
+    {
+      "horse_name": "ミスヨコハマ",
+      "horse_id": "jra:2020103634",
+      "birth_year": 2020,
+      "birth_date": "2020-02-20",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020103634%2F94",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn988528search6"
+    },
+    {
+      "horse_name": "レッドロスタム",
+      "horse_id": "jra:2020103705",
+      "birth_year": 2020,
+      "birth_date": "2020-05-14",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002020103705%2F21",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn988528search4"
+    },
+    {
+      "horse_name": "アッチャゴーラ",
+      "horse_id": "jra:2020102843",
+      "birth_year": 2020,
+      "birth_date": "2020-05-20",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020102843%2FA4",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn988528search0"
+    },
+    {
+      "horse_name": "クレセントウイング",
+      "horse_id": "jra:2020100707",
+      "birth_year": 2020,
+      "birth_date": "2020-02-13",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102020100707%2F21",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn443132search1"
+    },
+    {
+      "horse_name": "グラヴィス",
+      "horse_id": "jra:2021105831",
+      "birth_year": 2021,
+      "birth_date": "2021-02-25",
+      "official_profile_url": "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud002021105831%2F20",
+      "verification_status": "JRA_PROFILE_NAME_BIRTH_DATE_ID_VERIFIED_RACEWISE_PENDING",
+      "web_source_ref": "turn443132search2"
     }
-  ]
+  ],
+  "source_profile_count": 33,
+  "newly_added_profile_count": 27,
+  "updated_date": "2026-11-10"
 }

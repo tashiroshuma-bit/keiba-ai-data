@@ -160,6 +160,14 @@ def reconcile(canonical_path,base_overlay_path,archives,output_dir,
                 source_races.add(rid)
                 if rid not in target_races:
                     stats['not_target_validated_races']+=1;continue
+                match=RESULT_RE.search(unquote(item['source_url']))
+                raw_day=match.group(6)
+                official_day=raw_day[:4]+'-'+raw_day[4:6]+'-'+raw_day[6:8]
+                if known_races[rid][0]!=official_day:
+                    stats['official_result_date_conflicts']+=1
+                    rejections.append({'race_id':rid,'reason':'source_calendar_date_conflict',
+                                       'official_date':official_day,'canonical_date':known_races[rid][0]})
+                    continue
                 stats['target_races_seen']+=1
                 local=canonical_by_race.get(rid,{})
                 for num,(name,hid) in confirmed.items():
@@ -222,7 +230,21 @@ def reconcile(canonical_path,base_overlay_path,archives,output_dir,
     totals={x:conn.execute('select count(*) from '+x).fetchone()[0]
             for x in ('horse_identity_overlay','official_direct_evidence')}
     conn.close()
-    total_null=66360
+    original_nulls=[(rid,num,name) for rid,rows in canonical_by_race.items()
+                    for num,(name,hid) in rows.items() if hid is None]
+    total_null=len(original_nulls)
+    rejection_reasons={(a.get('race_id'),a.get('horse_number')):a['reason']
+                       for a in rejections if a.get('horse_number') is not None}
+    unresolved_by_reason=collections.Counter()
+    with (target/'unresolved_rows.csv').open('w',newline='',encoding='utf-8') as missing_out:
+        w=csv.writer(missing_out)
+        w.writerow(['race_id','horse_number','horse_name','race_date','blocker'])
+        for rid,num,name in sorted(original_nulls):
+            if (rid,num) in current:continue
+            if rid not in source_races:reason='official_source_page_not_yet_observed'
+            else:reason=rejection_reasons.get((rid,num),'official_runner_id_not_matching_or_absent')
+            unresolved_by_reason[reason]+=1
+            w.writerow([rid,num,name,known_races[rid][0],reason])
     report={'status':'PARTIAL_SOURCE_BACKED_ID_RECOVERY_NEVER_GUESS',
             'schema':'jra-horse-full-unresolved-source-reconciliation-v1',
             'canonical_sha256':source_sha,'canonical_mutated':False,
@@ -239,7 +261,8 @@ def reconcile(canonical_path,base_overlay_path,archives,output_dir,
             'total_original_canonical_null_rows':total_null,
             'remaining_without_any_id_candidate':total_null-totals['horse_identity_overlay'],
             'remaining_without_direct_official_confirmation':total_null-totals['official_direct_evidence'],
-            'statistics':dict(stats),'rejected_rows':rejections,
+            'statistics':dict(stats),'unresolved_by_reason':dict(unresolved_by_reason),
+            'unresolved_csv':'unresolved_rows.csv','rejected_rows':rejections,
             'input_archives':[{'file':Path(a).name,'sha256':digest(a)} for a in archives]}
     (target/'identity_source_audit.json').write_text(json.dumps(report,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
     with (target/'rejected_rows.csv').open('w',newline='',encoding='utf-8') as out:

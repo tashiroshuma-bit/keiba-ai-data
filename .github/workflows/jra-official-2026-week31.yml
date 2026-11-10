@@ -1,0 +1,29 @@
+name: JRA official horse ID missing 2026-W31 coverage
+on:
+  pull_request:
+    paths:
+      - .github/workflows/jra-official-2026-week31.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  missing-2026-week:
+    runs-on: ubuntu-latest
+    timeout-minutes: 9
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch actual JRA 2026 July-August source race result pages
+        run: |
+          python -m scripts.jra_official_race_bulk_id_crawler \
+            --seed "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202602031220260801/43" \
+            --output-dir /tmp/jra_2026_missing_week31 \
+            --max-pages 80 --delay 1.5
+      - uses: actions/upload-artifact@v4
+        with:
+          name: jra-2026-week31-original-race-html
+          path: /tmp/jra_2026_missing_week31/
+          retention-days: 14
+          if-no-files-found: error

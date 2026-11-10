@@ -1,0 +1,34 @@
+name: JRA official horse ID batch (bounded evidence)
+on:
+  pull_request:
+    paths:
+      - scripts/jra_official_race_bulk_id_crawler.py
+      - tests/test_jra_official_race_bulk_id_crawler.py
+      - .github/workflows/jra-horse-id-official-batch.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-batch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Test strict parser without internet
+        run: python -m unittest discover -s tests -p 'test_jra_official_race_bulk_id_crawler.py' -v
+      - name: Fetch exactly 12 actual JRA result pages with one second gap
+        run: |
+          python -m scripts.jra_official_race_bulk_id_crawler \
+            --seed "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202301010120230722%2F4A" \
+            --output-dir /tmp/jra_horse_id_batch \
+            --max-pages 12 --delay 1.0
+      - name: Upload original official source bytes and immutable race-id manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-official-horse-id-batch
+          path: /tmp/jra_horse_id_batch/
+          retention-days: 7
+          if-no-files-found: error

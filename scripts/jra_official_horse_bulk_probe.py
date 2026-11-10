@@ -17,7 +17,8 @@ OFFICIAL=("https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde100620230101042
           "https://www.jra.go.jp/JRADB/accessU.html?CNAME=pw01dud102019103827%2F73",
           "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F00",
           "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105",
-          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F7D")
+          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010420230105%2F7D",
+          "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202301010120230722%2F4A")
 class HorseLinks(HTMLParser):
     def __init__(self):
         super().__init__()
@@ -53,7 +54,8 @@ def fetch(url):
             "sha256":hashlib.sha256(data).hexdigest(),
             "horse_links_found":len(hp.links),"id_links":matches[:12],
             "jra_profile_10digit_mentions":len(set(re.findall(r"20[0-9]{8}",page))),
-            "result_navigation_links":[u for u in re.findall(r'href="([^"]+)"',page) if "accessS" in u or "pw01sde" in u][:35]}
+            "result_navigation_links":[u for u in re.findall(r'href="([^"]+)"',page) if "accessS" in u or "pw01sde" in u][:35],
+            "first_horse_html_context":page[max(0,page.find("pw01dud")-600):page.find("pw01dud")+250] }
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",default="/tmp/jra_official_horse_probe.json")

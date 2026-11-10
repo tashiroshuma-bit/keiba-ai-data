@@ -21,6 +21,7 @@ class Response:
 class JraBulkCrawlerTests(unittest.TestCase):
     def test_real_race_url_decoder_and_host_validation(self):
         self.assertEqual(race_id_from_url(URL),"202301010101")
+        self.assertEqual(race_id_from_url("https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202604070120261018%2F9A"),"202608040701")
         self.assertTrue(approved_result_url(URL))
         self.assertFalse(approved_result_url(URL.replace("www.jra.go.jp","bad.example")))
     def test_official_rows_and_race_neighbors(self):

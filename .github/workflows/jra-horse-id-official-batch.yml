@@ -19,12 +19,12 @@ jobs:
           python-version: "3.12"
       - name: Test strict parser without internet
         run: python -m unittest discover -s tests -p 'test_jra_official_race_bulk_id_crawler.py' -v
-      - name: Fetch exactly 12 actual JRA result pages with one second gap
+      - name: Fetch at most 80 official JRA result pages with 1.5 second gap
         run: |
           python -m scripts.jra_official_race_bulk_id_crawler \
             --seed "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1001202301010120230722%2F4A" \
             --output-dir /tmp/jra_horse_id_batch \
-            --max-pages 12 --delay 1.0
+            --max-pages 80 --delay 1.5
       - name: Upload original official source bytes and immutable race-id manifest
         uses: actions/upload-artifact@v4
         with:

@@ -50,10 +50,10 @@ def import_results(database,manifest_path,output_dir,prior_sidecar=None):
             if original_triplets!=claimed_triplets:
                 raise ValueError('horse rows in manifest do not match raw official HTML')
             source_count+=1
-            expected=con.execute('select horse_number,horse_name,horse_id from annual_report_runners where race_id=?',(rid,)).fetchall()
+            expected=con.execute("select x.horse_number,x.horse_name,x.horse_id from annual_report_runners x join annual_report_races r ON r.race_id=x.race_id where x.race_id=? and r.status='validated_result'",(rid,)).fetchall()
             bynum={int(x['horse_number']):x for x in expected}
             if not bynum:
-                rejected.append({'race_id':rid,'reason':'race_absent_from_canonical'});continue
+                rejected.append({'race_id':rid,'reason':'not_a_validated_canonical_race'});continue
             seen=set()
             for h in race['horses']:
                 n=int(h['horse_number']);key=(rid,n)

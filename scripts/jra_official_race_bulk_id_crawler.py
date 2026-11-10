@@ -18,7 +18,7 @@ from pathlib import Path
 from urllib.parse import urljoin, unquote, urlsplit
 from datetime import datetime, timezone
 
-RESULT_RE=re.compile(r"pw01sde10([0-9]{2})(20[0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})(20[0-9]{6})/(?:[0-9A-F]{2})",re.I)
+RESULT_RE=re.compile(r"pw01sde(?:10|01)([0-9]{2})(20[0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})(20[0-9]{6})/(?:[0-9A-F]{2})",re.I)
 HORSE_RE=re.compile(r"pw01dud[0-9]*?(20[0-9]{8})/(?:[0-9A-F]{2})",re.I)
 HOST="www.jra.go.jp"
 

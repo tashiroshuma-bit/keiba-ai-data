@@ -1,0 +1,39 @@
+name: JRA official horse ID recovery 2026 through Oct 18
+on:
+  pull_request:
+    paths:
+      - operations/data_updates/jra_official_seed_weeks_2026_to_oct18.json
+      - scripts/jra_full_source_orchestration.py
+      - scripts/jra_official_race_bulk_id_crawler.py
+      - .github/workflows/jra-2026-source-collection.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  source-2026:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Verify 2026 JRA official exact horse IDs and save raw original HTML
+        run: |
+          python -m scripts.jra_full_source_orchestration \
+            --seed-file operations/data_updates/jra_official_seed_weeks_2026_to_oct18.json \
+            --output-dir /tmp/jra_2026_shard_${{ matrix.shard }} \
+            --shard ${{ matrix.shard }} --shards 8 --max-pages-week 90 --delay 1.5
+      - name: Save source-hash-verified official result URLs and exception ledger
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-2026-through-oct18-shard-${{ matrix.shard }}
+          path: /tmp/jra_2026_shard_${{ matrix.shard }}/
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error

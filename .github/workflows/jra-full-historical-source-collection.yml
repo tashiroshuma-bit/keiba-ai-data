@@ -1,0 +1,39 @@
+name: JRA complete historical horse ID source collection 2023-2025
+on:
+  pull_request:
+    paths:
+      - scripts/jra_full_source_orchestration.py
+      - scripts/jra_official_race_bulk_id_crawler.py
+      - .github/workflows/jra-full-historical-source-collection.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  historical-week-shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 32
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Recover exact official race and 10-digit horse profile ID primary evidence
+        run: |
+          python -m scripts.jra_full_source_orchestration \
+            --seed-file operations/data_updates/jra_official_seed_weeks_2023_2025.json \
+            --output-dir /tmp/jra_source_shard_${{ matrix.shard }} \
+            --shard ${{ matrix.shard }} --shards 24 \
+            --max-pages-week 90 --delay 1.5
+      - name: Retain raw official HTML, SHA manifests and failed URL evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-2023-2025-shard-${{ matrix.shard }}
+          path: /tmp/jra_source_shard_${{ matrix.shard }}/
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error

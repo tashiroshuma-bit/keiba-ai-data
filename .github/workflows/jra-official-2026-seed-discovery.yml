@@ -1,0 +1,31 @@
+name: JRA 2026 official profile result-link seed discovery
+on:
+  pull_request:
+    paths:
+      - scripts/jra_profile_history_seed_discovery.py
+      - .github/workflows/jra-official-2026-seed-discovery.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  discovery:
+    runs-on: ubuntu-latest
+    timeout-minutes: 6
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Discover recent JRA historical official result URL seeds
+        run: |
+          python -m scripts.jra_profile_history_seed_discovery \
+            --profiles operations/data_updates/horse_id_official_profile_candidates_20261110.json \
+            --output-dir /tmp/jra_profile_2026_seed \
+            --year 2026 --max-profiles 60 --delay 1.5
+      - name: Archive original source profile bytes and result URL evidence
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-2026-profile-history-week-seeds
+          path: /tmp/jra_profile_2026_seed/
+          retention-days: 7
+          if-no-files-found: error

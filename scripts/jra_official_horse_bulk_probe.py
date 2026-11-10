@@ -49,7 +49,8 @@ def fetch(url):
     return {"url":url,"status":status,"bytes":len(data),
             "sha256":hashlib.sha256(data).hexdigest(),
             "horse_links_found":len(hp.links),"id_links":matches[:12],
-            "jra_profile_10digit_mentions":len(set(re.findall(r"20[0-9]{8}",page)))}
+            "jra_profile_10digit_mentions":len(set(re.findall(r"20[0-9]{8}",page))),
+            "result_navigation_links":[u for u in re.findall(r'href="([^"]+)"',page) if "accessS" in u or "pw01sde" in u][:35]}
 def main():
     parser=argparse.ArgumentParser()
     parser.add_argument("--output",default="/tmp/jra_official_horse_probe.json")
@@ -71,7 +72,8 @@ def main():
             links=re.findall(r'href=["\\\']([^"\\\']+)["\\\']',page,re.I)
             results.append({"url":url,"ok":True,"bytes":len(data),"sha256":hashlib.sha256(data).hexdigest(),
                             "links_count":len(links),"links_samples":links[:20],
-                            "sample_around_seiseki":page[max(0,page.find("成績")-150):page.find("成績")+100]})
+                            "sample_around_seiseki":page[max(0,page.find("成績")-150):page.find("成績")+100],
+            "contains_id_profile_link":"pw01dud" in page})
         except Exception as e:
             results.append({"url":url,"ok":False,"error":type(e).__name__+":"+str(e)[:260]})
     with open(args.output,"w") as out:json.dump({"probes":results},out,ensure_ascii=False,indent=2)

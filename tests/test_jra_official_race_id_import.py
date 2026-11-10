@@ -14,16 +14,23 @@ class OfficialImporterTest(unittest.TestCase):
         c.execute("CREATE TABLE annual_report_runners(race_id TEXT,horse_number INTEGER,horse_name TEXT,horse_id TEXT)")
         c.execute("INSERT INTO annual_report_runners VALUES('202301010101',5,'サトミノキラリ',NULL)")
         c.execute("INSERT INTO annual_report_runners VALUES('202301010101',2,'別の馬',NULL)")
+        c.execute("INSERT INTO annual_report_runners VALUES('202301010101',3,'既知馬','jra:2021103333')")
         c.commit();c.close()
         self.source=self.root/"raw";self.source.mkdir()
-        original=b"REAL BYTES FIXTURE ONLY"
+        def row(num,name,hid):
+            return f'<tr><td>1</td><td>枠</td><td>{num}</td><td><a href="/JRADB/accessU.html?CNAME=pw01dud10{hid[4:]}/AB">{name}</a></td></tr>'
+        original=("<table><tbody>"+
+            row(5,"サトミノキラリ","jra:2021101429")+
+            row(2,"一致しない馬","jra:2021101111")+
+            row(3,"既知馬","jra:2021103333")+"</tbody></table>").encode("cp932")
         h=hashlib.sha256(original).hexdigest();(self.source/(h+".bin")).write_bytes(original)
         self.manifest=self.root/"official_race_horse_ids.json"
         self.data={"schema":"jra-official-raw-results-horse-id-recovery-v1",
              "records":[{"race_id":"202301010101","source_url":URL,"source_sha256":h,
                  "observed_at":"2026-11-10T03:55:18+00:00","horses":[
                     {"horse_number":5,"horse_name":"サトミノキラリ","horse_id":"jra:2021101429"},
-                    {"horse_number":2,"horse_name":"一致しない馬","horse_id":"jra:2021101111"}]}]}
+                    {"horse_number":2,"horse_name":"一致しない馬","horse_id":"jra:2021101111"},
+                    {"horse_number":3,"horse_name":"既知馬","horse_id":"jra:2021103333"}]}]}
         self.manifest.write_text(json.dumps(self.data))
     def tearDown(self):self.tmp.cleanup()
     def test_only_exact_official_race_number_name_and_id_pass(self):

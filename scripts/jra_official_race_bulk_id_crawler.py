@@ -16,7 +16,7 @@ import urllib.request
 from html.parser import HTMLParser
 from pathlib import Path
 from urllib.parse import urljoin, unquote, urlsplit
-from datetime import datetime, timezone
+from datetime import datetime, timezone, date
 
 RESULT_RE=re.compile(r"pw01sde(?:10|01)([0-9]{2})(20[0-9]{2})([0-9]{2})([0-9]{2})([0-9]{2})(20[0-9]{6})/(?:[0-9A-F]{2})",re.I)
 HORSE_RE=re.compile(r"pw01dud[0-9]*?(20[0-9]{8})/(?:[0-9A-F]{2})",re.I)
@@ -28,6 +28,14 @@ def race_id_from_url(url):
     venue,year,meeting,day,race,calendar=m.groups()
     if calendar[:4]!=year:return None
     return year+venue+meeting+day+race
+
+def result_iso_week(url):
+    match=RESULT_RE.search(unquote(url))
+    if match is None:return None
+    raw=match.group(6)
+    d=date(int(raw[:4]),int(raw[4:6]),int(raw[6:8]))
+    week=d.isocalendar()
+    return (week.year,week.week)
 
 def approved_result_url(url):
     p=urlsplit(url)
@@ -93,7 +101,7 @@ def save_exclusive(path,data):
     fd=os.open(str(path),os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
     with os.fdopen(fd,"wb") as out:out.write(data)
 
-def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
+def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026,target_week=None):
     if not 1<=max_pages<=500:raise ValueError("max_pages 1..500")
     if delay<1:raise ValueError("at least 1s between requests")
     root=Path(output_dir)
@@ -106,6 +114,7 @@ def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
         url=queue.popleft()
         rid=race_id_from_url(url)
         if not approved_result_url(url) or rid in seen or not year_min<=int(rid[:4])<=year_max:continue
+        if target_week is not None and result_iso_week(url)!=tuple(target_week):continue
         seen.add(rid)
         try:
             req=urllib.request.Request(url,headers={
@@ -123,7 +132,8 @@ def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
                 "horses":horse_rows})
             for dest in nearby:
                 nxt=race_id_from_url(dest)
-                if nxt not in seen and year_min<=int(nxt[:4])<=year_max:queue.append(dest)
+                if nxt not in seen and year_min<=int(nxt[:4])<=year_max and (target_week is None or result_iso_week(dest)==tuple(target_week)):
+                    queue.append(dest)
         except Exception as ex:
             failures.append({"race_id":rid,"source_url":url,
                              "reason":type(ex).__name__+":"+str(ex)[:180]})

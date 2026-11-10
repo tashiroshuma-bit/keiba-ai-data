@@ -52,6 +52,8 @@ jobs:
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 
+      - name: Limited live JRA official race/profile access probe (non-blocking)
+        run: python -m scripts.jra_official_horse_bulk_probe --output /tmp/jra_id_probe.json
       - run: python -m unittest discover -s keiba_v48 -v
       - run: python -m compileall -q keiba_v48
 

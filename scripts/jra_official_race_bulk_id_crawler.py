@@ -29,6 +29,12 @@ def race_id_from_url(url):
     if calendar[:4]!=year:return None
     return year+venue+meeting+day+race
 
+def race_calendar_date(url):
+    m=RESULT_RE.search(unquote(url))
+    if m is None:return None
+    value=m.group(6)
+    return value[:4]+"-"+value[4:6]+"-"+value[6:8]
+
 def approved_result_url(url):
     p=urlsplit(url)
     return p.scheme=="https" and p.hostname==HOST and p.path=="/JRADB/accessS.html" and race_id_from_url(url) is not None
@@ -93,7 +99,7 @@ def save_exclusive(path,data):
     fd=os.open(str(path),os.O_CREAT|os.O_EXCL|os.O_WRONLY,0o600)
     with os.fdopen(fd,"wb") as out:out.write(data)
 
-def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
+def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026,target_date=None):
     if not 1<=max_pages<=500:raise ValueError("max_pages 1..500")
     if delay<1:raise ValueError("at least 1s between requests")
     root=Path(output_dir)
@@ -106,6 +112,7 @@ def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
         url=queue.popleft()
         rid=race_id_from_url(url)
         if not approved_result_url(url) or rid in seen or not year_min<=int(rid[:4])<=year_max:continue
+        if target_date is not None and race_calendar_date(url)!=target_date:continue
         seen.add(rid)
         try:
             req=urllib.request.Request(url,headers={
@@ -123,7 +130,7 @@ def run(seeds,output_dir,*,max_pages=12,delay=1.0,year_min=2023,year_max=2026):
                 "horses":horse_rows})
             for dest in nearby:
                 nxt=race_id_from_url(dest)
-                if nxt not in seen and year_min<=int(nxt[:4])<=year_max:queue.append(dest)
+                if nxt not in seen and year_min<=int(nxt[:4])<=year_max and (target_date is None or race_calendar_date(dest)==target_date):queue.append(dest)
         except Exception as ex:
             failures.append({"race_id":rid,"source_url":url,
                              "reason":type(ex).__name__+":"+str(ex)[:180]})

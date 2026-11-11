@@ -167,7 +167,7 @@ def validate_state(state, root=ROOT):
                     v12=read('operations/data_updates/canonical_db_v12_update_verified.json')
                     for key in ('sha256','bytes','library_file_id','version'):
                         if v12[key] != state['database'][key]:
-                            errors.append('v12 official horse ID readback mismatch: '+key)
+                            errors.append('v12 canonical database official horse ID readback mismatch: '+key)
                     if (v12['prior_sha256'] != supplement['sha256'] or
                         v12['prior_bytes'] != supplement['bytes'] or
                         v12['prior_library_file_id'] != supplement['library_file_id'] or

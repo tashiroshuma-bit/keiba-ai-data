@@ -57,6 +57,18 @@ python -m scripts.v51_four_axis_rank_residual_study \
 
 出力 `v51_four_axis_2025_rank_research_report.json` と `v51_four_axis_2025_research_proposal.json` を対象。候補モデルは常に `production_enabled=false`、ソース・特徴量・時系列・採否の根拠を保持。
 
+## 実SQLiteを読み取った2026年11月8日データの追加監査
+
+根拠: `reports/v51_four_axis_existing_2026_source_schema_audit_20261111.json`、GitHub Actions [43025062191](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/43025062191)。
+
+- `operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite`：**36レース、497頭**（正本v12とは別データ）。
+- 497件すべてに公式馬ID・コーナー通過順欄・取得時刻・ソースURL・SHA256。
+- **419件**に過去結果として馬体重と増減、残り78件は欠損。
+- 当該データの `source_race` に公式クラス列、`runner_postrace` に騎手ID列はなく、ここから「クラス」や「騎手能力」を単独で埋めることは不適切。
+- 当初の通過順は `'2 2'`、`'3 4'` など空白区切りであり、列の「存在」だけで数値化を主張できなかった。実表記を取得してパーサーを修正した。
+- `scripts/v51_real_20261108_next_start_history_audit.py` は、実行済み `query_jra_official_past_runs_asof.py` と同じ2暦日制約、当時の `observed_at` により**11月8日より後の予測時点**からのみ過去位置・過去増減率を利用する。2026/11/08自身の発走前予測には**使用禁止**。
+- 「取得時刻」は当時情報が確認できたことの証拠だが、公式サイトの正確な初回公開時刻ではない。両時刻を同一視しない。
+
 ## 実行状態と事実
 
 2026年11月11日時点で、新しい発走前入力バリデーション・過去データ抽出・特徴量生成・残差学習プログラムおよび各ユニットテストをGitHubへ実装。GitHub Actionsの合成テストで発生した過去馬体重名の食い違いとPython式の改行バグを修正。

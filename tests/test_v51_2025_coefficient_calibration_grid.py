@@ -1,6 +1,7 @@
 """Unit checks only. Real 2025 cohort is deliberately not fabricated."""
 import unittest
 import numpy as np
+from scripts.v51_2025_winner_stage_refit_study import fit_one
 from scripts.v51_2025_coefficient_calibration_grid import (
     GROUPS, FACTORS, make_splits, scale_stage1, coefficient_choice,
     bootstrap_paired_hits, winner_by_date
@@ -45,6 +46,24 @@ class V51CoefficientGrid(unittest.TestCase):
         self.assertEqual(coefficient_choice(
             {"original":base,"recent_form__x1.25":improve,
              "recent_form__x1.5":overfit},base),"recent_form__x1.25")
+
+    def test_real_optimizer_winner_stage_refit_without_2025_data(self):
+        rng=np.random.default_rng(5)
+        X=rng.normal(size=(60,31))
+        groups=[]
+        for i in range(15):
+            indexes=np.array([i*4+j for j in range(4)])
+            groups.append({"indices":indexes,"first":int(indexes[0]),
+                "second":int(indexes[1]),"third":int(indexes[2]),
+                "podium_valid":True})
+        base=np.zeros((3,31),dtype=float)
+        w,diag=fit_one(X,groups,base,drop="jockey_history",ridge=0.1,maxiter=40)
+        self.assertEqual(w.shape,(3,31))
+        self.assertTrue(np.all(w[0,list(GROUPS["jockey_history"])]==0))
+        self.assertTrue(np.all(w[1:]==0))
+        self.assertEqual(diag["race_sets"],15)
+        with self.assertRaisesRegex(ValueError,"ridge must"):
+            fit_one(X,groups,base,ridge=0)
 
     def test_identical_heldout_predictions_have_zero_day_bootstrap_gain(self):
         rec=[]

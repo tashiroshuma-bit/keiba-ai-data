@@ -5,8 +5,8 @@ import tempfile
 import unittest
 from pathlib import Path
 import numpy as np
-from v51_recovered_id_conditional_rank import make_race_probabilities,softmax,calibrate,stage_ce,fit_conditional_stage
-from v51_v50_same_asof_shadow import forecast, postrace,EXPECTED_DB
+from scripts.v51_recovered_id_conditional_rank import make_race_probabilities,softmax,calibrate,stage_ce,fit_conditional_stage
+from scripts.v51_v50_same_asof_shadow import forecast, postrace,EXPECTED_DB
 
 ASOF='2026-11-14T08:00:00+09:00'
 OFF='2026-11-14T10:00:00+09:00'

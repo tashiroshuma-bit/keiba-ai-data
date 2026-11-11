@@ -88,17 +88,28 @@ def records(std,all_groups,weights,zextra,residual):
         out.append((z,g))
     return out
 
-def candidates_for_training(zextra,training_indices):
+def candidates_for_training(raw_extra,training_indices):
+    # Research data must contain actual past observations. Missing masks do
+    # not by themselves authorize an ablation candidate.
+    flags={
+        "opponent_class":(2,3),
+        "running_style":(7,),
+        "jockey_condition":(10,),
+        "previous_weight":(13,),
+    }
     available={}
+    observed_any=False
     for key,indices in FEATURE_CANDIDATES.items():
-        # Do not optimize classes/position/bodyweight with no training
-        # observations. Their missing flags do not create evidence.
-        missing_flags=[i for i in indices if i in (2,3,7,10,13)]
-        present=[np.mean(zextra[training_indices,i]<0.99) for i in []]
-        del present
-        if all(np.std(zextra[training_indices,i])<1e-8 for i in indices):
+        if key=="combined":continue
+        count=sum(np.count_nonzero(raw_extra[training_indices,flag]==0)
+                  for flag in flags[key])
+        if count<50:continue
+        if all(np.std(raw_extra[training_indices,i])<1e-8 for i in indices):
             continue
         available[key]=tuple(indices)
+        observed_any=True
+    if observed_any:
+        available["combined"]=FEATURE_CANDIDATES["combined"]
     return available
 
 def select_candidate(search):

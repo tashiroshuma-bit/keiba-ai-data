@@ -73,6 +73,11 @@ def _parse_corner(p,field_size):
             x=_number(value[-1],lo=1,hi=n)
             if x is not None and int(x)==x:return int(x)
         if isinstance(value,str):
+            raw=value.strip()
+            # Actual JRA desktop result rows use space-delimited turns: "2 2".
+            if re.fullmatch(r"\d{1,2}(?:\s+\d{1,2}){1,3}",raw):
+                x=int(raw.split()[-1])
+                if 1<=x<=n:return x
             cleaned=value.replace(" ","")
             # Source sidecars may encode a sequence as a JSON list.
             if cleaned.startswith("[") and cleaned.endswith("]"):

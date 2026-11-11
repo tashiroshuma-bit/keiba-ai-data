@@ -20,7 +20,7 @@ import numpy as np
 from scipy.optimize import minimize
 
 from scripts.v51_recovered_id_conditional_rank import (
-    groups_for,calibrate,prepared_scores,save_new
+    groups_for,calibrate,prepared_scores,save_new,make_race_probabilities
 )
 from scripts.v51_calibration_refinement import metrics
 from scripts.v51_2025_coefficient_calibration_grid import (
@@ -88,6 +88,40 @@ def records(std,all_groups,weights,zextra,residual):
         out.append((z,g))
     return out
 
+def podium_exact_metrics(record_pairs,cal):
+    """Evaluate P1+fixed conditional P2/P3 order, no future rank input to picks."""
+    count=0
+    ordered=0
+    unordered=0
+    for scores,g in record_pairs:
+        if not g["podium_valid"]:continue
+        actual_local={int(idx):k for k,idx in enumerate(g["indices"])}
+        true=[actual_local[int(g[k])] for k in ("first","second","third")]
+        proposal=make_race_probabilities(scores,cal)
+        pred=list(proposal["ordered_pick"])
+        count+=1
+        ordered+=int(pred==true)
+        unordered+=int(set(proposal["unordered_pick"])==set(true))
+    return {"valid_unique_podium_races":count,
+        "ordered_exact_hits":ordered,
+        "unordered_exact_hits":unordered,
+        "ordered_exact_rate":ordered/count if count else None,
+        "unordered_exact_rate":unordered/count if count else None}
+
+def coverage_by_year(extended,years):
+    """Real runner-level nonmissingness; no missing flag is redefined as zero."""
+    flags={"past_class":2,"past_rival_strength":3,
+        "past_corner_style":7,"jockey_condition":10,
+        "past_weight_delta":13}
+    out={}
+    for year in sorted(set(map(int,years))):
+        subset=extended[years==year]
+        out[str(year)]={"runners":len(subset),
+            **{k+"_observed":int(np.count_nonzero(subset[:,i]==0))
+                for k,i in flags.items()}}
+    return out
+
+
 def candidates_for_training(raw_extra,training_indices):
     # Research data must contain actual past observations. Missing masks do
     # not by themselves authorize an ablation candidate.
@@ -138,6 +172,7 @@ def study(database,overlay,history_script,model_path,output_dir):
     raw,coverage=load_source_metadata(database,races)
     extras,real_coverage=build_features(races,raw,minimum_days=2)
     Xextra=align_with_original(extras,rids,numbers)
+    nonmissing_year=coverage_by_year(Xextra,years)
     orig=(X-mean)/scale
     trainrows=np.concatenate([g["indices"] for g in training])
     zextra,extra_mean,extra_scale=normalize_by_training(Xextra,trainrows)
@@ -173,17 +208,35 @@ def study(database,overlay,history_script,model_path,output_dir):
        and after["winner_logloss"]<before["winner_logloss"]
        and after["winner_brier"]<=before["winner_brier"]+.001
        and after["ece_confidence"]<=before["ece_confidence"]+.005)
-    final_name=choice if approved_research else "official_baseline"
-    beta=all_candidates[final_name]
-    # Fit calibration on all 2025 once candidate selection is sealed.
-    fullcal=calibrate(records(orig,fit+search+confirm,weights,zextra,beta))
+    # Calculate the *selected* proposal even when gate rejects it:
+    # descriptive 2026 audit only, never used to select or promote the beta.
+    selected_beta=all_candidates[choice]
+    approved_beta=selected_beta if approved_research else all_candidates["official_baseline"]
+    total_2025=fit+search+confirm
+    original_all_2025_cal=calibrate(records(orig,total_2025,weights,zextra,
+                                      all_candidates["official_baseline"]))
+    selected_all_2025_cal=calibrate(records(orig,total_2025,weights,zextra,selected_beta))
+    # The calibration just above includes late 2025; its year-wide scores
+    # are in-sample and are NEVER treated as independent confirmation.
+    full25_original=metrics(records(orig,total_2025,weights,zextra,
+                             all_candidates["official_baseline"]),original_all_2025_cal)
+    full25_selected=metrics(records(orig,total_2025,weights,zextra,selected_beta),
+                            selected_all_2025_cal)
+    podium25_orig=podium_exact_metrics(original_late,calibration["official_baseline"])
+    podium25_selected=podium_exact_metrics(new_late,calibration[choice])
     year26=[g for g in gr if g["year"]==2026
             and g["status"]=="validated_result"]
-    audit_old=metrics(records(orig,year26,weights,zextra,
-                    all_candidates["official_baseline"]),model["calibration"])
-    audit_new=metrics(records(orig,year26,weights,zextra,beta),fullcal)
+    original26=records(orig,year26,weights,zextra,all_candidates["official_baseline"])
+    selected26=records(orig,year26,weights,zextra,selected_beta)
+    audit_old=metrics(original26,model["calibration"])
+    audit_selected=metrics(selected26,selected_all_2025_cal)
+    podium26_orig=podium_exact_metrics(original26,model["calibration"])
+    podium26_selected=podium_exact_metrics(selected26,selected_all_2025_cal)
     if audit_old["top1_hits"]!=603 or audit_old["races"]!=2411:
         raise ValueError("historical actual official V51 2026 not reproduced")
+    # Only the official saved 31 stage coefficients remain eligible for main.
+    beta=approved_beta
+    fullcal=selected_all_2025_cal if approved_research else original_all_2025_cal
     report={
         "schema":"jra-v51-four-axis-residual-winner-2025-chronological-study-v1",
         "status":"RETROSPECTIVE_RESEARCH_ONLY_PRODUCTION_UNCHANGED",
@@ -196,6 +249,7 @@ def study(database,overlay,history_script,model_path,output_dir):
         "candidate_feature_groups":{k:list(v) for k,v in FEATURE_CANDIDATES.items()},
         "raw_canonical_source_coverage":coverage,
         "research_time_block_feature_coverage":real_coverage,
+        "feature_coverage_by_year":nonmissing_year,
         "training_2023_2024_races":len(training),
         "2025_splits":split,
         "optimizers":diagnostics,
@@ -203,12 +257,22 @@ def study(database,overlay,history_script,model_path,output_dir):
         "chosen_on_2025_search_only":choice,
         "2025_late_confirmation":{
             "original":before,"candidate":after,
+            "podium_original":podium25_orig,
+            "podium_selected":podium25_selected,
             "paired_date_bootstrap":bootstrap,
             "strict_gate_pass":approved_research},
+        "2025_full_year_descriptive_in_sample_calibration":{
+            "baseline":full25_original,
+            "selected_proposal":full25_selected,
+            "note":"All 2025 calibration was fitted using all 2025; not an independent confirmation."
+        },
         "2026_frozen_audit_only":{
             "original_official_v51":audit_old,
-            "research_candidate":audit_new},
+            "selected_research_proposal_not_promoted":audit_selected,
+            "podium_original":podium26_orig,
+            "podium_selected_proposal_not_promoted":podium26_selected},
         "active_v51_model_unmodified":True,
+        "selected_research_candidate_production_eligible":bool(approved_research),
         "current_race_bodyweight_in_training":False,
         "current_bodyweight_preoff_verified_entries":0,
         "limitations":[
@@ -222,7 +286,9 @@ def study(database,overlay,history_script,model_path,output_dir):
         "extra_feature_names":list(FEATURE_NAMES),
         "extra_feature_mean":extra_mean.tolist(),
         "extra_feature_scale":extra_scale.tolist(),
-        "winner_residual_coefficients":beta.tolist(),
+        "winner_residual_coefficients":selected_beta.tolist(),
+        "selected_on_2025_search":choice,
+        "2025_confirm_gate_passed":bool(approved_research),
         "historical_pdf_minimum_age_days":2,
         "calibration":fullcal,
         "official_31_coefficients_unchanged":True,

@@ -98,6 +98,8 @@ def _history(rows,horse_id,jockey_id,asof,off,kind):
             raise ValueError("past horse identity mismatch")
         if kind=="jockey" and r.get("jockey_id")!=jockey_id:
             raise ValueError("past jockey identity mismatch")
+        if not str(r.get("source_url","")).startswith(JRA_BASE):
+            raise ValueError("official JRA historical primary-source URL required")
         check_historical_observation(
             r, race_off_at=off.isoformat(),forecast_asof=asof.isoformat())
         key=(r.get("race_id"),r.get("horse_id"),r.get("jockey_id"))
@@ -131,8 +133,9 @@ def _last_n(rows,n):
     return rows[-n:]
 
 def _historical_weight_fraction(r):
-    weight=as_float(r.get("body_weight_kg"),250,700)
-    delta=as_float(r.get("body_weight_change_kg"),-100,100)
+    # Source exports use both spellings. Neither is the current-race PDF value.
+    weight=as_float(r.get("bodyweight_kg",r.get("body_weight_kg")),250,700)
+    delta=as_float(r.get("bodyweight_change_kg",r.get("body_weight_change_kg")),-100,100)
     if weight is None or delta is None or not 250<=weight-delta<=700:
         return None
     return 100.0*delta/(weight-delta)

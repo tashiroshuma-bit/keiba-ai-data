@@ -147,10 +147,10 @@ def _feature_one(horse_history,jockey_history,track,surface,dist):
     valid=[r for r in jockey_history if r["rank"]>=1]
     match=[r for r in valid if r["track"]==track and r["surface"]==surface
            and abs(r["distance_m"]-dist)<=200]
-    general=(sum(r["rank"]<=3 for r in valid)+20*.21)/(len(valid)+20)
-             if valid else None
-    cond=(sum(r["rank"]<=3 for r in match)+20*general)/(len(match)+20)
-          if match else None
+    general=((sum(r["rank"]<=3 for r in valid)+20*.21)/(len(valid)+20)
+             if valid else None)
+    cond=((sum(r["rank"]<=3 for r in match)+20*general)/(len(match)+20)
+          if match else None)
     return np.array([
        _avg(klass)/9 if klass else 0,
        _avg(rival) if rival else 0,

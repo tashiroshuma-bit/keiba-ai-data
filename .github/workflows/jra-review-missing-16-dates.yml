@@ -1,0 +1,37 @@
+name: "JRA review-race primary sources missing 16 dates"
+on:
+  pull_request:
+    paths:
+      - operations/data_updates/jra_review_missing_16_dates_20261111.json
+      - .github/workflows/jra-review-missing-16-dates.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  review-source-shard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0,1,2,3,4,5,6,7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Fetch 16 exact JRA original result dates, separately archive every source SHA
+        run: |
+          python -m scripts.jra_missing_day_shard_collector \
+            --seed-file operations/data_updates/jra_review_missing_16_dates_20261111.json \
+            --output-dir /tmp/jra_review_missing16_${{ matrix.shard }} \
+            --shard ${{ matrix.shard }} --shards 8 \
+            --limit 65 --delay 1.5
+      - name: Archive verified JRA result HTML and per-date failed URL ledger
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-review-missing16-shard-${{ matrix.shard }}
+          path: /tmp/jra_review_missing16_${{ matrix.shard }}/
+          retention-days: 14
+          if-no-files-found: error

@@ -1,4 +1,4 @@
-name: JRA unresolved horse ID: 28 historical dates
+name: "JRA unresolved horse ID - 28 historical dates"
 on:
   pull_request:
     paths:

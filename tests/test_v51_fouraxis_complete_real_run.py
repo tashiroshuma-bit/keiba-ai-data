@@ -54,7 +54,7 @@ class FourAxisActualRunSourceGate(unittest.TestCase):
         self.assertIn("2026固定事後監査",s)
         self.assertIn("5/590",s)
         self.assertIn("False",s)
-        self.assertIn("未",s)
+        self.assertIn("使用していない",s)
 
 if __name__=="__main__":
     unittest.main()

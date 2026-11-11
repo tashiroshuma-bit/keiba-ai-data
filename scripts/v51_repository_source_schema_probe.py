@@ -32,7 +32,17 @@ def probe(path):
             candidates=[x for x in cols if any(k in x.lower() for k in (
                "corner","position","passing","weight","class","grade",
                "jockey","horse","race","observed","published","source"))]
-            records.append({"table":t,"rows":n,"source_related_columns":candidates})
+            filled={}
+            for column in candidates:
+                # Both identifiers come solely from SQLite's own schema.
+                quoted='"'+column.replace('"','""')+'"'
+                filled[column]=conn.execute(
+                    "select count(*) from "+t+" where "+quoted+
+                    " is not null and trim(cast("+quoted+" as text))!=''"
+                ).fetchone()[0]
+            records.append({"table":t,"rows":n,
+                "source_related_columns":candidates,
+                "not_null_not_empty_rows":filled})
         return {"file":str(f.relative_to(ROOT)),"db_bytes":f.stat().st_size,
                 "schema_tables":records,"quick_check":"ok"}
     finally:conn.close()

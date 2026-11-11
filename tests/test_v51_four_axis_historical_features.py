@@ -15,6 +15,8 @@ class V51HistoricalExtraFeatures(unittest.TestCase):
     def test_canonical_reported_weight_and_corner_parsing(self):
         self.assertEqual(_parse_corner({"corner4_position":2},12),2)
         self.assertEqual(_parse_corner({"passing_positions":"6-5-3"},12),3)
+        self.assertEqual(_parse_corner({"passing_positions":"2 2"},12),2)
+        self.assertEqual(_parse_corner({"passing_positions":"10 9"},12),9)
         self.assertIsNone(_parse_corner({"finish_order":1},12))
         self.assertIsNone(_parse_corner({"passing_positions":"unverified"},12))
         self.assertAlmostEqual(_parse_reported_weight({

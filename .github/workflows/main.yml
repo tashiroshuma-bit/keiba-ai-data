@@ -53,6 +53,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_calibration_audit.py' -v
       - name: Full weekend integrated v50 plus research shadow and official result regression
         run: python -m unittest discover -s tests -p 'test_v51_weekend_integrated_runner.py' -v && python -m unittest discover -s tests -p 'test_v51_weekend_postrace_runner.py' -v
+      - name: V51 v12 conditional p1 p2 p3 same source A and 2026 heldout report
+        run: python -m unittest discover -s tests -p 'test_v51_recovered_id_rank.py' -v && python -m unittest discover -s tests -p 'test_v51_recovered_id_real_report.py' -v
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

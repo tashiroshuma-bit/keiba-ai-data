@@ -1,0 +1,78 @@
+{
+  "schema": "jra-review1975-horse-id-chronological-real-ablation-receipt-v1",
+  "generated_date": "2026-11-11",
+  "canonical_db": {
+    "library_path": "/競馬/jra_2023_2025_v12_horse_ids_full_20261111.sqlite",
+    "sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "bytes": 362139648,
+    "canonical_changed": false
+  },
+  "official_review_races": {
+    "total": 1975,
+    "official_result_html_verified": 1966,
+    "official_runner_rows": 27154,
+    "numeric_finish": 25643,
+    "DNF": 837,
+    "EXCLUDED": 410,
+    "SCRATCH": 264,
+    "whole_race_cancelled_from_extracted_PDF_text_without_original_hash": 9,
+    "complete_numeric_meta_names": 615,
+    "exceptional_results": 1348,
+    "name_conflict": 2,
+    "metadata_incomplete": 1,
+    "unique_winner_evaluation_eligible": 601
+  },
+  "history_experiment": {
+    "model": "RESEARCH_LOGISTIC_FIXED_NOT_V50_V51",
+    "features": 31,
+    "train_2023_2024_races": 5865,
+    "train_runners": 80547,
+    "test_2025_validated_races": 2925,
+    "test_2026_validated_races": 2411,
+    "old_ID_2025_top1": 634,
+    "v12_ID_2025_top1": 705,
+    "old_ID_2026_top1": 511,
+    "v12_ID_2026_top1": 599,
+    "train_test_independent_by_year": true,
+    "historical_results_used_only_for_prior_dates": true,
+    "same_date_feature_update_after_all_races": true,
+    "calibration_2026_ECE_masked": 0.056009273414879227,
+    "calibration_2026_ECE_full": 0.06577341406926167,
+    "not_production_model_promotion": true
+  },
+  "artifacts": [
+    {
+      "library_path": "/競馬/jra_review_all1975_reconciled_20261111.json",
+      "sha256": "d5d3a6cd94152c608aaf3fa151c094225134b9694bf97f039d07820a8e16fa71"
+    },
+    {
+      "library_path": "/競馬/jra_review_1975_result_grade_overlay_final_20261111.sqlite",
+      "sha256": "7fd4e436f8376e2b271e8df65f9be24047eada992a48fc91a099b993b1938745",
+      "size": 6230016,
+      "library_readback_sha256_verified": true,
+      "sqlite_quick_check": "ok"
+    },
+    {
+      "library_path": "/競馬/jra_review_missing16_official_source_8archives_20261111.zip",
+      "sha256": "2a2bd149a666283d393564fd64f75b97fa3be4b93c5b9df18fec729577068459",
+      "size": 6001444,
+      "library_readback_sha256_verified": true
+    },
+    {
+      "library_path": "/競馬/jra_historical_ablation_results_20261111.json",
+      "sha256": "282196e377bee7d8455bbd1de9e2b56ac9d2aa292237692de8c4ff65f7b886e8",
+      "library_readback_sha256_verified": true
+    },
+    {
+      "library_path": "/競馬/jra_historical_ablation_race_predictions_20261111.csv",
+      "sha256": "7f6290289e227fd7e8ebc801d38635690ff2f0db17a777b87d98246e40b3b26b"
+    }
+  ],
+  "evidence": {
+    "jra_results": "https://www.jra.go.jp/JRADB/",
+    "jra_result_status_rules": "https://www.jra.go.jp/JRADB/mikata/result.html",
+    "primary_source_actions_run": "https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/42968994930",
+    "source_47_archives": "/競馬/jra_original_official_html_evidence_all_47_archives_20261111.zip"
+  },
+  "warning": "Nine cancelled race classifications need original PDF byte recheck; 10 name-row conflicts remain quarantined. 2025/26 model is NOT v50/v51 and confidence ECE worsened in 2026."
+}

@@ -213,7 +213,8 @@ def build_features(races,source,*,minimum_days=2):
             for r,prior in statuses:
                 other=[quality for rival,quality in statuses
                        if rival["num"]!=r["num"] and
-                          horse_hist.get(rival["horse_id"],[])]
+                          any((d-z["date"]).days>=minimum_days
+                              for z in horse_hist.get(rival["horse_id"],[]))]
                 field_other=_avg(other)
                 extra=source.get((rid,int(r["num"])),{})
                 # Add outcomes only after the entire date's features are frozen.

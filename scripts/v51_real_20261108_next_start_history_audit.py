@@ -36,6 +36,9 @@ def audit(*,asof,off,db=DB,verify_sha=True):
               from runner_postrace r join source_race s using(race)""").fetchall()
     finally:c.close()
     field_counts=Counter(x["race"] for x in rows)
+    # Debugging only the public corner-notation syntax, not horse identities.
+    sample_forms=list(dict.fromkeys(repr(x["corner_positions"])[:80]
+                      for x in rows))[:8]
     counter=Counter()
     missing=Counter()
     style_rates=[]
@@ -75,6 +78,7 @@ def audit(*,asof,off,db=DB,verify_sha=True):
        "history_observed_at_proof":True,
        "minimum_calendar_lag_days":2,
        "counts":dict(counter),"missing":dict(missing),
+       "corner_source_notation_samples":sample_forms,
        "mean_past_corner4_field_fraction":sum(style_rates)/len(style_rates) if style_rates else None,
        "mean_past_weight_delta_pct":sum(past_deltas)/len(past_deltas) if past_deltas else None,
        "current_race_weight_used":False,

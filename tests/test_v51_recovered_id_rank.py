@@ -102,7 +102,7 @@ class RecoveredIDConditionalRanking(unittest.TestCase):
                  'races':[{'race':'2026-11-14-Tokyo-1','finish_order':[1,3]}]})
 
     def test_immutable_write(self):
-        from v51_v50_same_asof_shadow import immutable_write
+        from scripts.v51_v50_same_asof_shadow import immutable_write
         with tempfile.TemporaryDirectory() as d:
             p=Path(d)/'immutable.json'
             immutable_write(p,{'ok':True})

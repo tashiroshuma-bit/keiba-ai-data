@@ -158,6 +158,7 @@ def make_race_probabilities(z,calibration=None):
             'ordered_pick':topjoint[1],'ordered_pick_probability':topjoint[0],
             'unordered_pick':best_set,'unordered_pick_probability':exact_unordered[best_set],
             'entropy':entropy(p1),'calibration_stratum':cls,
+            'stage2_temperature':float(t2),'stage3_temperature':float(t3),
             'joint_normalization':float(p3.sum())}
 
 def score_group(z,g,prob,numbers):
@@ -168,13 +169,21 @@ def score_group(z,g,prob,numbers):
     if g['podium_valid']:truth=(local[g['first']],local[g['second']],local[g['third']])
     hit=int(best==winner)
     brier=float(np.sum((p1-np.eye(1,len(p1),winner)[0])**2))
+    second=local[g['second']] if truth else None
+    third=local[g['third']] if truth else None
+    conditional_stage_temps=(prob['stage2_temperature'],prob['stage3_temperature'])
     out={'race_id':g['race'],'date':g['date'],'status':g['status'],'year':g['year'],
          'field_size':len(g['indices']),'winner_num':int(numbers[g['first']]),
          'pred_winner_num':int(numbers[g['indices'][best]]),
          'p1_winner':float(p1[winner]),'pred_top1_confidence':float(p1[best]),
          'top1_hit':hit,'winner_logloss':float(-math.log(max(1e-15,p1[winner]))),
          'winner_brier':brier,'winner_in_top3_set':int(winner in prob['unordered_pick']),
-         'conditional_second_logloss':stage_ce(z,g,2,1.0) if g['podium_valid'] else None,
+         'second_marginal_logloss':float(-math.log(max(1e-15,prob['p2'][second]))) if truth else None,
+         'third_marginal_logloss':float(-math.log(max(1e-15,prob['p3'][third]))) if truth else None,
+         'second_marginal_brier':float(np.sum((prob['p2']-np.eye(1,len(p1),second)[0])**2)) if truth else None,
+         'third_marginal_brier':float(np.sum((prob['p3']-np.eye(1,len(p1),third)[0])**2)) if truth else None,
+         'conditional_second_logloss':stage_ce(z,g,2,conditional_stage_temps[0]) if truth else None,
+         'conditional_third_logloss':stage_ce(z,g,3,conditional_stage_temps[1]) if truth else None,
          'podium_valid':bool(g['podium_valid']),
          'ordered_podium_hit':int(truth==prob['ordered_pick']) if truth else None,
          'unordered_podium_hit':int(set(truth)==set(prob['unordered_pick'])) if truth else None,
@@ -194,7 +203,13 @@ def summarize(recs):
        'unordered_podium_exact':sum(r['unordered_podium_hit'] for r in valid)/len(valid) if valid else None,
        'ordered_podium_exact':sum(r['ordered_podium_hit'] for r in valid)/len(valid) if valid else None,
        'mean_logloss':sum(r['winner_logloss'] for r in recs)/n,
-       'mean_brier':sum(r['winner_brier'] for r in recs)/n}
+       'mean_brier':sum(r['winner_brier'] for r in recs)/n,
+       'mean_second_marginal_logloss':sum(r['second_marginal_logloss'] for r in valid)/len(valid) if valid else None,
+       'mean_third_marginal_logloss':sum(r['third_marginal_logloss'] for r in valid)/len(valid) if valid else None,
+       'mean_second_marginal_brier':sum(r['second_marginal_brier'] for r in valid)/len(valid) if valid else None,
+       'mean_third_marginal_brier':sum(r['third_marginal_brier'] for r in valid)/len(valid) if valid else None,
+       'mean_conditional_second_logloss':sum(r['conditional_second_logloss'] for r in valid)/len(valid) if valid else None,
+       'mean_conditional_third_logloss':sum(r['conditional_third_logloss'] for r in valid)/len(valid) if valid else None}
 
 def reliability(recs):
     out={};labels=[('confidence',lambda r:next((b for b in (0.10,0.15,0.20,0.30,0.40,0.50,1.01)

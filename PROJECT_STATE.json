@@ -87,29 +87,29 @@
   "handoff": "DEVELOPMENT_HANDOFF.md",
   "artifact_registry": "keiba_v48/reports/integration/artifact_registry.json",
   "database": {
-    "name": "jra_2023_2025.sqlite",
-    "library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
-    "version": 11,
-    "bytes": 322170880,
-    "sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
+    "name": "jra_2023_2025_v12_horse_ids_full_20261111.sqlite",
+    "library_file_id": "libfile_fc0322f2d7888191b87ca5e9f7b00629",
+    "version": 12,
+    "bytes": 362139648,
+    "sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
     "repository_root_copy": "historical_ingestion_stub_not_canonical",
     "rule": "Resolve latest Library version; if newer, reconcile evidence and update this state before use.",
-    "file_id": "file_00000000dc1082068fc63d1b40b12901",
-    "previous_version": 10,
-    "previous_sha256": "5a7dcd864286ccb60a43dd644a0fbe050ea25425e7e39effa7fa70fdc3128ebc",
+    "file_id": "file_00000000ed80820689e5b758ab44a9d7",
+    "previous_version": 11,
+    "previous_sha256": "7206c787e6b13616e0ac1a0950d31a2539188c466fd369bdcd916f4f58f59627",
     "latest_complete_race_date": "2026-10-18",
     "append_only_verified_podium_date": "2026-11-08",
     "append_only_races": 36,
     "append_only_podium_rows": 108,
     "append_only_is_full_horse_history": false,
     "append_only_for_training": false,
-    "library_readback_sha256_verified": false,
+    "library_readback_sha256_verified": true,
     "source_result_commit_sha": "f97ecc99235cc694387ba86b8381b6173ae0fc34",
-    "update_reason": "verified official 2026-11-08 podium audit supplement, not a full runner-history refresh",
-    "materialization_recheck": "LATEST_REDOWNLOAD_SIZE_MATCHES_322170880_SHA256_NOT_YET_REVERIFIED",
-    "materialization_exception_manifest": "operations/data_updates/canonical_db_v11_materialization_exception_20261108.json",
-    "materialization_retry_size_verified": true,
-    "materialization_retry_directory": "/mnt/data/keiba/repair_attempt_20261108"
+    "update_reason": "66,360 official JRA horse ID links restored in all 11,201 validated-result races; original source v11 unchanged",
+    "materialization_recheck": "LIBRARY_RAW_REUPLOAD_READBACK_SHA256_QUICK_CHECK_FK_ZERO_20261111",
+    "previous_library_file_id": "libfile_c859130783008191865589ca48bc3c6f",
+    "horse_identity_audit": "reports/jra_horse_id_validated_66360_zero_v12_20261111.md",
+    "horse_identity_original_archive": "/競馬/jra_original_official_html_evidence_all_47_archives_20261111.zip"
   },
   "sources": {
     "cache": {
@@ -262,8 +262,12 @@
     },
     {
       "id": "HORSE_IDS",
-      "unlinked_rows": 77317,
-      "year_2026": 26021
+      "unlinked_rows": 10957,
+      "year_2026": 3391,
+      "previous_unlinked_rows": 77317,
+      "validated_result_missing": 0,
+      "requires_review_missing": 10957,
+      "recovery_basis": "2026-11-11 JRA official race primary HTML archived; 66,360 validated missing recovered"
     },
     {
       "id": "JOCKEY_IDS",
@@ -2000,5 +2004,24 @@
     "canonical_v11_unchanged": true,
     "training_same_day_forbidden": true,
     "proof": "operations/data_updates/multisource_overlay_20261108_v2_audit.json"
+  },
+  "horse_id_full_recovery_20261111": {
+    "status": "VALIDATED_RESULT_NULL_ZERO_REQUIRES_REVIEW_SEPARATE",
+    "target_races": 11201,
+    "target_runner_rows": 154191,
+    "previous_missing": 66360,
+    "recovered": 66360,
+    "remaining_validated": 0,
+    "remaining_requires_review": 10957,
+    "primary_exact": 66346,
+    "cid_text_repairs": 13,
+    "foreign_horse_alias_crosscheck": 1,
+    "canonical_v12_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "canonical_v12_bytes": 362139648,
+    "library_sha256_roundtrip_verified": true,
+    "source_evidence_zip_sha256": "65fbe2ac1093bac6aea2ecfbd796d856467327751884762e66963f7344e607e6",
+    "source_archives": 47,
+    "source_original_html_sha_count": 9883,
+    "report": "reports/jra_horse_id_validated_66360_zero_v12_20261111.md"
   }
 }

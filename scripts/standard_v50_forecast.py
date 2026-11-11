@@ -69,8 +69,8 @@ def standard_forecast(forecast_path, database_path, output_path, *,
         policy.get("probability_temperature")!=0.7):
         raise ValueError("standard v50 policy differs from approved parameters")
     # Explicit older state fixtures and reproducible archived v10 records stay
-    # runnable. Production PROJECT_STATE now pins v11 by SHA256.
-    if state["database"]["version"] not in (10,11):
+    # runnable. Production PROJECT_STATE now pins v12 by SHA256.
+    if state["database"]["version"] not in (10,11,12):
         raise ValueError("unsupported canonical database version")
     dbdigest=file_sha256(database_path)
     if dbdigest != state["database"]["sha256"]:

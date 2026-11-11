@@ -33,6 +33,11 @@ except ModuleNotFoundError:
     from v51_candidate_race_overlay import overlay as v51_candidate_overlay
 
 try:
+    from scripts.v51_v50_same_asof_shadow import forecast as recovered_id_rank_shadow
+except ModuleNotFoundError:
+    from v51_v50_same_asof_shadow import forecast as recovered_id_rank_shadow
+
+try:
     from scripts.build_v50_rider_residuals import build, file_sha256
     from scripts.run_v50_preoff import run, parse_time
 except ModuleNotFoundError:
@@ -44,7 +49,8 @@ DEFAULT_POLICY=ROOT/"operations/prediction_policy/standard_v50.json"
 
 def standard_forecast(forecast_path, database_path, output_path, *,
                       state_path=ROOT/"PROJECT_STATE.json",policy_path=DEFAULT_POLICY,
-                      odds_path=None,odds_alpha=0.20,v51_research_features_path=None):
+                      odds_path=None,odds_alpha=0.20,v51_research_features_path=None,
+                      v51_recovered_rank_features_path=None):
     forecast_path=Path(forecast_path)
     database_path=Path(database_path)
     output_path=Path(output_path)
@@ -205,6 +211,16 @@ def standard_forecast(forecast_path, database_path, output_path, *,
     prediction["standard_forecast"]=True
     prediction["policy_sha256"]=hashlib.sha256(policy_bytes).hexdigest()
     prediction["canonical_database_sha256"]=dbdigest
+    # Independent v51 recovered-ID learned rank research never modifies canonical v50.
+    # Enforce SAME original source-A SHA / same forecast asof and complete horse field.
+    if v51_recovered_rank_features_path is not None:
+        if dbdigest != "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd":
+            raise ValueError("v51 recovered-ID model requires verified canonical v12 SHA")
+        snapshot=json.loads(Path(v51_recovered_rank_features_path).read_bytes())
+        fitted=json.loads((ROOT/"operations/prediction_policy/v51_rank_recovered_ids_cal2025_research.json").read_bytes())
+        prediction["v51_recovered_rank_shadow"]=recovered_id_rank_shadow(prediction,snapshot,fitted)
+        if prediction["v51_recovered_rank_shadow"]["v51_promoted"] is not False:
+            raise ValueError("v51 recovered research shadow cannot promote production")
     prediction["model_entrypoint"]="scripts/standard_v50_forecast.py"
     prediction["calibration_temperature"]=policy["probability_temperature"]
     prediction["calibration_status"]="2026-10-31-selected; 2026-11-01 independent-day evaluation did not improve"
@@ -225,10 +241,12 @@ def main():
     p.add_argument("--odds-snapshot")
     p.add_argument("--odds-alpha",type=float,default=0.20)
     p.add_argument("--v51-research-features")
+    p.add_argument("--v51-recovered-rank-features")
     args=p.parse_args()
     result=standard_forecast(args.forecast,args.database,args.output,
                              odds_path=args.odds_snapshot,odds_alpha=args.odds_alpha,
-                             v51_research_features_path=args.v51_research_features)
+                             v51_research_features_path=args.v51_research_features,
+                             v51_recovered_rank_features_path=args.v51_recovered_rank_features)
     print(json.dumps({"version":result["version"],"races":len(result["races"]),
                       "standard_forecast":True,
                       "policy_sha256":result["policy_sha256"],

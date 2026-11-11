@@ -17,7 +17,7 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
-      - run: python -m pip install pypdf
+      - run: python -m pip install pypdf pymupdf
       - name: Capture five JRA PDF originals and inspect nine race cancellation markers
         run: |
           python -m scripts.jra_review_cancellation_pdf_archive \

@@ -1,0 +1,536 @@
+{
+  "schema": "jra-v51-real-v12-2025-chronological-rank-ablation-20261111",
+  "status": "REAL_DATA_VALIDATION_DONE_NO_PROMOTION",
+  "source_evidence": {
+    "db_name": "jra_2023_2025_v12_horse_ids_full_20261111.sqlite",
+    "db_size": 362139648,
+    "db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "db_quick_check": "ok",
+    "overlay_name": "jra_review_1975_verified_v2_20261111.sqlite",
+    "overlay_sha256": "5f80b199b61b401fb046a0d7c2fb065b8c433dbc5734fcbefb5f0740ae3d03ea",
+    "overlay_quick_check": "ok",
+    "historical_feature_file": "/mnt/data/files/jra_historical_ablation.py",
+    "historical_feature_sha256": "abd63f3a117fb364e29b54875919a7eecbf368b83ff5bb42459cccbdc283130e",
+    "rank_function_file": "/mnt/data/files/v51研究_v51_recovered_id_conditional_rank_v2.py",
+    "rank_function_sha256": "66620cfe55a0e1b7ff8025abf746356dcafb24d76dccb1ea0c85c58d184a0468",
+    "v51_frozen_model_library_sha256": "d8689fe3b396bf6330b5ddf6506f36e4f234ac19692f5781cfcc350e54fbf1a6",
+    "v51_model_signature": "full trained 2023-24 v12 restored ID, 2025-calibrated research model; 2026 original metrics exactly reproduced"
+  },
+  "population": {
+    "validated_and_verified_review_races": 11802,
+    "runner_rows": 162392,
+    "training_2023_2024_validated_races": 5865,
+    "training_2023_2024_runner_rows": 80547,
+    "2025_validated_races": 2925,
+    "2025_date_fit_races": 1145,
+    "2025_date_search_races": 1186,
+    "2025_date_confirmation_races": 594,
+    "2025_unique_dates": 109,
+    "2025_first_search_date": "2025-05-25",
+    "2025_first_confirmation_date": "2025-10-19",
+    "2026_fixed_audit_races": 2411
+  },
+  "winner_rank": {
+    "selection_rule": "2025 middle cohort top1 hits maximized subject to LL/Brier/ECE safeguards",
+    "factor_candidates_count": 24,
+    "2025_middle_all_candidates": {
+      "original": {
+        "t": 0.9837365684020625,
+        "n": 1186,
+        "hits": 295,
+        "top1_accuracy": 0.2487352445193929,
+        "winner_logloss": 2.1944142082832654,
+        "winner_brier": 0.8617284872018571,
+        "ece": 0.0503323089796858
+      },
+      "ridge_0.003": {
+        "t": 0.9912261187769166,
+        "n": 1186,
+        "hits": 294,
+        "top1_accuracy": 0.2478920741989882,
+        "winner_logloss": 2.194612720905755,
+        "winner_brier": 0.8616233319286933,
+        "ece": 0.05043859530408152
+      },
+      "ridge_0.01": {
+        "t": 0.9837365684007384,
+        "n": 1186,
+        "hits": 295,
+        "top1_accuracy": 0.2487352445193929,
+        "winner_logloss": 2.194414208283325,
+        "winner_brier": 0.8617284872019305,
+        "ece": 0.05033230897997781
+      },
+      "ridge_0.03": {
+        "t": 0.9670573330543701,
+        "n": 1186,
+        "hits": 293,
+        "top1_accuracy": 0.24704890387858347,
+        "winner_logloss": 2.194485081946057,
+        "winner_brier": 0.8621035002977964,
+        "ece": 0.05440327990817199
+      },
+      "drop_recent_form": {
+        "t": 1.0386143017815685,
+        "n": 1186,
+        "hits": 243,
+        "top1_accuracy": 0.20489038785834737,
+        "winner_logloss": 2.3250120008062307,
+        "winner_brier": 0.8831106061073879,
+        "ece": 0.051321101077164054
+      },
+      "drop_horse_course_distance": {
+        "t": 0.9867132429751698,
+        "n": 1186,
+        "hits": 294,
+        "top1_accuracy": 0.2478920741989882,
+        "winner_logloss": 2.193535871114634,
+        "winner_brier": 0.8617086393565486,
+        "ece": 0.05070735630805607
+      },
+      "drop_jockey_history": {
+        "t": 0.9643748719324768,
+        "n": 1186,
+        "hits": 288,
+        "top1_accuracy": 0.24283305227655985,
+        "winner_logloss": 2.205740108503973,
+        "winner_brier": 0.8644394793927321,
+        "ece": 0.054859169836630924
+      },
+      "drop_field_relative_strength": {
+        "t": 0.9834743308195983,
+        "n": 1186,
+        "hits": 295,
+        "top1_accuracy": 0.2487352445193929,
+        "winner_logloss": 2.194338290077784,
+        "winner_brier": 0.8617134292295534,
+        "ece": 0.05198979382732613
+      },
+      "recent_form_x0.5": {
+        "t": 0.7582036431848295,
+        "n": 1186,
+        "hits": 288,
+        "top1_accuracy": 0.24283305227655985,
+        "winner_logloss": 2.2236422268992646,
+        "winner_brier": 0.8712379607086738,
+        "ece": 0.06224010996427245
+      },
+      "recent_form_x0.75": {
+        "t": 0.8589661915423212,
+        "n": 1186,
+        "hits": 285,
+        "top1_accuracy": 0.2403035413153457,
+        "winner_logloss": 2.2031020382049324,
+        "winner_brier": 0.8654386065287801,
+        "ece": 0.0666023717191371
+      },
+      "recent_form_x1.25": {
+        "t": 1.1231430965607745,
+        "n": 1186,
+        "hits": 298,
+        "top1_accuracy": 0.25126475548060706,
+        "winner_logloss": 2.19190103162297,
+        "winner_brier": 0.8596521773214288,
+        "ece": 0.046673360314464916
+      },
+      "recent_form_x1.5": {
+        "t": 1.2721417022169492,
+        "n": 1186,
+        "hits": 296,
+        "top1_accuracy": 0.24957841483979765,
+        "winner_logloss": 2.1924685616844033,
+        "winner_brier": 0.8586261458306332,
+        "ece": 0.0423210499950734
+      },
+      "horse_course_distance_x0.5": {
+        "t": 0.9801915016514853,
+        "n": 1186,
+        "hits": 290,
+        "top1_accuracy": 0.24451939291736932,
+        "winner_logloss": 2.194314225661788,
+        "winner_brier": 0.861947388618351,
+        "ece": 0.0537573049278548
+      },
+      "horse_course_distance_x0.75": {
+        "t": 0.9815809253461705,
+        "n": 1186,
+        "hits": 292,
+        "top1_accuracy": 0.24620573355817876,
+        "winner_logloss": 2.194240272037802,
+        "winner_brier": 0.8618191963251819,
+        "ece": 0.05239131153856358
+      },
+      "horse_course_distance_x1.25": {
+        "t": 0.9867155265953739,
+        "n": 1186,
+        "hits": 293,
+        "top1_accuracy": 0.24704890387858347,
+        "winner_logloss": 2.194825664119776,
+        "winner_brier": 0.8616724355364833,
+        "ece": 0.05181951773095677
+      },
+      "horse_course_distance_x1.5": {
+        "t": 0.9904764877842277,
+        "n": 1186,
+        "hits": 293,
+        "top1_accuracy": 0.24704890387858347,
+        "winner_logloss": 2.1954706151398953,
+        "winner_brier": 0.861652530665427,
+        "ece": 0.05636406213591
+      },
+      "jockey_history_x0.5": {
+        "t": 0.8212202024459745,
+        "n": 1186,
+        "hits": 290,
+        "top1_accuracy": 0.24451939291736932,
+        "winner_logloss": 2.2052586573335113,
+        "winner_brier": 0.859828137554962,
+        "ece": 0.04381483696014115
+      },
+      "jockey_history_x0.75": {
+        "t": 0.8906573689703232,
+        "n": 1186,
+        "hits": 295,
+        "top1_accuracy": 0.2487352445193929,
+        "winner_logloss": 2.1951055428808126,
+        "winner_brier": 0.8596417347180776,
+        "ece": 0.05088064697837845
+      },
+      "jockey_history_x1.25": {
+        "t": 1.0947309526450995,
+        "n": 1186,
+        "hits": 284,
+        "top1_accuracy": 0.23946037099494097,
+        "winner_logloss": 2.19904193442713,
+        "winner_brier": 0.8646637921951852,
+        "ece": 0.06372418083587328
+      },
+      "jockey_history_x1.5": {
+        "t": 1.2193162932317447,
+        "n": 1186,
+        "hits": 286,
+        "top1_accuracy": 0.2411467116357504,
+        "winner_logloss": 2.2062388934228485,
+        "winner_brier": 0.8676272267785159,
+        "ece": 0.06371248845161136
+      },
+      "field_relative_strength_x0.5": {
+        "t": 1.0135639254723612,
+        "n": 1186,
+        "hits": 296,
+        "top1_accuracy": 0.24957841483979765,
+        "winner_logloss": 2.1940347526278443,
+        "winner_brier": 0.8619070751348269,
+        "ece": 0.051901758563343024
+      },
+      "field_relative_strength_x0.75": {
+        "t": 0.998341077168066,
+        "n": 1186,
+        "hits": 295,
+        "top1_accuracy": 0.2487352445193929,
+        "winner_logloss": 2.1941338076978933,
+        "winner_brier": 0.8618057242841298,
+        "ece": 0.05406318353314883
+      },
+      "field_relative_strength_x1.25": {
+        "t": 0.9698607012272833,
+        "n": 1186,
+        "hits": 296,
+        "top1_accuracy": 0.24957841483979765,
+        "winner_logloss": 2.1948866590942973,
+        "winner_brier": 0.8616750544007888,
+        "ece": 0.04844678300966883
+      },
+      "field_relative_strength_x1.5": {
+        "t": 0.9566987387503515,
+        "n": 1186,
+        "hits": 296,
+        "top1_accuracy": 0.24957841483979765,
+        "winner_logloss": 2.195572016075013,
+        "winner_brier": 0.861651480642265,
+        "ece": 0.049586621262122606
+      }
+    },
+    "chosen_2025_middle": "recent_form_x1.25",
+    "2025_late_baseline": {
+      "n": 594,
+      "hits": 149,
+      "top1_accuracy": 0.25084175084175087,
+      "winner_logloss": 2.2621628888553267,
+      "winner_brier": 0.8687273216006866,
+      "ece": 0.061040303676244016
+    },
+    "2025_late_chosen": {
+      "n": 594,
+      "hits": 154,
+      "top1_accuracy": 0.25925925925925924,
+      "winner_logloss": 2.2621922759386446,
+      "winner_brier": 0.867563507433387,
+      "ece": 0.06037459697917165
+    },
+    "2025_late_paired_day_bootstrap95_delta_accuracy": [
+      -0.0016394790767903364,
+      0.017001677023204955
+    ],
+    "2025_late_gate_passed": false,
+    "2026_frozen_evaluation_post_selection": {
+      "official_v51_full2025_calibration": {
+        "n": 2411,
+        "hits": 603,
+        "top1_accuracy": 0.2501036914143509,
+        "winner_logloss": 2.218817251003644,
+        "winner_brier": 0.8590552527775726
+      },
+      "candidate_recalibrated_using_2025_only": {
+        "n": 2411,
+        "hits": 608,
+        "top1_accuracy": 0.2521775197013687,
+        "winner_logloss": 2.2207452639467333,
+        "winner_brier": 0.8592510915347406
+      }
+    },
+    "decision": "REJECT_TENTATIVE_COEFFICIENT_UNCHANGED"
+  },
+  "conditional_podium": {
+    "2nd3rd_candidate_ridges": [
+      {
+        "ridge2": 0.003,
+        "ridge3": 0.003,
+        "LL2": 2.184951191518391,
+        "LL3": 2.147030397126404,
+        "sum": 4.331981588644795,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.003,
+        "ridge3": 0.01,
+        "LL2": 2.184951191518391,
+        "LL3": 2.147100103720062,
+        "sum": 4.332051295238452,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.003,
+        "ridge3": 0.03,
+        "LL2": 2.184951191518391,
+        "LL3": 2.1473810324281986,
+        "sum": 4.332332223946589,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.01,
+        "ridge3": 0.003,
+        "LL2": 2.1847073288740124,
+        "LL3": 2.147030397126404,
+        "sum": 4.331737726000417,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.01,
+        "ridge3": 0.01,
+        "LL2": 2.1847073288740124,
+        "LL3": 2.147100103720062,
+        "sum": 4.331807432594074,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.01,
+        "ridge3": 0.03,
+        "LL2": 2.1847073288740124,
+        "LL3": 2.1473810324281986,
+        "sum": 4.332088361302211,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.03,
+        "ridge3": 0.003,
+        "LL2": 2.184324690896782,
+        "LL3": 2.147030397126404,
+        "sum": 4.331355088023186,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.03,
+        "ridge3": 0.01,
+        "LL2": 2.184324690896782,
+        "LL3": 2.147100103720062,
+        "sum": 4.331424794616844,
+        "feasible": true
+      },
+      {
+        "ridge2": 0.03,
+        "ridge3": 0.03,
+        "LL2": 2.184324690896782,
+        "LL3": 2.1473810324281986,
+        "sum": 4.331705723324981,
+        "feasible": true
+      }
+    ],
+    "2025_search_original_conditional_ll2": 2.1847073288740124,
+    "2025_search_original_conditional_ll3": 2.147100103720035,
+    "chosen_2025_middle": {
+      "ridge_second": 0.03,
+      "ridge_third": 0.003
+    },
+    "2025_late_baseline": {
+      "n_races": 594,
+      "unique_podium_races": 594,
+      "top1_accuracy": 0.25084175084175087,
+      "top1_hits": 149,
+      "winner_in_recommended_trio": 0.5353535353535354,
+      "unordered_podium_exact": 0.03198653198653199,
+      "ordered_podium_exact": 0.008417508417508417,
+      "mean_logloss": 2.2605495494071253,
+      "mean_brier": 0.8681045530104532,
+      "mean_second_marginal_logloss": 2.3508276138622093,
+      "mean_third_marginal_logloss": 2.5128163051411794,
+      "mean_second_marginal_brier": 0.8821074743315821,
+      "mean_third_marginal_brier": 0.9123689353708491,
+      "mean_conditional_second_logloss": 2.2010313624202142,
+      "mean_conditional_third_logloss": 2.2791749834118726
+    },
+    "2025_late_candidate": {
+      "n_races": 594,
+      "unique_podium_races": 594,
+      "top1_accuracy": 0.25084175084175087,
+      "top1_hits": 149,
+      "winner_in_recommended_trio": 0.5353535353535354,
+      "unordered_podium_exact": 0.03367003367003367,
+      "ordered_podium_exact": 0.008417508417508417,
+      "mean_logloss": 2.2605495494071253,
+      "mean_brier": 0.8681045530104532,
+      "mean_second_marginal_logloss": 2.350560717122957,
+      "mean_third_marginal_logloss": 2.5124625050008462,
+      "mean_second_marginal_brier": 0.8817603631193651,
+      "mean_third_marginal_brier": 0.9122873079466066,
+      "mean_conditional_second_logloss": 2.200702225859429,
+      "mean_conditional_third_logloss": 2.278972352978235
+    },
+    "2025_late_gate_passed": false,
+    "2026_fixed_evaluation_post_selection": {
+      "official_v51": {
+        "n_races": 2411,
+        "unique_podium_races": 2411,
+        "top1_accuracy": 0.2501036914143509,
+        "top1_hits": 603,
+        "winner_in_recommended_trio": 0.545002073828287,
+        "unordered_podium_exact": 0.06014102032351721,
+        "ordered_podium_exact": 0.013272501036914143,
+        "mean_logloss": 2.218817251003644,
+        "mean_brier": 0.8590552527775726,
+        "mean_second_marginal_logloss": 2.3529438765688613,
+        "mean_third_marginal_logloss": 2.443308405160383,
+        "mean_second_marginal_brier": 0.8867345193948868,
+        "mean_third_marginal_brier": 0.9024258663943879,
+        "mean_conditional_second_logloss": 2.2177504192135085,
+        "mean_conditional_third_logloss": 2.1870936670318213
+      },
+      "candidate_recalibrated_using_2025_only": {
+        "n_races": 2411,
+        "unique_podium_races": 2411,
+        "top1_accuracy": 0.2501036914143509,
+        "top1_hits": 603,
+        "winner_in_recommended_trio": 0.5466611364579013,
+        "unordered_podium_exact": 0.06055578598092078,
+        "ordered_podium_exact": 0.012028204064703443,
+        "mean_logloss": 2.218817251003644,
+        "mean_brier": 0.8590552527775726,
+        "mean_second_marginal_logloss": 2.3518057622184227,
+        "mean_third_marginal_logloss": 2.4431147029481872,
+        "mean_second_marginal_brier": 0.8865527063514417,
+        "mean_third_marginal_brier": 0.9024063312146016,
+        "mean_conditional_second_logloss": 2.2166241173848187,
+        "mean_conditional_third_logloss": 2.1868751504376767
+      }
+    },
+    "paired_day_bootstrap": {
+      "2025_confirm_ordered_podium_hit": {
+        "n_days": 22,
+        "n_races": 594,
+        "delta": 0,
+        "ci95": [
+          0,
+          0
+        ]
+      },
+      "2026_audit_ordered_podium_hit": {
+        "n_days": 89,
+        "n_races": 2411,
+        "delta": -0.001244296972210701,
+        "ci95": [
+          -0.0028735927210932523,
+          0
+        ]
+      },
+      "2025_confirm_unordered_podium_hit": {
+        "n_days": 22,
+        "n_races": 594,
+        "delta": 0.0016835016835016834,
+        "ci95": [
+          0,
+          0.00539568345323741
+        ]
+      },
+      "2026_audit_unordered_podium_hit": {
+        "n_days": 89,
+        "n_races": 2411,
+        "delta": 0.00041476565740356696,
+        "ci95": [
+          -0.0012777786469912317,
+          0.0021608775626395984
+        ]
+      },
+      "2025_confirm_conditional_second_logloss": {
+        "n_days": 22,
+        "n_races": 594,
+        "delta": -0.0003291365607851579,
+        "ci95": [
+          -0.0016254196393939396,
+          0.0008891235972911508
+        ]
+      },
+      "2026_audit_conditional_second_logloss": {
+        "n_days": 89,
+        "n_races": 2411,
+        "delta": -0.001126301828689623,
+        "ci95": [
+          -0.0018711495445304092,
+          -0.0003873440850754751
+        ]
+      },
+      "2025_confirm_conditional_third_logloss": {
+        "n_days": 22,
+        "n_races": 594,
+        "delta": -0.00020263043363766734,
+        "ci95": [
+          -0.0006105956590784781,
+          0.00020912945687409672
+        ]
+      },
+      "2026_audit_conditional_third_logloss": {
+        "n_days": 89,
+        "n_races": 2411,
+        "delta": -0.00021851659414441103,
+        "ci95": [
+          -0.00045222991513337713,
+          0.000007694335715979423
+        ]
+      }
+    },
+    "decision": "REJECT_P2P3_CANDIDATE_KEEP_OFFICIAL_V51"
+  },
+  "production": {
+    "official_version": "v51",
+    "model_path": "operations/prediction_policy/standard_v51_model.json",
+    "source_v50_used": false,
+    "official_coefficients_modified": false,
+    "full_result_timestamp_evidence_limitation": true
+  },
+  "limitations": [
+    "Historical PDF original publication timestamps are not all verified at forecast asof; retrospective no same-day future result features.",
+    "2026 was previously inspected and must not be used to select hyperparameters or promote coefficients.",
+    "Temperature scaling alone never improves ranking, and selected-race conditional accuracy is not all-race accuracy.",
+    "Winner 2025 late gate requires paired day block bootstrap lower bound >0 plus LogLoss/Brier/ECE safeguards; not satisfied.",
+    "Conditional podium 2025 gate requires an increase in exact ordered three and non-degradation of unordered and conditional LL; not satisfied."
+  ]
+}

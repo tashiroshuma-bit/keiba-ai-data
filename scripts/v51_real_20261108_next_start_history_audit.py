@@ -18,7 +18,7 @@ from pathlib import Path
 from scripts.query_jra_official_past_runs_asof import (
     DB,verify_saved_companion,parse_timestamp
 )
-from scripts.v51_four_axis_historical_features import _parse_corner
+from scripts.v51_four_axis_historical_features import _parse_corner,_number
 
 SOURCE_RACE_DATE=dt.date(2026,11,8)
 
@@ -46,7 +46,7 @@ def audit(*,asof,off,db=DB,verify_sha=True):
             raise ValueError("JRA row and source evidence SHA mismatch")
         if x["result_only_not_prediction_feature"]!=1:
             raise ValueError("historical postrace status marker missing")
-        if (o.date()-SOURCE_RACE_DATE).days<2:
+        if (o.astimezone(dt.timezone(dt.timedelta(hours=9))).date()-SOURCE_RACE_DATE).days<2:
             missing["two_calendar_day_embargo"]+=1;continue
         if parse_timestamp(x["observed_at"])>a or parse_timestamp(x["source_observed_at"])>a:
             missing["source_observed_after_target_asof"]+=1;continue
@@ -58,10 +58,9 @@ def audit(*,asof,off,db=DB,verify_sha=True):
             counter["previous_corner4_parsed"]+=1
             style_rates.append((corner-1)/(n-1))
         else:missing["previous_corner4_unparsed"]+=1
-        w=x["bodyweight_kg"];d=x["bodyweight_delta_kg"]
-        if isinstance(w,(float,int)) and isinstance(d,(float,int)) and (
-           250<=float(w)<=700 and -100<=float(d)<=100 and
-           250<=float(w)-float(d)<=700):
+        w=_number(x["bodyweight_kg"],lo=250,hi=700)
+        d=_number(x["bodyweight_delta_kg"],lo=-100,hi=100)
+        if w is not None and d is not None and 250<=w-d<=700:
             counter["previous_weight_delta_pct_valid"]+=1
             past_deltas.append(100*float(d)/(float(w)-float(d)))
         else:missing["previous_weight_delta_unavailable"]+=1

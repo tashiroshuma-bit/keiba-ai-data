@@ -75,3 +75,24 @@ python -m scripts.v51_2025_coefficient_calibration_grid \
 出力: `v51_2025_coefficient_calibration_grid.json` と `v51_2025_coefficient_calibration_research_model.json`。モデルの `production_enabled=False` を必ず維持し、正式版を書き換えない。
 
 **今回の作業区分**：研究コード・テスト・出典固定済み、実正本での新グリッド計算は未実施ならそのまま「実測未実施」とする。既存の2025校正前後の数値と、今回追加した候補グリッドの未来の結果を混同しない。
+
+## 追加：学習係数自体の再最適化（研究のみ）
+
+係数を倍率変更する感度分析とは独立して `scripts/v51_2025_winner_stage_refit_study.py` を実装。**2023〜24年の訓練済み5,865Rのみで第1着順位ソフトマックスを再推定**し、以下を同じ2025年の日付分割で直接比較する。
+
+- Ridge正則化 `0.003 / 0.01 / 0.03`
+- 馬の近走、コース・距離、騎手、相手比較の各特徴量群を1群ずつ除外した再学習4パターン
+- 現行V51の係数そのもの
+
+温度は早期2025のみでフィット、候補の選択は中期2025、同期間から独立した後期2025で開催日単位95%区間・Log Loss・Brier・ECEを確認。2026は選択後の固定監査にのみ使用。2/3着ステージの学習係数は変更せず、実際に1着指名率の向上があるかだけを初期改修対象とする。新規提案モデルには `production_enabled=false` を強制。
+
+```bash
+python -m scripts.v51_2025_winner_stage_refit_study \
+  --database /data/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
+  --review-overlay /data/jra_review_1975_verified_v2_20261111.sqlite \
+  --historical-feature-script scripts/jra_historical_horse_id_ablation.py \
+  --model operations/prediction_policy/standard_v51_model.json \
+  --output-dir /data/v51_2025_winner_refit
+```
+
+`v51_2025_winner_refit_report.json` に7候補と既存V51を含む実測指標を保存する。**実行前には新しい的中率の数値は存在せず、本番係数更新も行っていない。**

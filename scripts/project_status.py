@@ -139,13 +139,17 @@ def validate_state(state, root=ROOT):
                 for key in ('sha256','bytes','library_file_id','version'):
                     if saved['database'][key] != state['database'][key]:
                         errors.append('identity database differs from saved readback: '+key)
-            elif state['database']['version'] == 11 and saved['database']['version'] == 10:
-                # v10 identity repair remains a valid historical snapshot.
-                # v11 is a verified append-only official podium supplement;
-                # compare new-state metadata to its own persisted readback proof.
+            elif state['database']['version'] in (11,12) and saved['database']['version'] == 10:
+                # Keep v10 -> v11 official podium evidence independently checked.
                 supplement=read('operations/data_updates/canonical_db_v11_update_verified.json')
+                expected_v11 = state['database'] if state['database']['version'] == 11 else {
+                    'sha256':state['database']['previous_sha256'],
+                    'bytes':supplement['bytes'],
+                    'library_file_id':state['database']['previous_library_file_id'],
+                    'version':11
+                }
                 for key in ('sha256','bytes','library_file_id','version'):
-                    if supplement[key] != state['database'][key]:
+                    if supplement[key] != expected_v11[key]:
                         errors.append('v11 supplement database differs from saved readback: '+key)
                 if (supplement['prior_sha256'] != saved['database']['sha256'] or
                     supplement['prior_bytes'] != saved['database']['bytes'] or
@@ -159,6 +163,44 @@ def validate_state(state, root=ROOT):
                     supplement['official_supplement_placing_rows'] != 108 or
                     supplement['supplementary_podium_records_train_eligible'] is not False):
                     errors.append('v11 supplement has unverified preservation or provenance')
+                if state['database']['version'] == 12:
+                    v12=read('operations/data_updates/canonical_db_v12_update_verified.json')
+                    for key in ('sha256','bytes','library_file_id','version'):
+                        if v12[key] != state['database'][key]:
+                            errors.append('v12 official horse ID readback mismatch: '+key)
+                    if (v12['prior_sha256'] != supplement['sha256'] or
+                        v12['prior_bytes'] != supplement['bytes'] or
+                        v12['prior_library_file_id'] != supplement['library_file_id'] or
+                        v12['prior_version'] != supplement['version'] or
+                        v12.get('readback_verified') is not True or
+                        v12.get('readback_sha256') != v12['sha256'] or
+                        v12.get('readback_bytes') != v12['bytes'] or
+                        v12.get('integrity_check') != 'ok' or
+                        v12.get('foreign_key_check') != 'ok' or
+                        v12.get('canonical_historical_races_unchanged') != 13176 or
+                        v12.get('canonical_historical_runner_rows_unchanged') != 181345 or
+                        v12.get('validated_result_races') != 11201 or
+                        v12.get('validated_result_runner_rows') != 154191 or
+                        v12.get('validated_null_before') != 66360 or
+                        v12.get('validated_ids_newly_verified') != 66360 or
+                        v12.get('validated_null_after') != 0 or
+                        v12.get('requires_review_null_after') != 10957 or
+                        v12.get('official_race_html_exact') != 66346 or
+                        v12.get('pdf_cid_extraction_repairs') != 13 or
+                        v12.get('foreign_horse_crosschecked') != 1 or
+                        v12.get('identity_link_disagreements') != 0 or
+                        v12.get('payload_json_identity_disagreements') != 0 or
+                        v12.get('existing_horse_id_conflicts') != 0 or
+                        v12.get('old_canonical_v11_unchanged') is not True or
+                        v12.get('source_primary_jra_originals_archived') != 47 or
+                        v12.get('source_original_archive_readback_verified') is not True or
+                        v12.get('standard_v50_forecast_unchanged') is not True or
+                        v12.get('v51_production_promoted') is not False):
+                        errors.append('v12 horse-ID full recovery missing independent persistence/provenance proof')
+                    if (state['database'].get('library_readback_sha256_verified') is not True or
+                        state.get('horse_id_full_recovery_20261111',{}).get('remaining_validated') != 0 or
+                        state.get('horse_id_full_recovery_20261111',{}).get('remaining_requires_review') != 10957):
+                        errors.append('v12 active state does not match validated horse-ID recovery scope')
             else:
                 errors.append('canonical DB version lacks verified historical-to-current readback chain')
             if (quality['input_db_sha256'] != saved['database']['sha256'] or

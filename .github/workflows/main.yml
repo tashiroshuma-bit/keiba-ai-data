@@ -61,6 +61,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_2025_coefficient_calibration_grid.py' -v
       - name: Official V51 point-in-time inference unit gates
         run: python -m unittest discover -s tests -p 'test_v51_official_forecast.py' -v
+      - name: Reconcile 2025 and 2026 V51 real selective-ranking hit counts
+        run: python -m unittest discover -s tests -p 'test_v51_selective_accuracy_audit.py' -v && python -m scripts.v51_rank_selective_accuracy_audit > /tmp/v51_real_rank_selectivity.json
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

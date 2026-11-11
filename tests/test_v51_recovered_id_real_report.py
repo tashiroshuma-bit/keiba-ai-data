@@ -42,6 +42,12 @@ class RankRestoredIDReportTests(unittest.TestCase):
         m=self.a["modes"]["masked"]["2026_calibrated_on_2025"]
         self.assertLess(f["mean_logloss"],m["mean_logloss"])
         self.assertLess(f["mean_brier"],m["mean_brier"])
+        self.assertLess(f["mean_second_marginal_logloss"],m["mean_second_marginal_logloss"])
+        self.assertLess(f["mean_third_marginal_logloss"],m["mean_third_marginal_logloss"])
+        self.assertLess(f["mean_conditional_second_logloss"],m["mean_conditional_second_logloss"])
+        self.assertLess(f["mean_conditional_third_logloss"],m["mean_conditional_third_logloss"])
+        self.assertLess(f["mean_second_marginal_brier"],m["mean_second_marginal_brier"])
+        self.assertLess(f["mean_third_marginal_brier"],m["mean_third_marginal_brier"])
         self.assertGreater(f["calibration_reliability"]["ece_confidence"],m["calibration_reliability"]["ece_confidence"])
         self.assertLess(f["calibration_reliability"]["ece_confidence"],
                         self.a["modes"]["full"]["2026_uncalibrated"]["calibration_reliability"]["ece_confidence"])

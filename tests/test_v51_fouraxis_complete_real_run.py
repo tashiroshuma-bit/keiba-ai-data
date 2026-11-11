@@ -31,7 +31,8 @@ class FourAxisActualRunSourceGate(unittest.TestCase):
             self.assertTrue(sample.is_file())
 
     def test_summary_denominators_and_disclosures_are_explicit(self):
-        base={"races":594,"top1_accuracy":.25,"winner_logloss":2.25}
+        base={"races":594,"top1_accuracy":.25,"winner_logloss":2.25,
+              "winner_brier":.865,"ece_confidence":.031}
         valid={"valid_unique_podium_races":590,
                 "ordered_exact_hits":5,"unordered_exact_hits":20}
         x={"2025_late_confirmation":{
@@ -53,6 +54,8 @@ class FourAxisActualRunSourceGate(unittest.TestCase):
         self.assertIn("2025全期",s)
         self.assertIn("2026固定事後監査",s)
         self.assertIn("5/590",s)
+        self.assertIn("現行Brier",s)
+        self.assertIn("現行ECE",s)
         self.assertIn("False",s)
         self.assertIn("使用していない",s)
 

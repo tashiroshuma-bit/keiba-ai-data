@@ -74,8 +74,15 @@ def _parse_corner(p,field_size):
             if x is not None and int(x)==x:return int(x)
         if isinstance(value,str):
             cleaned=value.replace(" ","")
-            if re.fullmatch(r"\d{1,2}(?:-\d{1,2}){1,3}",cleaned):
-                x=int(cleaned.split("-")[-1])
+            # Source sidecars may encode a sequence as a JSON list.
+            if cleaned.startswith("[") and cleaned.endswith("]"):
+                try:parsed=json.loads(cleaned)
+                except (TypeError,ValueError):parsed=None
+                if isinstance(parsed,list) and 1<=len(parsed)<=4:
+                    x=_number(parsed[-1],lo=1,hi=n)
+                    if x is not None and int(x)==x:return int(x)
+            if re.fullmatch(r"\d{1,2}(?:[-,]\d{1,2}){1,3}",cleaned):
+                x=int(re.split(r"[-,]",cleaned)[-1])
                 if 1<=x<=n:return x
     return None
 

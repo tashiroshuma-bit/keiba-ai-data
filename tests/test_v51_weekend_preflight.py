@@ -55,7 +55,8 @@ class WeekendPreflightTests(unittest.TestCase):
             source.write_text(json.dumps(valid_source))
             morning=preflight(base,database=db,source_a=source,phase="morning")
             final=preflight(base,database=db,source_a=source,phase="final")
-            self.assertEqual(morning["status"],"NOT_READY")\n            self.assertIn("standard_v50_unchanged",morning["blockers"])
+            self.assertEqual(morning["status"],"NOT_READY")
+            self.assertIn("standard_v50_unchanged",morning["blockers"])
             self.assertTrue(morning["checks"]["canonical_db_integrity_ok"])
             self.assertTrue(morning["checks"]["real_source_A_schema_valid"])
             valid_source["races"][0]["horses"][0]["p1"]=0.9

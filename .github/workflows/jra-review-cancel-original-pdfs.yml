@@ -1,0 +1,32 @@
+name: "JRA official original PDFs for nine canceled races"
+on:
+  pull_request:
+    paths:
+      - operations/data_updates/jra_review_9cancel_original_pdf_sources_20261111.json
+      - scripts/jra_review_cancellation_pdf_archive.py
+      - .github/workflows/jra-review-cancel-original-pdfs.yml
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify-original-cancellation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: python -m pip install pypdf pymupdf
+      - name: Capture five JRA PDF originals and inspect nine race cancellation markers
+        run: |
+          python -m scripts.jra_review_cancellation_pdf_archive \
+            --manifest operations/data_updates/jra_review_9cancel_original_pdf_sources_20261111.json \
+            --output-dir /tmp/jra_cancelled_pdf_originals
+      - name: Preserve official raw PDFs, SHA256 and row-level audit
+        uses: actions/upload-artifact@v4
+        with:
+          name: jra-nine-cancelled-races-five-original-pdfs
+          path: /tmp/jra_cancelled_pdf_originals/
+          retention-days: 14
+          if-no-files-found: error

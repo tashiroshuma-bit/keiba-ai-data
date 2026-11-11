@@ -1,0 +1,137 @@
+{
+  "schema": "jra-missing-null-horse-id-days-v1",
+  "scope": "requires_review_missing_official_HTML",
+  "target_days": [
+    {
+      "race_date": "2023-01-05",
+      "race_id": "202306010101",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301010120230105%2F5D",
+      "missing_horse_id_rows": 0,
+      "missing_races": 3,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-01-07",
+      "race_id": "202306010201",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202301020120230107%2F4A",
+      "missing_horse_id_rows": 0,
+      "missing_races": 2,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-01-08",
+      "race_id": "202306010308",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0106202301030820230108%2F8E",
+      "missing_horse_id_rows": 0,
+      "missing_races": 4,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-06-03",
+      "race_id": "202309030102",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1009202303010220230603%2F3F",
+      "missing_horse_id_rows": 0,
+      "missing_races": 6,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-06-04",
+      "race_id": "202305030211",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202303021120230604%2FE4",
+      "missing_horse_id_rows": 0,
+      "missing_races": 5,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-07-01",
+      "race_id": "202307030111",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202303011120230701%2F49",
+      "missing_horse_id_rows": 0,
+      "missing_races": 7,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2023-07-02",
+      "race_id": "202307030202",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0107202303020220230702%2FFD",
+      "missing_horse_id_rows": 0,
+      "missing_races": 2,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-01-06",
+      "race_id": "202406010106",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1006202401010620240106%2FAA",
+      "missing_horse_id_rows": 0,
+      "missing_races": 4,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-01-07",
+      "race_id": "202408010201",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202401020120240107%2F06",
+      "missing_horse_id_rows": 0,
+      "missing_races": 9,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-06-01",
+      "race_id": "202405030106",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202403010620240601%2F99",
+      "missing_horse_id_rows": 0,
+      "missing_races": 4,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-06-02",
+      "race_id": "202405030202",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202403020220240602%2FD4",
+      "missing_horse_id_rows": 0,
+      "missing_races": 5,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-10-12",
+      "race_id": "202408050311",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202405031120241012%2FB4",
+      "missing_horse_id_rows": 0,
+      "missing_races": 3,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2024-10-13",
+      "race_id": "202408050411",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1008202405041120241013%2FE4",
+      "missing_horse_id_rows": 0,
+      "missing_races": 3,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2025-01-05",
+      "race_id": "202507010101",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1007202501010120250105%2FB5",
+      "missing_horse_id_rows": 0,
+      "missing_races": 4,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2025-05-31",
+      "race_id": "202505021105",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202502110520250531%2F5D",
+      "missing_horse_id_rows": 0,
+      "missing_races": 2,
+      "source_kind": "JRA_official_result_page"
+    },
+    {
+      "race_date": "2025-06-01",
+      "race_id": "202505021201",
+      "seed_url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde1005202502120120250601%2F48",
+      "missing_horse_id_rows": 0,
+      "missing_races": 6,
+      "source_kind": "JRA_official_result_page"
+    }
+  ],
+  "missing_official_html_races": 69,
+  "additional_undated_empty_races": 9,
+  "canonical_db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd"
+}

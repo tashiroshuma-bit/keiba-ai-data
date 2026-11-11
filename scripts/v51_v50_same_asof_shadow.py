@@ -84,7 +84,11 @@ def forecast(v50,features,artifact):
                 raise ValueError('official JRA original identity source URL and sha required')
             if timestamp(proof['observed_at'])>asof or timestamp(r['features_observed_at'])>asof:
                 raise ValueError('identity or features observed after v50 original asof')
-            if str(r['latest_history_date'])>=off.astimezone(dt.timezone(dt.timedelta(hours=9))).date().isoformat():
+            prior_date=r.get('latest_history_date')
+            if prior_date is None:
+                if r.get('prior_starts') != 0:
+                    raise ValueError('missing prior history date for established runner')
+            elif str(prior_date)>=off.astimezone(dt.timezone(dt.timedelta(hours=9))).date().isoformat():
                 raise ValueError('same-day or future race result in horse features')
             v=r.get('feature_values');
             if not isinstance(v,list) or len(v)!=dim or any(type(x) not in (float,int) or not math.isfinite(x) for x in v):

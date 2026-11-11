@@ -1,0 +1,47 @@
+{
+  "github_actions_run_id": 43026236465,
+  "source_type": "ACTUAL_JRA_RECORDED_PAST_HISTORY_NO_2025_RETRAINING",
+  "schema": "jra-v51-nov08-real-past-history-for-next-race-v1",
+  "source_database": "operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite",
+  "source_db_real_jra_races": 36,
+  "asof": "2026-11-14T08:00:00+09:00",
+  "target_off": "2026-11-14T10:00:00+09:00",
+  "historical_race_date": "2026-11-08",
+  "history_observed_at_proof": true,
+  "minimum_calendar_lag_days": 2,
+  "counts": {
+    "saved_postrace_horse_rows": 497,
+    "past_history_eligible_at_target_asof": 497,
+    "previous_corner4_parsed": 497,
+    "previous_weight_delta_pct_valid": 419,
+    "official_horse_identity_eligible": 497
+  },
+  "missing": {
+    "previous_weight_delta_unavailable": 78
+  },
+  "corner_source_notation_samples": [
+    "'2 2'",
+    "'3 3'",
+    "'1 1'",
+    "'3 4'",
+    "'9 9'",
+    "'10 10'",
+    "'7 7'",
+    "'5 4'"
+  ],
+  "mean_past_corner4_field_fraction": 0.4653867995210166,
+  "mean_past_weight_delta_pct": 0.2558425575693659,
+  "current_race_weight_used": false,
+  "same_race_result_used": false,
+  "class_race_metadata_available": false,
+  "jockey_official_id_available": false,
+  "official_v51_model_updated": false,
+  "next_race_roster_joined": false,
+  "status": "REAL_SOURCE_COVERAGE_ONLY_NOT_RANK_ACCURACY",
+  "limitations": [
+    "Actual publication time is not stored; original JRA capture times are used as availability bounds.",
+    "These are completed Nov8 races, not their original preoff forecasts.",
+    "No Nov14 horse roster has been joined; coverage is only potential historical features.",
+    "Class and official jockey IDs are absent from this specific small source database."
+  ]
+}

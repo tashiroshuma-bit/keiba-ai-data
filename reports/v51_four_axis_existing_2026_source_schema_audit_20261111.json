@@ -1,0 +1,170 @@
+{
+  "audit_from_github_actions_run": 43025062191,
+  "scope": "REPOSITORY_NONCANONICAL_2026_SMALL_DB_ONLY",
+  "proves_historical_v12_2025_feature_coverage": false,
+  "proves_true_preoff_weight_publication": false,
+  "files": [
+    {
+      "file": "operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite",
+      "db_bytes": 290816,
+      "schema_tables": [
+        {
+          "table": "source_race",
+          "rows": 36,
+          "source_related_columns": [
+            "race",
+            "source_url",
+            "source_sha256",
+            "observed_at",
+            "race_no"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 36,
+            "source_url": 36,
+            "source_sha256": 36,
+            "observed_at": 36,
+            "race_no": 36
+          }
+        },
+        {
+          "table": "runner_postrace",
+          "rows": 497,
+          "source_related_columns": [
+            "race",
+            "horse_number",
+            "horse_name",
+            "horse_id",
+            "horse_profile_url",
+            "finish_position",
+            "assigned_weight_kg",
+            "jockey_name",
+            "race_time",
+            "corner_positions",
+            "bodyweight_kg",
+            "bodyweight_delta_kg",
+            "observed_at",
+            "source_url",
+            "source_sha256"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 497,
+            "horse_number": 497,
+            "horse_name": 497,
+            "horse_id": 497,
+            "horse_profile_url": 497,
+            "finish_position": 495,
+            "assigned_weight_kg": 497,
+            "jockey_name": 497,
+            "race_time": 495,
+            "corner_positions": 497,
+            "bodyweight_kg": 419,
+            "bodyweight_delta_kg": 419,
+            "observed_at": 497,
+            "source_url": 497,
+            "source_sha256": 497
+          }
+        },
+        {
+          "table": "quarantined_race",
+          "rows": 0,
+          "source_related_columns": [
+            "race",
+            "source_url"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 0,
+            "source_url": 0
+          }
+        },
+        {
+          "table": "ingestion_manifest",
+          "rows": 11,
+          "source_related_columns": [],
+          "not_null_not_empty_rows": {}
+        }
+      ],
+      "quick_check": "ok"
+    },
+    {
+      "file": "operations/data_updates/jra_official_20261108_all_runner_history.sqlite",
+      "db_bytes": 286720,
+      "schema_tables": [
+        {
+          "table": "source_race",
+          "rows": 35,
+          "source_related_columns": [
+            "race",
+            "source_url",
+            "source_sha256",
+            "observed_at",
+            "race_no"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 35,
+            "source_url": 35,
+            "source_sha256": 35,
+            "observed_at": 35,
+            "race_no": 35
+          }
+        },
+        {
+          "table": "runner_postrace",
+          "rows": 486,
+          "source_related_columns": [
+            "race",
+            "horse_number",
+            "horse_name",
+            "horse_id",
+            "horse_profile_url",
+            "finish_position",
+            "assigned_weight_kg",
+            "jockey_name",
+            "race_time",
+            "corner_positions",
+            "bodyweight_kg",
+            "bodyweight_delta_kg",
+            "observed_at",
+            "source_url",
+            "source_sha256"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 486,
+            "horse_number": 486,
+            "horse_name": 486,
+            "horse_id": 486,
+            "horse_profile_url": 486,
+            "finish_position": 486,
+            "assigned_weight_kg": 486,
+            "jockey_name": 486,
+            "race_time": 486,
+            "corner_positions": 486,
+            "bodyweight_kg": 408,
+            "bodyweight_delta_kg": 408,
+            "observed_at": 486,
+            "source_url": 486,
+            "source_sha256": 486
+          }
+        },
+        {
+          "table": "quarantined_race",
+          "rows": 1,
+          "source_related_columns": [
+            "race",
+            "source_url"
+          ],
+          "not_null_not_empty_rows": {
+            "race": 1,
+            "source_url": 1
+          }
+        },
+        {
+          "table": "ingestion_manifest",
+          "rows": 11,
+          "source_related_columns": [],
+          "not_null_not_empty_rows": {}
+        }
+      ],
+      "quick_check": "ok"
+    }
+  ]
+}

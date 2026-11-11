@@ -67,6 +67,14 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_2025_conditional_p2p3_ridge.py' -v
       - name: Guard actual 2025/2026 V51 real rank ablation coefficients and no-promotion decision
         run: python -m unittest discover -s tests -p 'test_v51_real_rank_ablation_artifact.py' -v
+      - name: V51 official four-axis previous-race class style rider and announced-weight provenance gates
+        run: python -m unittest discover -s tests -p 'test_v51_four_axis_preoff_research.py' -v && python -m unittest discover -s tests -p 'test_v51_four_axis_canonical_coverage.py' -v
+      - name: V51 real-date embargo prior class/style/jockey/past weight and additive rank fit tests
+        run: python -m unittest discover -s tests -p 'test_v51_four_axis_historical_features.py' -v && python -m unittest discover -s tests -p 'test_v51_four_axis_rank_residual_study.py' -v
+      - name: Audit checked-in 2026 JRA history SQLite schema for four-axis coverage
+        run: python -m scripts.v51_repository_source_schema_probe
+      - name: Real JRA 497-runner observed Nov08 history for later-race style and bodyweight features
+        run: python -m unittest discover -s tests -p 'test_v51_real_20261108_next_start_history_audit.py' -v && python -m scripts.v51_real_20261108_next_start_history_audit
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

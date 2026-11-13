@@ -50,6 +50,14 @@ class JointPLNewStatistics(unittest.TestCase):
         self.assertGreater(meta["train_first_races"],0)
         self.assertFalse(meta["outcome_labels_used_in_prediction_inputs"])
 
+    def test_three_runner_race_third_is_deterministic(self):
+        X=np.asarray([[1.,0.],[0.,1.],[-1.,0.]])
+        g=[{"indices":np.arange(3),"first":0,
+            "second":1,"third":2,"date":"2024-01-01","podium_valid":True}]
+        third=_samples(g,3)
+        self.assertEqual(len(third[0][0]),1)
+        self.assertEqual(int(third[0][0][0]),2)
+
     def test_recent_race_gets_more_weight(self):
         w=_recency_weights(["2023-01-01","2024-01-01","2024-12-01"],365)
         self.assertLess(w[0],w[1])

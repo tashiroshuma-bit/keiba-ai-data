@@ -1,0 +1,62 @@
+{
+  "source": {
+    "races": 11802,
+    "class_detected_races": 11676,
+    "full_corner_detected_races": 11194,
+    "bodyweight_delta_rows": 123677
+  },
+  "years": {
+    "2023": {
+      "runners": 42828,
+      "jockey_conditional_observed": 34818,
+      "prior_class_observed": 31149,
+      "prior_corner_observed": 30822,
+      "prior_weight_observed": 27046,
+      "prior_rival_observed": 27196
+    },
+    "2024": {
+      "runners": 41828,
+      "prior_class_observed": 36783,
+      "prior_corner_observed": 36329,
+      "jockey_conditional_observed": 38938,
+      "prior_rival_observed": 33455,
+      "prior_weight_observed": 32046
+    },
+    "2025": {
+      "runners": 42901,
+      "jockey_conditional_observed": 40263,
+      "prior_class_observed": 37887,
+      "prior_rival_observed": 34588,
+      "prior_corner_observed": 37399,
+      "prior_weight_observed": 33148
+    },
+    "2026": {
+      "runners": 34835,
+      "prior_class_observed": 31195,
+      "prior_corner_observed": 30812,
+      "jockey_conditional_observed": 33340,
+      "prior_rival_observed": 28688,
+      "prior_weight_observed": 27450
+    }
+  },
+  "source_db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "overlay_sha256": "5f80b199b61b401fb046a0d7c2fb065b8c433dbc5734fcbefb5f0740ae3d03ea",
+  "feature_names": [
+    "past_race_class_last3",
+    "past_rivals_prior_strength_last3",
+    "prior_class_missing",
+    "prior_rival_strength_missing",
+    "prior_corner4_fraction_last3",
+    "prior_early_style_last3",
+    "prior_corner_finish_gain_last3",
+    "prior_style_missing",
+    "jockey_track_surface_distance_residual",
+    "jockey_course_count_log",
+    "jockey_condition_missing",
+    "previous_reported_weight_delta_pct_last3",
+    "previous_weight_count_log",
+    "previous_weight_missing"
+  ],
+  "bodyweight_current_race_used": false,
+  "max_history_cutoff_days": -2
+}

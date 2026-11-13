@@ -94,7 +94,7 @@ def _samples(groups,stage):
         indices=np.asarray([int(k) for k in g["indices"] if int(k) not in removed],
                            dtype=np.int64)
         target=int(g[("first","second","third")[stage-1]])
-        if target not in indices or len(indices)<2:
+        if target not in indices or len(indices)<1:
             raise ValueError("invalid conditional top-three race")
         samples.append((indices,target,g["date"]))
     return samples

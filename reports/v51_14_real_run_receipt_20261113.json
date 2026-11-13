@@ -1,0 +1,78 @@
+{
+  "schema": "jra-v51-14feature-real-data-execution-receipt-v1",
+  "timestamp_jst": "2026-11-13",
+  "status": "EXECUTED_CANONICAL_DB_TRAINING_AND_2025_COMPARISON",
+  "training_and_eval_real_data": true,
+  "source_v12_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "overlay_sha256": "5f80b199b61b401fb046a0d7c2fb065b8c433dbc5734fcbefb5f0740ae3d03ea",
+  "source_original_model": "/mnt/data/files/v51_rank_full_trained_2023_2024_cal2025.json",
+  "cohorts": {
+    "training_2023_2024_races": 5865,
+    "training_runner_rows": 80547,
+    "2025_fit": 1145,
+    "2025_search": 1186,
+    "2025_confirm": 594,
+    "2026_audit": 2411
+  },
+  "selected": "opponent_class_ridge_0.03",
+  "2025_late_baseline_hits": 149,
+  "2025_late_selected_hits": 157,
+  "2025_late_95ci_delta": [
+    -0.006700167504187605,
+    0.03220741779647811
+  ],
+  "strict_promotion_gate_pass": false,
+  "production_v51_changed": false,
+  "source_coverage": {
+    "races": 11802,
+    "class_detected_races": 11676,
+    "full_corner_detected_races": 11194,
+    "bodyweight_delta_rows": 123677
+  },
+  "files": {
+    "feature_build.py": {
+      "bytes": 7674,
+      "sha256": "5414e65702947094ec59aa84a300137a07afad9268c38351b8fe1fb5572b26b4"
+    },
+    "retrain_eval.py": {
+      "bytes": 15450,
+      "sha256": "5072abaa9cad197d1cd6232ba0cd522df4c78ded0e641fdfaddf93b79d5d3f90"
+    },
+    "feature_build.log": {
+      "bytes": 1582,
+      "sha256": "ea442da41162f4b3cb2f1195cef55dfebeb3c4d056d9e58c5886126f69d19eaf"
+    },
+    "retrain_eval.log": {
+      "bytes": 7642,
+      "sha256": "408d2edc4144d4eb8e2fb7766e69d1548a75c5743e1537e86f240c74a4105251"
+    },
+    "source_coverage.json": {
+      "bytes": 1884,
+      "sha256": "b3b3efa8c1e8d8be240c7f9c52aea95c7102c7dc9b31fa31d5be639d45e3bf6c"
+    },
+    "v51_14_real_train_rank_metrics.json": {
+      "bytes": 12948,
+      "sha256": "0c408aedc15d00c4f7ea1b0859c58394334c38d4b4ff079e39da5359f1dbb162"
+    },
+    "v51_14_real_train_2025_comparison.md": {
+      "bytes": 2510,
+      "sha256": "c730aa2e21df2de55d68095f1f6548fe2cfdff315c6be4a823d834fbc1501c90"
+    },
+    "research_14coefficients_not_production.json": {
+      "bytes": 2000,
+      "sha256": "5a23c183c0797f67cca5296bf5b053da878242a6a095ed1009e57ff0b71a1336"
+    },
+    "2025_late_paired_race_metrics.csv": {
+      "bytes": 61863,
+      "sha256": "35f8a8d8c5684a1bd34b49d13e5df10f4ba57ae1a06c33e28afa83e662d1c833"
+    },
+    "2026_audit_paired_race_metrics.csv": {
+      "bytes": 250842,
+      "sha256": "cf96260f5b05c46d0dc4554be1149b30b46730a0fd5e5e0c11df120a30c060c1"
+    },
+    "v51_fouraxis_features_20261113.npz": {
+      "bytes": 11606977,
+      "sha256": "914e74bfbaf87c525bae5ec59dad3cef8ee74cc5373a7eddf88f75a055fecb71"
+    }
+  }
+}

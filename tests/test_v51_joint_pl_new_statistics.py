@@ -1,5 +1,6 @@
 """Rank-model correctness tests. Synthetic ONLY; not actual 2025 precision."""
 import unittest
+import datetime as dt
 import numpy as np
 from scripts.v51_joint_pl_new_statistics import (
     _samples,_recency_weights,design_matrix,joint_stage_fit,race_score_records,
@@ -18,7 +19,7 @@ class JointPLNewStatistics(unittest.TestCase):
             order=inds[np.argsort(-X[inds,0])]
             groups.append({"indices":inds,"first":int(order[0]),
                 "second":int(order[1]),"third":int(order[2]),
-                "date":f"2024-{1+j//31:02d}-{1+j%31:02d}",
+                "date":(dt.date(2024,1,1)+dt.timedelta(days=j)).isoformat(),
                 "podium_valid":True})
         return X,groups
 

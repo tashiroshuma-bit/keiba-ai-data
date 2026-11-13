@@ -152,15 +152,30 @@ def combine_rows(winners,podium):
     return {race:{**item,**podium.get(race,{})} for race,item in winners.items()}
 
 def _score_choice(scores,baseline):
-    # Choose primarily by proper scoring rule, avoid calibration degradation.
+    """Choose by a weighted PROPER log score over the entire podium.
+
+    0.5 * P1 LogLoss + .3 * P2 conditional LogLoss
+    + .2 * P3 conditional LogLoss; all available from fully verified
+    podiums. This prevents choosing a winner-only candidate that
+    systematically worsens second or third conditional probabilities.
+    """
+    needed=("winner_logloss","conditional_second_logloss",
+            "conditional_third_logloss")
+    if any(not math.isfinite(float(baseline[k])) for k in needed):
+        raise ValueError("baseline podium conditional proper scores unavailable")
     feasible=[]
     for name,q in scores.items():
+        if any(not math.isfinite(float(q[k])) for k in needed):
+            continue
         if q["winner_logloss"]>baseline["winner_logloss"]+.01:continue
+        if q["conditional_second_logloss"]>baseline["conditional_second_logloss"]+.03:continue
+        if q["conditional_third_logloss"]>baseline["conditional_third_logloss"]+.03:continue
         if q["winner_brier"]>baseline["winner_brier"]+.01:continue
         if q["ece_confidence"]>baseline["ece_confidence"]+.02:continue
-        # Set as a tie-breaker; never select on post-confirm or 2026.
-        feasible.append((q["winner_logloss"],q["winner_brier"],
-                         -q["top1_accuracy"],name))
+        joint=(.5*q["winner_logloss"]+
+               .3*q["conditional_second_logloss"]+
+               .2*q["conditional_third_logloss"])
+        feasible.append((joint,q["winner_logloss"],-q["top1_accuracy"],name))
     return min(feasible)[-1] if feasible else "baseline"
 
 def _first_stages(core,groups,modelw):

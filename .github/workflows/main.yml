@@ -81,6 +81,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_fouraxis_fullscore_integrity.py' -v
       - name: Fail-closed canonical v12 and 2025 complete four-axis retrain execution contract
         run: python -m unittest discover -s tests -p 'test_v51_fouraxis_complete_real_run.py' -v
+      - name: V51 real canonical 14-feature 2025/2026 result integrity (NOT retraining in CI)
+        run: python -m unittest discover -s tests -p 'test_v51_14_real_data_evidence_20261113.py' -v
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

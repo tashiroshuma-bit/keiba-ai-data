@@ -1,0 +1,513 @@
+{
+  "schema": "jra-v51-14-feature-REAL-observed-20261113-v1",
+  "source_database_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "source_overlay_sha256": "5f80b199b61b401fb046a0d7c2fb065b8c433dbc5734fcbefb5f0740ae3d03ea",
+  "original_31_features_frozen": true,
+  "new_features": [
+    "past_race_class_last3",
+    "past_rivals_prior_strength_last3",
+    "prior_class_missing",
+    "prior_rival_strength_missing",
+    "prior_corner4_fraction_last3",
+    "prior_early_style_last3",
+    "prior_corner_finish_gain_last3",
+    "prior_style_missing",
+    "jockey_track_surface_distance_residual",
+    "jockey_course_count_log",
+    "jockey_condition_missing",
+    "previous_reported_weight_delta_pct_last3",
+    "previous_weight_count_log",
+    "previous_weight_missing"
+  ],
+  "candidate_coefficients": {
+    "official_baseline": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "opponent_class_ridge_0.03": [
+      0.12293885242168842,
+      0.288210740389673,
+      0.11071369955440816,
+      0.16006096052199842,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "opponent_class_ridge_0.1": [
+      0.11169538187032337,
+      0.1893410245009709,
+      0.08944677083068125,
+      0.08309170571258064,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "running_style_ridge_0.03": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.07566613852380247,
+      0.00677070259507027,
+      -0.03217124610274548,
+      -0.023277193074387498,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "running_style_ridge_0.1": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      -0.05482958507890006,
+      0.01750834454295272,
+      -0.03262294415661422,
+      -0.006847492788151392,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "jockey_condition_ridge_0.03": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.036365703530793235,
+      0.06938088985296985,
+      0.055187116722004985,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "jockey_condition_ridge_0.1": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.03510923485842426,
+      0.05012680999531672,
+      0.03916121920686144,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "previous_weight_ridge_0.03": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0007013578544019855,
+      0.06165838703843642,
+      0.030635354728644225
+    ],
+    "previous_weight_ridge_0.1": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.00030385584983459507,
+      0.04008681948810062,
+      0.012939078083996965
+    ],
+    "combined_ridge_0.03": [
+      0.13593001208170147,
+      0.30434746079766134,
+      0.11706908068413649,
+      0.1562937348794358,
+      -0.11351640447799013,
+      0.017043358440449352,
+      -0.0017158878369825403,
+      -0.056480204913089284,
+      0.03562320510353724,
+      0.06515847523232857,
+      0.05272542284146305,
+      -0.006005748213949291,
+      0.04467717509601278,
+      0.05392821553874888
+    ],
+    "combined_ridge_0.1": [
+      0.12101241527944193,
+      0.20060903553923393,
+      0.07122617781879338,
+      0.07349266854865688,
+      -0.07697026973587313,
+      0.023979120162898458,
+      -0.016346212862877667,
+      -0.0019397838068789305,
+      0.03475918160836448,
+      0.047784040468303944,
+      0.03796179601550409,
+      -0.004787359101958123,
+      0.02338694680377712,
+      0.03693642744740574
+    ]
+  },
+  "feature_normalizer": {
+    "mean": [
+      0.1683751239787571,
+      0.0525922940494198,
+      0.19676710492010877,
+      0.28385911331272423,
+      0.3830574858946306,
+      0.2755120198972816,
+      0.01570049140796556,
+      0.204998323959924,
+      0.000665268326434227,
+      2.4477307699506117,
+      0.12793772579984358,
+      0.008342974853666505,
+      0.7690562309434508,
+      0.3021341576967485
+    ],
+    "scale": [
+      0.17137187327519807,
+      0.03834726206486647,
+      0.39755479036431823,
+      0.4508692904847726,
+      0.301343475869904,
+      0.3684558932596133,
+      0.24279901088826575,
+      0.40370039773770355,
+      0.04039020394992169,
+      1.3787595222739002,
+      0.33402045463823216,
+      0.0918440930770449,
+      0.5563083335527975,
+      0.4591830881575047
+    ]
+  },
+  "fit_diagnostics": {
+    "opponent_class_ridge_0.03": {
+      "iterations": 7,
+      "converged": true,
+      "gradient_norm": 1.3303250650394296e-06,
+      "nll_penalized": 2.2043832866223347,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "opponent_class_ridge_0.1": {
+      "iterations": 7,
+      "converged": true,
+      "gradient_norm": 7.986050161071117e-08,
+      "nll_penalized": 2.207589586686117,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "running_style_ridge_0.03": {
+      "iterations": 9,
+      "converged": true,
+      "gradient_norm": 6.002665866898347e-06,
+      "nll_penalized": 2.213492156784305,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "running_style_ridge_0.1": {
+      "iterations": 7,
+      "converged": true,
+      "gradient_norm": 3.840381276379964e-06,
+      "nll_penalized": 2.2136837856135476,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "jockey_condition_ridge_0.03": {
+      "iterations": 6,
+      "converged": true,
+      "gradient_norm": 4.466371559998742e-06,
+      "nll_penalized": 2.2148145878962264,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "jockey_condition_ridge_0.1": {
+      "iterations": 6,
+      "converged": true,
+      "gradient_norm": 4.7084017591619525e-06,
+      "nll_penalized": 2.215056627028058,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "previous_weight_ridge_0.03": {
+      "iterations": 6,
+      "converged": true,
+      "gradient_norm": 3.090355593868481e-07,
+      "nll_penalized": 2.216012079205966,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "previous_weight_ridge_0.1": {
+      "iterations": 5,
+      "converged": true,
+      "gradient_norm": 8.443910417898781e-06,
+      "nll_penalized": 2.2161123749280263,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "combined_ridge_0.03": {
+      "iterations": 20,
+      "converged": true,
+      "gradient_norm": 2.0750564547575435e-05,
+      "nll_penalized": 2.198702911682054,
+      "race_sets": 5865,
+      "runners": 80547
+    },
+    "combined_ridge_0.1": {
+      "iterations": 15,
+      "converged": true,
+      "gradient_norm": 1.5770734382706952e-05,
+      "nll_penalized": 2.2027665702751666,
+      "race_sets": 5865,
+      "runners": 80547
+    }
+  },
+  "train_races": 5865,
+  "train_runners": 80547,
+  "split_2025": {
+    "early": 1145,
+    "middle": 1186,
+    "late": 594,
+    "early_until_exclusive": "2025-05-25",
+    "middle_until_exclusive": "2025-10-19"
+  },
+  "search_2025": {
+    "official_baseline": {
+      "races": 1186,
+      "top1_hits": 295,
+      "top1_accuracy": 0.2487352445193929,
+      "winner_logloss": 2.1925902392247845,
+      "winner_brier": 0.8608335855795964,
+      "ece_confidence": 0.048228430568178535
+    },
+    "opponent_class_ridge_0.03": {
+      "races": 1186,
+      "top1_hits": 309,
+      "top1_accuracy": 0.260539629005059,
+      "winner_logloss": 2.1634677316127924,
+      "winner_brier": 0.8543282762761164,
+      "ece_confidence": 0.05074885526269082
+    },
+    "opponent_class_ridge_0.1": {
+      "races": 1186,
+      "top1_hits": 300,
+      "top1_accuracy": 0.25295109612141653,
+      "winner_logloss": 2.169867075148732,
+      "winner_brier": 0.8559533929170606,
+      "ece_confidence": 0.05185488237001879
+    },
+    "running_style_ridge_0.03": {
+      "races": 1186,
+      "top1_hits": 300,
+      "top1_accuracy": 0.25295109612141653,
+      "winner_logloss": 2.187399534614594,
+      "winner_brier": 0.8604110648347322,
+      "ece_confidence": 0.04673982725449113
+    },
+    "running_style_ridge_0.1": {
+      "races": 1186,
+      "top1_hits": 301,
+      "top1_accuracy": 0.25379426644182124,
+      "winner_logloss": 2.187952882710789,
+      "winner_brier": 0.8605588252388366,
+      "ece_confidence": 0.048419416216107056
+    },
+    "jockey_condition_ridge_0.03": {
+      "races": 1186,
+      "top1_hits": 294,
+      "top1_accuracy": 0.2478920741989882,
+      "winner_logloss": 2.192569816084853,
+      "winner_brier": 0.8612334896364321,
+      "ece_confidence": 0.05825212420372828
+    },
+    "jockey_condition_ridge_0.1": {
+      "races": 1186,
+      "top1_hits": 293,
+      "top1_accuracy": 0.24704890387858347,
+      "winner_logloss": 2.1928123328791616,
+      "winner_brier": 0.8612845253619412,
+      "ece_confidence": 0.05482379585602099
+    },
+    "previous_weight_ridge_0.03": {
+      "races": 1186,
+      "top1_hits": 289,
+      "top1_accuracy": 0.2436762225969646,
+      "winner_logloss": 2.1925992591762484,
+      "winner_brier": 0.8610953758220089,
+      "ece_confidence": 0.05298061062437889
+    },
+    "previous_weight_ridge_0.1": {
+      "races": 1186,
+      "top1_hits": 290,
+      "top1_accuracy": 0.24451939291736932,
+      "winner_logloss": 2.192328928123913,
+      "winner_brier": 0.8609547607301582,
+      "ece_confidence": 0.05229230960260485
+    },
+    "combined_ridge_0.03": {
+      "races": 1186,
+      "top1_hits": 303,
+      "top1_accuracy": 0.2554806070826307,
+      "winner_logloss": 2.1549654886984815,
+      "winner_brier": 0.8531948148620551,
+      "ece_confidence": 0.050876437066344926
+    },
+    "combined_ridge_0.1": {
+      "races": 1186,
+      "top1_hits": 299,
+      "top1_accuracy": 0.2521079258010118,
+      "winner_logloss": 2.1624447615064493,
+      "winner_brier": 0.8550818274968197,
+      "ece_confidence": 0.054184372308274706
+    }
+  },
+  "selected_candidate": "opponent_class_ridge_0.03",
+  "confirmation_2025": {
+    "baseline": {
+      "races": 594,
+      "top1_hits": 149,
+      "top1_accuracy": 0.25084175084175087,
+      "winner_logloss": 2.2605495494071253,
+      "winner_brier": 0.8681045530104532,
+      "ece_confidence": 0.056996394950189856
+    },
+    "candidate": {
+      "races": 594,
+      "top1_hits": 157,
+      "top1_accuracy": 0.26430976430976433,
+      "winner_logloss": 2.239631981163846,
+      "winner_brier": 0.8637216843533324,
+      "ece_confidence": 0.05534508441115802
+    },
+    "paired_bootstrap": {
+      "n_dates": 22,
+      "n_races": 594,
+      "rate_delta": 0.013468013468013467,
+      "paired_date_bootstrap95": [
+        -0.006700167504187605,
+        0.03220741779647811
+      ],
+      "iterations": 3000
+    },
+    "strict_gate_passed": false,
+    "podium_baseline": {
+      "races_valid": 594,
+      "ordered_hits": 5,
+      "ordered_accuracy": 0.008417508417508417,
+      "unordered_hits": 19,
+      "unordered_accuracy": 0.03198653198653199
+    },
+    "podium_candidate": {
+      "races_valid": 594,
+      "ordered_hits": 5,
+      "ordered_accuracy": 0.008417508417508417,
+      "unordered_hits": 25,
+      "unordered_accuracy": 0.04208754208754209
+    }
+  },
+  "all_2025_in_sample_calibration": {
+    "baseline": {
+      "races": 2925,
+      "top1_hits": 719,
+      "top1_accuracy": 0.24581196581196582,
+      "winner_logloss": 2.222422154120216,
+      "winner_brier": 0.8602420485212077,
+      "ece_confidence": 0.02893186088899232
+    },
+    "candidate": {
+      "races": 2925,
+      "top1_hits": 752,
+      "top1_accuracy": 0.2570940170940171,
+      "winner_logloss": 2.198597141978226,
+      "winner_brier": 0.8550297498933073,
+      "ece_confidence": 0.028880114656828222
+    }
+  },
+  "2026_frozen_audit": {
+    "baseline": {
+      "races": 2411,
+      "top1_hits": 603,
+      "top1_accuracy": 0.2501036914143509,
+      "winner_logloss": 2.218817251003644,
+      "winner_brier": 0.8590552527775727,
+      "ece_confidence": 0.027630077347522403
+    },
+    "candidate": {
+      "races": 2411,
+      "top1_hits": 623,
+      "top1_accuracy": 0.2583990045624222,
+      "winner_logloss": 2.1962732352494894,
+      "winner_brier": 0.8537493942900902,
+      "ece_confidence": 0.027019961468497316
+    },
+    "podium_baseline": {
+      "races_valid": 2411,
+      "ordered_hits": 32,
+      "ordered_accuracy": 0.013272501036914143,
+      "unordered_hits": 145,
+      "unordered_accuracy": 0.06014102032351721
+    },
+    "podium_candidate": {
+      "races_valid": 2411,
+      "ordered_hits": 35,
+      "ordered_accuracy": 0.014516798009124844,
+      "unordered_hits": 142,
+      "unordered_accuracy": 0.05889672335130651
+    }
+  },
+  "production_enabled": false,
+  "current_race_result_bodyweight_used": false,
+  "2026_used_for_selection": false,
+  "historical_source_embargo_days": 2
+}

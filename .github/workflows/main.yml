@@ -85,6 +85,8 @@ jobs:
         run: python -m unittest discover -s tests -p 'test_v51_14_real_data_evidence_20261113.py' -v
       - name: V51 new hierarchical joint top3 Plackett-Luce and date-block bootstrap statistics
         run: python -m unittest discover -s tests -p 'test_v51_joint_pl_new_statistics.py' -v && python -m unittest discover -s tests -p 'test_v51_joint_pl_real_2025_study.py' -v
+      - name: V52 45-to-71 point-in-time feature and full release fail-closed tests
+        run: python -m unittest discover -s tests -p 'test_v52_release_guard.py' -v
       - name: Preflight demonstrates missing live inputs are NOT READY
         run: python -m scripts.v51_weekend_preflight --repo . > /tmp/v51_preflight.json && python -c 'import json; d=json.load(open("/tmp/v51_preflight.json")); assert d["status"] == "NOT_READY" and not d["checks"]["canonical_db_present"]'
 

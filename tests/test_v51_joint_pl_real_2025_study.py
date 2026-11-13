@@ -7,11 +7,11 @@ from scripts.v51_joint_pl_real_2025_study import (
 
 class V51ModernStatisticalValidation(unittest.TestCase):
     def test_multiple_comparisons_choose_validation_only_by_proper_score(self):
-        base={"winner_logloss":2.30,"winner_brier":.86,
+        base={"winner_logloss":2.30,"conditional_second_logloss":2.3,"conditional_third_logloss":2.4,"winner_brier":.86,
               "ece_confidence":.06,"top1_accuracy":.25}
-        good={"winner_logloss":2.20,"winner_brier":.84,
+        good={"winner_logloss":2.20,"conditional_second_logloss":2.2,"conditional_third_logloss":2.35,"winner_brier":.84,
               "ece_confidence":.055,"top1_accuracy":.26}
-        overconfident={"winner_logloss":2.34,"winner_brier":.82,
+        overconfident={"winner_logloss":2.34,"conditional_second_logloss":2.1,"conditional_third_logloss":2.2,"winner_brier":.82,
               "ece_confidence":.055,"top1_accuracy":.49}
         self.assertEqual(_score_choice({"baseline":base,"good":good,
                                         "overfit":overconfident},base),"good")

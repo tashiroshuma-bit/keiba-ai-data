@@ -1,0 +1,37 @@
+name: V51 canonical database schema audit
+on:
+  workflow_dispatch:
+    inputs:
+      database_artifact_run_id:
+        description: "Existing run ID containing canonical-v12-db"
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  inspect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/download-artifact@v4
+        with:
+          name: canonical-v12-db
+          run-id: ${{ inputs.database_artifact_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/v51-database
+      - name: Audit canonical SQLite tables and columns
+        run: |
+          python scripts/v51_canonical_schema_audit.py \
+            --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
+            --output /tmp/v51-audit/schema.json
+      - name: Archive inspectable DB contract
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v51-canonical-schema-${{ github.run_id }}
+          path: /tmp/v51-audit/
+          if-no-files-found: warn

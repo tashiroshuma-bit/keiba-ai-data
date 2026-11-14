@@ -94,4 +94,4 @@ if __name__ == "__main__":
     parser.add_argument("--output-dir", required=True)
     args = parser.parse_args()
     result = capture(args.url, args.output_dir)
-    print(json.dumps({"status": result["status"], "linked_row_count": result["linked_row_count"]}, ensure_ascii=False))
+    print(json.dumps({"status": result["status"], "linked_row_count": result["linked_row_count"], "linked_anchor_count": result["linked_anchor_count"], "unique_horse_ids": len({h for a in result["linked_anchors"] for h in a["horse_ids"]}), "unique_jockey_ids": len({j for a in result["linked_anchors"] for j in a["jockey_ids"]})}, ensure_ascii=False))

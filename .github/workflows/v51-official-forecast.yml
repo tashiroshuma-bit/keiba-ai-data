@@ -33,6 +33,8 @@ jobs:
       - run: python -m pip install -r requirements.txt
       - name: Unit-test preoff input diagnostics
         run: python -m unittest discover -s tests -p 'test_v51_preoff_diagnostics.py' -v
+      - name: Prepare durable output directory
+        run: mkdir -p /tmp/v51-output
       - name: Validate requested snapshot path
         env:
           SNAPSHOT: ${{ inputs.snapshot_path }}
@@ -57,14 +59,14 @@ jobs:
           SNAPSHOT: ${{ inputs.snapshot_path }}
         run: |
           set -euo pipefail
-          mkdir -p /tmp/v51-output
           python scripts/v51_preoff_diagnostics.py \
             --snapshot "$SNAPSHOT" \
             --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
             --model operations/prediction_policy/standard_v51_model.json \
             --policy operations/prediction_policy/standard_v51.json \
-            | tee /tmp/v51-output/preflight.json
-      - name: Run official V51 forecast
+            > /tmp/v51-output/preflight.json\n          cat /tmp/v51-output/preflight.json
+      - name: Check canonical SQLite integrity
+        run: |\n          python - <<'PY'\n          import hashlib, json, sqlite3\n          from pathlib import Path\n          p=Path('/tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite')\n          expected=json.loads(Path('PROJECT_STATE.json').read_text())['database']['sha256']\n          h=hashlib.file_digest(p.open('rb'),'sha256').hexdigest()\n          if h!=expected: raise SystemExit('CANONICAL_DB_SHA_MISMATCH')\n          with sqlite3.connect('file:'+str(p)+'?mode=ro',uri=True) as con:\n              result=con.execute('PRAGMA quick_check').fetchone()[0]\n          if result!='ok': raise SystemExit('CANONICAL_DB_SQLITE_INTEGRITY_FAILED: '+str(result))\n          print('CANONICAL_DB_INTEGRITY_OK',h)\n          PY\n      - name: Run official V51 forecast
         env:
           SNAPSHOT: ${{ inputs.snapshot_path }}
         run: |

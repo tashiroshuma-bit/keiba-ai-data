@@ -23,6 +23,27 @@ jobs:
           python scripts/v51_jra_racecard_capture.py \
             --url 'https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01ddd0108202605041120261115%2F13' \
             --output-dir /tmp/v51-real-racecard
+      - name: Diagnose official horse and jockey anchor encoding
+        if: always()
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from bs4 import BeautifulSoup
+          import re
+          p=Path('/tmp/v51-real-racecard/source.html')
+          if not p.exists(): raise SystemExit('source missing')
+          soup=BeautifulSoup(p.read_bytes(),'lxml')
+          print('source_bytes',p.stat().st_size,'tables',len(soup.select('table')))
+          links=soup.select('a[href],a[onclick]')
+          print('total_anchors',len(links))
+          for a in links:
+            txt=a.get_text(' ',strip=True)
+            raw=(a.get('href','')+' '+a.get('onclick',''))
+            if any(s in txt for s in ('カムニャック','川田','ラヴァンダ','ジュウリョクピエロ')):
+              print('MATCH',repr(txt[:60]),repr(raw[:300]),'parent',a.parent.name)
+          for pattern in ('pw01','pw04','CNAME','horse','jockey'):
+            print('pattern',pattern,'count',len(re.findall(pattern,str(soup),re.I)))
+          PY
       - name: Archive evidence on success or refusal
         if: always()
         uses: actions/upload-artifact@v4

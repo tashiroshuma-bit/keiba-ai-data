@@ -91,9 +91,6 @@ jobs:
       - name: Independently verify saved prediction JSON
         run: |
           python scripts/v51_verify_forecast_json.py --forecast /tmp/v51-output/forecast.json | tee /tmp/v51-output/forecast_validation.json
-      - name: Independently verify saved prediction JSON
-        run: |
-          python scripts/v51_verify_forecast_json.py --forecast /tmp/v51-output/forecast.json | tee /tmp/v51-output/forecast_validation.json
       - name: Save diagnostics and forecast
         if: always()
         uses: actions/upload-artifact@v4

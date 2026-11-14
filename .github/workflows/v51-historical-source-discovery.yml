@@ -3,6 +3,9 @@ on:
   pull_request:
     paths:
       - '.github/workflows/v51-historical-source-discovery.yml'
+  push:
+    paths:
+      - '.github/workflows/v51-historical-source-discovery.yml'
   workflow_dispatch:
 permissions:
   contents: read
@@ -27,4 +30,17 @@ jobs:
           m=json.load(open('operations/prediction_policy/standard_v51_model.json'))
           print('features',len(m['feature_names']))
           print('database_sha256',m['canonical_db_sha256'])
+          PY
+      - name: Enforce prediction prerequisites
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          py=list(Path('.').rglob('*.py'))
+          providers=[str(p) for p in py if re.search(r'^def create_feature_rows\(',p.read_text(errors='replace'),re.M)]
+          databases=list(Path('.').rglob('*.sqlite'))
+          print('feature_generator_files',providers)
+          print('sqlite_files',list(map(str,databases)))
+          if not providers: raise SystemExit('BLOCKED: exact original 31-feature generator is not in checkout')
+          if not databases: raise SystemExit('BLOCKED: canonical SQLite is not available in checkout; provision read-only private source before forecast')
           PY

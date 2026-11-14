@@ -23,6 +23,15 @@ jobs:
           python scripts/v51_jra_racecard_capture.py \
             --url 'https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01ddd0108202605041120261115%2F13' \
             --output-dir /tmp/v51-real-racecard
+      - name: Fail closed if official runner IDs are absent
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          audit=json.loads(Path('/tmp/v51-real-racecard/extraction_audit.json').read_text())
+          assert audit['linked_row_count'] > 0, 'NO_OFFICIAL_RUNNER_IDS: source captured but not usable for V51 prediction'
+          assert audit['verified_live_racecard'] is True, 'ROSTER_NOT_VERIFIED: source captured but full preoff roster unverified'
+          PY
       - name: Archive evidence on success or refusal
         if: always()
         uses: actions/upload-artifact@v4

@@ -1,0 +1,32 @@
+name: V51 actual preoff JRA racecard probe
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/v51-real-racecard-probe.yml'
+      - 'scripts/v51_jra_racecard_capture.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  real-racecard:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests beautifulsoup4 lxml
+      - name: Probe actual official 2026-11-15 Kyoto 11R preoff
+        run: |
+          mkdir -p /tmp/v51-real-racecard
+          python scripts/v51_jra_racecard_capture.py \
+            --url 'https://sp.jra.jp/JRADB/accessD.html?CNAME=sw01ddd0108202605041120261115%2F13' \
+            --output-dir /tmp/v51-real-racecard
+      - name: Archive evidence on success or refusal
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: real-jra-preoff-probe
+          path: /tmp/v51-real-racecard/
+          if-no-files-found: warn

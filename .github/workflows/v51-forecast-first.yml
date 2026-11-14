@@ -1,0 +1,59 @@
+name: V51 forecast-first verified execution
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot_path:
+        description: "Committed authentic preoff 31-feature snapshot JSON"
+        required: true
+        type: string
+      database_artifact_run_id:
+        description: "Run ID with verified canonical-v12-db artifact"
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Test forecast-first fail-closed behavior
+        run: python -m unittest discover -s tests -p 'test_v51_forecast_first_pipeline.py' -v
+      - name: Download canonical database
+        uses: actions/download-artifact@v4
+        with:
+          name: canonical-v12-db
+          run-id: ${{ inputs.database_artifact_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/v51-database
+      - name: Execute verified V51 forecast pipeline
+        env:
+          SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          mkdir -p /tmp/v51-output
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          p=Path(os.environ["SNAPSHOT"])
+          if p.is_absolute() or ".." in p.parts or p.suffix!=".json" or not p.is_file():
+              raise SystemExit("SNAPSHOT_MUST_BE_COMMITTED_JSON")
+          PY
+          python scripts/v51_forecast_first_pipeline.py \
+            --snapshot "$SNAPSHOT" \
+            --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
+            --output-dir /tmp/v51-output
+      - name: Archive prediction and evidence manifest
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v51-forecast-first-${{ github.run_id }}
+          path: /tmp/v51-output/
+          if-no-files-found: warn
+          retention-days: 90

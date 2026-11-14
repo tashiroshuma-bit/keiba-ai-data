@@ -1,0 +1,32 @@
+name: V51 live JRA source capture
+on:
+  workflow_dispatch:
+    inputs:
+      official_racecard_url:
+        description: "Official JRA https racecard URL"
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  capture:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install requests beautifulsoup4 lxml
+      - name: Capture original official JRA source
+        env:
+          JRA_URL: ${{ inputs.official_racecard_url }}
+        run: |
+          python scripts/v51_jra_racecard_capture.py --url "$JRA_URL" --output-dir /tmp/v51-racecard
+      - name: Archive source and audit even on extraction failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v51-jra-racecard-${{ github.run_id }}
+          path: /tmp/v51-racecard/
+          if-no-files-found: warn

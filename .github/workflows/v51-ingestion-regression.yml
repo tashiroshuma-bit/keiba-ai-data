@@ -1,0 +1,25 @@
+name: V51 ingestion and identity join regression
+on:
+  pull_request:
+    paths:
+      - 'scripts/v51_jra_racecard_capture.py'
+      - 'scripts/v51_preoff_identity_join.py'
+      - 'tests/test_v51_preoff_identity_join.py'
+      - '.github/workflows/v51-ingestion-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: python -m pip install requests beautifulsoup4 lxml
+      - name: Compile actual capture and join scripts
+        run: python -m py_compile scripts/v51_jra_racecard_capture.py scripts/v51_preoff_identity_join.py
+      - name: Run canonical identity join regression
+        run: python -m unittest discover -s tests -p 'test_v51_preoff_identity_join.py' -v

@@ -1,0 +1,80 @@
+name: V51 preoff forecast (manual, evidence gated)
+
+on:
+  workflow_dispatch:
+    inputs:
+      snapshot_path:
+        description: "Committed verified pre-off 31-feature JSON path"
+        required: true
+        type: string
+      database_artifact_run_id:
+        description: "Run ID containing canonical-v12-db artifact"
+        required: true
+        type: string
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: v51-forecast-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  forecast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: pip
+      - run: python -m pip install -r requirements.txt
+      - name: Validate requested snapshot path
+        env:
+          SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          python - <<'PY'
+          import os
+          from pathlib import Path
+          p=Path(os.environ["SNAPSHOT"])
+          if p.is_absolute() or ".." in p.parts or p.suffix != ".json" or not p.is_file():
+              raise SystemExit("Snapshot must be an existing committed JSON inside repository")
+          print("Snapshot:",p)
+          PY
+      - name: Download canonical database artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: canonical-v12-db
+          run-id: ${{ inputs.database_artifact_run_id }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          path: /tmp/v51-database
+      - name: Verify database and run preflight
+        env:
+          SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/v51-output
+          python scripts/v51_preoff_diagnostics.py \
+            --snapshot "$SNAPSHOT" \
+            --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
+            --model operations/prediction_policy/standard_v51_model.json \
+            --policy operations/prediction_policy/standard_v51.json \
+            | tee /tmp/v51-output/preflight.json
+      - name: Run official V51 forecast
+        env:
+          SNAPSHOT: ${{ inputs.snapshot_path }}
+        run: |
+          python scripts/standard_v51_forecast.py \
+            --features "$SNAPSHOT" \
+            --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
+            --output /tmp/v51-output/forecast.json
+      - name: Save diagnostics and forecast
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: v51-forecast-${{ github.run_id }}
+          path: /tmp/v51-output/
+          if-no-files-found: warn
+          retention-days: 30

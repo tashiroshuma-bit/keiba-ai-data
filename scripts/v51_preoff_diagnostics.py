@@ -3,6 +3,7 @@ import argparse
 import datetime as dt
 import hashlib
 import json
+import math
 from pathlib import Path
 
 
@@ -59,14 +60,14 @@ def check(snapshot, database, model, policy):
         except (KeyError, TypeError, ValueError):
             issues.append(rid + ":INVALID_OFF_TIME")
         horses = r.get("horses", [])
-        if len(horses) < 3 or len({h.get("number") for h in horses}) != len(horses):
+        if len(horses) < 3 or len({str(h.get("number")) for h in horses}) != len(horses):
             issues.append(rid + ":INVALID_ROSTER")
         for h in horses:
             prefix = rid + "/" + str(h.get("number", "?"))
             if not str(h.get("horse_id", "")).startswith("jra:") or not isinstance(h.get("official_identity_proof"), dict):
                 issues.append(prefix + ":MISSING_ID_PROOF")
             v = h.get("feature_values")
-            if not isinstance(v, list) or len(v) != 31 or any(type(x) not in (float, int) for x in v):
+            if not isinstance(v, list) or len(v) != 31 or any(type(x) not in (float, int) or not math.isfinite(x) for x in v):
                 issues.append(prefix + ":INVALID_FEATURES")
             try:
                 if asof is not None and ts(h["features_observed_at"]) > asof:

@@ -14,7 +14,6 @@ from urllib.parse import urljoin, urlparse, parse_qs, unquote
 import requests
 from bs4 import BeautifulSoup
 
-from scripts.v51_live_racecard_contract import validate
 
 HORSE = re.compile(r"pw01dud\d{2}(\d{10})/")
 JOCKEY = re.compile(r"pw04kmk(\d{6})/")

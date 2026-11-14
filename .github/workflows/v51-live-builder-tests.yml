@@ -1,0 +1,21 @@
+name: V51 live frozen feature builder tests
+on:
+  pull_request:
+    paths:
+      - 'scripts/v51_frozen_live_feature_builder.py'
+      - 'scripts/v51_official_live_roster.py'
+      - 'tests/test_v51_frozen_live_feature_builder.py'
+      - '.github/workflows/v51-live-builder-tests.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install numpy scikit-learn requests beautifulsoup4 lxml
+      - run: python -m unittest discover -s tests -p 'test_v51_frozen_live_feature_builder.py' -v

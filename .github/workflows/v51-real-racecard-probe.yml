@@ -41,8 +41,25 @@ jobs:
             raw=(a.get('href','')+' '+a.get('onclick',''))
             if any(s in txt for s in ('カムニャック','川田','ラヴァンダ','ジュウリョクピエロ')):
               print('MATCH',repr(txt[:60]),repr(raw[:300]),'parent',a.parent.name)
+          for a in links:
+            if 'sj01ude00' in str(a.get('href','')) and a.get_text(' ',strip=True):
+              parent=a
+              for _ in range(5): parent=parent.parent if parent.parent else parent
+              print('ROW_CELLS',[(td.get('class'),td.get_text(' ',strip=True)[:90]) for td in parent.find_all('td',recursive=False)]);break
           for pattern in ('pw01','pw04','CNAME','horse','jockey'):
             print('pattern',pattern,'count',len(re.findall(pattern,str(soup),re.I)))
+          PY
+      - name: Verify official complete field parser
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.v51_official_live_roster import parse_source
+          p=Path('/tmp/v51-real-racecard')
+          m=json.loads((p/'capture_meta.json').read_text())
+          result=parse_source((p/'source.html').read_bytes(),url=m['url'],observed_at=m['observed_at'],race='2026-11-15-KYOTO-11',off_at='2026-11-15T15:40:00+09:00',track='京都',surface='turf',distance_m=2200)
+          (p/'verified_roster.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+          print('VERIFIED_ROSTER',len(result['races'][0]['horses']))
           PY
       - name: Archive evidence on success or refusal
         if: always()

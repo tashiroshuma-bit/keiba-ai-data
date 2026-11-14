@@ -15,8 +15,8 @@ import requests
 from bs4 import BeautifulSoup
 
 
-HORSE = re.compile(r"pw01dud\d{2}(\d{10})/")
-JOCKEY = re.compile(r"pw04kmk(\d{6})/")
+HORSE = re.compile(r"(?:pw01dud\d{2}|sj01ude00)(\d{10})/")
+JOCKEY = re.compile(r"(?:pw04kmk|sw04kmk)(\d{6})/")
 JRA_HOSTS = {"www.jra.go.jp", "jra.jp", "sp.jra.jp", "app.jra.jp"}
 
 
@@ -70,8 +70,17 @@ def capture(url, output, timeout=25):
                 audit.append({"text_excerpt": text[:180],
                               "horse_ids": sorted(horse_ids),
                               "jockey_ids": sorted(jockey_ids)})
+    # Mobile JRA racecards use DIV-based runners and sj01ude00 / sw04kmk links.
+    # Audit IDs at the anchor level as well as table rows; neither proves a full field.
+    anchor_audit = []
+    for a in soup.select("a[href],a[onclick]"):
+        horses, jockeys = extract_ids(a, url)
+        if horses or jockeys:
+            anchor_audit.append({"label": a.get_text(" ", strip=True)[:100],
+                                 "horse_ids": sorted(horses), "jockey_ids": sorted(jockeys)})
     result = {**meta, "status": "SOURCE_CAPTURED_FIELD_UNVERIFIED",
               "linked_rows": audit, "linked_row_count": len(audit),
+              "linked_anchors": anchor_audit, "linked_anchor_count": len(anchor_audit),
               "verified_live_racecard": False,
               "note": "Official IDs alone do not establish field, off-time, number, or jockey linkage."}
     (output / "extraction_audit.json").write_text(json.dumps(result, ensure_ascii=False, indent=2) + "\n")

@@ -12,6 +12,7 @@ import hashlib
 import json
 import math
 from pathlib import Path
+from urllib.parse import urlparse
 
 import numpy as np
 
@@ -48,7 +49,8 @@ def evidence_guard(h,asof,off):
         raise ValueError("official horse ID evidence mismatch")
     if not str(h["horse_id"]).startswith("jra:"):
         raise ValueError("official JRA horse ID required")
-    if not str(proof.get("source_url","")).startswith("https://www.jra.go.jp/") or not valid_sha(proof.get("source_sha256")):
+    source = urlparse(str(proof.get("source_url", "")))
+    if source.scheme != "https" or source.hostname not in {"www.jra.go.jp", "jra.go.jp", "sp.jra.jp", "app.jra.jp"} or not valid_sha(proof.get("source_sha256")):
         raise ValueError("official JRA evidence URL and SHA256 required")
     if stamp(proof["observed_at"])>asof or stamp(h["features_observed_at"])>asof:
         raise ValueError("feature or identity evidence after prediction asof")

@@ -31,6 +31,10 @@ jobs:
           print('features',len(m['feature_names']))
           print('database_sha256',m['canonical_db_sha256'])
           PY
+      - name: Verify exact frozen model feature order
+        run: |
+          python -m pip install numpy scikit-learn
+          python -m scripts.v51_frozen_feature_parity_gate
       - name: Enforce prediction prerequisites
         run: |
           python - <<'PY'

@@ -1,0 +1,61 @@
+{
+  "schema": "jra-v51-weekend-frozen-only-audit-v1",
+  "audit_asof": "2026-11-14T19:04:35+09:00",
+  "scope": [
+    "2026-11-14",
+    "2026-11-15"
+  ],
+  "venues": [
+    "Tokyo",
+    "Kyoto",
+    "Fukushima"
+  ],
+  "exclude": "jump races",
+  "official_forecast_version": "v51",
+  "official_entrypoint": "scripts/standard_v51_forecast.py",
+  "policy": "operations/prediction_policy/standard_v51.json",
+  "canonical_db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "official_model_status": "UNCHANGED",
+  "v50_fallback": false,
+  "calibration_status": "2025-selected official values unchanged",
+  "frozen_forecast_evidence": {
+    "github_main_search_terms": [
+      "20261114",
+      "2026-11-14",
+      "v51 frozen"
+    ],
+    "matched_frozen_artifacts": 0,
+    "library_folder": "/競馬",
+    "latest_listed_file_modified_at": "2026-11-13T10:32:04.321607+00:00",
+    "verified_frozen_predictions": 0,
+    "warning": "Search result absence is not proof no freeze exists elsewhere; no immutable race-level freeze SHA was located in inspected sources."
+  },
+  "evaluation": {
+    "status": "NOT_READY",
+    "matched_races": 0,
+    "unmatched_races": "not fully enumerated",
+    "top1_accuracy": null,
+    "winner_top3_capture": null,
+    "unordered_exact_top3": null,
+    "ordered_exact_top3": null,
+    "logloss": null,
+    "brier": null,
+    "ece": null,
+    "by_going": null,
+    "by_pace": null,
+    "by_bodyweight": null,
+    "bet_hit_rates": null,
+    "bet_roi": null,
+    "reason": "No verified immutable V51 preoff race-level freeze with source SHA and all-runner official IDs was located; cannot retrospectively create or score."
+  },
+  "official_result_source": "https://www.jra.go.jp/",
+  "official_calendar_confirmed": "2026-11-14 Tokyo/Kyoto/Fukushima; 2026-11-15 scheduled Tokyo/Kyoto/Fukushima",
+  "next_audit_requirements": [
+    "enumerate all flat races from JRA official results and identify exclusions",
+    "find per-race frozen V51 output SHA, model SHA, prediction timestamp, full roster and 31-feature evidence",
+    "require prediction asof earlier than off; match official results with complete finish order and horse numbers",
+    "calculate paired metrics only for matched frozen races",
+    "validate preoff odds and payout provenance separately for each bet type",
+    "no retrospective predictions, no v50 fallback, no temperature changes without 2025 CV review"
+  ]
+}

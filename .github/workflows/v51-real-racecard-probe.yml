@@ -49,6 +49,18 @@ jobs:
           for pattern in ('pw01','pw04','CNAME','horse','jockey'):
             print('pattern',pattern,'count',len(re.findall(pattern,str(soup),re.I)))
           PY
+      - name: Verify official complete field parser
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.v51_official_live_roster import parse_source
+          p=Path('/tmp/v51-real-racecard')
+          m=json.loads((p/'capture_meta.json').read_text())
+          result=parse_source((p/'source.html').read_bytes(),url=m['url'],observed_at=m['observed_at'],race='2026-11-15-KYOTO-11',off_at='2026-11-15T15:40:00+09:00',track='京都',surface='turf',distance_m=2200)
+          (p/'verified_roster.json').write_text(json.dumps(result,ensure_ascii=False,indent=2))
+          print('VERIFIED_ROSTER',len(result['races'][0]['horses']))
+          PY
       - name: Archive evidence on success or refusal
         if: always()
         uses: actions/upload-artifact@v4

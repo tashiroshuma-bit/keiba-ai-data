@@ -1,0 +1,30 @@
+name: V51 discover exact historical feature generator
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/v51-historical-source-discovery.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  discover:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate exact training feature generator and inputs
+        shell: bash
+        run: |
+          set -eu
+          echo '=== historical feature implementation ==='
+          grep -RInE 'def (create_feature_rows|build_dataset)\(' --include='*.py' . | head -80 || true
+          echo '=== source references in research workflows ==='
+          grep -RIn --include='*.yml' --include='*.yaml' -- '--historical-feature-script' .github scripts | head -80 || true
+          echo '=== frozen model and canonical data candidates ==='
+          find . -type f \( -name '*historical*py' -o -name '*ablation*py' -o -name '*.sqlite' -o -name '*overlay*.json' \) | head -100
+          echo '=== model feature count ==='
+          python - <<'PY'
+          import json
+          m=json.load(open('operations/prediction_policy/standard_v51_model.json'))
+          print('features',len(m['feature_names']))
+          print('database_sha256',m['canonical_db_sha256'])
+          PY

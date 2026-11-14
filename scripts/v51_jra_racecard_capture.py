@@ -30,7 +30,8 @@ def official_link(href, base):
 
 def extract_ids(cell, base):
     horse_ids, jockey_ids = set(), set()
-    for tag in cell.select("a[href], a[onclick]"):
+    tags = ([cell] if cell.name == "a" else []) + cell.select("a[href], a[onclick]")
+    for tag in tags:
         target = (tag.get("href", "") + " " + tag.get("onclick", ""))
         target = unquote(target)
         # JRA links may wrap CNAME in a URL query or a JavaScript action.

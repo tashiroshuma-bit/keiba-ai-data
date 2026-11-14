@@ -45,7 +45,7 @@ jobs:
             if 'sj01ude00' in str(a.get('href','')) and a.get_text(' ',strip=True):
               parent=a
               for _ in range(5): parent=parent.parent if parent.parent else parent
-              print('HORSE_CONTEXT',repr(parent.get_text(' ',strip=True)[:550]),'HTML',str(parent)[:4500]);break
+              print('ROW_CELLS',[(td.get('class'),td.get_text(' ',strip=True)[:90]) for td in parent.find_all('td',recursive=False)]);break
           for pattern in ('pw01','pw04','CNAME','horse','jockey'):
             print('pattern',pattern,'count',len(re.findall(pattern,str(soup),re.I)))
           PY

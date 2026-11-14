@@ -1,0 +1,114 @@
+{
+  "schema": "jra-v51-settlement-not-ready-v1",
+  "date": "2026-11-14",
+  "created_at": "2026-11-14T19:20:01+09:00",
+  "canonical_main_at_read": "bc60114adb9fa12b9fb0dfd107e2a2456ebdea23",
+  "standard_forecast": {
+    "version": "v51",
+    "policy_path": "operations/prediction_policy/standard_v51.json",
+    "entrypoint": "scripts/standard_v51_forecast.py",
+    "no_fallback_to_v50": true,
+    "live_bet_generation": false
+  },
+  "canonical_database_expected": {
+    "version": 12,
+    "sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "bytes": 362139648
+  },
+  "forecast_attempt": {
+    "status": "NOT_READY",
+    "library_files": [
+      {
+        "name": "20261114_forecast_attempt.json",
+        "library_file_id": "libfile_084c70972c3c8191ba098972adf9afe3",
+        "created_at": "2026-11-14T01:03:17.880874Z"
+      },
+      {
+        "name": "20261114_forecast_attempt(1).json",
+        "library_file_id": "libfile_592b8b0bcf948191bc101cd33daa8d9f",
+        "created_at": "2026-11-14T01:03:25.307222Z"
+      }
+    ],
+    "local_copy_sha256": "4b3f6560acca142c34691ace4671822bd4318f08608e5639a091f7aa79b4f4eb",
+    "local_copy_bytes": 259768320,
+    "sqlite_error": "database disk image is malformed",
+    "official_entrypoint_git_blob_sha": "2c8ed233a616f06f25b5eb3c60bbe691c0be3030",
+    "missing": [
+      "intact canonical DB local copy",
+      "full-field timestamped 31-feature snapshot",
+      "official ID evidence for all runners"
+    ],
+    "prediction_sha256": null,
+    "v50_used": false,
+    "probabilities_fabricated": false
+  },
+  "coverage": {
+    "jra_all_races": 36,
+    "flat_races": 35,
+    "obstacle_excluded": ["東京8R"],
+    "formal_v51": {
+      "eligible_flat_races": 35,
+      "evaluated_races": 0,
+      "missing_preoff_freeze_races": 35
+    },
+    "research_abcd": {
+      "evaluated_races": 0,
+      "reason": "No same-race pre-off A-D forecast freeze was found."
+    }
+  },
+  "formal_metrics": {
+    "top1_hits": null,
+    "winner_top3_hits": null,
+    "log_loss": null,
+    "brier": null,
+    "ece": null,
+    "ordered_top3_hits": null,
+    "unordered_top3_hits": null,
+    "weight_change_effect": null,
+    "reason": "No actually saved pre-off V51 probabilities exist for the evaluation denominator."
+  },
+  "virtual_settlement": {
+    "single": null,
+    "quinella": null,
+    "wide": null,
+    "trio": null,
+    "trifecta": null,
+    "reason": "No pre-off V51 tickets and contemporaneous odds were frozen; stake, returns and ROI were not created retrospectively."
+  },
+  "official_results_observed_at": "2026-11-14T19:20:01+09:00",
+  "official_result_examples": [
+    {
+      "race": "東京11R 武蔵野ステークス",
+      "finish": [15, 1, 13],
+      "payout_yen": {"single": 970, "quinella": 13120, "trio": 76460, "trifecta": 441750},
+      "source": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0105202605031120261114/FA"
+    },
+    {
+      "race": "京都11R デイリー杯2歳ステークス",
+      "finish": [5, 11, 7],
+      "payout_yen": {"single": 520, "quinella": 1190, "trio": 16830, "trifecta": 79290},
+      "source": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202605031120261114/D8"
+    },
+    {
+      "race": "福島11R フルーツラインカップ",
+      "finish": [3, 14, 4],
+      "payout_yen": {"single": 1100, "quinella": 7990, "trio": 102050, "trifecta": 618230},
+      "source": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0103202603031120261114/04"
+    }
+  ],
+  "data_quality_findings": [
+    "PROJECT_STATE.standard_forecast and standard_v51 policy designate V51 and forbid V50 fallback.",
+    "PROJECT_STATE top-level canonical_database still identifies an older v10 database while standard_v51 requires v12; governance metadata is inconsistent.",
+    "active_manifest still points to the older experimental active-model SHA and is not evidence of a successful V51 scheduled run.",
+    "No operations/predictions/2026-11-14 artifact exists on main at observation time.",
+    "The two Library attempt files are duplicate NOT_READY records, not predictions."
+  ],
+  "invariants": {
+    "predictions_overwritten": false,
+    "calibration_changed": false,
+    "standard_forecast_changed": false,
+    "live_bet_generation_changed": false,
+    "retrospective_prediction_created": false,
+    "actual_bet": false
+  }
+}

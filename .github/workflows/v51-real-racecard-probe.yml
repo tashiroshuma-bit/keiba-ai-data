@@ -44,8 +44,8 @@ jobs:
           for a in links:
             if 'sj01ude00' in str(a.get('href','')) and a.get_text(' ',strip=True):
               parent=a
-              for _ in range(4): parent=parent.parent if parent.parent else parent
-              print('HORSE_CONTEXT',repr(parent.get_text(' ',strip=True)[:550]),'HTML',str(parent)[:900]);break
+              for _ in range(6): parent=parent.parent if parent.parent else parent
+              print('HORSE_CONTEXT',repr(parent.get_text(' ',strip=True)[:550]),'HTML',str(parent)[:2200]);break
           for pattern in ('pw01','pw04','CNAME','horse','jockey'):
             print('pattern',pattern,'count',len(re.findall(pattern,str(soup),re.I)))
           PY

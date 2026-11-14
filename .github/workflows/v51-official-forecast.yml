@@ -74,7 +74,7 @@ jobs:
             --features "$SNAPSHOT" \
             --database /tmp/v51-database/jra_2023_2025_v12_horse_ids_full_20261111.sqlite \
             --output /tmp/v51-output/forecast.json
-      - name: Save diagnostics and forecast
+      - name: Independently verify saved prediction JSON\n        run: |\n          python scripts/v51_verify_forecast_json.py --forecast /tmp/v51-output/forecast.json | tee /tmp/v51-output/forecast_validation.json\n      - name: Save diagnostics and forecast
         if: always()
         uses: actions/upload-artifact@v4
         with:

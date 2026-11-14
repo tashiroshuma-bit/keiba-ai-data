@@ -52,6 +52,8 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
     source=json.loads(Path(roster).read_text())
     if source.get("schema")!="jra-v51-live-racecard-v1":
         raise ValueError("VERIFIED_OFFICIAL_ROSTER_REQUIRED")
+    if len(source.get("races", []))!=1:
+        raise ValueError("ONE_RACE_PER_SNAPSHOT_REQUIRED")
     manifest=json.loads(Path(publication_manifest).read_text())
     if manifest.get("schema")!="jra-v51-historical-publication-evidence-v1":
         raise ValueError("INDEPENDENT_PUBLICATION_MANIFEST_REQUIRED")
@@ -105,10 +107,7 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
                            "latest_history_date":last,"historical_evidence":contributions})
         outputs.append({"race":race["race"],"race_off_at":race["race_off_at"],
                         "features_generated_at":source["captured_at"],"horses":output})
-        # This script supports one race per snapshot; future multi-race batches
-        # must share one historical state and must not double-count prior races.
-        if len(source["races"])!=1:
-            raise ValueError("ONE_RACE_PER_SNAPSHOT_REQUIRED")
+
     return {"schema":"jra-v51-preoff-feature-snapshot-v1",
             "canonical_database_sha256":expected,"roster_source_sha256":source["source_sha256"],
             "roster_source_url":source["source_url"],"roster_captured_at":source["captured_at"],

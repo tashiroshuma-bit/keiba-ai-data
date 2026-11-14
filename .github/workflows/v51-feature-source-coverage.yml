@@ -1,0 +1,28 @@
+name: V51 feature source audit regression
+on:
+  pull_request:
+    paths:
+      - 'scripts/v51_feature_source_coverage.py'
+      - '.github/workflows/v51-feature-source-coverage.yml'
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Compile feature audit
+        run: python -m py_compile scripts/v51_feature_source_coverage.py
+      - name: Check frozen 31-feature contract matches audit spec
+        run: |
+          python - <<'PY'
+          import json
+          from scripts.v51_feature_source_coverage import FEATURE_SOURCE_FIELDS
+          m=json.load(open('operations/prediction_policy/standard_v51_model.json'))
+          assert len(m['feature_names']) == 31
+          assert set(m['feature_names']) == set(FEATURE_SOURCE_FIELDS)
+          print('All 31 model features mapped to canonical input categories')
+          PY

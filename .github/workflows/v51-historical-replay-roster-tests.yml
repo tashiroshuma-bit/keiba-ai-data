@@ -1,0 +1,18 @@
+name: V51 historical replay roster tests
+on:
+  pull_request:
+    paths:
+      - 'scripts/v51_historical_replay_roster.py'
+      - 'tests/test_v51_historical_replay_roster.py'
+      - '.github/workflows/v51-historical-replay-roster-tests.yml'
+permissions:
+  contents: read
+jobs:
+  regression:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m unittest discover -s tests -p 'test_v51_historical_replay_roster.py' -v

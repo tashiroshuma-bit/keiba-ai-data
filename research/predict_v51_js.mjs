@@ -2,7 +2,7 @@
 // The source snapshot must contain 31 observed features, not target-race results.
 // CLI: node research/predict_v51_js.mjs snapshot.json standard_v51_model.json output.json
 import fs from 'node:fs';
-import {softmax} from './shared_forecast_engine.mjs';
+import {v51Joint} from './v51_joint_js.mjs';
 export function predictV51(snapshot,model){
   if(model.production_enabled!==true || model.feature_count!==31 || !Array.isArray(model.stage_coefficients)||model.stage_coefficients.length!==3)throw Error('approved V51 model required');
   const date=snapshot.forecast_asof;
@@ -22,12 +22,12 @@ export function predictV51(snapshot,model){
     }));
     // V51 full calibration and joint podium inference are performed by official Python entrypoint.
     // This JS runner deliberately outputs winner-stage UNCALIBRATED research probabilities only.
-    const p=softmax(z[0]);
+    if(!model.calibration)throw Error('V51 calibration missing');\n    const joint=v51Joint(z,model.calibration);const p=joint.p1;
     outputs.push({race:race.race,race_off_at:race.race_off_at,
       winner_probabilities:runners.map((r,i)=>({number:r.number,name:r.name,probability:p[i]})),
-      winner_pick:runners[p.indexOf(Math.max(...p))].number});
+      winner_pick:runners[p.indexOf(Math.max(...p))].number,\n      runners:runners.map((r,i)=>({number:r.number,name:r.name,p1:joint.p1[i],p2:joint.p2[i],p3:joint.p3[i],p_top3:joint.pTop3[i]})),\n      ordered_top3:joint.orderedPick.map(i=>runners[i].number),\n      unordered_top3:joint.unorderedPick.map(i=>runners[i].number).sort((a,b)=>a-b),\n      ordered_top3_probability:joint.orderedProbability,unordered_top3_probability:joint.unorderedProbability,\n      normalized_entropy:joint.entropy,stratum:joint.stratum,joint_mass:joint.jointMass});
   }
-  return {schema:'jra-v51-js-uncalibrated-winner-research-v1',status:'RESEARCH_NOT_OFFICIAL',forecast_asof:date,races:outputs};
+  return {schema:'jra-v51-js-calibrated-three-stage-research-v1',status:'RESEARCH_NOT_OFFICIAL',forecast_asof:date,races:outputs};
 }
 if(process.argv[1] && import.meta.url===new URL('file://'+process.argv[1]).href){
  const [input,modelPath,out]=process.argv.slice(2);

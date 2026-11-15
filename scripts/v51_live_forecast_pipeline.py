@@ -1,7 +1,7 @@
 """One-command fail-closed V51 live prediction: official HTML -> roster -> frozen features -> model.
 
-Requires canonical DB and historical publication manifest; never substitutes
-research outputs or assumed publication times for official forecasts.
+Requires canonical DB and verified prior-date historical results; never uses
+current-race results or retrospective research predictions as live features.
 """
 import argparse
 import json
@@ -19,7 +19,7 @@ except ModuleNotFoundError:
 def main():
     p=argparse.ArgumentParser()
     for name in ("html","source-url","observed-at","race","off-at","track",
-                 "surface","distance-m","database","overlay","publication-manifest","model","output-dir"):
+                 "surface","distance-m","database","overlay","model","output-dir"):
         p.add_argument("--"+name,required=True)
     a=p.parse_args()
     out=Path(a.output_dir)
@@ -34,7 +34,7 @@ def main():
                         observed_at=a.observed_at,race=a.race,off_at=a.off_at,
                         track=a.track,surface=a.surface,distance_m=int(a.distance_m))
     roster.write_text(json.dumps(parsed,ensure_ascii=False,indent=2)+"\n")
-    features=build_snapshot(a.database,a.overlay,roster,a.publication_manifest,a.model)
+    features=build_snapshot(a.database,a.overlay,roster,a.model)
     snapshot.write_text(json.dumps(features,ensure_ascii=False,indent=2)+"\n")
     result=forecast(snapshot,a.database,predictions,model_path=a.model)
     print(json.dumps({"status":result["status"],"version":result["version"],

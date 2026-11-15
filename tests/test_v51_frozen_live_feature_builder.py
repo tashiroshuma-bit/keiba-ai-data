@@ -4,6 +4,23 @@ from scripts.jra_historical_horse_id_ablation import HistoricalStats, FEATURES, 
 from scripts.v51_frozen_live_feature_builder import compute_one
 
 class FrozenFeatureTests(unittest.TestCase):
+    def test_current_race_result_is_rejected_by_production_guard(self):
+        import datetime as dt
+        from scripts.standard_v51_forecast import evidence_guard
+        cutoff=dt.datetime(2026,11,15,9,tzinfo=dt.timezone(dt.timedelta(hours=9)))
+        off=dt.datetime(2026,11,15,15,40,tzinfo=dt.timezone(dt.timedelta(hours=9)))
+        h={"number":1,"horse_id":"jra:1234567890","prior_starts":2,
+           "latest_history_date":"2026-11-15",
+           "historical_availability_basis":"prior_calendar_date_verified_result",
+           "official_identity_proof":{"horse_id":"jra:1234567890","horse_number":1,
+              "source_url":"https://sp.jra.jp/JRADB/accessD.html",
+              "source_sha256":"a"*64,"observed_at":cutoff.isoformat()},
+           "features_observed_at":cutoff.isoformat()}
+        with self.assertRaisesRegex(ValueError,"lookahead"):
+            evidence_guard(h,cutoff,off)
+        h["latest_history_date"]="2026-11-14"
+        evidence_guard(h,cutoff,off)
+
     def test_nonempty_historical_state_matches_original_generator(self):
         from scripts.jra_historical_horse_id_ablation import strength
         base=[]

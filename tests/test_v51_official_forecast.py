@@ -80,7 +80,7 @@ class OfficialV51Test(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,"evidence mismatch"):
             self.invoke(lambda s,p,m,f:f["races"][0]["horses"][0].update({"horse_id":"jra:fake"}))
     def test_refuse_missing_prior_source_proof(self):
-        with self.assertRaisesRegex(ValueError,"historical source publication"):
+        with self.assertRaisesRegex(ValueError,"historical result availability basis"):
             self.invoke(lambda s,p,m,f:f["races"][0]["horses"][0].update({
                 "prior_starts":1,"latest_history_date":"2026-11-01"}))
     def test_refuse_postoff_snapshot(self):

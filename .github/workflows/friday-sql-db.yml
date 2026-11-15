@@ -9,10 +9,12 @@ on:
       - 'scripts/friday_sql_*.sh'
       - 'scripts/friday_seed_*.sh'
       - 'scripts/friday_source_*.sh'
+      - 'scripts/friday_persist_candidate.sh'
+      - 'scripts/friday_operational_run.sh'
       - 'tests/sql/**'
       - '.github/workflows/friday-sql-db.yml'
   push:
-    branches: [feature/friday-historical-source-audit-20261116]
+    branches: [feature/friday-historical-source-audit-20261116, main]
     paths:
       - 'sql/friday_*.sql'
       - 'scripts/friday_sql_*.sh'
@@ -104,7 +106,9 @@ jobs:
           retention-days: 30
 
   friday-scheduled-run:
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    permissions:
+      contents: write
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -114,8 +118,18 @@ jobs:
           set -euo pipefail
           if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
           sqlite3 --version
-      - name: Rebuild real data and attempt full Friday historical reports
-        run: bash scripts/friday_operational_run.sh
+      - name: Rebuild real data and explicitly assess Friday source coverage
+        run: |
+          set +e
+          bash scripts/friday_operational_run.sh
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ] && [ "$status" -ne 2 ]; then exit "$status"; fi
+          cat reports/friday_operational/manifest.txt >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/friday_operational/status.txt ]; then cat reports/friday_operational/status.txt >> "$GITHUB_STEP_SUMMARY"; fi
+          test -f data/friday/available_historical_subset.sqlite
+      - name: Persist research candidate to Git and verify remote read-back
+        run: bash scripts/friday_persist_candidate.sh
       - name: Save reports, provenance and candidate DB even when NOT_READY
         if: always()
         uses: actions/upload-artifact@v4

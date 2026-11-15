@@ -12,6 +12,16 @@ claim="$(cut -d ' ' -f 1 "$src.sha256")"
 races="$(sqlite3 -readonly "$src" 'SELECT COUNT(*) FROM archive_races;')"
 runners="$(sqlite3 -readonly "$src" 'SELECT COUNT(*) FROM archive_runners;')"
 [[ "$races" -ge 10000 && "$runners" -ge 100000 ]] || { echo 'NOT_READY: insufficient archive source'; exit 2; }
+# Mandatory acceptance gates for 2023–2025: every scheduled panel reconciled
+# and every official original race-result runner row matched to the prior audit.
+for year in 2023 2024 2025; do
+  panels="$(sqlite3 -readonly "$src" "SELECT (SELECT COUNT(*) FROM archive_races WHERE year=$year)+(SELECT COUNT(*) FROM archive_cancelled_scheduled_races WHERE year=$year);")"
+  [[ "$panels" == 3456 ]] || { echo "NOT_READY: scheduled JRA panels $year=$panels (expected 3456)"; exit 2; }
+done
+rows_3y="$(sqlite3 -readonly "$src" "SELECT COUNT(*) FROM archive_runners a JOIN archive_races r USING(race_id) WHERE r.year BETWEEN 2023 AND 2025;")"
+[[ "$rows_3y" == 142737 ]] || { echo "NOT_READY: 2023–2025 official horse rows=$rows_3y expected 142737"; exit 2; }
+nonstarted_missing="$(sqlite3 -readonly "$src" "SELECT COUNT(*) FROM archive_runners a JOIN archive_races r USING(race_id) WHERE r.year BETWEEN 2023 AND 2025 AND a.started IS NULL;")"
+[[ "$nonstarted_missing" == 0 ]] || { echo "NOT_READY: unclassified starter statuses=$nonstarted_missing"; exit 2; }
 branch="data/friday-three-year-history"
 tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
@@ -27,12 +37,12 @@ fi
 mkdir -p snapshots
 cp "$tmp/source.sqlite" snapshots/archived_official_history.sqlite
 sha256sum snapshots/archived_official_history.sqlite > snapshots/archived_official_history.sqlite.sha256
-printf 'scope=PARTIAL_2023_2026_OFFICIAL_ORIGINAL_SHA_VERIFIED_NOT_FULL_FLAT_COVERAGE\ncode_sha=%s\nsource_archive_workflow_run=43776666478\nraces=%s\nhorse_results=%s\nsha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
+printf 'scope=2023_2025_10368_SCHEDULED_PANELS_RECONCILED_142737_HORSE_ROWS;2026_YTD_PARTIAL\ncode_sha=%s\nsource_archive_workflow_run=43776666478\nraces=%s\nhorse_results=%s\nsha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git add snapshots/archived_official_history.sqlite snapshots/archived_official_history.sqlite.sha256 snapshots/archived_official_history.status
 if ! git diff --cached --quiet; then
-  git commit -m "Store source-backed JRA 2023-2026 archive SQLite (partial coverage; not full-production)"
+  git commit -m "Store verified 2023–2025 JRA result panels and full runners (Friday cards separate)"
   git push origin "HEAD:refs/heads/$branch"
 else
   echo 'Persisted archive is unchanged'

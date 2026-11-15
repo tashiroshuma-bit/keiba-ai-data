@@ -22,10 +22,11 @@ for(const folder of folders.slice(0,1)) {
    const number=strip(columns[2][1]);
    const href=[...columns[3][1].matchAll(/href\s*=\s*["']([^"']+)/gi)].map(x=>x[1]).filter(x=>x.includes("pw01dud"));
    if(/^\d{1,2}$/.test(number)) {
-     console.log("RESULT_ROW",JSON.stringify({number,columns:columns.slice(0,10).map(x=>strip(x[1])),horse_href:href.slice(0,1)}));
+     console.log("RESULT_ROW",JSON.stringify({number,columns:columns.slice(0,10).map(x=>strip(x[1])),horse_href:href.slice(0,1),jockey_href:[...columns[6][1].matchAll(/href\s*=\s*[\"']([^\"']+)/gi)].map(x=>x[1]).slice(0,2)}));
      if(++recognized===5)break;
    }
  }
+ console.log("HEADER_SAMPLE="+text.replace(/<script[\\s\\S]*?<\\/script>/gi,"").replace(/<[^>]*>/g," ").replace(/\\s+/g," ").slice(0,2200));
  console.log("PARSER_PROBE_MATCHED="+recognized);
  if(recognized<3)throw Error("saved race HTML structure not understood");
 }

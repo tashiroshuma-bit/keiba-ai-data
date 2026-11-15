@@ -1,0 +1,69 @@
+name: Locate missing 2023-2025 JRA official originals (no Python)
+on:
+  pull_request:
+    paths:
+      - 'scripts/friday_find_additional_originals.sh'
+      - 'scripts/friday_run_complete_archive_pipeline.sh'
+      - 'scripts/friday_restore_archive_results.mjs'
+      - 'scripts/friday_official_three_year_stats.sh'
+      - 'sql/friday_official_three_year_observed_stats.sql'
+      - 'sql/friday_official_three_year_only_stats.sql'
+      - 'sql/friday_official_2023_2025_recent5.sql'
+      - 'sql/friday_archived_official_schema.sql'
+      - 'sql/friday_official_cancelled_2024_2025.sql'
+      - 'scripts/friday_import_archive_staging.sh'
+      - '.github/workflows/friday-find-missing16.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate archived official HTML recovery shards via own GitHub Actions API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/friday_find_additional_originals.sh
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extra-jra-originals-inventory
+          path: reports/friday_full_backfill/missing16_artifacts.tsv
+  restore-all-sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure SQLite 3 CLI
+        run: |
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Recover 46+8 archived official JRA source shards and execute full 3-year SQL integration
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/friday_run_complete_archive_pipeline.sh
+      - name: Preserve source-backed normalized SQLite, coverage and statistics
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-three-year-plus-review-source-sqlite
+          path: |
+            reports/friday_full_backfill/staging/summary.json
+            reports/friday_full_backfill/staging/quarantine.json
+            reports/friday_full_backfill/coverage.csv
+            reports/friday_full_backfill/flat_coverage_by_year.csv
+            reports/friday_full_backfill/scheduled_races_result_and_cancellation.csv
+            reports/friday_full_backfill/three_year_runner_reconciliation.csv
+            reports/friday_full_backfill/three_year_full_flat_gap.csv
+            reports/friday_full_backfill/missing_races_in_observed_sessions.csv
+            reports/friday_full_backfill/official_observed_conditions.csv
+            reports/friday_full_backfill/official_2023_2025_conditions.csv
+            reports/friday_full_backfill/official_2023_2025_recent5.csv
+            reports/friday_full_backfill/result_status_denominator_audit.csv
+            reports/friday_full_backfill/missing16_artifacts.tsv
+            data/friday/archived_official_history.sqlite
+            data/friday/archived_official_history.sqlite.sha256
+          retention-days: 30

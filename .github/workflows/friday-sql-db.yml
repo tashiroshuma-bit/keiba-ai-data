@@ -11,6 +11,7 @@ on:
       - 'scripts/friday_source_*.sh'
       - 'scripts/friday_persist_candidate.sh'
       - 'scripts/friday_operational_run.sh'
+      - 'scripts/friday_full_history_runtime.sh'
       - 'tests/sql/**'
       - '.github/workflows/friday-sql-db.yml'
   push:
@@ -70,6 +71,16 @@ jobs:
           test "$status" -eq 2
           grep -q 'all_races_status=NOT_READY' reports/friday_operational/manifest.txt
           echo 'PASS: Friday runner rebuilt real subset and correctly rejected incomplete cards'
+      - name: Validate new 2023-2025 permanent source-backed SQLite in Friday runtime
+        run: |
+          set +e
+          bash scripts/friday_full_history_runtime.sh
+          status=$?
+          set -e
+          test "$status" -eq 2
+          grep -q 'annual_horse_rows=2023:47672|2024:47181|2025:47884' reports/friday_operational/manifest.txt
+          grep -q 'OFFICIAL_WEEKEND_ROSTER_ABSENT' reports/friday_operational/manifest.txt
+          echo 'PASS: full historical runner data but future official racecards NOT_READY'
       - name: Create empty new SQLite schema (no fake records)
         run: |
           mkdir -p data/friday
@@ -100,6 +111,11 @@ jobs:
             reports/friday_source_audit/real_kyoto_profile_seed_coverage.csv
             reports/friday_operational/manifest.txt
             reports/friday_operational/status.txt
+            reports/friday_operational/historical_coverage.csv
+            reports/friday_operational/historical_id_coverage.csv
+            reports/friday_operational/scheduled_coverage.csv
+            reports/friday_operational/official_2023_2025_actor_condition_stats.csv
+            reports/friday_operational/official_2023_2025_recent5.csv
             reports/friday_operational/partial_horse_profile_stats.csv
             data/friday/available_historical_subset.sqlite
             data/friday/available_historical_subset.sqlite.sha256
@@ -109,7 +125,7 @@ jobs:
 
   friday-scheduled-run:
     permissions:
-      contents: write
+      contents: read
     if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
     runs-on: ubuntu-latest
     timeout-minutes: 20
@@ -120,18 +136,16 @@ jobs:
           set -euo pipefail
           if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
           sqlite3 --version
-      - name: Rebuild real data and explicitly assess Friday source coverage
+      - name: Read permanent official historical source and assess all-race Friday readiness
         run: |
           set +e
-          bash scripts/friday_operational_run.sh
+          bash scripts/friday_full_history_runtime.sh
           status=$?
           set -e
           if [ "$status" -ne 0 ] && [ "$status" -ne 2 ]; then exit "$status"; fi
           cat reports/friday_operational/manifest.txt >> "$GITHUB_STEP_SUMMARY"
-          if [ -f reports/friday_operational/status.txt ]; then cat reports/friday_operational/status.txt >> "$GITHUB_STEP_SUMMARY"; fi
-          test -f data/friday/available_historical_subset.sqlite
-      - name: Persist research candidate to Git and verify remote read-back
-        run: bash scripts/friday_persist_candidate.sh
+          cat reports/friday_operational/status.txt >> "$GITHUB_STEP_SUMMARY"
+          test -f reports/friday_operational/historical_coverage.csv
       - name: Save reports, provenance and candidate DB even when NOT_READY
         if: always()
         uses: actions/upload-artifact@v4
@@ -139,7 +153,9 @@ jobs:
           name: friday-historical-report
           path: |
             reports/friday_operational/
-            reports/friday_source_audit/tracked_profile_horse_stats.csv
-            data/friday/available_historical_subset.sqlite
-            data/friday/available_historical_subset.sqlite.sha256
+            reports/friday_operational/historical_coverage.csv
+            reports/friday_operational/historical_id_coverage.csv
+            reports/friday_operational/scheduled_coverage.csv
+            reports/friday_operational/official_2023_2025_actor_condition_stats.csv
+            reports/friday_operational/official_2023_2025_recent5.csv
           retention-days: 30

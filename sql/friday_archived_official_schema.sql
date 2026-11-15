@@ -11,7 +11,11 @@ CREATE TABLE IF NOT EXISTS archive_races(
  source_sha256 TEXT NOT NULL CHECK(length(source_sha256)=64),
  observed_at TEXT NOT NULL,
  horse_count INTEGER NOT NULL,
- source_scope TEXT NOT NULL
+ source_scope TEXT NOT NULL,
+ surface TEXT NOT NULL,
+ going TEXT NOT NULL,
+ distance_m INTEGER NOT NULL,
+ metadata_verified INTEGER NOT NULL CHECK(metadata_verified IN (0,1))
 );
 CREATE TABLE IF NOT EXISTS archive_runners(
  race_id TEXT NOT NULL REFERENCES archive_races(race_id),
@@ -23,17 +27,20 @@ CREATE TABLE IF NOT EXISTS archive_runners(
  jockey_name TEXT NOT NULL,
  jockey_link TEXT,
  source_sha256 TEXT NOT NULL,
+ jockey_id TEXT NOT NULL DEFAULT '',
  PRIMARY KEY(race_id,horse_number)
 );
 CREATE INDEX IF NOT EXISTS ix_archive_horse ON archive_runners(horse_id);
-CREATE INDEX IF NOT EXISTS ix_archive_jockey ON archive_runners(jockey_name);
+CREATE INDEX IF NOT EXISTS ix_archive_jockey ON archive_runners(jockey_id);
+CREATE INDEX IF NOT EXISTS ix_archive_conditions ON archive_races(race_date,surface,going,distance_m);
 CREATE INDEX IF NOT EXISTS ix_archive_date ON archive_races(race_date);
 CREATE VIEW IF NOT EXISTS v_archive_observed_starts AS
  SELECT r.race_id,r.race_date,r.venue_code,r.race_number,
- s.horse_id,s.horse_name,s.jockey_name,s.jockey_link,s.horse_number,
+ s.horse_id,s.horse_name,s.jockey_name,s.jockey_id,s.jockey_link,s.horse_number,
+ r.surface,r.going,r.distance_m,
  CAST(s.finish_position AS INTEGER) AS placing,
  CASE WHEN CAST(s.finish_position AS INTEGER)=1 THEN 1 ELSE 0 END AS wins,
  CASE WHEN CAST(s.finish_position AS INTEGER) BETWEEN 1 AND 3 THEN 1 ELSE 0 END AS top3
  FROM archive_runners s JOIN archive_races r ON r.race_id=s.race_id
- WHERE s.finish_position IS NOT NULL AND s.finish_position!=''
+ WHERE r.metadata_verified=1 AND r.surface IN ('芝','ダート') AND s.finish_position IS NOT NULL AND s.finish_position!=''
  AND s.finish_position NOT GLOB '*[^0-9]*' AND CAST(s.finish_position AS INTEGER)>0;

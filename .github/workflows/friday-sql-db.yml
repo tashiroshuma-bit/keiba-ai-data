@@ -37,6 +37,8 @@ jobs:
             sqlite3 -readonly -header -csv jra_2023_2025.sqlite "SELECT name,type FROM sqlite_master WHERE type IN ('table','view') ORDER BY name;"
             sqlite3 -readonly jra_2023_2025.sqlite '.schema' | head -150
           fi
+      - name: Inventory all checked-in SQLite source candidates (read only)
+        run: bash scripts/friday_git_db_inventory.sh
       - name: Validate SQL joins with isolated synthetic fixture
         run: bash tests/sql/test_friday_sql.sh
       - name: Test two independent rebuilds from versioned source ledger

@@ -46,6 +46,10 @@ function parseHtml(blob) {
    .filter(Boolean);
   if(horses.length!==1)continue;
   const order=plain(cells[0]);
+  // Official nonfinishers did start and belong in the wins/top3 denominator.
+  // Excluded/scratched horses did not start. Unrecognized statuses stay unresolved.
+  const started=/^[0-9]{1,2}$/.test(order)||/中止|失格/.test(order) ? 1
+      : /取消|除外|不出走/.test(order) ? 0 : null;
   const jockeyAnchor=cells[6].match(/<a\b[^>]*>([\s\S]*?)<\/a>/i);
   const jockeyText=plain(jockeyAnchor ? jockeyAnchor[1] : cells[6]);
   const officialJockeyProfile=cells[6].match(/pw04kmk[0-9]+\/[0-9a-f]{2}/i)?.[0]||"";
@@ -53,7 +57,7 @@ function parseHtml(blob) {
   const jockeyLink=officialJockeyProfile ? "/JRADB/accessK.html?CNAME="+officialJockeyProfile : "";
   res.push({horse_number:+number,horse_name:normalize(plain(cells[3])),horse_id:"jra:"+horses[0],
    finish_position:/^[0-9]{1,2}$/.test(order)?+order:null,
-   status:order,jockey_name:jockeyText,jockey_id:jockeyId,jockey_link:jockeyLink});
+   status:order,jockey_name:jockeyText,jockey_id:jockeyId,jockey_link:jockeyLink,started});
  }
  return res;
 }
@@ -126,7 +130,7 @@ const runnerRows=races.flatMap(r=>r.runners.map(h=>({race_id:r.race_id,source_sh
 const byYear={};
 for(const r of races){const x=byYear[r.year]||(byYear[r.year]={races:0,runners:0,missing_jockey_id:0,missing_finish:0,flat_metadata_verified:0,obstacle_or_unknown:0});x.races++;x.runners+=r.runners.length;x.flat_metadata_verified+=r.metadata_verified;x.obstacle_or_unknown+=r.metadata_verified?0:1;x.missing_jockey_id+=r.runners.filter(h=>!h.jockey_id).length;x.missing_finish+=r.runners.filter(h=>h.finish_position===null).length;}
 writeFileSync(out+"/races.csv",csv(races,["race_id","race_date","year","venue_code","meeting","meeting_day","race_number","source_url","source_sha256","observed_at","horse_count","source_scope","surface","going","distance_m","metadata_verified"]));
-writeFileSync(out+"/runners.csv",csv(runnerRows,["race_id","horse_number","horse_name","horse_id","finish_position","status","jockey_name","jockey_link","source_sha256","jockey_id"]));
+writeFileSync(out+"/runners.csv",csv(runnerRows,["race_id","horse_number","horse_name","horse_id","finish_position","status","jockey_name","jockey_link","source_sha256","jockey_id","started"]));
 writeFileSync(out+"/quarantine.json",JSON.stringify(issues,null,2)+"\n");
 const summary={...stat,source_verified_races:races.length,source_verified_runners:runnerRows.length,year_counts:byYear,quarantined:issues.length,
  status:"JRA_ORIGINAL_IDENTITY_AND_RESULT_ROWS_VERIFIED_METRICS_NOT_YET_FULLY_CERTIFIED"};

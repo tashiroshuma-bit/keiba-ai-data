@@ -1,0 +1,25 @@
+name: Locate missing 2023-2025 JRA official originals (no Python)
+on:
+  pull_request:
+    paths:
+      - 'scripts/friday_find_additional_originals.sh'
+      - '.github/workflows/friday-find-missing16.yml'
+  workflow_dispatch:
+permissions:
+  actions: read
+  contents: read
+jobs:
+  find:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+      - name: Locate archived official HTML recovery shards via own GitHub Actions API
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash scripts/friday_find_additional_originals.sh
+      - if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: extra-jra-originals-inventory
+          path: reports/friday_full_backfill/missing16_artifacts.tsv

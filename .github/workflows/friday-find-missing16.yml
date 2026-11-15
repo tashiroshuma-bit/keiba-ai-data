@@ -7,6 +7,8 @@ on:
       - 'scripts/friday_restore_archive_results.mjs'
       - 'scripts/friday_official_three_year_stats.sh'
       - 'sql/friday_official_three_year_observed_stats.sql'
+      - 'sql/friday_official_three_year_only_stats.sql'
+      - 'sql/friday_official_2023_2025_recent5.sql'
       - 'sql/friday_archived_official_schema.sql'
       - 'sql/friday_official_cancelled_2024_2025.sql'
       - 'scripts/friday_import_archive_staging.sh'
@@ -58,6 +60,8 @@ jobs:
             reports/friday_full_backfill/three_year_full_flat_gap.csv
             reports/friday_full_backfill/missing_races_in_observed_sessions.csv
             reports/friday_full_backfill/official_observed_conditions.csv
+            reports/friday_full_backfill/official_2023_2025_conditions.csv
+            reports/friday_full_backfill/official_2023_2025_recent5.csv
             reports/friday_full_backfill/result_status_denominator_audit.csv
             reports/friday_full_backfill/missing16_artifacts.tsv
             data/friday/archived_official_history.sqlite

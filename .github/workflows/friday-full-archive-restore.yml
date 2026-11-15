@@ -31,7 +31,13 @@ jobs:
           gh run download 42780335360 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/2026_oct18
           gh run download 42944374933 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/completion
           bash scripts/friday_find_additional_originals.sh
-          while IFS=
+          for shard in $(seq 0 7); do
+            name="jra-review-missing16-shard-$shard"
+            run_id="$(awk -F "\t" -v n="$name" '$2==n{print $6;exit}' reports/friday_full_backfill/missing16_artifacts.tsv)"
+            test -n "$run_id"
+            mkdir -p "/tmp/friday-history-archives/extra/$name"
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name "$name" --dir "/tmp/friday-history-archives/extra/$name"
+          done
           echo 'ARCHIVED_MANIFESTS:'
           find /tmp/friday-history-archives -name official_race_horse_ids.json -type f | wc -l
       - name: Verify original HTML bytes and build official ID/result-row CSV for all archived races

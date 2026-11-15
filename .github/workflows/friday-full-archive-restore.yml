@@ -42,6 +42,8 @@ jobs:
           sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA quick_check;'
           sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA foreign_key_check;'
           stat -c 'SQLITE_BYTES=%s' data/friday/archived_official_history.sqlite
+      - name: Compute horse, verified jockey, pair and race-condition observed statistics in SQL
+        run: bash scripts/friday_official_three_year_stats.sh data/friday/archived_official_history.sqlite reports/friday_full_backfill
       - name: Preserve inspectable normalized DB and exact source-audit results (no original redistribution)
         if: always()
         uses: actions/upload-artifact@v4
@@ -53,6 +55,10 @@ jobs:
             reports/friday_full_backfill/staging/races.csv
             reports/friday_full_backfill/staging/runners.csv
             reports/friday_full_backfill/coverage.csv
+            reports/friday_full_backfill/flat_coverage_by_year.csv
+            reports/friday_full_backfill/coverage_by_track_year.csv
+            reports/friday_full_backfill/official_observed_conditions.csv
+            reports/friday_full_backfill/production_status.txt
             data/friday/archived_official_history.sqlite
             data/friday/archived_official_history.sqlite.sha256
           retention-days: 30

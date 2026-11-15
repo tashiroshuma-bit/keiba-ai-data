@@ -27,7 +27,7 @@ fi
 mkdir -p snapshots
 cp "$tmp/source.sqlite" snapshots/archived_official_history.sqlite
 sha256sum snapshots/archived_official_history.sqlite > snapshots/archived_official_history.sqlite.sha256
-printf 'scope=PARTIAL_2023_2026_OFFICIAL_ORIGINAL_SHA_VERIFIED_NOT_FULL_FLAT_COVERAGE\ncode_sha=%s\nsource_archive_workflow_run=43774061523\nraces=%s\nhorse_results=%s\nsha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
+printf 'scope=PARTIAL_2023_2026_OFFICIAL_ORIGINAL_SHA_VERIFIED_NOT_FULL_FLAT_COVERAGE\ncode_sha=%s\nsource_archive_workflow_run=43774658187\nraces=%s\nhorse_results=%s\nsha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 git add snapshots/archived_official_history.sqlite snapshots/archived_official_history.sqlite.sha256 snapshots/archived_official_history.status

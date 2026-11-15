@@ -1,0 +1,50 @@
+name: Friday SQL-only fresh DB bootstrap and tests
+on:
+  workflow_dispatch:
+  push:
+    branches: [feature/friday-historical-source-audit-20261116]
+    paths:
+      - 'sql/friday_*.sql'
+      - 'scripts/friday_sql_bootstrap.sh'
+      - 'tests/sql/**'
+      - '.github/workflows/friday-sql-db.yml'
+permissions:
+  contents: read
+jobs:
+  sql-fixture-and-bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SQLite CLI if missing
+        run: |
+          set -euo pipefail
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Validate SQL joins with isolated synthetic fixture
+        run: bash tests/sql/test_friday_sql.sh
+      - name: Create empty new SQLite schema (no fake records)
+        run: |
+          mkdir -p data/friday
+          sqlite3 data/friday/history.sqlite < sql/friday_schema.sql
+          sqlite3 -readonly data/friday/history.sqlite 'PRAGMA quick_check;'
+          sqlite3 -readonly data/friday/history.sqlite 'PRAGMA foreign_key_check;'
+          sha256sum data/friday/history.sqlite > data/friday/history.sqlite.sha256
+      - name: Production gate must reject empty source
+        run: |
+          set +e
+          bash scripts/friday_sql_bootstrap.sh data/friday/history.sqlite
+          code=$?
+          set -e
+          if [ "$code" -ne 2 ]; then echo "FAIL: empty database did not fail closed ($code)"; exit 1; fi
+          echo "PASS: empty source correctly NOT_READY"
+      - name: Upload inspectable SQLite schema DB and checksums
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-sql-empty-schema-and-test
+          path: |
+            data/friday/history.sqlite
+            data/friday/history.sqlite.sha256
+            reports/friday_source_audit/status.txt
+          retention-days: 30

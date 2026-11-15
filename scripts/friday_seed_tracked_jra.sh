@@ -6,14 +6,17 @@ TARGET="data/friday/tracked_research_candidate.sqlite"
 if [[ $# -ge 1 ]]; then TARGET="$1"; fi
 SOURCE_RESULT="operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite"
 SOURCE_PROFILE="operations/data_updates/jra_official_20261108_tokyo11_12_profiles_v1.sqlite"
+SOURCE_KYOTO="operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite"
 RESULT_SHA="4912237e688804cdbaed6a4d0b9a2019fd126b309c938fb21d8c1a637397959b"
 PROFILE_SHA="e17d37e5ee0bb0d26d054eb3395278937cf3f3fb58481eb3fea8761f64b86025"
-for source in "$SOURCE_RESULT" "$SOURCE_PROFILE"; do
+KYOTO_SHA="1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f"
+for source in "$SOURCE_RESULT" "$SOURCE_PROFILE" "$SOURCE_KYOTO"; do
   [[ -f "$source" ]] || { echo "NOT_READY: missing tracked source $source"; exit 2; }
   [[ "$(sqlite3 -readonly "$source" 'PRAGMA quick_check;')" == ok ]] || { echo "NOT_READY: sqlite corruption $source"; exit 2; }
 done
 [[ "$(sha256sum "$SOURCE_RESULT" | cut -d ' ' -f 1)" == "$RESULT_SHA" ]] || { echo 'NOT_READY: result source SHA mismatch'; exit 2; }
 [[ "$(sha256sum "$SOURCE_PROFILE" | cut -d ' ' -f 1)" == "$PROFILE_SHA" ]] || { echo 'NOT_READY: profile source SHA mismatch'; exit 2; }
+[[ "$(sha256sum "$SOURCE_KYOTO" | cut -d ' ' -f 1)" == "$KYOTO_SHA" ]] || { echo 'NOT_READY: Kyoto profile SHA mismatch'; exit 2; }
 [[ ! -e "$TARGET" ]] || { echo 'NOT_READY: refusing overwrite of an existing candidate DB'; exit 2; }
 mkdir -p "$(dirname "$TARGET")"
 work="$(mktemp -d "$(dirname "$TARGET")/.tracked-seed.XXXXXX")"
@@ -26,6 +29,7 @@ sqlite3 -bail "$DB" <<'SQL'
 PRAGMA foreign_keys=ON;
 ATTACH DATABASE 'operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite' AS result_src;
 ATTACH DATABASE 'operations/data_updates/jra_official_20261108_tokyo11_12_profiles_v1.sqlite' AS profile_src;
+ATTACH DATABASE 'operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite' AS kyoto_src;
 BEGIN IMMEDIATE;
 INSERT INTO tracked_source_db VALUES
 ('4912237e688804cdbaed6a4d0b9a2019fd126b309c938fb21d8c1a637397959b',
@@ -35,6 +39,10 @@ INSERT INTO tracked_source_db VALUES
 ('e17d37e5ee0bb0d26d054eb3395278937cf3f3fb58481eb3fea8761f64b86025',
  'operations/data_updates/jra_official_20261108_tokyo11_12_profiles_v1.sqlite',
  'Git-tracked official-profile-derived source; raw profile bytes not independently rechecked',
+ 'DERIVED_NOT_ORIGINAL'),
+('1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f',
+ 'operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite',
+ 'Git-tracked Kyoto official-profile-derived source; original bytes not independently rechecked',
  'DERIVED_NOT_ORIGINAL');
 INSERT INTO tracked_result_runner
   (race_date,source_race_key,venue,race_number,horse_number,horse_id,horse_name,
@@ -57,6 +65,19 @@ SELECT p.horse_id,p.horse_name,h.prior_race_date,h.venue,h.race_name,
        'e17d37e5ee0bb0d26d054eb3395278937cf3f3fb58481eb3fea8761f64b86025'
 FROM profile_src.official_past_run h
 JOIN profile_src.official_profile p ON p.horse_id=h.horse_id
+WHERE p.horse_id LIKE 'jra:%'
+  AND (h.distance_surface LIKE '芝%' OR h.distance_surface LIKE 'ダート%')
+  AND h.prior_race_date<'2026-11-08'
+  AND h.source_profile_sha256=p.source_sha256;
+INSERT INTO tracked_profile_past_run
+  (horse_id,horse_name,prior_race_date,venue,race_name,distance_surface,going,
+   finish_position,jockey_name,source_profile_sha256,observed_at,source_db_sha256)
+SELECT p.horse_id,p.horse_name,h.prior_race_date,h.venue,h.race_name,
+       h.distance_surface,h.going,h.finish_position,h.jockey_name,
+       h.source_profile_sha256,h.profile_observed_at,
+       '1558a0ac7dbaebf8edd751f586ea7c5cab19e23c814374028cdf34487754a39f'
+FROM kyoto_src.official_past_run h
+JOIN kyoto_src.official_profile p ON p.horse_id=h.horse_id
 WHERE p.horse_id LIKE 'jra:%'
   AND (h.distance_surface LIKE '芝%' OR h.distance_surface LIKE 'ダート%')
   AND h.prior_race_date<'2026-11-08'

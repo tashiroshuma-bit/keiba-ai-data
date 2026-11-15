@@ -1,0 +1,29 @@
+name: Friday 3-year JRA official PDF source inventory (no Python)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/friday_discover_official_pdfs.mjs'
+      - 'scripts/friday_pdf_sample.sh'
+      - '.github/workflows/friday-three-year-source-index.yml'
+permissions:
+  contents: read
+jobs:
+  official-catalog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Discover 2023-2026 all official PDF URLs and original index SHA256
+        run: node scripts/friday_discover_official_pdfs.mjs 2023 2024 2025 2026
+      - name: Inspect real one-day official result PDF text and 12 race headers
+        run: bash scripts/friday_pdf_sample.sh
+      - name: Save official index bytes and inventory
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-three-year-official-catalog
+          path: |
+            reports/friday_full_backfill/discovery/
+            reports/friday_full_backfill/sample/
+          retention-days: 30

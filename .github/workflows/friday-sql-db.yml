@@ -11,7 +11,7 @@ on:
     branches: [feature/friday-historical-source-audit-20261116]
     paths:
       - 'sql/friday_*.sql'
-      - 'scripts/friday_sql_bootstrap.sh'
+      - 'scripts/friday_sql_*.sh'
       - 'tests/sql/**'
       - '.github/workflows/friday-sql-db.yml'
 permissions:
@@ -39,6 +39,8 @@ jobs:
           fi
       - name: Validate SQL joins with isolated synthetic fixture
         run: bash tests/sql/test_friday_sql.sh
+      - name: Test two independent rebuilds from versioned source ledger
+        run: bash tests/sql/test_friday_ledger.sh
       - name: Create empty new SQLite schema (no fake records)
         run: |
           mkdir -p data/friday

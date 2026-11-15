@@ -45,11 +45,18 @@ sqlite3 -readonly -header -csv "$tmp/history.sqlite" "
  SUM(CASE WHEN surface='障害' THEN 1 ELSE 0 END) obstacle_races
  FROM archive_races WHERE year IN (2023,2024,2025) GROUP BY year ORDER BY year;" > "$output/historical_coverage.csv"
 sqlite3 -readonly -header -csv "$tmp/history.sqlite" "
- SELECT COUNT(*) eligible_flat_finish_rows,
+ SELECT COUNT(*) eligible_flat_actual_starts,
  SUM(CASE WHEN jockey_id LIKE 'jra-jockey:pw04kmk%' THEN 1 ELSE 0 END) official_jockey_id_rows,
  COUNT(DISTINCT horse_id) horse_ids,
  COUNT(DISTINCT CASE WHEN jockey_id LIKE 'jra-jockey:pw04kmk%' THEN jockey_id END) jockey_ids
  FROM v_archive_observed_starts WHERE substr(race_date,1,4) IN ('2023','2024','2025');" > "$output/historical_id_coverage.csv"
+# Report historical horse/jockey/horse×jockey results for all certified
+# 2023–2025 flat starts even when forthcoming official weekend rosters are missing.
+sqlite3 -readonly -header -csv "$tmp/history.sqlite" < sql/friday_official_three_year_only_stats.sql > "$output/official_2023_2025_actor_condition_stats.csv"
+sqlite3 -readonly -header -csv "$tmp/history.sqlite" < sql/friday_official_2023_2025_recent5.sql > "$output/official_2023_2025_recent5.csv"
+printf 'HISTORICAL_STATS_EXPORTED rows=%s recent5_rows=%s\n' \
+ "$(( $(wc -l < "$output/official_2023_2025_actor_condition_stats.csv") - 1 ))" \
+ "$(( $(wc -l < "$output/official_2023_2025_recent5.csv") - 1 ))"
 printf 'runtime_utc=%s\nruntime_code_commit=%s\nremote_source_branch=%s\nremote_sqlite_sha256=%s\nannual_horse_rows=%s\nsource_scope=ALL_2023_2025_SCHEDULED_PANELS_RECONCILED;VERIFIED_RESULTS_PLUS_OFFICIAL_CANCELLATIONS\n' \
   "$(date -u +%FT%TZ)" "$(git rev-parse HEAD)" "$branch" "$actual" "$year_totals" > "$output/manifest.txt"
 # The official roster needs to have been captured for the forthcoming Sat/Sun weekend

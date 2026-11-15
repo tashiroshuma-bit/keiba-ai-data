@@ -92,6 +92,8 @@ sqlite3 -readonly -header -csv "$db" '
 echo 'RESULT_START_STATUS_DISTRIBUTION:'
 cat "$out/result_status_denominator_audit.csv" | tail -n 35
 sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_observed_stats.sql > "$out/official_observed_conditions.csv"
+sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_only_stats.sql > "$out/official_2023_2025_conditions.csv"
+sqlite3 -readonly -header -csv "$db" < sql/friday_official_2023_2025_recent5.sql > "$out/official_2023_2025_recent5.csv"
 sqlite3 -readonly "$db" '
  SELECT "eligible_flat_actual_starts="||COUNT(*) FROM v_archive_observed_starts;
  SELECT "verified_jockey_rides="||COUNT(*) FROM v_archive_observed_starts WHERE jockey_id LIKE "jra-jockey:pw04kmk%";

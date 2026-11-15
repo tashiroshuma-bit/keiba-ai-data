@@ -4,7 +4,8 @@ for db in \
   operations/data_updates/jra_official_full_runner_history_20261108_v2.sqlite \
   operations/data_updates/jra_official_20261108_all_runner_history_v2.sqlite \
   operations/data_updates/multisource_overlay_20261108_v2.sqlite \
-  operations/data_updates/jra_official_20261108_tokyo11_12_profiles_v1.sqlite
+  operations/data_updates/jra_official_20261108_tokyo11_12_profiles_v1.sqlite \
+  operations/data_updates/jra_official_20261108_kyoto12_horse_profiles_v1.sqlite
 do
   [[ -f "$db" ]] || continue
   printf '\n==== SOURCE=%s ====\n' "$db"

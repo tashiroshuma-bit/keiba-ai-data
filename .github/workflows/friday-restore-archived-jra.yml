@@ -21,11 +21,11 @@ jobs:
           mkdir -p /tmp/jra-shard
           gh run download 42780017487 --repo "$GITHUB_REPOSITORY" --name jra-2023-2025-shard-0 --dir /tmp/jra-shard
           echo 'ARCHIVE_SHARD_CONTENTS:'
-          find /tmp/jra-shard -maxdepth 3 -type f -printf '%s %p\n' | head -70
+          find /tmp/jra-shard -maxdepth 3 -type f -printf '%s %p\n' | sed -n '1,70p'
           echo 'ARCHIVE_SHARD_TOTAL:'
           du -sh /tmp/jra-shard
           echo 'NESTED_ZIP_HEADERS:'
-          find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | head -35; done
+          find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | sed -n '1,35p'; done
           node scripts/friday_parse_archive_probe.mjs
           echo 'JSON_SAMPLES:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.json' -print -quit | while read -r j; do head -c 1300 "$j"; done

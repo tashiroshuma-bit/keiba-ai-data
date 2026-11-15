@@ -30,6 +30,46 @@ jobs:
           gh run download 42780017487 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/2023_2025
           gh run download 42780335360 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/2026_oct18
           gh run download 42944374933 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/completion
+          bash scripts/friday_find_additional_originals.sh
+          while IFS=
+          echo 'ARCHIVED_MANIFESTS:'
+          find /tmp/friday-history-archives -name official_race_horse_ids.json -type f | wc -l
+      - name: Verify original HTML bytes and build official ID/result-row CSV for all archived races
+        run: |
+          node scripts/friday_restore_archive_results.mjs /tmp/friday-history-archives reports/friday_full_backfill/staging
+          cat reports/friday_full_backfill/staging/summary.json
+      - name: Import and independently inspect three-year SQLite source statistics
+        run: |
+          bash scripts/friday_import_archive_staging.sh reports/friday_full_backfill/staging data/friday/archived_official_history.sqlite
+          sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA quick_check;'
+          sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA foreign_key_check;'
+          stat -c 'SQLITE_BYTES=%s' data/friday/archived_official_history.sqlite
+      - name: Compute horse, verified jockey, pair and race-condition observed statistics in SQL
+        run: bash scripts/friday_official_three_year_stats.sh data/friday/archived_official_history.sqlite reports/friday_full_backfill
+      - name: Confirm remote permanent Git snapshot is identical on a fresh runner
+        run: bash tests/sql/test_friday_three_year_remote_readback.sh data/friday/archived_official_history.sqlite
+      - name: Preserve inspectable normalized DB and exact source-audit results (no original redistribution)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-three-year-verified-normalized-sqlite
+          path: |
+            reports/friday_full_backfill/staging/summary.json
+            reports/friday_full_backfill/staging/quarantine.json
+            reports/friday_full_backfill/staging/races.csv
+            reports/friday_full_backfill/staging/runners.csv
+            reports/friday_full_backfill/coverage.csv
+            reports/friday_full_backfill/flat_coverage_by_year.csv
+            reports/friday_full_backfill/coverage_by_track_year.csv
+            reports/friday_full_backfill/official_observed_conditions.csv
+            reports/friday_full_backfill/production_status.txt
+            data/friday/archived_official_history.sqlite
+            data/friday/archived_official_history.sqlite.sha256
+          retention-days: 30
+\\t' read -r artifact_id artifact_name expired artifact_bytes created_at run_id; do
+            mkdir -p "/tmp/friday-history-archives/extra/$artifact_name"
+            gh run download "$run_id" --repo "$GITHUB_REPOSITORY" --name "$artifact_name" --dir "/tmp/friday-history-archives/extra/$artifact_name"
+          done < reports/friday_full_backfill/missing16_artifacts.tsv
           echo 'ARCHIVED_MANIFESTS:'
           find /tmp/friday-history-archives -name official_race_horse_ids.json -type f | wc -l
       - name: Verify original HTML bytes and build official ID/result-row CSV for all archived races

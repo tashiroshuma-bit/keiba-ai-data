@@ -27,6 +27,14 @@ tmp="$(mktemp -d)"
 trap 'rm -rf "$tmp"' EXIT
 cp "$src" "$tmp/source.sqlite"
 cp "$src.sha256" "$tmp/source.sha256"
+# Durable, fully reconstructible SQL backup to survive expiry of temporary Actions archives.
+# The SQL replay source is a *derived data snapshot*, not a copy of the JRA HTML originals.
+sqlite3 -readonly "$src" .dump | gzip -9 -n > "$tmp/history.dump.sql.gz"
+dump_sha="$(sha256sum "$tmp/history.dump.sql.gz" | cut -d ' ' -f 1)"
+gzip -dc "$tmp/history.dump.sql.gz" | sqlite3 -bail "$tmp/sql-replay.sqlite"
+[[ "$(sqlite3 -readonly "$tmp/sql-replay.sqlite" 'PRAGMA quick_check;')" == ok ]] || { echo 'FAIL: local SQL dump replay quick_check'; exit 2; }
+[[ -z "$(sqlite3 -readonly "$tmp/sql-replay.sqlite" 'PRAGMA foreign_key_check;')" ]] || { echo 'FAIL: local SQL dump replay foreign key check'; exit 2; }
+[[ "$(sqlite3 -readonly "$tmp/sql-replay.sqlite" 'SELECT COUNT(*) FROM archive_runners;')" == "$runners" ]] || { echo 'FAIL: local SQL dump replay runner mismatch'; exit 2; }
 code_sha="$(git rev-parse HEAD)"
 if git ls-remote --exit-code --heads origin "$branch" >/dev/null; then
   git fetch --no-tags origin "$branch"
@@ -36,11 +44,13 @@ else
 fi
 mkdir -p snapshots
 cp "$tmp/source.sqlite" snapshots/archived_official_history.sqlite
+cp "$tmp/history.dump.sql.gz" snapshots/archived_official_history.dump.sql.gz
+sha256sum snapshots/archived_official_history.dump.sql.gz > snapshots/archived_official_history.dump.sql.gz.sha256
 sha256sum snapshots/archived_official_history.sqlite > snapshots/archived_official_history.sqlite.sha256
-printf 'scope=2023_2025_10368_SCHEDULED_PANELS_RECONCILED_142737_HORSE_ROWS;2026_YTD_PARTIAL\ncode_sha=%s\nsource_archive_workflow_run=43776666478\nraces=%s\nhorse_results=%s\nsha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
+printf 'scope=2023_2025_10368_SCHEDULED_PANELS_RECONCILED_142737_HORSE_ROWS;2026_YTD_PARTIAL\ncode_sha=%s\nsource_archive_workflow_run=43776666478\nraces=%s\nhorse_results=%s\nsha256=%s\nsql_dump_gzip_sha256=%s\nsaved_utc=%s\n' "$code_sha" "$races" "$runners" "$source_sha" "$dump_sha" "$(date -u +%FT%TZ)" > snapshots/archived_official_history.status
 git config user.name "github-actions[bot]"
 git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-git add snapshots/archived_official_history.sqlite snapshots/archived_official_history.sqlite.sha256 snapshots/archived_official_history.status
+git add snapshots/archived_official_history.sqlite snapshots/archived_official_history.sqlite.sha256 snapshots/archived_official_history.status snapshots/archived_official_history.dump.sql.gz snapshots/archived_official_history.dump.sql.gz.sha256
 if ! git diff --cached --quiet; then
   git commit -m "Store verified 2023–2025 JRA result panels and full runners (Friday cards separate)"
   git push origin "HEAD:refs/heads/$branch"
@@ -54,4 +64,12 @@ readback="$(sha256sum "$tmp/readback.sqlite" | cut -d ' ' -f 1)"
 [[ "$(sqlite3 -readonly "$tmp/readback.sqlite" 'PRAGMA quick_check;')" == ok ]] || exit 2
 [[ -z "$(sqlite3 -readonly "$tmp/readback.sqlite" 'PRAGMA foreign_key_check;')" ]] || exit 2
 [[ "$(sqlite3 -readonly "$tmp/readback.sqlite" 'SELECT COUNT(*) FROM archive_runners;')" == "$runners" ]] || exit 2
+git show FETCH_HEAD:snapshots/archived_official_history.dump.sql.gz > "$tmp/remote.dump.sql.gz"
+remote_dump_sha="$(sha256sum "$tmp/remote.dump.sql.gz" | cut -d ' ' -f 1)"
+[[ "$remote_dump_sha" == "$dump_sha" ]] || { echo 'FAIL: remote compressed SQL dump digest mismatch'; exit 2; }
+gzip -dc "$tmp/remote.dump.sql.gz" | sqlite3 -bail "$tmp/remote-rebuilt.sqlite"
+[[ "$(sqlite3 -readonly "$tmp/remote-rebuilt.sqlite" 'PRAGMA quick_check;')" == ok ]] || exit 2
+[[ -z "$(sqlite3 -readonly "$tmp/remote-rebuilt.sqlite" 'PRAGMA foreign_key_check;')" ]] || exit 2
+[[ "$(sqlite3 -readonly "$tmp/remote-rebuilt.sqlite" 'SELECT COUNT(*) FROM archive_runners;')" == "$runners" ]] || exit 2
+echo "REMOTE_SQL_DUMP_REBUILD_VERIFIED sha=$remote_dump_sha races=$races runners=$runners"
 echo "ARCHIVE_PERSISTED_REMOTE_READBACK_VERIFIED branch=$branch races=$races runners=$runners sha256=$source_sha"

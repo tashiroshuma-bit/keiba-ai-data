@@ -60,8 +60,8 @@ def evidence_guard(h,asof,off):
     starts=h.get("prior_starts")
     if type(starts) is not int or starts<0:
         raise ValueError("validated nonnegative prior_starts required")
-    if starts>0 and not history:
-        raise ValueError("historical source publication evidence required for trained features")
+    if starts>0 and not history and h.get("historical_availability_basis")!="prior_calendar_date_verified_result":
+        raise ValueError("historical result availability basis missing")
     for item in history:
         check_historical_observation(item,race_off_at=off.isoformat(),forecast_asof=asof.isoformat())
     previous=h.get("latest_history_date")

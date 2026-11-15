@@ -44,3 +44,18 @@ CREATE VIEW IF NOT EXISTS v_archive_observed_starts AS
  FROM archive_runners s JOIN archive_races r ON r.race_id=s.race_id
  WHERE r.metadata_verified=1 AND r.surface IN ('芝','ダート') AND s.finish_position IS NOT NULL AND s.finish_position!=''
  AND s.finish_position NOT GLOB '*[^0-9]*' AND CAST(s.finish_position AS INTEGER)>0;
+
+-- Officially cancelled scheduled race panels contain zero actual starters.
+-- Keep separately from official results; never count scheduled runners as starts.
+CREATE TABLE IF NOT EXISTS archive_cancelled_scheduled_races (
+ race_id TEXT PRIMARY KEY,
+ year INTEGER NOT NULL,
+ race_date TEXT NOT NULL,
+ venue_code TEXT NOT NULL,
+ race_number INTEGER NOT NULL CHECK(race_number BETWEEN 1 AND 12),
+ race_status TEXT NOT NULL CHECK(race_status='CANCELLED_NO_OFFICIAL_RESULT'),
+ reason TEXT NOT NULL,
+ official_evidence_url TEXT NOT NULL CHECK(official_evidence_url LIKE 'https://www.jra.go.jp/%'),
+ evidence_status TEXT NOT NULL CHECK(evidence_status='JRA_OFFICIAL_URL_VERIFIED_NOT_ORIGINAL_BYTE_SHA'),
+ actual_starters INTEGER NOT NULL DEFAULT 0 CHECK(actual_starters=0)
+);

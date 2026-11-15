@@ -1,0 +1,80 @@
+{
+  "schema": "jra-v51-weekend-frozen-only-audit-v1",
+  "audit_asof": "2026-11-15T19:04:24+09:00",
+  "dates": [
+    "2026-11-14",
+    "2026-11-15"
+  ],
+  "venues": [
+    "Tokyo",
+    "Kyoto",
+    "Fukushima"
+  ],
+  "status": "NOT_READY",
+  "standard_model": "v51",
+  "standard_entrypoint": "scripts/standard_v51_forecast.py",
+  "policy": "operations/prediction_policy/standard_v51.json",
+  "canonical_db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "official_prediction_schema": "jra-v51-official-forecast-v1",
+  "frozen_prediction_files_found": 0,
+  "verified_frozen_prediction_sha256": [],
+  "verified_matched_races": 0,
+  "excluded": "steeplechase",
+  "metrics": {
+    "top1_hit_rate": null,
+    "winner_top3_recall": null,
+    "unordered_podium_exact": null,
+    "ordered_podium_exact": null,
+    "log_loss": null,
+    "brier": null,
+    "ece": null,
+    "going_stratification": null,
+    "pace_stratification": null,
+    "bodyweight_stratification": null,
+    "win_bet_roi": null,
+    "quinella_roi": null,
+    "wide_roi": null,
+    "trio_roi": null
+  },
+  "reasons": [
+    "No verifiable complete pre-off official V51 freeze and associated SHA located in inspected GitHub main or recent Library /競馬 entries; search is not proof of universal absence.",
+    "Without frozen prediction input and same-race official finishing order, post-hoc scoring would be invalid.",
+    "Bet ROI additionally requires frozen ticket selections/stakes and official payouts; final odds alone do not establish ROI.",
+    "2026 independent historical benchmark is not a weekend forward prediction audit."
+  ],
+  "official_jra_evidence": [
+    {
+      "date": "2026-11-15",
+      "url": "https://www.jra.go.jp/news/202611/111505.html",
+      "finding": "Kyoto 10R horse 6 アートレスマインド scratched; must use final official roster"
+    },
+    {
+      "date": "2026-11-15",
+      "url": "https://www.jra.go.jp/keiba/calendar2026/2026/11/1115.html",
+      "finding": "Published scheduled programs, subject to race day changes"
+    },
+    {
+      "date": "2026-11-15",
+      "url": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0103202603040920261115%2F8A",
+      "finding": "JRA published actual Fukushima 9R result; not scored without V51 freeze"
+    }
+  ],
+  "calibration": {
+    "active": "2025-fitted v51 official parameters unchanged",
+    "top1_ece_prior_independent_2026": 0.02763,
+    "refinement": "scripts/v51_calibration_refinement.py 2025 chronological CV only",
+    "do_not_select_on_2026": true
+  },
+  "restrictions": {
+    "no_v50_fallback": true,
+    "no_retroactive_prediction": true,
+    "no_invented_probabilities": true,
+    "no_canonical_db_mutation": true
+  },
+  "next_evidence_needed": [
+    "Original timestamped pre-off official V51 prediction files for every race and SHA256",
+    "Matching original roster/feature evidence and source timestamps",
+    "Official full result finishing order, scratches and payouts",
+    "Frozen bet selections and stakes for ROI"
+  ]
+}

@@ -1,0 +1,58 @@
+name: Restore 3-year JRA official results from saved evidence (no Python)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/friday-full-archive-restore.yml'
+      - 'scripts/friday_restore_archive_results.mjs'
+      - 'scripts/friday_import_archive_staging.sh'
+      - 'sql/friday_archived_official_schema.sql'
+permissions:
+  actions: read
+  contents: read
+jobs:
+  full-official-html-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SQLite CLI if missing
+        run: |
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+          gh --version
+      - name: Retrieve all previously captured 2023-2026 official result archives (no live JRA fetch)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/friday-history-archives
+          gh run download 42780017487 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/2023_2025
+          gh run download 42780335360 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/2026_oct18
+          gh run download 42944374933 --repo "$GITHUB_REPOSITORY" --dir /tmp/friday-history-archives/completion
+          echo 'ARCHIVED_MANIFESTS:'
+          find /tmp/friday-history-archives -name official_race_horse_ids.json -type f | wc -l
+      - name: Verify original HTML bytes and build official ID/result-row CSV for all archived races
+        run: |
+          node scripts/friday_restore_archive_results.mjs /tmp/friday-history-archives reports/friday_full_backfill/staging
+          cat reports/friday_full_backfill/staging/summary.json
+      - name: Import and independently inspect three-year SQLite source statistics
+        run: |
+          bash scripts/friday_import_archive_staging.sh reports/friday_full_backfill/staging data/friday/archived_official_history.sqlite
+          sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA quick_check;'
+          sqlite3 -readonly data/friday/archived_official_history.sqlite 'PRAGMA foreign_key_check;'
+          stat -c 'SQLITE_BYTES=%s' data/friday/archived_official_history.sqlite
+      - name: Preserve inspectable normalized DB and exact source-audit results (no original redistribution)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-three-year-verified-normalized-sqlite
+          path: |
+            reports/friday_full_backfill/staging/summary.json
+            reports/friday_full_backfill/staging/quarantine.json
+            reports/friday_full_backfill/staging/races.csv
+            reports/friday_full_backfill/staging/runners.csv
+            reports/friday_full_backfill/coverage.csv
+            data/friday/archived_official_history.sqlite
+            data/friday/archived_official_history.sqlite.sha256
+          retention-days: 30

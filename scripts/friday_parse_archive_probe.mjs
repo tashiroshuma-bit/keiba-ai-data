@@ -26,7 +26,7 @@ for(const folder of folders.slice(0,1)) {
      if(++recognized===5)break;
    }
  }
- console.log("HEADER_SAMPLE="+text.replace(/<script[\\s\\S]*?<\\/script>/gi,"").replace(/<[^>]*>/g," ").replace(/\\s+/g," ").slice(0,2200));
+ console.log("HEADER_SAMPLE="+text.replace(/<[^>]*>/g," ").slice(0,2200));
  console.log("PARSER_PROBE_MATCHED="+recognized);
  if(recognized<3)throw Error("saved race HTML structure not understood");
 }

@@ -28,6 +28,7 @@ CREATE TABLE IF NOT EXISTS archive_runners(
  jockey_link TEXT,
  source_sha256 TEXT NOT NULL,
  jockey_id TEXT NOT NULL DEFAULT '',
+ started INTEGER CHECK(started IN (0,1)),
  PRIMARY KEY(race_id,horse_number)
 );
 CREATE INDEX IF NOT EXISTS ix_archive_horse ON archive_runners(horse_id);
@@ -38,12 +39,11 @@ CREATE VIEW IF NOT EXISTS v_archive_observed_starts AS
  SELECT r.race_id,r.race_date,r.venue_code,r.race_number,
  s.horse_id,s.horse_name,s.jockey_name,s.jockey_id,s.jockey_link,s.horse_number,
  r.surface,r.going,r.distance_m,
- CAST(s.finish_position AS INTEGER) AS placing,
- CASE WHEN CAST(s.finish_position AS INTEGER)=1 THEN 1 ELSE 0 END AS wins,
- CASE WHEN CAST(s.finish_position AS INTEGER) BETWEEN 1 AND 3 THEN 1 ELSE 0 END AS top3
+ CASE WHEN s.finish_position GLOB '[0-9]*' THEN CAST(s.finish_position AS INTEGER) ELSE NULL END AS placing,
+ CASE WHEN s.finish_position GLOB '[0-9]*' AND CAST(s.finish_position AS INTEGER)=1 THEN 1 ELSE 0 END AS wins,
+ CASE WHEN s.finish_position GLOB '[0-9]*' AND CAST(s.finish_position AS INTEGER) BETWEEN 1 AND 3 THEN 1 ELSE 0 END AS top3
  FROM archive_runners s JOIN archive_races r ON r.race_id=s.race_id
- WHERE r.metadata_verified=1 AND r.surface IN ('芝','ダート') AND s.finish_position IS NOT NULL AND s.finish_position!=''
- AND s.finish_position NOT GLOB '*[^0-9]*' AND CAST(s.finish_position AS INTEGER)>0;
+ WHERE r.metadata_verified=1 AND r.surface IN ('芝','ダート') AND s.started=1;
 
 -- Officially cancelled scheduled race panels contain zero actual starters.
 -- Keep separately from official results; never count scheduled runners as starts.

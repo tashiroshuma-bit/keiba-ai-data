@@ -43,7 +43,7 @@ sqlite3 -readonly "$root/run_a/history.sqlite" .dump > "$root/run_a/dump.sql"
 sqlite3 -readonly "$root/run_b/history.sqlite" .dump > "$root/run_b/dump.sql"
 cmp "$root/run_a/dump.sql" "$root/run_b/dump.sql"
 # No future results leaked; 2 prior finishes.
-grep -q 'H1,TEST-H1,J1,TEST-J1,2,1,2,50.0,100.0,2,2,2,100.0,100.0,1,1,1,100.0,100.0' "$root/run_a/output/report.csv"
+grep -q 'TEST-H1,H1,TEST-J1,J1,2,1,2,50.0,100.0,2,2,2,100.0,100.0,1,1,1,100.0,100.0' "$root/run_a/output/report.csv"
 test "$(($(wc -l < "$root/run_a/output/conditions.csv") - 1))" -gt 0
 test "$(($(wc -l < "$root/run_a/output/recent5.csv") - 1))" -eq 2
 # Removing an original must reject rebuild and must NOT overwrite last working DB.

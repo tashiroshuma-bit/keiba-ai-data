@@ -36,7 +36,7 @@ sqlite3 -readonly -header -csv "$db" '
         "BASELINE_V12_20261112_PRIOR_AUDIT_NOT_REALTIME" baseline_provenance
  FROM expected LEFT JOIN observed USING(year) ORDER BY expected.year;
 ' > "$out/three_year_full_flat_gap.csv"
-echo 'THREE_YEAR_COVERAGE_GAP_VS_PRIOR_AUDIT:'
+echo 'THREE_YEAR_FLAT_LABEL_DIFFERENCE_VS_PRIOR_AUDIT_NOT_MISSING_RACE_COUNT:'
 cat "$out/three_year_full_flat_gap.csv"
 sqlite3 -readonly -header -csv "$db" '
  WITH expected(year,expected_horse_rows) AS (VALUES (2023,47672),(2024,47181),(2025,47884)),
@@ -68,6 +68,19 @@ echo 'FULL_THREE_YEAR_RUNNER_RECONCILIATION:'
 cat "$out/three_year_runner_reconciliation.csv"
 echo 'MISSING_RACE_IDS_FROM_EXISTING_SESSIONS:'
 cat "$out/missing_races_in_observed_sessions.csv"
+sqlite3 -readonly -header -csv "$db" '
+ WITH y(year) AS (VALUES(2023),(2024),(2025))
+ SELECT y.year,
+ (SELECT COUNT(*) FROM archive_races r WHERE r.year=y.year) as official_result_races,
+ (SELECT COUNT(*) FROM archive_cancelled_scheduled_races c WHERE c.year=y.year) as official_cancelled_races,
+ (SELECT COUNT(*) FROM archive_races r WHERE r.year=y.year)
+ +(SELECT COUNT(*) FROM archive_cancelled_scheduled_races c WHERE c.year=y.year) as scheduled_races_reconciled,
+ (SELECT COUNT(*) FROM archive_runners h JOIN archive_races r USING(race_id) WHERE r.year=y.year) as official_result_runner_rows,
+ "JRA_HTML_SHA_FOR_RESULTS; JRA_OFFICIAL_LINKS_FOR_CANCELLATIONS" as evidence_types
+ FROM y ORDER BY y.year;
+' > "$out/scheduled_races_result_and_cancellation.csv"
+echo 'ALL_2023_2025_SCHEDULED_RACE_PANELS:'
+cat "$out/scheduled_races_result_and_cancellation.csv"
 sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_observed_stats.sql > "$out/official_observed_conditions.csv"
 sqlite3 -readonly "$db" '
  SELECT "eligible_flat_known_placements="||COUNT(*) FROM v_archive_observed_starts;

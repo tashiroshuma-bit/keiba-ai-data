@@ -21,6 +21,7 @@ PRAGMA foreign_keys=ON;
 .import --skip 1 "$staging/runners.csv" archive_runners
 EOF
 sqlite3 -bail "$db" < "$tmp/import.sql"
+sqlite3 -bail "$db" < sql/friday_official_cancelled_2024_2025.sql
 expected_races="$(jq -r '.source_verified_races' "$staging/summary.json")"
 expected_runners="$(jq -r '.source_verified_runners' "$staging/summary.json")"
 actual_races="$(sqlite3 -readonly "$db" 'SELECT COUNT(*) FROM archive_races;')"
@@ -35,6 +36,14 @@ hash_errors="$(sqlite3 -readonly "$db" 'SELECT COUNT(*) FROM archive_runners r J
 [[ "$hash_errors" == 0 ]] || { echo "NOT_READY: unmatched source SHA in $hash_errors rows"; exit 2; }
 dup_ids="$(sqlite3 -readonly "$db" 'SELECT COUNT(*) FROM (SELECT race_id,horse_id,COUNT(*) n FROM archive_runners GROUP BY race_id,horse_id HAVING n>1);')"
 [[ "$dup_ids" == 0 ]] || { echo "NOT_READY: duplicated official horse ID in one race"; exit 2; }
+# All 10,368 scheduled 2023-2025 race panels (3 x 3,456) must be reconciled:
+# result pages plus 3 independently documented cancellations.
+for year in 2023 2024 2025; do
+  panels="$(sqlite3 -readonly "$db" "SELECT (SELECT COUNT(*) FROM archive_races WHERE year=$year) + (SELECT COUNT(*) FROM archive_cancelled_scheduled_races WHERE year=$year);")"
+  [[ "$panels" == 3456 ]] || { echo "NOT_READY: scheduled panels incomplete year=$year panels=$panels"; exit 2; }
+done
+cancelled="$(sqlite3 -readonly "$db" "SELECT COUNT(*) FROM archive_cancelled_scheduled_races;")"
+[[ "$cancelled" == 3 ]] || { echo "NOT_READY: cancellation count=$cancelled"; exit 2; }
 mv "$db" "$target"
 sha256sum "$target" > "$target.sha256"
 mkdir -p reports/friday_full_backfill

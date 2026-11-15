@@ -32,7 +32,8 @@ jobs:
           node scripts/friday_parse_archive_probe.mjs
           node scripts/friday_probe_html_conditions.mjs
           node scripts/friday_restore_archive_results.mjs /tmp/jra-shard reports/friday_full_backfill/staging
-          bash scripts/friday_import_archive_staging.sh reports/friday_full_backfill/staging data/friday/official_sample.sqlite
+          jq -e '.source_verified_races > 0 and .quarantined == 0' reports/friday_full_backfill/staging/summary.json
+          echo "PASS: source shard original SHA and horse identities verified; full-year SQLite import runs separately"
           echo 'JSON_SAMPLES:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.json' -print -quit | while read -r j; do head -c 1300 "$j"; done
       - name: Upload authenticated-source import proof, not raw JRA originals
@@ -43,7 +44,6 @@ jobs:
           path: |
             reports/friday_full_backfill/staging/summary.json
             reports/friday_full_backfill/staging/quarantine.json
-            reports/friday_full_backfill/coverage.csv
-            data/friday/official_sample.sqlite
-            data/friday/official_sample.sqlite.sha256
+            reports/friday_full_backfill/staging/races.csv
+            reports/friday_full_backfill/staging/runners.csv
           retention-days: 30

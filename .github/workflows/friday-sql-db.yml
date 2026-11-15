@@ -51,6 +51,8 @@ jobs:
           bash scripts/friday_seed_tracked_jra.sh data/friday/tracked_candidate_rebuild.sqlite
           diff -u <(sqlite3 -readonly data/friday/tracked_candidate.sqlite .dump) <(sqlite3 -readonly data/friday/tracked_candidate_rebuild.sqlite .dump)
           echo 'PASS: real Git-tracked source DB reproducibility (retrospective scope only)'
+      - name: Explain every accepted and excluded real JRA-derived row
+        run: bash scripts/friday_source_coverage.sh
       - name: Create empty new SQLite schema (no fake records)
         run: |
           mkdir -p data/friday
@@ -76,6 +78,8 @@ jobs:
             data/friday/history.sqlite.sha256
             reports/friday_source_audit/status.txt
             reports/friday_source_audit/tracked_profile_horse_stats.csv
+            reports/friday_source_audit/real_result_seed_coverage.csv
+            reports/friday_source_audit/real_profile_seed_coverage.csv
             data/friday/tracked_candidate.sqlite
             data/friday/tracked_candidate.sqlite.sha256
           retention-days: 30

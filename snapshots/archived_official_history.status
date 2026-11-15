@@ -1,7 +1,7 @@
 scope=PARTIAL_2023_2026_OFFICIAL_ORIGINAL_SHA_VERIFIED_NOT_FULL_FLAT_COVERAGE
-code_sha=7ef7fd64d3a57d2e18dc10f30953cc0889cef9ac
-source_archive_workflow_run=43774061523
+code_sha=820d4c66518ce9b9e0ce3f7a52d4395bd446f86b
+source_archive_workflow_run=43774658187
 races=12688
 horse_results=174749
 sha256=eac51eb605c7c9ebb47c678f45ea46bf3db0676f94ea7ee6fc2e86ca37a2cba5
-saved_utc=2026-11-15T23:26:43Z
+saved_utc=2026-11-15T23:26:58Z

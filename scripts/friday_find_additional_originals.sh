@@ -7,7 +7,7 @@ mkdir -p "$(dirname "$out")"
 : > "$out"
 for page in $(seq 1 50); do
   response="$(gh api "repos/$GITHUB_REPOSITORY/actions/artifacts?per_page=100&page=$page")"
-  echo "$response" | jq -r '.artifacts[] | select(.name|starts_with("jra-review-missing16-shard-")) | [.id,.name,.expired,.size_in_bytes,.created_at] | @tsv' >> "$out"
+  echo "$response" | jq -r '.artifacts[] | select(.name|startswith("jra-review-missing16-shard-")) | [.id,.name,.expired,.size_in_bytes,.created_at,.workflow_run.id] | @tsv' >> "$out"
   count="$(echo "$response" | jq '.artifacts|length')"
   oldest="$(echo "$response" | jq -r '[.artifacts[].created_at] | min // ""')"
   if [[ "$count" -lt 100 || "$oldest" < "2026-11-10" ]]; then break; fi

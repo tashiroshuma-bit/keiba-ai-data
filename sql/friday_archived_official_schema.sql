@@ -1,0 +1,39 @@
+PRAGMA foreign_keys=ON;
+CREATE TABLE IF NOT EXISTS archive_races(
+ race_id TEXT PRIMARY KEY,
+ race_date TEXT NOT NULL,
+ year INTEGER NOT NULL,
+ venue_code TEXT NOT NULL,
+ meeting INTEGER NOT NULL,
+ meeting_day INTEGER NOT NULL,
+ race_number INTEGER NOT NULL,
+ source_url TEXT NOT NULL,
+ source_sha256 TEXT NOT NULL CHECK(length(source_sha256)=64),
+ observed_at TEXT NOT NULL,
+ horse_count INTEGER NOT NULL,
+ source_scope TEXT NOT NULL
+);
+CREATE TABLE IF NOT EXISTS archive_runners(
+ race_id TEXT NOT NULL REFERENCES archive_races(race_id),
+ horse_number INTEGER NOT NULL,
+ horse_name TEXT NOT NULL,
+ horse_id TEXT NOT NULL CHECK(horse_id LIKE 'jra:%'),
+ finish_position TEXT,
+ result_status TEXT,
+ jockey_name TEXT NOT NULL,
+ jockey_link TEXT,
+ source_sha256 TEXT NOT NULL,
+ PRIMARY KEY(race_id,horse_number)
+);
+CREATE INDEX IF NOT EXISTS ix_archive_horse ON archive_runners(horse_id);
+CREATE INDEX IF NOT EXISTS ix_archive_jockey ON archive_runners(jockey_name);
+CREATE INDEX IF NOT EXISTS ix_archive_date ON archive_races(race_date);
+CREATE VIEW IF NOT EXISTS v_archive_observed_starts AS
+ SELECT r.race_id,r.race_date,r.venue_code,r.race_number,
+ s.horse_id,s.horse_name,s.jockey_name,s.jockey_link,s.horse_number,
+ CAST(s.finish_position AS INTEGER) AS placing,
+ CASE WHEN CAST(s.finish_position AS INTEGER)=1 THEN 1 ELSE 0 END AS wins,
+ CASE WHEN CAST(s.finish_position AS INTEGER) BETWEEN 1 AND 3 THEN 1 ELSE 0 END AS top3
+ FROM archive_runners s JOIN archive_races r ON r.race_id=s.race_id
+ WHERE s.finish_position IS NOT NULL AND s.finish_position!=''
+ AND s.finish_position NOT GLOB '*[^0-9]*' AND CAST(s.finish_position AS INTEGER)>0;

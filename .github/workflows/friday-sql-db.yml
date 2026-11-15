@@ -57,6 +57,8 @@ jobs:
           bash scripts/friday_seed_tracked_jra.sh data/friday/tracked_candidate_rebuild.sqlite
           diff -u <(sqlite3 -readonly data/friday/tracked_candidate.sqlite .dump) <(sqlite3 -readonly data/friday/tracked_candidate_rebuild.sqlite .dump)
           echo 'PASS: real Git-tracked source DB reproducibility (retrospective scope only)'
+      - name: Independently fetch permanent Git candidate and compare to new SQLite build
+        run: bash tests/sql/test_friday_remote_readback.sh
       - name: Explain every accepted and excluded real JRA-derived row
         run: bash scripts/friday_source_coverage.sh
       - name: Verify Friday runner reports NOT_READY on incomplete official roster

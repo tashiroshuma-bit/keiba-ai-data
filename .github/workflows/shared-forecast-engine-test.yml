@@ -2,11 +2,11 @@ name: Shared forecast and backtest JS
 on:
   push:
     paths:
-      - 'research/shared_forecast_engine*'\n      - 'research/replay_canonical_jsonl*'
+      - 'research/shared_forecast_engine*'\n      - 'research/replay_canonical_jsonl*'\n      - 'research/predict_v51_js*'\n      - 'research/v51_joint_js.mjs'
       - '.github/workflows/shared-forecast-engine-test.yml'
   pull_request:
     paths:
-      - 'research/shared_forecast_engine*'\n      - 'research/replay_canonical_jsonl*'
+      - 'research/shared_forecast_engine*'\n      - 'research/replay_canonical_jsonl*'\n      - 'research/predict_v51_js*'\n      - 'research/v51_joint_js.mjs'
       - '.github/workflows/shared-forecast-engine-test.yml'
 jobs:
   node-test:

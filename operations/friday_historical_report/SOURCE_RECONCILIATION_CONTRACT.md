@@ -1,38 +1,33 @@
-# Friday historical report — source and reconciliation contract
+# Friday JRA historical-report acceptance contract — SQL-only new DB
 
-## Scope
-Friday 21:00 JST: upcoming Saturday/Sunday JRA flat races only. Output every registered runner and declared jockey, including missing-data rows. **Historical observed rates, not V51 forecast probabilities.**
+## Ownership and legacy
+- New operational data source: **Git-tracked official provenance ledger** plus replayable SQLite SQL. The old Library v12 SQLite (`jra_2023_2025_v12_horse_ids_full_20261111.sqlite`, SHA256 `5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd`) is an **untouched archival comparison**, not a prerequisite for SQL CLI startup or a source automatically substituted into the new DB.
+- New SQL-only source and data paths are in `scripts/friday_*.sh`, `sql/friday_*.sql`, `data/friday/ledger`; no Python runtime.
+- Git-tracked 2026-11-08 JRA-derived DBs are **research subset only**. CI verified source-file hashes and reconstructed 486 observed result runners + 610 retrospective flat profile past runs. The original official page bytes were not independently reverified by this run. Jockey official identity coverage is not sufficient.
 
-## Required source artifacts (immutable)
-1. JRA official race card: race ID, local date, venue, race number, surface, distance, all horse numbers/names, horse IDs where evidenced, jockey names, scratch status, observed_at (JST), URL, original-byte SHA256.
-2. Canonical v12 SQLite: `jra_2023_2025_v12_horse_ids_full_20261111.sqlite`; expected SHA256 `5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd`, size 362139648 bytes. Verify before querying. **Read-only; never modify canonical DB.**
-3. Official historical race results: unique race ID, race date, official horse ID, jockey ID (or explicitly documented name fallback), surface, going, venue, distance, finish, starters, source URL, source capture timestamp and SHA256.
-4. Any 2026 results beyond the canonical DB coverage must be a separately versioned, source-backed supplement, not silently assumed present in a file named 2023–2025.
+## Production evidence contract
+Every imported original must have:
+1. JRA official result or declared race-card document URL, original response bytes, SHA256, observed_at in JST, and no unverified rewrites; source-manifest verification is not accepted without original-byte hash comparison.
+2. Result races with unambiguous official race ID, date, venue, race number, surface, going, distance, and complete roster. Exclude jumps.
+3. Each runner must have official horse ID and horse number, result status and official placing. For jockey/group and pair totals, verified official jockey ID is mandatory. Do not manufacture an ID from a jockey name.
+4. For Friday 21:00 JST output, complete official Saturday/Sunday flat cards, all registered numbers/names/jockeys, documented scratches, as-of time and independent expected roster counts.
 
-## Reconciliation and integrity gates
-- Reject mismatched SQLite checksum or byte size; do not claim an aggregate.
-- Read `sqlite_master` and `PRAGMA table_info` before choosing joins. No fabricated schema or columns.
-- For each card, compare full horse-number roster and count against JRA original; detect duplicates, late scratches, jockey changes, and absent ID proofs.
-- Join by official horse ID and race ID, not fuzzy horse name. For jockey use verified official ID; otherwise flag unverified rather than silently merge namesakes.
-- Only include races with official results published **before the Friday cutoff**; no future leakage.
-- Normalize `芝/ダート` and `良/稍重/重/不良` as two separate dimensions; distinguish race surface from going. Exclude obstacles from all aggregates.
-- Exclude non-starters from denominator. Define win = official finishing position 1; top 3 = official positions 1–3; handle dead heats by official placing. Record disqualifications and missing finishing positions separately.
-- Deduplicate one horse per race ID, and one jockey start per race ID × horse ID. A jockey can have multiple starts in a day; count rides, not days.
-- Use the exact same eligible historical races for horse, jockey and horse×jockey comparisons; disclose any difference in source coverage.
+## Integrity, denominator and time gates
+- `PRAGMA quick_check`, `PRAGMA foreign_key_check`, original-byte SHA256 match, uniqueness and card counts must pass.
+- Only results existing before the cutoff can appear in historical totals; never use target-race outcome or later source publication.
+- Wins = placed first; top-three = placed 1–3; denominators = officially started horses, distinguishing disqualifications, nonstarters, missing finishers and no evidence. Until result-status handling is verified, incomplete status rows are quarantined, not silently counted.
+- Horse, jockey, and horse×jockey rates use the same certified race population and documented cutoffs; missing official jockey identity is **UNVERIFIED**, not 0%.
+- Group by surface (芝/ダート), going (良/稍重/重/不良), venue, distance and combinations; expose numerator/denominator and last five known starts. Incomplete source coverage must be visibly marked PARTIAL or NOT_READY; 0 races in a partial database is not proven 0 career starts.
+- Verify source batch SHA256, row count, exact duplicates, source/checkpoint mismatches and race-level expected headcount. Preserve rejection CSV and source history.
 
-## Required per-runner output
-`meeting_date,venue,race_number,horse_number,horse_name,horse_id,jockey_name,jockey_id,cutoff_jst,source_status,starts,wins,top3,win_rate,top3_rate`.
-Separate condition breakdowns for `surface`, `surface × going`, `venue`, `distance`, and `venue × surface × going`, for both horse and jockey; include numerator/denominator for every percentage. Add horse×jockey career joint starts/wins/top3 and most recent five historical runs.
+## Required run output
+- One clear status per Sat/Sun → venue → race and each declared horse.
+- Exact historical start/win/top3 counts and percentages for horse, jockey, pair and conditions where verified; display missing and first-time pair distinctly.
+- Manifest with source-file checksums, code commit, cutoff JST, venue/date coverage, accepted/rejected counts and reason codes.
+- Durable source ledger in Git is the authoritative replay input; generated DB can be rebuilt independently in a fresh GitHub Actions job; temporary Actions artifacts are not permanent source storage.
+- Scheduled GitHub Action `cron: 0 12 * * 5` (Friday 21:00 JST) is eligible only on main; Friday output stays NOT_READY until **all** the gates above pass.
 
-For zero eligible runs show `0走／率—`; for no prior joint rides show `初コンビ／率—`. For missing evidence show `未取得` or `未照合`, never 0% or estimated values.
+## Separate duties
+New DB historical metrics are **observed statistics**, not V51/V52 predicted probabilities, and do not alter the forecasting model or its canonical v12 archive.
 
-## Output and audit
-- One index by Saturday/Sunday → venue → 1R–12R, with all flat runners, plus detailed CSV/JSON per race and human-readable compact summary.
-- A manifest must include the exact JRA source URLs, SHA256, fetched timestamps, canonical DB SHA256, source coverage date, join-key counts, eligible/excluded race counts, missing IDs, duplicate count, scratch/late-change log, and generation code commit SHA.
-- **FAIL_CLOSED** on unverifiable original, missing complete card, checksum mismatch or join ambiguity. Still report verified subsets clearly labeled PARTIAL, with affected races/rows listed; never claim complete coverage.
-- Friday task must publish a status matrix per race: VERIFIED / PARTIAL / NOT_READY and reasons. If no source data are available, report NOT_READY and never invent statistics.
-
-## Source links
-- JRA official results: https://www.jra.go.jp/datafile/seiseki/
-- JRA official site: https://www.jra.go.jp/
-- Existing policy: `operations/prediction_policy/standard_v51.json` (unchanged; forecasting is separate).
+Primary official historical results reference: https://www.jra.go.jp/datafile/seiseki/

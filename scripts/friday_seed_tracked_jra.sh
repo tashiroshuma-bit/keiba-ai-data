@@ -74,4 +74,6 @@ fi
 mv "$DB" "$TARGET"
 sha256sum "$TARGET" > "$TARGET.sha256"
 printf 'RESEARCH_SEED_CREATED; real historical subset, not official full coverage: nov08_result_runners=%s profile_past_runs=%s\n' "$result_count" "$profile_count"
-sqlite3 -readonly -header -csv "$TARGET" < sql/friday_tracked_seed_stats.sql
+mkdir -p reports/friday_source_audit
+sqlite3 -readonly -header -csv "$TARGET" < sql/friday_tracked_seed_stats.sql > reports/friday_source_audit/tracked_profile_horse_stats.csv
+head -n 12 reports/friday_source_audit/tracked_profile_horse_stats.csv

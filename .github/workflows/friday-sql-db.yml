@@ -1,6 +1,8 @@
 name: Friday SQL-only fresh DB bootstrap and tests
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 5' # Friday 21:00 JST; default branch only
   pull_request:
     paths:
       - 'sql/friday_*.sql'
@@ -55,6 +57,15 @@ jobs:
           echo 'PASS: real Git-tracked source DB reproducibility (retrospective scope only)'
       - name: Explain every accepted and excluded real JRA-derived row
         run: bash scripts/friday_source_coverage.sh
+      - name: Verify Friday runner reports NOT_READY on incomplete official roster
+        run: |
+          set +e
+          bash scripts/friday_operational_run.sh
+          status=$?
+          set -e
+          test "$status" -eq 2
+          grep -q 'all_races_status=NOT_READY' reports/friday_operational/manifest.txt
+          echo 'PASS: Friday runner rebuilt real subset and correctly rejected incomplete cards'
       - name: Create empty new SQLite schema (no fake records)
         run: |
           mkdir -p data/friday
@@ -83,6 +94,36 @@ jobs:
             reports/friday_source_audit/real_result_seed_coverage.csv
             reports/friday_source_audit/real_profile_seed_coverage.csv
             reports/friday_source_audit/real_kyoto_profile_seed_coverage.csv
+            reports/friday_operational/manifest.txt
+            reports/friday_operational/status.txt
+            reports/friday_operational/partial_horse_profile_stats.csv
+            data/friday/available_historical_subset.sqlite
+            data/friday/available_historical_subset.sqlite.sha256
             data/friday/tracked_candidate.sqlite
             data/friday/tracked_candidate.sqlite.sha256
+          retention-days: 30
+
+  friday-scheduled-run:
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure SQLite CLI
+        run: |
+          set -euo pipefail
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Rebuild real data and attempt full Friday historical reports
+        run: bash scripts/friday_operational_run.sh
+      - name: Save reports, provenance and candidate DB even when NOT_READY
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-historical-report
+          path: |
+            reports/friday_operational/
+            reports/friday_source_audit/tracked_profile_horse_stats.csv
+            data/friday/available_historical_subset.sqlite
+            data/friday/available_historical_subset.sqlite.sha256
           retention-days: 30

@@ -5,6 +5,8 @@ on:
     paths:
       - 'sql/friday_*.sql'
       - 'scripts/friday_sql_*.sh'
+      - 'scripts/friday_seed_*.sh'
+      - 'scripts/friday_source_*.sh'
       - 'tests/sql/**'
       - '.github/workflows/friday-sql-db.yml'
   push:
@@ -80,6 +82,7 @@ jobs:
             reports/friday_source_audit/tracked_profile_horse_stats.csv
             reports/friday_source_audit/real_result_seed_coverage.csv
             reports/friday_source_audit/real_profile_seed_coverage.csv
+            reports/friday_source_audit/real_kyoto_profile_seed_coverage.csv
             data/friday/tracked_candidate.sqlite
             data/friday/tracked_candidate.sqlite.sha256
           retention-days: 30

@@ -1,0 +1,24 @@
+{
+  "schema": "immutable-settlement-manifest-v1",
+  "date": "2026-11-15",
+  "created_at": "2026-11-15T19:29:26+09:00",
+  "write_policy": "append-only; do not overwrite preoff predictions or prior settlement artifacts",
+  "canonical_main_at_read": "e084fcae4492beade028af9a6a0d4df8f09592a7",
+  "files": [
+    {
+      "path": "operations/results/2026-11-15/v51_settlement_not_ready_20261115T192926+0900.json",
+      "sha256": "aa60b473ae27db86100d6b5486ab14dd747f890f91c26ebef47cebe09f580707"
+    },
+    {
+      "path": "reports/review_20261115/V51_SETTLEMENT_NOT_READY_20261115T192926+0900.md",
+      "sha256": "f8f8583fabbee70a72d6299c3d98de82bcfd710bea8aa35078c084e364eff453"
+    }
+  ],
+  "prediction_sha256": null,
+  "reason": "No valid pre-off V51 forecast artifact existed for 2026-11-15.",
+  "canonical_db_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+  "canonical_db_quick_check": "ok",
+  "v50_used": false,
+  "live_bet_generation": false,
+  "actual_bet": false
+}

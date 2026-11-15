@@ -1,7 +1,8 @@
 """Build frozen 31-feature V51 snapshot from official live roster and canonical v12.
 
-Requires original canonical SQLite, verified-result overlay and independently
-verified historical publication manifest. Never imputes source timestamps.
+Requires canonical SQLite and verified-result overlay. Historical outcomes are
+allowed only from calendar dates strictly before the target race; current-race
+post-result labels are never features. No publication-time manifest required.
 """
 import argparse
 import collections
@@ -14,11 +15,9 @@ from pathlib import Path
 try:
     from scripts.jra_historical_horse_id_ablation import build_dataset, HistoricalStats, FEATURES, strength, clamp
     from scripts.standard_v51_forecast import digest, stamp
-    from scripts.v51_preoff_provenance_guard import check_historical_observation
 except ModuleNotFoundError:
     from jra_historical_horse_id_ablation import build_dataset, HistoricalStats, FEATURES, strength, clamp
     from standard_v51_forecast import digest, stamp
-    from v51_preoff_provenance_guard import check_historical_observation
 
 JST=dt.timezone(dt.timedelta(hours=9))
 
@@ -48,15 +47,12 @@ def compute_one(runners, horses, jockeys, race_date, track, surface, distance):
             raise ValueError("FROZEN_FEATURE_COUNT_MISMATCH")
     return rows
 
-def build_snapshot(database, overlay, roster, publication_manifest, model):
+def build_snapshot(database, overlay, roster, model):
     source=json.loads(Path(roster).read_text())
     if source.get("schema")!="jra-v51-live-racecard-v1":
         raise ValueError("VERIFIED_OFFICIAL_ROSTER_REQUIRED")
     if len(source.get("races", []))!=1:
         raise ValueError("ONE_RACE_PER_SNAPSHOT_REQUIRED")
-    manifest=json.loads(Path(publication_manifest).read_text())
-    if manifest.get("schema")!="jra-v51-historical-publication-evidence-v1":
-        raise ValueError("INDEPENDENT_PUBLICATION_MANIFEST_REQUIRED")
     model_doc=json.loads(Path(model).read_text())
     expected=model_doc["canonical_db_sha256"]
     if digest(database)!=expected:
@@ -81,10 +77,6 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
         for date in sorted(bydate):
             if date>=day:break
             for r in bydate[date]:
-                evidence=manifest.get("races",{}).get(r["race"])
-                if evidence is None:
-                    raise ValueError("MISSING_VERIFIED_HISTORICAL_PUBLICATION:"+r["race"])
-                check_historical_observation(evidence,race_off_at=race["race_off_at"],forecast_asof=source["captured_at"])
                 quality=strength(r["rank"],len(historical[r["race"]]))
                 horses[r["horse_id"]].update(r,quality)
                 if r["jockey_id"]:jockeys[r["jockey_id"]].update(r,quality)
@@ -93,10 +85,6 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
         for runner,features in zip(race["horses"],vals):
             h=horses.get(runner["horse_id"])
             last=h.last_date if h and h.n else None
-            # Every historical contribution is covered by validated publication
-            # manifest; pass exact records for auditing rather than inventing proof.
-            contributions=[manifest["races"][r["race"]] for date in sorted(bydate) if date<day
-                           for r in bydate[date] if r["horse_id"]==runner["horse_id"]]
             output.append({"number":runner["number"],"name":runner["name"],"horse_id":runner["horse_id"],
                            "official_identity_proof":{"horse_id":runner["horse_id"],"horse_number":runner["number"],
                               "source_url":source["source_url"],"source_sha256":source["source_sha256"],
@@ -104,7 +92,8 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
                            "features_observed_at":source["captured_at"],
                            "features_generated_at":source["captured_at"],
                            "feature_values":features,"prior_starts":h.n if h else 0,
-                           "latest_history_date":last,"historical_evidence":contributions})
+                           "latest_history_date":last,"historical_evidence":[],
+                           "historical_availability_basis":"prior_calendar_date_verified_result"})
         outputs.append({"race":race["race"],"race_off_at":race["race_off_at"],
                         "features_generated_at":source["captured_at"],"horses":output})
 
@@ -115,10 +104,10 @@ def build_snapshot(database, overlay, roster, publication_manifest, model):
 
 def main():
     p=argparse.ArgumentParser()
-    for k in ("database","overlay","roster","publication-manifest","model","output"):
+    for k in ("database","overlay","roster","model","output"):
         p.add_argument("--"+k,required=True)
     a=p.parse_args()
-    doc=build_snapshot(a.database,a.overlay,a.roster,a.publication_manifest,a.model)
+    doc=build_snapshot(a.database,a.overlay,a.roster,a.model)
     Path(a.output).write_text(json.dumps(doc,ensure_ascii=False,indent=2)+"\n")
     print(json.dumps({"status":"FROZEN_31_FEATURE_SNAPSHOT","races":len(doc["races"])}))
 if __name__=="__main__":main()

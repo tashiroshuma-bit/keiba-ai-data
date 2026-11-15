@@ -12,6 +12,8 @@ for page in $(seq 1 50); do
   oldest="$(echo "$response" | jq -r '[.artifacts[].created_at] | min // ""')"
   if [[ "$count" -lt 100 || "$oldest" < "2026-11-10" ]]; then break; fi
 done
+awk -F '\t' '!seen[$2]++' "$out" > "$out.unique"
+mv "$out.unique" "$out"
 echo 'EXTRA_OFFICIAL_ARTIFACTS:'
 cat "$out"
 found="$(wc -l < "$out")"

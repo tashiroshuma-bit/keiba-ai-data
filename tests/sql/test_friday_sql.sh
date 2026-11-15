@@ -6,6 +6,7 @@ db="$tmp/fixture.sqlite"
 sqlite3 "$db" < sql/friday_schema.sql
 sqlite3 "$db" < tests/sql/friday_fixture.sql
 sqlite3 -readonly -header -csv "$db" < sql/friday_report.sql > "$tmp/report.csv"
+echo 'DIAGNOSTIC: fixture report CSV'; cat "$tmp/report.csv"
 # H1: 2 historical starts, 1 win, 2 top3; J1: 2 starts, 2 wins; pair H1/J1: 1 start, 1 win.
 # H4: 0 history, J2: 2 starts, 0 wins; pair H4/J2: 0.
 actual="$(sqlite3 -readonly "$db" "WITH h AS (SELECT * FROM v_eligible_history WHERE race_date<'2026-11-21') SELECT (SELECT COUNT(*) FROM h WHERE horse_id='H1'),(SELECT SUM(win) FROM h WHERE horse_id='H1'),(SELECT SUM(top3) FROM h WHERE horse_id='H1'),(SELECT COUNT(*) FROM h WHERE jockey_id='J1'),(SELECT SUM(win) FROM h WHERE jockey_id='J1'),(SELECT COUNT(*) FROM h WHERE horse_id='H1' AND jockey_id='J1');")"

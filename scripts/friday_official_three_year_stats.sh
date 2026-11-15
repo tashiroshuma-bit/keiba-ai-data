@@ -81,9 +81,19 @@ sqlite3 -readonly -header -csv "$db" '
 ' > "$out/scheduled_races_result_and_cancellation.csv"
 echo 'ALL_2023_2025_SCHEDULED_RACE_PANELS:'
 cat "$out/scheduled_races_result_and_cancellation.csv"
+sqlite3 -readonly -header -csv "$db" '
+ SELECT p.year,COALESCE(r.result_status,"") as result_status,
+        CASE WHEN r.started=1 THEN "STARTED" WHEN r.started=0 THEN "NOT_STARTED" ELSE "UNVERIFIED" END start_status,
+        COUNT(*) runner_rows
+ FROM archive_runners r JOIN archive_races p USING(race_id)
+ GROUP BY p.year,r.result_status,r.started
+ ORDER BY p.year,r.started,r.result_status;
+' > "$out/result_status_denominator_audit.csv"
+echo 'RESULT_START_STATUS_DISTRIBUTION:'
+cat "$out/result_status_denominator_audit.csv" | tail -n 35
 sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_observed_stats.sql > "$out/official_observed_conditions.csv"
 sqlite3 -readonly "$db" '
- SELECT "eligible_flat_known_placements="||COUNT(*) FROM v_archive_observed_starts;
+ SELECT "eligible_flat_actual_starts="||COUNT(*) FROM v_archive_observed_starts;
  SELECT "verified_jockey_rides="||COUNT(*) FROM v_archive_observed_starts WHERE jockey_id LIKE "jra-jockey:pw04kmk%";
  SELECT "distinct_horses="||COUNT(DISTINCT horse_id) FROM v_archive_observed_starts;
  SELECT "distinct_jockey_ids="||COUNT(DISTINCT jockey_id) FROM v_archive_observed_starts WHERE jockey_id LIKE "jra-jockey:pw04kmk%";

@@ -25,6 +25,20 @@ year_totals="$(sqlite3 -readonly "$tmp/history.sqlite" "
 [[ "$year_totals" == '2023:47672|2024:47181|2025:47884' ]] || {
   printf 'NOT_READY: annual horse result rows disagree: %s\n' "$year_totals" | tee "$output/status.txt"; exit 2;
 }
+for year in 2023 2024 2025; do
+  scheduled="$(sqlite3 -readonly "$tmp/history.sqlite" "SELECT (SELECT COUNT(*) FROM archive_races WHERE year=$year) + (SELECT COUNT(*) FROM archive_cancelled_scheduled_races WHERE year=$year);")"
+  if [[ "$scheduled" != 3456 ]]; then
+    printf 'NOT_READY: scheduled official race panels year=%s got=%s expected=3456\n' "$year" "$scheduled" | tee "$output/status.txt"
+    exit 2
+  fi
+done
+sqlite3 -readonly -header -csv "$tmp/history.sqlite" "
+ WITH y(year) AS (VALUES(2023),(2024),(2025))
+ SELECT y.year,
+ (SELECT COUNT(*) FROM archive_races WHERE year=y.year) result_races,
+ (SELECT COUNT(*) FROM archive_cancelled_scheduled_races WHERE year=y.year) officially_cancelled,
+ 3456 scheduled_races
+ FROM y;" > "$output/scheduled_coverage.csv"
 sqlite3 -readonly -header -csv "$tmp/history.sqlite" "
  SELECT year,COUNT(*) race_results,
  SUM(CASE WHEN surface IN ('芝','ダート') AND metadata_verified=1 THEN 1 ELSE 0 END) flat_races,
@@ -36,7 +50,7 @@ sqlite3 -readonly -header -csv "$tmp/history.sqlite" "
  COUNT(DISTINCT horse_id) horse_ids,
  COUNT(DISTINCT CASE WHEN jockey_id LIKE 'jra-jockey:pw04kmk%' THEN jockey_id END) jockey_ids
  FROM v_archive_observed_starts WHERE substr(race_date,1,4) IN ('2023','2024','2025');" > "$output/historical_id_coverage.csv"
-printf 'runtime_utc=%s\nruntime_code_commit=%s\nremote_source_branch=%s\nremote_sqlite_sha256=%s\nannual_horse_rows=%s\nsource_scope=OFFICIAL_ORIGINAL_HTML_SHA_VERIFIED_WITH_RACE_EXCEPTIONS\n' \
+printf 'runtime_utc=%s\nruntime_code_commit=%s\nremote_source_branch=%s\nremote_sqlite_sha256=%s\nannual_horse_rows=%s\nsource_scope=ALL_2023_2025_SCHEDULED_PANELS_RECONCILED;VERIFIED_RESULTS_PLUS_OFFICIAL_CANCELLATIONS\n' \
   "$(date -u +%FT%TZ)" "$(git rev-parse HEAD)" "$branch" "$actual" "$year_totals" > "$output/manifest.txt"
 # The official roster needs to have been captured for the forthcoming Sat/Sun weekend
 # with horse ID, jockey ID, race ID and source SHA, plus an independent headcount.

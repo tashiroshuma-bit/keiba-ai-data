@@ -57,6 +57,26 @@ function parseHtml(blob) {
  }
  return res;
 }
+
+function classifyConditions(blob) {
+ const html=new TextDecoder("shift_jis").decode(blob);
+ const full=plain(html.replace(/<script\b[\s\S]*?<\/script>/gi," ")
+   .replace(/<style\b[\s\S]*?<\/style>/gi," ")).normalize("NFKC");
+ const start=full.indexOf("発走時刻");
+ if(start<0) return {surface:"不明",going:"",distance_m:0,metadata_verified:0};
+ const end=full.indexOf("本賞金",start);
+ const header=full.slice(start,end>start?end:start+550);
+ const course=header.match(/コース[：:]\s*([0-9,]+)\s*メートル\s*\(([^)]*)\)/);
+ const weather=header.match(/天候\s*[^\s]+\s*(芝|ダート)\s*(良|稍重|重|不良)/);
+ const isJump=/障害|ジャンプ|芝\s*[・→]ダート/.test(header);
+ const surface=isJump?"障害":(weather?.[1]||"不明");
+ const going=weather?.[2]||"";
+ const distance_m=course?Number(course[1].replace(/,/g,"")):0;
+ const courseSurface=course?(course[2].includes("ダート")?"ダート":course[2].includes("芝")?"芝":"不明"):"不明";
+ const metadata_verified=!isJump && ["芝","ダート"].includes(surface) && surface===courseSurface &&
+    ["良","稍重","重","不良"].includes(going) && distance_m>=800 && distance_m<=4200 ? 1 : 0;
+ return {surface,going,distance_m,metadata_verified};
+}
 const csv=(rows,keys)=>[keys.join(","),...rows.map(r=>keys.map(k=>'"'+String(r[k]??"").replace(/[\r\n]+/g," ").replace(/"/g,'""')+'"').join(","))].join("\n")+"\n";
 const records=new Map(),issues=[],stat={manifests:manifests.length,manifest_races:0,observed_originals:0,source_verified_races:0,source_verified_runners:0,duplicate_races:0,duplicate_conflicts:0};
 for(const file of manifests) {
@@ -78,6 +98,7 @@ for(const file of manifests) {
   stat.observed_originals++;
   if(sha(blob)!==hash){issues.push({id,reason:"OFFICIAL_SOURCE_SHA_MISMATCH"});continue;}
   const runners=parseHtml(blob);
+  const metadata=classifyConditions(blob);
   const claimed=new Map((item.horses||[]).map(h=>[+h.horse_number,{horse_name:normalize(h.horse_name),horse_id:h.horse_id}]));
   const observed=new Map(runners.map(h=>[h.horse_number,h]));
   if(runners.length<3||new Set(runners.map(x=>x.horse_id)).size!==runners.length||
@@ -88,11 +109,11 @@ for(const file of manifests) {
   const calendar=match[6],race_date=calendar.slice(0,4)+"-"+calendar.slice(4,6)+"-"+calendar.slice(6,8);
   const row={race_id:id,race_date,year:+match[2],venue_code:match[1],meeting:+match[3],meeting_day:+match[4],race_number:+match[5],
     source_url:url,source_sha256:hash,observed_at:item.observed_at,horse_count:runners.length,
-    source_scope:"JRA_OFFICIAL_ORIGINAL_SHA_VERIFIED",runners};
+    source_scope:"JRA_OFFICIAL_ORIGINAL_SHA_VERIFIED",...metadata,runners};
   if(records.has(id)) {
     stat.duplicate_races++;
     const previous=records.get(id),sig=xs=>JSON.stringify(xs.map(h=>[h.horse_number,h.horse_name,h.horse_id,h.finish_position,h.jockey_name]).sort((a,b)=>a[0]-b[0]));
-    if(sig(previous.runners)!==sig(row.runners)) {
+    if(sig(previous.runners)!==sig(row.runners) || previous.surface!==row.surface || previous.going!==row.going || previous.distance_m!==row.distance_m) {
       stat.duplicate_conflicts++;issues.push({id,reason:"DUPLICATE_OFFICIAL_PAGE_DISAGREEMENT"});records.delete(id);
     }
     continue;
@@ -103,8 +124,8 @@ for(const file of manifests) {
 const races=[...records.values()].sort((a,b)=>a.race_id.localeCompare(b.race_id));
 const runnerRows=races.flatMap(r=>r.runners.map(h=>({race_id:r.race_id,source_sha256:r.source_sha256,...h})));
 const byYear={};
-for(const r of races){const x=byYear[r.year]||(byYear[r.year]={races:0,runners:0,missing_jockey_id:0,missing_finish:0});x.races++;x.runners+=r.runners.length;x.missing_jockey_id+=r.runners.filter(h=>!h.jockey_id).length;x.missing_finish+=r.runners.filter(h=>h.finish_position===null).length;}
-writeFileSync(out+"/races.csv",csv(races,["race_id","race_date","year","venue_code","meeting","meeting_day","race_number","source_url","source_sha256","observed_at","horse_count","source_scope"]));
+for(const r of races){const x=byYear[r.year]||(byYear[r.year]={races:0,runners:0,missing_jockey_id:0,missing_finish:0,flat_metadata_verified:0,obstacle_or_unknown:0});x.races++;x.runners+=r.runners.length;x.flat_metadata_verified+=r.metadata_verified;x.obstacle_or_unknown+=r.metadata_verified?0:1;x.missing_jockey_id+=r.runners.filter(h=>!h.jockey_id).length;x.missing_finish+=r.runners.filter(h=>h.finish_position===null).length;}
+writeFileSync(out+"/races.csv",csv(races,["race_id","race_date","year","venue_code","meeting","meeting_day","race_number","source_url","source_sha256","observed_at","horse_count","source_scope","surface","going","distance_m","metadata_verified"]));
 writeFileSync(out+"/runners.csv",csv(runnerRows,["race_id","horse_number","horse_name","horse_id","finish_position","status","jockey_name","jockey_link","source_sha256","jockey_id"]));
 writeFileSync(out+"/quarantine.json",JSON.stringify(issues,null,2)+"\n");
 const summary={...stat,source_verified_races:races.length,source_verified_runners:runnerRows.length,year_counts:byYear,quarantined:issues.length,

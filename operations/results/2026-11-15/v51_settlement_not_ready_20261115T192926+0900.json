@@ -1,0 +1,115 @@
+{
+  "schema": "jra-v51-daily-settlement-not-ready-v1",
+  "date": "2026-11-15",
+  "created_at": "2026-11-15T19:29:26+09:00",
+  "canonical_main_at_read": "e084fcae4492beade028af9a6a0d4df8f09592a7",
+  "standard_forecast": {
+    "version": "v51",
+    "policy_path": "operations/prediction_policy/standard_v51.json",
+    "entrypoint": "scripts/standard_v51_forecast.py",
+    "no_fallback_to_v50": true,
+    "live_bet_generation": false
+  },
+  "canonical_database": {
+    "version": 12,
+    "path": "/競馬/jra_2023_2025_v12_horse_ids_full_20261111.sqlite",
+    "sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "bytes": 362139648,
+    "library_integrity_observed_on": "2026-11-15",
+    "sqlite_quick_check": "ok",
+    "evidence_file": "v52_source_integrity_20261115.json",
+    "evidence_library_file_id": "libfile_34757b1370cc8191a7dca9fb104e7486"
+  },
+  "coverage": {
+    "jra_all_races": 36,
+    "flat_races": 34,
+    "obstacle_excluded": ["福島4R", "福島5R"],
+    "formal_v51": {
+      "eligible_flat_races": 34,
+      "evaluated_races": 0,
+      "missing_preoff_freeze_races": 34,
+      "prediction_sha256": null
+    },
+    "research_abcd": {
+      "evaluated_races": 0,
+      "missing_races": 34,
+      "reason": "No same-race same-asof pre-off A-D freeze was located."
+    }
+  },
+  "preoff_evidence": {
+    "operations_predictions_date_directory_exists": false,
+    "verified_official_v51_forecast_files": 0,
+    "verified_frozen_ticket_files": 0,
+    "verified_contemporaneous_odds_files": 0,
+    "prior_same_day_audit": "reports/weekend_20261114_15/V51_FROZEN_ONLY_AUDIT_20261115_1904JST.json",
+    "prior_same_day_audit_commit": "e084fcae4492beade028af9a6a0d4df8f09592a7"
+  },
+  "formal_metrics": {
+    "top1_hits": null,
+    "winner_top3_hits": null,
+    "ordered_top3_hits": null,
+    "unordered_top3_hits": null,
+    "log_loss": null,
+    "brier": null,
+    "ece": null,
+    "bodyweight_effect": null,
+    "reason": "No actually frozen pre-off V51 probabilities or complete feature snapshots exist for the formal denominator."
+  },
+  "virtual_settlement": {
+    "budget_per_race_yen": 10000,
+    "single": null,
+    "quinella": null,
+    "wide": null,
+    "trio": null,
+    "trifecta": null,
+    "reason": "No frozen pre-off tickets, stakes and contemporaneous odds; investment, returns and ROI were not reconstructed."
+  },
+  "official_results_observed_at": "2026-11-15T19:29:26+09:00",
+  "official_result_examples": [
+    {
+      "race": "東京11R オーロカップ",
+      "finish": [15, 14, 10],
+      "payout_yen": {"single": 350, "quinella": 1430, "wide": [600, 800, 1170], "trio": 4300, "trifecta": 17340},
+      "source": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0105202605041120261115/B7"
+    },
+    {
+      "race": "京都11R エリザベス女王杯",
+      "finish": [15, 7, 16],
+      "payout_yen": {"single": 1260, "quinella": 3160, "wide": [1420, 1550, 630], "trio": 5710, "trifecta": 38780},
+      "source": "https://www.jra.go.jp/datafile/seiseki/g1/eliza/result/eliza2026.html"
+    },
+    {
+      "race": "福島11R 福島民友カップ",
+      "finish": [7, 15, 4],
+      "payout_yen": {"single": 700, "quinella": 24670, "wide": [6520, 1220, 10670], "trio": 73440, "trifecta": 590880},
+      "source": "https://app.jra.jp/JRADB/accessS.html?CNAME=sw01sde0103202603041120261115/C1"
+    }
+  ],
+  "data_quality_findings": [
+    {
+      "severity": "critical",
+      "finding": "No official pre-off V51 forecast freeze exists for any of the 34 eligible flat races.",
+      "impact": "All forward accuracy, calibration and revenue metrics are formally unobservable."
+    },
+    {
+      "severity": "high",
+      "finding": "Canonical v12 is available and passes integrity checks, but the scheduled prediction route did not produce an append-only official forecast artifact.",
+      "impact": "The blocker is forecast orchestration/evidence persistence rather than canonical DB byte integrity."
+    },
+    {
+      "severity": "high",
+      "finding": "PROJECT_STATE.standard_forecast remains V51 while V52 research exists; no V52 production promotion is evidenced.",
+      "impact": "V51 remains the only admissible formal route for this date."
+    }
+  ],
+  "invariants": {
+    "v50_used": false,
+    "retrospective_prediction_created": false,
+    "probabilities_fabricated": false,
+    "predictions_overwritten": false,
+    "calibration_changed": false,
+    "standard_forecast_changed": false,
+    "live_bet_generation_changed": false,
+    "actual_bet": false
+  }
+}

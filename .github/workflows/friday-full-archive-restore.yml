@@ -44,6 +44,8 @@ jobs:
           stat -c 'SQLITE_BYTES=%s' data/friday/archived_official_history.sqlite
       - name: Compute horse, verified jockey, pair and race-condition observed statistics in SQL
         run: bash scripts/friday_official_three_year_stats.sh data/friday/archived_official_history.sqlite reports/friday_full_backfill
+      - name: Confirm remote permanent Git snapshot is identical on a fresh runner
+        run: bash tests/sql/test_friday_three_year_remote_readback.sh data/friday/archived_official_history.sqlite
       - name: Preserve inspectable normalized DB and exact source-audit results (no original redistribution)
         if: always()
         uses: actions/upload-artifact@v4

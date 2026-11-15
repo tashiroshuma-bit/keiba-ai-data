@@ -4,6 +4,9 @@ on:
   pull_request:
     paths:
       - '.github/workflows/friday-restore-archived-jra.yml'
+      - 'scripts/friday_restore_archive_results.mjs'
+      - 'scripts/friday_import_archive_staging.sh'
+      - 'sql/friday_archived_official_schema.sql'
 permissions:
   contents: read
   actions: read
@@ -27,5 +30,19 @@ jobs:
           echo 'NESTED_ZIP_HEADERS:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | sed -n '1,35p'; done
           node scripts/friday_parse_archive_probe.mjs
+          node scripts/friday_restore_archive_results.mjs /tmp/jra-shard reports/friday_full_backfill/staging
+          bash scripts/friday_import_archive_staging.sh reports/friday_full_backfill/staging data/friday/official_sample.sqlite
           echo 'JSON_SAMPLES:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.json' -print -quit | while read -r j; do head -c 1300 "$j"; done
+      - name: Upload authenticated-source import proof, not raw JRA originals
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-2023-2025-restored-shard-sample
+          path: |
+            reports/friday_full_backfill/staging/summary.json
+            reports/friday_full_backfill/staging/quarantine.json
+            reports/friday_full_backfill/coverage.csv
+            data/friday/official_sample.sqlite
+            data/friday/official_sample.sqlite.sha256
+          retention-days: 30

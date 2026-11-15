@@ -113,6 +113,9 @@ jobs:
             reports/friday_operational/status.txt
             reports/friday_operational/historical_coverage.csv
             reports/friday_operational/historical_id_coverage.csv
+            reports/friday_operational/scheduled_coverage.csv
+            reports/friday_operational/official_2023_2025_actor_condition_stats.csv
+            reports/friday_operational/official_2023_2025_recent5.csv
             reports/friday_operational/partial_horse_profile_stats.csv
             data/friday/available_historical_subset.sqlite
             data/friday/available_historical_subset.sqlite.sha256
@@ -152,4 +155,7 @@ jobs:
             reports/friday_operational/
             reports/friday_operational/historical_coverage.csv
             reports/friday_operational/historical_id_coverage.csv
+            reports/friday_operational/scheduled_coverage.csv
+            reports/friday_operational/official_2023_2025_actor_condition_stats.csv
+            reports/friday_operational/official_2023_2025_recent5.csv
           retention-days: 30

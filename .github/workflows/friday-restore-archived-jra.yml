@@ -30,6 +30,7 @@ jobs:
           echo 'NESTED_ZIP_HEADERS:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | sed -n '1,35p'; done
           node scripts/friday_parse_archive_probe.mjs
+          node scripts/friday_probe_html_conditions.mjs
           node scripts/friday_restore_archive_results.mjs /tmp/jra-shard reports/friday_full_backfill/staging
           bash scripts/friday_import_archive_staging.sh reports/friday_full_backfill/staging data/friday/official_sample.sqlite
           echo 'JSON_SAMPLES:'

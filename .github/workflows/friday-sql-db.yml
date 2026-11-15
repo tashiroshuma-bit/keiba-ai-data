@@ -1,0 +1,143 @@
+name: Friday SQL-only fresh DB bootstrap and tests
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 12 * * 5' # Friday 21:00 JST; default branch only
+  pull_request:
+    paths:
+      - 'sql/friday_*.sql'
+      - 'scripts/friday_sql_*.sh'
+      - 'scripts/friday_seed_*.sh'
+      - 'scripts/friday_source_*.sh'
+      - 'scripts/friday_persist_candidate.sh'
+      - 'scripts/friday_operational_run.sh'
+      - 'tests/sql/**'
+      - '.github/workflows/friday-sql-db.yml'
+  push:
+    branches: [feature/friday-historical-source-audit-20261116, main]
+    paths:
+      - 'sql/friday_*.sql'
+      - 'scripts/friday_sql_*.sh'
+      - 'tests/sql/**'
+      - '.github/workflows/friday-sql-db.yml'
+permissions:
+  contents: read
+jobs:
+  sql-fixture-and-bootstrap:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install SQLite CLI if missing
+        run: |
+          set -euo pipefail
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Discover available checked-in SQLite data (read-only)
+        run: |
+          echo 'TRACKED_DB_FILES:'
+          git ls-files '*.sqlite' '*.db' | head -40
+          if [ -f jra_2023_2025.sqlite ]; then
+            stat -c 'LEGACY_DB_BYTES=%s' jra_2023_2025.sqlite
+            sqlite3 -readonly jra_2023_2025.sqlite 'PRAGMA quick_check;'
+            sqlite3 -readonly -header -csv jra_2023_2025.sqlite "SELECT name,type FROM sqlite_master WHERE type IN ('table','view') ORDER BY name;"
+            sqlite3 -readonly jra_2023_2025.sqlite '.schema' | head -150
+          fi
+      - name: Inventory all checked-in SQLite source candidates (read only)
+        run: bash scripts/friday_git_db_inventory.sh
+      - name: Inspect detailed official source candidate schemas and provenance
+        run: bash scripts/friday_source_candidate_probe.sh
+      - name: Validate SQL joins with isolated synthetic fixture
+        run: bash tests/sql/test_friday_sql.sh
+      - name: Test two independent rebuilds from versioned source ledger
+        run: bash tests/sql/test_friday_ledger.sh
+      - name: Build new SQLite from real tracked JRA-derived source files
+        run: |
+          bash scripts/friday_seed_tracked_jra.sh data/friday/tracked_candidate.sqlite
+          bash scripts/friday_seed_tracked_jra.sh data/friday/tracked_candidate_rebuild.sqlite
+          diff -u <(sqlite3 -readonly data/friday/tracked_candidate.sqlite .dump) <(sqlite3 -readonly data/friday/tracked_candidate_rebuild.sqlite .dump)
+          echo 'PASS: real Git-tracked source DB reproducibility (retrospective scope only)'
+      - name: Explain every accepted and excluded real JRA-derived row
+        run: bash scripts/friday_source_coverage.sh
+      - name: Verify Friday runner reports NOT_READY on incomplete official roster
+        run: |
+          set +e
+          bash scripts/friday_operational_run.sh
+          status=$?
+          set -e
+          test "$status" -eq 2
+          grep -q 'all_races_status=NOT_READY' reports/friday_operational/manifest.txt
+          echo 'PASS: Friday runner rebuilt real subset and correctly rejected incomplete cards'
+      - name: Create empty new SQLite schema (no fake records)
+        run: |
+          mkdir -p data/friday
+          sqlite3 data/friday/history.sqlite < sql/friday_schema.sql
+          sqlite3 -readonly data/friday/history.sqlite 'PRAGMA quick_check;'
+          sqlite3 -readonly data/friday/history.sqlite 'PRAGMA foreign_key_check;'
+          sha256sum data/friday/history.sqlite > data/friday/history.sqlite.sha256
+      - name: Production gate must reject empty source
+        run: |
+          set +e
+          bash scripts/friday_sql_bootstrap.sh data/friday/history.sqlite
+          code=$?
+          set -e
+          if [ "$code" -ne 2 ]; then echo "FAIL: empty database did not fail closed ($code)"; exit 1; fi
+          echo "PASS: empty source correctly NOT_READY"
+      - name: Upload inspectable SQLite schema DB and checksums
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-sql-empty-schema-and-test
+          path: |
+            data/friday/history.sqlite
+            data/friday/history.sqlite.sha256
+            reports/friday_source_audit/status.txt
+            reports/friday_source_audit/tracked_profile_horse_stats.csv
+            reports/friday_source_audit/real_result_seed_coverage.csv
+            reports/friday_source_audit/real_profile_seed_coverage.csv
+            reports/friday_source_audit/real_kyoto_profile_seed_coverage.csv
+            reports/friday_operational/manifest.txt
+            reports/friday_operational/status.txt
+            reports/friday_operational/partial_horse_profile_stats.csv
+            data/friday/available_historical_subset.sqlite
+            data/friday/available_historical_subset.sqlite.sha256
+            data/friday/tracked_candidate.sqlite
+            data/friday/tracked_candidate.sqlite.sha256
+          retention-days: 30
+
+  friday-scheduled-run:
+    permissions:
+      contents: write
+    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch' || (github.event_name == 'push' && github.ref == 'refs/heads/main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure SQLite CLI
+        run: |
+          set -euo pipefail
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Rebuild real data and explicitly assess Friday source coverage
+        run: |
+          set +e
+          bash scripts/friday_operational_run.sh
+          status=$?
+          set -e
+          if [ "$status" -ne 0 ] && [ "$status" -ne 2 ]; then exit "$status"; fi
+          cat reports/friday_operational/manifest.txt >> "$GITHUB_STEP_SUMMARY"
+          if [ -f reports/friday_operational/status.txt ]; then cat reports/friday_operational/status.txt >> "$GITHUB_STEP_SUMMARY"; fi
+          test -f data/friday/available_historical_subset.sqlite
+      - name: Persist research candidate to Git and verify remote read-back
+        run: bash scripts/friday_persist_candidate.sh
+      - name: Save reports, provenance and candidate DB even when NOT_READY
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: friday-historical-report
+          path: |
+            reports/friday_operational/
+            reports/friday_source_audit/tracked_profile_horse_stats.csv
+            data/friday/available_historical_subset.sqlite
+            data/friday/available_historical_subset.sqlite.sha256
+          retention-days: 30

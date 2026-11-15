@@ -1,6 +1,12 @@
 name: Friday SQL-only fresh DB bootstrap and tests
 on:
   workflow_dispatch:
+  pull_request:
+    paths:
+      - 'sql/friday_*.sql'
+      - 'scripts/friday_sql_*.sh'
+      - 'tests/sql/**'
+      - '.github/workflows/friday-sql-db.yml'
   push:
     branches: [feature/friday-historical-source-audit-20261116]
     paths:
@@ -21,6 +27,16 @@ jobs:
           set -euo pipefail
           if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
           sqlite3 --version
+      - name: Discover available checked-in SQLite data (read-only)
+        run: |
+          echo 'TRACKED_DB_FILES:'
+          git ls-files '*.sqlite' '*.db' | head -40
+          if [ -f jra_2023_2025.sqlite ]; then
+            stat -c 'LEGACY_DB_BYTES=%s' jra_2023_2025.sqlite
+            sqlite3 -readonly jra_2023_2025.sqlite 'PRAGMA quick_check;'
+            sqlite3 -readonly -header -csv jra_2023_2025.sqlite "SELECT name,type FROM sqlite_master WHERE type IN ('table','view') ORDER BY name;"
+            sqlite3 -readonly jra_2023_2025.sqlite '.schema' | head -150
+          fi
       - name: Validate SQL joins with isolated synthetic fixture
         run: bash tests/sql/test_friday_sql.sh
       - name: Create empty new SQLite schema (no fake records)

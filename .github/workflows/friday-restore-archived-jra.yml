@@ -1,0 +1,30 @@
+name: Friday historical JRA artifact restore probe (no Python)
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/friday-restore-archived-jra.yml'
+permissions:
+  contents: read
+  actions: read
+jobs:
+  archived-shard-probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download historic 2023-2025 JRA shard from own authenticated Actions artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/jra-shard
+          gh run download 42780017487 --repo "$GITHUB_REPOSITORY" --name jra-2023-2025-shard-0 --dir /tmp/jra-shard
+          echo 'ARCHIVE_SHARD_CONTENTS:'
+          find /tmp/jra-shard -maxdepth 3 -type f -printf '%s %p\n' | head -70
+          echo 'ARCHIVE_SHARD_TOTAL:'
+          du -sh /tmp/jra-shard
+          echo 'NESTED_ZIP_HEADERS:'
+          find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | head -35; done
+          echo 'JSON_SAMPLES:'
+          find /tmp/jra-shard -maxdepth 3 -type f -name '*.json' -print -quit | while read -r j; do head -c 1300 "$j"; done

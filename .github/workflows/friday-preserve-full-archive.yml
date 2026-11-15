@@ -21,7 +21,7 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p /tmp/source
-          gh run download 43775553902 --repo "$GITHUB_REPOSITORY" --name friday-three-year-plus-review-source-sqlite --dir /tmp/source
+          gh run download 43776205953 --repo "$GITHUB_REPOSITORY" --name friday-three-year-plus-review-source-sqlite --dir /tmp/source
           find /tmp/source -name 'archived_official_history.sqlite*' -type f -print
           db="$(find /tmp/source -name 'archived_official_history.sqlite' -type f -print -quit)"
           check="$(find /tmp/source -name 'archived_official_history.sqlite.sha256' -type f -print -quit)"

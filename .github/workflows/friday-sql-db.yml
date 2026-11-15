@@ -39,6 +39,8 @@ jobs:
           fi
       - name: Inventory all checked-in SQLite source candidates (read only)
         run: bash scripts/friday_git_db_inventory.sh
+      - name: Inspect detailed official source candidate schemas and provenance
+        run: bash scripts/friday_source_candidate_probe.sh
       - name: Validate SQL joins with isolated synthetic fixture
         run: bash tests/sql/test_friday_sql.sh
       - name: Test two independent rebuilds from versioned source ledger

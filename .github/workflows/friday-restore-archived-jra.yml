@@ -26,5 +26,6 @@ jobs:
           du -sh /tmp/jra-shard
           echo 'NESTED_ZIP_HEADERS:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.zip' -print -quit | while read -r z; do unzip -Z1 "$z" | head -35; done
+          node scripts/friday_parse_archive_probe.mjs
           echo 'JSON_SAMPLES:'
           find /tmp/jra-shard -maxdepth 3 -type f -name '*.json' -print -quit | while read -r j; do head -c 1300 "$j"; done

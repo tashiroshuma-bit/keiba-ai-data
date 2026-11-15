@@ -38,6 +38,36 @@ sqlite3 -readonly -header -csv "$db" '
 ' > "$out/three_year_full_flat_gap.csv"
 echo 'THREE_YEAR_COVERAGE_GAP_VS_PRIOR_AUDIT:'
 cat "$out/three_year_full_flat_gap.csv"
+sqlite3 -readonly -header -csv "$db" '
+ WITH expected(year,expected_horse_rows) AS (VALUES (2023,47672),(2024,47181),(2025,47884)),
+ observed AS (
+ SELECT p.year,COUNT(*) actual_source_horse_rows
+ FROM archive_runners r JOIN archive_races p USING (race_id)
+ WHERE p.year BETWEEN 2023 AND 2025 GROUP BY p.year
+ )
+ SELECT expected.year,expected_horse_rows,COALESCE(actual_source_horse_rows,0) actual_source_horse_rows,
+        expected_horse_rows-COALESCE(actual_source_horse_rows,0) unrepresented_runner_rows,
+        "BASELINE_V12_20261112_PRIOR_AUDIT" baseline_provenance
+ FROM expected LEFT JOIN observed USING(year) ORDER BY expected.year;
+' > "$out/three_year_runner_reconciliation.csv"
+sqlite3 -readonly -header -csv "$db" '
+ WITH RECURSIVE nums(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM nums WHERE n<12),
+ sessions AS (
+  SELECT DISTINCT SUBSTR(race_id,1,10) session_key,year,race_date,venue_code
+  FROM archive_races WHERE year BETWEEN 2023 AND 2025
+ )
+ SELECT s.year,s.race_date,s.venue_code,s.session_key,
+        s.session_key||printf("%02d",n.n) missing_race_id,
+        "NOT_PRESENT_IN_VERIFIED_OFFICIAL_RESULT_HTML_ARCHIVES" status
+ FROM sessions s CROSS JOIN nums n
+ LEFT JOIN archive_races r ON r.race_id=s.session_key||printf("%02d",n.n)
+ WHERE r.race_id IS NULL
+ ORDER BY s.year,s.race_date,s.venue_code,n.n;
+' > "$out/missing_races_in_observed_sessions.csv"
+echo 'FULL_THREE_YEAR_RUNNER_RECONCILIATION:'
+cat "$out/three_year_runner_reconciliation.csv"
+echo 'MISSING_RACE_IDS_FROM_EXISTING_SESSIONS:'
+cat "$out/missing_races_in_observed_sessions.csv"
 sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_observed_stats.sql > "$out/official_observed_conditions.csv"
 sqlite3 -readonly "$db" '
  SELECT "eligible_flat_known_placements="||COUNT(*) FROM v_archive_observed_starts;

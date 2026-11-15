@@ -24,6 +24,20 @@ sqlite3 -readonly -header -csv "$db" '
  SUM(CASE WHEN metadata_verified=0 AND surface!='"'"'障害'"'"' THEN 1 ELSE 0 END) unverified
  FROM archive_races GROUP BY year,venue_code ORDER BY year,venue_code;
 ' > "$out/coverage_by_track_year.csv"
+sqlite3 -readonly -header -csv "$db" '
+ WITH expected(year,expected_flat_races) AS (VALUES (2023,3337),(2024,3337),(2025,3344)),
+ observed AS (
+  SELECT year,COUNT(*) actual_verified_flat
+  FROM archive_races WHERE metadata_verified=1 AND surface IN ('"'"'芝'"'"','"'"'ダート'"'"')
+  GROUP BY year
+ )
+ SELECT expected.year,expected_flat_races,COALESCE(observed.actual_verified_flat,0) actual_verified_flat,
+        expected_flat_races-COALESCE(observed.actual_verified_flat,0) gap,
+        "BASELINE_V12_20261112_PRIOR_AUDIT_NOT_REALTIME" baseline_provenance
+ FROM expected LEFT JOIN observed USING(year) ORDER BY expected.year;
+' > "$out/three_year_full_flat_gap.csv"
+echo 'THREE_YEAR_COVERAGE_GAP_VS_PRIOR_AUDIT:'
+cat "$out/three_year_full_flat_gap.csv"
 sqlite3 -readonly -header -csv "$db" < sql/friday_official_three_year_observed_stats.sql > "$out/official_observed_conditions.csv"
 sqlite3 -readonly "$db" '
  SELECT "eligible_flat_known_placements="||COUNT(*) FROM v_archive_observed_starts;

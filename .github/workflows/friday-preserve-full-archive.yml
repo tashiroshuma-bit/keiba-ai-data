@@ -1,0 +1,34 @@
+name: Preserve JRA archived 3-year SQLite with Git remote read-back
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/friday_persist_full_archive_snapshot.sh'
+      - '.github/workflows/friday-preserve-full-archive.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+  actions: read
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - name: Restore the already verified 2023-2026 official HTML-derived SQLite artifact
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/source
+          gh run download 43774061523 --repo "$GITHUB_REPOSITORY" --name friday-three-year-verified-normalized-sqlite --dir /tmp/source
+          find /tmp/source -name 'archived_official_history.sqlite*' -type f -print
+          db="$(find /tmp/source -name 'archived_official_history.sqlite' -type f -print -quit)"
+          check="$(find /tmp/source -name 'archived_official_history.sqlite.sha256' -type f -print -quit)"
+          test -n "$db" && test -n "$check"
+          mkdir -p data/friday
+          cp "$db" data/friday/archived_official_history.sqlite
+          cp "$check" data/friday/archived_official_history.sqlite.sha256
+          sha256sum data/friday/archived_official_history.sqlite
+      - name: Persist to dedicated Git data branch and prove remote read-back
+        run: bash scripts/friday_persist_full_archive_snapshot.sh

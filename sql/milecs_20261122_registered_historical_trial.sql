@@ -108,3 +108,59 @@ ORDER BY a.candidate_order,observed_rides_2023_2025 DESC;
 SELECT horse_name, COUNT(DISTINCT horse_id) id_count,GROUP_CONCAT(DISTINCT horse_id) ids
 FROM archive_runners WHERE horse_name IN (SELECT horse_name FROM registered)
 GROUP BY horse_name HAVING COUNT(DISTINCT horse_id)>1;
+
+
+-- Provisional rider identity is backed by a unique official profile ID found
+-- in the verified JRA archive, or NULL if not found (Moreira, Barzalona, etc).
+-- These are screenshot rider expectations, not the published final declarations.
+CREATE TEMP TABLE provisional_ride (
+ candidate_order INTEGER PRIMARY KEY,
+ official_jockey_id TEXT
+);
+INSERT INTO provisional_ride VALUES
+(1,'jra-jockey:pw04kmk005339'), -- C.ルメール
+(2,NULL),                      -- モレイラ has no verified ID in this historical extraction
+(3,'jra-jockey:pw04kmk005473'), -- C.デムーロ, NOT M.デムーロ
+(4,'jra-jockey:pw04kmk000666'), -- 武 豊, NOT 横山武史
+(5,'jra-jockey:pw04kmk001126'), -- 松山 弘平
+(6,'jra-jockey:pw04kmk001171'), -- 西村 淳也
+(7,NULL),                      -- バルザローナ foreign archive gap
+(8,'jra-jockey:pw04kmk005678'); -- A.プーシャン
+
+.once reports/milecs_20261122/provisional_horse_jockey_pair_stats.csv
+SELECT e.candidate_order,e.horse_name,e.screenshot_provisional_jockey,
+ j.official_jockey_id,
+ CASE WHEN j.official_jockey_id IS NULL THEN 'JOCKEY_OFFICIAL_ID_UNAVAILABLE'
+      WHEN e.official_horse_id IS NULL THEN 'HORSE_OFFICIAL_ID_UNAVAILABLE'
+      ELSE 'PROVISIONAL_PAIR_ID_MATCHED' END AS pair_status,
+ COUNT(s.race_id) FILTER (WHERE s.race_date<'2026-01-01') AS paired_starts_2023_2025,
+ COALESCE(SUM(s.wins) FILTER (WHERE s.race_date<'2026-01-01'),0) AS paired_wins_2023_2025,
+ COALESCE(SUM(s.top3) FILTER (WHERE s.race_date<'2026-01-01'),0) AS paired_top3_2023_2025,
+ COUNT(s.race_id) FILTER (WHERE s.race_date>='2026-01-01') AS paired_starts_2026_archived_partial,
+ COALESCE(SUM(s.wins) FILTER (WHERE s.race_date>='2026-01-01'),0) AS paired_wins_2026_archived_partial,
+ COALESCE(SUM(s.top3) FILTER (WHERE s.race_date>='2026-01-01'),0) AS paired_top3_2026_archived_partial
+FROM registered_id e LEFT JOIN provisional_ride j ON j.candidate_order=e.candidate_order
+LEFT JOIN v_archive_observed_starts s ON s.horse_id=e.official_horse_id AND s.jockey_id=j.official_jockey_id
+WHERE e.candidate_order BETWEEN 1 AND 8
+GROUP BY e.candidate_order ORDER BY e.candidate_order;
+
+.once reports/milecs_20261122/registered_21_combined_2023_2026_partial_turf1600.csv
+SELECT e.candidate_order,e.horse_name,e.official_horse_id,
+ COUNT(s.race_id) AS observed_all_flat_starts,
+ SUM(s.wins) AS observed_all_flat_wins,
+ SUM(s.top3) AS observed_all_flat_top3,
+ COUNT(s.race_id) FILTER (WHERE s.surface='芝' AND s.distance_m=1600) AS observed_turf1600_starts,
+ COALESCE(SUM(s.wins) FILTER (WHERE s.surface='芝' AND s.distance_m=1600),0) AS observed_turf1600_wins,
+ COALESCE(SUM(s.top3) FILTER (WHERE s.surface='芝' AND s.distance_m=1600),0) AS observed_turf1600_top3,
+ COUNT(s.race_id) FILTER (WHERE s.surface='芝' AND s.distance_m=1600 AND s.venue_code='08') AS observed_kyoto_turf1600_starts,
+ COALESCE(SUM(s.wins) FILTER (WHERE s.surface='芝' AND s.distance_m=1600 AND s.venue_code='08'),0) AS observed_kyoto_turf1600_wins,
+ COALESCE(SUM(s.top3) FILTER (WHERE s.surface='芝' AND s.distance_m=1600 AND s.venue_code='08'),0) AS observed_kyoto_turf1600_top3,
+ COUNT(s.race_id) FILTER (WHERE s.surface='芝' AND s.distance_m=1600 AND s.going='良') AS observed_turf1600_good_starts,
+ COALESCE(SUM(s.top3) FILTER (WHERE s.surface='芝' AND s.distance_m=1600 AND s.going='良'),0) AS observed_turf1600_good_top3,
+ CASE WHEN COUNT(s.race_id) FILTER (WHERE s.surface='芝' AND s.distance_m=1600)>0
+      THEN ROUND(100.0*SUM(s.top3) FILTER (WHERE s.surface='芝' AND s.distance_m=1600)
+           /COUNT(s.race_id) FILTER (WHERE s.surface='芝' AND s.distance_m=1600),1) END AS raw_historical_turf1600_top3_pct,
+ 'NOT_FORECAST_PROBABILITY__2026_INCOMPLETE' AS caveat
+FROM registered_id e
+LEFT JOIN registered_observed_starts s ON e.candidate_order=s.candidate_order
+GROUP BY e.candidate_order ORDER BY e.candidate_order;

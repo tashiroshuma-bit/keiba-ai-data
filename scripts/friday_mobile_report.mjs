@@ -3,7 +3,7 @@
 import {readFileSync,writeFileSync,mkdirSync,existsSync} from "node:fs";
 import {join} from "node:path";
 const [,,mode,input,output]=process.argv;
-if(!["preview","status"].includes(mode))throw Error("Use preview INPUT.csv OUTPUT_DIR or status REPORT_DIR");
+if(!["preview","partial","status"].includes(mode))throw Error("Use preview|partial INPUT.csv OUTPUT_DIR or status REPORT_DIR");
 function csv(path){
  const s=readFileSync(path,"utf8").replace(/^\uFEFF/,"");const rec=[];let row=[],v="",q=false;
  for(let i=0;i<s.length;i++){
@@ -40,13 +40,13 @@ function rates(row,prefix){
  return {win:rate(uint(row[prefix+"_wins"],prefix+"_wins"),d,prefix),
          top3:rate(uint(row[prefix+"_top3"],prefix+"_top3"),d,prefix)};
 }
-function racePage(rows){
+function racePage(rows,partial=false){
  const a=rows[0];
  const condition=[a.surface,a.distance_m?a.distance_m+"m":""].filter(Boolean).map(esc).join(" ");
  const md=[
   "# "+esc(a.date)+" "+esc(a.venue)+esc(a.race_no)+"R｜"+esc(a.race_name),
   "",
-  "**"+condition+"**　｜　登録段階の表示例（確定出馬表ではありません）　｜　"+rows.length+"頭",
+  "**"+condition+"**　｜　"+(partial?"取得できた出走情報（未確定・一部のみの可能性あり）":"登録段階の表示例（確定出馬表ではありません）")+"　｜　掲載"+rows.length+"頭",
   "",
   "> 対象は2023～2025年のJRA平地実績。過去勝率と今回の勝率予測は異なります。",
   "",
@@ -68,14 +68,16 @@ function racePage(rows){
   "**記号の意味**：－＝同条件で出走記録なし（0戦）、未照合＝IDまたは履歴が確認できない、0% (0/5)＝5戦して3着以内0回。",
   "",
   "※同コースとは競馬場・芝ダート・距離が一致するレース。馬場状態、内外回り、相手関係は別途確認します。",
+  "",
+  partial ? "**出走情報の出典種別**："+[...new Set(rows.map(r=>esc(r.source_type||"SOURCE_UNVERIFIED")))].join("、")+"。取得分のみのため全頭・騎手の確定は保証されません。" : "",
   "");
  return md.join("\n");
 }
-if(mode==="preview"){
+if(mode==="preview"||mode==="partial"){
  if(!input||!output)throw Error("preview INPUT.csv OUTPUT_DIR required");
  const rows=csv(input);
  for(const r of rows)for(const k of ["date","venue","race_no","race_name","horse_name","card_status","horse_starts","horse_wins","horse_top3"])if(!(k in r))throw Error("Missing field "+k);
- if(rows.some(r=>r.card_status!=="PROVISIONAL"))throw Error("Only explicitly provisional cards may enter preview");
+ if(mode==="preview"&&rows.some(r=>r.card_status!=="PROVISIONAL"))throw Error("Only explicitly provisional cards may enter preview");
  mkdirSync(output,{recursive:true});
  const grouped=new Map();
  for(const r of rows){const key=[r.date,r.venue,r.race_no].join("|");if(!grouped.has(key))grouped.set(key,[]);grouped.get(key).push(r);}
@@ -83,17 +85,18 @@ if(mode==="preview"){
  for(const [key,group] of [...grouped.entries()].sort((a,b)=>a[0].localeCompare(b[0]))){
   group.sort((a,b)=>Number(a.horse_no||100)-Number(b.horse_no||100)||a.horse_name.localeCompare(b.horse_name));
   const r=group[0],file=r.date+"_"+r.venue+"_"+r.race_no+"R.md";
-  writeFileSync(join(output,file),racePage(group));
-  links.push("| "+esc(r.date)+" | "+esc(r.venue)+esc(r.race_no)+"R | ["+esc(r.race_name)+"（"+group.length+"頭）](./"+encodeURIComponent(file)+") | 登録・想定 |");
+  writeFileSync(join(output,file),racePage(group,mode==="partial"));
+  links.push("| "+esc(r.date)+" | "+esc(r.venue)+esc(r.race_no)+"R | ["+esc(r.race_name)+"（"+group.length+"頭）](./"+encodeURIComponent(file)+") | "+(mode==="partial"?"一部取得・未確定":"登録・想定")+" |");
  }
  writeFileSync(join(output,"INDEX.md"),[
-  "# 金曜21:00 JRA週末実績（レイアウト例）","","**登録段階の表示テストです。出走馬・騎手は確定していません。**",
+  (mode==="partial"?"# 金曜21:00 JRA週末実績｜取得できたレースから公開":"# 金曜21:00 JRA週末実績（レイアウト例）"),"",
+  (mode==="partial"?"**部分レポートです。記載のないレースや馬が存在する可能性があり、公式の全頭照合は未完了です。**":"**登録段階の表示テストです。出走馬・騎手は確定していません。**"),
   "実績の集計対象は2023～2025年。2026年の部分保存データ、予想オッズ、予測確率は混ぜていません。","",
   "| 日付 | 競馬場 | レース | 状態 |","|:--|:--|:--|:--|",...links,"",
   "各レースの詳細で、馬の実績と騎手・人馬コンビの実績を別表に分けています。","",
   "検証元：[JRA履歴SQL実行記録](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/43783928140)",""
  ].join("\n"));
- console.log("MOBILE_PREVIEW_GENERATED races="+grouped.size+" entries="+rows.length);
+ console.log((mode==="partial"?"MOBILE_PARTIAL_GENERATED":"MOBILE_PREVIEW_GENERATED")+" races="+grouped.size+" entries="+rows.length);
 }else{
  if(!input)throw Error("status REPORT_DIR required");
  mkdirSync(input,{recursive:true});

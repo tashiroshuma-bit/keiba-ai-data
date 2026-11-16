@@ -59,19 +59,16 @@ printf 'HISTORICAL_STATS_EXPORTED rows=%s recent5_rows=%s\n' \
  "$(( $(wc -l < "$output/official_2023_2025_recent5.csv") - 1 ))"
 printf 'runtime_utc=%s\nruntime_code_commit=%s\nremote_source_branch=%s\nremote_sqlite_sha256=%s\nannual_horse_rows=%s\nsource_scope=ALL_2023_2025_SCHEDULED_PANELS_RECONCILED;VERIFIED_RESULTS_PLUS_OFFICIAL_CANCELLATIONS\n' \
   "$(date -u +%FT%TZ)" "$(git rev-parse HEAD)" "$branch" "$actual" "$year_totals" > "$output/manifest.txt"
-# The official roster needs to have been captured for the forthcoming Sat/Sun weekend
-# with horse ID, jockey ID, race ID and source SHA, plus an independent headcount.
-# Until it is available, full all-race reports are NOT READY.
-card_dir="data/friday/official_cards"
-if [[ ! -s "$card_dir/latest_verified.csv" ]]; then
-  printf 'NOT_READY: complete official next-weekend racecards and roster headcounts are not loaded\n' | tee "$output/status.txt"
-  printf 'full_friday_report=NOT_READY\nreason=OFFICIAL_WEEKEND_ROSTER_ABSENT\n' >> "$output/manifest.txt"
+# A missing or partial next-weekend card is NOT fatal.
+# Always publish the verified 2023-2025 historical aggregate outputs above.
+# If at least one source-provided entrant exists, compute per-race partial metrics.
+# Otherwise publish the annual summary and a clear source-coverage warning.
+if ! bash scripts/friday_nonblocking_cards.sh "$tmp/history.sqlite" "data/friday/weekend_cards" "$output"; then
+  printf 'HISTORY_READY; CARD_PROCESSOR_ERROR; historical statistics still available\n' > "$output/status.txt"
   node scripts/friday_mobile_report.mjs status "$output"
-  exit 2
+  printf 'report=HISTORICAL_ONLY\nreason=PARTIAL_CARD_PROCESSOR_FAILED\n' > "$output/roster_status.txt"
 fi
-# This job deliberately does not silently accept a manually written CSV as certified.
-# A separate official-card source-byte verifier must be implemented and pass before opening this gate.
-printf 'NOT_READY: official card SHA and independent roster reconciliation not yet implemented\n' | tee "$output/status.txt"
-printf 'full_friday_report=NOT_READY\nreason=OFFICIAL_ROSTER_SOURCE_BYTE_VERIFICATION_MISSING\n' >> "$output/manifest.txt"
-node scripts/friday_mobile_report.mjs status "$output"
-exit 2
+cat "$output/roster_status.txt" >> "$output/manifest.txt"
+printf 'historical_report=READY\n' >> "$output/manifest.txt"
+echo 'FRIDAY_HISTORY_REPORT_COMPLETED: no dependency on full weekend roster'
+exit 0

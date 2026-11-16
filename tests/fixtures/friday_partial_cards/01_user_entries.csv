@@ -1,0 +1,5 @@
+date,venue,race_no,race_name,surface,distance_m,horse_no,horse_name,jockey_name,card_status,source_type,source_url,source_captured_utc
+2026-11-21,京都,1,架空のSQL動作試験,芝,1600,1,エンブロイダリー,C.ルメール,PROVISIONAL,USER_PROVIDED,,2026-11-16T02:00:00Z
+2026-11-22,京都,11,マイルCS登録段階の動作試験,芝,1600,3,ワールズエンド,C.デムーロ,PROVISIONAL,USER_PROVIDED,,2026-11-16T02:00:00Z
+2026-11-22,京都,11,マイルCS登録段階の動作試験,芝,1600,4,存在しない検証馬,架空騎手,PROVISIONAL,USER_PROVIDED,,2026-11-16T02:00:00Z
+2026-11-29,京都,11,対象外日付,芝,1600,5,アドマイヤズーム,武豊,PROVISIONAL,USER_PROVIDED,,2026-11-16T02:00:00Z

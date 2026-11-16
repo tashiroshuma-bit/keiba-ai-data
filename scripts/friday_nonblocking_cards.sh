@@ -20,7 +20,12 @@ if [[ "$num" -le 0 ]]; then
 fi
 [[ -s "$db" ]] || { echo "HISTORY_DB_MISSING" >&2; exit 2; }
 [[ "$(sqlite3 -readonly "$db" 'PRAGMA quick_check;')" == ok ]] || exit 2
-if ! sqlite3 -readonly "$db" < sql/friday_join_available_cards.sql; then
+# Write only to an isolated scratch DB; the permanent history is attached read-only.
+scratch="$(mktemp -d)"
+trap 'rm -rf "$scratch"' EXIT
+absolute_db="$(realpath "$db")"
+if [[ "$absolute_db" == *"'"* ]]; then echo 'INVALID_DB_PATH_QUOTE' >&2; exit 2; fi
+if ! { printf "ATTACH DATABASE 'file:%s?mode=ro' AS hist;\n" "$absolute_db"; cat sql/friday_join_available_cards.sql; } | sqlite3 -bail "$scratch/report.sqlite"; then
   printf 'HISTORY_READY; WEEKEND_ENTRY_JOIN_FAILED; history-only delivered\n' > "$out/status.txt"
   printf 'report=HISTORICAL_ONLY\nweekend_entries=%s\njoin_error=SQL_JOIN_FAILED\n' "$num" > "$out/roster_status.txt"
   node scripts/friday_mobile_report.mjs status "$out"

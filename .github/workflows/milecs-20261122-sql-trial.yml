@@ -1,0 +1,29 @@
+name: 2026 Mile CS registered-horse official history SQL trial
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'sql/milecs_20261122_registered_historical_trial.sql'
+      - 'scripts/milecs_20261122_sql_trial.sh'
+      - '.github/workflows/milecs-20261122-sql-trial.yml'
+permissions:
+  contents: read
+jobs:
+  milecs-sql-history:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Ensure sqlite3 command
+        run: |
+          if ! command -v sqlite3 >/dev/null; then sudo apt-get update && sudo apt-get install -y sqlite3; fi
+          sqlite3 --version
+      - name: Reproduce 2023-2025 and archived-partial-2026 official horse history for 21 registered runners
+        run: bash scripts/milecs_20261122_sql_trial.sh
+      - name: Save inspectable per-horse, going and preliminary jockey histories
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: milecs-2026-11-22-official-history-trial
+          path: reports/milecs_20261122/
+          retention-days: 30

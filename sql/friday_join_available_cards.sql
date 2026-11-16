@@ -106,12 +106,15 @@ ORDER BY c.date,c.venue,c.race_no,
  c.horse_name;
 
 .once reports/friday_operational/card_coverage.csv
-SELECT date,venue,race_no,race_name,source_type,card_status,COUNT(*) AS horses_found,
+SELECT date,venue,race_no,MIN(race_name) AS race_name,
+ GROUP_CONCAT(DISTINCT source_type) AS source_types,
+ GROUP_CONCAT(DISTINCT card_status) AS card_statuses,
+ COUNT(*) AS horses_found,
  SUM(CASE WHEN horse_id_candidates=1 THEN 1 ELSE 0 END) AS horse_ids_matched_by_name,
  SUM(CASE WHEN jockey_id_candidates=1 THEN 1 ELSE 0 END) AS jockey_ids_matched_by_name,
  'PARTIAL_SOURCE_ROSTER_NOT_OFFICIAL_CERTIFIED' AS roster_status
 FROM joined_cards
-GROUP BY date,venue,race_no,race_name,source_type,card_status
+GROUP BY date,venue,race_no
 ORDER BY date,venue,CAST(race_no AS INTEGER);
 
 .once reports/friday_operational/unmatched_card_entries.csv

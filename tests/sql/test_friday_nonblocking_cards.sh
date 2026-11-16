@@ -26,6 +26,10 @@ grep -q 'SOURCE_CONFLICT' reports/friday_operational/cards_joined.csv
 grep -q '架空のSQL動作試験' reports/friday_operational/2026-11-21_京都_1R.md
 grep -q '存在しない検証馬' reports/friday_operational/2026-11-22_京都_11R.md
 grep -q '未照合' reports/friday_operational/2026-11-22_京都_11R.md
+# No history for a first-time entrant is valid missingness; don't impute a 0% chance.
+grep '存在しない検証馬' reports/friday_operational/2026-11-22_京都_11R.md | grep -Fq '未照合 | 未照合'
+! grep '存在しない検証馬' reports/friday_operational/2026-11-22_京都_11R.md | grep -Fq '0%'
+grep -Fq '初出走馬など過去成績がない馬は、欠損のまま掲載' reports/friday_operational/2026-11-22_京都_11R.md
 grep -q '取得できた出走情報' reports/friday_operational/2026-11-22_京都_11R.md
 grep -q '部分レポート' reports/friday_operational/INDEX.md
 # No represented race is claimed as a verified complete JRA roster.

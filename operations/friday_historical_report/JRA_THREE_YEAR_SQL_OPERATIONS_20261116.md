@@ -44,3 +44,14 @@ Historical data (2023–2025) is reconciled to **all 10,368 scheduled race slots
 4. Verify a fresh independent Friday full-result run and persist comprehensive evidence/status, not only a synthetic fixture.
 
 Historic 2023–2025 scheduled results are complete; **the future weekend roster integration is explicitly not**.
+
+
+## 2026-11-16改修：出走情報が欠落しても停止しない
+
+- [PR #63](https://github.com/tashiroshuma-bit/keiba-ai-data/pull/63)（mainマージ済み）。金曜21:00の `scripts/friday_full_history_runtime.sh` は、履歴DBのSHAと2023〜2025年の件数を検査し、履歴の集計が成功すれば **出馬表が0件でも正常終了して配信**。以前の「公式カード未取得でexit 2」を廃止した。
+- `scripts/friday_fetch_public_cards.mjs`：netkeiba公開出馬表の任意取得。取得失敗・403・未公表でも停止しない。取得したカードは必ず暫定（正式JRA全頭出馬表ではない）。
+- `scripts/friday_prepare_available_cards.mjs`： `data/friday/weekend_cards/*.csv` の異なる出典を統合し、対象土日以外・重複・矛盾を隔離。手動CSVの利用方法は `data/friday/weekend_cards/README.md`。
+- `scripts/friday_nonblocking_cards.sh` + `sql/friday_join_available_cards.sql`：取得できた馬の履歴を、公式履歴DB内の馬名・騎手名の完全一致かつ一意IDだけを用いてSQL結合。該当するレースのみスマホ向けMarkdownとして公開し、未取得・未照合を0%と混同しない。**正本SQLiteは読み取り専用で、結合用のSQLiteは一時領域に作成する。**
+- `reports/friday_operational/INDEX.md`：取得できたレースごとの詳細リンク。取得0件の場合は履歴状況と未取得理由を示す「履歴のみ」レポートを作成し、全レース分の公式確定値を装わない。
+- 2026-11-16の[GitHub Actions実測](https://github.com/tashiroshuma-bit/keiba-ai-data/actions/runs/43797618615)で、出走情報0件→履歴のみ、任意の2レース・3頭→部分レポート、取得元の騎手矛盾・公式馬ID未照合の隔離を検証済み。試験出走馬・レースは専用テストデータであり、実際の11/21・11/22公式出馬表ではない。
+- 毎週金曜21時のChatGPTタスクもこの非停止方式へ更新。週末全頭の自動取得は**引き続き保証しない**。履歴データの可用性と出走情報の可用性は独立して扱う。

@@ -28,6 +28,11 @@ on:
     paths:
       - 'sql/friday_*.sql'
       - 'scripts/friday_sql_*.sh'
+      - 'scripts/friday_nonblocking_cards.sh'
+      - 'scripts/friday_full_history_runtime.sh'
+      - 'scripts/friday_fetch_public_cards.mjs'
+      - 'scripts/friday_prepare_available_cards.mjs'
+      - 'scripts/friday_mobile_report.mjs'
       - 'tests/sql/**'
       - '.github/workflows/friday-sql-db.yml'
 permissions:
@@ -59,6 +64,11 @@ jobs:
         run: bash scripts/friday_source_candidate_probe.sh
       - name: Validate SQL joins with isolated synthetic fixture
         run: bash tests/sql/test_friday_sql.sh
+      - name: Validate Node Friday collectors and nonblocking report parser syntax
+        run: |
+          node --check scripts/friday_fetch_public_cards.mjs
+          node --check scripts/friday_prepare_available_cards.mjs
+          node --check scripts/friday_mobile_report.mjs
       - name: Test mobile first per-race reports and NOT_READY fallback
         run: |
           bash tests/sql/test_friday_mobile_report.sh

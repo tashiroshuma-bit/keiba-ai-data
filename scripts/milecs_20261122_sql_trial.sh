@@ -39,6 +39,10 @@ echo '===== PROVISIONAL 21 HORSE OFFICIAL HISTORY ====='
 cat reports/milecs_20261122/registered_21_horse_history.csv
 echo '===== PROVISIONAL JOCKEY CANDIDATES ====='
 cat reports/milecs_20261122/provisional_jockey_lookup_candidates.csv
+echo '===== PROVISIONAL HORSE × JOCKEY PAIRS ====='
+cat reports/milecs_20261122/provisional_horse_jockey_pair_stats.csv
+echo '===== ALL ARCHIVED TURF1600 HISTORICAL STARTS (2026 PARTIAL) ====='
+cat reports/milecs_20261122/registered_21_combined_2023_2026_partial_turf1600.csv
 echo '===== LAST FIVE RESULT COUNT ====='
 wc -l reports/milecs_20261122/registered_21_recent5_from_archive.csv
 cat reports/milecs_20261122/manifest.txt

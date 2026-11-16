@@ -66,10 +66,12 @@ card_dir="data/friday/official_cards"
 if [[ ! -s "$card_dir/latest_verified.csv" ]]; then
   printf 'NOT_READY: complete official next-weekend racecards and roster headcounts are not loaded\n' | tee "$output/status.txt"
   printf 'full_friday_report=NOT_READY\nreason=OFFICIAL_WEEKEND_ROSTER_ABSENT\n' >> "$output/manifest.txt"
+  node scripts/friday_mobile_report.mjs status "$output"
   exit 2
 fi
 # This job deliberately does not silently accept a manually written CSV as certified.
 # A separate official-card source-byte verifier must be implemented and pass before opening this gate.
 printf 'NOT_READY: official card SHA and independent roster reconciliation not yet implemented\n' | tee "$output/status.txt"
 printf 'full_friday_report=NOT_READY\nreason=OFFICIAL_ROSTER_SOURCE_BYTE_VERIFICATION_MISSING\n' >> "$output/manifest.txt"
+node scripts/friday_mobile_report.mjs status "$output"
 exit 2

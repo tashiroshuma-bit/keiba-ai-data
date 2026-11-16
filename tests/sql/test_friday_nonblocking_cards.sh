@@ -20,6 +20,8 @@ grep -q '^input_rows=3$' reports/friday_operational/roster_status.txt
 grep -q '^races_with_entries=2$' reports/friday_operational/roster_status.txt
 grep -q 'CONFLICT_PROVISIONAL' reports/friday_operational/cards_staging.csv
 grep -q 'NO_HORSE_ID_HISTORY' reports/friday_operational/cards_joined.csv
+grep -q 'MATCHED_EXACT_UNIQUE_NAME' reports/friday_operational/cards_joined.csv
+grep -Fq '**62.5%** (5/8)' reports/friday_operational/2026-11-21_京都_1R.md
 grep -q 'SOURCE_CONFLICT' reports/friday_operational/cards_joined.csv
 grep -q '架空のSQL動作試験' reports/friday_operational/2026-11-21_京都_1R.md
 grep -q '存在しない検証馬' reports/friday_operational/2026-11-22_京都_11R.md

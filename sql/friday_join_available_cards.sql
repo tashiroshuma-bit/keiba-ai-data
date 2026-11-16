@@ -2,59 +2,59 @@
 -- Card staging is secondary/unverified unless separately source-audited.
 -- Historical count window is 2023-01-01 through 2025-12-31, excluding 2026 partial archive.
 .bail on
-CREATE TEMP TABLE staged_cards (
+CREATE TABLE staged_cards (
   date TEXT,venue TEXT,race_no TEXT,race_name TEXT,surface TEXT,distance_m TEXT,
   horse_no TEXT,horse_name TEXT,jockey_name TEXT,card_status TEXT,
   source_type TEXT,source_url TEXT,source_captured_utc TEXT
 );
 .mode csv
-.import --skip 1 reports/friday_operational/cards_staging.csv temp.staged_cards
+.import --skip 1 reports/friday_operational/cards_staging.csv staged_cards
 
-CREATE TEMP TABLE historical_flat AS
-SELECT * FROM v_archive_observed_starts WHERE race_date >= '2023-01-01' AND race_date < '2026-01-01';
+CREATE TABLE historical_flat AS
+SELECT * FROM hist.v_archive_observed_starts WHERE race_date >= '2023-01-01' AND race_date < '2026-01-01';
 CREATE INDEX idx_hist_horse ON historical_flat(horse_id);
 CREATE INDEX idx_hist_jockey ON historical_flat(jockey_id);
 
 -- Historical IDs are allowed only on an exact and unambiguous name match.
-CREATE TEMP TABLE known_horses AS
-SELECT DISTINCT horse_name,horse_id FROM archive_runners;
+CREATE TABLE known_horses AS
+SELECT DISTINCT horse_name,horse_id FROM hist.archive_runners;
 CREATE INDEX idx_known_horse_name ON known_horses(horse_name);
-CREATE TEMP TABLE known_jockeys AS
-SELECT DISTINCT jockey_name,jockey_id FROM archive_runners
+CREATE TABLE known_jockeys AS
+SELECT DISTINCT jockey_name,jockey_id FROM hist.archive_runners
 WHERE jockey_id LIKE 'jra-jockey:pw04kmk%';
 CREATE INDEX idx_known_jockey_name ON known_jockeys(jockey_name);
 
-CREATE TEMP TABLE horse_identity AS
+CREATE TABLE horse_identity AS
 SELECT s.horse_name,COUNT(DISTINCT k.horse_id) id_candidates,
  CASE WHEN COUNT(DISTINCT k.horse_id)=1 THEN MIN(k.horse_id) END horse_id
 FROM (SELECT DISTINCT horse_name FROM staged_cards) s
 LEFT JOIN known_horses k USING(horse_name) GROUP BY s.horse_name;
-CREATE TEMP TABLE jockey_identity AS
+CREATE TABLE jockey_identity AS
 SELECT s.jockey_name,COUNT(DISTINCT k.jockey_id) id_candidates,
  CASE WHEN COUNT(DISTINCT k.jockey_id)=1 THEN MIN(k.jockey_id) END jockey_id
 FROM (SELECT DISTINCT jockey_name FROM staged_cards WHERE jockey_name!='') s
 LEFT JOIN known_jockeys k USING(jockey_name) GROUP BY s.jockey_name;
 
-CREATE TEMP TABLE horse_totals AS
+CREATE TABLE horse_totals AS
 SELECT horse_id,COUNT(*) starts,SUM(wins) wins,SUM(top3) top3
 FROM historical_flat GROUP BY horse_id;
 CREATE INDEX idx_horse_totals ON horse_totals(horse_id);
-CREATE TEMP TABLE jockey_totals AS
+CREATE TABLE jockey_totals AS
 SELECT jockey_id,COUNT(*) starts,SUM(wins) wins,SUM(top3) top3
 FROM historical_flat WHERE jockey_id LIKE 'jra-jockey:pw04kmk%'
 GROUP BY jockey_id;
 CREATE INDEX idx_jockey_totals ON jockey_totals(jockey_id);
-CREATE TEMP TABLE pair_totals AS
+CREATE TABLE pair_totals AS
 SELECT horse_id,jockey_id,COUNT(*) starts,SUM(wins) wins,SUM(top3) top3
 FROM historical_flat WHERE jockey_id LIKE 'jra-jockey:pw04kmk%'
 GROUP BY horse_id,jockey_id;
 CREATE INDEX idx_pair_totals ON pair_totals(horse_id,jockey_id);
-CREATE TEMP TABLE course_totals AS
+CREATE TABLE course_totals AS
 SELECT horse_id,venue_code,surface,distance_m,COUNT(*) starts,SUM(wins) wins,SUM(top3) top3
 FROM historical_flat GROUP BY horse_id,venue_code,surface,distance_m;
 CREATE INDEX idx_course_totals ON course_totals(horse_id,venue_code,surface,distance_m);
 
-CREATE TEMP VIEW joined_cards AS
+CREATE VIEW joined_cards AS
 SELECT c.*,
 CASE c.venue
  WHEN '札幌' THEN '01' WHEN '函館' THEN '02' WHEN '福島' THEN '03'

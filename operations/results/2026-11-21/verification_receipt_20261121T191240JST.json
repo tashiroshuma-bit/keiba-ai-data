@@ -1,0 +1,24 @@
+{
+  "verified_at": "2026-11-21T19:16:00+09:00",
+  "race_date": "2026-11-21",
+  "status": "verified",
+  "checks": {
+    "local_json_parse": "verified",
+    "github_reread": "verified",
+    "library_reread": "verified"
+  },
+  "github": {
+    "report_blob_sha": "e9700a4accd391280460c485dbc5b6aebd76c8d9",
+    "settlement_blob_sha": "1220049b80f4125e326eeddc2b1886815279b7de",
+    "manifest_blob_sha": "2d5befebb55e75bf62b3ab0cbefc1fba03f5f89e",
+    "report_commit": "148491be0c4854d7d79ae5e38edf0fac22db8b4b",
+    "settlement_commit": "168941f709e26304b0859fa8818a4d6f0350a6fc",
+    "manifest_commit": "354a91dd8b6bece8a2d9ee87b4ace2fb6184f077"
+  },
+  "library": {
+    "report_id": "libfile_2fb06a1722cc81918917c59c7eeb3a6c",
+    "file_id": "file_000000002b4881f58052d2b13dae4d04",
+    "size_bytes": 4351,
+    "lines": 86
+  }
+}

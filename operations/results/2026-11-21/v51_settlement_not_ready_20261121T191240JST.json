@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "race_date": "2026-11-21",
+  "observed_at": "2026-11-21T19:12:40+09:00",
+  "status": "NOT_READY",
+  "formal_evaluation": false,
+  "reason": "NO_PREOFF_FROZEN_V51_OR_A_D_PREDICTIONS",
+  "official_standard": {
+    "version": "v51",
+    "v50_fallback": false,
+    "github_main_head_at_observation": "809024a4d208cb6dc23969554fc21a89f5f538dc"
+  },
+  "scope": {
+    "meetings": ["5回京都5日", "3回福島5日"],
+    "all_races": 24,
+    "obstacle_excluded": ["福島4R", "福島5R"],
+    "flat_races": 22
+  },
+  "prediction_availability": {
+    "v51": {"eligible": 22, "frozen": 0, "missing": 22, "evaluation_denominator": 0},
+    "A": {"eligible": 22, "frozen": 0, "missing": 22, "evaluation_denominator": 0},
+    "B": {"eligible": 22, "frozen": 0, "missing": 22, "evaluation_denominator": 0},
+    "C": {"eligible": 22, "frozen": 0, "missing": 22, "evaluation_denominator": 0},
+    "D": {"eligible": 22, "frozen": 0, "missing": 22, "evaluation_denominator": 0}
+  },
+  "metrics": {
+    "top1_win": null,
+    "winner_top3": null,
+    "log_loss": null,
+    "brier": null,
+    "ece": null,
+    "exact_top3": null,
+    "unordered_top3": null,
+    "bodyweight_effect": null
+  },
+  "settlement": {
+    "preoff_tickets_available": false,
+    "contemporaneous_odds_available": false,
+    "virtual_stake_yen": 0,
+    "payout_yen": null,
+    "profit_yen": null,
+    "roi": null,
+    "actual_bet": false
+  },
+  "key_results": [
+    {
+      "race": "福島11R 第62回福島記念 GIII",
+      "finish_order": [13, 3, 1],
+      "win": {"selection": 13, "payout_yen_per_100": 330},
+      "quinella": {"selection": [3, 13], "payout_yen_per_100": 5200},
+      "wide": [
+        {"selection": [3, 13], "payout_yen_per_100": 1670},
+        {"selection": [1, 13], "payout_yen_per_100": 530},
+        {"selection": [1, 3], "payout_yen_per_100": 2730}
+      ],
+      "trio": {"selection": [1, 3, 13], "payout_yen_per_100": 9510},
+      "trifecta": {"selection": [13, 3, 1], "payout_yen_per_100": 49810},
+      "source": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0103202603051120261121/0D"
+    },
+    {
+      "race": "京都11R シトリンステークス",
+      "finish_order": [12, 10, 9],
+      "win": {"selection": 12, "payout_yen_per_100": 400},
+      "quinella": {"selection": [10, 12], "payout_yen_per_100": 730},
+      "wide": [
+        {"selection": [10, 12], "payout_yen_per_100": 350},
+        {"selection": [9, 12], "payout_yen_per_100": 1050},
+        {"selection": [9, 10], "payout_yen_per_100": 830}
+      ],
+      "trio": {"selection": [9, 10, 12], "payout_yen_per_100": 3350},
+      "trifecta": {"selection": [12, 10, 9], "payout_yen_per_100": 12910},
+      "source": "https://www.jra.go.jp/JRADB/accessS.html?CNAME=pw01sde0108202605051120261121/E1"
+    }
+  ],
+  "input_integrity": {
+    "canonical_v12_sha256": "5d16777588420ac88bab5df21defb85d9346c2b918bb71859af06893752bcadd",
+    "canonical_v12_bytes": 362139648,
+    "sqlite_quick_check": "ok",
+    "v52_research_status": "CANONICAL_BYTES_VERIFIED_JOINT_PL_NOT_RUN",
+    "production_change": false
+  },
+  "prediction_sha": null,
+  "retrospective_prediction_created": false
+}
